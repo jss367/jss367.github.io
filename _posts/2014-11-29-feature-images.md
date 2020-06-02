@@ -3,21 +3,33 @@ layout: post
 title: Feature images
 feature-img: "assets/img/pexels/desk-messy.jpeg"
 thumbnail: "assets/img/thumbnails/desk-messy.jpeg"
+<<<<<<< HEAD
 tags: [Test, Lorem]
 ---
 
 Hopefully you will find enough information about how to set images in your blog here.
+=======
+image: "assets/img/thumbnails/desk-messy.jpg" #seo tag
+tags: [Test, Lorem]
+---
+
+>>>>>>> wip
 This is an example of a post which includes a feature image specified in the front matter of the post. 
 The feature image spans the full-width of the page, and is shown with the title on permalink pages:
 
 ```yaml
 feature-img: "assets/img/pexels/desk-messy.jpeg"
+<<<<<<< HEAD
 thumbnail: "assets/img/thumbnails/desk-messy.jpeg" 
 ```
 
 You can also use a thumbnail, a smaller version of the same image to improve loading of the page.
 The thumbnail will also be used when you share your article on other platform (linkedin, whatsapp, facebook, ...).
 
+=======
+```
+
+>>>>>>> wip
 >  - And now it is working
 
 You can also add images aligned in your post using the `aligner` include.
@@ -43,6 +55,7 @@ Here you have two images side by side, but you can set more and set the amount p
 {% endhighlight %}
 
 {% include aligner.html images="portfolio/cabin.png,portfolio/cake.png,portfolio/circus.png" column=3 %}
+<<<<<<< HEAD
 
 it also works with only one images, it is made to display it smaller than normally.
 However you can just use the Markdown way of doing it to get the image normal sized and centered.
@@ -57,3 +70,5 @@ However you can just use the Markdown way of doing it to get the image normal si
 {% endhighlight %}
 
 {% include aligner.html images="pexels/story.jpeg" %}
+=======
+>>>>>>> wip

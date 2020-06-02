@@ -9,6 +9,7 @@ tags: [Test, Lorem]
 
 This is an example of a post which includes a feature image that has a
 text, where you don't want to redisplay the title.
+<<<<<<< HEAD
 Mind your image size in order for the text to be displayed where you want it to.
 The only limit is your imagination.
 
@@ -29,3 +30,11 @@ Well that's due to some jekyll limitation:
 
 The title is used elsewhere than inside the post, for example in the blog page that list this post.
 An empty title would break those pages and possibly prevents jekyll to render your blog. 
+=======
+
+We cannot simply set the title to the empty string, as that would
+break pages that list this post, such as home and tags.
+
+
+
+>>>>>>> wip
