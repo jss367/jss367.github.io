@@ -1,0 +1,18 @@
+# Unix commands
+
+You can also use some Unix commands in Jupyter Notebooks, such as `ls` or `pwd`
+
+
+```python
+pwd
+```
+
+
+
+
+    'C:\\Users\\HMISYS\\Google Drive\\JupyterNotebooks\\Blog'
+
+
+?? to see source code
+
+help() to see docstring

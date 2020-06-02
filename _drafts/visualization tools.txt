@@ -1,0 +1,9 @@
+visualization tools:
+
+https://setosa.io/ev/image-kernels/
+
+
+matrixmultiplication.xyz
+
+
+cs231n class
