@@ -1,0 +1,85 @@
+---
+layout: post
+title: "Creating a base.html file with Bootstrap"
+feature-img: "assets/img/rainbow.jpg"
+thumbnail: "assets/img/sunrays.jpg"
+tags: [HTML, JavaScript, CSS, Bootstrap]
+---
+This article shows how to make a homepage in HTML. We're going to recreate my site [Sappho](https://sappho.pythonanywhere.com/), which helps people improve their writing through natural language processing.<!--more--> We're going to use two different templates for each page. There will be a base.html that contains everything we want to spread across all pages, such as the navigation bar. Then each page will have its own, unique, templates for the specific page, such as main_page.html. This post will demonstrate how to create a base.html file that can be extended to every subsequent page.
+
+First, we'll need to specify the doctype. If it's not specified, web browsers will load your page in something called "Quirks mode". It has something to do with how Internet Explorer used to render pages but now isn't common. To do this, enter:
+
+``` html
+<!DOCTYPE html>
+```
+
+Now you want to declare that this doc is HTML and set a default language:
+
+``` html
+<html lang="en">
+```
+
+In general, HTML pages have two sections: a head and a body. The head contains the title and other information about the webpage. The body contains the actual content of the page. Now we're going to make the head section. It's going to start with a title, which you create by surrounding with the title tags:
+
+``` html
+<head>
+  <title>StyleStudio</title>
+```
+
+Then you want to define the character set used in the page. The default character set for HTML5 is UTF-8, so it isn't necessary to specify it, but we'll do it just for clarity:
+
+``` html
+  <meta charset="utf-8">
+```
+Then we need a viewport element. The viewport tag tells the browser how the webpage should be rendered. It helps to adjust the webpage to optimize for the user's device.
+
+``` html
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+```
+
+Then we'll add Bootstrap. [Bootstrap](https://getbootstrap.com/) is a free and open-source web framework for front-ends that was originally developed by Twitter. It is designed to be fast and responsive for both mobile and desktop users.
+
+``` html
+  <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+```
+
+Now we need to point to our CSS stylesheet. We'll make a stylesheet for each HTML layout and give them the same name for the sake of convenience (base.css in this case). After that, we'll point it to jquery and Bootstrap's JavaScript code.
+
+    <link rel="stylesheet" href="/static/css/base.css">
+    <link href="/static/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
+    <script type="text/javascript" src="/static/jquery/jquery-1.10.2.min.js"></script>
+    <script type="text/javascript" src="/static/bootstrap/js/bootstrap.min.js"></script>
+
+At the top, we'll want a navigation bar. Using navbar-inverse makes it dark, which looks nice. We'll use container-fluid to fill the screen.
+``` html
+
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">StyleStudio</a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li class="active"><a href="#">Home</a></li>
+      <li><a href="#">About</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+
+```
+
+The final part is to include a section where each individual webpage's template goes. We can create a container to put all of that content into:
+``` html
+    <div class="container">
+        % block content %
+        % endblock %
+    </div>
+```
+
+Note that `% block content %` and `% endblock %` will each need to be enclosed in curly brackets {}, but are not in the code above to allow this page to display properly.
+
+And that's everything needed to build a base.html template for a website.
