@@ -1,0 +1,82 @@
+ai ethics
+
+
+different across genders
+
+
+do people want the probability of success to be higher
+
+if not, then that's the problem
+
+
+What to do with gender in-specific pronouns?
+
+Google has given both options, which is a good solution
+
+Originally they didn't
+
+
+
+I think it's important to have an idea of what would a fix look like. Sure, sometimes just pointing out a problem is useful, but in many cases, and specifcally in these because they're going to have to many problems and solutions are not going to be straightforward.
+
+It's a bit like saying there's a problem with rascism in the world. THere's just not much additional value in pointing it out. We need to be at the solution phase.
+
+Could we do something complex?
+There are ways to teach a GAN to find and remove racism from algorithms, but there's not way to get the public to understand what a GAN is.
+
+
+
+What questions should we ask:
+Did your parents go to jail? Do your friends do drugs?
+Are your parents divorced?
+
+
+It's not clear how the data got it so wrong? These models don't seem that complex, so why aren't they better? Should they all be open source? Should the training data all be open source?
+
+
+It's WAY to easy for humans who don't understand these algorithms to think they are capable of more than they are. For example, when you read an email, you can be confident that that is what the sender sent. The chance is a word got changed in the email process is basically 0. So people trust computers. But the same does not apply to predictive algorithms. When 538 says there's a 68? percent change Hillary will when, or there's a 50% chance this person will commit another crime, there are TWO differences
+
+The first is that they are probabilistic, even if they were perfect.
+
+The second is that they're not perfect, and aren't going to be any time soon.
+
+
+# Should algos be held to a higher standard?
+
+Yes - they are used at incredible scale. There should be careful reviews. And also appeals and the like
+
+
+
+The onous isn't just on the algorithm creator though. It's on the people using and and implementing it and selling it. The entire chain needs to be involved in these processes. The person who knows the data and wrote the algorithm (and anyone worth their salt who's writting a production-level algorithm will become intimately familiar with the data) is best placed to guide it's usage. So those other people must not firewall that person off. Sales people have to make sure to make that person avilable to end customers. And ensure that that person understands how end customers are using the data.
+
+
+
+
+
+
+
+
+What if conspiracy theory videos are popular? What if an algo finds that something is dumb (without understanding at all what they're doing) and will accept any video. So it jsut sends them crazier and crazier stuff because they keep clicking. How do you fix this? I have worked with elderly people who I felt like were taken advantage of in a photography store and in buying a laptop. They have all these features they couldn't use and didn't understand and pieces of equipment that made their lives harder.
+Could the algo cluster videos and find conspiracy theories? Could the humans label these?
+
+
+
+# How to prevent runaway feedback mechanisms?
+If you recommend a meetup to more men, more men will join, then you'll recommend it more and more... how to break this cycle?
+
+
+# Things could be made to help or break humans
+
+Cars used it be less safe and people thought it was the drivers. Yes, it was, but you could still add some safety features.
+The intersection below work absolutely breaks humans
+
+
+
+
+articles:
+
+https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing
+
+
+
+o bir doktor. o bir hemşire. o bir doktor. o bir hemşire. o bir tamircidir. o bir tamircidir. o bir profesör. o bir doktor.

@@ -1,0 +1,115 @@
+path problems
+
+in vscode you can't 
+
+echo $PYTHONPATH
+or
+echo $PATH
+
+
+tying
+path
+and
+echo %PATH%
+
+neither works in PowerShell Integrated console
+
+but does work in conemu
+
+To make it easier to read: echo %PATH:;=&echo.%
+
+temporarily add to path:
+set PATH="%PATH%;C:\path\to\directory\"
+set PATH="%PATH%;C:\Users\Julius\Documents\GitHub\DataManager"
+
+permanently add to path:
+setx path "%PATH%;C:\path\to\directory\"
+
+
+
+
+On windows, if you echo $PYTHONPATH you get nothing, but if you print(sys.path) you see:
+['c:\\Users\\Julius\\Documents\\GitHub\\ResNetFromScratch', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\python37.zip', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\DLLs', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\lib', 'C:\\Users\\Julius\\anaconda3\\envs\\tf', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\lib\\site-packages', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\lib\\site-packages\\win32', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\lib\\site-packages\\win32\\lib', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\lib\\site-packages\\Pythonwin']
+
+
+detailed answer here: https://stackoverflow.com/questions/897792/where-is-pythons-sys-path-initialized-from
+
+
+Instead just go to system properties, environment variables, new...
+c:\\Users\\Julius\\Documents\\GitHub\\DataManager
+- for some reason this doesn't always add to the python path though
+
+
+
+
+path problems
+
+remember that your paths are hierarchical on windows
+
+I you have C:\Users\Julius\AppData\Local\Microsoft\WindowsApps it will try then then tell you to go to the windows store. But you can move the one you want up in the list.
+
+You can have this problem where it works if you are debugging but not if you're not debugging.
+
+
+add BOTH conda and python to your path
+
+open conda prompt then `where conda`
+
+then `where python`
+
+should say
+C:\Users\Julius\anaconda3\python.exe
+
+so use C:\Users\Julius\anaconda3
+
+
+Environment variables:
+Hit windows key
+type environment
+Click on Environment Variables in the Advanced tab.
+
+I use the User variables for this
+
+
+
+Right-click anywhere in the editor window and select Run Python File in Terminal (which saves the file automatically):
+
+- doesn't use selected interpreter
+
+
+
+
+
+On a brand new Mac your path is:
+default mac path
+
+julius@Juliuss-MacBook-Pro ~ % echo $PATH
+/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+
+
+
+
+
+
+
+on windows can also
+
+echo $PYTHONPATH
+set PYTHONPATH=C:\\Users\Julius\Documents\GitHub\facv\src\;C:\\Users\Julius\Documents\GitHub\fastai\fastai
+python -c "import sys; print(sys.path)"
+
+but in Windows it's echo $PYTHONPATH$
+
+
+In Powershell this works: echo $Env:PATH
+
+but nothing works in the others (cmder, conemu)
+not echo $PATH or $PATH$
+
+
+Note:
+If you change the environment variables you'll need to restart vscode or jupyter notebooks
+once you restart you'll see it in sys.path
+
+
+

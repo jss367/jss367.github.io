@@ -1,0 +1,7 @@
+add conv in 3d to your conv post
+also add conv in pytorch
+
+(1,3,3,3) - need 4D tensors
+
+
+
