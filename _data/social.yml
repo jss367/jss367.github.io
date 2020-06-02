@@ -1,14 +1,13 @@
 # Icons on the footer
-
-rss: true        
-email_address: julius.simonelli@gmail.com   # Full email address, e.g. "sam@example.com"
+rss: true
+email_address:    # Full email address, e.g. "sam@example.com"
 behance:
 bitbucket:
 dribbble:
 facebook:
 flickr:
 gitlab:
-github: "jss367"
+github: "sylhare"
 instagram:
 keybase:
 linkedin:         # Full URL
@@ -34,8 +33,8 @@ share:
   twitter: true
   tumblr:
   pinterest:
-  pocket: true
+  pocket:
   reddit: true
-  linkedin: true
+  linkedin:
   wordpress:
   email: true
