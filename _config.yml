@@ -34,7 +34,7 @@ permalink:   /:title:output_ext
 
 # PAGINATION
 paginate: 7
-paginate_path: "/blog/page:num"
+paginate_path: "/page:num"
 
 # PORTFOLIO
 collections:
