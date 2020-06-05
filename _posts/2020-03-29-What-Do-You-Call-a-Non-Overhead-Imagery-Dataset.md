@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "What Do You Call a Non-Overhead Imagery Dataset?"
+feature-img: "assets/img/rainbow.jpg"
+thumbnail: "assets/img/bush-stone_curlew.jpg"
 tags: [Geospatial Analytics]
 ---
 
