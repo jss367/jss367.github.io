@@ -70,13 +70,16 @@ Jupyter Notebooks use MathJax to render LaTeX in Markdown. To add LaTeX, simply 
 
 $$c = \sqrt{a^2 + b^2}$$
 
-If you want to center your formula, surround it with `$$`
+Some things that work in Jupyter Notebooks don't work with the renderer I use for this blog, so I can't show everything. But in Jupyter Notebooks you can get LaTeX to work with a single `$` and use a double `$$` to center it.
 
-$$\begin{align}
+'''If you want to center your formula, surround it with `$$`
+$$
+\begin{align}
 \nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} & = \frac{4\pi}{c}\vec{\mathbf{j}} \\   \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
 \nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
 \nabla \cdot \vec{\mathbf{B}} & = 0
-\end{align}$$
+\end{align}
+$$'''
 
 # nbconvert
 
@@ -91,25 +94,6 @@ or
 `jupyter nbconvert --to markdown mynotebook.ipynb`
 
 See how I use it to [prepare Jupyter Notebooks for my blog](https://jss367.github.io/jupyter-notebooks-in-blog.html).
-
-
-```python
-'''If you want to center your formula, surround it with `$$`
-$$
-\begin{align}
-\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} & = \frac{4\pi}{c}\vec{\mathbf{j}} \\   \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
-\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
-\nabla \cdot \vec{\mathbf{B}} & = 0
-\end{align}
-$$'''
-```
-
-
-
-
-    'If you want to center your formula, surround it with `$$`\n$$\n\x08egin{align}\n\nabla \times \x0bec{\\mathbf{B}} -\\, \x0crac1c\\, \x0crac{\\partial\x0bec{\\mathbf{E}}}{\\partial t} & = \x0crac{4\\pi}{c}\x0bec{\\mathbf{j}} \\   \nabla \\cdot \x0bec{\\mathbf{E}} & = 4 \\pi \rho \\\n\nabla \times \x0bec{\\mathbf{E}}\\, +\\, \x0crac1c\\, \x0crac{\\partial\x0bec{\\mathbf{B}}}{\\partial t} & = \x0bec{\\mathbf{0}} \\\n\nabla \\cdot \x0bec{\\mathbf{B}} & = 0\n\\end{align}\n$$'
-
-
 
 # Unix commands
 
