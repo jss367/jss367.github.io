@@ -7,7 +7,7 @@ thumbnail: "assets/img/python.jpg"
 tags: [Python, Cheat Sheet]
 ---
 
-This notebook is a collection of Python notes, tricks, and tips. It is set up to act as a quick reference for basic Python programming.
+This notebook is a collection of Python notes, tricks, and tips. It is set up to act as a quick reference for basic Python programming. I try to update the post every once in a while with the latest version of Python, so it should be kept up to date.
 
 <b>Table of contents</b>
 * TOC
@@ -351,7 +351,8 @@ print(a[len(a)-1])
 ## Slicing
 
 List slicing is done by [start : end]
-The first value is included, but the last one isn't, so it's of this form: [inclusive : exclusive]
+
+The first value is included, but the last one isn't, so it looks like [inclusive : exclusive].
 
 
 ```python
@@ -438,19 +439,6 @@ print(list_of_lists)
 
     [[1, 2, 3, 4, 5], ['a', 'b', 'c'], ['This', 'is', 'hello', 5, 'sss']]
     
-
-
-```python
-
-```
-
-
-      File "<ipython-input-35-ccd4c4cd69ff>", line 2
-        list of lists= [['list1', 3], ['list2', 4]]
-              ^
-    SyntaxError: invalid syntax
-    
-
 
 # Tuples
 
@@ -632,7 +620,21 @@ print("{perc:.2%}% of {num_verbs} are weak".format(perc=.501, num_verbs=7))
     50.10%% of 7 are weak
     
 
-# For loops
+## f-strings
+
+You can also use f-strings, which are an even faster way of using the functionality of `format`.
+
+
+```python
+perc=.501
+num_verbs=7
+print(f"{perc:.2%}% of {num_verbs} are weak")
+```
+
+    50.10%% of 7 are weak
+    
+
+# For-loops
 
 
 ```python
@@ -674,9 +676,34 @@ for word in ['Beware', 'the', 'ides', 'of', 'March']:
 
 
 
+Note that you can end a for-loop with an `else` statement. This might seem a little strange, but you can think of "else" acting as a "then" in this situation. If the loop successfully completes, the `else` statement will run. But if there's a `break` in the loop, it doesn't.
+
+
+```python
+for i in [0, 3, 5]:
+    print(i*i)
+else:
+    print("Print if loop completes")
+
+for i in [0, 3, 5]:
+    print(i*i)
+    if i > 2:
+        break
+else:
+    print("Won't print if there's a break")
+```
+
+    0
+    9
+    25
+    Print if loop completes
+    0
+    9
+    
+
 # List comprehensions
 
-List comprehensions are an alternative to for loops. Every list comprehension can be rewritten as a for loop, but not every for loop can be written as a list comprehension.
+List comprehensions are an alternative to for-loops. Every list comprehension can be rewritten as a for-loop, but not every for-loop can be written as a list comprehension.
 
 
 ```python
@@ -705,353 +732,4 @@ print(small_numbers)
     [4, 8, 6, 6]
     
 
-[Here](http://treyhunner.com/2015/12/python-list-comprehensions-now-in-color/) is an easy to visualize explanation.
-
-# Error handling
-
-There are [a bunch of python error messages](https://www.tutorialspoint.com/python/standard_exceptions.htm), which are known as standard exceptions. Here are some of the most common
-
-### Index Error
-
-
-```python
-a = [1,2,3,4]
-print(a[5]) # There is no element #5, so you get an error
-```
-
-
-    ---------------------------------------------------------------------------
-
-    IndexError                                Traceback (most recent call last)
-
-    <ipython-input-152-3328b7d9ec57> in <module>()
-          1 a = [1,2,3,4]
-    ----> 2 print(a[5]) # There is no element #5, so you get an error
-    
-
-    IndexError: list index out of range
-
-
-### Name error
-
-
-```python
-my_variable = 4
-print(my_veriable)
-# I have introduced a typo, so call the variable "my_veriable" returns an error
-```
-
-
-    ---------------------------------------------------------------------------
-
-    NameError                                 Traceback (most recent call last)
-
-    <ipython-input-155-30993cfdcc4a> in <module>()
-          1 my_variable = 4
-    ----> 2 print(my_veriable)
-          3 # I have introduced a typo, so call the variable "my_veriable" returns an error
-    
-
-    NameError: name 'my_veriable' is not defined
-
-
-### Type error
-
-
-```python
-# Trying to use a type in a way it cannot be
-print(a[2]) # works fine
-print(a['two']) # returns an error
-```
-
-    3
-    
-
-
-    ---------------------------------------------------------------------------
-
-    TypeError                                 Traceback (most recent call last)
-
-    <ipython-input-159-45c59a70da68> in <module>()
-          1 # Trying to use a type in a way it cannot be
-          2 print(a[2]) # works fine
-    ----> 3 print(a['two']) # returns an error
-    
-
-    TypeError: list indices must be integers or slices, not str
-
-
-### Syntax error
-
-
-```python
-print("Syntax errors often result from missing parentheses"
-```
-
-
-      File "<ipython-input-156-edd9a7d47009>", line 1
-        print("Syntax errors often result from missing parentheses"
-                                                                  ^
-    SyntaxError: unexpected EOF while parsing
-    
-
-
-## Try, except statements
-
-
-```python
-#Can also be more specific:
-
-print("If you provide two integers, I will divide the first by the second")
-try:
-    a = int(input('Give me a number: '))
-    b = int(input('Give me another: '))
-    print(a/b)
-except ValueError:
-    print("That's not an int")
-except ZeroDivisionError:
-    print("Can't divide by zero")
-except:
-    print("I don't even know what you did wrong")
-```
-
-    If you provide two integers, I will divide one by the other
-    Give me a number: 2
-    Give me another: 0
-    Can't divide by zero
-    
-
-
-```python
-# You can also use a finally statement to do something even after an error has been raised
-try:
-    a = int(input('Give me a number: '))
-    b = int(input('Give me another: '))
-    print(a/b)
-except ValueError:
-    print("That's not an int")
-finally:
-    print("Whether there's an exception or not, this runs. Good for closing a file.")
-```
-
-    Give me a number: r
-    That's not an int
-    Whether there's an exception or not, this runs. Good for closing a file.
-    
-
-You can also raise exceptions directly
-
-
-```python
-try:
-    1/0
-except:
-    print("I've just picked up a fault in the AE35 unit. It's going to go 100% failure in 72 hours.")
-    raise
-```
-
-    I've just picked up a fault in the AE35 unit. It's going to go 100% failure in 72 hours.
-    
-
-
-    ---------------------------------------------------------------------------
-
-    ZeroDivisionError                         Traceback (most recent call last)
-
-    <ipython-input-172-af3e15a5729f> in <module>()
-          1 try:
-    ----> 2     1/0
-          3 except:
-          4     print("I've just picked up a fault in the AE35 unit. It's going to go 100% failure in 72 hours.")
-          5     raise
-    
-
-    ZeroDivisionError: division by zero
-
-
-## Assert
-
-
-```python
-def div_by_two(x):
-    assert (x%2 == 0), "Number must be even"#Assert that x is even; this makes the program stop immediately if it is not
-    return x / 2
-print(div_by_two(3))
-```
-
-
-    ---------------------------------------------------------------------------
-
-    AssertionError                            Traceback (most recent call last)
-
-    <ipython-input-3-00ddaa3cd990> in <module>()
-          2     assert (x%2 == 0), "Number must be even"#Assert that x is even; this makes the program stop immediately if it is not
-          3     return x / 2
-    ----> 4 print(div_by_two(3))
-    
-
-    <ipython-input-3-00ddaa3cd990> in div_by_two(x)
-          1 def div_by_two(x):
-    ----> 2     assert (x%2 == 0), "Number must be even"#Assert that x is even; this makes the program stop immediately if it is not
-          3     return x / 2
-          4 print(div_by_two(3))
-    
-
-    AssertionError: Number must be even
-
-
-## Aliasing
-
-Python uses references. This can create aliasing problems
-
-
-```python
-# Here's an example that isn't a problem
-old_list = [1,2,3,4]
-new_list = old_list
-new_list[2]=7
-print(old_list)
-```
-
-    [1, 2, 7, 4]
-    
-
-`old_list` has changed without being changed directly. This is because when I did `new_list = old_list`, it created a reference from the value of `old_list` to a new variable, `new_list`. But it did not make a second copy of the value, so they are pointing to the same value. If that value is changed both variables will see the change.
-
-This could be the desired result, but sometimes it isn't. In those cases, you can make a copy of the value instead of just getting a reference to the old value. Do this by setting `new_list` equal to `old_list[:]` or `list(old_list)`
-
-
-```python
-old_list = [1,2,3,4]
-new_list = old_list[:]
-new_list[2]=7
-print(old_list)
-```
-
-    [1, 2, 3, 4]
-    
-
-
-```python
-old_list = [1,2,3,4]
-new_list = list(old_list)
-new_list[2]=7
-print(old_list)
-```
-
-    [1, 2, 3, 4]
-    
-
-To see this in more detail, you can look at the id of the variable
-
-
-```python
-old_list = [1,2,3,4]
-new_list = old_list
-print(id(old_list))
-print(id(new_list))
-new_list = old_list[:]
-# By using a copy, new_list gets a different id")
-print(id(new_list))
-```
-
-    328784200
-    328784200
-    328893896
-    
-# Testing
-
-For testing, I highly recommend [pytest](https://docs.pytest.org/en/latest/). One issue I had with it when I was getting started was that if it mocked the inputs I couldn't run the test as a file (like to debug in VSCode). It turns out this is all you need:
-
-```python
-if __name__ == "__main__":
-    pytest.main([__file__])
-```
-
-Or, if you just one to test a function or two, you can do
-
-```python
-if __name__ == "__main__":
-    pytest.main([test_my_func()])
-```
-
-# Zip
-
-
-```python
-a = range(5)
-b = range(5,10)
-c = zip(a,b)
-c = list(c)
-print(c)
-```
-
-    [(0, 5), (1, 6), (2, 7), (3, 8), (4, 9)]
-    
-
-
-```python
-# Or, you can unzip
-ca, cb = zip(*c)
-```
-
-
-```python
-print(ca)
-print(cb)
-```
-
-    (0, 1, 2, 3, 4)
-    (5, 6, 7, 8, 9)
-    
-
-# Learning your environment 
-
-## Where am I?
-
-
-```python
-import os
-os.getcwd() #get current working directory
-```
-
-## What version of Python am I using?
-
-
-```python
-import sys
-sys.version
-```
-
-## Python modules
-
-### Where are the site packages held?
-
-
-```python
-import site
-site.getsitepackages()
-```
-
-
-
-
-    ['C:\\Users\\HMISYS\\Anaconda3',
-     'C:\\Users\\HMISYS\\Anaconda3\\lib\\site-packages']
-
-
-
-### Where is a particular package?
-
-
-```python
-import nltk
-print(nltk.__file__)
-import matplotlib.pyplot as plt
-print(plt.__file__)
-#This returns the location of the compiled .pyc file for the module
-```
-
-    C:\Users\HMISYS\Anaconda3\lib\site-packages\nltk\__init__.py
-    C:\Users\HMISYS\Anaconda3\lib\site-packages\matplotlib\pyplot.py
-    
+Check out this [excellent visualization of the relationship between for-loop and list comprehensions](http://treyhunner.com/2015/12/python-list-comprehensions-now-in-color/) to see how they relate.
