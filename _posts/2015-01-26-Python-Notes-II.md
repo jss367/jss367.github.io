@@ -7,7 +7,7 @@ thumbnail: "assets/img/black_headed_python.jpg"
 tags: [Python, Cheatsheet]
 ---
 
-These are tips and tricks a little bit more advanced than the previous notebook. I try to update the post every once in a while with the latest version of python, so it should be kept up to date.
+These are tips and tricks a little bit more advanced than the previous notebook. I try to update the post every once in a while with the latest version of python, so it should be roughly up to date.
 
 <b>Table of contents</b>
 * TOC
@@ -409,6 +409,31 @@ print("Syntax often result from missing parenthses"
                                                            ^
     SyntaxError: unexpected EOF while parsing
     
+
+
+It's a good idea to create your own exceptions. They don't actually need to do anything a lot of the time (other than inherit from `Exception`. Their name alone is valuable.
+
+
+```python
+class NiException(Exception):
+    pass
+
+if 'ni' in 'knights who say ni':
+    raise NiException
+```
+
+
+    ---------------------------------------------------------------------------
+
+    NiException                               Traceback (most recent call last)
+
+    <ipython-input-71-d76c5f072f95> in <module>
+          3 
+          4 if 'ni' in 'knights who say ni':
+    ----> 5     raise NiException
+    
+
+    NiException: 
 
 
 ## Try, except statements

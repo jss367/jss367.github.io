@@ -1,9 +1,0 @@
-exceptions
-
-inherit and don't do anything else
-
-class BadBatchException(Exception):
-    pass
-
-
-that's all you need
