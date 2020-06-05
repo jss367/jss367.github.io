@@ -56,11 +56,13 @@ http://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/code_p
 
 ## Autopep8
 
-Formats your code based on the PEP8 guide in a single click
+Formats your code based on the PEP8 guide in a single click.
 
-Install with `pip install autopep8`, then enable it
+Install with `pip install autopep8`, then enable it.
 
 ## spellchecker
+
+Does what you think it does.
 
 # Printing LaTeX
 
@@ -70,13 +72,11 @@ $$c = \sqrt{a^2 + b^2}$$
 
 If you want to center your formula, surround it with `$$`
 
-$$
-\begin{align}
+$$\begin{align}
 \nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} & = \frac{4\pi}{c}\vec{\mathbf{j}} \\   \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
 \nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
 \nabla \cdot \vec{\mathbf{B}} & = 0
-\end{align}
-$$
+\end{align}$$
 
 # nbconvert
 
