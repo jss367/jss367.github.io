@@ -70,20 +70,9 @@ Jupyter Notebooks use MathJax to render LaTeX in Markdown. To add LaTeX, simply 
 
 $$c = \sqrt{a^2 + b^2}$$
 
-Some things that work in Jupyter Notebooks don't work with the renderer I use for this blog, so I can't show everything. But in Jupyter Notebooks you can get LaTeX to work with a single `$` and use a double `$$` to center it.
-
-'''If you want to center your formula, surround it with `$$`
-$$
-\begin{align}
-\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} & = \frac{4\pi}{c}\vec{\mathbf{j}} \\   \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
-\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
-\nabla \cdot \vec{\mathbf{B}} & = 0
-\end{align}
-$$'''
+Some things that work in Jupyter Notebooks don't work with the renderer I use for this blog, so I can't show everything. But in Jupyter Notebooks you can use LaTeX with a single `$` and use a double `$$` to center it the expression.
 
 # nbconvert
-
-
 
 Convert Jupyter Notebooks to various formats, including HTML, LaTeX, PDF, and Markdown
 
@@ -193,5 +182,3 @@ Shift + Tab is a great keyboard shortcut that every Jupyter Notebook user should
 Jupyter Notebooks has a command palatte that you can access with Ctrl + Shift + P (Windows/Linux) / Cmd + Shift + P (Mac) (just like VSCode). From there you can search for whatever feature you're looking for.
 
 One hot key that I like but sometimes forget is how to split a cell where my cursor is. So I just open up the command palatte and type in "split" and I see that it is Ctrl + Shift + - (Windows/Linux) Cmd + Shift + - (Mac).
-
-
