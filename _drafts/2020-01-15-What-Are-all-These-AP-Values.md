@@ -6,14 +6,9 @@ thumbnail: "assets/img/palm_sunset.jpg"
 tags: [Python]
 ---
 
-In recent years, the most frequently used evaluation for object detection is “Average Precision (AP)”, which was originally introduced in VOC2007.
+In recent years, the most frequently used evaluation for object detection is “Average Precision (AP)”, which was originally introduced in [The PASCAL Visual Object Classes Challenge 2007](http://host.robots.ox.ac.uk/pascal/VOC/voc2007/) (VOC2007). It's a relatively simple concept, but when you look at research papers, you'll often see lots of variations on the basic concept. This post will clarify all those variations.
 
-It really is the average precision - if you try a bunch of different recalls, it's the average precision at each recall.
-
-AP is defined as the average detection precision under different recalls, and is usually evaluated in a category specific manner
-
-
-Change the threshold to keep increasing the recall, then find the precision at each point. Note that if you actually do this precision doesn't decrease monotnically. That's OK. You make the curve monotonic by setting the precision to be the highest value at that given recall or higher. This is because you could always tweak the threshold to a value that's going to give you higher precision and recall.
+For, let's be clear about average precision. The term is exactly what it sounds - the average precision of a model. If you check the precision at a bunch of different thresholds, it's the average of them. So, how do you calculate it? You have to change the threshold to keep increasing the recall, then find the precision at each point. Note that if you actually do this precision doesn't decrease monotonically. That's OK. You make the curve monotonic by setting the precision to be the highest value at that given recall or higher. This is because you could always tweak the threshold to a value that's going to give you higher precision and recall.
 
 OK, so you know that "Average Precision", or AP, is the area under the precision recall curve. But when you look at a research paper, such as Cascade Mask R-CNN (reproduced below), they have a bunch more than than.
 
@@ -25,14 +20,13 @@ Example: retinanet: COCO mAP@.5=59.1%, mAP@[.5, .95]=39.1%
 
 ## Multiclass classification
 
-Many datasets have lots of objects. [COCO](link), for example, has 80. 
+Many datasets have lots of objects. [COCO](http://cocodataset.org/#home), for example, has 80. 
 
 To compare performance over all object categories, the mean AP (mAP) averaged over all object categories is usually used. 
 AP is area under curve for a single class. When multiclass, it’s combined into mAP
 mAP is between 0 and 100, with higher numbers better
 
-
-
+AP is defined as the average detection precision under different recalls, and is usually evaluated in a category specific manner
 
 
 

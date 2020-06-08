@@ -618,3 +618,103 @@ Or, if you just one to test a function or two, you can do
 if __name__ == "__main__":
     pytest.main([test_my_func()])
 ```
+
+# Enums
+
+
+```python
+from enum import Enum
+```
+
+Enums are a simple way of aliasing values.
+
+
+```python
+class Animals(Enum):
+    cat = 1
+    dog = 2
+    fish = 3
+```
+
+
+```python
+Animals.cat
+```
+
+
+
+
+    <Animals.cat: 1>
+
+
+
+
+```python
+for animal in Animals:
+    print(animal)
+    print(animal.value)
+```
+
+    Animals.cat
+    1
+    Animals.dog
+    2
+    Animals.fish
+    3
+    
+
+## IntEnums
+
+
+```python
+from enum import IntEnum
+```
+
+Can do integer comparison as well with IntEnums
+
+
+```python
+class Birds(IntEnum):
+    cardinal = 1
+    blue_jay = 2
+```
+
+### Enums vs IntEnums
+
+
+```python
+# can int compare IntEnums
+print(Animals.dog == 2)
+print(Birds.blue_jay == 2)
+```
+
+    False
+    True
+    
+
+
+```python
+print(Birds.blue_jay < Birds.cardinal + 3)
+print(Animals.dog < Animals.cat + 3)
+```
+
+    True
+    
+
+
+    ---------------------------------------------------------------------------
+
+    TypeError                                 Traceback (most recent call last)
+
+    <ipython-input-18-cfdd061a4b4e> in <module>
+          1 print(Birds.blue_jay < Birds.cardinal + 3)
+    ----> 2 print(Animals.dog < Animals.cat + 3)
+    
+
+    TypeError: unsupported operand type(s) for +: 'Animals' and 'int'
+
+
+
+```python
+
+```
