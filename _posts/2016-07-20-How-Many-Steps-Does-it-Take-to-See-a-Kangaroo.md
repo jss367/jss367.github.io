@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How Many Steps Does it Take to See a Kangaroo?"
-description: "Visualizing a self-collected data with Seaborn"
+description: "A notebook visualizing a self-collected dataset of kangaroo sightings. The notebook is in Python using the Seaborn library"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/windy_roo.jpg"
 tags: [Wildlife, Python, Seaborn, Australia]

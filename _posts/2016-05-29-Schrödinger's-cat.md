@@ -1,13 +1,13 @@
 ---
 layout: post
 title: "Schrödinger's cat"
-description: "A quantum physics thought experiment"
+description: "A simple quantum physics thought experiment showing that the notion of macroscopic objects (like cats) being simultaneously dead and alive does not withstand close inspection"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/fishing_cat.jpg"
 tags: [Python, Physics]
 ---
 
-The story of Schrödinger's cat, a cat that through quantum physics is simultaneously alive and dead, has become engrained in popular culture and many popular science articles. But as the physics has become popularized, misconceptions have been introduced into the story. When you Google "Schrodinger's cat" the following definition appears: "a cat imagined as being enclosed in a box with a radioactive source and a poison that will be released when the source (unpredictably) emits radiation, the cat being considered (according to quantum mechanics) to be simultaneously both dead and alive until the box is opened and the cat observed." The notion that a cat can be both alive and dead at the same time is counterinuitive and, most importantly, completely false. I propose a thought experiment that demonstrates that the popular conception of a half-living cat is impossible.<!--more-->
+The story of Schrödinger's cat, a cat that through quantum physics is simultaneously alive and dead, has become engrained in popular culture and many popular science articles. But as the physics behind it has become popularized, misconceptions have been introduced into the story. When you Google "Schrodinger's cat" the following definition appears: "a cat imagined as being enclosed in a box with a radioactive source and a poison that will be released when the source (unpredictably) emits radiation, the cat being considered (according to quantum mechanics) to be simultaneously both dead and alive until the box is opened and the cat observed." The notion that a cat can be both alive and dead at the same time is counterintuitive and, most importantly, completely false. I propose a thought experiment that demonstrates that the popular conception of a half-living cat is impossible.<!--more-->
 
 
 Let's assume we have the typical Schrödinger's cat experiment. We'll let the experiment run until the probability that the vial of poison is destroyed and therefore the cat is dead is 50%. After that time the vial will be removed and we will attempt to determine whether the cat is dead or alive.
@@ -184,4 +184,4 @@ According to the definition provided by Google, the cat remains in a state of be
 
 This thought experiment shows that none of the above explanations are satisfactory, and the only possible explanation is that the observation occurs at every point in time, when the first macroscopic entity, the Geiger counter, either detects or does not detect the radiation which causes it to release the hammer smashing the vial of poison. The presence of humans or human consciousness has no effect on quantum mechanical systems.
 
-Go [here](https://nbviewer.jupyter.org/github/jss367/JupyterNotebooks/blob/master/Schr%C3%B6dinger%27s%20cat.ipynb) to see the code for this post.
+You can also view the [code for this post](https://nbviewer.jupyter.org/github/jss367/JupyterNotebooks/blob/master/Schr%C3%B6dinger%27s%20cat.ipynb).

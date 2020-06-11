@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Pandas Cheatsheet"
-description: "A notebook of common tasks in pandas"
+description: "A helpful cheatsheet of common tasks using the Python library pandas"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/koala.jpg"
 tags: [Pandas, Python, Cheat Sheet]
