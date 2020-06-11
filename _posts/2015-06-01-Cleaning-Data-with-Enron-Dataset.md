@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Data Cleaning Tutorial with the Enron Dataset"
-description: "Tools, techniques, and tips to clean data using the Enron dataset"
+description: "Tools, techniques, and tips to clean data in Python using the Enron dataset"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/sun_tas.jpg"
 tags: [Python, Data Cleaning, Pandas]
