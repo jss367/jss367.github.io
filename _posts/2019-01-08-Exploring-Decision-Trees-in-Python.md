@@ -1,9 +1,9 @@
 ---
 layout: post
 title: "Exploring Decision Trees in Python"
+description: "An exploration of decision trees in Python based on chapter 8 of An Introduction to Statistical Learning with Applications in R."
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/tree_roots.jpg"
-image: "assets/img/tree_roots.jpg" #seo tag
 tags: [Python, Machine Learning, Decision Trees]
 ---
 
