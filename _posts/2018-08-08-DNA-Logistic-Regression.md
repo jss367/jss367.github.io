@@ -1,6 +1,6 @@
 ---
 layout: post
-title: DNA Splice Junctions II: Logistic Regression from Scratch
+title: "DNA Splice Junctions II: Logistic Regression from Scratch"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/belted_kingfisher.jpg"
 tags: [Python, Machine Learning]
