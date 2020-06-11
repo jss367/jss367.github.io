@@ -15,3 +15,7 @@ then make it overfit less
 
 
 
+overfit - use a small weight decay, such as 0.01
+then you can gradually increase it
+weight decay is a regularization technique
+
