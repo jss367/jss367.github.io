@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "DNA Splice Junctions II: Logistic Regression from Scratch"
+description: "This shows how to write the logistic regression algorithm from scratch in Python. It uses the algorithm on a DNA splice junction dataset."
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/belted_kingfisher.jpg"
 tags: [Python, Machine Learning]
