@@ -1,6 +1,7 @@
 ---
 layout: post
-title: Adelaide versus Alice Springs Climate, Visualized
+title: "Adelaide Versus Alice Springs Climate, Visualized"
+description: "A silly comparison of climate in two Australian cities: Alice Springs and Adelaide. Done in Python with Matplotlib."
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/rows.jpg"
 tags: [Python, Matplotlib, Australia, Data Visualization]

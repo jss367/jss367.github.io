@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Visualizing Machine Learning on Iris Dataset"
+description: "An in-depth exploration of various machine learning techniques. This goes over Gaussian naive Bayes, logistic regression, linear discriminant analysis, quadratic discriminant analysis, support vector machines, k-nearest neighbors, decision trees, perceptron, and neural networks (Multi-layer perceptron). It also shows how to visualize the algorithms. All the code is provided."
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/potoroo.jpg"
 tags: [Python, Matplotlib, Seaborn, Machine Learning, SKLearn, Data Visualization]
@@ -212,7 +213,7 @@ add_labels(standardized=True)
 ![png]({{site.baseurl}}/assets/img/2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_27_0.png)
 
 
-#### Tuning the model
+#### Tuning the Model
 
 There are many hyperparameters in logistic regression that we can adjust to tune the model. There is a hyperparameter to control the normalization that is used in the penalization. Another that helps with regularization is $$ C $$, where $$ C $$ is the inverse of the regularization parameter lambda:
 
@@ -530,7 +531,7 @@ add_labels(standardized=True)
 
 You can see that the model didn't fit the data very well. There are ways to correct for this but there is no way to correct for non-linearly separable data with a single perceptron. To do that, we'll use a multi-layer perceptron, also known as a neural network.
 
-## Neural networks (Multi-layer perceptron)
+## Neural Networks (Multi-layer perceptron)
 
 A multi-layer perceptron, or, as it is more commonly known, a neural network, is in some ways the king of these algorithms. It is capable of dealing with linear or nonlinear data, of low or high dimensionality. It has an insatiable appetite for data, which makes it very powerful when there is sufficient data to train from. But all this capability has a downside, and that is it is the most computationally expensive to train.
 
@@ -576,7 +577,7 @@ print(mlp.get_params)
            validation_fraction=0.1, verbose=False, warm_start=False)>
     
 
-#### Hyperparameter tuning a neural network
+#### Hyperparameter Tuning a Neural Network
 
 This is another one that can be improved greatly by tuning
 
@@ -633,7 +634,7 @@ add_labels(standardized=True)
 
 Here's a case where we went through a big grid search and used a very complex model, but the result doesn't look that different from a support vector machine. There's a good lesson here, at least with regard to simple datasets.
 
-## Comparing algorithms
+## Comparing Algorithms
 
 Which algorithm is best? We'll test them all.
 

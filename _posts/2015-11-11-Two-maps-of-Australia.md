@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Two Maps of Australia"
+description: "A fun, little visualization of the population of Australian states and territories relative to their sizes. It's done in Python using Matplotlib and the code is made available."
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/horizon.jpg"
 tags: [Python, Matplotlib, Australia, Data Visualization]

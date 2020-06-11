@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Exploring the Iris Dataset"
+description: "A Python tutorial showing how to explore and visualize data using the famous iris dataset."
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/iris.jpg"
 tags: [Python, Matplotlib, Seaborn, Data Exploration, Data Visualization]

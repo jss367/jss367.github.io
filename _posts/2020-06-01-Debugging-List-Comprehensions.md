@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Debugging Python List Comprehensions "
+title: "Debugging Python List Comprehensions"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/tree_sunset.jpg"
 tags: [Python]
