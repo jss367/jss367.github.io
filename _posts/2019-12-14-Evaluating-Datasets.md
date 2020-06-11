@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Questions to Ask When Exploring a New Dataset"
+description: "A post describing the steps to take when evaluating a new dataset for machine learning. The post is specific to computer vision but applies to other cases as well."
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/sunset_road.jpg"
 tags: [Machine Learning]
