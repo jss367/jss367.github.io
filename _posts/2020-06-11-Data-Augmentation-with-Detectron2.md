@@ -60,9 +60,17 @@ Fortunately, Detectron2 makes implementation super easy. There are a few differe
 
 From there, you have two options. One is to add the transforms to the config file, and the other is to simply extend the transforms through code. Extending it through code is faster but the config option makes it much easier to save your settings.
 
-Either way, you'll need to find in the `DatasetMapper` the [line that builds the transforms](https://github.com/facebookresearch/detectron2/blob/01dab47ecc85434c31bd55460b7c72553fc35a7b/detectron2/data/dataset_mapper.py#L43). It should look something like ```self.tfm_gens = utils.build_transform_gen(cfg, is_train)```. If you've added your augmentation methods to the config, you're already done. If not, you just need to add them here:
+Either way, you'll need to find in the `DatasetMapper` the [line that builds the transforms](https://github.com/facebookresearch/detectron2/blob/01dab47ecc85434c31bd55460b7c72553fc35a7b/detectron2/data/dataset_mapper.py#L43). It should look something like:
 
-```python self.tfm_gens.extend(augmentations)```
+```python
+self.tfm_gens = utils.build_transform_gen(cfg, is_train)
+```
+
+If you've added your augmentation methods to the config, you're already done. If not, you just need to add them here:
+
+```python
+self.tfm_gens.extend(augmentations)
+```
 
 Then you need to pass the augmentations you want to use into the `DatasetMapper`. Make sure to pass the augmentation to your trainer (subclass the `DefaultTrainer`) and pass in your mapper. Here's an example of what my tranforms look like for an overhead imagery dataset.
 
