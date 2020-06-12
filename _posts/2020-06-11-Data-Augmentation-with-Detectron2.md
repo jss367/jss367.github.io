@@ -7,7 +7,7 @@ thumbnail: "assets/img/bear_with_fish.jpg"
 tags: [Detectron2, Computer Vision]
 ---
 
-This post is a quick walkthrough of the different data augmentation methods available in [Detectron2](https://github.com/facebookresearch/detectron2) and their utility in overhead imagery. I'll also go over how to implement the data augmentation methods.
+This post is a quick walkthrough of the different data augmentation methods available in [Detectron2](https://github.com/facebookresearch/detectron2) and their utility for augmenting overhead imagery. I'll also go over a quick way to implement them.
 
 * TOC
 {:toc}
@@ -19,20 +19,20 @@ Detectron2 has a [large list of available data augmentation methods](https://git
 
 #### RandomApply
 
-The is a wrapper around the other augmentation methods so that you can turn a list of them on or off as a group with a specified probability. I don't generally use it for my purposes, but it could definitely be helpful in some cases.
+This is a wrapper around the other augmentation methods so that you can turn a list of them on or off as a group with a specified probability. I don't generally use it for my purposes, but it could be helpful in some cases.
 
 #### RandomFlip
 
-You can only flip horizontally or vertically, so for overhead imagery you should include two of these, one for each. You can specify the probability. I don't see any reason not to use 0.5.
+You can only flip horizontally or vertically, so for overhead imagery, you should include two of these, one for each. You can specify the probability. I don't see any reason not to use 0.5.
 
 #### Resize and ResizeShortestEdge
 
-There are two resize options. If your images vary in shape and you don't want to distort them, `ResizeShortestEdge` is the one to use because it won't change the image's aspect ratio. It increases the size (preserving the aspect ratio) until the shortest edge matches the value you specify. Then it checks if the longest edge is larger than the limit. If so, it then reduces the image to fit. This means that the shortest side may be shorter than the value you provided, which is a little counterintuitive, but on the plus size you can make sure your images aren't too long (or just not provide a maximum value).
+There are two resize options. If your images vary in shape and you don't want to distort them, `ResizeShortestEdge` is the one to use because it won't change the image's aspect ratio. It increases the size (preserving the aspect ratio) until the shortest edge matches the value you specify. Then it checks if the longest edge is larger than the limit. If so, it then reduces the image to fit. This means that the shortest side may be shorter than the value you provided, which is a little counterintuitive, but on the plus side, you can make sure your images aren't too long (or just not provide a maximum value).
 One thing I don't like about this is that it upsamples different images differently, depending on their shape
 
 #### RandomRotation
 
-Does exactly what it sounds like. Highly recommended for overhead imagery.
+This does exactly what it sounds like. You pass it a list of `[min_angle, max_angle]` and it randomly chooses a value. Highly recommended for overhead imagery.
 
 #### RandomCrop
 Cropping is supported by default in the configuration files so I prefer to do it there and leave this alone.
@@ -43,7 +43,7 @@ Crops a random "subrect" of the image.
 
 #### RandomContrast, RandomBrightness, and RandomSaturation
 
-These are all pretty straightforward. You can provide them ranges of the form `(min, max)` where using 1 would an identity function (no change). These augmentations are very important in cases where different classes might have variation in one of these. If all the pictures of cats were taken in brighter rooms than all the pictures of dogs, then it would be important to use a light of `RandomBrightness` so their brightnesses of the classes overlaps, forcing the model to actually learn the classes and not just some shortcut. Even in the case when the classes are from the same distribution, these are still good data augmentation techniques.
+These are all pretty straightforward. You can provide them ranges of the form `(min, max)` where the value 1 is an identity function (no change). These augmentations are very important in cases where different classes might have variation in one of these. If all the pictures of cats were taken in brighter rooms than all the pictures of dogs, then it would be important to use a light of `RandomBrightness` so the brightnesses of the classes overlap, forcing the model to actually learn the classes and not just some shortcut. Even in the case when the classes are from the same distribution, these are still good data augmentation techniques.
 
 #### RandomLighting
 
@@ -54,7 +54,7 @@ What this does is a bit tricky. It uses a [PCA](https://jss367.github.io/Princip
 
 I'm not sure what a good value for the scale is, but I will update this once I get a good feel for it.
 
-### Implementing
+### Implementation
 
 Fortunately, Detectron2 makes implementation very easy. There are a few different ways to do it, but I would start by copying [their `DatasetMapper`](https://github.com/facebookresearch/detectron2/blob/01dab47ecc85434c31bd55460b7c72553fc35a7b/detectron2/data/dataset_mapper.py#L19) and tweaking it. You could subclass it but it's only a simple class with a `__init__` and `__call__` method, so I just copy the whole thing.
 
