@@ -23,7 +23,7 @@ This is a wrapper around the other augmentation methods so that you can turn a l
 
 #### RandomFlip
 
-You can only flip horizontally or vertically, so for overhead imagery, you should include two of these, one for each. You can specify the probability. I don't see any reason not to use 0.5.
+You can only flip horizontally *or* vertically, so for overhead imagery, you should include two of these, one for each. You can specify the probability. I don't see any reason not to use 0.5.
 
 #### Resize and ResizeShortestEdge
 
@@ -35,11 +35,12 @@ One thing I don't like about this is that it upsamples different images differen
 This does exactly what it sounds like. You pass it a list of `[min_angle, max_angle]` and it randomly chooses a value. Highly recommended for overhead imagery.
 
 #### RandomCrop
+
 Cropping is supported by default in the configuration files so I prefer to do it there and leave this alone.
 
 #### RandomExtent
 
-Crops a random "subrect" of the image.
+This crops a random "subrect" of the image. So far I haven't used it.
 
 #### RandomContrast, RandomBrightness, and RandomSaturation
 
@@ -51,21 +52,19 @@ What this does is a bit tricky. It uses a [PCA](https://jss367.github.io/Princip
 
 ![AlexNet]({{site.baseurl}}/assets/img/alexnet_pca_lighting.png "AlexNet PCA Lighting")
 
-
-I'm not sure what a good value for the scale is, but I will update this once I get a good feel for it.
+It takes `scale` as an argument, and I'm sure what a good value for the scale is, but I will update this once I get a good feel for it.
 
 ### Implementation
 
-Fortunately, Detectron2 makes implementation very easy. There are a few different ways to do it, but I would start by copying [their `DatasetMapper`](https://github.com/facebookresearch/detectron2/blob/01dab47ecc85434c31bd55460b7c72553fc35a7b/detectron2/data/dataset_mapper.py#L19) and tweaking it. You could subclass it but it's only a simple class with a `__init__` and `__call__` method, so I just copy the whole thing.
+Fortunately, Detectron2 makes implementation super easy. There are a few different ways to do it, but I would start by copying [their `DatasetMapper`](https://github.com/facebookresearch/detectron2/blob/01dab47ecc85434c31bd55460b7c72553fc35a7b/detectron2/data/dataset_mapper.py#L19) and tweaking it. You could subclass it but it's only a simple class with an `__init__` and `__call__` method, so I just copy the whole thing.
 
-From there, you have two options. One is to add the transforms to the config file, and the other is to simply extend the transforms through code. Extending it through code is faster but the config option makes it much easier to save your settings, which is super important.
+From there, you have two options. One is to add the transforms to the config file, and the other is to simply extend the transforms through code. Extending it through code is faster but the config option makes it much easier to save your settings.
 
-Either way, you'll need to find in the `DatasetMapper` the line that [builds the transforms](https://github.com/facebookresearch/detectron2/blob/01dab47ecc85434c31bd55460b7c72553fc35a7b/detectron2/data/dataset_mapper.py#L43). It should look something like `self.tfm_gens = utils.build_transform_gen(cfg, is_train)`. If you've added your augmentation methods to the config, you're already done. If not, you just need to add them here:
+Either way, you'll need to find in the `DatasetMapper` the [line that builds the transforms](https://github.com/facebookresearch/detectron2/blob/01dab47ecc85434c31bd55460b7c72553fc35a7b/detectron2/data/dataset_mapper.py#L43). It should look something like ```self.tfm_gens = utils.build_transform_gen(cfg, is_train)```. If you've added your augmentation methods to the config, you're already done. If not, you just need to add them here:
 
-`self.tfm_gens.extend(augmentations)`
+```python self.tfm_gens.extend(augmentations)```
 
-Then you need to pass in the augmentations you like into the `DatasetMapper`. Make sure to pass the augmentation to your trainer (subclass the `DefaultTrainer`) and pass in your mapper.
-
+Then you need to pass the augmentations you want to use into the `DatasetMapper`. Make sure to pass the augmentation to your trainer (subclass the `DefaultTrainer`) and pass in your mapper. Here's an example of what my tranforms look like for an overhead imagery dataset.
 
 ```python
 from detectron2.data import transforms as T
