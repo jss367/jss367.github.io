@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Stylizing Jekyll"
-date: 2017-08-22
+description: "A guide for how to work with pages in jekyll"
+feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/bridge.jpg"
 tags: [Jekyll, Markdown, Cheat Sheet]
 ---

@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Principal Component Analysis"
+description: "An introduction and visualization of Principal Component Analysis complete with Python code. This also discusses covariance, eigenvectors, and eigenvalues."
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/kings_canyon.jpg"
 tags: [Python]
@@ -18,7 +19,7 @@ Data scientists routinely deal with data with lots of dimensions, including data
 
 Plotting every pair in a dataset with `f` features would result in $$ {f\choose 2}= \frac{f(f-1)}{2} $$ features. If we had 100 features, that would be 4950 different plots, each of which contain only 2% of the data. Clearly, this is not going to work.
 
-But just because the dataset has so many features doesn't mean that all the features are equally important. Very often only a few of the features contain a disproportionate amount of the relevant signal. The key to extracting this signal is to find a way to capture as much of the variance of the data in as few dimensions as possible. This is where principal component analysis comes in. Principal component analysis, or PCA, is a technique to transform that highly dimensional dataset into a lower dimensional dataset while minimizing the loss of information. The goal of PCA is to find a linear combination of the `f` features that represents the most variance.
+But just because the dataset has so many features doesn't mean that all the features are equally important. Very often only a few of the features contain a disproportionate amount of the relevant signal. The key to extracting this signal is to find a way to capture as much of the variance of the data in as few dimensions as possible. This is where principal component analysis comes in. Principal component analysis, or PCA, is a technique to transform that highly dimensional dataset into a lower dimensional dataset while minimizing the loss of information. The goal of PCA is to find a linear combination of the `f` features that represent the most variance.
 
 ## Principal component analysis overview
 

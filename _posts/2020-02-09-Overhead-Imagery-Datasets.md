@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Overhead Imagery Datasets for Object Detection
+description: "A chart with detailed information about overhead imagery datasets for object detection"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/gosse_bluff.jpg"
 tags: [Geospatial Analytics]
