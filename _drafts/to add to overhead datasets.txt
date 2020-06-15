@@ -1,5 +1,7 @@
 https://github.com/chrieke/awesome-satellite-imagery-datasets
 
+add additional categories to dota
+
 Having robust benchmarking datasets is a critical 
 
 Benchmarking datasets are hugely important to the development of neural networks, and ImageNet in particular is significant in the improvements in computer vision over the last five years. Given the importance of benchmarking datasets, is it any wonder that domains without that don't seem to cultivate innovation at the same levels? In particular, geospatial analytics doesn't have nearly the level of new networks that one would imagine given the importance, and hopefully the DOTA dataset can change that.
