@@ -57,6 +57,17 @@ But on Windows you'll need double quotes
 
 python -c "print('hello')"
 
+You can even print out an entire machine learning model (It may download the first time if you don't already have the :
+
+TF2.X version:
+
+python -c "from tensorflow.keras.applications.vgg16 import VGG16; print(VGG16().summary()"
+
+keras version:
+
+python -c "from keras.applications.vgg16 import VGG16; print(VGG16().summary()"
+
+
 
 detailed answer here: https://stackoverflow.com/questions/897792/where-is-pythons-sys-path-initialized-from
 
@@ -64,10 +75,16 @@ detailed answer here: https://stackoverflow.com/questions/897792/where-is-python
 ## Adding to your PYTHONPATH
 
 Just go to system properties, environment variables, new...
+Environment variables:
+Hit windows key
+type environment
+Click on Environment Variables in the Advanced tab.
 c:\\Users\\Julius\\Documents\\GitHub\\DataManager
 - for some reason this doesn't always add to the python path though
 
+Let's test this out. As we saw above, you can test out your PYTHONPATH directly from the command line:
 
+python -c "import sys; print(sys.path)"
 
 
 path problems
@@ -91,10 +108,7 @@ C:\Users\Julius\anaconda3\python.exe
 so use C:\Users\Julius\anaconda3
 
 
-Environment variables:
-Hit windows key
-type environment
-Click on Environment Variables in the Advanced tab.
+
 
 I use the User variables for this
 
@@ -129,15 +143,25 @@ python -c "import sys; print(sys.path)"
 but in Windows it's echo $PYTHONPATH$
 
 
-In Powershell this works: echo $Env:PATH
-
-but nothing works in the others (cmder, conemu)
-not echo $PATH or $PATH$
 
 
 Note:
 If you change the environment variables you'll need to restart vscode or jupyter notebooks
 once you restart you'll see it in sys.path
 
+
+
+## Jupyter Notebook problems
+
+Let's say you set you can variable and can see it in PYTHONPATH.
+
+
+you `import sys; print(sys.version)` from a command line and it's there, but when you run the same command in a Jupyter Notebook it's not there. That's because Jupyter has its own PATH variable called JUPYTER_PATH.
+
+If you need to quickly add to it, you can start a notebook with: `
+```
+import sys
+sys.path.append('C:\\Users\\Julius\\Documents\\GitHub\\cv_dataclass\\src')
+```
 
 
