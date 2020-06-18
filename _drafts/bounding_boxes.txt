@@ -5,7 +5,9 @@ X value of top left corner
 height
 width
 
+SO DOES COCO!!!     -- i think coco switches height and width
 
+"bbox": [x,y,width,height],
 
 i prefer dataclasses or namedtuples
 
@@ -24,4 +26,9 @@ Y value of bottom right corner
 
 
 http://cocodataset.org/#format-data
+
+
+
+if there are no supercategories, just do none
+
 

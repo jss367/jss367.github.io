@@ -1,28 +1,46 @@
-path problems
+Path Problems
 
-in vscode you can't 
+Path problems are some of the most annoying and common problems when developing software, especially if you're bounding between operating systems.
 
-echo $PYTHONPATH
-or
-echo $PATH
+There are so many different issues you could have. I'll try to explain a few and provide some background in the hope that that helps as well.
 
 
-tying
-path
-and
+
+
+## Windows
+
+Let's say you want to see your environment variables. Let's say it's your path. Unfortunately, it depends on what terminal emulator you're using. If you are on ConEmu or Cmder, you can
+
 echo %PATH%
 
-neither works in PowerShell Integrated console
+This can be hard to read so to make it easier you can: `echo %PATH:;=&echo.%`
 
-but does work in conemu
 
-To make it easier to read: echo %PATH:;=&echo.%
+However, if you're using Windows PowerShell, you'll have to:
 
-temporarily add to path:
+echo $Env:PATH
+
+
+On a Mac/Linux, you would be able to 
+
+`echo $PATH`
+
+This also works on Windows Subsystem for Linux
+
+## VSCode
+
+There is an integrated terminal in VSCode. You can set it but the default it Windows Powershell, so you'll have to
+
+echo $Env:PATH
+
+
+## Adding to path
+
+If you want to temporarily add to path:
 set PATH="%PATH%;C:\path\to\directory\"
 set PATH="%PATH%;C:\Users\Julius\Documents\GitHub\DataManager"
 
-permanently add to path:
+If you want to permanently add to path:
 setx path "%PATH%;C:\path\to\directory\"
 
 
@@ -31,11 +49,21 @@ setx path "%PATH%;C:\path\to\directory\"
 On windows, if you echo $PYTHONPATH you get nothing, but if you print(sys.path) you see:
 ['c:\\Users\\Julius\\Documents\\GitHub\\ResNetFromScratch', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\python37.zip', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\DLLs', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\lib', 'C:\\Users\\Julius\\anaconda3\\envs\\tf', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\lib\\site-packages', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\lib\\site-packages\\win32', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\lib\\site-packages\\win32\\lib', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\lib\\site-packages\\Pythonwin']
 
+## Print Python from command line
+
+python -c 'print("hello")'
+
+But on Windows you'll need double quotes
+
+python -c "print('hello')"
+
 
 detailed answer here: https://stackoverflow.com/questions/897792/where-is-pythons-sys-path-initialized-from
 
 
-Instead just go to system properties, environment variables, new...
+## Adding to your PYTHONPATH
+
+Just go to system properties, environment variables, new...
 c:\\Users\\Julius\\Documents\\GitHub\\DataManager
 - for some reason this doesn't always add to the python path though
 
