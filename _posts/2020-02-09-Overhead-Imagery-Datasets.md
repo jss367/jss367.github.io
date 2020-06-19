@@ -18,7 +18,7 @@ This post provides a summary of some of the most important overhead imagery data
 |Dataset Name | 										Total Number of Objects | 	Number of Images | 	Number of Categories | Image Size | 			Resolution | 		Annotation Type | 			Source |				Year Released| Restrictions
 |------------------ | --------------------- | --------------------- | ---------------------
 |[DIOR](http://www.escience.cn/people/gongcheng/DIOR.html) | 			192,472 | 					23,463 | 				20 | 				large |	TBD				 | 	Horizontal Bounding Boxes | 	TBD |					2020	| None
-|[DOTA](https://captain-whu.github.io/DOTA/dataset.html) | 			188,282 | 					2,806 | 				15 | 				387 X 455 - 4096 X 7168 |	15-100cm (ish) | 	Rotated Bounding Boxes | 	Google Earth (mostly) and satellites |					2018	| Academic purposes only; any commercial use is prohibited
+|[DOTA](https://captain-whu.github.io/DOTA/dataset.html) | 			188,282 | 					2,806 | 				15 | 				387 X 455 - 4096 X 7168 |	15-100cm (ish) | 	Rotated and Horizontal Bounding Boxes | 	Google Earth (mostly) and satellites |					2018	| Academic purposes only; any commercial use is prohibited
 |[XVIEW](http://xviewdataset.org/) | 1,000,000+ | 	TBD | 			60 |				large |						30 cm | 		Horizontal Bounding Boxes |	WorldView-3 satellites | 2018 | Non-commercial use
 |[NWPU VHR-10](http://www.escience.cn/people/gongcheng/NWPU-VHR-10.html) | 		3,651 | 						800 | 				10 | 				large | 						8-200cm | 		Horizontal Bounding Boxes | Google Earth and Vaihingen dataset | 2016 | Research purposes only
 |[COWC](https://gdo152.llnl.gov/cowc/) | 			32,716 |					TBD |				1 (cars) |			large |						15 cm | Center Points | 			TBD | 2016 | None
@@ -46,9 +46,12 @@ DOTA is a large dataset that combines aerial and satellite imagery. It combines 
 
 [DOTA: A Large-scale Dataset for Object Detection in Aerial Images](https://arxiv.org/abs/1711.10398)
 
-#### Categories
-Plane, Ship, Storage Tank, Baseball Diamond, Tennis Court, Basketball Court, Ground Track Field, Harbor, Bridge, Large Vehicle, Small Vehicle, Helicopter, Roundabout, Soccer Ball Field, Basketball Court
+#### Categories (abbreviation used on Leaderboard)
+Plane, Ship, Storage Tank (ST), Baseball Diamond (BD), Tennis Court (TC), Basketball Court (BC), Ground Track Field (GTF), Harbor, Bridge, Large Vehicle (LV), Small Vehicle (SV), Helicopter (HC), Roundabout (RA), Soccer Ball Field (SBF), Basketball Court
 
+#### Leaderboard
+
+https://captain-whu.github.io/DOTA/results.html
 
 ## xView
 The xView dataset contains over 1 million objects across 60 classes covering over 1,400 km^2. Objects in xView vary in size from 3 meters (10 pixels) to greater than 3,000 meters (10,000 pixels).
