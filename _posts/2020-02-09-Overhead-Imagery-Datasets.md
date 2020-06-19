@@ -51,7 +51,7 @@ Plane, Ship, Storage Tank (ST), Baseball Diamond (BD), Tennis Court (TC), Basket
 
 #### Leaderboard
 
-https://captain-whu.github.io/DOTA/results.html
+[DOTA Leaderboard](https://captain-whu.github.io/DOTA/results.html)
 
 ## xView
 The xView dataset contains over 1 million objects across 60 classes covering over 1,400 km^2. Objects in xView vary in size from 3 meters (10 pixels) to greater than 3,000 meters (10,000 pixels).
