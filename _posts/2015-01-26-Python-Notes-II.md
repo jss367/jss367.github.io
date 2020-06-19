@@ -175,7 +175,7 @@ print(cb)
     (5, 6, 7, 8, 9)
     
 
-You can use this two quickly sort two lists while keeping them in sync.
+You can use this to quickly sort two lists while keeping them in sync.
 
 
 ```python
