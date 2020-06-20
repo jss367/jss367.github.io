@@ -12,6 +12,7 @@ I find that sometimes the best way to understand a topic is to see it in action.
 
 * [Hands-on demonstration of how image kernels work](https://setosa.io/ev/image-kernels/)
 * [Beautiful step-by-step process of matrix multiplication](matrixmultiplication.xyz)
+* Possibly the best place to gain an intuition of how neural networks work is the [Tensorflow Neural Network Playground](https://playground.tensorflow.org/)
 * [The Standford CS231n webpage](https://cs231n.github.io/convolutional-networks/) shows how convolutional neural networks work very clearly
 * [Distill](https://distill.pub/) is an online journal for clearly presenting machine learning research. There is a lot of great content here.
 * Grant Sanderson's Youtube channel, [3Blue1Brown](https://www.youtube.com/channel/UCYO_jab_esuFRV4b17AJtAw), is amazing for gaining a deep understanding of many of the mathematical concepts behind deep learning as well as an appreciation for the beauty of it. He has a series called [Essence of linear algebra](https://www.youtube.com/watch?v=fNk_zzaMoSs&list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab) that I recommend. He is the great math teacher I have ever known.
