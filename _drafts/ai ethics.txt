@@ -1,6 +1,10 @@
 ai ethics
 
 
+Practitioners need to wake up. This is going to be regulated. Do we want it regulated by 1. people who do understand it or 2. people who do.
+
+
+
 different across genders
 
 
@@ -99,9 +103,15 @@ OK, then what about face swaps? Is it OK if I do a face swap and then post a pic
 You could do this before. But AI makes it easy. You used to need to go frame by frame, but not any more... Was it OK before? Is it OK now?
 
 
+responsibility:
+
+no one feels responsible. First, this happens *everywhere*. I've worked on projects that didn't go well and the person who was solely responisble for it didn't feel responsible. OK, but this is a case where it's even worse with machine learning. In machine learning the engineer can claim that it's the data that made the decision, which defuses the blame. This is not acceptable.
 
 
+The media has been horrible in this space. Their understanding of AI is not much more than knowing that articles with AI in the title get more clicks and they get an excuse to use a stock photo from Terminator.
 
+
+Face ID - exact same thing that happens at the grocery store. They basically say they'll pay us for our shopping information. They don't use face id because it creeps people out.
 
 
 
@@ -143,3 +153,24 @@ what to hold companies accountable for? there will be mistakes. some of these se
 i find it's too easy to just say "we need common sense reform". everyone celebrates that message but it's basically an empty statement. i'll try to be more specific. I don't like when conclusions are so vague that 100% of people will agree with them.
 
 just like i'm a software engineer and dont want software involved in our elections
+
+
+
+
+
+
+
+
+
+You have to be aware of what your model could possibly learn
+
+If people are "liking" posts and your finding latent characteristics of those posts and promoting those with those characteristics, you don't know what you're promoting. You could be promoting something awful. There are things that aren't illegal that are still undesireable. Somewhere, there's a line on what constitutes child pornography. Just next to that line, on the legal side, is an image that's very close to illegal child pornography but isn't - perhaps it's a suggestive photograph or something like that. Would you want an algorithm to promote that? I don't think so. We shouldn't be promoting latent features that we don't understand. In some cases, the scope is constrained. If you are promoting types of apples to people based on their profiles, you're either going to promote a Granny Smith or a Honeycrisp, and there's no real harm from using variables you don't understand.
+
+But if the scope is unlimited, like in unrestricted speech or images, we can't be promoting unknown features. The room for this to go bad is too great.
+
+It's certainly true that models trained on machine learning are a reflection of the society that generated the training data. But just because it's a reflection doesn't mean it's OK to promote whatever the crowd would like.
+
+
+
+
+

@@ -338,6 +338,8 @@ HEAD is a reference to the last commit in the currently checked-out branch.
 
 You can create a .gitignore file automatically, and I recommend you do this.
 
+Note that (at least on Windows) the direction of the slash matters. If you want to ignore all your VSCode files, `.vscode/*` will work, but `.vscode\*` won't.
+
 ## GUIs
 
 While no GUI has all the features of the command line, they are still very helpful. The one I recommend is the [GitHub Desktop](https://desktop.github.com/) app. It's easy to use and offers support for Mac and Windows. I do wish they would add Linux to that list. But it brings up the problem with GUIs - you won't always have access to them, so don't rely on them. Say you're working through an SSH tunnel on some remote server. You'll often be in the case where you **can't** use a GUI, so I still recommend learning the command line. But the GUI definitely helps to make the initial steps more gentle. I still use the GUI when possible because I think the graphical inferface makes viewing the differences much easier.
