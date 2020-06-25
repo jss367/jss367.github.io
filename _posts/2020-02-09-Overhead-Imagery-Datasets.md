@@ -7,7 +7,7 @@ thumbnail: "assets/img/gosse_bluff.jpg"
 tags: [Geospatial Analytics]
 ---
 
-This post provides a summary of some of the most important overhead imagery datasets. I intend to make this a living document that is continuously updated.
+This post provides a summary of some of the most important overhead imagery datasets for object detection. The aim of this post is to be a living document where I continue to add new datasets as they are released.
 
 <b>Table of contents</b>
 * TOC
