@@ -47,7 +47,8 @@ DOTA is a large dataset that combines aerial and satellite imagery. It combines 
 [DOTA: A Large-scale Dataset for Object Detection in Aerial Images](https://arxiv.org/abs/1711.10398)
 
 #### Categories
-(abbreviations used on leaderboard are shown as well)
+(abbreviations used on leaderboard are shown in parentheses)
+
 Plane, Ship, Storage Tank (ST), Baseball Diamond (BD), Tennis Court (TC), Basketball Court (BC), Ground Track Field (GTF), Harbor, Bridge, Large Vehicle (LV), Small Vehicle (SV), Helicopter (HC), Roundabout (RA), Soccer Ball Field (SBF), Basketball Court
 
 #### Leaderboard
