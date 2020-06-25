@@ -46,7 +46,8 @@ DOTA is a large dataset that combines aerial and satellite imagery. It combines 
 
 [DOTA: A Large-scale Dataset for Object Detection in Aerial Images](https://arxiv.org/abs/1711.10398)
 
-#### Categories (abbreviation used on Leaderboard)
+#### Categories
+(abbreviations used on leaderboard are shown as well)
 Plane, Ship, Storage Tank (ST), Baseball Diamond (BD), Tennis Court (TC), Basketball Court (BC), Ground Track Field (GTF), Harbor, Bridge, Large Vehicle (LV), Small Vehicle (SV), Helicopter (HC), Roundabout (RA), Soccer Ball Field (SBF), Basketball Court
 
 #### Leaderboard
@@ -54,6 +55,8 @@ Plane, Ship, Storage Tank (ST), Baseball Diamond (BD), Tennis Court (TC), Basket
 [DOTA Leaderboard](https://captain-whu.github.io/DOTA/results.html)
 
 #### GSD Distribution
+
+Here are histograms and boxplots of the ground sample distance for images in the dataset (when provided). Outliers have been excluded from the box plot for clarity.
 
 ![DOTA_GSD]({{site.baseurl}}/assets/img/Training_histo.png "DOTA GSD")
 
