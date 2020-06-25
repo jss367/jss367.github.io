@@ -76,7 +76,7 @@ The xView dataset contains over 1 million objects across 60 classes covering ove
 [xView: Objects in Context in Overhead Imagery](https://arxiv.org/abs/1802.07856)
 
 #### Categories
-They use ontological labels, which I like. Fortunately, this could be done after the fact with the other datasets as well.
+They use ontological labels, which I like. Although for datasets that don't, this same idea could be done after the fact.
 
 Aircraft Hangar, Barge, Building, Bus, Cargo Truck, Cargo/container Car, Cement Mixer, Construction Site, Container Crane, Container Ship, Crane Truck, Damaged/demolished Building, Dump Truck, Engineering Vehicle, Excavator, Facility, Ferry, Fishing Vessel, Fixed-wing Aircraft, Flat Car, Front Loader/bulldozer, Ground Grader, Haul Truck, Helicopter, Helipad, Hut/tent, Locomotive, Maritime Vessel, Mobile Crane, Motorboat, Oil Tanker, Passenger Vehicle, Passenger Car, Passenger/cargo Plane, Pickup Truck, Pylon, Railway Vehicle, Reach Stacker, Sailboat, Shed, Shipping Container, Shipping Container Lot, Small Aircraft, Small Car, Storage Tank, Straddle Carrier, Tank Car, Tower, Tower Crane, Tractor, Trailer, Truck, Truck Tractor, Truck Tractor W/ Box Trailer, Truck Tractor W/ Flatbed Trailer, Truck Tractor W/ Liquid Tank, Tugboat, Utility Truck, Vehicle Lot, Yacht
 
