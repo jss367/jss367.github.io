@@ -18,7 +18,7 @@ This post provides a summary of some of the most important overhead imagery data
 |Dataset Name | 										Total Number of Objects | 	Number of Images | 	Number of Categories | Image Size | 			Resolution | 		Annotation Type | 			Source |				Year Released| Restrictions
 |------------------ | --------------------- | --------------------- | ---------------------
 |[DIOR](http://www.escience.cn/people/gongcheng/DIOR.html) | 			192,472 | 					23,463 | 				20 | 				large |	TBD				 | 	Horizontal Bounding Boxes | 	TBD |					2020	| None
-|[DOTA](https://captain-whu.github.io/DOTA/dataset.html) | 			188,282 | 					2,806 | 				15 | 				387 X 455 - 4096 X 7168 |	most 20-40cm (see below) | 	Rotated and Horizontal Bounding Boxes | 	Google Earth (mostly) and satellites |					2018	| Academic purposes only; any commercial use is prohibited
+|[DOTA](https://captain-whu.github.io/DOTA/dataset.html) | 			188,282 | 					2,806 | 				15 | 				387 X 455 - 4096 X 7168 |	mostly 20-40cm (see below) | 	Rotated and Horizontal Bounding Boxes | 	Google Earth (mostly) and satellites |					2018	| Academic purposes only; any commercial use is prohibited
 |[XVIEW](http://xviewdataset.org/) | 1,000,000+ | 	TBD | 			60 |				large |						30 cm | 		Horizontal Bounding Boxes |	WorldView-3 satellites | 2018 | Non-commercial use
 |[NWPU VHR-10](http://www.escience.cn/people/gongcheng/NWPU-VHR-10.html) | 		3,651 | 						800 | 				10 | 				large | 						8-200cm | 		Horizontal Bounding Boxes | Google Earth and Vaihingen dataset | 2016 | Research purposes only
 |[COWC](https://gdo152.llnl.gov/cowc/) | 			32,716 |					TBD |				1 (cars) |			large |						15 cm | Center Points | 			TBD | 2016 | None
