@@ -53,6 +53,16 @@ Plane, Ship, Storage Tank (ST), Baseball Diamond (BD), Tennis Court (TC), Basket
 
 [DOTA Leaderboard](https://captain-whu.github.io/DOTA/results.html)
 
+#### GSD Distribution
+
+![DOTA_GSD]({{site.baseurl}}/assets/img/Training_histo.png "DOTA GSD")
+
+![DOTA_GSD]({{site.baseurl}}/assets/img/train_box_plot.png "DOTA GSD")
+
+![DOTA_GSD]({{site.baseurl}}/assets/img/Validation_histo.png "DOTA GSD")
+
+![DOTA_GSD]({{site.baseurl}}/assets/img/val_box_plot.png "DOTA GSD")
+
 ## xView
 The xView dataset contains over 1 million objects across 60 classes covering over 1,400 km^2. Objects in xView vary in size from 3 meters (10 pixels) to greater than 3,000 meters (10,000 pixels).
 
