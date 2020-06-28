@@ -38,7 +38,6 @@ OK, we've made progress, but we're still not done. Implicit in all these calcula
 
 
 
-$$ IoU(A,B) = {{|A \cap B|}\over{|A \cup B|}} = {{|A \cap B|}\over{|A| + |B| - |A \cap B|}} $$
 
 This is also known as the Jaccard index.
 
