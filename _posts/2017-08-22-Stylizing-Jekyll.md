@@ -164,7 +164,7 @@ Or you could do it in HTML like this:
 
 # Mathematical Formulas
 
-<math display="block">F = 2 \cdot \frac{\mathrm{precision} \cdot \mathrm{recall}}{ \mathrm{precision} + \mathrm{recall}}</math>
+You can use [LaTeX](https://www.latex-project.org/) to write beautiful mathematical formulas, like the one below.
 
 $$ F1 = 2 \cdot \frac{\mathrm{precision} \cdot \mathrm{recall}}{ \mathrm{precision} + \mathrm{recall}} $$
 
