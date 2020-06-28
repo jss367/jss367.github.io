@@ -126,13 +126,7 @@ $$ F_\beta = (1 + \beta^2) \cdot \frac{\mathrm{precision} \cdot \mathrm{recall}}
 
 There are other approaches but they haven’t taken off: https://arxiv.org/pdf/1807.01696.pdf
 
-
-What is Box AP? - I think it’s the same as AP. I guess it just means with bounding boxes. As opposed to with Masks
+What is Box AP? - It just means with bounding boxes. As opposed to with Masks
 “The proposed methods are only applied on the detection branch in Mask R-CNN. APbb means the detection performance and APmask indicates the segmentation performance”
-There’s also APs, APm, APl - small, medium, large
-Maybe look at example from cascade mask rcnn or something
-
-
 
 There is not perfect consistency here. There is very good consistency, especially when benchmarking on datasets like COCO. 
-
