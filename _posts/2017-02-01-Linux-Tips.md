@@ -114,10 +114,9 @@ You can also check if it is a regular file:
 Or a directory
 `[ -d myfiles ] && echo "Found" || echo "Not Found"`
 
-### Packages to Check Out
+### tldr
 
-Another couple of packages worth checking out are [tldr](https://tldr.sh/) and 
-
+Another package worth checking out is [tldr](https://tldr.sh/). It's like `man` but comes with examples.
 
 ### Colors
 
