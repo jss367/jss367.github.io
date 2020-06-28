@@ -37,7 +37,7 @@ Many datasets have lots of objects. [COCO](http://cocodataset.org/#home), for ex
 OK, we've made progress, but we're still not done. Implicit in all these calculations is the question of whether a prediction is right or now. We zoomed over it in the beginning but let's look at it here. 
 
 
-$$ IoU(A,B) = {{A \cup B}\over{|A \cup B|}} $$
+$$ IoU(A,B) = \frac{A \cap B}{|A \cup B|} $$
 
 This is also known as the Jaccard index.
 
