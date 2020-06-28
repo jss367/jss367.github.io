@@ -162,6 +162,13 @@ Or you could do it in HTML like this:
 </tr>
 </table>
 
+# Mathematical Formulas
+
+<math display="block">F = 2 \cdot \frac{\mathrm{precision} \cdot \mathrm{recall}}{ \mathrm{precision} + \mathrm{recall}}</math>
+
+$$ F1 = 2 \cdot \frac{\mathrm{precision} \cdot \mathrm{recall}}{ \mathrm{precision} + \mathrm{recall}} $$
+
+
 # Citations
 
 This is a sentence with a citation[^1]. Go to this [StackOverflow question](https://stackoverflow.com/questions/50467557/jekyll-on-github-pages-how-to-include-external-content-inside-footnotes/50475226) to see how to set them up.
