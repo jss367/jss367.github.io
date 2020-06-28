@@ -6,11 +6,11 @@ thumbnail: "assets/img/palm_sunset.jpg"
 tags: [Python]
 ---
 
-The most frequently used evaluation for object detection is "Average Precision (AP)", which was originally introduced in [The PASCAL Visual Object Classes Challenge 2007](http://host.robots.ox.ac.uk/pascal/VOC/voc2007/) (VOC2007). It's a relatively simple concept, but when you look at research papers, you'll often see lots of variations on the basic concept. This post aims to clarify those variations.
+The most frequently used evaluation metric for object detection is "Average Precision (AP)", which was originally introduced in [The PASCAL Visual Object Classes Challenge 2007](http://host.robots.ox.ac.uk/pascal/VOC/voc2007/) (VOC2007). It's a relatively simple concept, but when you look at research papers, you'll often see lots of variations on the basic concept. This post aims to clarify those variations.
 
-# Precision and Recall
+## Precision and Recall
 
-First, we'll start with **precision** and **recall**. Precisions asks, "Out of all the times the model said it was positive, what percentage were correct?" Recall, asks "Out of all the times there was a positive, what percentage were found by the model?" Mathematically, they are calculated by looking at the number of true positives, false positives, and false negatives as follows:
+Before we can get into average precision, we'll have to start with **precision** and **recall**. These are two of the most important metrics when evaluating the quality of a statistical model. They are rigorous statistical methods with intuitive meanings. Precisions asks, "Out of all the times the model said it was positive, what percentage were correct?" Recall, asks "Out of all the times there was a positive, what percentage were found by the model?" Mathematically, they are calculated by looking at the number of true positives, false positives, and false negatives as follows:
 
 $$ \text{Precision}=\frac{TP}{TP+FP} $$
 
@@ -18,28 +18,26 @@ $$ \text{Recall}=\frac{TP}{TP+FN} $$
 
 Note that the notion of "true negative" doesn't exist for object detection. Every group of pixels that's not an object would be a negative so there are too many for the metric to be meaningful.
 
-# Average Precision
+## Thresholds and IoU
 
-Now let's make sure we understand average precision. The term is exactly what it sounds - the average precision, as defined above, of a model. Why are there multiple precisions? Well, by varying the threshold of what you call an object or ignore, you can produce different values of the precision and recall. Thus the average precision is calculate by sampling the precision at a bunch of different thresholds and averaging them.
-
-So, how do you calculate it? You have to change the threshold to keep increasing the recall, then find the precision at each point. Note that if you actually do this precision doesn't decrease monotonically. That's OK. You make the curve monotonic by setting the precision to be the highest value at that given recall or higher. This is because if you land at a bad spot you could always tweak the threshold to a value that's going to give you higher precision and recall.
-
-OK, so you know that "Average Precision", or AP, is the area under the precision recall curve. Now let's go one step further. AP is between 0 and 100, with higher numbers better.
-
-## Multiclass classification
-
-Many datasets have lots of objects. [COCO](http://cocodataset.org/#home), for example, has 80. To compare performance over all object categories, the mean AP (mAP) averaged over all object categories is usually used. This means we find the AP value for each class and take the average.
-
-
-
-## Varying Thresholds and IoU
-
-OK, we've made progress, but we're still not done. Implicit in all these calculations is the question of whether a prediction is right or now. We zoomed over it in the beginning but let's look at it here. 
-
+The notion of a **true positive** sounds fairly intuitive, but there are actually some important details to work out. If a model predicts a dog in a photograph and the bounding box is off by a few pixels, does it still count? To determine that, we need a threshold for how much overlap to allow. The metric we use for this is known as the **Intersection over Union**, or **IoU**, score. It is defined as follows:
 
 $$ IoU(A,B) = \frac{A \cap B}{|A \cup B|} $$
 
-This is also known as the Jaccard index.
+The IoU score is also known as the **Jaccard index**.
+
+## Average Precision
+
+Now let's turn to **average precision**. The term is exactly what it sounds - the average precision, as defined above, of a model. What are we averaging? Well, by varying the threshold of the IoU score, we will produce different values of precision and recall. Thus the average precision is calculate by sampling the precision at a bunch of different thresholds and averaging them.
+
+So, how do you calculate it? You have to change the threshold to keep increasing the recall, then find the precision at each point. Note that if you actually do this precision doesn't decrease monotonically. That's OK. You make the curve monotonic by setting the precision to be the highest value at that given recall or higher. This is because if you land at a bad spot you could always tweak the threshold to a value that's going to give you higher precision and recall.
+
+OK, so you know that "Average Precision", or AP, is the area under the precision recall curve. AP is between 0 and 100, with higher numbers better. Now let's go one step further. 
+
+## Multiclass classification
+
+Many datasets have lots of objects. [COCO](http://cocodataset.org/#home), for example, has 80. To compare performance over all object categories, the **mean AP (mAP)** averaged over all object categories is usually used. This means we find the AP value for each class and take the average. Note that mAP is not weighed by category frequency. If you have 1000 examples of a cat and an AP value of 0.9 and 10 examples of a dog and an AP value of 0.7, your mAP would be 0.8.
+
 
 
 Sometimes, different competitions use different values. For Pascal VOC, you'll often see mAP@0.5. For COCO, you'll see mAP@[0.5:0.95]. This is a third average!
@@ -104,7 +102,7 @@ There is not perfect consistency here. There is very good consistency, especiall
 
 
 
-note that mAP is not weighed by category frequency. If you have 1000 examples of a cat and an AP value of 0.9 and 10 examples of a dog and an AP value of 0.7, your mAP would be 0.8.
+
 
 # Small Objects
 
