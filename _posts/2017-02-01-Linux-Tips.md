@@ -64,12 +64,15 @@ You can also search for file types, such as:
 
 `find . -executable`
 
+### fd ###
+
+[fd](https://github.com/sharkdp/fd) is worth giving a try.
+
 ### ls ###
 
 Don't forget `ls` can also be a great tool for this. Something as simple as `ls | grep rsa` to find rsa keys. Note that you don't need asterisks for this.
 
-
-### Finding text within files ###
+### Finding Text within Files ###
 
 If you want to search for text within files, you can use `grep`:
 
@@ -79,17 +82,28 @@ One of the most useful flags for me is `-i` for ignore case:
 
 `grep -i -d recurse "This Text" *`
 
+## Viewing System Processes
+
+`top` is the default tool and is great, but for something easier to view, try [htop](https://hisham.hm/htop/).
 
 
-## Storage ##
+## Storage
 
-`ncdu` is a great replacement for `du`. You might not have `ncdu` by default so you may have to `yum install ncdu`. If your storage is getting full:
+[ncdu](https://dev.yorhel.nl/ncdu) is a great replacement for `du`. You might not have `ncdu` by default so you may have to `yum install ncdu`. If your storage is getting full:
 
 `ncdu -x`
 
 Another option for exploring storage is `df -h`.
 
-## Other ##
+## apt vs apt-get ##
+
+Debian-based Linux distributions, like Ubuntu, started using apt. 
+
+apt is in many ways a nicer version of apt-get. It takes the most commonly used part. 
+
+so apt-get remove package is now apt remove package
+
+## Other
 
 Another way to find if a file exists is:
 `[ -e myfile.txt ] && echo "Found" || echo "Not Found"`
@@ -100,10 +114,12 @@ You can also check if it is a regular file:
 Or a directory
 `[ -d myfiles ] && echo "Found" || echo "Not Found"`
 
+### Packages to Check Out
+
+Another couple of packages worth checking out are [tldr](https://tldr.sh/) and 
 
 
-
-### Colors ##
+### Colors
 
 I found this [amazing script on AskUbuntu](https://askubuntu.com/questions/17299/what-do-the-different-colors-mean-in-ls).
 
@@ -117,10 +133,4 @@ eval $(echo "no:global default;fi:normal file;di:directory;ln:symbolic link;pi:n
 } 
 
 
-## apt vs apt-get ##
 
-Debian-based Linux distributions, like Ubuntu, started using apt. 
-
-apt is in many ways a nicer version of apt-get. It takes the most commonly used part. 
-
-so apt-get remove package is now apt remove package
