@@ -24,3 +24,11 @@ If you reading the paper much later, you don't need to have proof that it works 
 
 
 If you don't know the symbols, this wikipedia list is good: https://en.wikipedia.org/wiki/List_of_mathematical_symbols
+
+
+
+Single idea:
+https://arxiv.org/abs/1811.04110
+
+I think this could be a single sentence. I'm sure the authors would disagree with me (and they're probably right), but I believe the most important takeaway from this paper could be summarized in a single sentence.
+
