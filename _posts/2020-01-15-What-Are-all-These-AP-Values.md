@@ -39,8 +39,9 @@ OK, so you know that "Average Precision", or AP, is the area under the precision
 Many datasets have lots of objects. [COCO](http://cocodataset.org/#home), for example, has 80. To compare performance over all object categories, the **mean AP (mAP)** averaged over all object categories is usually used. This means we find the AP value for each class and take the average. Note that mAP is not weighed by category frequency. If you have 1000 examples of a cat and an AP value of 0.9 and 10 examples of a dog and an AP value of 0.7, your mAP would be 0.8.
 
 
+## Multiple Thresholds
 
-
+The final thing to introduce is the notion of multiple thresholds. Sometimes the best 
 
 
 
@@ -82,9 +83,6 @@ These threshold are not ideal for all cases. For example, in geospatial analytic
 Your intersection is 16 pixels. Your union is 36 pixels. This gives an IoU of 16/36 = 0.44. So you're only a pixel off but this would count as a miss. I think for very small objects the threshold should be decreased.
 
 
-
-ap 50:95 is not a good threshold for small objects... one pixel off causes quite a lot of loss
-
 ## Examples
 
 OK, let's look at some examples. Here's a table from [Cascade R-CNN](https://arxiv.org/abs/1906.09756):
@@ -108,6 +106,20 @@ Sometimes you'll see box AP. It's the same as AP but they're highlighting that i
 ![metric]({{site.baseurl}}/assets/img/metrics/mask_rcnn.png "Metrics")
 
 
+
+
+## F1
+
+Better for production because you have an actual threshold value.
+
+$$ F1 = 2 \cdot \frac{\mathrm{precision} \cdot \mathrm{recall}}{ \mathrm{precision} + \mathrm{recall}} $$
+
+
+Note that this is a generalization of FBeta
+
+$$ F_\beta = (1 + \beta^2) \cdot \frac{\mathrm{precision} \cdot \mathrm{recall}}{(\beta^2 \cdot \mathrm{precision}) + \mathrm{recall}} $$
+
+
 ## Other attempts
 
 There are other approaches but they haven’t taken off: https://arxiv.org/pdf/1807.01696.pdf
@@ -124,23 +136,3 @@ So you get 10 different values.. The mean of those values is the AP@[0.5:0.95].
 
 There is not perfect consistency here. There is very good consistency, especially when benchmarking on datasets like COCO. 
 
-
-
-
-
-
-## Other
-
-
-
-
-## F1
-
-Better for production because you have an actual threshold value.
-
-$$ F1 = 2 \cdot \frac{\mathrm{precision} \cdot \mathrm{recall}}{ \mathrm{precision} + \mathrm{recall}} $$
-
-
-Note that this is a generalization of FBeta
-
-$$ F_\beta = (1 + \beta^2) \cdot \frac{\mathrm{precision} \cdot \mathrm{recall}}{(\beta^2 \cdot \mathrm{precision}) + \mathrm{recall}} $$
