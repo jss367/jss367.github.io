@@ -12,9 +12,9 @@ The most frequently used evaluation for object detection is "Average Precision (
 
 First, we'll start with **precision** and **recall**. Precisions asks, "Out of all the times the model said it was positive, what percentage were correct?" Recall, asks "Out of all the times there was a positive, what percentage were found by the model?" Mathematically, they are calculated by looking at the number of true positives, false positives, and false negatives as follows:
 
-$$ \text{Precision}=\frac{tp}{tp+fp} $$
+$$ \text{Precision}=\frac{TP}{TP+FP} $$
 
-$$ \text{Recall}=\frac{tp}{tp+fn} $$
+$$ \text{Recall}=\frac{TP}{TP+FN} $$
 
 Note that the notion of "true negative" doesn't exist for object detection. Every group of pixels that's not an object would be a negative so there are too many for the metric to be meaningful.
 
@@ -37,7 +37,7 @@ Many datasets have lots of objects. [COCO](http://cocodataset.org/#home), for ex
 OK, we've made progress, but we're still not done. Implicit in all these calculations is the question of whether a prediction is right or now. We zoomed over it in the beginning but let's look at it here. 
 
 
-
+$$ IoU(A,B) = {{|A \cap B|}\over{|A \cup B|}} $$
 
 This is also known as the Jaccard index.
 
