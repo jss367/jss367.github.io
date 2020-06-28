@@ -6,9 +6,13 @@ thumbnail: "assets/img/palm_sunset.jpg"
 tags: [Python]
 ---
 
-In recent years, the most frequently used evaluation for object detection is “Average Precision (AP)”, which was originally introduced in [The PASCAL Visual Object Classes Challenge 2007](http://host.robots.ox.ac.uk/pascal/VOC/voc2007/) (VOC2007). It's a relatively simple concept, but when you look at research papers, you'll often see lots of variations on the basic concept. This post will clarify all those variations.
+The most frequently used evaluation for object detection is "Average Precision (AP)", which was originally introduced in [The PASCAL Visual Object Classes Challenge 2007](http://host.robots.ox.ac.uk/pascal/VOC/voc2007/) (VOC2007). It's a relatively simple concept, but when you look at research papers, you'll often see lots of variations on the basic concept. This post aims to clarify those variations.
 
-First, let's be clear about average precision. The term is exactly what it sounds - the average precision of a model. If you check the precision at a bunch of different thresholds, it's the average of them. So, how do you calculate it? You have to change the threshold to keep increasing the recall, then find the precision at each point. To make the curve decrease monotonically, you just Note that if you actually do this precision doesn't decrease monotonically. That's OK. You make the curve monotonic by setting the precision to be the highest value at that given recall or higher. This is because you could always tweak the threshold to a value that's going to give you higher precision and recall.
+First, let's make sure we understand average precision. 
+
+
+
+The term is exactly what it sounds - the average precision of a model. If you check the precision at a bunch of different thresholds, it's the average of them. So, how do you calculate it? You have to change the threshold to keep increasing the recall, then find the precision at each point. To make the curve decrease monotonically, you just Note that if you actually do this precision doesn't decrease monotonically. That's OK. You make the curve monotonic by setting the precision to be the highest value at that given recall or higher. This is because you could always tweak the threshold to a value that's going to give you higher precision and recall.
 
 OK, so you know that "Average Precision", or AP, is the area under the precision recall curve. But when you look at a research paper, such as Cascade Mask R-CNN (reproduced below), they have a bunch more than than.
 
@@ -63,3 +67,12 @@ There is not perfect consistency here. There is very good consistency, especiall
 
 Sometimes you'll see APbbox or BoxAP or APbb... this is to distinguish it from non-bbox approach, such as Mask
 
+
+note that mAP is not weighed by category frequency. If you have 1000 examples of a cat and an AP value of 0.9 and 10 examples of a dog and an AP value of 0.7, your mAP would be 0.8.
+
+
+F1
+
+Better for production because you have an actual threshold value.
+
+<math display="block">F = 2 \cdot \frac{\mathrm{precision} \cdot \mathrm{recall}}{ \mathrm{precision} + \mathrm{recall}}</math>

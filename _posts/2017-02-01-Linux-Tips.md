@@ -12,9 +12,9 @@ This is a list of simple Linux tips and tricks.
 * TOC
 {:toc}
 
-## Permissions
+## Permissions and Ownership
 
-Permissions are something that often get in the way for new users but are simple to fix. You need to use the `chown` command and you'll probably need to `sudo` with it. It follows a format like this:
+Permissions are something that often get in the way for new users but are simple to fix. To see the permissions, you can type `ls -l`. This shows you the file type ("d" for directory, "-" for file), owner, group, and other permissions. After that you'll see the ownership. If you're having permission error when accessing a file, you may need to change the ownership. To do so you need to use the `chown` command and you'll probably need to `sudo` with it. It follows a format like this:
 
 ```
 chown {user} {file}
