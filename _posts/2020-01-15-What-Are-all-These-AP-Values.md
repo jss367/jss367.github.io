@@ -58,11 +58,13 @@ The 0.5- IoU based mAP has then become the de facto metric for object detection 
 
 But these are really different things. The threshold you use will influence which types of models appear to perform best. 0.5 threshold is very coarse localization while 0.95 is very precise.
 
+So you get 10 different values.. The mean of those values is the AP@[0.5:0.95].
+
 ## Competition Examples
 
 #### Pascal VOC
 
-Sometimes, different competitions use different values. For Pascal VOC, you'll often see mAP@0.5. For COCO, you'll see mAP@[0.5:0.95]. This is a third average!
+Sometimes, different competitions use different values. For Pascal VOC, you'll often see $$ mAP@0.5 $$. For COCO, you'll see $$ mAP@[0.5:0.95] $$. This is a third average!
 
 #### COCO AP
 
@@ -134,7 +136,6 @@ Maybe look at example from cascade mask rcnn or something
 
 
 
-So you get 10 different values.. The mean of those values is the AP@[0.5:0.95].
 
 There is not perfect consistency here. There is very good consistency, especially when benchmarking on datasets like COCO. 
 
