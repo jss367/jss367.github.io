@@ -40,7 +40,6 @@ Many datasets have lots of objects. [COCO](http://cocodataset.org/#home), for ex
 
 
 
-Sometimes, different competitions use different values. For Pascal VOC, you'll often see mAP@0.5. For COCO, you'll see mAP@[0.5:0.95]. This is a third average!
 
 
 
@@ -54,12 +53,39 @@ The 0.5- IoU based mAP has then become the de facto metric for object detection 
 
 But these are really different things. The threshold you use will influence which types of models appear to perform best. 0.5 threshold is very coarse localization while 0.95 is very precise.
 
-## COCO AP
+## Competition Examples
+
+#### Pascal VOC
+
+Sometimes, different competitions use different values. For Pascal VOC, you'll often see mAP@0.5. For COCO, you'll see mAP@[0.5:0.95]. This is a third average!
+
+#### COCO AP
+
 Instead of using a fixed IoU threshold, MS-COCO AP is averaged over multiple IoU thresholds between 0.5 (coarse localization) and 0.95 (perfect localization). This change of the metric has encouraged more accurate object localization and may be of great importance for some real-world applications
 
 In COCO they change the IoU values from 50% to 95%, at a step of 5%.
 
-# Examples
+## Small, Medium, and Large Objects
+
+Sometimes you'll want to know the performance on objects of a specific size. That's where APs, APm, and $$ AP_L $$ come in.
+
+* Small objects are defined as being between 0^2 and 32^2 pixels in area
+* Medium objects are defined as being between 32^2 and 96^2 pixels in area
+* Large objects are defined as being between 96^2 and 1e5^2 pixels in area
+
+I'm not sure why there's an upper limit to large objects, or what you would call an object above that.
+
+## Very Small Objects
+
+These threshold are not ideal for all cases. For example, in geospatial analytics, the objects can be so small that these metrics are too strict. For example, if you have an object that is 5X5 pixels and are off to the side and above by one pixel, your IoU is bad. And it is *very* easy to be off by one pixel (especially if you consider label noise).
+
+Your intersection is 16 pixels. Your union is 36 pixels. This gives an IoU of 16/36 = 0.44. So you're only a pixel off but this would count as a miss. I think for very small objects the threshold should be decreased.
+
+
+
+ap 50:95 is not a good threshold for small objects... one pixel off causes quite a lot of loss
+
+## Examples
 
 OK, let's look at some examples. Here's a table from [Cascade R-CNN](https://arxiv.org/abs/1906.09756):
 
@@ -103,17 +129,12 @@ There is not perfect consistency here. There is very good consistency, especiall
 
 
 
-
-# Small Objects
-
-ap 50:95 is not a good threshold for small objects... one pixel off causes quite a lot of loss
-
-# Other
+## Other
 
 
 
 
-# F1
+## F1
 
 Better for production because you have an actual threshold value.
 
