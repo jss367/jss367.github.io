@@ -81,17 +81,15 @@ One of the most useful flags for me is `-i` for ignore case:
 
 
 
-### Storage ###
+## Storage ##
 
-If your storage is getting full:
+`ncdu` is a great replacement for `du`. You might not have `ncdu` by default so you may have to `yum install ncdu`. If your storage is getting full:
 
 `ncdu -x`
 
-You might not have `ncdu` so you may have to `yum install ncdu`
+Another option for exploring storage is `df -h`.
 
-Also `df -h`
-
-### Other ###
+## Other ##
 
 Another way to find if a file exists is:
 `[ -e myfile.txt ] && echo "Found" || echo "Not Found"`
@@ -105,7 +103,7 @@ Or a directory
 
 
 
-### Colors ###
+### Colors ##
 
 I found this [amazing script on AskUbuntu](https://askubuntu.com/questions/17299/what-do-the-different-colors-mean-in-ls).
 
