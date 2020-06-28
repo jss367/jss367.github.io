@@ -60,6 +60,14 @@ But these are really different things. The threshold you use will influence whic
 
 So you get 10 different values.. The mean of those values is the AP@[0.5:0.95].
 
+## Research Usecases
+
+A lot of papers will actually use both statistics. Here's an example Faster R-CNN showing both:
+
+![metric]({{site.baseurl}}/assets/img/metrics/faster_rcnn.png "Metrics")
+
+It's showing mAP values at a threshold of 0.5, then the average of values at all thresholds from 0.5 to 0.95 in steps of 0.05.
+
 ## Competition Examples
 
 #### Pascal VOC
@@ -80,6 +88,12 @@ Sometimes you'll want to know the performance on objects of a specific size. Tha
 
 I'm not sure why there's an upper limit to large objects, or what you would call an object above that.
 
+Here's an example from [Cascade R-CNN](https://arxiv.org/abs/1906.09756) that shows $$ AP $$, $$ AP_50 $$, and $$ AP_75 $$. Then it shows AP values for small, medium, and large objects.
+
+![metric]({{site.baseurl}}/assets/img/metrics/cascade_rcnn.png "Metrics")
+
+* Explain AP vs AP50
+
 ## Very Small Objects
 
 These threshold are not ideal for all cases. For example, in geospatial analytics, the objects can be so small that these metrics are too strict. For example, if you have an object that is 5X5 pixels and are off to the side and above by one pixel, your IoU is bad. And it is *very* easy to be off by one pixel (especially if you consider label noise).
@@ -87,30 +101,14 @@ These threshold are not ideal for all cases. For example, in geospatial analytic
 Your intersection is 16 pixels. Your union is 36 pixels. This gives an IoU of 16/36 = 0.44. So you're only a pixel off but this would count as a miss. I think for very small objects the threshold should be decreased.
 
 
-## Examples
-
-OK, let's look at some examples. Here's a table from [Cascade R-CNN](https://arxiv.org/abs/1906.09756):
-
-
-![metric]({{site.baseurl}}/assets/img/metrics/cascade_rcnn.png "Metrics")
-
-
-
-Here are some results from Faster R-CNN:
-
-![metric]({{site.baseurl}}/assets/img/metrics/faster_rcnn.png "Metrics")
-
-
-It's showing mAP values at a threshold of 0.5, then the average of values at all thresholds from 0.5 to 0.95 and steps of 0.05.
-
+## Box vs Mask
 
 Sometimes you'll see APbbox or BoxAP or APbb... this is to distinguish it from non-bbox approach, such as Mask
 Sometimes you'll see box AP. It's the same as AP but they're highlighting that it's for bounding boxes. You'll also see this written as APbb, short for "AP bounding box". Here's an example from [Mask R-CNN](https://arxiv.org/abs/1703.06870):
 
 ![metric]({{site.baseurl}}/assets/img/metrics/mask_rcnn.png "Metrics")
 
-
-
+You'll also see key point scores.
 
 ## F1
 
@@ -133,7 +131,6 @@ What is Box AP? - I think it’s the same as AP. I guess it just means with boun
 “The proposed methods are only applied on the detection branch in Mask R-CNN. APbb means the detection performance and APmask indicates the segmentation performance”
 There’s also APs, APm, APl - small, medium, large
 Maybe look at example from cascade mask rcnn or something
-
 
 
 
