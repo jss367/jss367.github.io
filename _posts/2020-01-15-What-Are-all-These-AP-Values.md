@@ -41,9 +41,13 @@ Many datasets have lots of objects. [COCO](http://cocodataset.org/#home), for ex
 
 ## Multiple Thresholds
 
-The final thing to introduce is the notion of multiple thresholds. Sometimes the best 
+The final thing to introduce is the notion of multiple thresholds. Sometimes you want to know how a model performs at a variety of thresholds. In some cases, a rough idea of where an object is is all you need, so an IoU of 0.5 is fine. For others you need a precise localization, so you'll use 0.95.
 
+Instead of using a fixed IoU threshold, MS-COCO AP is averaged over multiple IoU thresholds between 0.5 (coarse localization) and 0.95 (perfect localization). This change of the metric has encouraged more accurate object localization and may be of great importance for some real-world applications
 
+In COCO they change the IoU values from 50% to 95%, at a step of 5%.
+
+**This is the most common metric for COCO evaluation**
 
 What does map@(0.5:0.95)mean? 
 
@@ -62,9 +66,7 @@ Sometimes, different competitions use different values. For Pascal VOC, you'll o
 
 #### COCO AP
 
-Instead of using a fixed IoU threshold, MS-COCO AP is averaged over multiple IoU thresholds between 0.5 (coarse localization) and 0.95 (perfect localization). This change of the metric has encouraged more accurate object localization and may be of great importance for some real-world applications
 
-In COCO they change the IoU values from 50% to 95%, at a step of 5%.
 
 ## Small, Medium, and Large Objects
 
