@@ -10,17 +10,17 @@ The most frequently used evaluation metric for object detection is "Average Prec
 
 ## Precision and Recall
 
-Before we can get into average precision, we'll have to start with **precision** and **recall**. These are two of the most important metrics when evaluating the quality of a statistical model. They are rigorous statistical methods with intuitive meanings. Precisions asks, "Out of all the times the model said it was positive, what percentage were correct?" Recall, asks "Out of all the times there was a positive, what percentage were found by the model?" Mathematically, they are calculated by looking at the number of true positives, false positives, and false negatives as follows:
+Before we can get into average precision, we'll have to start with **precision** and **recall**. These are two of the most important metrics when evaluating the quality of a statistical model. They are rigorous statistical methods with intuitive meanings. Precisions asks, "Out of all the times the model said it was positive, what percentage were correct?" Recall, asks "Out of all the times there was a positive, what percentage were found by the model?" Mathematically, they are calculated by looking at the number of **true positives**, **false positives**, and **false negatives** as follows:
 
 $$ \text{Precision}=\frac{TP}{TP+FP} $$
 
 $$ \text{Recall}=\frac{TP}{TP+FN} $$
 
-Note that the notion of "true negative" doesn't exist for object detection. Every group of pixels that's not an object would be a negative so there are too many for the metric to be meaningful.
+Note that the notion of "**true negative**" doesn't exist for object detection. Every group of pixels that's not an object would be a negative so there are too many for the metric to be meaningful.
 
 ## Thresholds and IoU
 
-The notion of a **true positive** sounds fairly intuitive, but there are actually some important details to work out. If a model predicts a dog in a photograph and the bounding box is off by a few pixels, does it still count? To determine that, we need a threshold for how much overlap to allow. The metric we use for this is known as the **Intersection over Union**, or **IoU**, score. It is defined as follows:
+The notion of a true positive sounds fairly intuitive, but there are actually some important details to work out. If a model predicts a dog in a photograph and the bounding box is off by a few pixels, does it still count? To determine that, we need a threshold for how much overlap to allow. The metric we use for this is known as the **Intersection over Union**, or **IoU**, score. It is defined as follows:
 
 $$ IoU(A,B) = \frac{A \cap B}{|A \cup B|} $$
 
