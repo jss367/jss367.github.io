@@ -101,4 +101,4 @@ $$ F_\beta = (1 + \beta^2) \cdot \frac{\mathrm{precision} \cdot \mathrm{recall}}
 
 ## Other attempts
 
-There are other approaches but they haven’tbecome popular, like [Localization Recall Precision](https://arxiv.org/pdf/1807.01696)
+The question of which metrics to use isn't a settled one. In fact, there are researchers working on new approaches, like [Localization Recall Precision](https://arxiv.org/pdf/1807.01696), but they haven't seen wide-spread adoption.
