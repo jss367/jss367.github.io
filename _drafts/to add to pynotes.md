@@ -19,3 +19,10 @@ t’s a good idea to create your own exceptions. They don’t actually need to d
 
 
 fix wording: These are tips and tricks a little bit more advanced than the previous notebook
+
+
+timing:
+
+you should use timeit:
+https://stackoverflow.com/questions/17579357/time-time-vs-timeit-timeit
+
