@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "What Are All These Different AP Values"
+title: "What Do All These Different AP Values Mean"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/palm_sunset.jpg"
 tags: [Python]
