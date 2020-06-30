@@ -69,7 +69,7 @@ Sometimes you'll want to know the performance on objects of a specific size. Tha
 
 I'm not sure why there's an upper limit to large objects, or what you would call an object above that.
 
-Here's an example from [Cascade R-CNN](https://arxiv.org/abs/1906.09756) that shows $$ AP $$, $$ AP_{50}0 $$, and $$ AP_{75} $$. Then it shows AP values for small, medium, and large objects.
+Here's an example from [Cascade R-CNN](https://arxiv.org/abs/1906.09756) that shows $$ AP $$, $$ AP_{50} $$, and $$ AP_{75} $$. Then it shows AP values for small, medium, and large objects.
 
 ![metric]({{site.baseurl}}/assets/img/metrics/cascade_rcnn.png "Metrics")
 
