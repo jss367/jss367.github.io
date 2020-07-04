@@ -58,3 +58,7 @@ If you want to find the latest information on object detection notebooks in Fast
 There are also student notebooks that are worth looking at. This student implemented [RetinaNet using FastAI](https://github.com/ChristianMarzahl/ObjectDetection). The code is out of date with the most recent version of FastAI but it's still worth looking at. There's an [implementation of SSD here](https://github.com/rohitgeo/singleshotdetector/blob/master/SingleShotDetector%20on%20Pascal.ipynb), although I haven't had a chance to go through it yet. This repo used [FastAI for Whale Identification](https://github.com/radekosmulski/whale/). These [notebooks have instance segmentation](https://github.com/lgvaz/mantisshrimp/tree/master/examples), which I haven't been able to find much of.
 
 I would like to create my own implementations of some of these object detection algorithms using FastAI and update this post with them, but I don't what the timeline is on that.
+
+## Model Zoo
+
+There is also a [Model Zoo website](https://modelzoo.co/) that contains implementations of every type from with every framework. There's a lot of great variety here.
