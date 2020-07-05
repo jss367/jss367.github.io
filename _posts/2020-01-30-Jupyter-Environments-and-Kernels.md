@@ -94,9 +94,7 @@ The next thing you'll need to do is look at your jupyter kernels:
 
 `python2  python3`
 
-Two kernels. You have one for python 2 and one for python 3
-
-When you look inside
+Two kernels. You have one for python 2 and one for python 3. When you look inside...
 
 `cat python3/kernel.json`
 
@@ -114,9 +112,8 @@ You see
  "language": "python"
 }
 
-Why is the python 3 kernel only using the `py3_env2` environment? 
+You have two environments sharing the python 3 kernel. Why is the python 3 kernel only using the `py3_env2` environment?
 
-So you have two environments sharing the python 3 kernel
 
 You can now change the kernel by selecting "Kernel" in the file menu, then "Change kernel".
 
