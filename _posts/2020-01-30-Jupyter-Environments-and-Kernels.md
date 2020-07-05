@@ -14,7 +14,7 @@ The post aims to show how to create Jupyter environments and how to debug any is
 * TOC
 {:toc}
 
-## Debugging tools:
+## Debugging tools
 
 Here are some commands I've found useful when debugging issues with my Jupyter environment. You'll see them used in the examples below.
 
@@ -138,7 +138,7 @@ For Windows users, you can go in the Anacoda Prompt
 
 Should see something like C:\Users\Julius\anaconda3\share\jupyter\kernels\python3
 
-cd there
+`cd` there
 
 then there's a kernel.json with this:
 ```
@@ -159,11 +159,11 @@ then there's a kernel.json with this:
 
 Manually add them:
 
-
+```
 python -m ipykernel install --user --name myenv --display-name "Python (myenv)"
 python -m ipykernel install --user --name pyt --display-name "PyTorch FasiAI"
 python -m ipykernel install --user --name pt --display-name "pt"
-
+```
 
 
 
