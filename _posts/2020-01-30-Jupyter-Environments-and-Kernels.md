@@ -100,6 +100,7 @@ Two kernels. You have one for python 2 and one for python 3. When you look insid
 
 You see
 
+```
 {
  "argv": [
   "/opt/conda/envs/py3_env2/bin/python",
@@ -111,6 +112,7 @@ You see
  "display_name": "Python 3",
  "language": "python"
 }
+```
 
 You have two environments sharing the python 3 kernel. Why is the python 3 kernel only using the `py3_env2` environment?
 
@@ -120,7 +122,7 @@ You can now change the kernel by selecting "Kernel" in the file menu, then "Chan
 
 Install the IPython kernel:
 
-pip install --user ipykernel
+`pip install --user ipykernel`
 
 
 There is a kernel.json file
