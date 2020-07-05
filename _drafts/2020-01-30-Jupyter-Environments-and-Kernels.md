@@ -26,6 +26,7 @@ it says
 
 What? Why is it using the py3_env2 python interpreter? The answer is kernels.
 
+## Docker Containers
 
 Let's step back a second to how they were created. There are a lot of different ways to find yourself in this situation, but for our purposes we'll assume you're in a Docker container and did something like this:
 
@@ -88,10 +89,11 @@ If you don't get your env a name it will overwrite this
 What happened is that the py3_enf2 kernel overwrote the py3_env1 kernel. 
 
 
+## Windows
 
 For Windows users, you can go in the Anacoda Prompt
 
-jupyter kernelspec list
+`jupyter kernelspec list`
 
 Should see something like C:\Users\Julius\anaconda3\share\jupyter\kernels\python3
 
