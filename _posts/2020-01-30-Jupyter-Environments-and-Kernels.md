@@ -140,7 +140,8 @@ Should see something like C:\Users\Julius\anaconda3\share\jupyter\kernels\python
 
 `cd` there
 
-then there's a kernel.json with this:
+You should see a `kernel.json` file. You can look inside it with `type kernel.json` (`type` is the Windows version of the Unix command `cat`)
+
 ```
 {
  "argv": [
@@ -163,9 +164,10 @@ Manually add them:
 python -m ipykernel install --user --name myenv --display-name "Python (myenv)"
 python -m ipykernel install --user --name pyt --display-name "PyTorch FasiAI"
 python -m ipykernel install --user --name pt --display-name "pt"
+python -m ipykernel install --user --name tf2 --display-name "tf2"
 ```
 
-
+Now, if you reload your Jupyter Notebook page, your new kernels should be available (you shouldn't need to restart your Jupyter Notebook server).
 
 
 
