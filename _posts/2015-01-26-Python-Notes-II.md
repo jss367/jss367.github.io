@@ -729,7 +729,18 @@ VSCode and PyCharm have the strongest debugging capabilities.
 
 ## pdb
 
-it's the default
+`pdb` is the default Python debugger and for this reason alone it's good to be familiar with. I often use it when I am tunneling into somewhere.
+
+### Main commands
+
+The main commandes to know are:
+
+* `n` - proceed to next step
+* `s` - step into
+* `u` - move up stack
+* `d` - move down stack
+* `l` - show surrounding lines
+* `ll` - "long list", show all of the code
 
 ### List all the attributes of an object
 
