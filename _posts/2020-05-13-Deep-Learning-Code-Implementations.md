@@ -57,7 +57,7 @@ For PyTorch models focused on overhead imagery, one [really good repository](htt
 
 ### FastAI
 
-Finding code for [FastAI](https://www.fast.ai/) is tricky at the moment because 1. the user base is much, much smaller than either Tensorflow or PyTorch (although PyTorch code *is* compatible, it's just not smooth) and 2. the code is still in a state of rapid change. Most code from a few years ago will be very difficult to run on today's [FastAI codebase](https://github.com/fastai/fastai) (and [fastai2](https://github.com/fastai/fastai2) is coming along soon). However, if you are watching the FastAI videos, you can follow along with the [notebooks used in the latest course](https://github.com/fastai/course-v3/tree/master/nbs). The notebooks have changed so you'll have to tweak things but it's a good place to get started.
+Finding code for [FastAI](https://www.fast.ai/) is tricky at the moment because 1. the user base is much, much smaller than either Tensorflow or PyTorch (although PyTorch code *is* compatible, it's just not smooth) and 2. the code is still in a state of rapid change. Most code from a few years ago will be very difficult to run on today's [FastAI codebase](https://github.com/fastai/fastai) (and [fastai2](https://github.com/fastai/fastai2) is coming along soon). However, if you are watching the FastAI videos, you can follow along with the [notebooks used in the latest course](https://github.com/fastai/course-v3/tree/master/nbs). The notebooks have changed so you may have to tweak things but it's a good place to get started.
 
 ##### Object Detection
 
