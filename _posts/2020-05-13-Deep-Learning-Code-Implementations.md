@@ -12,11 +12,19 @@ There are a lot of great resources on the web that contain implementations of de
 * TOC
 {:toc}
 
-## Papers with Code
+## Cross-Framework Locations
+
+### Papers with Code
 
 Although *most* places have code for a specific framework, one of the best places to find code has implementations for every framework. It's called [Papers with Code](https://paperswithcode.com/). This is absolutely the best way to find implementations in places that you wouldn't normally look.  For example, if you go to the [page for RetinaNet](https://paperswithcode.com/paper/focal-loss-for-dense-object-detection), it shows the excellent [fizyr implementation of RetinaNet](https://github.com/fizyr/keras-retinanet), which I wouldn't have found otherwise. It ranks all the implementations by GitHub stars, so it's easy to find some good ones. As well as PyTorch and Tensorflow, it also often has implementations for [MXNet](https://mxnet.apache.org/).
 
-## Tensorflow
+### Model Zoo
+
+There is also a [Model Zoo website](https://modelzoo.co/) that contains implementations of every type from with every framework. There's a lot of great variety here.
+
+## Framework-specific Locations
+
+### Tensorflow
 
 The first place to go to find Tensorflow implementations is probably the [Tensorflow models repo](https://github.com/tensorflow/models). There's tons of hidden stuff inside this repo. For starters, I would direct people to the `research` folder. There are a lot of implementations there, and, within that, there's another set of models in the [slim directory](https://github.com/tensorflow/models/tree/master/research/slim). Also inside the `research` directory is a [section on keras models](https://github.com/tensorflow/models/tree/master/research/object_detection/models/keras_models) that has implementations of many well-known models, such as inception, mobilenet, and resnet.
 
@@ -24,28 +32,28 @@ The author of Keras, [Francois Chollet](https://fchollet.com/), also has his own
 
 If you're particularly interested in object detection, [tensorpack](https://github.com/tensorpack/tensorpack) is a great place to look. If you don't know where to start, take a look at the `examples` folder.
 
-#### Reinforcement Learning
+##### Reinforcement Learning
 
 A great place to look for reinforcement learning code is [Stable Baselines](https://github.com/hill-a/stable-baselines), which is based on the [baselines](https://github.com/openai/baselines) code of [OpenAI](https://openai.com/).
 
-#### Overhead imagery
+##### Overhead imagery
 
 Some repositories focus on collecting domain-specific models, such as those for overhead imagery. For Tensorflow, [CosmiQ Works](https://www.cosmiqworks.org/)' [simrdwn repo](https://github.com/CosmiQ/simrdwn) is worth checking out.
 
 
-## PyTorch
+### PyTorch
 
 The best place to look for PyTorch object detection models is certainly Facebook's [Detectron2 repository](https://github.com/facebookresearch/detectron2). There's a lot in here but if you're looking for pre-trained networks to download for use or transfer learning, definitely check out the [Model Zoo](https://github.com/facebookresearch/detectron2/blob/master/MODEL_ZOO.md).
 
-#### Overhead imagery
+##### Overhead imagery
 
 For PyTorch models focused on overhead imagery, one [really good repository](https://github.com/dingjiansw101/AerialDetection) is that of [Jian Ding](https://dingjiansw101.github.io/), one of the authors on the [DOTA dataset](https://captain-whu.github.io/DOTA/).
 
-## FastAI
+### FastAI
 
 Finding code for [FastAI](https://www.fast.ai/) is tricky at the moment because 1. the user base is much, much smaller than either Tensorflow or PyTorch (although PyTorch code *is* compatible, it's just not smooth) and 2. the code is still in a state of rapid change. Most code from a few years ago will be very difficult to run on today's [FastAI codebase](https://github.com/fastai/fastai) (and [fastai2](https://github.com/fastai/fastai2) is coming along soon). However, if you are watching the FastAI videos, you can follow along with the [notebooks used in the latest course](https://github.com/fastai/course-v3/tree/master/nbs). The notebooks have changed so you'll have to tweak things but it's a good place to get started.
 
-#### Object Detection
+##### Object Detection
 
 I have found that object detection resources are the most lacking, so I've tried to focus on those. Most of the code is in notebooks due to the teaching style of the course. The [most recent official object detection notebook](https://github.com/fastai/course-v3/blob/master/nbs/dl2/pascal.ipynb) I've found is from version 3 of the course. It does basic object detection and has a [video lecture](https://www.youtube.com/watch?v=Z0ssNAbe81M) associated with it.
 
@@ -57,8 +65,4 @@ If you want to find the latest information on object detection notebooks in Fast
 
 There are also student notebooks that are worth looking at. This student implemented [RetinaNet using FastAI](https://github.com/ChristianMarzahl/ObjectDetection). The code is out of date with the most recent version of FastAI but it's still worth looking at. There's an [implementation of SSD here](https://github.com/rohitgeo/singleshotdetector/blob/master/SingleShotDetector%20on%20Pascal.ipynb), although I haven't had a chance to go through it yet. This repo used [FastAI for Whale Identification](https://github.com/radekosmulski/whale/). These [notebooks have instance segmentation](https://github.com/lgvaz/mantisshrimp/tree/master/examples), which I haven't been able to find much of.
 
-I would like to create my own implementations of some of these object detection algorithms using FastAI and update this post with them, but I don't what the timeline is on that.
-
-## Model Zoo
-
-There is also a [Model Zoo website](https://modelzoo.co/) that contains implementations of every type from with every framework. There's a lot of great variety here.
+I would like to create my own implementations of some of these object detection algorithms using FastAI and update this post with them, but I'm not sure when I'll get to that.
