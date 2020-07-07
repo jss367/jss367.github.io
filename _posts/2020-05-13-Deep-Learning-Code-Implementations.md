@@ -12,7 +12,7 @@ There are a lot of great resources on the web that contain implementations of de
 * TOC
 {:toc}
 
-## Cross-agnostic Resources
+## Framework-agnostic Resources
 
 ### Papers with Code
 
