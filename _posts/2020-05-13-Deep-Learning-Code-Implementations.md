@@ -12,7 +12,7 @@ There are a lot of great resources on the web that contain implementations of de
 * TOC
 {:toc}
 
-## Cross-Framework Locations
+## Cross-agnostic Resources
 
 ### Papers with Code
 
@@ -22,13 +22,15 @@ Although *most* places have code for a specific framework, one of the best place
 
 There is also a [Model Zoo website](https://modelzoo.co/) that contains implementations of every type from with every framework. There's a lot of great variety here.
 
-## Framework-specific Locations
+## Framework-specific Resources
 
 ### Tensorflow
 
 The first place to go to find Tensorflow implementations is probably the [Tensorflow models repo](https://github.com/tensorflow/models). There's tons of hidden stuff inside this repo. For starters, I would direct people to the `research` folder. There are a lot of implementations there, and, within that, there's another set of models in the [slim directory](https://github.com/tensorflow/models/tree/master/research/slim). Also inside the `research` directory is a [section on keras models](https://github.com/tensorflow/models/tree/master/research/object_detection/models/keras_models) that has implementations of many well-known models, such as inception, mobilenet, and resnet.
 
 The author of Keras, [Francois Chollet](https://fchollet.com/), also has his own [repo with some very easy to understand examples](https://github.com/fchollet/deep-learning-models).
+
+##### Object Detection
 
 If you're particularly interested in object detection, [tensorpack](https://github.com/tensorpack/tensorpack) is a great place to look. If you don't know where to start, take a look at the `examples` folder.
 
