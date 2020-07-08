@@ -21,7 +21,7 @@ There are a lot of great resources out there so I thought I would try to compile
 
 ## General Machine Learning
 
-* [Machine Learning Yearning by Andrew Ng](https://www.deeplearning.ai/machine-learning-yearning/) (2018) - this is more about the machine learning process and how to build projects. It's a short read. You have to provide an email address to download it. And while you're there I would recommend leaving the check box for signing up to receive his newsletter, The Batch, checked as well because it's a very good resource.
+* [Machine Learning Yearning by Andrew Ng](https://www.deeplearning.ai/machine-learning-yearning/) (2018) - this is more about the machine learning process and how to build projects. It's a short read. You have to provide an email address to download it. And while you're there I would recommend leaving the checkbox for signing up to receive his newsletter, The Batch, checked as well because it's a very good resource.
 
 * [Interpretable Machine Learning: A Guide for Making Black Box Models Explainable by Christoph Molnar](https://christophm.github.io/interpretable-ml-book/) (2020)
 
