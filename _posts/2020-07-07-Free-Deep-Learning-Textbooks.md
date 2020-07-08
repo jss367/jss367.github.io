@@ -13,7 +13,7 @@ There are a lot of great resources out there so I thought I would try to compile
 
 * [Deep Learning with PyTorch](https://pytorch.org/assets/deep-learning/Deep-Learning-with-PyTorch.pdf) by Eli Stevens, Luca Antiga, and Thomas Viehmann (2020) - Official textbook from the PyTorch team.
 
-* [Deep Learning(https://www.deeplearningbook.org/) by Ian Goodfellow, Yoshua Bengio, and Aaron Courville] (2015) - The most popular textbook in deep learning. Free in HTML form. There's not a PDF that you can simply download.
+* [Deep Learning](https://www.deeplearningbook.org/) by Ian Goodfellow, Yoshua Bengio, and Aaron Courville (2015) - The most popular textbook in deep learning. Free in HTML form. There's not a PDF that you can simply download.
 
 * [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/index.html) by Michael Nielsen (2015) - This is also a book where there is no PDF of it. There are JavaScript elements in the text so it wouldn't work as well in PDF form anyway.
 
