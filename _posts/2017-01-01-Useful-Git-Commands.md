@@ -232,8 +232,6 @@ Unfortunately, git is solely missing the `git undo` command which would undo wha
 If this is all you've done, it's an easy fix. All you have to do is `git reset my_file`. If you want to undo adding all files, you can `git reset`.
 
 ### made a commit that I shouldn't have
-There should be a 'git undo' command. But there isn't, so we have to do this another way.
-
 Warning: Do not do this if you have already pushed the commit to a central repo. Revert is much better in this case. But if you'll just made a local commit then realized you don't want to, you can:
 
 #### I committed too early and want to undo the commit but not lose my work
