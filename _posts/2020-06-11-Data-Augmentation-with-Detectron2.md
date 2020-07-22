@@ -32,7 +32,8 @@ One thing I don't like about this is that it upsamples different images differen
 
 #### RandomRotation
 
-This does exactly what it sounds like. You pass it a list of `[min_angle, max_angle]` and it randomly chooses a value. Highly recommended for overhead imagery.
+This does exactly what it sounds like. You pass it a list of `[min_angle, max_angle]` and it randomly chooses a value. This can be useful for overhead imagery because your object are usually rotation-invariant. However, you have to be careful when rotating an image, especially for object detection. If you rotate an image, it will by default preserve all the information in the original image by adding black padding to all the corners. Therefore the actual image size increases, and if you're not-rotated image batch fills up your GPU, rotating the image can cause it to run out of memory. To prevent this, you can do `RandomRotation(45, expand=False)`. However, this will clip the corners of your original image, so you will lose information.
+I mentioned that you need to be careful when using this especially for object detection, and that's because the same thing that happens to the image happens to your bounding boxes. That is, as you rotate the box it will necessarily increase in size, so the boxes will become less precisely localized around your object. I still think this has a place for overhead imagery but I recommend using small angles.
 
 #### RandomCrop
 
@@ -80,7 +81,6 @@ train_augmentations = [
     T.RandomBrightness(0.5, 2),
     T.RandomContrast(0.5, 2),
     T.RandomSaturation(0.5, 2),
-    T.RandomRotation([0, 90]),
     T.RandomFlip(prob=0.5, horizontal=True, vertical=False),
     T.RandomFlip(prob=0.5, horizontal=False, vertical=True),
 ]
