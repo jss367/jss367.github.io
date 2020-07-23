@@ -16,11 +16,11 @@ $$ \text{Precision}=\frac{TP}{TP+FP} $$
 
 $$ \text{Recall}=\frac{TP}{TP+FN} $$
 
-Note that the notion of "**true negative**" doesn't exist for object detection. Every group of pixels that's not an object would be a negative so there are too many for the metric to be meaningful.
+Note that the notion of "**true negative**" doesn't exist for object detection. Every group of pixels that's not an object would be a true negative so there are too many for the metric to be meaningful.
 
 ## Thresholds and IoU
 
-The notion of a true positive would seem fairly straightforward, but there are actually some nuances to discuss. For example, if a model predicts an object in an image and the bounding box is off by a few pixels, does it still count as a correct prediction? To determine that, we need a **threshold** for how much overlap to allow. The metric we use for this is known as the **Intersection over Union**, or **IoU**, score. It is defined as follows:
+The notion of a true positive would seem fairly straightforward, but there are some nuances to discuss. For example, if a model predicts an object in an image and the bounding box is off by a few pixels, does it still count as a correct prediction? To determine that, we need a **threshold** for how much overlap to allow. The metric we use for this is known as the **Intersection over Union**, or **IoU**, score. It is defined as follows:
 
 $$ IoU(A,B) = \frac{A \cap B}{|A \cup B|} $$
 
@@ -28,11 +28,15 @@ The IoU score is also known as the **Jaccard index**.
 
 ## Average Precision
 
-Now let's turn to **average precision**. Average precision was originally introduced in [The PASCAL Visual Object Classes Challenge 2007](http://host.robots.ox.ac.uk/pascal/VOC/voc2007/) (VOC2007). The term is exactly what it sounds - the average *precision*, as defined above, of a model. What are we averaging? Well, by varying the threshold of the IoU score, we will produce different values of precision and recall. Thus the average precision is calculate by sampling the precision at a bunch of different thresholds and averaging them.
+Now let's turn to **average precision**. Average precision was originally introduced in [The PASCAL Visual Object Classes Challenge 2007](http://host.robots.ox.ac.uk/pascal/VOC/voc2007/) (Note that their website goes down all the time so there's a [mirror of it here](https://pjreddie.com/projects/pascal-voc-dataset-mirror/)). The term is exactly what it sounds like - the average *precision*, as defined above, of a model. What are we averaging? Well, by varying the threshold of the IoU score, we will produce different values of precision and recall. Thus the average precision is calculated by sampling the precision at a bunch of different thresholds and averaging them.
 
 So, how do you calculate it? You have to change the threshold to keep increasing the recall, then find the precision at each point. Note that if you actually do this, the precision doesn't decrease monotonically. That's OK. You make the curve monotonic by setting the precision to be the highest value at that given recall or higher. This is because if you land at a bad spot you could always tweak the threshold to a value that's going to give you higher precision and recall.
 
-OK, so you know that "Average Precision", or AP, is the area under the precision recall curve. AP is between 0 and 100, with higher numbers better. Now let's go one step further. 
+The way to do this in practice is to rank the detections by confidence and start with the highest confidence and see if that's a true positive or false negative, then calculate the precision and recall based on that then plot the point. Then drop to the next highest confidence and repeat.
+
+$$ AveP} = \int_0^1 p(r)dr $$
+
+OK, so you know that "Average Precision", or AP, is the area under the precision-recall curve. AP is between 0 and 100, with higher numbers better. Now let's go one step further. 
 
 ## Multiclass classification
 
@@ -43,11 +47,11 @@ Many datasets have lots of objects. [COCO](http://cocodataset.org/#home), for ex
 
 The final thing to introduce is the notion of multiple thresholds. Sometimes you want to know how a model performs at a variety of thresholds. In some cases, a rough idea of where an object is is all you need, so an IoU of 0.5 is fine. For others you need a precise localization, so you'll use 0.95.
 
-Instead of using a fixed IoU threshold, MS-COCO AP is averaged over multiple IoU thresholds between 0.5 (coarse localization) and 0.95 (near-perfect localization). So you get 10 different values.. The mean of those values is the **AP@[0.5:0.95]**. This change of the metric has encouraged more accurate object localization and may be of great importance for some real-world applications. This is the most common metric for COCO evaluation and is written as **mAP@(0.5:0.95)**.
+Instead of using a fixed IoU threshold, MS-COCO AP is averaged over multiple IoU thresholds between 0.5 (coarse localization) and 0.95 (near-perfect localization). So you get 10 different values. The mean of those values is the **AP@[0.5:0.95]**. This change of the metric has encouraged more accurate object localization and may be of great importance for some real-world applications. This is the most common metric for COCO evaluation and is written as **mAP@(0.5:0.95)**.
 
 ## Research Usecases
 
-A lot of papers will actually use both statistics. Here's an example Faster R-CNN showing both:
+A lot of papers will use both statistics. Here's an example Faster R-CNN showing both:
 
 ![metric]({{site.baseurl}}/assets/img/metrics/faster_rcnn.png "Metrics")
 
@@ -81,7 +85,7 @@ These thresholds of 0.5:0.95 are not ideal for all cases. For example, in geospa
 
 ## Box vs Mask
 
-Sometimes you'll see APbbox or box AP or APbb. It's the same as AP but they're highlighting that it's for bounding boxes to distinguish it from non-bbox approach, such as instance segmentation. You'll also see this written as APbb, short for "AP bounding box". Here's an example from [Mask R-CNN](https://arxiv.org/abs/1703.06870):
+Sometimes you'll see APbbox or box AP or APbb. It's the same as AP but they're highlighting that it's for bounding boxes to distinguish it from non-bounding box approaches, such as instance segmentation. Here's an example from [Mask R-CNN](https://arxiv.org/abs/1703.06870):
 
 ![metric]({{site.baseurl}}/assets/img/metrics/mask_rcnn.png "Metrics")
 
@@ -101,4 +105,4 @@ $$ F_\beta = (1 + \beta^2) \cdot \frac{\mathrm{precision} \cdot \mathrm{recall}}
 
 ## Other attempts
 
-The question of which metrics to use isn't a settled one. In fact, there are researchers working on new approaches, like [Localization Recall Precision](https://arxiv.org/pdf/1807.01696), but they haven't seen wide-spread adoption.
+The question of which metrics to use isn't a settled one. In fact, researchers are working on new approaches, like [Localization Recall Precision](https://arxiv.org/pdf/1807.01696), but they haven't seen widespread adoption.

@@ -43,6 +43,15 @@ https://github.com/dessa-oss/atlas
 
 bentoml:
 mlflow
+* Note: despite MLFlow being decently well established, I still found it a little buggy. For example, which I did `conda install mlflow` on my Windows machine and tried to use it I got an error. I had to 
+```
+conda install mlflow --only-deps
+pip install mlflow
+```
+per [this issue](https://github.com/mlflow/mlflow/issues/1951) for it to work.
+
+
+
 kubeflow
 https://deepnote.com/
 https://github.com/google/jax
