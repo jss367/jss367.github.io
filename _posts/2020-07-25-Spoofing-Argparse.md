@@ -7,9 +7,11 @@ thumbnail: "assets/img/kea.jpg"
 tags: [Jupyter Notebooks]
 ---
 
-Sometimes when I'm looking at a implementation of some new model I want to try, the there's a `train.py` file to call and some instructions for what arguments to pass to it. This is great much of the time, but sometimes I want to explore it step-by-step in a Jupyter Notebook. But something prevents me from doing it, because it's expecting an [argparse](https://docs.python.org/3/library/argparse.html) object and I'm not calling it from the command line. To get around this, you'll have to spoof argparse. In this post, I'll show how to do that using [centermask2](https://github.com/youngwanLEE/centermask2) as an example. This is an implementation of [CenterMask: Real-Time Anchor-Free Instance Segmentation](https://arxiv.org/abs/1911.06667) using Facebook AI Research's object detection code known as [detectron2](https://github.com/facebookresearch/detectron2).
+It's often a good idea to construct deep learning code so that experiments can be conducted simply from the command line, allowing you to quickly iterate and record results. [argparse](https://docs.python.org/3/library/argparse.html) makes this super easy by allowing configurations to be passed as command-line arguments. But sometimes you want to do the opposite. You find a repo that has a `train.py` file ready-to-go but you want to walk through it line-by-line in a Jupyter Notebook.
 
-OK. If you go to the centermask2 repository, you'll see that there's a `train_net.py` file. Opening it up, we see [at the bottom](https://github.com/youngwanLEE/centermask2/blob/588b2bde8a1a48756a3089190109cdc1f03cdc68/train_net.py#L221) the following:
+Unfortunately, `argparse` can get in the way here because the code is expecting an `argparse` object and you're not calling it from the command line. To get around this, you'll have to spoof `argparse`. In this post, I'll show how to do that using [`centermask2`](https://github.com/youngwanLEE/centermask2) as an example. `centermask2` is an implementation of [CenterMask: Real-Time Anchor-Free Instance Segmentation](https://arxiv.org/abs/1911.06667) based on Facebook AI Research's object detection [detectron2](https://github.com/facebookresearch/detectron2) framework.
+
+Let's start by looking at the [centermask2 code](https://github.com/youngwanLEE/centermask2). If you go to the repository, you'll see that there's a `train_net.py` file. Opening it up, [at the bottom we see the following](https://github.com/youngwanLEE/centermask2/blob/588b2bde8a1a48756a3089190109cdc1f03cdc68/train_net.py#L221):
 
 
 ```python
@@ -26,11 +28,9 @@ if __name__ == "__main__":
     )
 ```
 
-OK, so like other detectron2 modules, what we need to do is call `launch`. But we need to do it with an `args.num_gpus`, `args.num_machines`, `args.machine_rank`, `args.dist_url`, and whatever else is hidden inside `args`.
+OK, so like other detectron2 modules, what we need to do is call `launch`. But we need to do it with an `args.num_gpus`, `args.num_machines`, `args.machine_rank`, `args.dist_url`, and whatever else is hidden inside `args`. How do we do this?
 
-How do we do this? Fortunately, there's is a way.
-
-All you have to do is pass your arguments in a list to `sys.argv` like so:
+ Fortunately, the solution is quite simple. All you need to do is pass your arguments in a list to `sys.argv` like so:
 
 
 ```python
