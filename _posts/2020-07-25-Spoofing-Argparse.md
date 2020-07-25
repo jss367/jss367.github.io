@@ -30,7 +30,7 @@ if __name__ == "__main__":
 
 OK, so like other detectron2 modules, what we need to do is call `launch`. But we need to do it with an `args.num_gpus`, `args.num_machines`, `args.machine_rank`, `args.dist_url`, and whatever else is hidden inside `args`. How do we do this?
 
- Fortunately, the solution is quite simple. All you need to do is pass your arguments in a list to `sys.argv` like so:
+ Fortunately, the solution is quite simple. **All you need to do is pass your arguments in a list to `sys.argv` like so:**
 
 
 ```python
@@ -38,8 +38,6 @@ import sys
 import argparse
 sys.argv = ['--config-file', "/orbital/base/core/projects/oidetectron2/configs/Base-CenterMask-VoVNet-Modified.yaml"]
 ```
-
-
 
 Now we can copy them parse that using [detectron2's default_argument_parse](https://github.com/facebookresearch/detectron2/blob/7557b76543f2b1f115b96dc4a9432e5b69140571/detectron2/engine/defaults.py#L49). I've copied it below for reference.
 
