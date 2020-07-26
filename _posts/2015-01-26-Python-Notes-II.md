@@ -7,7 +7,7 @@ thumbnail: "assets/img/black_headed_python.jpg"
 tags: [Python, Cheatsheet]
 ---
 
-These are tips and tricks a little bit more advanced than the previous notebook. I try to update the post every once in a while with the latest version of python, so it should be roughly up to date.
+These tips and tricks are a little bit more advanced than the ones in the previous notebook. I try to update the post every once in a while with the latest version of python, so it should be roughly up to date.
 
 <b>Table of contents</b>
 * TOC
@@ -170,9 +170,9 @@ new_list = old_list[:]
 print(id(new_list))
 ```
 
-    2785480061128
-    2785480061128
-    2785480059592
+    2186639106504
+    2186639106504
+    2186639105672
     
 
 # Functional programming
@@ -232,10 +232,7 @@ print(sorted_y_true)
 
 ### Filter
 
-
-```python
 Filter is good for, as it sounds, filtering. 
-```
 
 
 ```python
@@ -371,7 +368,7 @@ print(a[5]) # There is no element #5, so you get an error
 
     IndexError                                Traceback (most recent call last)
 
-    <ipython-input-19-c5031d474716> in <module>
+    <ipython-input-28-c5031d474716> in <module>
           1 a = [1,2,3,4]
     ----> 2 print(a[5]) # There is no element #5, so you get an error
     
@@ -384,8 +381,8 @@ print(a[5]) # There is no element #5, so you get an error
 
 ```python
 my_variable = 4
+# I have introduced a typo, so the call to variable 'my_veriable' returns an error
 print(my_veriable)
-# I have introduced a typo, so call the variable "my_veriable" returns an error
 ```
 
 
@@ -393,10 +390,10 @@ print(my_veriable)
 
     NameError                                 Traceback (most recent call last)
 
-    <ipython-input-155-30993cfdcc4a> in <module>()
+    <ipython-input-37-6c6800b68d90> in <module>
           1 my_variable = 4
-    ----> 2 print(my_veriable)
-          3 # I have introduced a typo, so call the variable "my_veriable" returns an error
+          2 # I have introduced a typo, so the call to variable 'my_veriable' returns an error
+    ----> 3 print(my_veriable)
     
 
     NameError: name 'my_veriable' is not defined
@@ -419,7 +416,7 @@ print(a['two']) # returns an error
 
     TypeError                                 Traceback (most recent call last)
 
-    <ipython-input-159-45c59a70da68> in <module>()
+    <ipython-input-38-01695fff8160> in <module>
           1 # Trying to use a type in a way it cannot be
           2 print(a[2]) # works fine
     ----> 3 print(a['two']) # returns an error
@@ -432,18 +429,20 @@ print(a['two']) # returns an error
 
 
 ```python
-print("Syntax often result from missing parenthses"
+print("Syntax often result from missing parentheses"
 ```
 
 
-      File "<ipython-input-156-edd9a7d47009>", line 1
-        print("Syntax often result from missing parenthses"
-                                                           ^
+      File "<ipython-input-39-c2f0579e9fa6>", line 1
+        print("Syntax often result from missing parentheses"
+                                                            ^
     SyntaxError: unexpected EOF while parsing
     
 
 
-It's a good idea to create your own exceptions. They don't actually need to do anything a lot of the time (other than inherit from `Exception`. Their name alone is valuable.
+## Creating Your Own Exceptions
+
+It's a good idea to create your own exceptions. They don't actually need to do anything a lot of the time (other than inherit from `Exception`). Their name alone is valuable.
 
 
 ```python
@@ -459,7 +458,7 @@ if 'ni' in 'knights who say ni':
 
     NiException                               Traceback (most recent call last)
 
-    <ipython-input-15-d76c5f072f95> in <module>
+    <ipython-input-40-d76c5f072f95> in <module>
           3 
           4 if 'ni' in 'knights who say ni':
     ----> 5     raise NiException
@@ -487,8 +486,8 @@ except:
     print("I don't even know what you did wrong")
 ```
 
-    If you provide two integers, I will devide one by the other
-    Give me a number: 2
+    If you provide two integers, I will devide the first by the second
+    Give me a number: 00
     Give me another: 0
     Can't divide by zero
     
@@ -506,8 +505,9 @@ finally:
     print("Whether there's an exception or not, this runs. Good for closing a file.")
 ```
 
-    Give me a number: r
-    That's not an int
+    Give me a number: 9
+    Give me another: 5
+    1.8
     Whether there's an exception or not, this runs. Good for closing a file.
     
 
@@ -530,7 +530,7 @@ except:
 
     ZeroDivisionError                         Traceback (most recent call last)
 
-    <ipython-input-172-af3e15a5729f> in <module>()
+    <ipython-input-44-b11c5b22cc8c> in <module>
           1 try:
     ----> 2     1/0
           3 except:
@@ -556,13 +556,13 @@ print(div_by_two(3))
 
     AssertionError                            Traceback (most recent call last)
 
-    <ipython-input-3-00ddaa3cd990> in <module>()
+    <ipython-input-45-c78c5e458a78> in <module>
           2     assert (x%2 == 0), "Number must be even"#Assert that x is even; this makes the program stop immediately if it is not
           3     return x / 2
     ----> 4 print(div_by_two(3))
     
 
-    <ipython-input-3-00ddaa3cd990> in div_by_two(x)
+    <ipython-input-45-c78c5e458a78> in div_by_two(x)
           1 def div_by_two(x):
     ----> 2     assert (x%2 == 0), "Number must be even"#Assert that x is even; this makes the program stop immediately if it is not
           3     return x / 2
@@ -627,9 +627,9 @@ new_list = old_list[:]
 print(id(new_list))
 ```
 
-    2785509245448
-    2785509245448
-    2785509194312
+    2186641155016
+    2186641155016
+    2186641154568
     
 
 # Testing
@@ -643,6 +643,20 @@ if __name__ == "__main__":
     pytest.main([__file__])
 ```
 
+
+    ---------------------------------------------------------------------------
+
+    NameError                                 Traceback (most recent call last)
+
+    <ipython-input-50-4916296b1e69> in <module>
+          1 import pytest
+          2 if __name__ == "__main__":
+    ----> 3     pytest.main([__file__])
+    
+
+    NameError: name '__file__' is not defined
+
+
 Or, if you just one to test a function or two, you can do
 
 
@@ -650,6 +664,19 @@ Or, if you just one to test a function or two, you can do
 if __name__ == "__main__":
     pytest.main([test_my_func()])
 ```
+
+
+    ---------------------------------------------------------------------------
+
+    NameError                                 Traceback (most recent call last)
+
+    <ipython-input-51-a693798e236e> in <module>
+          1 if __name__ == "__main__":
+    ----> 2     pytest.main([test_my_func()])
+    
+
+    NameError: name 'test_my_func' is not defined
+
 
 # Enums
 
@@ -738,7 +765,7 @@ print(Animals.dog < Animals.cat + 3)
 
     TypeError                                 Traceback (most recent call last)
 
-    <ipython-input-18-cfdd061a4b4e> in <module>
+    <ipython-input-59-cfdd061a4b4e> in <module>
           1 print(Birds.blue_jay < Birds.cardinal + 3)
     ----> 2 print(Animals.dog < Animals.cat + 3)
     
@@ -757,7 +784,7 @@ from pathlib import Path
 
 
 ```python
-path = Path('E:\Data\Raw')
+path = Path('E:\Data\Raw\Pima')
 ```
 
 
@@ -766,30 +793,59 @@ all_objs = path.glob('**/*')
 ```
 
 
+```python
+all_objs
+```
 
 
-    <generator object Path.glob at 0x00000193BBBCCF48>
+
+
+    <generator object Path.glob at 0x000001764976C748>
 
 
 
 
 ```python
-files = [f for f in res if f.is_file()]
+files = [f for f in all_objs if f.is_file()]
 ```
 
 
-    ---------------------------------------------------------------------------
-
-    NameError                                 Traceback (most recent call last)
-
-    <ipython-input-1-f3a709391729> in <module>
-    ----> 1 files = [f for f in res if f.is_file()]
-    
-
-    NameError: name 'res' is not defined
+```python
+files
+```
 
 
-## Scope
+
+
+    [WindowsPath('E:/Data/Raw/Pima/pima-indians-diabetes.csv')]
+
+
+
+
+```python
+path.stem
+```
+
+
+
+
+    'Pima'
+
+
+
+
+```python
+path.name
+```
+
+
+
+
+    'Pima'
+
+
+
+# Scope
 
 
 ```python
