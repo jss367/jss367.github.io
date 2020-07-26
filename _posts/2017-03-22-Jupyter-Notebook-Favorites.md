@@ -187,10 +187,36 @@ help(func_with_docstring)
     
     
 
-# Command Palatte
+# Command Palette
 
 Jupyter Notebooks has a command palatte that you can access with Ctrl + Shift + P (Windows/Linux) / Cmd + Shift + P (Mac) (just like VSCode). From there you can search for whatever feature you're looking for.
 
 # Splitting Cells
 
 One hot key that I like but sometimes forget is how to split a cell where my cursor is. So I just open up the command palatte and type in "split" and I see that it is Ctrl + Shift + - (Windows/Linux) Cmd + Shift + - (Mac).
+
+# Sharing Values
+
+You can also store values in one notebook and load them in another. Here's an example:
+
+
+```python
+x = 5
+```
+
+Now you save it like so:
+
+
+```python
+%store x
+```
+
+    Stored 'x' (int)
+    
+
+And you can load it:
+
+
+```python
+%store -r x
+```
