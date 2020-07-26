@@ -41,9 +41,41 @@ sys.version
 
 
 
-    '3.7.7 (default, Apr 15 2020, 05:09:04) [MSC v.1916 64 bit (AMD64)]'
+    '3.7.7 (default, May  6 2020, 11:45:54) [MSC v.1916 64 bit (AMD64)]'
 
 
+
+## Where is my Python interpreter located?
+
+
+```python
+sys.executable
+```
+
+
+
+
+    'C:\\Users\\Julius\\anaconda3\\envs\\tf\\python.exe'
+
+
+
+## What conda environment am I in?
+
+
+```python
+!conda env list
+```
+
+    # conda environments:
+    #
+    base                     C:\Users\Julius\anaconda3
+    pt                       C:\Users\Julius\anaconda3\envs\pt
+    pyt                      C:\Users\Julius\anaconda3\envs\pyt
+    solaris                  C:\Users\Julius\anaconda3\envs\solaris
+    tf                    *  C:\Users\Julius\anaconda3\envs\tf
+    tf2                      C:\Users\Julius\anaconda3\envs\tf2
+    
+    
 
 ## Python modules
 
@@ -427,7 +459,7 @@ if 'ni' in 'knights who say ni':
 
     NiException                               Traceback (most recent call last)
 
-    <ipython-input-71-d76c5f072f95> in <module>
+    <ipython-input-15-d76c5f072f95> in <module>
           3 
           4 if 'ni' in 'knights who say ni':
     ----> 5     raise NiException
@@ -714,9 +746,154 @@ print(Animals.dog < Animals.cat + 3)
     TypeError: unsupported operand type(s) for +: 'Animals' and 'int'
 
 
+# Pathlib
+
+Pathlib does much of the same work as `os.path` but it contains a lot more. I strongly recommend that people checkout Pathlib.
+
 
 ```python
-
+from pathlib import Path
 ```
 
 
+```python
+path = Path('E:\Data\Raw')
+```
+
+
+```python
+all_objs = path.glob('**/*')
+```
+
+
+
+
+    <generator object Path.glob at 0x00000193BBBCCF48>
+
+
+
+
+```python
+files = [f for f in res if f.is_file()]
+```
+
+
+    ---------------------------------------------------------------------------
+
+    NameError                                 Traceback (most recent call last)
+
+    <ipython-input-1-f3a709391729> in <module>
+    ----> 1 files = [f for f in res if f.is_file()]
+    
+
+    NameError: name 'res' is not defined
+
+
+## Scope
+
+
+```python
+a = [1,2,3]
+```
+
+
+```python
+def cl(s):
+    s[1] = 5
+```
+
+
+```python
+cl(a)
+```
+
+
+```python
+a
+```
+
+
+
+
+    [1, 5, 3]
+
+
+
+
+```python
+def cv(a):
+    a = 5
+```
+
+
+```python
+q = 2
+```
+
+
+```python
+cv(q)
+```
+
+
+```python
+q
+```
+
+
+
+
+    2
+
+
+
+# Python Disassembler
+
+The Python disassembler is a great tool if you want to see how a Python statement would be done in bytecode. For example, let's say you're wondering which of the two commands is better to use:
+
+`x is not None`
+
+`not x is None`
+
+We can use `dis` to figure out what the difference is.
+
+
+```python
+from dis import dis
+```
+
+
+```python
+def func1(x):
+    return x is not None
+```
+
+
+```python
+def func2(x):
+    return not x is None
+```
+
+
+```python
+dis(func1)
+```
+
+      2           0 LOAD_FAST                0 (x)
+                  2 LOAD_CONST               0 (None)
+                  4 COMPARE_OP               9 (is not)
+                  6 RETURN_VALUE
+    
+
+
+```python
+dis(func2)
+```
+
+      2           0 LOAD_FAST                0 (x)
+                  2 LOAD_CONST               0 (None)
+                  4 COMPARE_OP               9 (is not)
+                  6 RETURN_VALUE
+    
+
+It turns out there is no difference (although I think the first is easier to read and is [recommended by PEP-8](https://www.python.org/dev/peps/pep-0008/#programming-recommendations)).
