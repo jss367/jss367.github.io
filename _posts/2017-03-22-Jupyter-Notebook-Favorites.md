@@ -7,7 +7,7 @@ thumbnail: "assets/img/jupiter.jpg"
 tags: [Jupyter Notebooks]
 ---
 
-This demonstrates some of my favorites tweaks for Jupyter Notebooks.<!--more--> 
+The Jupyter Notebook is a great tool for writing and exploring code as well as prototyping ideas. It's one of my favorite ways to write code, in part because of all the great features it has. This demonstrates shows some of those features.
 
 <b>Table of contents</b>
 * TOC
@@ -27,25 +27,12 @@ You can also use `pip`:
 ```
 pip install jupyter_contrib_nbextensions
 ```
-
 Then:
 * Enter: `jupyter contrib nbextension install --user`
 * Open up Jupyter Notebook and you will have a tab called Nbextensions
 * Go to the Nbextensions tab and enable it from there
 
-# Running pip from Jupyter Notebooks
-
-You can run external commands by putting an exclamation mark in front of the command. This means that you can make pip install directly from Jupyter Notebooks:
-
-
-```python
-!pip install numpy
-```
-
-    Requirement already satisfied: numpy in c:\users\hmisys\anaconda3\lib\site-packages
-    
-
-# Jupyter Notebook extensions
+Now let's look at some of the extensions.
 
 ## [2to3 converter](http://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/code_prettify/README_2to3.html)
 
@@ -54,13 +41,13 @@ Converts Python 2 to Python 3 in a single click
 http://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/code_prettify/README_2to3.html
 
 
-## Autopep8
+## [Autopep8](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/code_prettify/README_autopep8.html)
 
 Formats your code based on the PEP8 guide in a single click.
 
 Install with `pip install autopep8`, then enable it.
 
-## spellchecker
+## [spellchecker](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html)
 
 Does what you think it does.
 
@@ -84,7 +71,7 @@ or
 
 See how I use it to [prepare Jupyter Notebooks for my blog](https://jss367.github.io/jupyter-notebooks-in-blog.html).
 
-# Unix commands
+# Unix Commands and Command-line Commands
 
 You can also use some Unix commands in Jupyter Notebooks, such as `ls` or `pwd`
 
@@ -100,58 +87,68 @@ pwd
 
 
 
-# Viewing Source Code 
+You can also run command-line commands by putting an exclamation mark in front of the command. This means that you can make pip install directly from Jupyter Notebooks:
 
-Just put two `??` behind something to view the source code. You won't be able to see it in this post, 
+!pip install numpy
+
+# Debugging
+
+Jupyter Notebooks have an amazing command for debugging. If you are running code and get an error, even if it's deep inside a function, you can type `%debug` into a cell and it will open up [ipdb](https://github.com/gotcha/ipdb) at the exact location the error occured with all the values as they were. It's amazing. Here's an example:
 
 
 ```python
-import tensorflow as tf
+def foo():
+    soln = 'a' + 1
+    return soln
 ```
 
 
 ```python
-tf.einsum??
+foo()
 ```
 
-It show you the docstring:
 
+    ---------------------------------------------------------------------------
 
-Signature: tf.einsum(equation, *inputs, **kwargs)
-Source:   
-@tf_export('einsum', 'linalg.einsum')
-def einsum(equation, *inputs, **kwargs):
-  """Tensor contraction over specified indices and outer product.
+    TypeError                                 Traceback (most recent call last)
 
-  This function returns a tensor whose elements are defined by `equation`,
-  which is written in a shorthand form inspired by the Einstein summation
-  convention.  As an example, consider multiplying two matrices
-  A and B to form a matrix C.  The elements of C are given by:
+    <ipython-input-4-c19b6d9633cf> in <module>
+    ----> 1 foo()
+    
 
-  ```
-    C[i,k] = sum_j A[i,j] * B[j,k]
-  ```
+    <ipython-input-3-84285e1acb14> in foo()
+          1 def foo():
+    ----> 2     soln = 'a' + 1
+          3     return soln
+    
 
-  The corresponding `equation` is:
+    TypeError: can only concatenate str (not "int") to str
 
-  ```
-    ij,jk->ik
-  ```
- 
- ...
-
-
-And then the code
 
 
 ```python
-if fwd_compat.forward_compatible(2019, 10, 18):
-    return _einsum_v2(equation, *inputs, **kwargs)
-else:
-    return _einsum_v1(equation, *inputs, **kwargs)
+%debug
 ```
 
-If you just wanted to see the docstring, you could do this:
+    > [1;32m<ipython-input-3-84285e1acb14>[0m(2)[0;36mfoo[1;34m()[0m
+    [1;32m      1 [1;33m[1;32mdef[0m [0mfoo[0m[1;33m([0m[1;33m)[0m[1;33m:[0m[1;33m[0m[1;33m[0m[0m
+    [0m[1;32m----> 2 [1;33m    [0msoln[0m [1;33m=[0m [1;34m'a'[0m [1;33m+[0m [1;36m1[0m[1;33m[0m[1;33m[0m[0m
+    [0m[1;32m      3 [1;33m    [1;32mreturn[0m [0msoln[0m[1;33m[0m[1;33m[0m[0m
+    [0m
+    ipdb> exit
+    
+
+# Getting Help and Viewing Source Code 
+
+Jupyter Notebooks have a lot of support for looking into code right from the notebook. Here are some examples.
+
+## Shift + Tab
+
+Shift + Tab is a great keyboard shortcut that every Jupyter Notebook user should know. You simply start to call a function and when you're inside the parentheses and can't remember the right inputs, hit Shift + Tab and it will show you the documentation. If you hit Tab multiple times while holding Shift it cycles through various displays of the documentation. Try it out!
+
+## Question Marks
+
+You can put a question mark behind any function or class to pull up the docstring. It creates a pop-up from the bottom of the screen, so you won't be able to see it in this post, but here's an example.
 
 
 ```python
@@ -159,7 +156,24 @@ def func_with_docstring():
     """
     This is a useful docstring
     """
+    return 1
 ```
+
+
+```python
+func_with_docstring?
+```
+
+Even better than that, just put two question marks behind something to view the source code.
+
+
+```python
+func_with_docstring??
+```
+
+This shows you the docstring as before but then **the entire code**. Amazing!
+
+Also If you just wanted to see the docstring, you could call `help`. This prints the docstring, so you'll be able to see it in this case.
 
 
 ```python
@@ -171,18 +185,12 @@ help(func_with_docstring)
     func_with_docstring()
         This is a useful docstring
     
-# Debugging
-
-The debugging functionality in Jupyter Notebooks is amazing. If you are running code and run into an error, you can simply type `%debug` in a cell and it will start a debugger right where the error occured. I **love** this feature.
-
-
-# Shift + Tab
-
-Shift + Tab is a great keyboard shortcut that every Jupyter Notebook user should know. You simply start to call a function and when you're inside the parentheses and can't remember the right inputs, hit Shift + Tab and it will show you the documentation. If you hit Tab multiple times while holding Shift it cycles through various displays of the documentation. Try it out!
+    
 
 # Command Palatte
 
 Jupyter Notebooks has a command palatte that you can access with Ctrl + Shift + P (Windows/Linux) / Cmd + Shift + P (Mac) (just like VSCode). From there you can search for whatever feature you're looking for.
 
-One hot key that I like but sometimes forget is how to split a cell where my cursor is. So I just open up the command palatte and type in "split" and I see that it is Ctrl + Shift + - (Windows/Linux) Cmd + Shift + - (Mac).
+# Splitting Cells
 
+One hot key that I like but sometimes forget is how to split a cell where my cursor is. So I just open up the command palatte and type in "split" and I see that it is Ctrl + Shift + - (Windows/Linux) Cmd + Shift + - (Mac).

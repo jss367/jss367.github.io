@@ -342,3 +342,15 @@ Note that (at least on Windows) the direction of the slash matters. If you want 
 
 While no GUI has all the features of the command line, they are still very helpful. The one I recommend is the [GitHub Desktop](https://desktop.github.com/) app. It's easy to use and offers support for Mac and Windows. I do wish they would add Linux to that list. But it brings up the problem with GUIs - you won't always have access to them, so don't rely on them. Say you're working through an SSH tunnel on some remote server. You'll often be in the case where you **can't** use a GUI, so I still recommend learning the command line. But the GUI definitely helps to make the initial steps more gentle. I still use the GUI when possible because I think the graphical inferface makes viewing the differences much easier.
 
+
+## Problems with git
+
+git blame - good tool  be should be renamed. Maybe `git credit`? It's a bit funny but in the end I don't think it's a good idea. I imagine it could have been done in jest but I think given the importance of git today and the difficulties of software engineering, not to mention imposter syndrome, it's not the right name.
+
+## Configuring git
+
+Supposed you wanted to add something that combined a few git commands, like `git pull` along with rebasing and autostashing. You could do something like this:
+
+`git config --global alias.all 'pull --rebase --autostash'`
+
+Now you can do `git all` to call this.
