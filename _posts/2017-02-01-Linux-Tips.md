@@ -131,5 +131,7 @@ eval $(echo "no:global default;fi:normal file;di:directory;ln:symbolic link;pi:n
   done       
 } 
 
+## Quickly Adding to Files
 
+Let's say you want to add something to you `.gitignore` file, and don't want to bother with [vim](https://www.vim.org/) at the moment. You can add what you need by typing `cat > .gitignore` then adding whatever you need. Then hit control + D to return to the bash prompt.
 
