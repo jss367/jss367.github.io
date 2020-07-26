@@ -36,7 +36,7 @@ OK, so like other detectron2 modules, what we need to do is call `launch`. But w
 ```python
 import sys
 import argparse
-sys.argv = ['--config-file', "/orbital/base/core/projects/oidetectron2/configs/Base-CenterMask-VoVNet-Modified.yaml"]
+sys.argv = ['--config-file', "/path/to/configs/Base-CenterMask-VoVNet-Modified.yaml"]
 ```
 
 Now we can copy them parse that using [detectron2's default_argument_parse](https://github.com/facebookresearch/detectron2/blob/7557b76543f2b1f115b96dc4a9432e5b69140571/detectron2/engine/defaults.py#L49). I've copied it below for reference.
