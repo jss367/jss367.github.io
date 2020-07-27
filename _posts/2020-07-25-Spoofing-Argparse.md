@@ -30,7 +30,7 @@ if __name__ == "__main__":
 
 OK, so like other detectron2 modules, what we need to do is call `launch`. But we need to do it with an `args.num_gpus`, `args.num_machines`, `args.machine_rank`, `args.dist_url`, and whatever else is hidden inside `args`. How do we do this?
 
- Fortunately, the solution is quite simple. **All you need to do is pass your arguments in a list to `sys.argv` like so:**
+ Fortunately, the solution is quite simple. **All you need to do is pass your arguments in a list to `sys.argv` and then pass that as an argument to parser.parse_args(sys.argv).** Here's an example:
 
 
 ```python
