@@ -11,7 +11,7 @@ I find that sometimes the best way to understand a topic is to see it in action.
 
 
 * [Hands-on demonstration of how image kernels work](https://setosa.io/ev/image-kernels/)
-* [Beautiful step-by-step process of matrix multiplication](matrixmultiplication.xyz)
+* [Beautiful step-by-step process of matrix multiplication](http://matrixmultiplication.xyz)
 * Possibly the best place to gain an intuition of how neural networks work is the [Tensorflow Neural Network Playground](https://playground.tensorflow.org/)
 * [The Standford CS231n webpage](https://cs231n.github.io/convolutional-networks/) shows how convolutional neural networks work very clearly
 * [Distill](https://distill.pub/) is an online journal for clearly presenting machine learning research. There is a lot of great content here.
