@@ -205,7 +205,7 @@ print_stats(first_vgg_conv_biases_untrained)
 
 The first thing we see is that the weights and biases are initialized differently. Specifically, the weights are initialized to some distribution of random values and the biases are all initialized to 0.
 
-But what is the distribution that the weights are initialized to? For a [convolutional layer, the weights are initialized to `glorot_uniform`](https://github.com/tensorflow/tensorflow/blob/2ea7d77bb08c1c989170528012b281c9ce1111ca/tensorflow/python/keras/layers/convolutional.py#L126). This is the initialization method described in [Understanding the difficulty of training deep feedforward neural networks](http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf) by Xavier Glorot and Yoshua Bengio. In TensorFlow it's call "Glorot initialization", but I see it more commonly referred to as "Xavier initialization".
+But what is the distribution that the weights are initialized to? For a [convolutional layer, the weights are initialized to `glorot_uniform`](https://github.com/tensorflow/tensorflow/blob/2ea7d77bb08c1c989170528012b281c9ce1111ca/tensorflow/python/keras/layers/convolutional.py#L126). This is the initialization method described in [Understanding the difficulty of training deep feedforward neural networks](http://proceedings.mlr.press/v9/glorot10a/glorot10a.pdf) by Xavier Glorot and Yoshua Bengio. In TensorFlow it's called "Glorot initialization", but I see it more commonly referred to as "Xavier initialization".
 
 We can confirm that this is what TensorFlow is doing by calling this method directly and seeing that it is the same.
 
@@ -253,7 +253,7 @@ scale
 
 
 
-From there we can calulate the limit
+From there we can calculate the limit.
 
 
 ```python
