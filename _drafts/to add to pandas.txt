@@ -1,8 +1,0 @@
-Rebase after you drop rows
-
-df = pd.read_csv(csv, nrows=2)
-use nrows to debug
-
-It only allows a certain number of rows to be read in. Great for limiting size of dataframes during debugbing.
-
-
