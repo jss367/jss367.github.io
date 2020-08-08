@@ -26,9 +26,9 @@ pd.__version__
 
 
 
-# Importing data
+# Importing Data
 
-## DataFrames from csv files
+## DataFrames from CSV Files
 
 In pandas, DataFrames are the primary structure for dealing with data. They provide indexed rows and columns of a dataset, much like a spreadsheet. There are many ways to get data into DataFrames. Perhaps the most common way of getting data into DataFrames is by importing CSV files.
 
@@ -267,7 +267,7 @@ df
 
 
 
-## DataFrames from .data files
+## DataFrames from .data Files
 
 Machine learning datasets from the [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/index.php) often have datasets with the .data extension. These can also be read using `pd.read_csv`.
 
@@ -346,7 +346,7 @@ df.head()
 
 
 
-## DataFrames from lists
+## DataFrames from Lists
 
 You can also create a DataFrame from a list. For a single list, you can put it directly in a DataFrame.
 
@@ -668,9 +668,9 @@ There are many ways a DataFrame, including in a pickle, msgpack, CSV, and HDF5St
 df.to_csv('shakespeare.csv', index=False)
 ```
 
-# Exploring data
+# Exploring Data
 
-## Displaying parts of the DataFrame
+## Displaying Parts of the DataFrame
 
 OK, now that we have the data into a DataFrame, let's explore it. To get a quick preview of the data, you can use `head()`.
 
@@ -1001,7 +1001,7 @@ df.loc[1, 'Name']
 
 
 
-## Built-in descriptors
+## Built-in Descriptors
 
 There are a few built-in descriptors that are good to know.
 
@@ -1036,7 +1036,7 @@ df.shape
 
 For quantitative data, there are a few more worth knowing.
 
-### Quantitative data
+### Quantitative Qata
 
 You can also find the data type of each column
 
@@ -1236,7 +1236,7 @@ df.sort_values('Name', ascending=True)
 
 
 
-## Searching for text within a DataFrame
+## Searching for Text Within a DataFrame
 
 
 ```python
@@ -1259,7 +1259,7 @@ df['Name'].str.contains('Julius')
 
 
 
-## Grouping and counting by label
+## Grouping and Counting by Label
 
 
 ```python
@@ -1518,7 +1518,7 @@ new_df.reset_index(drop=True)
 
 
 
-# Cleaning data
+# Cleaning Data
 
 Bad values can come in many forms, including missing values, NaN, NA, ?, etc. Let's go over how to find them
 
@@ -2251,7 +2251,7 @@ df.dropna(subset=['D'])
 
 
 
-## Finding missing values
+## Finding Missing Values
 
 You will need to clean up missing values before doing any machine learning on the data. Scikit-learn will give you an error if you try to run an algorithm on a dataset with missing values.
 
@@ -3041,7 +3041,7 @@ class_le.inverse_transform(y)
 
 # Preparing Data for Machine Learning
 
-## One-hot encoding
+## One-hot Encoding
 
 pandas can also do one-hot encoding.
 
