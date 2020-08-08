@@ -22,11 +22,11 @@ pd.__version__
 
 
 
-    '1.0.3'
+    '1.1.0'
 
 
 
-# Getting data
+# Importing data
 
 ## DataFrames from csv files
 
@@ -136,7 +136,64 @@ df
 
 Although importing from a CSV file is perhaps the most common way of getting data into a DataFrame, there are many alternatives.
 
-### DataFrames from Strings
+There are a lot of options that you can do with `read_csv`. One in particular that I like is the ability to limit the number of rows you read, which allows for you to experiment with smaller DataFrames to make debugging easier.
+
+
+```python
+df = pd.read_csv(shakespeare_path, nrows=2)
+```
+
+
+```python
+df
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Year</th>
+      <th>Category</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Titus Andronicus</td>
+      <td>1592</td>
+      <td>Tragedy</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>The Comedy of Errors</td>
+      <td>1594</td>
+      <td>Comedy</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+## DataFrames from Strings
 
 Another way you can create a DataFrame is by using StringIO, which allows you to read a string as if it were a CSV file. It even allows for missing data.
 
@@ -298,7 +355,7 @@ You can also create a DataFrame from a list. For a single list, you can put it d
 names = ['Titus Andronicus', 'The Comedy of Errors', 'Richard II',
        'Romeo and Juliet', 'A Midsummer Night’s Dream', 'King John',
        'Julius Caesar', 'Othello', 'Macbeth']
-pd.DataFrame(names)
+pd.DataFrame(names, columns=['Name'])
 ```
 
 
@@ -322,7 +379,7 @@ pd.DataFrame(names)
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>0</th>
+      <th>Name</th>
     </tr>
   </thead>
   <tbody>
@@ -379,7 +436,7 @@ categories = ['Tragedy', 'Comedy', 'History', 'Tragedy', 'Comedy', 'History',
 
 
 ```python
-df = pd.DataFrame(list(zip(names,years,categories)), columns=['Name', 'Year', 'Category'])
+df = pd.DataFrame(list(zip(names, years, categories)), columns=['Name', 'Year', 'Category'])
 df
 ```
 
@@ -462,88 +519,6 @@ df
       <th>8</th>
       <td>Macbeth</td>
       <td>1606</td>
-      <td>Tragedy</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-Or, you can set the DataFrame as rows by transposing it.
-
-
-```python
-pd.DataFrame(list(zip(names,years,categories)), columns=['Name', 'Year', 'Category']).T
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>0</th>
-      <th>1</th>
-      <th>2</th>
-      <th>3</th>
-      <th>4</th>
-      <th>5</th>
-      <th>6</th>
-      <th>7</th>
-      <th>8</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>Name</th>
-      <td>Titus Andronicus</td>
-      <td>The Comedy of Errors</td>
-      <td>Richard II</td>
-      <td>Romeo and Juliet</td>
-      <td>A Midsummer Night’s Dream</td>
-      <td>King John</td>
-      <td>Julius Caesar</td>
-      <td>Othello</td>
-      <td>Macbeth</td>
-    </tr>
-    <tr>
-      <th>Year</th>
-      <td>1592</td>
-      <td>1594</td>
-      <td>1595</td>
-      <td>1595</td>
-      <td>1595</td>
-      <td>1596</td>
-      <td>1599</td>
-      <td>1604</td>
-      <td>1606</td>
-    </tr>
-    <tr>
-      <th>Category</th>
-      <td>Tragedy</td>
-      <td>Comedy</td>
-      <td>History</td>
-      <td>Tragedy</td>
-      <td>Comedy</td>
-      <td>History</td>
-      <td>Tragedy</td>
-      <td>Tragedy</td>
       <td>Tragedy</td>
     </tr>
   </tbody>
@@ -693,103 +668,6 @@ There are many ways a DataFrame, including in a pickle, msgpack, CSV, and HDF5St
 df.to_csv('shakespeare.csv', index=False)
 ```
 
-
-```python
-df.to_hdf('shakespeare.h5', key='df', mode='w')
-```
-
-
-```python
-pd.read_hdf('shakespeare.h5')
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Name</th>
-      <th>Year</th>
-      <th>Category</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Titus Andronicus</td>
-      <td>1592</td>
-      <td>Tragedy</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>The Comedy of Errors</td>
-      <td>1594</td>
-      <td>Comedy</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Richard II</td>
-      <td>1595</td>
-      <td>History</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Romeo and Juliet</td>
-      <td>1595</td>
-      <td>Tragedy</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>A Midsummer Night’s Dream</td>
-      <td>1595</td>
-      <td>Comedy</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>King John</td>
-      <td>1596</td>
-      <td>History</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>Julius Caesar</td>
-      <td>1599</td>
-      <td>Tragedy</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>Othello</td>
-      <td>1604</td>
-      <td>Tragedy</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>Macbeth</td>
-      <td>1606</td>
-      <td>Tragedy</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
 # Exploring data
 
 ## Displaying parts of the DataFrame
@@ -888,16 +766,22 @@ df.sample(5)
   </thead>
   <tbody>
     <tr>
+      <th>8</th>
+      <td>Macbeth</td>
+      <td>1606</td>
+      <td>Tragedy</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Othello</td>
+      <td>1604</td>
+      <td>Tragedy</td>
+    </tr>
+    <tr>
       <th>1</th>
       <td>The Comedy of Errors</td>
       <td>1594</td>
       <td>Comedy</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>King John</td>
-      <td>1596</td>
-      <td>History</td>
     </tr>
     <tr>
       <th>3</th>
@@ -906,16 +790,10 @@ df.sample(5)
       <td>Tragedy</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>Richard II</td>
+      <th>4</th>
+      <td>A Midsummer Night’s Dream</td>
       <td>1595</td>
-      <td>History</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>Macbeth</td>
-      <td>1606</td>
-      <td>Tragedy</td>
+      <td>Comedy</td>
     </tr>
   </tbody>
 </table>
@@ -1106,6 +984,20 @@ df[df['Year'] > 1600]
   </tbody>
 </table>
 </div>
+
+
+
+You can also select a specific cell based on its label.
+
+
+```python
+df.loc[1, 'Name']
+```
+
+
+
+
+    'The Comedy of Errors'
 
 
 
@@ -1538,17 +1430,91 @@ except KeyError:
     There is nothing with index 1
     
 
-You can also select a specific cell based on its label.
+If you want to update your indices you can do so with `reset_index`.
 
 
 ```python
-df.loc[1, 'Name']
+new_df.reset_index(drop=True)
 ```
 
 
 
 
-    'The Comedy of Errors'
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Year</th>
+      <th>Category</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Titus Andronicus</td>
+      <td>1592</td>
+      <td>Tragedy</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Richard II</td>
+      <td>1595</td>
+      <td>History</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Romeo and Juliet</td>
+      <td>1595</td>
+      <td>Tragedy</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>A Midsummer Night’s Dream</td>
+      <td>1595</td>
+      <td>Comedy</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>King John</td>
+      <td>1596</td>
+      <td>History</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Julius Caesar</td>
+      <td>1599</td>
+      <td>Tragedy</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Othello</td>
+      <td>1604</td>
+      <td>Tragedy</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Macbeth</td>
+      <td>1606</td>
+      <td>Tragedy</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 
 
@@ -2289,7 +2255,7 @@ df.dropna(subset=['D'])
 
 You will need to clean up missing values before doing any machine learning on the data. Scikit-learn will give you an error if you try to run an algorithm on a dataset with missing values.
 
-Pandas has two commands to find missing values in a DataFrame, `isna` and `isnull`. These are 100% identical. [The documentation literally says `isnull = isna`.](https://github.com/pandas-dev/pandas/blob/0409521665bd436a10aea7e06336066bf07ff057/pandas/core/dtypes/missing.py#L109)
+pandas has two commands to find missing values in a DataFrame, `isna` and `isnull`. These are 100% identical. [The documentation literally says `isnull = isna`.](https://github.com/pandas-dev/pandas/blob/0409521665bd436a10aea7e06336066bf07ff057/pandas/core/dtypes/missing.py#L109)
 
 
 ```python
@@ -2785,11 +2751,13 @@ imp.transform(df)
 
 
 
-# Preparing data for machine learning
+# Data Types
 
-## Categorical data
+Data are usually split into three types: **continuous**, **ordinal**, and **categorical**. With continuous data the values associated with the data have specific meaning. For example, the price of a good is a continuous value. Common statistical analyses are usually appropriate for continuous values. For example, you can take the average of two continuous values and the result is a meaningful description of the data.
 
-Categorical data and be either nominal or ordinal. Ordinal data has an ordinal; categorical data doesn't. 
+For ordinal data, the values are ordered, but they don't necessarily have meaning. T-shirt size is a good example of this, where a small is less than a medium, but it's not less by a specific value. If you converted "small" into a specific measurement (e.g. convert it to inches) it would become a continuous value.
+
+The last type is categorical, and that's where the differences aren't associated with any ranking or order. For example, shirtstyle is a categorical variable. We might have "polo" and "T-shirt", but neither is greater than the other. We could (and will) assign numbers to these categories for machine learning, but we need to remember that those numbers aren't associated with values as they would be in continuous or ordinal data.
 
 
 ```python
@@ -2985,9 +2953,10 @@ df
 
 
 
+After we perform whatever analysis we want to on the data, we could then invert that mapping.
+
 
 ```python
-#and we can invert that mapping
 inv_class_mapping = {v: k for k, v in class_mapping.items()}
 df['type'] = df['type'].map(inv_class_mapping)
 df
@@ -3070,6 +3039,8 @@ class_le.inverse_transform(y)
 
 
 
+# Preparing Data for Machine Learning
+
 ## One-hot encoding
 
 pandas can also do one-hot encoding.
@@ -3134,26 +3105,15 @@ pd.get_dummies(df[['price', 'color', 'size']])
 
 
 
-# Other tricks
+# Other Tricks
 
-## Don't truncate
+## Don't Truncate
 
-### Column width
-
-Pandas will by default truncate text that is over a certain limit. When working with text data, sometimes you don't want this.
+pandas will by default truncate text that is over a certain limit. When working with text data, sometimes you don't want this. Here's how to stop it.
 
 
 ```python
 pd.set_option('display.max_colwidth', None)
-```
-
-### Columns
-
-Pandas also truncates your columns and rows. This is usually convenient but sometimes you don't want it, so you can turn it off.
-
-
-```python
-pd.set_option('display.max_columns', None)
 pd.set_option('display.max_rows', None)
 ```
 
@@ -3165,7 +3125,188 @@ pd.options.display.max_columns = None
 pd.options.display.max_rows = None
 ```
 
+### Tranposing
+
+You can switch the rows and columns of a DataFrame by transposing it by adding `.T` to the end.
+
 
 ```python
-
+df = pd.DataFrame(list(zip(names,years,categories)), columns=['Name', 'Year', 'Category'])
 ```
+
+
+```python
+df
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Year</th>
+      <th>Category</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Titus Andronicus</td>
+      <td>1592</td>
+      <td>Tragedy</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>The Comedy of Errors</td>
+      <td>1594</td>
+      <td>Comedy</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Richard II</td>
+      <td>1595</td>
+      <td>History</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Romeo and Juliet</td>
+      <td>1595</td>
+      <td>Tragedy</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>A Midsummer Night’s Dream</td>
+      <td>1595</td>
+      <td>Comedy</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>King John</td>
+      <td>1596</td>
+      <td>History</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Julius Caesar</td>
+      <td>1599</td>
+      <td>Tragedy</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Othello</td>
+      <td>1604</td>
+      <td>Tragedy</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Macbeth</td>
+      <td>1606</td>
+      <td>Tragedy</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+df = df.T
+```
+
+
+```python
+df
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>Name</th>
+      <td>Titus Andronicus</td>
+      <td>The Comedy of Errors</td>
+      <td>Richard II</td>
+      <td>Romeo and Juliet</td>
+      <td>A Midsummer Night’s Dream</td>
+      <td>King John</td>
+      <td>Julius Caesar</td>
+      <td>Othello</td>
+      <td>Macbeth</td>
+    </tr>
+    <tr>
+      <th>Year</th>
+      <td>1592</td>
+      <td>1594</td>
+      <td>1595</td>
+      <td>1595</td>
+      <td>1595</td>
+      <td>1596</td>
+      <td>1599</td>
+      <td>1604</td>
+      <td>1606</td>
+    </tr>
+    <tr>
+      <th>Category</th>
+      <td>Tragedy</td>
+      <td>Comedy</td>
+      <td>History</td>
+      <td>Tragedy</td>
+      <td>Comedy</td>
+      <td>History</td>
+      <td>Tragedy</td>
+      <td>Tragedy</td>
+      <td>Tragedy</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
