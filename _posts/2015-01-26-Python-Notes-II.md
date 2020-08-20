@@ -7,7 +7,7 @@ thumbnail: "assets/img/black_headed_python.jpg"
 tags: [Python, Cheatsheet]
 ---
 
-These tips and tricks are a little bit more advanced than the ones in the previous notebook. I try to update the post every once in a while with the latest version of python, so it should be roughly up to date.
+These tips and tricks are a little bit more advanced than the ones in the previous notebook. I try to update the post every once in a while with the latest version of Python, so it should be roughly up to date.
 
 <b>Table of contents</b>
 * TOC
