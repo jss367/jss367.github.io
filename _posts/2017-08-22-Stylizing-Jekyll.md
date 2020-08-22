@@ -164,7 +164,7 @@ Or you could do it in HTML like this:
 
 # Mathematical Formulas
 
-You can use [LaTeX](https://www.latex-project.org/) to write beautiful mathematical formulas. They can be in-line like so $$ \sum_{k=0}^{n-1} e^{2 \pi i \frac{k}{n}} = 0 $$ or they can have their own line:
+You can use [LaTeX](https://www.latex-project.org/) to write beautiful mathematical formulas. They can be in-line like $$ \sum_{k=0}^{n-1} e^{2 \pi i \frac{k}{n}} = 0 $$ or they can have their own line:
 
 $$ \nabla \cdot \mathbf{E} = \frac {\rho} {\varepsilon_0} $$
 
@@ -174,7 +174,7 @@ $$ \nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}} {\partial t} $$
 
 $$ \nabla \times \mathbf{B} = \mu_0\left(\mathbf{J} + \varepsilon_0 \frac{\partial \mathbf{E}} {\partial t} \right) $$
 
-The theme I use relies on KaTeX.
+You simply need to put `$$` around your equations. The theme I use relies on KaTeX.
 
 # Citations
 
