@@ -174,7 +174,7 @@ $$ \nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}} {\partial t} $$
 
 $$ \nabla \times \mathbf{B} = \mu_0\left(\mathbf{J} + \varepsilon_0 \frac{\partial \mathbf{E}} {\partial t} \right) $$
 
-You simply need to put `$$` around your equations. The theme I use relies on KaTeX.
+You simply need to put `$$` around your equations. The theme I use relies on [KaTeX](https://katex.org/).
 
 # Citations
 
