@@ -164,13 +164,19 @@ Or you could do it in HTML like this:
 
 # Mathematical Formulas
 
-You can use [LaTeX](https://www.latex-project.org/) to write beautiful mathematical formulas, like the one below.
+You can use [LaTeX](https://www.latex-project.org/) to write beautiful mathematical formulas, like the one below. The theme I use relies on KaTeX.
 
 $$ F1 = 2 \cdot \frac{\mathrm{precision} \cdot \mathrm{recall}}{ \mathrm{precision} + \mathrm{recall}} $$
 
-They can be line like so $$S_n = a \times \frac{1-r^n}{1-r}$$ or they can have their own line:
+They can be in-line like so $$\sum_{k=0}^{n-1} e^{2 \pi i \frac{k}{n}} = 0$$ or they can have their own line:
 
 $$ \nabla \cdot \mathbf{E} = \frac {\rho} {\varepsilon_0} $$
+
+$$ \nabla \cdot \mathbf{B} = 0 $$
+
+$$ \nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}} {\partial t} $$
+
+$$ \nabla \times \mathbf{B} = \mu_0\left(\mathbf{J} + \varepsilon_0 \frac{\partial \mathbf{E}} {\partial t} \right) $$
 
 # Citations
 
