@@ -643,20 +643,6 @@ if __name__ == "__main__":
     pytest.main([__file__])
 ```
 
-
-    ---------------------------------------------------------------------------
-
-    NameError                                 Traceback (most recent call last)
-
-    <ipython-input-50-4916296b1e69> in <module>
-          1 import pytest
-          2 if __name__ == "__main__":
-    ----> 3     pytest.main([__file__])
-    
-
-    NameError: name '__file__' is not defined
-
-
 Or, if you just one to test a function or two, you can do
 
 
@@ -664,19 +650,6 @@ Or, if you just one to test a function or two, you can do
 if __name__ == "__main__":
     pytest.main([test_my_func()])
 ```
-
-
-    ---------------------------------------------------------------------------
-
-    NameError                                 Traceback (most recent call last)
-
-    <ipython-input-51-a693798e236e> in <module>
-          1 if __name__ == "__main__":
-    ----> 2     pytest.main([test_my_func()])
-    
-
-    NameError: name 'test_my_func' is not defined
-
 
 # Enums
 
@@ -724,12 +697,12 @@ for animal in Animals:
 
 ## IntEnums
 
+IntEnums are like Enums except that you can also do integer comparison with them.
+
 
 ```python
 from enum import IntEnum
 ```
-
-Can do integer comparison as well with IntEnums
 
 
 ```python
@@ -754,24 +727,15 @@ print(Birds.blue_jay == 2)
 
 ```python
 print(Birds.blue_jay < Birds.cardinal + 3)
-print(Animals.dog < Animals.cat + 3)
+try:
+    print(Animals.dog < Animals.cat + 3)
+except TypeError:
+    print("Can't do interger comparison with standard Enums")
 ```
 
     True
+    Can't do interger comparison with standard Enums
     
-
-
-    ---------------------------------------------------------------------------
-
-    TypeError                                 Traceback (most recent call last)
-
-    <ipython-input-59-cfdd061a4b4e> in <module>
-          1 print(Birds.blue_jay < Birds.cardinal + 3)
-    ----> 2 print(Animals.dog < Animals.cat + 3)
-    
-
-    TypeError: unsupported operand type(s) for +: 'Animals' and 'int'
-
 
 # Pathlib
 
@@ -784,7 +748,7 @@ from pathlib import Path
 
 
 ```python
-path = Path('E:\Data\Raw\Pima')
+path = Path(r'E:\Data\Raw\PennFudanPed')
 ```
 
 
@@ -800,7 +764,7 @@ all_objs
 
 
 
-    <generator object Path.glob at 0x000001764976C748>
+    <generator object Path.glob at 0x000001B136675EC8>
 
 
 
@@ -811,13 +775,17 @@ files = [f for f in all_objs if f.is_file()]
 
 
 ```python
-files
+files[:5]
 ```
 
 
 
 
-    [WindowsPath('E:/Data/Raw/Pima/pima-indians-diabetes.csv')]
+    [WindowsPath('E:/Data/Raw/PennFudanPed/added-object-list.txt'),
+     WindowsPath('E:/Data/Raw/PennFudanPed/readme.txt'),
+     WindowsPath('E:/Data/Raw/PennFudanPed/Annotation/FudanPed00001.txt'),
+     WindowsPath('E:/Data/Raw/PennFudanPed/Annotation/FudanPed00002.txt'),
+     WindowsPath('E:/Data/Raw/PennFudanPed/Annotation/FudanPed00003.txt')]
 
 
 
@@ -829,7 +797,7 @@ path.stem
 
 
 
-    'Pima'
+    'PennFudanPed'
 
 
 
@@ -841,11 +809,69 @@ path.name
 
 
 
-    'Pima'
+    'PennFudanPed'
+
+
+
+
+```python
+file_path = Path(files[0])
+file_path
+```
+
+
+
+
+    WindowsPath('E:/Data/Raw/PennFudanPed/added-object-list.txt')
+
+
+
+
+```python
+file_path.stem
+```
+
+
+
+
+    'added-object-list'
+
+
+
+
+```python
+file_path.name
+```
+
+
+
+
+    'added-object-list.txt'
+
+
+
+Pathlib also has a great one-liner for reading in text files. No more context managers.
+
+
+```python
+text = Path(r'E:/Data/Raw/PennFudanPed/readme.txt').read_text()
+```
+
+
+```python
+text[:500]
+```
+
+
+
+
+    '1. Directory structure:\n\nPNGImages:   All the database images in PNG format.\n\nPedMasks :   Mask for each image, also in PNG format. Pixels are labeled 0 for background, or > 0 corresponding\nto a particular pedestrian ID.\n\nAnnotation:  Annotation information for each image.  Each file is in the following format (take FudanPed00001.txt as an example):\n\n# Compatible with PASCAL Annotation Version 1.00\nImage filename : "PennFudanPed/PNGImages/FudanPed00001.png"\nImage size (X x Y x C) : 559 x 536 x 3'
 
 
 
 # Scope
+
+Scope is very important in Python. Different objects perform differently when they are modified in a function.
 
 
 ```python
