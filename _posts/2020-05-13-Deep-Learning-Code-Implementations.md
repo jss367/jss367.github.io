@@ -30,6 +30,8 @@ The first place to go to find Tensorflow implementations is probably the [Tensor
 
 The author of Keras, [Francois Chollet](https://fchollet.com/), also has his own [repo with some very easy to understand examples](https://github.com/fchollet/deep-learning-models).
 
+There are also great resources that other people have compiled. Github user [qubvel](https://github.com/qubvel) has created repos that host TensorFlow [classification](https://github.com/qubvel/classification_models) and [segmentation](https://github.com/qubvel/segmentation_models) models.
+
 ##### Object Detection
 
 If you're particularly interested in object detection, [tensorpack](https://github.com/tensorpack/tensorpack) is a great place to look. If you don't know where to start, take a look at the `examples` folder.
@@ -46,6 +48,8 @@ Some repositories focus on collecting domain-specific models, such as those for 
 ### PyTorch
 
 PyTorch doesn't have as many pre-trained models as Tensorflow but there's still a lot there. If you're interested in computer vision [Torchvision Models](https://pytorch.org/docs/stable/torchvision/models.html) is a good place to start.
+
+Github user [qubvel](https://github.com/qubvel) has also created repos for PyTorch [segmentation](https://github.com/qubvel/segmentation_models.pytorch) models.
 
 ##### Object Detection
 

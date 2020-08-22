@@ -24,7 +24,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 ```
 
-We're going to use models that are provided for use in `keras`. These are easy to work with and support random initialization, ImageNet weights, and loading custom weights. To start with, we'll use random weights. Let's download our model.
+We're going to use models that are provided in `keras`. These are easy to work with and support random initialization, ImageNet weights, and loading custom weights. To start with, we'll use random weights. Let's download our model.
 
 # Untrained VGG-16
 
