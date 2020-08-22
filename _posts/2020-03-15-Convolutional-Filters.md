@@ -410,7 +410,7 @@ show_filtered_image(test_image, random)
 ![png]({{site.baseurl}}/assets/img/2020-03-15-Convolutional-Filters_files/2020-03-15-Convolutional-Filters_53_0.png)
 
 
-Randomly generated filters will usually perform some sort of slightly distorted blurring. Bluring as actually a common (and sometimes desired affect, so let's look at that next).
+Randomly generated filters will usually perform some sort of slightly distorted blurring. Bluring as actually a common (and sometimes desired) affect, so let's look at that next.
 
 ### Blur
 
