@@ -171,25 +171,14 @@ df.describe()
 
 Looks like we have only three different classes. Almost all the instances and sequences are unique though. Let's look at the classes.
 
-We can also use an amazing tool called [pandas-profiling](https://github.com/pandas-profiling/pandas-profiling) to learn a lot about the dataset.
+UPDATE: I recently found an amazing tool called [pandas-profiling](https://github.com/pandas-profiling/pandas-profiling) that makes it fast and easy to learn about the dataset. I thought it was so cool that I wanted to demonstrate it here.
 
 
 ```python
 profile = ProfileReport(df, title="Pandas Profiling Report")
 ```
 
-
-```python
-profile.to_widgets()
-```
-
-    Summarize dataset: 100%|████████████████████████████████████████████████████| 17/17 [00:00<00:00, 28.77it/s, Completed]
-    Generate report structure: 100%|█████████████████████████████████████████████████████████| 1/1 [00:00<00:00,  2.64it/s]
-                                                                                                                           
-
-
-    VBox(children=(Tab(children=(Tab(children=(GridBox(children=(VBox(children=(GridspecLayout(children=(HTML(valu…
-
+Once you generate a profile, there are two ways to display it. One is `profile.to_widgets()` which works well in a Jupyter Notebook but doesn't display on this blog, so I'll skip that for this post. The other way is by using `profile.to_notebook_iframe()`.
 
 
 ```python
@@ -2702,6 +2691,8 @@ $(&quot;a[href^=&#x27;#&#x27;].anchor&quot;).on(&#x27;click&#x27;, function (e) 
 
 });        &lt;/script&gt;&lt;/body&gt;&lt;/html&gt;" frameborder="0" allowfullscreen></iframe>
 
+
+This tool does some of the same exploratory data analysis that I show below, but I'm going to keep it in anyway because it's good to remember how to do it manually.
 
 ### Class
 
