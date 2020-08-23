@@ -38,7 +38,7 @@ print(X.shape)
 print(y.shape)
 ```
 
-    (3190, 480)
+    (3190, 287)
     (3190,)
     
 
@@ -70,7 +70,7 @@ print(X.shape)
 print(y.shape)
 ```
 
-    (1535, 480)
+    (1535, 287)
     (1535,)
     
 
@@ -91,7 +91,7 @@ X_train.shape
 
 
 
-    (1151, 480)
+    (1151, 287)
 
 
 
@@ -130,7 +130,7 @@ print("The weight parameter is of shape: " + str(weights.shape))
 print("The bias parameter is of shape: " + str(bias.shape))
 ```
 
-    The weight parameter is of shape: (480,)
+    The weight parameter is of shape: (287,)
     The bias parameter is of shape: (1,)
     
 
@@ -496,7 +496,7 @@ dw.shape
 
 
 
-    (480,)
+    (287,)
 
 
 
@@ -509,7 +509,7 @@ dw[:10]
 
 
     array([ 0.0019544 , -0.00944625,  0.01498371, -0.01433225,  0.        ,
-            0.        ,  0.        ,  0.        ,  0.00065147, -0.0009772 ])
+            0.00065147, -0.0009772 ,  0.00423453, -0.01074919,  0.        ])
 
 
 

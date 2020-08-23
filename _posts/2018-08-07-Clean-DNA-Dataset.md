@@ -6,7 +6,11 @@ thumbnail: "assets/img/falcon.jpg"
 tags: [Python, Data Cleaning, Pandas, Biology]
 ---
 
-Splice junctions are locations on strings of DNA or RNA where superfluous sections are removed when proteins are created. After the splice, a section, known as the intron, is removed and the remaining sections, known as the exons, are joined together. Being able to identify these sequences of DNA is useful but time-consuming. This begs the question: Can spliced sections of DNA be determined with machine learning? 
+Splice junctions are locations on sequences of DNA or RNA where superflous sections are removed when proteins are created. After the splice, a section, known as the intron, is removed and the remaining sections, known as the exons, are joined together. Being able to identify these sequences of DNA is useful but time-consuming. This begs the question: Can spliced sections of DNA be determined with machine learning? 
+
+In the next two posts we'll try to do exactly that. To do this, we're going to use the [UCI Splice-junction Gene Sequence dataset](https://archive.ics.uci.edu/ml/datasets/Molecular+Biology+%28Splice-junction+Gene+Sequences%29). It consist of sequences of DNA that contain either the part of the DNA retained after splicing, the part that was spliced out, or neither. Our problem is to distinguish between these cases.
+
+In this post, I'm going to focus on cleaning and preparing the data set. In the next I'll walk through logistic regression to show how it works.
 
 <b>Table of contents</b>
 * TOC
@@ -15,15 +19,12 @@ Splice junctions are locations on strings of DNA or RNA where superfluous sectio
 ![splice](/assets/img/splice.jpg "Picture of RNA splice")
 Image from Wikipedia
 
-In the next two posts, we'll try to do exactly that. To do this, we're going to use the [UCI Splice-junction Gene Sequence dataset](https://archive.ics.uci.edu/ml/datasets/Molecular+Biology+%28Splice-junction+Gene+Sequences%29). It consists of sequences of DNA that contain either the part of the DNA retained after splicing, the part that was spliced out, or neither. Our problem is to distinguish which of the cases this is.
-
-In this notebook, I'm going to focus on cleaning and preparing the data set. In the next, I'll walk through logistic regression to show how it works.
-
 
 ```python
 import pandas as pd
 import numpy as np
 from sklearn.preprocessing import OneHotEncoder, LabelEncoder
+from pandas_profiling import ProfileReport
 ```
 
 ## Getting the data
@@ -32,7 +33,7 @@ This dataset was prepared by the [UCI Machine Learning Repository](https://archi
 
 
 ```python
-df = pd.read_csv("splice.data",
+df = pd.read_csv(r"datasets/DNA/splice.data",
     names=["Class", "Instance", "Sequence"])
 ```
 
@@ -153,8 +154,8 @@ df.describe()
     <tr>
       <th>top</th>
       <td>N</td>
-      <td>HUMMYLCA-DONOR-2559</td>
-      <td>CGCTCAGCCCGCTCCTTTCACCCTCTGCAGGAGAGCCT...</td>
+      <td>HUMMYLCA-DONOR-644</td>
+      <td>GCCGTGGTTTTTTTGCTTCACCACCCTGAGGTGCG...</td>
     </tr>
     <tr>
       <th>freq</th>
@@ -169,6 +170,18 @@ df.describe()
 
 
 Looks like we have only three different classes. Almost all the instances and sequences are unique though. Let's look at the classes.
+
+We can also use an amazing tool called [pandas-profiling](https://github.com/pandas-profiling/pandas-profiling) to learn a lot about the dataset.
+
+
+```python
+profile = ProfileReport(df, title="Pandas Profiling Report")
+```
+
+
+```python
+#profile.to_widgets()
+```
 
 ### Class
 
@@ -413,7 +426,7 @@ len(df['Instance_Prefix'].unique())
 
 
 
-That's a lot. Sometimes with categorical data like this, we would use one-hot encoding, where we make each instance its own column and give the value of 1 if it's that type and 0 otherwise. But that would result in a large sparse matrix. That's not necessarily a problem, but we'll put it aside for now but maybe use it later.
+That's a lot. Sometimes with categorical data like this, we would use one-hot encoding, where we make each instance its own column and give the value of 1 if it's that type and 0 otherwise. But that would result in a large sparse matrix. That's not necessarily a problem, but we'll put it aside for now and maybe use it later.
 
 Now let's look at the donor part.
 
@@ -534,7 +547,7 @@ donor_one_hot_df.sample(10, random_state=0)
 
 
 
-Now we've convert it to a numpy array
+Now we'll convert it to a numpy array.
 
 
 ```python
@@ -612,8 +625,8 @@ set_series[set_series.str.contains('D', regex=False)]
 
 
 
-    1247    {C, T, A, G, D}
-    2578    {C, T, A, G, D}
+    1247    {T, G, A, D, C}
+    2578    {T, G, A, D, C}
     Name: Sequence, dtype: object
 
 
@@ -649,17 +662,17 @@ set_series[set_series.str.contains('N', regex=False)]
 
 
 
-    107     {C, T, A, N, G}
-    239     {C, T, A, N, G}
-    365     {C, T, A, N, G}
-    366     {C, T, A, N, G}
-    485     {C, T, A, N, G}
-    1804    {C, T, A, N, G}
-    2069    {C, T, A, N, G}
-    2135    {C, T, A, N, G}
-    2636    {C, T, A, N, G}
-    2637    {C, T, A, N, G}
-    2910    {C, T, A, N, G}
+    107     {T, G, N, C, A}
+    239     {T, G, N, A, C}
+    365     {T, G, N, C, A}
+    366     {T, G, N, A, C}
+    485     {T, G, N, C, A}
+    1804    {T, G, N, A, C}
+    2069    {T, G, N, A, C}
+    2135    {T, G, N, A, C}
+    2636    {T, G, N, A, C}
+    2637    {T, G, N, A, C}
+    2910    {T, G, N, A, C}
     Name: Sequence, dtype: object
 
 
@@ -684,7 +697,7 @@ set_series[set_series.str.contains('R', regex=False)]
 
 
 
-    1440    {R, C, T, A, G}
+    1440    {T, G, R, A, C}
     Name: Sequence, dtype: object
 
 
@@ -709,7 +722,7 @@ set_series[set_series.str.contains('S', regex=False)]
 
 
 
-    1441    {C, S, T, A, G}
+    1441    {T, S, G, C, A}
     Name: Sequence, dtype: object
 
 
@@ -726,7 +739,7 @@ df.loc[1441].Sequence.strip()
 
 
 
-OK, there aren't too many rows with these missing values. We could remove them, but if there's enough information in the rest of the sequence to distinguish the class, we would be throwing away useful data. If there's not, the instance won't have much effect on the model. So we're going to keep them in.
+OK, there aren't too many rows with these missing values. We could remove them, but if there's enough information in the rest of the sequence to distinguish the class, we would be throwing away useful data. If there's not, the instance won't have much effect on the model. So I'm going to keep them in.
 
 #### Checking the size
 
@@ -787,14 +800,14 @@ Now we've converted the letters to integers. We could continue with this and tra
 
 To avoid that, we'll use one-hot encoding.
 
-We have to be careful with data types. We currently have a bunch of integers inside a list within a pandas series. We want to split those lists so that each individual integer is in its own column. To do that we'll convert the pandas series into an ndarray.
+We have to be careful with data types. We currently have a bunch of integers inside a list within a pandas series. We want to split those lists so that each individual integer is in its own column. To do that, we'll convert the pandas series into an ndarray.
 
 
 ```python
 X_sequence = np.array(df['Sequence_list'].values.tolist())
 ```
 
-Because we have 7 different categories ('A', 'C', 'D', 'G', 'N', 'R', 'S', and 'T'), one-hot encoding will turn our array of shape (X, Y) into (X, Y * 7). Let's check the shape now so we can compare.
+One-hot encoding our matrix will change the shape of it. Let's check the shape now so we can compare.
 
 
 ```python
@@ -810,7 +823,7 @@ X_sequence.shape
 
 
 ```python
-encoder = OneHotEncoder(n_values=len(letter_mapping))
+encoder = OneHotEncoder()
 X_encoded = encoder.fit_transform(X_sequence)
 X_one_hot = X_encoded.toarray()
 ```
@@ -823,7 +836,7 @@ X_one_hot.shape
 
 
 
-    (3190, 480)
+    (3190, 287)
 
 
 
