@@ -1,7 +1,8 @@
 ---
 layout: post
 title: "Exploring Images with Python II"
-thumbnail: "assets/img/ghan_1000.png"
+thumbnail: "assets/img/mining_landscape.png"
+feature-img: "assets/img/rainbow.jpg"
 tags: [Python, Computer vision]
 ---
 
