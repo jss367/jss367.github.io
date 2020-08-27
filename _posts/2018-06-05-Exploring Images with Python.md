@@ -7,6 +7,9 @@ tags: [Python, Computer Vision]
 ---
 Let's look at how to explore images in Python. We'll use the popular and active [Pillow](https://pillow.readthedocs.io/en/5.1.x/) fork of PIL, the [Python Imaging Library](http://www.pythonware.com/products/pil/).
 
+<b>Table of contents</b>
+* TOC
+{:toc}
 
 ```python
 from PIL import Image
