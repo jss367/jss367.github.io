@@ -24,7 +24,7 @@ from skimage.io import imread
 
 
 ```python
-image_path = 'roo.jpg'
+image_path = '../roo.jpg'
 ```
 
 
@@ -95,20 +95,15 @@ img[:, : , 0][:3]
 from matplotlib import pyplot as plt
 ```
 
+Matplotlib is my default for displaying images. Normally when you run a command in Jupyter Notebooks it will print the last output. But the output isn't very useful so to suppress it you can end the line with a semicolon.
+
 
 ```python
-plt.imshow(img)
+plt.imshow(img);
 ```
 
 
-
-
-    <matplotlib.image.AxesImage at 0x23383f6ce88>
-
-
-
-
-![png](2018-06-06-Exploring%20Images%20with%20Python%20II_files/2018-06-06-Exploring%20Images%20with%20Python%20II_10_1.png)
+![png](2018-06-06-Exploring%20Images%20with%20Python%20II_files/2018-06-06-Exploring%20Images%20with%20Python%20II_12_0.png)
 
 
 To have more control:
@@ -116,53 +111,32 @@ To have more control:
 
 ```python
 fix, ax = plt.subplots()
-ax.imshow(img)
+ax.imshow(img);
 ```
 
 
-
-
-    <matplotlib.image.AxesImage at 0x23383d12288>
-
-
-
-
-![png](2018-06-06-Exploring%20Images%20with%20Python%20II_files/2018-06-06-Exploring%20Images%20with%20Python%20II_12_1.png)
+![png](2018-06-06-Exploring%20Images%20with%20Python%20II_files/2018-06-06-Exploring%20Images%20with%20Python%20II_14_0.png)
 
 
 
 ```python
 plt.figure(figsize=(10, 10))
-plt.imshow(img)
+plt.imshow(img);
 ```
 
 
-
-
-    <matplotlib.image.AxesImage at 0x23383da7f88>
-
-
-
-
-![png](2018-06-06-Exploring%20Images%20with%20Python%20II_files/2018-06-06-Exploring%20Images%20with%20Python%20II_13_1.png)
+![png](2018-06-06-Exploring%20Images%20with%20Python%20II_files/2018-06-06-Exploring%20Images%20with%20Python%20II_15_0.png)
 
 
 
 ```python
 fig, ax = plt.subplots(figsize=(30, 10))
 ax.imshow(img)
-ax.axis('off')
+ax.axis('off');
 ```
 
 
-
-
-    (-0.5, 191.5, 255.5, -0.5)
-
-
-
-
-![png](2018-06-06-Exploring%20Images%20with%20Python%20II_files/2018-06-06-Exploring%20Images%20with%20Python%20II_14_1.png)
+![png](2018-06-06-Exploring%20Images%20with%20Python%20II_files/2018-06-06-Exploring%20Images%20with%20Python%20II_16_0.png)
 
 
 
@@ -170,18 +144,11 @@ ax.axis('off')
 plt.rcParams['figure.figsize'] = (30, 10)
 fig, ax = plt.subplots()
 ax.imshow(img)
-ax.axis('off')
+ax.axis('off');
 ```
 
 
-
-
-    (-0.5, 191.5, 255.5, -0.5)
-
-
-
-
-![png](2018-06-06-Exploring%20Images%20with%20Python%20II_files/2018-06-06-Exploring%20Images%20with%20Python%20II_15_1.png)
+![png](2018-06-06-Exploring%20Images%20with%20Python%20II_files/2018-06-06-Exploring%20Images%20with%20Python%20II_17_0.png)
 
 
 # PIL
@@ -204,11 +171,13 @@ pil_img
 
 
 
-![png](2018-06-06-Exploring%20Images%20with%20Python%20II_files/2018-06-06-Exploring%20Images%20with%20Python%20II_19_0.png)
+![png](2018-06-06-Exploring%20Images%20with%20Python%20II_files/2018-06-06-Exploring%20Images%20with%20Python%20II_21_0.png)
 
 
 
 # Open CV
+
+You can also read images off disk using OpenCV.
 
 
 ```python
@@ -222,36 +191,22 @@ img = cv2.imread(image_path)
 
 
 ```python
-plt.imshow(img)
+plt.imshow(img);
 ```
 
 
-
-
-    <matplotlib.image.AxesImage at 0x233f8c19f88>
-
-
-
-
-![png](2018-06-06-Exploring%20Images%20with%20Python%20II_files/2018-06-06-Exploring%20Images%20with%20Python%20II_23_1.png)
+![png](2018-06-06-Exploring%20Images%20with%20Python%20II_files/2018-06-06-Exploring%20Images%20with%20Python%20II_26_0.png)
 
 
 Note the flipped color channels. Here is how you can fix it.
 
 
 ```python
-plt.imshow(img[:, :, ::-1])
+plt.imshow(img[:, :, ::-1]);
 ```
 
 
-
-
-    <matplotlib.image.AxesImage at 0x233f8ca8f88>
-
-
-
-
-![png](2018-06-06-Exploring%20Images%20with%20Python%20II_files/2018-06-06-Exploring%20Images%20with%20Python%20II_25_1.png)
+![png](2018-06-06-Exploring%20Images%20with%20Python%20II_files/2018-06-06-Exploring%20Images%20with%20Python%20II_28_0.png)
 
 
 ## ImageIO
@@ -265,7 +220,7 @@ import imageio
 
 
 ```python
-image_path = 'roo.jpg'
+image_path = '../roo.jpg'
 ```
 
 
@@ -338,6 +293,5 @@ plt.show()
 ```
 
 
-![png](2018-06-06-Exploring%20Images%20with%20Python%20II_files/2018-06-06-Exploring%20Images%20with%20Python%20II_39_0.png)
-
+![png](2018-06-06-Exploring%20Images%20with%20Python%20II_files/2018-06-06-Exploring%20Images%20with%20Python%20II_42_0.png)
 
