@@ -341,12 +341,3 @@ plt.show()
 ![png](2018-06-06-Exploring%20Images%20with%20Python%20II_files/2018-06-06-Exploring%20Images%20with%20Python%20II_39_0.png)
 
 
-
-```python
-
-```
-
-
-```python
-
-```
