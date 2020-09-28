@@ -30,5 +30,5 @@ There are a lot of great resources out there so I thought I would try to compile
 ## Computer Vision
 
 * [Computer Vision: Algorithms and Applications](http://szeliski.org/Book/) by Richard Szeliski (2010) - The latest edition was published in 2010, so it predates the deep learning revolution.
-** Update: The author is currently working on an update and has posted a draft with new material to the website. The new material includes deep learning as a separate chapter as well as incorporating it into other chapters.
+  * Update: The author is currently working on an update and has posted a draft with new material to the website. The new material includes deep learning as a separate chapter as well as incorporating it into other chapters.
 
