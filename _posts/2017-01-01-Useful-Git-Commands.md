@@ -354,3 +354,9 @@ Supposed you wanted to add something that combined a few git commands, like `git
 `git config --global alias.all 'pull --rebase --autostash'`
 
 Now you can do `git all` to call this.
+
+## Useful Git Commands
+
+These are good to set to an alias
+
+git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short
