@@ -32,7 +32,7 @@ The IndentityFile will already be on your computer if you have been connecting t
 
 # Putting it All Together
 
-That should be all you need to connect VSCode to your instance. I like to add a `LogLevel` of `verbose` to make debugging easier. You shouldn't have to specify a Port but you can also do so if you prefer to be explicit. In summary, it should like like this:
+That should be all you need to connect VSCode to your instance. I like to add a `LogLevel` of `verbose` to make debugging easier. You shouldn't have to specify a Port but you can also do so if you prefer to be explicit. In summary, it should look like this:
 
 ```
 Host my_instance
