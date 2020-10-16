@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Inspecting Model Weights"
+title: "Connecting VSCode to Google Cloud Platform Instances"
 description: "This post describes how to connect VSCode to Google Cloud Platform instances"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/smokey_tree.jpg"
