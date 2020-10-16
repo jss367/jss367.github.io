@@ -8,11 +8,11 @@ tags: [VSCode]
 ---
 
 
-In this post, I'll demonstrate how to connect to [Google Cloud Platform](https://cloud.google.com/) instances using VSCode's [Remote SSH extention](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh). To connect to a remote host, VSCode needs to know the HostName, User, and IdentityKey. In this guide, we'll go over how to find these. For simplicity, we'll assume your trying to connect to an instance named `my_instance`, your zone is `europe-west4-b`, and your project is `my_project`. You'll need to find these values and change them in the instructions below.
+In this post, I'll demonstrate how to connect to [Google Cloud Platform](https://cloud.google.com/) instances using VSCode's [Remote SSH extention](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh). To connect to a remote host, VSCode needs to know the HostName, User, and IdentityKey. In this guide, we'll go over how to find these. For simplicity, we'll assume you're trying to connect to an instance named `my_instance`, your zone is `europe-west4-b`, and your project is `my_project`. You'll need to find these values and change them in the instructions below.
 
 ## Username
 
-First let's get your username. You probably already know it, but just in case you don't you can find it by opening a terminal and entering `gcloud auth list --format="value(account)"`. This will give you your username and your domain in the format of `username@domain`. You'll only want the username here. Let's assume your username is `my_username`.
+First, let's get your username. You probably already know it, but just in case you don't you can find it by opening a terminal and entering `gcloud auth list --format="value(account)"`. This will give you your username and your domain in the format of `username@domain`. You'll only want the username here. Let's assume your username is `my_username`.
 
 ## HostName
 
