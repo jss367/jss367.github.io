@@ -9,7 +9,7 @@ avatar: assets/img/avatars/possum.jpg                   # Empty for no avatar in
 favicon: assets/favicon.ico                             # Icon displayed in the tab
 
 # Header and footer text
-header_text: Exploring the world through data science  # Change Blog header text
+header_text: Exploring the World Through Data Science  # Change Blog header text
 header_feature_image: assets/img/astro_crop_small.jpg
 footer_text: >
    &copy; 2015-2020 Julius Simonelli. Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
