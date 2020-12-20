@@ -360,3 +360,7 @@ Now you can do `git all` to call this.
 These are good to set to an alias
 
 git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short
+
+## git aliases
+
+do this to git config: (aliases)https://githowto.com/aliases
