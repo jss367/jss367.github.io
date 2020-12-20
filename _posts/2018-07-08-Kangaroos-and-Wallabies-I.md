@@ -142,7 +142,7 @@ im
 
 
     
-![png](2018-07-08-Kangaroos-and-Wallabies-I_files/2018-07-08-Kangaroos-and-Wallabies-I_23_0.png)
+![png]({{site.baseurl}}/assets/img/2018-07-08-Preparing-folder-structure_files/2018-07-08-Preparing-folder-structure_25_0.png)
     
 
 
