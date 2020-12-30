@@ -7,7 +7,7 @@ thumbnail: "assets/img/kings_canyon.jpg"
 tags: [Python]
 ---
 
-This post is an introduction to principal component analysis (PCA. It was originally written to accompany a presentation to the [NOVA Deep Learning Meetup](https://www.meetup.com/novadeeplearning/).
+This post is an introduction to principal component analysis (PCA). It was originally written to accompany a presentation to the [NOVA Deep Learning Meetup](https://www.meetup.com/novadeeplearning/).
 
 <b>Table of contents</b>
 * TOC
