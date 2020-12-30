@@ -145,10 +145,10 @@ Let's say you want to add something to your `.gitignore` file, and don't want to
 
 Here’s what those flags mean:
 
--c: Create a compressed file
--z: Zip with gzip
--v: Verbose mode
--f: Specify filename
+* -c: Create a compressed file
+* -z: Zip with gzip
+* -v: Verbose mode
+* -f: Specify filename
 
 #### Decompress
 
