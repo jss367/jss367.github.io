@@ -122,6 +122,7 @@ Another package worth checking out is [tldr](https://tldr.sh/). It's like `man` 
 
 I found this [amazing script on AskUbuntu](https://askubuntu.com/questions/17299/what-do-the-different-colors-mean-in-ls).
 
+```
 eval $(echo "no:global default;fi:normal file;di:directory;ln:symbolic link;pi:named pipe;so:socket;do:door;bd:block device;cd:character device;or:orphan symlink;mi:missing file;su:set uid;sg:set gid;tw:sticky other writable;ow:other writable;st:sticky;ex:executable;"|sed -e 's/:/="/g; s/\;/"\n/g')           
 {      
   IFS=:     
@@ -129,7 +130,8 @@ eval $(echo "no:global default;fi:normal file;di:directory;ln:symbolic link;pi:n
   do        
     echo -e "\e[${i#*=}m$( x=${i%=*}; [ "${!x}" ] && echo "${!x}" || echo "$x" )\e[m" 
   done       
-} 
+}
+```
 
 ## Quickly Adding to Files
 
@@ -139,7 +141,7 @@ Let's say you want to add something to your `.gitignore` file, and don't want to
 
 #### Compress
 
-tar -czvf my_directory.tar.gz /path/to/my_directory
+`tar -czvf my_directory.tar.gz /path/to/my_directory`
 
 Here’s what those flags mean:
 
@@ -150,6 +152,6 @@ Here’s what those flags mean:
 
 #### Decompress
 
-tar -xzvf archive.tar.gz
+`tar -xzvf archive.tar.gz`
 
 The only different is that we change the "-c" for Create to "-x" for eXtract
