@@ -133,5 +133,23 @@ eval $(echo "no:global default;fi:normal file;di:directory;ln:symbolic link;pi:n
 
 ## Quickly Adding to Files
 
-Let's say you want to add something to you `.gitignore` file, and don't want to bother with [vim](https://www.vim.org/) at the moment. You can add what you need by typing `cat > .gitignore` then adding whatever you need. Then hit control + D to return to the bash prompt.
+Let's say you want to add something to your `.gitignore` file, and don't want to bother with [vim](https://www.vim.org/) at the moment. You can add what you need by typing `cat > .gitignore` then adding whatever you need. Then hit control + D to return to the bash prompt.
 
+## Compressing and Decompressing files:
+
+#### Compress
+
+tar -czvf my_directory.tar.gz /path/to/my_directory
+
+Here’s what those flags mean:
+
+-c: Create a compressed file
+-z: Zip with gzip
+-v: Verbose mode
+-f: Specify filename
+
+#### Decompress
+
+tar -xzvf archive.tar.gz
+
+The only different is that we change the "-c" for Create to "-x" for eXtract
