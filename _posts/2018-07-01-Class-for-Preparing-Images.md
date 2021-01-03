@@ -19,20 +19,28 @@ This class helps handle image data for use in machine learning. It helps to read
 # Class
 
 ```python
-import os
 import random
-from PIL import Image
+from os import listdir, makedirs
+from os.path import isfile
+from pathlib import Path
+
 import numpy as np
-from keras.preprocessing.image import array_to_img, img_to_array, load_img
-from IPython.core.debugger import set_trace
+from PIL import Image
+from tensorflow.keras.preprocessing.image import (array_to_img, img_to_array,
+                                                  load_img)
+
+"""This is specifically written for the kangaroos and wallabies dataset
+TODO: Expand to more than two classes
+TODO: Remove strings as enums
+"""
 
 
-class GatherData(object):
+class DataMaster(object):
     '''
     This class helps handle image data for use in machine learning.
     It helps to read image files from the directory and convert them into training and testing sets.
     It has the flexibility to return the data in any of the following forms:
-    
+
     * grayscale or rgb
     * flattened vectors or not
     * any square image size
@@ -40,27 +48,32 @@ class GatherData(object):
     * labels as either column vector or not ( (n,) or (n, 1) )
     * number of samples either as first or last in ndarray
     '''
+
     def __init__(self):
-        self.X_train_ = None
-        self.X_test_ = None
-        self.y_train_ = None
-        self.y_test_ = None
-        self.image_size_ = None
-        self.num_train_images_ = None
-        self.num_test_images_ = None
+        self.X_train = None
+        self.X_test = None
+        self.y_train = None
+        self.y_test = None
+        self.image_size = None
+        self.num_train_images = None
+        self.num_test_images = None
 
     def get_filenames(self, path):
         '''
         Returns list of filenames in a path
         '''
-        # os.path.join will add the trailing slash if it's not already there
-        files = [file for file in os.listdir(
-            path) if os.path.isfile(os.path.join(path, file))]
+        path = Path(path)
+        files = [file for file in listdir(path) if isfile(path / file)]
         return files
 
-    def get_images(self, path, result_format='list of PIL images', new_size=0, grayscale=True):
+    def get_images(
+            self,
+            path,
+            result_format='list of PIL images',
+            new_size=0,
+            grayscale=True):
         '''
-        Accepts a path to a directory of images and 
+        Accepts a path to a directory of images and
         returns an ndarray of shape N, H, W, c where
         N is the number of images
         H is the height of the images
@@ -73,10 +86,10 @@ class GatherData(object):
         This function also allows the images to be resized, but forces square
         image_size passes size of first image only
         '''
-        files = self.get_filenames(path)
+        files = [Path(f) for f in self.get_filenames(path)]
         images = []
-        for file in files:
-            image = Image.open(os.path.join(path, file))
+        for im_file in files:
+            image = Image.open(path / im_file)
             if grayscale:
                 image = image.convert("L")
             if new_size != 0:
@@ -86,22 +99,22 @@ class GatherData(object):
             images.append(image)
         if result_format == 'ndarray':
             array_of_images = np.asarray(images)
-            self.image_size_ = array_of_images[0].shape[0:2]
+            self.image_size = array_of_images[0].shape[0:2]
             return array_of_images
         elif result_format == 'list of ndarrays':
-            self.image_size_ = images[0].shape[0:2]
+            self.image_size = images[0].shape[0:2]
         elif result_format == 'list of PIL images':
-            self.image_size_ = images[0].size
+            self.image_size = images[0].size
         return images
 
-    def make_dir_if_needed(self, folder):
-        '''
-        Checks if a directory already exists and if not creates it
-        '''
-        if not os.path.isdir(folder):
-            os.makedirs(folder)
-
-    def augment_images(self, original_file, output_path, output_prefix, image_number, datagen, count=10):
+    def augment_images(
+            self,
+            original_file,
+            output_path,
+            output_prefix,
+            image_number,
+            datagen,
+            count=10):
         '''
         This function works on a single image at a time.
         It works best by enumerating a list of file names and passing the file and index.
@@ -112,11 +125,11 @@ class GatherData(object):
         for index, file in enumerate(train_files):
             augment_images(os.path.join(train_path, file), output_path, str(index), datagen, count=10)
         '''
-        self.make_dir_if_needed(output_path)
+        makedirs(output_path, exist_ok=True)
 
         # load image to array
         image = img_to_array(load_img(original_file))
-        # set_trace()
+
         # reshape to array rank 4
         image = image.reshape((1,) + image.shape)
 
@@ -128,14 +141,25 @@ class GatherData(object):
             # we access only first image because of batch_size=1
             new_image = array_to_img(new_images[0], scale=True)
 
-            output_filename = output_path + output_prefix + image_number +                 '-' + str(index+1) + '.jpg'
+            output_filename = (output_path + output_prefix + image_number + '-' + str(index + 1) + '.jpg')
 
             new_image.save(output_filename)
 
-    def train_test_sets(self, input1_training_path, input2_training_path, input1_testing_path,
-                        input2_testing_path, new_size=256, grayscale=False, num_samples_last=False,
-                        standardization='normalize', seed=None, verbose=False, y_as_column_vector=False,
-                        flatten=True):
+    def train_test_sets(
+        self,
+        input1_training_path,
+        input2_training_path,
+        input1_testing_path,
+        input2_testing_path,
+        new_size=256,
+        grayscale=False,
+        num_samples_last=False,
+        standardization='normalize',
+        seed=42,
+        verbose=False,
+        y_as_column_vector=False,
+        flatten=True,
+    ):
         '''
         This accepts paths for the training and testing location of two paths
         To leave the images at their original size pass `new_size = 0`
@@ -147,13 +171,25 @@ class GatherData(object):
         if verbose:
             print("getting images")
         train1 = self.get_images(
-            input1_training_path, result_format='ndarray', new_size=new_size, grayscale=grayscale)
+            input1_training_path,
+            result_format='ndarray',
+            new_size=new_size,
+            grayscale=grayscale)
         train2 = self.get_images(
-            input2_training_path, result_format='ndarray', new_size=new_size, grayscale=grayscale)
+            input2_training_path,
+            result_format='ndarray',
+            new_size=new_size,
+            grayscale=grayscale)
         test1 = self.get_images(
-            input1_testing_path, result_format='ndarray', new_size=new_size, grayscale=grayscale)
+            input1_testing_path,
+            result_format='ndarray',
+            new_size=new_size,
+            grayscale=grayscale)
         test2 = self.get_images(
-            input2_testing_path, result_format='ndarray', new_size=new_size, grayscale=grayscale)
+            input2_testing_path,
+            result_format='ndarray',
+            new_size=new_size,
+            grayscale=grayscale)
 
         # make sure the image is square
         assert train1.shape[1] == train1.shape[2] == new_size
@@ -179,80 +215,71 @@ class GatherData(object):
         testing_images = np.concatenate((test1, test2), axis=0)
 
         # Get the number of training and testing examples
-        self.num_train_images_ = len(training_images)
-        self.num_test_images_ = len(testing_images)
+        self.num_train_images = len(training_images)
+        self.num_test_images = len(testing_images)
 
         # Create labels
-        training_labels = np.concatenate(
-            (np.zeros(len(train1)), np.ones(len(train2))))
-        testing_labels = np.concatenate(
-            (np.zeros(len(test1)), np.ones(len(test2))))
+        training_labels = np.concatenate((np.zeros(len(train1)), np.ones(len(train2))))
+        testing_labels = np.concatenate((np.zeros(len(test1)), np.ones(len(test2))))
 
         # Zip the images and labels together so they can be shuffled together
         if verbose:
             print("zipping")
         train_zipped = list(zip(training_images, training_labels))
-        test_zipped = list(zip(testing_images, testing_labels))
 
         if verbose:
             print("shuffling")
-        # Now shuffle both
+        # Now shuffle training images
         random.seed(seed)
         random.shuffle(train_zipped)
-        random.shuffle(test_zipped)
 
-        self.X_train_, self.y_train_ = zip(*train_zipped)
-        self.X_test_, self.y_test_ = zip(*test_zipped)
+        self.X_train, self.y_train = zip(*train_zipped)
+        self.X_test, self.y_test = testing_images, testing_labels
 
         # Convert tuples back to ndarrays
-        self.X_train_ = np.asarray(self.X_train_)
-        self.X_test_ = np.asarray(self.X_test_)
-        self.y_train_ = np.asarray(self.y_train_)
-        self.y_test_ = np.asarray(self.y_test_)
+        self.X_train = np.asarray(self.X_train)
+        self.X_test = np.asarray(self.X_test)
+        self.y_train = np.asarray(self.y_train)
+        self.y_test = np.asarray(self.y_test)
 
         if standardization == 'normalize':
             if verbose:
                 print("standardizing")
             # Standardize the values
-            self.X_train_ = (self.X_train_ - self.X_train_.mean()
-                            ) / self.X_train_.std()
+            self.X_train = (self.X_train - self.X_train.mean()) / self.X_train.std()
             # Use the train mean and standard deviation
-            self.X_test_ = (self.X_test_ - self.X_train_.mean()
-                           ) / self.X_train_.std()
+            self.X_test = (self.X_test - self.X_train.mean()) / self.X_train.std()
         elif standardization == 'rescale':
             if verbose:
                 print("standardizing")
             # Standardize the values
-            self.X_train_ = self.X_train_ / 255.
-            # Use the train mean and standard deviation
-            self.X_test_ = self.X_test_ / 255.
+            self.X_train = self.X_train / 255.0
+            self.X_test = self.X_test / 255.0
 
         if y_as_column_vector:
             # Reshape the y to matrix them n X 1 matrices
-            self.y_train_ = self.y_train_.reshape(self.y_train_.shape[0], 1)
-            self.y_test_ = self.y_test_.reshape(self.y_test_.shape[0], 1)
+            self.y_train = self.y_train.reshape(self.y_train.shape[0], 1)
+            self.y_test = self.y_test.reshape(self.y_test.shape[0], 1)
 
         if num_samples_last:
             # Reshape array to (L*W*c, N)
-            self.X_train_.shape = (
-                self.X_train_.shape[1], self.X_train_.shape[0])
-            self.X_test_.shape = (self.X_test_.shape[1], self.X_test_.shape[0])
-            self.y_train_.shape = (
-                self.y_train_.shape[1], self.y_train_.shape[0])
-            self.y_test_.shape = (self.y_test_.shape[1], self.y_test_.shape[0])
+            self.X_train.shape = (self.X_train.shape[1], self.X_train.shape[0])
+            self.X_test.shape = (self.X_test.shape[1], self.X_test.shape[0])
+            self.y_train.shape = (self.y_train.shape[1], self.y_train.shape[0])
+            self.y_test.shape = (self.y_test.shape[1], self.y_test.shape[0])
 
     def dataset_parameters(self):
         '''
         Returns the parameters of the dataset
         '''
         try:
-            print("X_train shape: " + str(self.X_train_.shape))
-            print("y_train shape: " + str(self.y_train_.shape))
-            print("X_test shape: " + str(self.X_test_.shape))
-            print("y_test shape: " + str(self.y_test_.shape))
-            print("Number of training examples: " + str(self.num_train_images_))
-            print("Number of testing examples: " + str(self.num_test_images_))
-            print("Each image is of size: " + str(self.image_size_))
+            print("X_train shape: " + str(self.X_train.shape))
+            print("y_train shape: " + str(self.y_train.shape))
+            print("X_test shape: " + str(self.X_test.shape))
+            print("y_test shape: " + str(self.y_test.shape))
+            print("Number of training examples: " + str(self.num_train_images))
+            print("Number of testing examples: " + str(self.num_test_images))
+            print("Each image is of size: " + str(self.image_size))
 
         except AttributeError:
             print("Error: The data has not been input or is incorrectly configured.")
@@ -270,7 +297,7 @@ class GatherData(object):
 ```python
 from keras.preprocessing.image import ImageDataGenerator
 
-my_data = GatherData()
+my_data = DataMaster()
 image_path = 'img/'
 aug_path = 'aug/'
 filenames = my_data.get_filenames(image_path)
