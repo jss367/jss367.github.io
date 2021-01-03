@@ -19,7 +19,7 @@ This is part two of a three-post series on creating your own dataset and classif
 
 ## Introduction
 
-Now that the data have been sorted to serve our needs, we can move forward with classifying it. But before we do that, we need to consider the dataset. We have a few thousand images to work with and only two classes of images. Although this may sound like a lot, it isn't very much for training a deep neural network. 
+Now that the images have been sorted into the proper splits, we can move forward with classifying them. But before we do that, we need to consider the size of the dataset. We have a few thousand images to work with and only two classes of images. Although this may sound like a lot, it isn't very much for training a deep neural network. 
 
 To get a sense of the size and scale needed, we'll look at some important results from the world of deep learning. The most popular image recognition contest is the ImageNet Large Scale Visual Recognition Challenge (ILSVRC). ILSVRC has 1.2 million images in 1000 classes, which equates to 1200 images per class on average. This is right around where we are, which is great. However, large models, such as those used for deep learning, will significantly overfit on a dataset of this size. So let's look at how successful models dealt with this issue.
 
@@ -41,17 +41,14 @@ Keras has a method that makes data augmentation very easy, so we'll use that.
 
 
 ```python
-from PIL import Image
 import os
-from keras.preprocessing.image import ImageDataGenerator, array_to_img, img_to_array, load_img
-import matplotlib.pyplot as plt
-from IPython.core.debugger import set_trace
-```
 
-    C:\ProgramData\Anaconda3\lib\site-packages\h5py\__init__.py:36: FutureWarning: Conversion of the second argument of issubdtype from `float` to `np.floating` is deprecated. In future, it will be treated as `np.float64 == np.dtype(float).type`.
-      from ._conv import register_converters as _register_converters
-    Using TensorFlow backend.
-    
+import matplotlib.pyplot as plt
+from PIL import Image
+
+from tensorflow.keras.preprocessing.image import (ImageDataGenerator, array_to_img,
+                                       img_to_array, load_img)
+```
 
 
 ```python
@@ -80,7 +77,7 @@ datagen = ImageDataGenerator(
 )
 ```
 
-Let's build a function to help us augment the images. We want precise control over how the images are changed and how many are created. Keras provides a lot of flexibility in the way it augments images. It can perform just-in-time image generation to save on disk space. In this case, we'll save the images to disk so we can display them.
+Let's build a function to help us augment the images. We want precise control over how the images are changed and how many are created. Keras provides a lot of flexibility in the way it augments images. It can perform just-in-time image generation to save on disk space. That's normally what we would do, but in this case we'll save them to disk so we can look at them.
 
 
 ```python
