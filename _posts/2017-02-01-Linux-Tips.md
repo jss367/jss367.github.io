@@ -137,7 +137,7 @@ eval $(echo "no:global default;fi:normal file;di:directory;ln:symbolic link;pi:n
 
 Let's say you want to add something to your `.gitignore` file, and don't want to bother with [vim](https://www.vim.org/) at the moment. You can add what you need by typing `cat > .gitignore` then adding whatever you need. Then hit control + D to return to the bash prompt.
 
-## Compressing and Decompressing files:
+## Compressing and Decompressing files
 
 #### Compress
 
