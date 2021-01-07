@@ -20,6 +20,9 @@ Here are some commands I've found useful when debugging issues with my Jupyter e
 
 #### What interpreter am I using
 
+
+In Python:
+
 ``` python
 import sys
 sys.executable
@@ -29,6 +32,10 @@ The response should say something like this:
 
 `/opt/conda/envs/my_env/bin/python`
 
+On Windows it will look like this:
+
+`'C:\\Users\\Julius\\anaconda3\\envs\\tf\\python.exe'`
+
 #### From within a notebook, see what environment I'm using
 
 `!conda env list`
@@ -37,6 +44,7 @@ The response should say something like this:
 
 `jupyter kernelspec list`
 
+![png]({{site.baseurl}}/assets/img/kernels.png)
 
 #### Where are my kernels located
 
@@ -45,6 +53,8 @@ The exact location may vary, but for Mac/Linux users, it should look something l
 `ls /root/.local/share/jupyter/kernels/`
 
 OK, now let's talk about some examples where you might need these.
+
+You should also be aware that different kernels will have different paths. For example, `import my_package` may work in one kernel but not in another. Check sys.path to see which paths are being called.
 
 ## Environment not showing up in Jupyter
 
@@ -138,7 +148,7 @@ For Windows users, you can go in the Anacoda Prompt
 
 `jupyter kernelspec list`
 
-Should see something like C:\Users\Julius\anaconda3\share\jupyter\kernels\python3
+Should see something like `C:\Users\Julius\anaconda3\share\jupyter\kernels\python3`
 
 `cd` there
 
