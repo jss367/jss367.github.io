@@ -806,9 +806,3 @@ visualize_no_mask(aug_ims)
     
 ![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_77_0.png)
     
-
-
-
-```python
-
-```
