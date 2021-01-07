@@ -31,41 +31,45 @@ This also works on Windows Subsystem for Linux
 
 There is an integrated terminal in VSCode. You can set it but the default it Windows Powershell, so you'll have to
 
-echo $Env:PATH
+`echo $Env:PATH`
 
 
 ## Adding to path
 
 If you want to temporarily add to path:
+```
 set PATH="%PATH%;C:\path\to\directory\"
 set PATH="%PATH%;C:\Users\Julius\Documents\GitHub\DataManager"
+```
 
 If you want to permanently add to path:
-setx path "%PATH%;C:\path\to\directory\"
+`setx path "%PATH%;C:\path\to\directory\"`
 
 
 
 
-On windows, if you echo $PYTHONPATH you get nothing, but if you print(sys.path) you see:
+On windows, if you echo $PYTHONPATH you get nothing, but if you `print(sys.path)` you see:
+```
 ['c:\\Users\\Julius\\Documents\\GitHub\\ResNetFromScratch', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\python37.zip', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\DLLs', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\lib', 'C:\\Users\\Julius\\anaconda3\\envs\\tf', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\lib\\site-packages', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\lib\\site-packages\\win32', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\lib\\site-packages\\win32\\lib', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\lib\\site-packages\\Pythonwin']
+```
 
 ## Print Python from command line
 
-python -c 'print("hello")'
+`python -c 'print("hello")'`
 
 But on Windows you'll need double quotes
 
-python -c "print('hello')"
+`python -c "print('hello')"`
 
 You can even print out an entire machine learning model (It may download the first time if you don't already have the :
 
 TF2.X version:
 
-python -c "from tensorflow.keras.applications.vgg16 import VGG16; print(VGG16().summary()"
+`python -c "from tensorflow.keras.applications.vgg16 import VGG16; print(VGG16().summary()"`
 
 keras version:
 
-python -c "from keras.applications.vgg16 import VGG16; print(VGG16().summary()"
+`python -c "from keras.applications.vgg16 import VGG16; print(VGG16().summary()"`
 
 
 
