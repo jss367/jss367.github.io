@@ -4,23 +4,22 @@ title: "Path problems"
 description: "A guide to some of the path problems you may face on various operating systems"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/rainbow.jpg"
-tags: [Linux]
+tags: [Linux, Windows]
 ---
-Path Problems
 
 Path problems are some of the most annoying and common problems when developing software, especially if you frequently switch between operating systems. There are so many different issues you could have. I'll try to explain a few and provide some background in the hope that that helps as well.
 
 ## Windows
 
-Let's say you want to see your environment variables. Let's say it's your path. Unfortunately, it depends on what terminal emulator you're using. If you are on ConEmu or Cmder, you can
+Your path is stored as an environmental variable. Unfortunately, in Windows it's not as simple as I would like to view your environmental variables because it depends on what terminal emulator you're using. If you are on [ConEmu](https://conemu.github.io/) or [Cmder](https://cmder.net/), you can
 
-echo %PATH%
+`echo %PATH%`
 
 This can be hard to read so to make it easier you can: `echo %PATH:;=&echo.%`
 
 However, if you're using Windows PowerShell, you'll have to:
 
-echo $Env:PATH
+`echo $Env:PATH`
 
 On a Mac/Linux, you would be able to 
 
