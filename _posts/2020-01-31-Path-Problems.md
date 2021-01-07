@@ -150,7 +150,7 @@ but in Windows it's `echo $PYTHONPATH$`
 
 Note:
 If you change the environment variables you'll need to restart vscode or jupyter notebooks
-once you restart you'll see it in sys.path
+once you restart you'll see it in `sys.path`
 
 
 
@@ -159,7 +159,7 @@ once you restart you'll see it in sys.path
 Let's say you set you can variable and can see it in PYTHONPATH.
 
 
-you `import sys; print(sys.version)` from a command line and it's there, but when you run the same command in a Jupyter Notebook it's not there. That's because Jupyter has its own PATH variable called JUPYTER_PATH.
+you `import sys; print(sys.version)` from a command line and it's there, but when you run the same command in a Jupyter Notebook it's not there. That's because Jupyter has its own `PATH` variable called `JUPYTER_PATH`.
 
 If you need to quickly add to it, you can start a notebook with:
 
