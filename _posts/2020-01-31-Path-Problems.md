@@ -84,14 +84,14 @@ c:\\Users\\Julius\\Documents\\GitHub\\DataManager
 
 Let's test this out. As we saw above, you can test out your PYTHONPATH directly from the command line:
 
-python -c "import sys; print(sys.path)"
+`python -c "import sys; print(sys.path)"`
 
 
 path problems
 
 remember that your paths are hierarchical on windows
 
-I you have C:\Users\Julius\AppData\Local\Microsoft\WindowsApps it will try then then tell you to go to the windows store. But you can move the one you want up in the list.
+I you have `C:\Users\Julius\AppData\Local\Microsoft\WindowsApps` it will try then then tell you to go to the windows store. But you can move the one you want up in the list.
 
 You can have this problem where it works if you are debugging but not if you're not debugging.
 
@@ -103,9 +103,9 @@ open conda prompt then `where conda`
 then `where python`
 
 should say
-C:\Users\Julius\anaconda3\python.exe
+`C:\Users\Julius\anaconda3\python.exe`
 
-so use C:\Users\Julius\anaconda3
+so use `C:\Users\Julius\anaconda3`
 
 
 
@@ -123,24 +123,23 @@ Right-click anywhere in the editor window and select Run Python File in Terminal
 
 
 On a brand new Mac your path is:
-default mac path
 
+```
 julius@Juliuss-MacBook-Pro ~ % echo $PATH
 /usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
+```
 
 
 
+on Windows can also
 
-
-
-
-on windows can also
-
+```
 echo $PYTHONPATH
 set PYTHONPATH=C:\\Users\Julius\Documents\GitHub\facv\src\;C:\\Users\Julius\Documents\GitHub\fastai\fastai
 python -c "import sys; print(sys.path)"
+```
 
-but in Windows it's echo $PYTHONPATH$
+but in Windows it's `echo $PYTHONPATH$`
 
 
 
