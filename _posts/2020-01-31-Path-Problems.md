@@ -11,7 +11,7 @@ Path problems are some of the most annoying and common problems when developing 
 
 ## Windows
 
-Your path is stored as an environmental variable. Unfortunately, in Windows it's not as simple as I would like to view your environmental variables because it depends on what terminal emulator you're using. If you are on [ConEmu](https://conemu.github.io/) or [Cmder](https://cmder.net/), you can
+Your path is stored as an environmental variable. Unfortunately, in Windows it's not as simple as I would like to view your environmental variables because it depends on what terminal emulator you're using. If you are using [ConEmu](https://conemu.github.io/) or [Cmder](https://cmder.net/), you can
 
 `echo %PATH%`
 
