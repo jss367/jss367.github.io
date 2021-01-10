@@ -91,7 +91,7 @@ it says
 
 `/opt/conda/envs/py3_env2/bin/python`
 
-What? Why is it using the py3_env2 python interpreter? The answer is in the available kernels. The way to solve this depends on how exactly you got here. First, we'll look at it assuming this is inside a Docker container that you created.
+What? Why is it using the `py3_env2` Python interpreter? The answer is in the available kernels. The way to solve this depends on how exactly you got here. First, we'll look at it assuming this is inside a Docker container that you created.
 
 #### Docker Containers
 
@@ -107,7 +107,7 @@ OK, let's assume you're in a Docker container and did something like this:
     RUN /bin/bash -c "conda init bash && source /root/.bashrc && conda activate env1 && conda install -y notebook ipykernel && ipython kernel install --user && conda deactivate"
     RUN /bin/bash -c "conda init bash && source /root/.bashrc && conda activate env2 && conda install -y notebook ipykernel && ipython kernel install --user && conda deactivate"
 
-OK, let's jump back to debugging. The next thing you'll need to do is look at your jupyter kernels:
+OK, let's jump back to debugging. The next thing you'll need to do is look at your Jupyter kernels:
 
 `cd /root/.local/share/jupyter/kernels/`
 
@@ -146,7 +146,7 @@ Install the IPython kernel:
 `pip install --user ipykernel`
 
 
-There is a kernel.json file
+There is a `kernel.json` file
 
 If you don't get your env a name it will overwrite this
 
