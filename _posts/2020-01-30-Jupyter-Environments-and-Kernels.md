@@ -107,9 +107,7 @@ OK, let's assume you're in a Docker container and did something like this:
     RUN /bin/bash -c "conda init bash && source /root/.bashrc && conda activate env1 && conda install -y notebook ipykernel && ipython kernel install --user && conda deactivate"
     RUN /bin/bash -c "conda init bash && source /root/.bashrc && conda activate env2 && conda install -y notebook ipykernel && ipython kernel install --user && conda deactivate"
 
-OK, let's jump back to debugging.
-
-The next thing you'll need to do is look at your jupyter kernels:
+OK, let's jump back to debugging. The next thing you'll need to do is look at your jupyter kernels:
 
 `cd /root/.local/share/jupyter/kernels/`
 
@@ -117,7 +115,7 @@ The next thing you'll need to do is look at your jupyter kernels:
 
 `python2  python3`
 
-Two kernels. You have one for python 2 and one for python 3. When you look inside...
+Two kernels. You have one for Python 2 and one for Python 3. When you look inside...
 
 `cat python3/kernel.json`
 
@@ -137,7 +135,7 @@ You see
 }
 ```
 
-You have two environments sharing the python 3 kernel. Why is the python 3 kernel only using the `py3_env2` environment?
+You have two environments sharing the Python 3 kernel. Why is the python 3 kernel only using the `py3_env2` environment?
 
 
 You can now change the kernel by selecting "Kernel" in the file menu, then "Change kernel".
