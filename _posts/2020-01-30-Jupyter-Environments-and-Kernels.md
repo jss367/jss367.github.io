@@ -18,8 +18,17 @@ The post aims to show how to create Jupyter environments and how to debug any is
 
 Here are some commands I've found useful when debugging issues with my Jupyter environment. You'll see them used in the examples below.
 
-#### What interpreter am I using
+#### Conda environments and Jupyter kernels
 
+Two things you'll want to know when debugging Jupyter environment problems are what conda environments you have and what kernels are available to Jupyter. You can find your environments with either
+
+`conda env list` or `conda info --envs`
+
+They provide the same information.
+
+![png]({{site.baseurl}}/assets/img/windows_conda_envs.png)
+
+#### What Python interpreter am I using
 
 In Python:
 
@@ -36,9 +45,6 @@ On Windows it will look like this:
 
 `'C:\\Users\\Julius\\anaconda3\\envs\\tf\\python.exe'`
 
-#### From within a notebook, see what environment I'm using
-
-`!conda env list`
 
 #### What kernels are available to Jupyter
 
@@ -51,6 +57,10 @@ On Windows it will look like this:
 The exact location may vary, but for Mac/Linux users, it should look something like this:
 
 `ls /root/.local/share/jupyter/kernels/`
+
+Here's what you might see on Windows:
+
+![png]({{site.baseurl}}/assets/img/windows_kernels.png)
 
 OK, now let's talk about some examples where you might need these.
 
