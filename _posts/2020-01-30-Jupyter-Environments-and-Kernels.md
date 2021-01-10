@@ -65,6 +65,8 @@ You should also be aware that different kernels will have different paths. For e
 
 Keep in mind that you can run all of the command either from a terminal or from a Jupyter notebook. To run a Unix command from jupyter, you simply need to add a `!` before it. So you can run `!conda info --envs` or `!jupyter kernelspec list` from a notebook.
 
+![png]({{site.baseurl}}/assets/img/jupyter_commands.png)
+
 OK, now let's talk about some examples where you might need these.
 
 ## Environment not showing up in Jupyter
