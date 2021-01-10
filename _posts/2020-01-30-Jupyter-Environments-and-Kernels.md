@@ -45,7 +45,6 @@ On Windows it will look like this:
 
 `'C:\\Users\\Julius\\anaconda3\\envs\\tf\\python.exe'`
 
-
 #### What kernels are available to Jupyter
 
 `jupyter kernelspec list`
@@ -62,9 +61,11 @@ Here's what you might see on Windows:
 
 ![png]({{site.baseurl}}/assets/img/windows_kernels.png)
 
-OK, now let's talk about some examples where you might need these.
-
 You should also be aware that different kernels will have different paths. For example, `import my_package` may work in one kernel but not in another. Check sys.path to see which paths are being called.
+
+Keep in mind that you can run all of the command either from a terminal or from a Jupyter notebook. To run a Unix command from jupyter, you simply need to add a `!` before it. So you can run `!conda info --envs` or `!jupyter kernelspec list` from a notebook.
+
+OK, now let's talk about some examples where you might need these.
 
 ## Environment not showing up in Jupyter
 
