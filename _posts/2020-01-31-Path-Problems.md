@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Path problems"
+title: "Path Problems"
 description: "A guide to some of the path problems you may face on various operating systems"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/rainbow.jpg"
@@ -21,11 +21,9 @@ However, if you're using Windows PowerShell, you'll have to:
 
 `echo $Env:PATH`
 
-On a Mac/Linux, you would be able to 
+On a Mac or Linux, including Windows Subsystem for Linux, you can do
 
 `echo $PATH`
-
-This also works on Windows Subsystem for Linux
 
 ## VSCode
 
