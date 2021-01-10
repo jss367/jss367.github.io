@@ -7,30 +7,33 @@ thumbnail: "assets/img/rainbow.jpg"
 tags: [Linux, Windows]
 ---
 
-Path problems are some of the most annoying and common problems when developing software, especially if you frequently switch between operating systems. There are so many different issues you could have. I'll try to explain a few and provide some background in the hope that that helps as well.
+Path problems are some of the most annoying and common problems when developing software, especially if you frequently switch between operating systems. There are so many different issues you could have. In this post, I'll try to provide some background on possible issues and how to resolve them.
+
+The first step is being able to find out what's on your path. You can do this by looking at the `$PATH` environmental variable. You can do this from the command line, but the exact command depends on which operation system you're using.
+
+## Unix Systems
+
+If you're using either a Mac or Linux, including Windows Subsystem for Linux, it's as simple as:
+
+`echo $PATH`
 
 ## Windows
 
-Your path is stored as an environmental variable. Unfortunately, in Windows it's not as simple as I would like to view your environmental variables because it depends on what terminal emulator you're using. If you are using [ConEmu](https://conemu.github.io/) or [Cmder](https://cmder.net/), you can
+In Windows, it's not as simple to view your environmental variables because it depends on what terminal emulator you're using. If you are using [ConEmu](https://conemu.github.io/) or [Cmder](https://cmder.net/), you can
 
 `echo %PATH%`
 
-This can be hard to read so to make it easier you can: `echo %PATH:;=&echo.%`
+![png]({{site.baseurl}}/assets/img/windows_path.png)
+
+The resulting text can be hard to read so to make it easier you can: `echo %PATH:;=&echo.%`
+
+![png]({{site.baseurl}}/assets/img/windows_path_simple.png)
 
 However, if you're using Windows PowerShell, you'll have to:
 
 `echo $Env:PATH`
 
-On a Mac or Linux, including Windows Subsystem for Linux, you can do
-
-`echo $PATH`
-
-## VSCode
-
-There is an integrated terminal in VSCode. You can set it but the default it Windows Powershell, so you'll have to
-
-`echo $Env:PATH`
-
+Windows PowerShell is the defaulit terminal in VSCode, so this is what you'll need to use there as well.
 
 ## Adding to path
 
