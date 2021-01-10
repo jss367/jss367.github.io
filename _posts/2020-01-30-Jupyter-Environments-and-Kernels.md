@@ -50,7 +50,7 @@ On Windows it will look like this:
 
 `jupyter kernelspec list`
 
-![png]({{site.baseurl}}/assets/img/kernels.png)
+![png]({{site.baseurl}}/assets/img/kernels2.png)
 
 #### Where are my kernels located
 
