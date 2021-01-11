@@ -91,11 +91,9 @@ Let's test this out. As we saw above, you can test out your PYTHONPATH directly 
 `python -c "import sys; print(sys.path)"`
 
 
-path problems
+Remember that your paths are hierarchical on Windows
 
-remember that your paths are hierarchical on windows
-
-I you have `C:\Users\Julius\AppData\Local\Microsoft\WindowsApps` it will try then then tell you to go to the windows store. But you can move the one you want up in the list.
+If you have `C:\Users\Julius\AppData\Local\Microsoft\WindowsApps` it will try then then tell you to go to the Windows store. But you can move the one you want up in the list.
 
 You can have this problem where it works if you are debugging but not if you're not debugging.
 
