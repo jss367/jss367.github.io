@@ -74,11 +74,10 @@ keras version:
 
 
 
-detailed answer here: https://stackoverflow.com/questions/897792/where-is-pythons-sys-path-initialized-from
 
 
 ## Adding to your PYTHONPATH
-
+```
 Just go to system properties, environment variables, new...
 Environment variables:
 Hit windows key
@@ -86,7 +85,7 @@ type environment
 Click on Environment Variables in the Advanced tab.
 c:\\Users\\Julius\\Documents\\GitHub\\DataManager
 - for some reason this doesn't always add to the python path though
-
+```
 Let's test this out. As we saw above, you can test out your PYTHONPATH directly from the command line:
 
 `python -c "import sys; print(sys.path)"`
@@ -168,3 +167,7 @@ If you need to quickly add to it, you can start a notebook with:
 import sys
 sys.path.append('C:\\Users\\Julius\\Documents\\GitHub\\cv_dataclass\\src')
 ```
+
+## Other
+
+If you want to know more about how the Python `sys.path` is initialized, there's a [detailed StackOverflow answer](https://stackoverflow.com/questions/897792/where-is-pythons-sys-path-initialized-from).
