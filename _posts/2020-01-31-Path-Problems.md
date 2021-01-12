@@ -147,8 +147,7 @@ but in Windows it's `echo $PYTHONPATH$`
 
 
 Note:
-If you change the environment variables you'll need to restart vscode or jupyter notebooks
-once you restart you'll see it in `sys.path`
+If you change the environment variables you'll need to restart VSCode or Jupyter Notebooks. Once you restart you'll see the addition in `sys.path`
 
 
 
