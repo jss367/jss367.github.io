@@ -13,6 +13,7 @@ There are many ways to save and load models in TensorFlow and Keras. It's good t
 * TOC
 {:toc}
 
+
 ```python
 import os
 from datetime import datetime
@@ -230,7 +231,7 @@ model_predictions = model.predict(test_images, verbose=0)
 
 The accuracy matches the final validation accuracy we got when training the model, as expected.
 
-## Save Model with Keras `.save`
+## Save Model with Keras .save method
 
 There are lots of ways to save TensorFlow and Keras models. For Keras models, the simplest way is to use Keras's `.save` method.
 
@@ -249,7 +250,7 @@ model_filename = 'cifar10_model.hdf5'
 model.save(model_filename)
 ```
 
-## Load Model with Keras `.save`
+## Load Model with Keras .save method
 
 
 ```python
@@ -527,8 +528,3 @@ get_stats(trained_weights)
     Min:  -0.24802998
     Max:  0.23082884
     
-
-
-```python
-
-```
