@@ -7,7 +7,7 @@ thumbnail: "assets/img/ki_kangs.jpg"
 tags: [Python, Computer Vision, TensorFlow, Neural Networks, Machine Learning, Convolutional Neural Networks]
 ---
 
-There are many ways to save and load models in TensorFlow and Keras. It's good to have a range of options but sometimes with all of the flexibility it gets confusing which one you actually need in the moment. This post demonstrates the different methods available and talks about the strengths of each.
+There are many ways to save and load models in TensorFlow and Keras. It's good to have a range of options but sometimes with all of the flexibility it's hard to know which one you actually need in the moment. This post demonstrates the different methods available and talks about the strengths of each.
 
 > Note: This post has been updated to use TensorFlow 2.
 
