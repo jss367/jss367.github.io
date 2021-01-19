@@ -3,7 +3,7 @@ layout: post
 title: "Is there Sarcasm on the Internet?"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/elk.jpg"
-tags: [Reddit, Scraping, Python, PRAW]
+tags: [Python, Scraping]
 ---
 Is there sarcasm on the Internet? OK, that's an easy one. Here's a more difficult question: can an AI be trained to detect that sarcasm? The first step to training that algorithm would be to create a corpus of sarcastic statements from the Internet. Fortunately, there's a lot of sarcasm out there and, even more fortunately, much of it is already labeled.
 
