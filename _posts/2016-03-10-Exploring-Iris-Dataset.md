@@ -7,7 +7,7 @@ thumbnail: "assets/img/iris.jpg"
 tags: [Python, Matplotlib, Seaborn, Data Exploration, Data Visualization]
 ---
 
-In this notebook, we'll demonstrate some data exploration techniques using the famous iris dataset. In [the second notebook](https://jss367.github.io/Visualize-shallow-learning.html), we'll use this data set to visualize a bunch of machine learning algorithms.
+In this notebook, we'll demonstrate some data exploration techniques using the famous [iris dataset](https://archive.ics.uci.edu/ml/datasets/iris). In [the second notebook](https://jss367.github.io/Visualize-shallow-learning.html), we'll use this data set to visualize a bunch of machine learning algorithms.
 
 <b>Table of contents</b>
 * TOC
