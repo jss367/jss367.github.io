@@ -4,7 +4,7 @@ title: "Data Augmentation in Detectron2"
 description: "A walkthrough of the different augmentation methods available in detectron2"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/bear_with_fish.jpg"
-tags: [Detectron2, Computer Vision]
+tags: [Computer Vision, Data Augmentation, Detectron2, Python]
 ---
 
 This post is a quick walkthrough of the different data augmentation methods available in [Detectron2](https://github.com/facebookresearch/detectron2) and their utility for augmenting overhead imagery. I'll also go over a quick way to implement them.
