@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "Visualizing Machine Learning on Iris Dataset"
+title: "Visualizing Machine Learning Algorithms on the Iris Dataset"
 description: "An in-depth exploration of various machine learning techniques. This goes over Gaussian naive Bayes, logistic regression, linear discriminant analysis, quadratic discriminant analysis, support vector machines, k-nearest neighbors, decision trees, perceptron, and neural networks (Multi-layer perceptron). It also shows how to visualize the algorithms. All the code is provided."
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/potoroo.jpg"
 tags: [Python, Matplotlib, Seaborn, Machine Learning, SKLearn, Data Visualization]
 ---
 
-This notebook takes over from [part I](https://jss367.github.io/Exploring-Iris-Dataset.html), where we explored the famous iris dataset. This notebook will give a visual tour of some of the primary shallow machine learning algorithms used in supervised learning, along with a high-level explanation of the algorithms.
+This notebook takes over from [part I](https://jss367.github.io/Exploring-Iris-Dataset.html), where we explored the [iris dataset](https://archive.ics.uci.edu/ml/datasets/iris). This time, we'll give a visual tour of some of the primary machine learning algorithms used in supervised learning, along with a high-level explanation of the algorithms.
 
 <b>Table of contents</b>
 * TOC
@@ -15,28 +15,28 @@ This notebook takes over from [part I](https://jss367.github.io/Exploring-Iris-D
 
 
 ```python
-import pandas as pd
-import numpy as np
-from mlxtend.plotting import plot_decision_regions
 import matplotlib.pyplot as plt
-from sklearn.model_selection import train_test_split
-from sklearn.naive_bayes import GaussianNB
-from sklearn import metrics
-from sklearn.preprocessing import StandardScaler
-from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import GridSearchCV
-from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
-from sklearn.discriminant_analysis import QuadraticDiscriminantAnalysis
-from sklearn.svm import SVC
-from sklearn.neighbors import KNeighborsClassifier
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.linear_model import Perceptron
-from sklearn.neural_network import MLPClassifier
-from sklearn import model_selection
+import numpy as np
+import pandas as pd
 import seaborn as sns
+from mlxtend.plotting import plot_decision_regions
+from sklearn import metrics, model_selection
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis, QuadraticDiscriminantAnalysis
+from sklearn.linear_model import LogisticRegression, Perceptron
+from sklearn.model_selection import GridSearchCV, train_test_split
+from sklearn.naive_bayes import GaussianNB
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.neural_network import MLPClassifier
+from sklearn.preprocessing import StandardScaler
+from sklearn.svm import SVC
+from sklearn.tree import DecisionTreeClassifier
+import warnings
 
+warnings.filterwarnings("ignore")
 sns.set(font_scale=1.5)
 ```
+
+# Data
 
 
 ```python
@@ -69,6 +69,46 @@ X_array = np.asarray(X)
 X_train_array = np.asarray(X_train)
 X_test_array = np.asarray(X_test)
 ```
+
+Let's take a look at our dataset. Since we're going to visualize a lot of algorithms, we'll use the [mlxtend](http://rasbt.github.io/mlxtend/) library and build a simple function to label the graphs.
+
+
+```python
+def add_labels(standardized=False):
+    plt.title('Iris Dataset Visualized')
+    if standardized:
+        plt.xlabel('Petal Length (standardized)')
+        plt.ylabel('Petal Width (standardized)')
+    else:
+        plt.xlabel('Petal Length (cm)')
+        plt.ylabel('Petal Width (cm)')
+    plt.tight_layout()
+    plt.show()
+```
+
+
+```python
+y_str = y.astype(np.str)
+y_str[y_str == '0'] = 'red'
+y_str[y_str == '1'] = 'blue'
+y_str[y_str == '2'] = 'green'
+```
+
+
+```python
+plt.scatter(X['petal_length'], X['petal_width'], c=y_str)
+plt.xlim(0, 8)
+plt.ylim(-1, 3.5)
+add_labels()
+```
+
+
+    
+![png]{{site.baseurl}}(2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_14_0.png)
+    
+
+
+# Algorithms
 
 There are lots of good algorithms to try, some will work better with some data. Here are all the ones we'll look at:
 - Gaussian Naive Bayes
@@ -122,21 +162,7 @@ print(
     97.4% of the test set was correct.
     
 
-Naive Bayes is a surprisingly capable classifier,  as this result shows. Since we're going to visualize a lot of algorithms, we'll use the [mlxtend](http://rasbt.github.io/mlxtend/) library and build a simple function to label the graphs.
-
-
-```python
-def add_labels(standardized=False):
-    plt.title('Iris dataset visualized')
-    if standardized:
-        plt.xlabel('Petal Length (standardized)')
-        plt.ylabel('Petal Width (standardized)')
-    else:
-        plt.xlabel('Petal Length (cm)')
-        plt.ylabel('Petal Width (cm)')
-    plt.tight_layout()
-    plt.show()
-```
+Naive Bayes is a surprisingly capable classifier, as this result shows.
 
 I'll plot both the training and testing data. The testing data have been circled.
 
@@ -243,8 +269,6 @@ print(
     94.7% of the test set was correct.
     
 
-   
-
 Let's see what the best hyperparameters were
 
 
@@ -252,10 +276,7 @@ Let's see what the best hyperparameters were
 print(lgr_grid.best_estimator_)
 ```
 
-    LogisticRegression(C=0.46415888336127775, class_weight=None, dual=False,
-              fit_intercept=True, intercept_scaling=1, max_iter=100.0,
-              multi_class='auto', n_jobs=None, penalty='l2', random_state=None,
-              solver='lbfgs', tol=0.0001, verbose=0, warm_start=False)
+    LogisticRegression(C=0.46415888336127775, max_iter=100.0)
     
 
 The value of $$ C $$ has been changed from the default of 1 to 0.46415888336127775 (`np.logspace` is great, but you get values like this). `max_iter` has remained at 100.
@@ -382,7 +403,7 @@ We can adjust the hyperparameters of the SVM to account for outliers (either giv
 
 As you can see, one major limitation of the support vector machine algorithm we used above is that the decision boundaries are all linear. This is a major constraint (as it was with logistic regression and LDA), but there is a trick to get around that.
 
-#### Support Vector Machines kernel trick
+#### Support Vector Machines Kernel Trick
 
 One of the best aspects of support vector machines is that they can be kernelized to solve nonlinear problems. We can create nonlinear combinations of the features and map them onto higher dimensional space so they are linearly separable.
 
@@ -510,11 +531,7 @@ print(
 )
 ```
 
-    84.2% of the test set was correct.
-    
-
-    C:\ProgramData\Anaconda3\lib\site-packages\sklearn\linear_model\stochastic_gradient.py:183: FutureWarning: max_iter and tol parameters have been added in Perceptron in 0.19. If max_iter is set but tol is left unset, the default value for tol in 0.19 and 0.20 will be None (which is equivalent to -infinity, so it has no effect) but will change in 0.21 to 1e-3. Specify tol to silence this warning.
-      FutureWarning)
+    76.3% of the test set was correct.
     
 
 
@@ -568,13 +585,7 @@ add_labels(standardized=True)
 print(mlp.get_params)
 ```
 
-    <bound method BaseEstimator.get_params of MLPClassifier(activation='relu', alpha=0.0001, batch_size='auto', beta_1=0.9,
-           beta_2=0.999, early_stopping=False, epsilon=1e-08,
-           hidden_layer_sizes=(100,), learning_rate='constant',
-           learning_rate_init=0.001, max_iter=500, momentum=0.9,
-           n_iter_no_change=10, nesterovs_momentum=True, power_t=0.5,
-           random_state=None, shuffle=True, solver='adam', tol=0.0001,
-           validation_fraction=0.1, verbose=False, warm_start=False)>
+    <bound method BaseEstimator.get_params of MLPClassifier(max_iter=500)>
     
 
 #### Hyperparameter Tuning a Neural Network
@@ -602,7 +613,6 @@ print(
 )
 ```
 
-
     97.4% of the test set was correct.
     
 
@@ -611,13 +621,7 @@ print(
 print(mlp_grid.best_estimator_)
 ```
 
-    MLPClassifier(activation='relu', alpha=10.0, batch_size='auto', beta_1=0.9,
-           beta_2=0.999, early_stopping=False, epsilon=1e-08,
-           hidden_layer_sizes=(100,), learning_rate='constant',
-           learning_rate_init=0.01, max_iter=200, momentum=0.9,
-           n_iter_no_change=10, nesterovs_momentum=True, power_t=0.5,
-           random_state=None, shuffle=True, solver='adam', tol=0.0001,
-           validation_fraction=0.1, verbose=False, warm_start=False)
+    MLPClassifier(alpha=10.0, max_iter=2000)
     
 
 
@@ -694,7 +698,6 @@ sns.violinplot(x='Model', y='Accuracy', data=df, cut=0)
 ax = sns.stripplot(x='Model', y='Accuracy', data=df, color="black", jitter=0.1, size=5)
 ```
 
-  
 
 
 ![png]({{site.baseurl}}/assets/img/2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_96_1.png)
