@@ -104,7 +104,7 @@ add_labels()
 
 
     
-![png]{{site.baseurl}}(2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_14_0.png)
+![png](2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_14_0.png)
     
 
 
@@ -176,7 +176,9 @@ add_labels()
 ```
 
 
-![png]({{site.baseurl}}/assets/img/2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_19_0.png)
+    
+![png](2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_24_0.png)
+    
 
 
 Some good things about Naive Bayes are that it
@@ -236,7 +238,9 @@ add_labels(standardized=True)
 ```
 
 
-![png]({{site.baseurl}}/assets/img/2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_27_0.png)
+    
+![png](2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_32_0.png)
+    
 
 
 #### Tuning the Model
@@ -290,7 +294,9 @@ add_labels(standardized=True)
 ```
 
 
-![png]({{site.baseurl}}/assets/img/2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_35_0.png)
+    
+![png](2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_40_0.png)
+    
 
 
 This both scored and looks much better.
@@ -326,7 +332,9 @@ add_labels()
 ```
 
 
-![png]({{site.baseurl}}/assets/img/2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_40_0.png)
+    
+![png](2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_45_0.png)
+    
 
 
 A couple things to note when using LDA:
@@ -360,7 +368,9 @@ add_labels()
 ```
 
 
-![png]({{site.baseurl}}/assets/img/2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_45_0.png)
+    
+![png](2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_50_0.png)
+    
 
 
 It's interesting how well this did yet how it would classify a point in the bottom lefthand corner.
@@ -396,7 +406,9 @@ add_labels(standardized=True)
 ```
 
 
-![png]({{site.baseurl}}/assets/img/2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_51_0.png)
+    
+![png](2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_56_0.png)
+    
 
 
 We can adjust the hyperparameters of the SVM to account for outliers (either giving them more or less weight), but in this case, it doesn't seem necessary.
@@ -432,7 +444,9 @@ add_labels(standardized=True)
 ```
 
 
-![png]({{site.baseurl}}/assets/img/2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_57_0.png)
+    
+![png](2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_62_0.png)
+    
 
 
 Some other things to keep in mind when using support vector machines:
@@ -471,7 +485,9 @@ add_labels(standardized=True)
 ```
 
 
-![png]({{site.baseurl}}/assets/img/2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_63_0.png)
+    
+![png](2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_68_0.png)
+    
 
 
 Some things to keep in mind about k-nearest neighbors:
@@ -509,7 +525,9 @@ add_labels()
 ```
 
 
-![png]({{site.baseurl}}/assets/img/2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_69_0.png)
+    
+![png](2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_74_0.png)
+    
 
 
 Notice that overfitting has led to a couple of odd decision. This can be fixed by creating a large number of decision trees in what is known as a random forest.
@@ -543,7 +561,9 @@ add_labels(standardized=True)
 ```
 
 
-![png]({{site.baseurl}}/assets/img/2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_74_0.png)
+    
+![png](2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_79_0.png)
+    
 
 
 You can see that the model didn't fit the data very well. There are ways to correct for this but there is no way to correct for non-linearly separable data with a single perceptron. To do that, we'll use a multi-layer perceptron, also known as a neural network.
@@ -577,7 +597,9 @@ add_labels(standardized=True)
 ```
 
 
-![png]({{site.baseurl}}/assets/img/2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_80_0.png)
+    
+![png](2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_85_0.png)
+    
 
 
 
@@ -633,7 +655,9 @@ add_labels(standardized=True)
 ```
 
 
-![png]({{site.baseurl}}/assets/img/2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_87_0.png)
+    
+![png](2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_92_0.png)
+    
 
 
 Here's a case where we went through a big grid search and used a very complex model, but the result doesn't look that different from a support vector machine. There's a good lesson here, at least with regard to simple datasets.
@@ -699,5 +723,6 @@ ax = sns.stripplot(x='Model', y='Accuracy', data=df, color="black", jitter=0.1, 
 ```
 
 
-
-![png]({{site.baseurl}}/assets/img/2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_96_1.png)
+    
+![png](2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_101_0.png)
+    
