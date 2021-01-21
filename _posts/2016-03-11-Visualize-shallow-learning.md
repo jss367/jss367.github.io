@@ -97,8 +97,8 @@ y_str[y_str == '2'] = 'green'
 
 ```python
 plt.scatter(X['petal_length'], X['petal_width'], c=y_str)
-plt.xlim(0, 8)
-plt.ylim(-1, 3.5)
+plt.xlim(0, 7.9)
+plt.ylim(-0.9, 3.5)
 add_labels()
 ```
 
@@ -643,7 +643,7 @@ print(
 print(mlp_grid.best_estimator_)
 ```
 
-    MLPClassifier(alpha=10.0, max_iter=2000)
+    MLPClassifier(alpha=10.0, learning_rate_init=0.01)
     
 
 
@@ -726,3 +726,4 @@ ax = sns.stripplot(x='Model', y='Accuracy', data=df, color="black", jitter=0.1, 
     
 ![png](2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_101_0.png)
     
+
