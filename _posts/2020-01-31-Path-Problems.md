@@ -13,7 +13,7 @@ Path problems are some of the most common and annoying problems machine learning
 * TOC
 {:toc}
 
-# Path
+# System Path
 
 The first step is being able to find out what's on your path. You can do this by looking at the `$PATH` environmental variable. You can do this from the command line, but the exact command depends on which operation system you're using.
 
@@ -41,32 +41,22 @@ However, on Windows, it depends on what shell you're using. If you're using [Win
 
 Windows PowerShell is the default terminal in VSCode, so this is what you'll need to use there as well.
 
-## Adding to path
+## Adding to Your Path
 
-If you want to temporarily add to path:
+If you want to temporarily add to your path:
 ```
 set PATH="%PATH%;C:\path\to\directory\"
 set PATH="%PATH%;C:\Users\Julius\Documents\GitHub\DataManager"
 ```
 
-If you want to permanently add to path:
+If you want to permanently add to your path:
 `setx path "%PATH%;C:\path\to\directory\"`
 
+# Python Path
 
-
-
-On Windows, if you echo `$PYTHONPATH` you get nothing, but if you `print(sys.path)` you see:
+On Windows, if you echo `$PYTHONPATH` you get nothing, but from inside Python you can `print(sys.path)` to see:
 ```
 ['c:\\Users\\Julius\\Documents\\GitHub\\ResNetFromScratch', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\python37.zip', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\DLLs', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\lib', 'C:\\Users\\Julius\\anaconda3\\envs\\tf', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\lib\\site-packages', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\lib\\site-packages\\win32', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\lib\\site-packages\\win32\\lib', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\lib\\site-packages\\Pythonwin']
-```
-
-## Finding your Python Interpreter
-
-From within Python, you can do:
-
-``` python
-import sys
-sys.executable
 ```
 
 
@@ -143,6 +133,15 @@ but in Windows it's `echo $PYTHONPATH$`
 Note:
 If you change the environment variables you'll need to restart VSCode or Jupyter Notebooks. Once you restart you'll see the addition in `sys.path`
 
+
+## Finding your Python Interpreter
+
+From within Python, you can do:
+
+``` python
+import sys
+sys.executable
+```
 
 
 ## Jupyter Notebook problems
