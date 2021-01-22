@@ -7,7 +7,13 @@ thumbnail: "assets/img/rainbow.jpg"
 tags: [Linux, Python, Windows]
 ---
 
-Path problems are some of the most annoying and common problems when developing software, especially if you frequently switch between operating systems. There are so many different issues you could have. In this post, I'll try to provide some background on possible issues and how to resolve them.
+Path problems are some of the most common and annoying problems machine learning engineers face, especially when frequently switching between operating systems. There are so many different issues you could have. In this post, I'll try to provide some background on possible issues and how to resolve them.
+
+<b>Table of contents</b>
+* TOC
+{:toc}
+
+# Path
 
 The first step is being able to find out what's on your path. You can do this by looking at the `$PATH` environmental variable. You can do this from the command line, but the exact command depends on which operation system you're using.
 
@@ -29,11 +35,11 @@ The resulting text can be hard to read so to make it easier you can: `echo %PATH
 
 ![png]({{site.baseurl}}/assets/img/windows_path_simple.png)
 
-However, if you're using Windows PowerShell, you'll have to:
+However, on Windows, it depends on what shell you're using. If you're using [Windows PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/overview), you'll have to:
 
 `echo $Env:PATH`
 
-Windows PowerShell is the defaulit terminal in VSCode, so this is what you'll need to use there as well.
+Windows PowerShell is the default terminal in VSCode, so this is what you'll need to use there as well.
 
 ## Adding to path
 
