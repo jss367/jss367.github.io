@@ -4,7 +4,7 @@ title: "Path Problems"
 description: "A guide to some of the path problems you may face on various operating systems"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/rainbow.jpg"
-tags: [Linux, Windows]
+tags: [Linux, Python, Windows]
 ---
 
 Path problems are some of the most annoying and common problems when developing software, especially if you frequently switch between operating systems. There are so many different issues you could have. In this post, I'll try to provide some background on possible issues and how to resolve them.
@@ -54,26 +54,14 @@ On Windows, if you echo `$PYTHONPATH` you get nothing, but if you `print(sys.pat
 ['c:\\Users\\Julius\\Documents\\GitHub\\ResNetFromScratch', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\python37.zip', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\DLLs', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\lib', 'C:\\Users\\Julius\\anaconda3\\envs\\tf', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\lib\\site-packages', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\lib\\site-packages\\win32', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\lib\\site-packages\\win32\\lib', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\lib\\site-packages\\Pythonwin']
 ```
 
-## Print Python from command line
+## Finding your Python Interpreter
 
-`python -c 'print("hello")'`
+From within Python, you can do:
 
-But on Windows you'll need double quotes
-
-`python -c "print('hello')"`
-
-You can even print out an entire machine learning model (It may download the first time if you don't already have the :
-
-TF2.X version:
-
-`python -c "from tensorflow.keras.applications.vgg16 import VGG16; print(VGG16().summary()"`
-
-keras version:
-
-`python -c "from keras.applications.vgg16 import VGG16; print(VGG16().summary()"`
-
-
-
+``` python
+import sys
+sys.executable
+```
 
 
 ## Adding to your PYTHONPATH
