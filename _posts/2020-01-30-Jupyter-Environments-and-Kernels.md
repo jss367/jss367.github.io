@@ -155,7 +155,7 @@ What happened is that the py3_enf2 kernel overwrote the py3_env1 kernel.
 
 ## Windows
 
-For Windows users, you can go in the Anacoda Prompt
+For Windows users, you can go in the Anaconda Prompt
 
 `jupyter kernelspec list`
 
