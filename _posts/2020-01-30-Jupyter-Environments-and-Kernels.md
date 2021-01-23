@@ -63,7 +63,7 @@ Here's what you might see on Windows:
 
 You should also be aware that different kernels will have different paths. For example, `import my_package` may work in one kernel but not in another. Check sys.path to see which paths are being called.
 
-Keep in mind that you can run all of the command either from a terminal or from a Jupyter notebook. To run a Unix command from jupyter, you simply need to add a `!` before it. So you can run `!conda info --envs` or `!jupyter kernelspec list` from a notebook.
+Keep in mind that you can run all of the commands either from a terminal or from a Jupyter notebook. To run a Unix command from jupyter, you simply need to add a `!` before it. So you can run `!conda info --envs` or `!jupyter kernelspec list` from a notebook.
 
 ![png]({{site.baseurl}}/assets/img/jupyter_commands.png)
 
@@ -155,7 +155,7 @@ What happened is that the py3_enf2 kernel overwrote the py3_env1 kernel.
 
 ## Windows
 
-For Windows users, you can go in the Anaconda Prompt
+For Windows users, you can use the Anaconda Prompt
 
 `jupyter kernelspec list`
 
