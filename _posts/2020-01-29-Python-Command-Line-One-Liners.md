@@ -7,9 +7,7 @@ thumbnail: "assets/img/rainbow.jpg"
 tags: [Linux, Python, Windows]
 ---
 
-```
-
-## Print Python from command line
+## Print Python from the command line
 
 `python -c 'print("hello")'`
 
@@ -23,10 +21,7 @@ TF2.X version:
 
 `python -c "from tensorflow.keras.applications.vgg16 import VGG16; print(VGG16().summary())"`
 
-keras version:
+Keras version:
 
 `python -c "from keras.applications.vgg16 import VGG16; print(VGG16().summary())"`
 
-
-
-```
