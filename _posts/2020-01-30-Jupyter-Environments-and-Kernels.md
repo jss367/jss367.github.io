@@ -28,7 +28,7 @@ They provide the same information.
 
 ![png]({{site.baseurl}}/assets/img/windows_conda_envs.png)
 
-#### What Python interpreter am I using
+#### What Python interpreter am I using?
 
 In Python:
 
@@ -45,13 +45,13 @@ On Windows it will look like this:
 
 `'C:\\Users\\Julius\\anaconda3\\envs\\tf\\python.exe'`
 
-#### What kernels are available to Jupyter
+#### What kernels are available to Jupyter?
 
 `jupyter kernelspec list`
 
 ![png]({{site.baseurl}}/assets/img/kernels2.png)
 
-#### Where are my kernels located
+#### Where are my kernels located?
 
 The exact location may vary, but for Mac/Linux users, it should look something like this:
 
