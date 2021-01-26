@@ -602,7 +602,7 @@ visualize_no_mask(aug_ims)
 
 ## Overall
 
-My overall usually looks something like this
+My overall augmentation for semantic segmentation usually looks something like this
 
 
 ```python
