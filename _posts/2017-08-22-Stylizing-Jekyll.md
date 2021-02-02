@@ -6,7 +6,7 @@ feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/bridge.jpg"
 tags: [Jekyll, Markdown, Cheat Sheet]
 ---
-This is a quick cheatsheet for stylizing Jekyll blog posts. Jekyll uses Markdown for formatting, so all the Markdown commands work in Jekyll.<!--more-->
+This is a quick cheatsheet for stylizing Jekyll blog posts. Jekyll uses Markdown for formatting, so all the Markdown commands work in Jekyll. There are also some additional things one can do with Jekyll.<!--more-->
 
 * TOC
 {:toc}
@@ -56,6 +56,13 @@ You can also use triple grave accents for block code and specify the language:
   </body>
 </html>
 ```
+
+Here's the Jekyll way to do it:
+
+{% highlight python %}
+for i in range(10):
+    print(i)
+{% endhighlight %}
 
 # HTML tags
 
@@ -134,7 +141,7 @@ Content             |  Style           |  Result
 :-------------------------:|:-------------------------: |:-------------------------:
 ![eagle]({{site.baseurl}}/assets/img/neural_style/wedge-tailed_eagle.jpg)  |  ![scream]({{site.baseurl}}/assets/img/neural_style/vangogh_self.jpg)  |  ![Neural style emu]({{site.baseurl}}/assets/img/neural_style/neural_eagle.gif)
 
-Here's another way to do a table:
+Here's another way to do a table specifically with Jekyll:
 
 |Title 1               | Title 2               | Title 3               | Title 4              |
 |--------------------- | --------------------- | --------------------- | ---------------------|
@@ -179,40 +186,6 @@ You simply need to put `$$` around your equations. The theme I use relies on [Ka
 # Citations
 
 This is a sentence with a citation[^1]. Go to this [StackOverflow question](https://stackoverflow.com/questions/50467557/jekyll-on-github-pages-how-to-include-external-content-inside-footnotes/50475226) to see how to set them up.
-
-
-# Jekyll-specific Things
-
-## Tables
-
-First Header  | Second Header
-------------- | -------------
-Content Cell  | Content Cell
-Content Cell  | Content Cell
-
-## Lists
-
- - list of things
-   1. Sub list
-   2. of Other things
-   3. with numbers
- - And many more
-   - Sub sub list
-     - can go on ...
-       - and on ...
-         - and on !
-   - That's it.
-
-
-## Code
-
-{% highlight python %}
-for i in range(10):
-    print(i)
-{% endhighlight %}
-
-
-
 
 [^1]: 
     {% include citation.html key="ref1" %}
