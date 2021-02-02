@@ -155,3 +155,7 @@ Here’s what those flags mean:
 `tar -xzvf archive.tar.gz`
 
 The only different is that we change the "-c" for Create to "-x" for eXtract
+
+## Looking at directories, datasets
+
+`tree --filelimit 10 --dirsfirst`
