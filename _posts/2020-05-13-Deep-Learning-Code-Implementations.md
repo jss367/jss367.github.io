@@ -3,7 +3,7 @@ layout: post
 title: "Where to Find Deep Learning Code Implementations"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/trees.jpg"
-tags: [Python, Computer Vision, Deep Learning, Keras, Tensorflow, PyTorch]
+tags: [Python, Computer Vision, Deep Learning, Keras, TensorFlow, PyTorch]
 ---
 
 There are a lot of great resources on the web that contain implementations of deep learning architectures, but they can be a little hard to find. This post aims to highlight and categorize some of the best resources that I have found. Most repositories have either Tensorflow or PyTorch implementations, so this post is divided by frameworks.

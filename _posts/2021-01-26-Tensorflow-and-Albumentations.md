@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Tensorflow and Albumentations"
+title: "TensorFlow and Albumentations"
 thumbnail: "assets/img/mining_landscape.jpg"
 feature-img: "assets/img/rainbow.jpg"
-tags: [Computer Vision, Data augmentation, Python, TensorFlow]
+tags: [Computer Vision, Data Augmentation, Python, TensorFlow]
 ---
 
 This post is going to demonstrate how to use the [Albumentations](https://albumentations.ai/) library with TensorFlow.
