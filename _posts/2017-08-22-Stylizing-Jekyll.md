@@ -180,5 +180,39 @@ You simply need to put `$$` around your equations. The theme I use relies on [Ka
 
 This is a sentence with a citation[^1]. Go to this [StackOverflow question](https://stackoverflow.com/questions/50467557/jekyll-on-github-pages-how-to-include-external-content-inside-footnotes/50475226) to see how to set them up.
 
+
+# Jekyll-specific Things
+
+## Tables
+
+First Header  | Second Header
+------------- | -------------
+Content Cell  | Content Cell
+Content Cell  | Content Cell
+
+## Lists
+
+ - list of things
+   1. Sub list
+   2. of Other things
+   3. with numbers
+ - And many more
+   - Sub sub list
+     - can go on ...
+       - and on ...
+         - and on !
+   - That's it.
+
+
+## Code
+
+{% highlight python %}
+for i in range(10):
+    print(i)
+{% endhighlight %}
+
+
+
+
 [^1]: 
     {% include citation.html key="ref1" %}
