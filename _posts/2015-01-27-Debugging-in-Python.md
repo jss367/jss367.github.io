@@ -4,7 +4,7 @@ title: "Debugging in Python"
 description: "This post contains information on different debugging options in Python."
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/wasp.jpg"
-tags: [Python, Cheatsheet]
+tags: [Python, Cheat Sheet]
 ---
 
 # Debugging in Python
