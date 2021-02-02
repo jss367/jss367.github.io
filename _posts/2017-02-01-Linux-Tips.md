@@ -72,6 +72,8 @@ You can also search for file types, such as:
 
 Don't forget `ls` can also be a great tool for this. Something as simple as `ls | grep rsa` to find rsa keys. Note that you don't need asterisks for this.
 
+Also, this question has a [great visualization of what the colors mean in ls](https://askubuntu.com/questions/17299/what-do-the-different-colors-mean-in-ls)
+
 ### Finding Text within Files ###
 
 If you want to search for text within files, you can use `grep`:
