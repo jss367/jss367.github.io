@@ -254,16 +254,16 @@ Warning: Do not do this if you have already pushed the commit to a central repo.
 
 To fix this, you'll need to take your commits to the correct branch, and then undo the commits to master. First, take the commits to a new branch:
 
-`git checkout my_branch_to_put_changes
+`git checkout my_branch_to_put_changes`
 
-git merge master`
+`git merge master`
 
 Now undo those changes on master:
 
-`git checkout master
+`git checkout master`
 
-git reset --keep HEAD~1
-`
+`git reset --keep HEAD~1`
+
 ### Help! Everything is so messed up I want to delete everything and download a fresh copy
 
 OK, [we've all been there before]((https://xkcd.com/1597/)). While that does work, you might be able to fix everything without doing that. First, you'll want to grab the latest version of your project without merging anything:
@@ -355,12 +355,7 @@ Supposed you wanted to add something that combined a few git commands, like `git
 
 Now you can do `git all` to call this.
 
-## Useful Git Commands
-
-These are good to set to an alias
-
-git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short
 
 ## git aliases
 
-do this to git config: (aliases)https://githowto.com/aliases
+do this to git config: [aliases](https://githowto.com/aliases)
