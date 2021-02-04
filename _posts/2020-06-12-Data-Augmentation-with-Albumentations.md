@@ -431,24 +431,13 @@ visualize_no_mask(aug_ims)
     
 
 
-
-```python
-
-```
-
-
-```python
-
-```
+## Distortions
 
 There are also a lot of distortions. Most of them seem like to significant a change for me. If you want a smaller one, you can always try `GridDistortion`.
 
+## Converting to Float
 
-```python
-
-```
-
-Another thing to do during augmentation is convert everything to float... Is this needed?
+Another thing to do during augmentation is convert everything to float. Depending on the rest of your pipeline you may or may not need this.
 
 
 ```python
