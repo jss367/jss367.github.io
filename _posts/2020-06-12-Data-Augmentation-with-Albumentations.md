@@ -197,15 +197,13 @@ There is also `A.RandomRotate90(p=0.5)` but I don't recommend it. The above are 
 
 ## Pixel-level augmentations
 
-These by default don't change the segmentation label, so we won't need to include that.
+Pixel-level augmentations make pixel-level changes to the image. They don't change the segmentation mask, so we can skip plotting that.
 
 ### CLAHE
 
-Contrast Limited Adaptive Histogram Equalization (CLAHE) is a good option. I usually include it and leave it in the defaults. This by default does a range, so you'll have to see it multiple times
+Contrast Limited Adaptive Histogram Equalization (CLAHE) is a good option for data augmentation. I usually include it and leave it at the default values. This by default does a range, so you'll have to plot it multiple times to see the variation.
 
-To specify this, you usually set a clip limit and it randomly chooses a value between 1 and your specified limit. This means that you get a different value each time you run it. To fix it to be the same, I'm going to set the value as both the high and the low to see that exact value. In practice I wouldn't do this.
-
-This type of augmentation doesn't change the mask, so we can ignore it for now.
+To specify CLAHE, you usually set a clip limit and it randomly chooses a value between 1 and your specified limit. This means that you get a different value each time you run it. To fix it to be the same, I'm going to set the both the high and the low to an exact value. This is just for visualization; In practice I wouldn't do it.
 
 
 ```python
