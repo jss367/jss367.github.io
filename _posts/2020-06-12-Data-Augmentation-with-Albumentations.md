@@ -62,8 +62,6 @@ np.unique(mask, return_counts=True)
 
 
 
-OpenCV uses BGR internally. This usually doesn't come up unless you read an image with opencv and try to plot it with, say matplotlib. Then you'll need to switch the channels around.
-
 
 ```python
 original_height, original_width = image.shape[:2]
