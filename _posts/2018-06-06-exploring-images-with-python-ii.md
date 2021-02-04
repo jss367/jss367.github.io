@@ -198,7 +198,7 @@ plt.imshow(img);
 ![png](2018-06-06-Exploring%20Images%20with%20Python%20II_files/2018-06-06-Exploring%20Images%20with%20Python%20II_26_0.png)
 
 
-Note the flipped color channels. Here is how you can fix it.
+OpenCV uses BGR internally. This usually doesn't come up unless you read an image with opencv and try to plot it with, say matplotlib. Then you'll need to switch the channels around. Note the flipped color channels. Here is how you can fix it.
 
 
 ```python
