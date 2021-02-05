@@ -12,6 +12,10 @@ This post shows some of the various tools in Python for visualizing images. Ther
 * TOC
 {:toc}
 
+# Libraries
+
+There are many libraries in Python to help with loading and processing images. Let's look at a few of them.
+
 ## SKImage
 
 SKImage is used for turning an image on disk into a numpy array, like so.
@@ -151,7 +155,7 @@ ax.axis('off');
 ![png](2018-06-06-Exploring%20Images%20with%20Python%20II_files/2018-06-06-Exploring%20Images%20with%20Python%20II_17_0.png)
 
 
-# PIL
+## PIL
 
 
 ```python
@@ -175,7 +179,7 @@ pil_img
 
 
 
-# Open CV
+## Open CV
 
 You can also read images off disk using OpenCV.
 
