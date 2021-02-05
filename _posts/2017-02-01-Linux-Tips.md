@@ -43,7 +43,7 @@ There are two primary tools I use to find files on Linux, `locate` and `find`. `
 
 ### Find Examples ###
 
-For me the best documentation is some basic commands, so here are some examples:
+For me, examples are the best documentation, so here are some examples I've found useful:
 
 `find` takes the format of:
 `find location comparison-criteria search-term`
