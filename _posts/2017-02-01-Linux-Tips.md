@@ -38,7 +38,7 @@ sudo chown -R $USER my_dir
 
 ## Finding Files
 
-There are two primary tools I use to find files on Linux, `locate` and `find`. `locate` is the newer and faster tool, but `find` is much more universal and can do a lot more, so I generally use `find`. `find` looks through the file system while `locate` looks through a database. As I said, this makes `locate` much faster but you'll have to update the database with `sudo updatedb` before you can find new files.
+There are two primary tools I use to find files on Linux, `locate` and `find`. `locate` is the newer and faster tool, but `find` is much more universal and can do a lot more, so I generally use `find`. `find` looks through the file system while `locate` looks through a database. This makes `locate` much faster but you'll have to update the database with `sudo updatedb` before you can find new files.
 
 
 ### Find Examples ###
