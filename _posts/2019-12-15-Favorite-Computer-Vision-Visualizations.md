@@ -20,4 +20,3 @@ I find that sometimes the best way to understand a topic is to see it in action.
 * I don't know if this counts as a visualization but the [Wikipedia List of mathematical symbols](https://en.wikipedia.org/wiki/List_of_mathematical_symbols) is a good place to look up any notation you don't know. If you don't know what a given set of squiggles means, it's hard to Google it, so check to see if it's on this list.
 * Andrei Kaparthy made an excellent [demo of how neural networks create separability](https://cs.stanford.edu/people/karpathy/convnetjs//demo/classify2d.html) in a toy dataset.
 * Towards Data Science has an excellent blog post on the [math behind convolutional neural networks](https://towardsdatascience.com/gentle-dive-into-math-behind-convolutional-neural-networks-79a07dd44cf9)
-* For finding new papers related to those you know, the [Connected Papers](https://www.connectedpapers.com/) tool is amazing.
