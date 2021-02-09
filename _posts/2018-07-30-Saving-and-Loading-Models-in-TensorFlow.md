@@ -235,12 +235,7 @@ The accuracy matches the final validation accuracy we got when training the mode
 
 ## Save Model with Keras .save method
 
-There are lots of ways to save TensorFlow and Keras models. For Keras models, the simplest way is to use Keras's `.save` method.
-
-This includes the training configuration (loss, optimizer).
-The keras save method includes the architecture, weights, and state of the optimizer, so it's easy to resume training.
-
-It can be saved to a Tensorflow SavedModel of a HDF5 file. These can both save the entire model to disk.
+There are lots of ways to save TensorFlow and Keras models. For Keras models, the simplest way is to use Keras's `.save` method. The Keras `.save` method includes the architecture and weights, as well as the training configuration (loss, state of the optimizer), so it's easy to resume training. It can be saved to a TensorFlow SavedModel of a HDF5 file. These can both save the entire model to disk.
 
 
 ```python
