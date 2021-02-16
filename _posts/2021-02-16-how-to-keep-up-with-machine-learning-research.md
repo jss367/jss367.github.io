@@ -19,27 +19,28 @@ I find it difficult to keep up with the latest in machine learning, even though 
 [Arxiv Sanity](http://www.arxiv-sanity.com/)
 
 * My #1 place to find new research
-* Be sure to create an account and start saving papers you like to it so the recommendation feature can work
+* Be sure to create an account and start saving papers you like so the recommendation feature can work
 * Site created by Andrej Karpathy
 
 [Papers with Code](https://paperswithcode.com/)
 * The best site for seeing overall trends in the field
+* Lots of new improvements that make this site better all the time
 * There's also a newsletter (see below)
 
 [Google Scholar](https://scholar.google.com/)
 * Start with a paper you're interested in and see who cited it
 
 [ConnectedPapers](https://www.connectedpapers.com/)
-* Creates a graph of papers, so you can find research that is similar to what you're looking for
+* Creates a graph of papers, so you can find research that is similar the initial paper
 * I love the idea, although I haven't actually used the site much
 
 ## Newsletters
 
-I'm not usually a newsletters guy, but for some reason I've found that there are excellent newsletter in the machine learning world. Here are the ones I use:
+I'm not usually a newsletters guy, but for some reason I've found that there are excellent newsletters in the machine learning world. Here are the ones I use:
 
 [The Batch](https://www.deeplearning.ai/thebatch/)
-* Newsletter by Andrew Ng and his company, <deeplearning.ai>
-* Offers his thoughts on various hot topics, even if he is unecessarily anodyne. I'd rather him share more of his thoughts
+* Newsletter by Andrew Ng and his company, [deeplearning.ai](deeplearning.ai)
+* Offers his thoughts on various hot topics, even if he is unecessarily anodyne
 * Includes a mix of general ML news and research findings
 
 [Import AI](https://jack-clark.net/)
