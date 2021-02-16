@@ -7,6 +7,8 @@ thumbnail: "assets/img/rainbow.jpg"
 tags: [Linux, Python, Windows]
 ---
 
+Sometimes I find it useful to be able to run Python commands right from the command line (without entering a Python console). Here are some ways I've found it useful.
+
 ## Print Python from the command line
 
 `python -c 'print("hello")'`
@@ -15,7 +17,7 @@ But on Windows you'll need double quotes
 
 `python -c "print('hello')"`
 
-You can even print out an entire machine learning model (It may download the first time if you don't already have the :
+You can even print out an entire machine learning model (It may download the first time if you don't already have it saved).
 
 TF2.X version:
 
