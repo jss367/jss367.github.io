@@ -8,7 +8,7 @@ tags: [Deep Learning, Machine Learning]
 ---
 
 
-It's difficult to keep up with the latest in machine learning, even if it's part of your full-time job. Fortunately, there are a lot of resources out there to help you sort through it all. I thought I would put together a list of resources that I use. If you know of a great resource that I'm missing, please let me know!
+I find it difficult to keep up with the latest in machine learning, even though it's part of my full-time job. Fortunately, there are a lot of resources out there to help sort through it all. I thought I would put together a list of resources that I use in case it helps anyone else. If you know of a great resource that I'm missing, please let me know!
 
 <b>Table of contents</b>
 * TOC
@@ -78,7 +78,7 @@ I'm not usually a newsletters guy, but for some reason I've found that there are
 
 ## Textbooks
 
-I won't go into textbooks much here, but for more you can check out my [post on deep learning textbooks](https://jss367.github.io/Free-Deep-Learning-Textbooks.html).
+Recent textbooks can be a great place for learning the latest  because they provude the necessary context. I've already posted about this  so I'll just share the link to my [post on deep learning textbooks](https://jss367.github.io/Free-Deep-Learning-Textbooks.html).
 
 ## Lectures
 
@@ -93,25 +93,11 @@ You can also find information about the latest research in classes
 
 ## Twitter
 
-Twitter is probably not the best place, but it can be OK.
-
-[Andrew Ng](https://twitter.com/AndrewYNg)
-
-[Gwern](https://twitter.com/gwern)
-
-[Jeremy Howard](https://twitter.com/jeremyphoward)
-
-[Andrej Karpathy](https://twitter.com/karpathy)
-
-[Tom Silver](https://twitter.com/tomssilver)
-
-[Brundage Bot](https://twitter.com/brundagebot)
-* I feel like I should mention this because it posts so often but in reality it doesn't curate enough and posts too many papers for me
-* Seems like it stop posting recently
+Twitter is probably not the best place to find the latest in machine learning research, but sometimes it's worth it. Instead of listed a bunch of recommendations here, I'll just point you to a [link of who I follow on Twitter](https://twitter.com/JuliusSimonelli/following). I don't use Twitter much for anything else (or at all) so *most* of the people I follow are associated with ML.
 
 ## Blogs
 
-I don't find as many helpful blogs as I would like. Here are a few. I'm sure there are more out there. Let me know your favorites.
+I don't find as many helpful blogs as I would like. I'm sure there are more out there so I'll expand this list when I come across them. Let me know your favorites.
 
 <https://karpathy.github.io/>
 
@@ -119,6 +105,9 @@ I don't find as many helpful blogs as I would like. Here are a few. I'm sure the
 
 [r/MachineLearning](https://www.reddit.com/r/MachineLearning/)
 * I don't go to reddit much for finding the latest in ML, but you can definitely find stuff there. There's a weekly WAYR (What Are You Reading) pinned thread which can be good.
+
+[r/computervision](https://www.reddit.com/r/computervision/)
+* Not active as r/MachineLearning
 
 There are some other subreddits but I don't use them very much.
 
