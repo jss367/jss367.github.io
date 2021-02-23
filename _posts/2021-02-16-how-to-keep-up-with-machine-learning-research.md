@@ -103,6 +103,8 @@ I don't find as many helpful blogs as I would like. I'm sure there are more out 
 
 <https://karpathy.github.io/>
 
+<https://rubikscode.net/blog/>
+
 ## Reddit
 
 I don't go to reddit much for finding the latest in ML, but you can definitely find stuff there. Here are some of the subreddits I've subscribed to.
