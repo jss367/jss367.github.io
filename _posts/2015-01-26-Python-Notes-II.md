@@ -318,7 +318,7 @@ list(map(lambda x: x**2, range(4)))
 
 
 
-You can also use multiple arguments with `lamb
+You can also use multiple arguments with `lambda`s
 
 
 ```python
