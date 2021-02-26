@@ -353,7 +353,7 @@ reduce(lambda x,y: x+y, [23, 34, 12, 23])
 
 # Error handling
 
-There are [a bunch of python error messages](https://www.tutorialspoint.com/python/standard_exceptions.htm), which are known as standard exceptions. Here are some of the most common.
+There are [a bunch of Python error messages](https://www.tutorialspoint.com/python/standard_exceptions.htm), which are known as standard exceptions. Here are some of the most common.
 
 ### IndexError
 
