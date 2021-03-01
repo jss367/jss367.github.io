@@ -82,6 +82,10 @@ I'm not usually a newsletters guy, but for some reason I've found that there are
 
 Recent textbooks can be a great place for learning the latest because they provide the necessary context. I've already written about textbooks so I'll just share the link to my [post on deep learning textbooks](https://jss367.github.io/Free-Deep-Learning-Textbooks.html).
 
+## Podcasts
+
+There are a lot of good podcasts about data science and machine learning. Unfortunately, they seem to come and go quickly. Some of my favorites are no longer active. Fortunately, there's a [website that tracks data science podcasts](https://dspods.netlify.app/) that is fairly exhaustive and generally kept up-to-date.
+
 ## Lectures
 
 Sometimes I like to check out lectures to hear what I'm missing. Again, it's a good place to hear things in context. Here are some good ones.
