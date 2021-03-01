@@ -27,6 +27,9 @@ I find it difficult to keep up with the latest in machine learning, even though 
 * Lots of new improvements that make this site better all the time
 * There's also a newsletter (see below)
 
+[Paper Digest](https://www.paperdigest.org/best-paper-digest/)
+* Find the best papers from all the top conferences
+
 [Google Scholar](https://scholar.google.com/)
 * Start with a paper you're interested in and see who cited it
 
