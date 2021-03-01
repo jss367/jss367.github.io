@@ -34,7 +34,7 @@ There are also great resources that other people have compiled. Github user [qub
 
 ##### Object Detection
 
-If you're particularly interested in object detection, [tensorpack](https://github.com/tensorpack/tensorpack) is a great place to look. If you don't know where to start, take a look at the `examples` folder.
+If you're particularly interested in object detection, [tensorpack](https://github.com/tensorpack/tensorpack) is a great place to look. If you don't know where to start, take a look at the `examples` folder. Also, take a look at the [TensorFlow Object Detection API](https://github.com/tensorflow/models/tree/master/research/object_detection).
 
 ##### Reinforcement Learning
 
@@ -50,6 +50,8 @@ Some repositories focus on collecting domain-specific models, such as those for 
 PyTorch doesn't have as many pre-trained models as Tensorflow but there's still a lot there. If you're interested in computer vision [Torchvision Models](https://pytorch.org/docs/stable/torchvision/models.html) is a good place to start.
 
 Github user [qubvel](https://github.com/qubvel) has also created repos for PyTorch [segmentation](https://github.com/qubvel/segmentation_models.pytorch) models.
+
+The [PyTorch Image Models](https://github.com/rwightman/pytorch-image-models) repo has lots of different models in it, with more added all the time. Very up-to-date.
 
 ##### Object Detection
 
