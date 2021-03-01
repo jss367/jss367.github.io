@@ -55,7 +55,7 @@ The [PyTorch Image Models](https://github.com/rwightman/pytorch-image-models) re
 
 ##### Object Detection
 
-The best place to look for PyTorch object detection models is certainly Facebook's [Detectron2 repository](https://github.com/facebookresearch/detectron2). There's a lot in here but if you're looking for pre-trained networks to download for use or transfer learning, definitely check out the [Model Zoo](https://github.com/facebookresearch/detectron2/blob/master/MODEL_ZOO.md).
+The best place to look for PyTorch object detection models is certainly Facebook's [Detectron2 repository](https://github.com/facebookresearch/detectron2). There's a lot in here but if you're looking for pre-trained networks to download for use or transfer learning, definitely check out the [Model Zoo](https://github.com/facebookresearch/detectron2/blob/master/MODEL_ZOO.md). Another great repo for object detection in PyTorch is [mmDetection](https://github.com/open-mmlab/mmdetection).
 
 ##### Overhead imagery
 
