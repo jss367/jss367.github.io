@@ -112,6 +112,12 @@ I don't find as many helpful blogs as I would like. I'm sure there are more out 
 
 <https://rubikscode.net/blog/>
 
+<https://ruder.io/>
+
+<https://lilianweng.github.io/lil-log/>
+
+<https://veredshwartz.blogspot.com/>
+
 ## Reddit
 
 I don't go to reddit much for finding the latest in ML, but you can definitely find stuff there. Here are some of the subreddits I've subscribed to.
