@@ -7,24 +7,22 @@ thumbnail: "assets/img/koala.jpg"
 tags: [Pandas, Python, Cheat Sheet]
 ---
 
-This notebook demonstrates some basic techniques for the Python library [pandas](https://pandas.pydata.org/). I try to keep this notebook updated to ensure it works with with the latest version of pandas.
+This notebook demonstrates some basic techniques for the Python library [pandas](https://pandas.pydata.org/). Even though I first posted this a while ago I try to keep this notebook updated to ensure that it works with the latest version of pandas. Below you can see the version of pandas that it was last tested with.
 
 <b>Table of contents</b>
 * TOC
 {:toc}
 
+# Versioning
+
 
 ```python
 import pandas as pd
-pd.__version__
+print(pd.__version__)
 ```
 
-
-
-
-    '1.1.0'
-
-
+    1.2.1
+    
 
 # Importing Data
 
@@ -661,12 +659,255 @@ df
 
 ## Saving a DataFrame
 
-There are many ways a DataFrame, including in a pickle, msgpack, CSV, and HDF5Store. They all follow similar syntax.
+There are many ways to save a DataFrame, including in a pickle, msgpack, CSV, and HDF5Store. They all follow similar syntax.
+
+
+```python
+df.to_csv('shakespeare.csv')
+```
+
+There's something I find a little weird about saving a loading DataFrames. It's that if you save it as above and then load it, you'll get an column.
+
+
+```python
+df = pd.read_csv('shakespeare.csv')
+```
+
+
+```python
+df.head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Unnamed: 0</th>
+      <th>Name</th>
+      <th>Year</th>
+      <th>Category</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>Titus Andronicus</td>
+      <td>1592</td>
+      <td>Tragedy</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>The Comedy of Errors</td>
+      <td>1594</td>
+      <td>Comedy</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2</td>
+      <td>Richard II</td>
+      <td>1595</td>
+      <td>History</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3</td>
+      <td>Romeo and Juliet</td>
+      <td>1595</td>
+      <td>Tragedy</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4</td>
+      <td>A Midsummer Night’s Dream</td>
+      <td>1595</td>
+      <td>Comedy</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+There are two ways to avoid this. The first I recommend if your row names are just 0-4 (or any number) as they are above. In that case, when you save it, you want to save it like so:
 
 
 ```python
 df.to_csv('shakespeare.csv', index=False)
 ```
+
+
+```python
+df = pd.read_csv('shakespeare.csv')
+```
+
+
+```python
+df.head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Year</th>
+      <th>Category</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Titus Andronicus</td>
+      <td>1592</td>
+      <td>Tragedy</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>The Comedy of Errors</td>
+      <td>1594</td>
+      <td>Comedy</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Richard II</td>
+      <td>1595</td>
+      <td>History</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Romeo and Juliet</td>
+      <td>1595</td>
+      <td>Tragedy</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>A Midsummer Night’s Dream</td>
+      <td>1595</td>
+      <td>Comedy</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+The second way is better in the case when you do have index names that you want to save, but it will still work in this case. What you want to do is save your DataFrame like you did at first:
+
+
+```python
+df.to_csv('shakespeare.csv')
+```
+
+Then when you open it, pass `index_col=0` like so:
+
+
+```python
+df = pd.read_csv('shakespeare.csv', index_col=0)
+```
+
+
+```python
+df.head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Year</th>
+      <th>Category</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Titus Andronicus</td>
+      <td>1592</td>
+      <td>Tragedy</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>The Comedy of Errors</td>
+      <td>1594</td>
+      <td>Comedy</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Richard II</td>
+      <td>1595</td>
+      <td>History</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Romeo and Juliet</td>
+      <td>1595</td>
+      <td>Tragedy</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>A Midsummer Night’s Dream</td>
+      <td>1595</td>
+      <td>Comedy</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 
 # Exploring Data
 
@@ -766,22 +1007,10 @@ df.sample(5)
   </thead>
   <tbody>
     <tr>
-      <th>8</th>
-      <td>Macbeth</td>
-      <td>1606</td>
+      <th>0</th>
+      <td>Titus Andronicus</td>
+      <td>1592</td>
       <td>Tragedy</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>Othello</td>
-      <td>1604</td>
-      <td>Tragedy</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>The Comedy of Errors</td>
-      <td>1594</td>
-      <td>Comedy</td>
     </tr>
     <tr>
       <th>3</th>
@@ -794,6 +1023,18 @@ df.sample(5)
       <td>A Midsummer Night’s Dream</td>
       <td>1595</td>
       <td>Comedy</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Othello</td>
+      <td>1604</td>
+      <td>Tragedy</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Richard II</td>
+      <td>1595</td>
+      <td>History</td>
     </tr>
   </tbody>
 </table>
@@ -1241,6 +1482,29 @@ df.sort_values('Name', ascending=True)
 
 ```python
 df['Name'].str.contains('Julius')
+```
+
+
+
+
+    0    False
+    1    False
+    2    False
+    3    False
+    4    False
+    5    False
+    6     True
+    7    False
+    8    False
+    Name: Name, dtype: bool
+
+
+
+If you want to fond both uppper and lower case examples, you can pass `(?i)` to the regex parser to tell it to ignore cases.
+
+
+```python
+df['Name'].str.contains('(?i)julius')
 ```
 
 
@@ -3041,6 +3305,10 @@ class_le.inverse_transform(y)
 
 # Preparing Data for Machine Learning
 
+It's a good idea to do one-hot encoding of categorical variables before using them for machine learning. It can also be a good idea for ordinal variables as well, although that's not always the case. A good rule of thumb is if the mean of two values isn't a meaningful value, that category should be one-hot encoded.
+
+The downside of treating ordinal data as categorical is that we throw away information about the relative order. The downside of treating it as continuous data is that we introduce a notion of distance. For example, if we set "small" as "1", "medium" as "2", and "large" as "3", we're telling the model that a large is 3 times a small. This isn't a meaningful thing to say, so it can reduce model performance.
+
 ## One-hot Encoding
 
 pandas can also do one-hot encoding.
@@ -3105,6 +3373,88 @@ pd.get_dummies(df[['price', 'color', 'size']])
 
 
 
+## Separately features from labels
+
+`pandas` also has a convenient way to extract the labels from a DataFrame, and that's by using the `pop` method. It will remove the specified column from the DataFrame and put it into a Series of its own.
+
+
+```python
+labels = df.pop('price')
+```
+
+You can see that it's no longer in the DataFrame:
+
+
+```python
+df.head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>color</th>
+      <th>size</th>
+      <th>type</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>green</td>
+      <td>2</td>
+      <td>polo</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>red</td>
+      <td>3</td>
+      <td>T-shirt</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>red</td>
+      <td>1</td>
+      <td>polo</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+
+```python
+labels
+```
+
+
+
+
+    0    20
+    1    15
+    2    15
+    Name: price, dtype: int64
+
+
+
 # Other Tricks
 
 ## Don't Truncate
@@ -3125,7 +3475,7 @@ pd.options.display.max_columns = None
 pd.options.display.max_rows = None
 ```
 
-### Tranposing
+## Tranposing
 
 You can switch the rows and columns of a DataFrame by transposing it by adding `.T` to the end.
 
