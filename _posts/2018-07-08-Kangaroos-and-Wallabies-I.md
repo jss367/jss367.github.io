@@ -3,7 +3,7 @@ layout: post
 title: "Kangaroos and Wallabies I: Preparing the Data"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/glass_ball.jpg"
-tags: [Python, Computer Vision, Keras, Wildlife]
+tags: [Computer Vision, Python, TensorFlow, Wildlife]
 ---
 
 In this series of posts, I will show how to build an image classifier using your own dataset. I'll be using images of kangaroos and wallabies that I've taken, but these techniques should work well with any kind of images.

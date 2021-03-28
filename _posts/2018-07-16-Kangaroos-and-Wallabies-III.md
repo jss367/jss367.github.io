@@ -3,7 +3,7 @@ layout: post
 title: "Kangaroos and Wallabies III: Classifying the Data"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/ki_kangs.jpg"
-tags: [Python, Computer Vision, Keras, Neural Networks, Machine Learning, Convolutional Neural Networks, Wildlife]
+tags: [Computer Vision, Convolutional Neural Networks, Python, TensorFlow, Wildlife]
 ---
 
 In this notebook, we're going to take our [augmented dataset](https://jss367.github.io/Kangaroos-and-Wallabies-II.html) and build a convolutional neural network to classify the images.
