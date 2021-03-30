@@ -42,7 +42,7 @@ There are two primary tools I use to find files on Linux, `locate` and `find`. `
 
 `find` is automatically recursive, so it will search through your subdirectories with you needed to add a `-r` or  `-R` to it.
 
-### Find Examples ###
+### Find Examples
 
 For me, examples are the best documentation, so here are some examples I've found useful:
 
@@ -59,7 +59,15 @@ find python core dumps:
 
 `find . -name "core.*"` - note that this will also probably find non core dump files as well
 
+#### Deleting
+
 You can also find and delete these with `find . -name "core.*" -exec rm {} +`
+
+#### By Directory or File Type
+
+This will also work for directories. However, if you want to search only for directories, you can specify the `type`:
+
+`find . -type d -name my_dir_name`
 
 You can also search for file types, such as:
 
