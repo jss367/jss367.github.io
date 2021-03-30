@@ -108,11 +108,11 @@ Another option for exploring storage is `df -h`.
 
 ## apt vs apt-get ##
 
-Debian-based Linux distributions, like Ubuntu, started using apt. 
+Debian-based Linux distributions, like Ubuntu, started using `apt`. 
 
-apt is in many ways a nicer version of apt-get. It takes the most commonly used part. 
+`apt` is in many ways a nicer version of `apt-get`. It takes the most commonly used part. 
 
-so apt-get remove package is now apt remove package
+so `apt-get remove package` is now `apt remove package`
 
 ## Other
 
@@ -146,7 +146,7 @@ eval $(echo "no:global default;fi:normal file;di:directory;ln:symbolic link;pi:n
 
 ## Quickly Adding to Files
 
-Let's say you want to add something to your `.gitignore` file, and don't want to bother with [vim](https://www.vim.org/) at the moment. You can add what you need by typing `cat > .gitignore` then adding whatever you need. Then hit control + D to return to the bash prompt.
+Let's say you want to add something to your `.gitignore` file, and don't want to bother with [vim](https://www.vim.org/) at the moment. You can add what you need by typing `cat > .gitignore` then adding whatever you need. Then hit `control + D` to return to the bash prompt.
 
 ## Compressing and Decompressing files
 
