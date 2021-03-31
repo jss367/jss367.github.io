@@ -3475,7 +3475,7 @@ pd.options.display.max_columns = None
 pd.options.display.max_rows = None
 ```
 
-## Tranposing
+## Transposing
 
 You can switch the rows and columns of a DataFrame by transposing it by adding `.T` to the end.
 
