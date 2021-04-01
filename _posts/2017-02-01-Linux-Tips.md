@@ -35,21 +35,22 @@ chown -R {user} {file}
 ```
 sudo chown -R $USER my_dir
 ```
+# Searching
 
 ## Finding Files
 
 There are two primary tools I use to find files on Linux, `locate` and `find`. `locate` is the newer and faster tool, but `find` is much more universal and can do a lot more, so I generally use `find`. `find` looks through the file system while `locate` looks through a database. This makes `locate` much faster but you'll have to update the database with `sudo updatedb` before you can find new files.
 
-`find` is automatically recursive, so it will search through your subdirectories with you needed to add a `-r` or  `-R` to it.
+### find
 
-### Find Examples
-
-For me, examples are the best documentation, so here are some examples I've found useful:
+`find` is automatically recursive, so it will search through your subdirectories with you needed to add a `-r` or  `-R` to it. 
 
 `find` takes the format of:
 `find location comparison-criteria search-term`
 
 For example, you could do `find /usr/lib -name "*gdal*"`
+
+#### find examples
 
 Find jpg files:
 
@@ -59,11 +60,11 @@ find python core dumps:
 
 `find . -name "core.*"` - note that this will also probably find non core dump files as well
 
-#### Deleting
+##### Deleting with find
 
 You can also find and delete these with `find . -name "core.*" -exec rm {} +`
 
-#### By Directory or File Type
+##### Search By Directory or File Type
 
 This will also work for directories. However, if you want to search only for directories, you can specify the `type`:
 
@@ -77,13 +78,7 @@ You can also search for file types, such as:
 
 [fd](https://github.com/sharkdp/fd) is worth giving a try.
 
-### ls ###
-
-Don't forget `ls` can also be a great tool for this. Something as simple as `ls | grep rsa` to find rsa keys. Note that you don't need asterisks for this.
-
-Also, this question has a [great visualization of what the colors mean in ls](https://askubuntu.com/questions/17299/what-do-the-different-colors-mean-in-ls)
-
-### Finding Text within Files ###
+## Finding Text within Files ###
 
 If you want to search for text within files, you can use `grep`:
 
@@ -93,12 +88,17 @@ One of the most useful flags for me is `-i` for ignore case:
 
 `grep -i -d recurse "This Text" *`
 
+### ls ###
+
+Don't forget `ls` can also be a great tool for this. Something as simple as `ls | grep rsa` to find rsa keys. Note that you don't need asterisks for this.
+
+Also, this question has a [great visualization of what the colors mean in ls](https://askubuntu.com/questions/17299/what-do-the-different-colors-mean-in-ls)
+
 ## Viewing System Processes
 
 `top` is the default tool and is great, but for something easier to view, try [htop](https://hisham.hm/htop/).
 
-
-## Storage
+# Storage
 
 [ncdu](https://dev.yorhel.nl/ncdu) is a great replacement for `du`. You might not have `ncdu` by default so you may have to `yum install ncdu`. If your storage is getting full:
 
@@ -106,7 +106,7 @@ One of the most useful flags for me is `-i` for ignore case:
 
 Another option for exploring storage is `df -h`.
 
-## apt vs apt-get ##
+# apt vs apt-get ##
 
 Debian-based Linux distributions, like Ubuntu, started using `apt`. 
 
@@ -114,7 +114,7 @@ Debian-based Linux distributions, like Ubuntu, started using `apt`.
 
 so `apt-get remove package` is now `apt remove package`
 
-## Other
+# Other
 
 Another way to find if a file exists is:
 `[ -e myfile.txt ] && echo "Found" || echo "Not Found"`
@@ -144,7 +144,7 @@ eval $(echo "no:global default;fi:normal file;di:directory;ln:symbolic link;pi:n
 }
 ```
 
-## Quickly Adding to Files
+# Quickly Adding to Files
 
 Let's say you want to add something to your `.gitignore` file, and don't want to bother with [vim](https://www.vim.org/) at the moment. You can add what you need by typing `cat > .gitignore` then adding whatever you need. Then hit `control + D` to return to the bash prompt.
 
@@ -167,6 +167,6 @@ Here’s what those flags mean:
 
 The only different is that we change the "-c" for Create to "-x" for eXtract
 
-## Looking at directories, datasets
+# Looking at directories, datasets
 
 `tree --filelimit 10 --dirsfirst`
