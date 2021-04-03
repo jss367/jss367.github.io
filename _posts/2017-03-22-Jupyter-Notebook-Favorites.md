@@ -92,6 +92,12 @@ To access other  shell commands, you will need to prefix them with a `!`. For ex
 
 Jupyter Notebooks have another type of command known as _magic commands_. Here are some of my favorites:
 
+## Display all your global variables
+
+It's easy to lose track of your global variables, especially if you run your cells out of order. Fortunately, you can use the magic command `%whos` to display them all.
+
+![whos]({{site.baseurl}}/assets/img/whos.png "Whos")
+
 ## Sharing Values
 
 You can use magic commands to store values in one notebook and load them in another. Here's an example:
