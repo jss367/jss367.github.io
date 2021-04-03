@@ -51,25 +51,6 @@ Install with `pip install autopep8`, then enable it.
 
 Does what you think it does.
 
-# Printing LaTeX
-
-Jupyter Notebooks use MathJax to render LaTeX in Markdown. To add LaTeX, simply surround your statement with `$$`:
-
-$$c = \sqrt{a^2 + b^2}$$
-
-Some things that work in Jupyter Notebooks don't work with the renderer I use for this blog, so I can't show everything. But in Jupyter Notebooks you can use LaTeX with a single `$` and use a double `$$` to center it the expression.
-
-# nbconvert
-
-Convert Jupyter Notebooks to various formats, including HTML, LaTeX, PDF, and Markdown
-
-`jupyter nbconvert --to html mynotebook.ipynb`
-
-or 
-
-`jupyter nbconvert --to markdown mynotebook.ipynb`
-
-See how I use it to [prepare Jupyter Notebooks for my blog](https://jss367.github.io/jupyter-notebooks-in-blog.html).
 
 # Shell Commands
 
@@ -236,10 +217,28 @@ help(func_with_docstring)
 You can build beautiful and functional widgets right into your notebooks with [ipywidgets](https://ipywidgets.readthedocs.io/en/latest/). This is such a great tool to really add some power to your notebooks.
 
 
+# Converting to other formats with nbconvert
+
+Convert Jupyter Notebooks to various formats, including HTML, LaTeX, PDF, and Markdown
+
+`jupyter nbconvert --to html mynotebook.ipynb`
+
+or 
+
+`jupyter nbconvert --to markdown mynotebook.ipynb`
+
+See how I use it to [prepare Jupyter Notebooks for my blog](https://jss367.github.io/jupyter-notebooks-in-blog.html).
+
 # Little Tricks
 
 ## Splitting Cells
 
 One hot key that I like but sometimes forget is how to split a cell where my cursor is. So I just open up the command palatte and type in "split" and I see that it is Ctrl + Shift + - (Windows/Linux) Cmd + Shift + - (Mac).
 
+## Printing LaTeX
 
+Jupyter Notebooks use MathJax to render LaTeX in Markdown. To add LaTeX, simply surround your statement with `$$`:
+
+$$c = \sqrt{a^2 + b^2}$$
+
+Some things that work in Jupyter Notebooks don't work with the renderer I use for this blog, so I can't show everything. But in Jupyter Notebooks you can use LaTeX with a single `$` and use a double `$$` to center it the expression.
