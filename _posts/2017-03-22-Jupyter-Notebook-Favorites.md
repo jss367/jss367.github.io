@@ -90,15 +90,15 @@ To access other  shell commands, you will need to prefix them with a `!`. For ex
 
 # Magic Commands
 
-Jupyter Notebooks have another type of command known as _magic commands_. Here are some of my favorites:
+Jupyter Notebooks have another type of command known as _magic commands_. You can view all the magic commands by entering `%quickref` into your notebook, but here are some of my favorites:
 
-## Display all your global variables
+## Display all your global variables with %whos
 
 It's easy to lose track of your global variables, especially if you run your cells out of order. Fortunately, you can use the magic command `%whos` to display them all.
 
 ![whos]({{site.baseurl}}/assets/img/whos.png "Whos")
 
-## Sharing Values
+## Sharing Values with %store
 
 You can use magic commands to store values in one notebook and load them in another. Here's an example:
 
@@ -123,6 +123,14 @@ And you can load it:
 ```python
 %store -r x
 ```
+
+## Running files with %run
+
+You can use `%run my_file.py` to run a separate file.
+
+## Measuring execution time with %timeit
+
+You can use `%timeit` to see how long it takes your code to run.
 
 # Debugging
 
@@ -175,6 +183,11 @@ foo()
 
 Jupyter Notebooks have a lot of support for looking into code right from the notebook. Here are some examples.
 
+## Command Palette
+
+Jupyter Notebooks has a command palatte that you can access with Ctrl + Shift + P (Windows/Linux) / Cmd + Shift + P (Mac) (just like VSCode). From there you can search for whatever feature you're looking for.
+
+
 ## Shift + Tab
 
 Shift + Tab is a great keyboard shortcut that every Jupyter Notebook user should know. You simply start to call a function and when you're inside the parentheses and can't remember the right inputs, hit Shift + Tab and it will show you the documentation. If you hit Tab multiple times while holding Shift it cycles through various displays of the documentation. Try it out!
@@ -218,13 +231,14 @@ help(func_with_docstring)
     func_with_docstring()
         This is a useful docstring
     
-    
+# Widgets
 
-# Command Palette
+You can build beautiful and functional widgets right into your notebooks with [ipywidgets](https://ipywidgets.readthedocs.io/en/latest/). This is such a great tool to really add some power to your notebooks.
 
-Jupyter Notebooks has a command palatte that you can access with Ctrl + Shift + P (Windows/Linux) / Cmd + Shift + P (Mac) (just like VSCode). From there you can search for whatever feature you're looking for.
 
-# Splitting Cells
+# Little Tricks
+
+## Splitting Cells
 
 One hot key that I like but sometimes forget is how to split a cell where my cursor is. So I just open up the command palatte and type in "split" and I see that it is Ctrl + Shift + - (Windows/Linux) Cmd + Shift + - (Mac).
 
