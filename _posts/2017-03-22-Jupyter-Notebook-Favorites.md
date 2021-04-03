@@ -71,9 +71,9 @@ or
 
 See how I use it to [prepare Jupyter Notebooks for my blog](https://jss367.github.io/jupyter-notebooks-in-blog.html).
 
-# Unix Commands and Command-line Commands
+# Shell Commands
 
-You can also use some Unix commands in Jupyter Notebooks, such as `ls` or `pwd`
+You can also use shell commands inside Jupyter Notebooks. Some are built-in so you can type them directly, such as `ls` or `pwd`.
 
 
 ```python
@@ -81,15 +81,42 @@ pwd
 ```
 
 
-
-
     'C:\\Users\\Julius\\Google Drive\\JupyterNotebooks\\Blog'
 
 
+To access other  shell commands, you will need to prefix them with a `!`. For example, you pip install directly from Jupyter Notebooks:
 
-You can also run command-line commands by putting an exclamation mark in front of the command. This means that you can make pip install directly from Jupyter Notebooks:
+`!pip install numpy`
 
-!pip install numpy
+# Magic Commands
+
+Jupyter Notebooks have another type of command known as _magic commands_. Here are some of my favorites:
+
+## Sharing Values
+
+You can use magic commands to store values in one notebook and load them in another. Here's an example:
+
+
+```python
+x = 5
+```
+
+Now you save it like so:
+
+
+```python
+%store x
+```
+
+    Stored 'x' (int)
+    
+
+And you can load it:
+
+
+```python
+%store -r x
+```
 
 # Debugging
 
@@ -195,28 +222,4 @@ Jupyter Notebooks has a command palatte that you can access with Ctrl + Shift + 
 
 One hot key that I like but sometimes forget is how to split a cell where my cursor is. So I just open up the command palatte and type in "split" and I see that it is Ctrl + Shift + - (Windows/Linux) Cmd + Shift + - (Mac).
 
-# Sharing Values
 
-You can also store values in one notebook and load them in another. Here's an example:
-
-
-```python
-x = 5
-```
-
-Now you save it like so:
-
-
-```python
-%store x
-```
-
-    Stored 'x' (int)
-    
-
-And you can load it:
-
-
-```python
-%store -r x
-```
