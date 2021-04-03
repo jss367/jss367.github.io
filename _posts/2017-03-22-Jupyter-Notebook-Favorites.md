@@ -7,7 +7,7 @@ thumbnail: "assets/img/jupiter.jpg"
 tags: [Jupyter Notebooks]
 ---
 
-The Jupyter Notebook is a great tool for writing and exploring code as well as prototyping ideas. It's one of my favorite ways to write code, in part because of all the great features it has. This demonstrates shows some of those features.
+The Jupyter Notebook is a great tool for writing and exploring code as well as prototyping ideas. It's one of my favorite ways to write code, in part because of all the great features it has. This post demonstrates shows some of my favorite features.
 
 <b>Table of contents</b>
 * TOC
