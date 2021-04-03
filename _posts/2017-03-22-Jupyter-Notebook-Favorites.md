@@ -36,21 +36,18 @@ Now let's look at some of the extensions.
 
 ## [2to3 converter](http://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/code_prettify/README_2to3.html)
 
-Converts Python 2 to Python 3 in a single click
-
-http://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/code_prettify/README_2to3.html
+You can Convert Python 2 code to Python 3 in a single click with [2to3 converter](http://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/code_prettify/README_2to3.html).
 
 
 ## [Autopep8](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/code_prettify/README_autopep8.html)
 
-Formats your code based on the PEP8 guide in a single click.
+You can use [Autopep8](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/code_prettify/README_autopep8.html) to format your code based to be consistent with the [PEP8 style guide](https://www.python.org/dev/peps/pep-0008/).
 
 Install with `pip install autopep8`, then enable it.
 
 ## [spellchecker](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html)
 
-Does what you think it does.
-
+[spellchecker](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html) does exactly what you think it does.
 
 # Shell Commands
 
