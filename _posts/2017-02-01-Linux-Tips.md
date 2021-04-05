@@ -35,6 +35,9 @@ chown -R {user} {file}
 ```
 sudo chown -R $USER my_dir
 ```
+
+The quick way to open up a directory to all people is to do `chmod -R 0777 my_dir`
+
 # Searching
 
 ## Finding Files
