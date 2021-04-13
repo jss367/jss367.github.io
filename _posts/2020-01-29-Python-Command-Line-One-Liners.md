@@ -27,3 +27,6 @@ Keras version:
 
 `python -c "from keras.applications.vgg16 import VGG16; print(VGG16().summary())"`
 
+#### Check the GPUs are available
+
+python -c "import tensorflow as tf; print('Num GPUs Available: ', len(tf.config.experimental.list_physical_devices('GPU')))"
