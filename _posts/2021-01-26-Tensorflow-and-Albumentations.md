@@ -24,7 +24,15 @@ import albumentations as A
 import matplotlib.pyplot as plt
 import numpy as np
 import tensorflow as tf
-from tensorflow.keras.layers.experimental.preprocessing import StringLookup
+from tensorflow.keras import optimizers
+from tensorflow.keras.applications.mobilenet_v2 import MobileNetV2
+from tensorflow.keras.layers import Dense, GlobalAveragePooling2D
+from tensorflow.keras.models import Model
+from tensorflow.keras.preprocessing import image
+```
+
+
+```python
 AUTOTUNE = tf.data.experimental.AUTOTUNE
 ```
 
@@ -37,107 +45,34 @@ First we point to our images. Our goal is to get a list of all the images that w
 root_path = Path('E:/WallabiesAndRoosFullSize/train')
 ```
 
-
-```python
-kang_path = root_path / 'kangaroos'
-wall_path = root_path / 'wallabies'
-```
+Let's see what class names we have
 
 
 ```python
-kang_path_list = os.listdir(kang_path)
-wall_path_list = os.listdir(wall_path)
+class_names = np.array(sorted([folder.name for folder in root_path.glob('*')]))
+print(class_names)
 ```
 
-
-```python
-kang_paths = [join(kang_path, path) for path in kang_path_list]
-wall_paths = [join(wall_path, path) for path in wall_path_list]
-```
-
-
-```python
-paths = kang_paths + wall_paths
-```
-
-Let's look at what we've got
-
-
-```python
-paths[:5]
-```
-
-
-
-
-    ['E:\\WallabiesAndRoosFullSize\\train\\kangaroos\\kangaroo-10.jpg',
-     'E:\\WallabiesAndRoosFullSize\\train\\kangaroos\\kangaroo-100.jpg',
-     'E:\\WallabiesAndRoosFullSize\\train\\kangaroos\\kangaroo-101.jpg',
-     'E:\\WallabiesAndRoosFullSize\\train\\kangaroos\\kangaroo-102.jpg',
-     'E:\\WallabiesAndRoosFullSize\\train\\kangaroos\\kangaroo-103.jpg']
-
-
-
-
-```python
-paths[-5:]
-```
-
-
-
-
-    ['E:\\WallabiesAndRoosFullSize\\train\\wallabies\\wallaby-995.jpg',
-     'E:\\WallabiesAndRoosFullSize\\train\\wallabies\\wallaby-996.jpg',
-     'E:\\WallabiesAndRoosFullSize\\train\\wallabies\\wallaby-997.jpg',
-     'E:\\WallabiesAndRoosFullSize\\train\\wallabies\\wallaby-998.jpg',
-     'E:\\WallabiesAndRoosFullSize\\train\\wallabies\\wallaby-999.jpg']
-
-
-
-All the images are ordered, so we'll want to shuffle them.
-
-
-```python
-random.shuffle(paths)
-```
-
-
-```python
-paths[:5]
-```
-
-
-
-
-    ['E:\\WallabiesAndRoosFullSize\\train\\kangaroos\\kangaroo-1308.jpg',
-     'E:\\WallabiesAndRoosFullSize\\train\\wallabies\\wallaby-1381.jpg',
-     'E:\\WallabiesAndRoosFullSize\\train\\kangaroos\\kangaroo-2132.jpg',
-     'E:\\WallabiesAndRoosFullSize\\train\\kangaroos\\kangaroo-155.jpg',
-     'E:\\WallabiesAndRoosFullSize\\train\\kangaroos\\kangaroo-2014.jpg']
-
-
-
-We'll use TensorFlow's `StringLookup` to convert our labels into numbers. One thing I found interesting was that the labels are not 0-indexed and the value of 1 is reserved for unknown examples, so the first entry actually starts at 2.
-
-
-```python
-vocab = ['kangaroo', 'wallaby']
-layer = StringLookup(vocabulary=vocab)
-```
-
-
-```python
-print(layer('unknown_label').numpy())
-print(layer('kangaroo').numpy())
-print(layer('wallaby').numpy())
-```
-
-    1
-    2
-    3
+    ['kangaroo' 'wallaby']
     
 
-Now we'll make a function to parse the images and labels.
+Let's load them into tf.data. All the images are ordered, so we'll want to shuffle them.
+
+
+```python
+dataset_images = tf.data.Dataset.list_files(str(root_path/'*/*'), shuffle=True)
+```
+
+We'll specify the size we want the results to be.
+
+
+```python
+IMG_HEIGHT = 128
+IMG_WIDTH = 128
+BATCH_SIZE = 32
+```
+
+Now we'll make a function to parse the images and labels. There are lots of ways to resize your image and you could do it in both Albumentations or TensorFlow. I prefer to do it right away in TensorFlow before it even touches my augmentation process, so I'll add it to the parse function.
 
 
 ```python
@@ -145,36 +80,23 @@ def parse_image(filename):
     # start with the image
     img = tf.io.read_file(filename)
     image = tf.io.decode_jpeg(img, channels=3)
-    
+    image = tf.image.resize(image, (IMG_HEIGHT, IMG_WIDTH), method=tf.image.ResizeMethod.NEAREST_NEIGHBOR)
+
     # then do the label
     parts = tf.strings.split(filename, os.sep)
-    label = parts[4]
-    label = tf.strings.split(label, sep='-')[0]
-        
+    label = parts[-2]
+    one_hot_label = parts[-2] == class_names
+    label = tf.argmax(one_hot_label)
+    
     return image, label
 ```
 
-Now pass the paths to `tf.data.Dataset`.
-
-
-```python
-dataset_images = tf.data.Dataset.from_tensor_slices(paths)
-```
+Now let's visualize an image to see if that worked.
 
 
 ```python
 dataset_images_mapped = dataset_images.map(parse_image)
 ```
-
-    WARNING:tensorflow:AutoGraph could not transform <function parse_image at 0x000001CF113719D0> and will run it as-is.
-    Please report this to the TensorFlow team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output.
-    Cause: module 'gast' has no attribute 'Index'
-    To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert
-    WARNING: AutoGraph could not transform <function parse_image at 0x000001CF113719D0> and will run it as-is.
-    Please report this to the TensorFlow team. When filing the bug, set the verbosity to 10 (on Linux, `export AUTOGRAPH_VERBOSITY=10`) and attach the full output.
-    Cause: module 'gast' has no attribute 'Index'
-    To silence this warning, decorate the function with @tf.autograph.experimental.do_not_convert
-    
 
 
 ```python
@@ -186,7 +108,7 @@ image, label = next(iter(dataset_images_mapped))
 def show(image, label):
     plt.figure()
     plt.imshow(image)
-    plt.title(label.numpy())
+    plt.title(class_names[label.numpy()])
     plt.axis('off')
 
 show(image, label)
@@ -194,13 +116,13 @@ show(image, label)
 
 
     
-![png](2020-01-26-Tensorflow-and-Albumentations_files/2020-01-26-Tensorflow-and-Albumentations_26_0.png)
+![png](2021-01-26-Tensorflow-and-Albumentations_files/2021-01-26-Tensorflow-and-Albumentations_19_0.png)
     
 
 
 ## Augmentations
 
-OK, we're good in shape. Now let's add augmentation to it.
+OK, we're good in shape. Now let's add augmentation to it. Let's select some augmentations we want to try.
 
 
 ```python
@@ -211,70 +133,68 @@ transforms = A.Compose([
         A.CLAHE(p=0.5),
         A.Equalize(p=0.5),
         A.Posterize(num_bits=4, p=0.5),
-        A.RandomBrightness(limit=0.2, p=0.5),
-        A.RandomContrast(limit=0.2, p=0.5),
+        A.RandomBrightness(limit=0.15, p=0.5),
+        A.RandomContrast(limit=0.15, p=0.5),
         A.RandomGamma(gamma_limit=(80, 120), p=0.5),
 ])
 ```
 
+Now we'll write a function to pass to `tf.numpy_function`. This will perform the albumentation transforms.
+
 
 ```python
-def aug_fn(image, img_size):
+def aug_fn(image):
+    """
+    Function to apply albumentation transforms and cast the result data type.
+    """
     data = {"image":image}
     aug_data = transforms(**data)
     aug_img = aug_data["image"]
     aug_img = tf.cast(aug_img/255.0, tf.float32)
-    aug_img = tf.image.resize(aug_img, size=[img_size, img_size])
+
     return aug_img
 ```
 
 
 ```python
-def process_data(image, label, img_size):
-    aug_img = tf.numpy_function(func=aug_fn, inp=[image, img_size], Tout=tf.float32)
+def process_data(image, label):
+    aug_img = tf.numpy_function(func=aug_fn, inp=[image], Tout=tf.float32)
     return aug_img, label
 ```
 
-
-```python
-# create dataset
-ds_alb = dataset_images_mapped.map(partial(process_data, img_size=120),
-                  num_parallel_calls=AUTOTUNE).prefetch(AUTOTUNE)
-ds_alb
-```
-
-
-
-
-    <PrefetchDataset shapes: (<unknown>, ()), types: (tf.float32, tf.string)>
-
-
+Now we'll use the functions to create the dataset.
 
 
 ```python
-def set_shapes(img, label, img_shape=(120,120,3)):
-    img.set_shape(img_shape)
-    label.set_shape([])
-    return img, label
-```
-
-
-```python
-BATCH_SIZE=32
-```
-
-
-```python
-ds_alb_batched = ds_alb.map(set_shapes, num_parallel_calls=AUTOTUNE).batch(BATCH_SIZE).prefetch(AUTOTUNE)
+ds_alb = dataset_images_mapped.map(process_data, num_parallel_calls=AUTOTUNE).prefetch(AUTOTUNE)
+ds_alb_batched = ds_alb.batch(BATCH_SIZE).prefetch(AUTOTUNE)
 ds_alb_batched
 ```
 
 
 
 
-    <PrefetchDataset shapes: ((None, 120, 120, 3), (None,)), types: (tf.float32, tf.string)>
+    <PrefetchDataset shapes: (<unknown>, (None,)), types: (tf.float32, tf.int64)>
 
 
+
+
+```python
+isinstance(ds_alb_batched, tf.data.Dataset)
+```
+
+
+
+
+    True
+
+
+
+There we go! Now we've got our dataset ready. Let's take a look at it.
+
+## Visualizing Results
+
+Let's build a function to visualize the results.
 
 
 ```python
@@ -287,7 +207,7 @@ def view_image(ds):
     for i in range(20):
         ax = fig.add_subplot(4, 5, i+1, xticks=[], yticks=[])
         ax.imshow(image[i])
-        ax.set_title(f"Label: {label[i].decode('utf-8')}")
+        ax.set_title(f"Label: {class_names[label[i]]}")
 ```
 
 
@@ -297,9 +217,63 @@ view_image(ds_alb_batched)
 
 
     
-![png](2020-01-26-Tensorflow-and-Albumentations_files/2020-01-26-Tensorflow-and-Albumentations_37_0.png)
+![png](2021-01-26-Tensorflow-and-Albumentations_files/2021-01-26-Tensorflow-and-Albumentations_33_0.png)
     
 
+
+# Train Demo Model
+
+Just to show that it works, let's take one batch of the data and train a very simple model on it. It'll overfit but that's OK - it still works to show how TensorFlow and Albumentations work together.
+
+
+```python
+ds_alb_batched = ds_alb_batched.take(1)
+```
+
+We'll use MobileNetV2 because it's a very small - yet performant - model.
+
+
+```python
+base_model = MobileNetV2(input_shape=(IMG_HEIGHT, IMG_WIDTH, 3), weights='imagenet', include_top=False)
+x = base_model.output
+# We can do flattening or global average pooling
+x = GlobalAveragePooling2D()(x)
+x = Dense(128, activation='relu')(x)
+output = Dense(1, activation='sigmoid')(x)
+```
+
+
+```python
+model = Model(inputs=base_model.input, outputs=output)
+```
+
+
+```python
+for layer in base_model.layers:
+    layer.trainable = False
+```
+
+
+```python
+model.compile(loss="binary_crossentropy", optimizer=optimizers.Adam(), metrics=["accuracy"])
+```
+
+
+```python
+model.fit(ds_alb_batched, epochs=5);
+```
+
+    Epoch 1/5
+    1/1 [==============================] - 5s 5s/step - loss: 1.1787 - accuracy: 0.3438
+    Epoch 2/5
+    1/1 [==============================] - 2s 2s/step - loss: 0.7876 - accuracy: 0.6875
+    Epoch 3/5
+    1/1 [==============================] - 2s 2s/step - loss: 0.7780 - accuracy: 0.6562
+    Epoch 4/5
+    1/1 [==============================] - 2s 2s/step - loss: 0.6098 - accuracy: 0.7500
+    Epoch 5/5
+    1/1 [==============================] - 1s 1s/step - loss: 0.5167 - accuracy: 0.8438
+    
 
 
 ```python
