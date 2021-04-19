@@ -130,9 +130,7 @@ transforms = A.Compose([
     # spatial-level transforms (no distortion)
         A.HorizontalFlip(p=0.5),
     # pixel-level transforms
-        A.CLAHE(p=0.5),
-        A.Equalize(p=0.5),
-        A.Posterize(num_bits=4, p=0.5),
+        A.CLAHE(p=0.25),
         A.RandomBrightness(limit=0.15, p=0.5),
         A.RandomContrast(limit=0.15, p=0.5),
         A.RandomGamma(gamma_limit=(80, 120), p=0.5),
@@ -147,8 +145,7 @@ def aug_fn(image):
     """
     Function to apply albumentation transforms and cast the result data type.
     """
-    data = {"image":image}
-    aug_data = transforms(**data)
+    aug_data = transforms(image=image)
     aug_img = aug_data["image"]
     aug_img = tf.cast(aug_img/255.0, tf.float32)
 
@@ -264,18 +261,13 @@ model.fit(ds_alb_batched, epochs=5);
 ```
 
     Epoch 1/5
-    1/1 [==============================] - 5s 5s/step - loss: 1.1787 - accuracy: 0.3438
+    1/1 [==============================] - 5s 5s/step - loss: 0.7096 - accuracy: 0.5625
     Epoch 2/5
-    1/1 [==============================] - 2s 2s/step - loss: 0.7876 - accuracy: 0.6875
+    1/1 [==============================] - 2s 2s/step - loss: 0.5145 - accuracy: 0.8125
     Epoch 3/5
-    1/1 [==============================] - 2s 2s/step - loss: 0.7780 - accuracy: 0.6562
+    1/1 [==============================] - 2s 2s/step - loss: 0.4767 - accuracy: 0.7500
     Epoch 4/5
-    1/1 [==============================] - 2s 2s/step - loss: 0.6098 - accuracy: 0.7500
+    1/1 [==============================] - 2s 2s/step - loss: 0.4246 - accuracy: 0.8125
     Epoch 5/5
-    1/1 [==============================] - 1s 1s/step - loss: 0.5167 - accuracy: 0.8438
+    1/1 [==============================] - 2s 2s/step - loss: 0.4506 - accuracy: 0.7812
     
-
-
-```python
-
-```
