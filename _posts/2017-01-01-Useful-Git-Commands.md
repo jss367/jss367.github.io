@@ -359,3 +359,9 @@ Now you can do `git all` to call this.
 ## git aliases
 
 do this to git config: [aliases](https://githowto.com/aliases)
+
+## Other
+
+Get rid of local changes and pull latest from remote:
+
+`git reset --hard @{u}`
