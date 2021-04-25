@@ -100,14 +100,9 @@ Sometimes I like to check out lectures to hear what I'm missing. Again, it's a g
 [fast.ai](https://www.fast.ai/)
 * The instructor of the courses, Jeremy Howard, sometime references recent research in the lectures
 
-
-## Twitter
-
-Twitter is probably not the best place to find the latest in machine learning research, but sometimes it's worth it. Instead of listing a bunch of recommendations here, I'll just point you to a [link of who I follow on Twitter](https://twitter.com/JuliusSimonelli/following). I don't use Twitter much for anything else (or at all) so *most* of the people I follow are associated with ML.
-
 ## Blogs
 
-I don't find as many helpful blogs as I would like. I'm sure there are more out there so I'll expand this list when I come across them. Let me know your favorites.
+I don't find as many helpful machine learning blogs as I would like. I'm sure there are more out there so I'll expand this list when I come across them. Let me know your favorites.
 
 <https://karpathy.github.io/>
 
@@ -118,6 +113,10 @@ I don't find as many helpful blogs as I would like. I'm sure there are more out 
 <https://lilianweng.github.io/lil-log/>
 
 <https://veredshwartz.blogspot.com/>
+
+## Twitter
+
+Twitter is probably not the best place to find the latest in machine learning research, but sometimes it's worth it. Instead of listing a bunch of recommendations here, I'll just point you to a [link of who I follow on Twitter](https://twitter.com/JuliusSimonelli/following). I don't use Twitter much for anything else (or at all) so *most* of the people I follow are associated with ML.
 
 ## Reddit
 
