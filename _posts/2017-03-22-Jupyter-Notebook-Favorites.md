@@ -239,3 +239,21 @@ Jupyter Notebooks use MathJax to render LaTeX in Markdown. To add LaTeX, simply 
 $$c = \sqrt{a^2 + b^2}$$
 
 Some things that work in Jupyter Notebooks don't work with the renderer I use for this blog, so I can't show everything. But in Jupyter Notebooks you can use LaTeX with a single `$` and use a double `$$` to center it the expression.
+
+
+# Viewer
+
+There's a really simple way to share beautiful notebooks, and it's called [nbviewer](https://nbviewer.jupyter.org/)
+
+
+# Examples
+
+There are so many awesome examples of Jupyter Notebooks out there. Here are some great ones:
+
+[A gallery of interesting Jupyter Notebooks](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks)
+
+
+
+
+
+
