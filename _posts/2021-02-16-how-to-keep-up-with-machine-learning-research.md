@@ -70,7 +70,6 @@ I'm not usually a newsletters guy, but for some reason I've found that there are
 * Lots of videos, quite detailed paper reviews
 * Most in the range of 20-60 minutes
 
-
 [Two Minute Papers](https://www.youtube.com/channel/UCbfYPyITQ-7l4upoX8nvctg)
 * Hold on to your papers because this guy is great
 * Shortest videos (2-10 minutes) of them all
@@ -80,6 +79,8 @@ I'm not usually a newsletters guy, but for some reason I've found that there are
 
 [Arxiv Insights](https://www.youtube.com/channel/UCNIkB2IeJ-6AmZv7bQ1oBYg)
 * Not many videos but the ones he has are excellent
+
+[The AI Epiphany](https://www.youtube.com/channel/UCj8shE7aIn4Yawwbo2FceCQ)
 
 ## Textbooks
 
