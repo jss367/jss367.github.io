@@ -232,7 +232,7 @@ Pixel-level augmentations change pixel values without changing the overall label
 
 Contrast Limited Adaptive Histogram Equalization (CLAHE) is a good option for pixel-level augmentation. I usually include it and leave the values at the defaults. This by default does a range, so you'll have to run it multiple times to see the different results.
 
-To specify CLAhe, you usually set a clip limit and it randomly chooses a value between 1 and your specified limit. This means that you get a different value each time you run it. To fix it to be the same, I'm going to set the value as both the high and the low to see that exact value. This is just for demonstration and in practice I wouldn't do this.
+To specify CLAHE, you usually set a clip limit and it randomly chooses a value between 1 and your specified limit. This means that you get a different value each time you run it. To fix it to be the same, I'm going to set the value as both the high and the low to see that exact value. This is just for demonstration and in practice I wouldn't do this.
 
 You should be aware that even a clip limit of 1 changes the image, so you may not want to have this always on. Here's what a clip limit of 1 looks like.
 
