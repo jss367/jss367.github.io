@@ -210,7 +210,6 @@ def plot_loss(history, label):
                label='Val ' + label,
                linestyle="--")
     plt.xlabel('Epoch')
-    plt.xlabel('Epoch')
     plt.ylabel('Loss')
     plt.legend()
 
