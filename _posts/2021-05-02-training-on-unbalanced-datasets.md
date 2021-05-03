@@ -478,7 +478,7 @@ plot_cm(true_labels, weighted_preds)
 
 Interestingly, even if you undo the difference in the unbalanced data by adjusting the weights, it goes *too* far.
 
-### Experiment 2b - More class_weight
+## Experiment #2b - More class_weight
 
 
 ```python
