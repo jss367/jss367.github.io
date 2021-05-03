@@ -6,7 +6,7 @@ thumbnail: "assets/img/sun_tas.jpg"
 tags: [Deep Learning, Python, TensorFlow]
 ---
 
-In this post I'm going to look at different methods of evaluating models on unbalanced populations. This is a supplement to my post on training on onbalanced datasets. For this post, we'll use the Kaggle [Dogs vs. Cats dataset](https://www.kaggle.com/c/dogs-vs-cats). The dataset has the same number of cat images as dog images, so we'll have to subset the dataset to run the experiment. We're going to pretend that there are 10 times as many cats as there are dogs in our population, and we want to build a model that answers the question, "Is this an image of a dog?" Thus a true positive would be correctly identifying an image of a dog.
+In this post I'm going to look at different methods of evaluating models on unbalanced populations. This is paired with my post on training on onbalanced datasets. For this post, we'll use the Kaggle [Dogs vs. Cats dataset](https://www.kaggle.com/c/dogs-vs-cats). The dataset has the same number of cat images as dog images, so we'll have to subset the dataset to run the experiment. We're going to pretend that there are 10 times as many cats as there are dogs in the "real world" population. So assuming that's the ratio we'll see in production, how do we want to structure the test set?
 
 <b>Table of contents</b>
 * TOC
@@ -30,7 +30,7 @@ from tensorflow.keras.layers import Conv2D, Dense, Dropout, Flatten, MaxPool2D
 from tensorflow.keras.models import Sequential
 ```
 
-Because we'll be working with images, I'm going to make sure my GPU doesn't run out of memory.
+Because we'll be working with lots of images, I'm going to make sure my GPU doesn't run out of memory.
 
 
 ```python
@@ -80,8 +80,7 @@ print(num_dog_train_im)
     4000
     
 
-We have the same number of each dataset. Now, let's say we're looking for cats in a sea of dog images... how should we go about this?
-Let's say we only have 50 cat images and 5000 dogs images.
+We have the same number of each dataset. We'll have to build a function that creates unbalanced subsets of the dataset.
 
 
 ```python
@@ -142,9 +141,10 @@ def prepare_dataset(*datasets):
     return dataset
 ```
 
-## Determine Metrics
+## Determine Metrics to Use
 
-Now we'll have to decide on what metrics to use. These will be important so we'll use a lot of them.
+Now we'll have to decide on what metrics to use. We'll want a variety of metrics to really explore what's going on. Because the goal of this model is to find the dog images in the sea of cat images, we'll consider a **true positive** to be correctly identifying an image of a **dog**. Correctly identifying a **cat** image will be considered a **true negative**.
+
 
 
 ```python
@@ -159,9 +159,9 @@ all_metrics = [
 ]
 ```
 
-## Create Model
+## Create the Model
 
-OK, now we have to make a model. This post isn't about the model so I'm going to make a simple CNN.
+OK, now we have to make a model. This post doesn't focus on the model so I'm going to make a simple CNN.
 
 
 ```python
@@ -182,7 +182,7 @@ def get_model():
     return model
 ```
 
-## Compile Model
+## Compile the Model
 
 
 ```python
@@ -194,7 +194,7 @@ model = get_model()
 model.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics=all_metrics)
 ```
 
-## Visualize Results
+## Functions for Visualizing the Results
 
 We're going to need some functions to visualize the results, so let's build those here.
 
@@ -235,9 +235,9 @@ def calc_f1(metrics):
     return f1
 ```
 
-## Train Model
+## Train the Model
 
-OK. Out first experiment we'll make a couple train datasets. One options is to have a balanced dataset, the other is to allow it to be unbalanced to match the "real world". Let's see which one produces better results.
+For our first experiment we'll make two test sets. One will be balanced with 1000 examples of each and the other will be unbalanced with 1000 examples of a cat and 100 examples of a dog, as our "real world" population is. Let's see how the results from these tests compare.
 
 
 ```python
@@ -253,7 +253,7 @@ test_ds_balanced = prepare_dataset(cat_list_test_balanced, dog_list_test_balance
 test_ds_unbalanced = prepare_dataset(cat_list_test_unbalanced, dog_list_test_unbalanced)
 ```
 
-Great. Now let's train the models. We have two. One that likes cats more than dogs and one that likes dogs more than cats.
+Now let's train the models. We'll make two. One that favors predicting cats and one that favors predicting dogs.
 
 
 ```python
@@ -423,7 +423,7 @@ for name, value in zip(model_dog.metrics_names, eval_dog_balanced):
     recall :  0.6869999766349792
     
 
-In the balanced one, the dog model has higher recall but lower precision. It also has higher accuracy, but that's much closer between the models. Let's look at the F1 scores.
+Based on the balanced test set, the dog model has much higher recall but lower precision. It also has higher accuracy, but it's very close. Let's look at the F1 scores.
 
 
 ```python
@@ -514,7 +514,7 @@ for name, value in zip(model_dog.metrics_names, eval_dog_unbalanced):
     recall :  0.5899999737739563
     
 
-In the unbalanced dataset, the dog model has higher recall but lower precision and this time much lower accuracy.
+In the unbalanced dataset, the dog model still has higher recall and lower precision, but this time its accuracy is much lower than the cat model. Now let's look at F1 scores.
 
 
 ```python
@@ -530,9 +530,5 @@ print(f"Dog model F1 score: {round(dog_f1_unbalanced, 4)}")
 
 ## Conclusion
 
-Immediately, we see that the performance of *both* models is far worse on the unbalanced dataset. But that's how the real world data is going to be (in our pretend universe), so those are the metrics we need. Even more interesting, we see that while the **dog** model had the better score on the balanced test set, the **cat** model had the better one on the unbalanced dataset. However, the scores are quite close and given the dataset size, there's a lot of uncertainty associated with these measurements. I would say only that this at least _shows_ that this can happen.
+Immediately, we see that the performance of *both* models is far worse on the unbalanced dataset. But that's how the real world data is going to be (in our pretend universe), so those are the metrics we need. Even more interesting, we see that while the **dog** model had the better F1 score on the balanced test set, the **cat** model had the better one on the unbalanced dataset. However, the scores are quite close and given the dataset size, there's a lot of uncertainty associated with these measurements, so some small tweaks to the model or precess could possibly change this.
 
-
-```python
-
-```
