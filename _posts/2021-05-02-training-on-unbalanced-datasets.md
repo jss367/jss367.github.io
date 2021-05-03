@@ -8,7 +8,7 @@ tags: [Deep Learning, Python, TensorFlow]
 
 In this post I'm going to look at different methods of train models on unbalanced populations. This post is paired with my [post on evaluating models with unbalanced datasets](https://jss367.github.io/training-on-unbalanced-datasets.html). For these experiments, we'll use the Kaggle [Dogs vs. Cats dataset](https://www.kaggle.com/c/dogs-vs-cats). The dataset has the same number of cat images as dog images, so we'll have to subset the dataset to run the experiment. We're going to pretend that there are 10 times as many cats as there are dogs in the "real world" population. We want to build a model that answers the question, "Is this an image of a dog?"
 
-We'll answer a number of questions along the way. The first is, given that there are more cats than dogs in our population, should there also be more dogs than cats in the training data? That is, should we have unbalanced training data? Or should we find a way to balance it. And, if we want to balance the data, what's the best way to do it? The two most popular methods for this are adding more weight to the less common image or oversampling it. Which is better?
+We'll answer a number of questions along the way. The first is, given that there are more cats than dogs in our population, should there also be more dogs than cats in the training data? That is, should we have unbalanced training data? Or is it better to have it balanced? And, if we want to balance the data, what's the best way to do it? If we can't add more data, the two most popular methods for rebalancing are adding more weight to the less common image or oversampling it. Which is better?
 
 <b>Table of contents</b>
 * TOC
