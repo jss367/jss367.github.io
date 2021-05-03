@@ -48,11 +48,11 @@ sample size = 100
 
 degrees of  freedom = 99
 
-desired_conf_level = .90
+
 
 (1-0.90) = 0.10
 
-check two-tailed t-distribution table - (or divide by two and one one-tailed)
+check two-tailed t-distribution table - 
 
 1.645 - this is using a value of 0.10
 
