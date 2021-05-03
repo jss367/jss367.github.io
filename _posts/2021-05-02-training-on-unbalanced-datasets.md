@@ -245,7 +245,7 @@ val_ds = prepare_dataset(cat_list_val, dog_list_val)
 test_ds = prepare_dataset(cat_list_test, dog_list_test)
 ```
 
-Great. Now let's train the models.
+Now let's train the models.
 
 
 ```python
@@ -367,7 +367,7 @@ for name, value in zip(model_unbalanced.metrics_names, eval_unbalanced):
     recall :  0.0
     
 
-OK, so the model trained on unbalanced has a higher accuracy, but that's because it predicted the majority class for everything! It has **zero** precision and recall.
+OK, so the model trained on the unbalanced dataset has a higher accuracy, but that's because it predicted the majority class for everything! It has **zero** precision and recall.
 
 
 ```python
@@ -400,7 +400,7 @@ plot_cm(true_labels, unbalanced_preds)
 
 ## Experiment #2 - Using class_weight
 
-OK, so we know balanced data is better than unbalanced, but what if we can't get balanced data... what then? Let's try using class weights. We know we have 10 times as many cats as dogs, so we'll weight the dogs 10X as much.
+We know from the above experiments that training on balanced data is better than training on unbalanced, but what if we can't get balanced data... what then? There are many ways to try to get around this. One of the most popular is my using adjusting the weights of the less common images so the model learns more from them. We know we have 10 times as many cats as dogs, so we'll weigh the dogs 10X as much.
 
 
 ```python
@@ -475,7 +475,7 @@ plot_cm(true_labels, weighted_preds)
     
 
 
-Interestingly, even if you undo the difference in the unbalanced data by adjusting the weights, it goes *too* far.
+Interestingly, if you undo the difference in the unbalanced data by adjusting the weights, it goes *too* far.
 
 ## Experiment #2b - More class_weight
 
@@ -670,4 +670,4 @@ So even though it's not perfect, we got a decent result. This does cause a probl
 
 ## Conclusion
 
-You'll notice that no result was always better than the other results. It depended on the exact parameters and what metrics are most important to you. If you only care about recall, you may want to weigh the target labels extra heavily. You can also combine `class_weight` and oversampling and tweak both to your liking.
+You'll notice that no result was always better than the other results. It depended on the exact parameters and what metrics are most important. If you only care about recall, you may want to weigh the target labels extra heavily. You can also combine `class_weight` and oversampling and tweak both to your liking.
