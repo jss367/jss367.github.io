@@ -6,9 +6,7 @@ thumbnail: "assets/img/sun_tas.jpg"
 tags: [Deep Learning, Python, TensorFlow]
 ---
 
-In this post I'm going to look at different methods of dealing with unbalanced data. This is a supplement to my post on training on onbalanced datasets. This post focuses on the evaluation portion.
-
-For these, we'll use the Kaggle [Dogs vs. Cats dataset](https://www.kaggle.com/c/dogs-vs-cats). The dataset has the same number of cat images as dog images, so we'll have to subset the dataset to run the experiment. We're going to pretend that there are 10 times as many cats as there are dogs in our population, and we want to build a model that answers the question, "Is this an image of a dog?"
+In this post I'm going to look at different methods of evaluating models on unbalanced populations. This is a supplement to my post on training on onbalanced datasets. For this post, we'll use the Kaggle [Dogs vs. Cats dataset](https://www.kaggle.com/c/dogs-vs-cats). The dataset has the same number of cat images as dog images, so we'll have to subset the dataset to run the experiment. We're going to pretend that there are 10 times as many cats as there are dogs in our population, and we want to build a model that answers the question, "Is this an image of a dog?" Thus a true positive would be correctly identifying an image of a dog.
 
 <b>Table of contents</b>
 * TOC
