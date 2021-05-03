@@ -6,7 +6,7 @@ thumbnail: "assets/img/sun_tas.jpg"
 tags: [Deep Learning, Python, TensorFlow]
 ---
 
-In this post I'm going to look at different methods of evaluating models on unbalanced populations. This is paired with my post on training on onbalanced datasets. For this post, we'll use the Kaggle [Dogs vs. Cats dataset](https://www.kaggle.com/c/dogs-vs-cats). The dataset has the same number of cat images as dog images, so we'll have to subset the dataset to run the experiment. We're going to pretend that there are 10 times as many cats as there are dogs in the "real world" population. So assuming that's the ratio we'll see in production, how do we want to structure the test set?
+In this post I'm going to look at different methods of evaluating models on unbalanced populations. This is paired with my [post on training with onbalanced datasets](https://jss367.github.io/training-on-unbalanced-datasets.html). For this post, we'll use the Kaggle [Dogs vs. Cats dataset](https://www.kaggle.com/c/dogs-vs-cats). The dataset has the same number of cat images as dog images, so we'll have to subset the dataset to run the experiment. We're going to pretend that there are 10 times as many cats as there are dogs in the "real world" population. So assuming that's the ratio we'll see in production, how do we want to structure the test set?
 
 <b>Table of contents</b>
 * TOC
