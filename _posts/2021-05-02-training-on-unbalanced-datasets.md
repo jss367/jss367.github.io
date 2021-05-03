@@ -82,8 +82,7 @@ print(num_dog_train_im)
     4000
     
 
-We have the same number of each dataset. Now, let's say we're looking for cats in a sea of dog images... how should we go about this?
-Let's say we only have 50 cat images and 5000 dogs images.
+We have the same number of each dataset. We’ll have to build a function that creates unbalanced subsets of the dataset.
 
 
 ```python
@@ -146,7 +145,7 @@ def prepare_dataset(*datasets):
 
 ## Determine Metrics
 
-Now we'll have to decide on what metrics to use. These will be important so we'll use a lot of them.
+Now we’ll have to decide on what metrics to use. We’ll want a variety of metrics to really explore what’s going on. Because the goal of this model is to find the dog images in the sea of cat images, we’ll consider a **true positive** to be correctly identifying an image of a **dog**. Correctly identifying a **cat** image will be considered a **true negative**.
 
 
 ```python
@@ -163,7 +162,7 @@ all_metrics = [
 
 ## Create Model
 
-OK, now we have to make a model. This post isn't about the model so I'm going to make a simple CNN.
+OK, now we have to make a model. This post doesn’t focus on the model so I’m going to make a simple CNN.
 
 
 ```python
@@ -230,7 +229,7 @@ def plot_cm(labels, predictions, p=0.5):
 
 ## Experiment #1 - Should the Training Data Be Balanced or Unbalanced?
 
-OK. Out first experiment we'll make a couple train datasets. One options is to have a balanced dataset, the other is to allow it to be unbalanced to match the "real world". Let's see which one produces better results.
+For our first experiment we'll make a couple train datasets. One option is to have a balanced dataset, the other is to allow it to be unbalanced to match the "real world". Let's see which one produces better results.
 
 
 ```python
