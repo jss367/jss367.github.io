@@ -266,7 +266,7 @@ Now undo those changes on master:
 
 ### Help! Everything is so messed up I want to delete everything and download a fresh copy
 
-OK, [we've all been there before]((https://xkcd.com/1597/)). While that does work, you might be able to fix everything without doing that. First, you'll want to grab the latest version of your project without merging anything:
+OK, [we've all been there before](https://xkcd.com/1597/). While that does work, you might be able to fix everything without doing that. First, you'll want to grab the latest version of your project without merging anything:
 
 `git fetch --all`
 
