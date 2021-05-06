@@ -242,8 +242,8 @@ All of these are still identifiable as kangaroos, so that's good.
 
 ### Using every training image
 
-But we don't want to use this on just one image. We want to run this augmentor on every image in the dataset. To see how that's done, take a look at the implementation in the [class for preparing images](https://jss367.github.io/Class-for-Preparing-Images.html).
+But we don't want to use this on just one image. We want to run this augmentor on every image in the dataset. To see how that's done, take a look at the implementation in the [class for preparing images](https://jss367.github.io/class-for-preparing-images.html).
 
 ## Next steps
 
-Now that we have enough data, we can try to classify it. We'll do that in the [next notebook](https://jss367.github.io/Kangaroos-and-Wallabies-III.html).
+Now that we have enough data, we can try to classify it. We'll do that in the [next notebook](https://jss367.github.io/kangaroos-and-wallabies-iii.html).

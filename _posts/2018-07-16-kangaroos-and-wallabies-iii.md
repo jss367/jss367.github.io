@@ -39,7 +39,7 @@ from keras.callbacks import ModelCheckpoint, LearningRateScheduler, TensorBoard,
 
 ## Preparing the data
 
-We'll continue to use the [class for preparing images](https://jss367.github.io/Class-for-Preparing-Images.html) to help organize the data.
+We'll continue to use the [class for preparing images](https://jss367.github.io/class-for-preparing-images.html) to help organize the data.
 
 
 ```python
@@ -90,7 +90,7 @@ img_width, img_height = (my_data.image_size_)
 
 ## Establishing a baseline
 
-Before we get started building a complex model, we should develop a baseline so we can gauge our model. As I said in the [first post](https://jss367.github.io/Kangaroos-and-Wallabies-I.html), there are more images of kangaroos than of wallabies, so we need to take that into consideration. For example, if our model accurately predicted 75% of images, that might sound good. But if we just guessed that every image is of a kangaroo and got 70% correct, then maybe the model is not very good. So what's the baseline? How many would be great from pure guessing? To answer that, we'll use a dummy classifier. Our dummy classifier will find the most common label and predicts that every image will be that label.
+Before we get started building a complex model, we should develop a baseline so we can gauge our model. As I said in the [first post](https://jss367.github.io/kangaroos-and-wallabies-i.html), there are more images of kangaroos than of wallabies, so we need to take that into consideration. For example, if our model accurately predicted 75% of images, that might sound good. But if we just guessed that every image is of a kangaroo and got 70% correct, then maybe the model is not very good. So what's the baseline? How many would be great from pure guessing? To answer that, we'll use a dummy classifier. Our dummy classifier will find the most common label and predicts that every image will be that label.
 
 
 ```python
@@ -181,7 +181,7 @@ We have to specify the loss function, as well as an optimizer.
 model_final.compile(loss = "categorical_crossentropy", optimizer = optimizers.SGD(lr=0.0001, momentum=0.9), metrics=["accuracy"])
 ```
 
-We'll use the same augmentation techniques described in the [augmentation notebook](https://jss367.github.io/Kangaroos-and-Wallabies-II.html). In this case we won't save the images to disk though.
+We'll use the same augmentation techniques described in the [augmentation notebook](https://jss367.github.io/kangaroos-and-wallabies-ii.html). In this case we won't save the images to disk though.
 
 
 ```python

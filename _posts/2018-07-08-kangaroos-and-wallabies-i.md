@@ -387,7 +387,7 @@ There are more images of kangaroos than wallabies, so the datasets will be unbal
 
 ## Next steps
 
-Although we have thousands of images to work with, that isn't nearly enough to train state-of-the-art neural networks. In the next notebook, we'll look at how we can [augment our dataset with Keras](https://jss367.github.io/Augmenting-with-Keras.html) to make up for this.
+Although we have thousands of images to work with, that isn't nearly enough to train state-of-the-art neural networks. In the next notebook, we'll look at how we can [augment our dataset with Keras](https://jss367.github.io/augmenting-with-keras.html) to make up for this.
 
 
 ```python

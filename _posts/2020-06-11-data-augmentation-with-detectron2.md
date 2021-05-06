@@ -49,7 +49,7 @@ These are all pretty straightforward. You can provide them ranges of the form `(
 
 #### RandomLighting
 
-What this does is a bit tricky. It uses a [PCA](https://jss367.github.io/Principal-Component-Analysis.html) lighting trick that was used in [AlexNet](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf) with great results. Here's the relevant section of the paper:
+What this does is a bit tricky. It uses a [PCA](https://jss367.github.io/principal-component-analysis.html) lighting trick that was used in [AlexNet](https://papers.nips.cc/paper/4824-imagenet-classification-with-deep-convolutional-neural-networks.pdf) with great results. Here's the relevant section of the paper:
 
 ![AlexNet]({{site.baseurl}}/assets/img/alexnet_pca_lighting.png "AlexNet PCA Lighting")
 
