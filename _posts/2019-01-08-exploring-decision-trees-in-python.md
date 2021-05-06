@@ -7,7 +7,7 @@ thumbnail: "assets/img/tree_roots.jpg"
 tags: [Python, Machine Learning, Decision Trees]
 ---
 
-This post aims to explore decision trees for the NOVA Deep Learning Meetup. It is based on chapter 8 of *An Introduction to Statistical Learning with Applications in R* by Gareth James, Daniela Witten, Trevor Hastie and Robert Tibshirani. It also discusses methods to improve decision tree performance, such as bagging, random forest, and boosting. There are two posts with the same material, [one in R](https://jss367.github.io/Exploring-Decision-Trees-in-R.html) and one in Python.
+This post aims to explore decision trees for the NOVA Deep Learning Meetup. It is based on chapter 8 of *An Introduction to Statistical Learning with Applications in R* by Gareth James, Daniela Witten, Trevor Hastie and Robert Tibshirani. It also discusses methods to improve decision tree performance, such as bagging, random forest, and boosting. There are two posts with the same material, [one in R](https://jss367.github.io/exploring-decision-trees-in-r.html) and one in Python.
 
 <b>Table of contents</b>
 * TOC

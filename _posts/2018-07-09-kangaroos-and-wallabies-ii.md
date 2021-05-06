@@ -6,12 +6,12 @@ thumbnail: "assets/img/kang_horiz.jpg"
 tags: [Computer Vision, Python, TensorFlow, Wildlife]
 ---
 
-In this notebook, we're going to take our [prepared images](https://jss367.github.io/Class-for-Preparing-Images.html) and augment them to increase the size of our dataset.
+In this notebook, we're going to take our [prepared images](https://jss367.github.io/class-for-preparing-images.html) and augment them to increase the size of our dataset.
 
 This is part two of a three-post series on creating your own dataset and classifying it using transfer learning.
-* [Preparing the Data](https://jss367.github.io/Kangaroos-and-Wallabies-I.html)
-* [Augmenting the Data](https://jss367.github.io/Kangaroos-and-Wallabies-II.html)
-* [Classifying the Data](https://jss367.github.io/Kangaroos-and-Wallabies-III.html)
+* [Preparing the Data](https://jss367.github.io/kangaroos-and-wallabies-i.html)
+* [Augmenting the Data](https://jss367.github.io/kangaroos-and-wallabies-ii.html)
+* [Classifying the Data](https://jss367.github.io/kangaroos-and-wallabies-iii.html)
 
 <b>Table of contents</b>
 * TOC

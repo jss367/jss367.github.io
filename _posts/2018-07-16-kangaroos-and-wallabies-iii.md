@@ -6,12 +6,12 @@ thumbnail: "assets/img/ki_kangs.jpg"
 tags: [Computer Vision, Convolutional Neural Networks, Python, TensorFlow, Wildlife]
 ---
 
-In this notebook, we're going to take our [augmented dataset](https://jss367.github.io/Kangaroos-and-Wallabies-II.html) and build a convolutional neural network to classify the images.
+In this notebook, we're going to take our [augmented dataset](https://jss367.github.io/kangaroos-and-wallabies-ii.html) and build a convolutional neural network to classify the images.
 
 This is part three of a three-post series on creating your own dataset and classifying it using transfer learning.
-* [Preparing the Data](https://jss367.github.io/Kangaroos-and-Wallabies-I.html)
-* [Augmenting the Data](https://jss367.github.io/Kangaroos-and-Wallabies-II.html)
-* [Classifying the Data](https://jss367.github.io/Kangaroos-and-Wallabies-III.html)
+* [Preparing the Data](https://jss367.github.io/kangaroos-and-wallabies-i.html)
+* [Augmenting the Data](https://jss367.github.io/kangaroos-and-wallabies-ii.html)
+* [Classifying the Data](https://jss367.github.io/kangaroos-and-wallabies-iii.html)
 
 <b>Table of contents</b>
 * TOC
