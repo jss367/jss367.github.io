@@ -84,7 +84,7 @@ I'm not usually a newsletters guy, but for some reason I've found that there are
 
 ## Textbooks
 
-Recent textbooks can be a great place for learning the latest because they provide the necessary context. I've already written about textbooks so I'll just share the link to my [post on deep learning textbooks](https://jss367.github.io/Free-Deep-Learning-Textbooks.html).
+Recent textbooks can be a great place for learning the latest because they provide the necessary context. I've already written about textbooks so I'll just share the link to my [post on deep learning textbooks](https://jss367.github.io/free-deep-learning-textbooks.html).
 
 ## Podcasts
 
