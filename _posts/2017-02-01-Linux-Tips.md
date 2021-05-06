@@ -77,11 +77,37 @@ You can also search for file types, such as:
 
 `find . -executable`
 
-### fd ###
+### fd
 
 [fd](https://github.com/sharkdp/fd) is worth giving a try.
 
-## Finding Text within Files ###
+## Finding Text within Files
+
+### grep
+
+`grep` is a great tool. Here are the flags I use most often:
+```
+-i ignore case
+-n show line numbers
+-r recursive (search in folders); capitalize to add symlinks
+```
+
+Let's look at a `grep` command. Here's one I find particularly useful:
+
+`grep -r password /etc`
+
+The syntax of grep consists of four parts.
+
+1. grep command
+2. optional: option(s)
+3. string to search
+4. file, files, or path to be searched
+
+```
+grep -ir driver *   - done when in the folder
+grep -r BBDatasetTrainer *
+grep -ir precision_recall_curve /Users/juliussimonelli/Documents/pCloud
+```
 
 If you want to search for text within files, you can use `grep`:
 
@@ -91,7 +117,7 @@ One of the most useful flags for me is `-i` for ignore case:
 
 `grep -i -d recurse "This Text" *`
 
-### ls ###
+### ls
 
 Don't forget `ls` can also be a great tool for this. Something as simple as `ls | grep rsa` to find rsa keys. Note that you don't need asterisks for this.
 
