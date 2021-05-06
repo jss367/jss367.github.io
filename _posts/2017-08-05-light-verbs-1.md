@@ -24,7 +24,7 @@ from urllib import request
 import nltk
 ```
 
-We'll gather the text using the methods we did in the [post on getting text from Project Gutenberg](https://jss367.github.io/Getting-text-from-Project-Gutenberg.html).
+We'll gather the text using the methods we did in the [post on getting text from Project Gutenberg](https://jss367.github.io/getting-text-from-project-gutenberg.html).
 
 
 ```python
@@ -212,4 +212,4 @@ print("That is {:.2%} of all verbs in this text".format(len(light_verbs_in_text)
     That is 31.59% of all verbs in this text
     
 
-In [Part 2](https://jss367.github.io/Light-verbs-2.html), we'll compare several texts from the literary canon and visualize it.
+In [Part 2](https://jss367.github.io/light-verbs-2.html), we'll compare several texts from the literary canon and visualize it.
