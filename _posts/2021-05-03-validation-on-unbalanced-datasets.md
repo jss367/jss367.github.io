@@ -2,7 +2,7 @@
 layout: post
 title: "Validation on Unbalanced Datasets"
 feature-img: "assets/img/rainbow.jpg"
-thumbnail: "assets/img/water_text.jpg"
+thumbnail: "assets/img/windy_roo.jpg"
 tags: [Deep Learning, Python, TensorFlow]
 ---
 
@@ -27,7 +27,7 @@ This notebook focus on the makeup of the validation set.
 
 Can you fix things with a custom loss function?
 
-## Experiment #1 - Should the Validation Data Be Balanced or Representative?
+## Train
 
 OK. Out first experiment we'll make a couple train datasets. One options is to have a balanced dataset, the other is to allow it to be unbalanced to match the "real world". Let's see which one produces better results.
 
@@ -120,7 +120,7 @@ history_representative = model_representative.fit(train_ds, epochs=NUM_EPOCHS, v
     125/125 [==============================] - 10s 83ms/step - loss: 0.6363 - tp: 748.2063 - fp: 448.8254 - tn: 539.5317 - fn: 295.1825 - accuracy: 0.6272 - precision: 0.6247 - recall: 0.7063 - val_loss: 0.6064 - val_tp: 66.0000 - val_fp: 337.0000 - val_tn: 663.0000 - val_fn: 34.0000 - val_accuracy: 0.6627 - val_precision: 0.1638 - val_recall: 0.66009.1165 - fp: 364.3495 - tn: 442.3495 - fn: 248.1845 - accuracy: 0.6248 - precision: 
     
 
-#### Experiment #1 Evaluation
+## Evaluation
 
 
 ```python
@@ -212,8 +212,6 @@ plot_cm(true_labels, representative_preds)
 ![png](2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_23_0.png)
     
 
-
-## Experiment #2
 
 ## Conclusion
 
