@@ -49,6 +49,14 @@ Install with `pip install autopep8`, then enable it.
 
 [spellchecker](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html) does exactly what you think it does.
 
+## Others (Evaluating)
+
+> Note: Sometimes I add to this list
+
+* https://github.com/drillan/jupyter-black
+
+* https://github.com/connorferster/handcalcs
+
 # Shell Commands
 
 You can also use shell commands inside Jupyter Notebooks. Some are built-in so you can type them directly, such as `ls` or `pwd`.
