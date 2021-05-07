@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Training on Unbalanced Datasets"
+title: "Validation on Unbalanced Datasets"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/water_text.jpg"
 tags: [Deep Learning, Python, TensorFlow]
@@ -8,7 +8,7 @@ tags: [Deep Learning, Python, TensorFlow]
 
 In this post I'm going to look at different methods of dealing with unbalanced data. For these, we'll use the Kaggle [Dogs vs. Cats dataset](https://www.kaggle.com/c/dogs-vs-cats). The dataset has the same number of cat images as dog images, so we'll have to subset the dataset to run the experiment. We're going to pretend that there are 10 times as many cats as there are dogs in our population, and we want to build a model that answers the question, "Is this an image of a dog?"
 
-We'll answer a number of questions along the way. The first is, given that there are more cats than dogs in our population, should there also be more dogs than cats in the training data? That is, should we have unbalanced training data? Or should we find a way to balance it. And, if we want to balance the data, what's the best way to do it? The two most popular methods for this are adding more weight to the less common image or oversampling it. Which is better?
+This notebook focus on the makeup of the validation set.
 
 <b>Table of contents</b>
 * TOC
