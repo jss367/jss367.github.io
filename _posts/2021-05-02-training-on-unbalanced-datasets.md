@@ -6,9 +6,9 @@ thumbnail: "assets/img/water_text.jpg"
 tags: [Deep Learning, Python, TensorFlow]
 ---
 
-In this post I'm going to look at different methods of train models on unbalanced populations. This post is paired with my [post on evaluating models with unbalanced datasets](https://jss367.github.io/eval-on-unbalanced-datasets.html). For these experiments, we'll use the Kaggle [Dogs vs. Cats dataset](https://www.kaggle.com/c/dogs-vs-cats). The dataset has the same number of cat images as dog images, so we'll have to subset the dataset to run the experiment. We're going to pretend that there are 10 times as many cats as there are dogs in the "real world" population. We want to build a model that answers the question, "Is this an image of a dog?"
+This post is in a series on working with unbalanced datasets. It focuses on the training aspect. For background, please see the [setup](https://jss367.github.io/prep-for-experiements-on-unbalanced-datasets.html) post.
 
-We'll answer a number of questions along the way. The first is, given that there are more cats than dogs in our population, should there also be more dogs than cats in the training data? That is, should we have unbalanced training data? Or is it better to have it balanced? And, if we want to balance the data, what's the best way to do it? If we can't add more data, the two most popular methods for rebalancing are adding more weight to the less common image or oversampling it. Which is better?
+When we thinkg about train on an unbalanced dataset, we answer a number of questions along the way. The first is, given that there are more cats than dogs in our population, should there also be more dogs than cats in the training data? That is, should we have unbalanced training data? Or is it better to have it balanced? And, if we want to balance the data, what's the best way to do it? If we can't add more data, the two most popular methods for rebalancing are adding more weight to the less common image or oversampling it. Which is better?
 
 <b>Table of contents</b>
 * TOC
@@ -16,216 +16,15 @@ We'll answer a number of questions along the way. The first is, given that there
 
 
 ```python
-import os
-from os import listdir
-from pathlib import Path
-from typing import List
-
-import seaborn as sns
-import tensorflow as tf
-from matplotlib import pyplot as plt
-from sklearn.metrics import confusion_matrix
-from tensorflow import keras
-from tensorflow.compat.v1 import ConfigProto, InteractiveSession
-from tensorflow.keras import metrics
-from tensorflow.keras.layers import Conv2D, Dense, Dropout, Flatten, MaxPool2D
-from tensorflow.keras.models import Sequential
-```
-
-Because we'll be working with images, I'm going to make sure my GPU doesn't run out of memory.
-
-
-```python
-config = ConfigProto()
-config.gpu_options.allow_growth = True
-session = InteractiveSession(config=config)
-AUTOTUNE = tf.data.experimental.AUTOTUNE
-tf.random.set_seed(42)
-```
-
-## Prepare the Data
-
-OK, now let's look at the dataset.
-
-
-```python
-root_dir = Path('E:/Data/Raw/cats_vs_dogs_dataset')
-image_dir = root_dir / 'train'
+%run 2021-05-01-prep-for-experiements-on-unbalanced-datasets.ipynb
 ```
 
 
-```python
-class_names = listdir(image_dir)
-print(class_names)
-```
-
-    ['cats', 'dogs']
+    Classes:
+     ['cats', 'dogs']
+    There are a total of 5000 cat images in the entire dataset.
+    There are a total of 5000 dog images in the entire dataset.
     
-
-Let's see how many images we have.
-
-
-```python
-cat_dir = image_dir / 'cats'
-dog_dir = image_dir / 'dogs'
-```
-
-
-```python
-num_cat_train_im = len(listdir(cat_dir))
-num_dog_train_im = len(listdir(dog_dir))
-print(num_cat_train_im)
-print(num_dog_train_im)
-```
-
-    4000
-    4000
-    
-
-We have the same number of each dataset. We’ll have to build a function that creates unbalanced subsets of the dataset.
-
-
-```python
-cat_list_ds = tf.data.Dataset.list_files(str(cat_dir/'*'), shuffle=False, seed=42)
-dog_list_ds = tf.data.Dataset.list_files(str(dog_dir/'*'), shuffle=False, seed=42)
-```
-
-
-```python
-def subset_dataset(dataset: tf.data.Dataset, splits: List) -> List[tf.data.Dataset]:
-    """
-    Split a dataset into any number of non-overlapping subdatasets of size listed in `splits`
-    """
-    assert sum(splits) <= tf.data.experimental.cardinality(dataset).numpy(), "Total number of images in splits exceeds dataset size"
-    datasets = []
-    total_used = 0
-    for i, val in enumerate(splits):
-        ds = dataset.skip(total_used).take(val)
-        total_used += val
-        datasets.append(ds)
-
-    return datasets
-```
-
-
-```python
-BATCH_SIZE = 32
-NUM_EPOCHS = 10
-img_height = 64
-img_width = 64
-num_channels = 3
-```
-
-
-```python
-def prep_image(filename):
-    img = tf.io.read_file(filename)
-    image_decoded = tf.io.decode_jpeg(img, channels=3)
-    image = tf.image.convert_image_dtype(image_decoded, tf.float32)
-    image = tf.image.resize(image, (img_height, img_width))
-    return image
-
-def prep_label(filename):
-    parts = tf.strings.split(filename, sep=os.path.sep)
-    one_hot_label = parts[-2] == class_names
-    label = tf.argmax(one_hot_label)
-    return label
-
-def parse_file(filename):
-    image = prep_image(filename)
-    label = prep_label(filename)
-    return image, label
-
-def prepare_dataset(*datasets):
-    dataset = tf.data.experimental.sample_from_datasets(datasets, seed=42)
-    dataset = dataset.map(parse_file)
-    dataset = dataset.batch(BATCH_SIZE).prefetch(AUTOTUNE)
-    return dataset
-```
-
-## Determine Metrics
-
-Now we’ll have to decide on what metrics to use. We’ll want a variety of metrics to really explore what’s going on. Because the goal of this model is to find the dog images in the sea of cat images, we’ll consider a **true positive** to be correctly identifying an image of a **dog**. Correctly identifying a **cat** image will be considered a **true negative**.
-
-
-```python
-all_metrics = [
-      metrics.TruePositives(name='tp'),
-      metrics.FalsePositives(name='fp'),
-      metrics.TrueNegatives(name='tn'),
-      metrics.FalseNegatives(name='fn'), 
-      metrics.BinaryAccuracy(name='accuracy'),
-      metrics.Precision(name='precision'),
-      metrics.Recall(name='recall'),
-]
-```
-
-## Create Model
-
-OK, now we have to make a model. This post doesn’t focus on the model so I’m going to make a simple CNN.
-
-
-```python
-def get_model():
-    model = Sequential()
-    model.add(Conv2D(32, kernel_size=(3,3), padding='same', strides=(1,1), kernel_initializer='he_uniform', input_shape=(img_height, img_width, num_channels), activation='relu'))
-    model.add(MaxPool2D(pool_size=(2, 2)))
-    model.add(Dropout(0.15))
-    model.add(Conv2D(64, kernel_size=(3,3), padding='same', strides=(1,1), kernel_initializer='he_uniform', activation='relu'))
-    model.add(MaxPool2D(pool_size=(2, 2)))
-    model.add(Dropout(0.15))
-    model.add(Conv2D(128, kernel_size=(3,3), padding='same', strides=(1,1), kernel_initializer='he_uniform', activation='relu'))
-    model.add(MaxPool2D(pool_size=(2, 2)))
-    model.add(Flatten())
-    model.add(Dense(64, activation='relu', kernel_initializer='he_uniform'))
-    model.add(Dropout(0.4))
-    model.add(Dense(1, activation='sigmoid'))
-    return model
-```
-
-## Compile Model
-
-
-```python
-model = get_model()
-```
-
-
-```python
-model.compile(optimizer = 'adam', loss = 'binary_crossentropy', metrics=all_metrics)
-```
-
-## Visualize Results
-
-We're going to need some functions to visualize the results, so let's build those here.
-
-
-```python
-def plot_loss(history, label):
-    """
-    Plot the train and val loss from a TensorFlow train
-    """
-    plt.plot(history.epoch, history.history['loss'],
-               label='Train ' + label)
-    plt.plot(history.epoch, history.history['val_loss'],
-               label='Val ' + label,
-               linestyle="--")
-    plt.xlabel('Epoch')
-    plt.xlabel('Epoch')
-    plt.ylabel('Loss')
-    plt.legend()
-
-def plot_cm(labels, predictions, p=0.5):
-    """
-    Plot a confusion matrix
-    """
-    cm = confusion_matrix(labels, predictions > p)
-    plt.figure(figsize=(5,5))
-    sns.heatmap(cm, annot=True, fmt="d", cmap=sns.cm.rocket_r)
-    plt.title('Confusion matrix @{:.2f}'.format(p))
-    plt.ylabel('Truth label')
-    plt.xlabel('Predicted label')
-```
 
 ## Experiment #1 - Should the Training Data Be Balanced or Unbalanced?
 
@@ -233,8 +32,8 @@ For our first experiment we'll make a couple train datasets. One option is to ha
 
 
 ```python
-cat_list_train_balanced, cat_list_train_unbalanced, cat_list_val, cat_list_test = subset_dataset(cat_list_ds, [1000, 1000, 1000, 1000])
-dog_list_train_balanced, dog_list_train_unbalanced, dog_list_val, dog_list_test = subset_dataset(dog_list_ds, [1000, 100, 100, 100])
+cat_list_train_balanced, cat_list_train_unbalanced, cat_list_val, cat_list_test = subset_dataset(cat_list_ds, [1500, 1500, 1000, 1000])
+dog_list_train_balanced, dog_list_train_unbalanced, dog_list_val, dog_list_test = subset_dataset(dog_list_ds, [1500, 150, 100, 100])
 ```
 
 
@@ -255,25 +54,25 @@ history_balanced = model_balanced.fit(train_ds_balanced, epochs=NUM_EPOCHS, vali
 ```
 
     Epoch 1/10
-    63/63 [==============================] - 9s 109ms/step - loss: 1.6369 - tp: 293.2969 - fp: 295.4844 - tn: 203.5625 - fn: 246.6562 - accuracy: 0.4679 - precision: 0.4893 - recall: 0.5101 - val_loss: 0.6770 - val_tp: 19.0000 - val_fp: 112.0000 - val_tn: 888.0000 - val_fn: 81.0000 - val_accuracy: 0.8245 - val_precision: 0.1450 - val_recall: 0.1900
+    94/94 [==============================] - 12s 103ms/step - loss: 1.4082 - tp: 449.8421 - fp: 435.1474 - tn: 309.6632 - fn: 340.8421 - accuracy: 0.4812 - precision: 0.4984 - recall: 0.5356 - val_loss: 0.5143 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
     Epoch 2/10
-    63/63 [==============================] - 5s 87ms/step - loss: 0.6907 - tp: 281.4688 - fp: 220.7031 - tn: 278.3438 - fn: 258.4844 - accuracy: 0.5224 - precision: 0.5552 - recall: 0.4333 - val_loss: 0.5043 - val_tp: 0.0000e+00 - val_fp: 1.0000 - val_tn: 999.0000 - val_fn: 100.0000 - val_accuracy: 0.9082 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
+    94/94 [==============================] - 8s 85ms/step - loss: 0.7084 - tp: 366.4947 - fp: 322.8211 - tn: 421.9895 - fn: 424.1895 - accuracy: 0.5059 - precision: 0.5714 - recall: 0.3808 - val_loss: 0.6856 - val_tp: 52.0000 - val_fp: 409.0000 - val_tn: 591.0000 - val_fn: 48.0000 - val_accuracy: 0.5845 - val_precision: 0.1128 - val_recall: 0.5200
     Epoch 3/10
-    63/63 [==============================] - 5s 88ms/step - loss: 0.7129 - tp: 286.7812 - fp: 220.8438 - tn: 278.2031 - fn: 253.1719 - accuracy: 0.5352 - precision: 0.6190 - recall: 0.4376 - val_loss: 0.5921 - val_tp: 22.0000 - val_fp: 155.0000 - val_tn: 845.0000 - val_fn: 78.0000 - val_accuracy: 0.7882 - val_precision: 0.1243 - val_recall: 0.2200
+    94/94 [==============================] - 8s 85ms/step - loss: 0.6840 - tp: 503.5474 - fp: 406.3474 - tn: 338.4632 - fn: 287.1368 - accuracy: 0.5333 - precision: 0.5455 - recall: 0.6017 - val_loss: 0.6361 - val_tp: 66.0000 - val_fp: 427.0000 - val_tn: 573.0000 - val_fn: 34.0000 - val_accuracy: 0.5809 - val_precision: 0.1339 - val_recall: 0.6600cy: 0.5202 - precision: 0.5391  - ETA: 0s - loss: 0.6852 - tp: 421.4375 - fp: 343.5375 - tn: 281.6625 - fn: 249.3625 - accuracy: 0.5278 - precision: 0.5429 - 
     Epoch 4/10
-    63/63 [==============================] - 6s 89ms/step - loss: 0.6850 - tp: 359.1250 - fp: 261.7500 - tn: 237.2969 - fn: 180.8281 - accuracy: 0.5650 - precision: 0.6063 - recall: 0.5758 - val_loss: 0.5707 - val_tp: 26.0000 - val_fp: 167.0000 - val_tn: 833.0000 - val_fn: 74.0000 - val_accuracy: 0.7809 - val_precision: 0.1347 - val_recall: 0.2600
+    94/94 [==============================] - 8s 85ms/step - loss: 0.6765 - tp: 474.8105 - fp: 351.6316 - tn: 393.1789 - fn: 315.8737 - accuracy: 0.5585 - precision: 0.5858 - recall: 0.5548 - val_loss: 0.6090 - val_tp: 68.0000 - val_fp: 401.0000 - val_tn: 599.0000 - val_fn: 32.0000 - val_accuracy: 0.6064 - val_precision: 0.1450 - val_recall: 0.6800 238.5614 - fn: 213.2807 - accuracy: 0.5482
     Epoch 5/10
-    63/63 [==============================] - 5s 87ms/step - loss: 0.6792 - tp: 373.0156 - fp: 263.8281 - tn: 235.2188 - fn: 166.9375 - accuracy: 0.5697 - precision: 0.5898 - recall: 0.6037 - val_loss: 0.5330 - val_tp: 32.0000 - val_fp: 148.0000 - val_tn: 852.0000 - val_fn: 68.0000 - val_accuracy: 0.8036 - val_precision: 0.1778 - val_recall: 0.3200
+    94/94 [==============================] - 8s 85ms/step - loss: 0.6674 - tp: 428.9263 - fp: 284.4737 - tn: 460.3368 - fn: 361.7579 - accuracy: 0.5648 - precision: 0.6149 - recall: 0.4685 - val_loss: 0.3975 - val_tp: 4.0000 - val_fp: 10.0000 - val_tn: 990.0000 - val_fn: 96.0000 - val_accuracy: 0.9036 - val_precision: 0.2857 - val_recall: 0.0400
     Epoch 6/10
-    63/63 [==============================] - 5s 86ms/step - loss: 0.6640 - tp: 366.6250 - fp: 213.1406 - tn: 285.9062 - fn: 173.3281 - accuracy: 0.6221 - precision: 0.6631 - recall: 0.6151 - val_loss: 0.5484 - val_tp: 25.0000 - val_fp: 138.0000 - val_tn: 862.0000 - val_fn: 75.0000 - val_accuracy: 0.8064 - val_precision: 0.1534 - val_recall: 0.2500
+    94/94 [==============================] - 8s 84ms/step - loss: 0.7003 - tp: 415.5368 - fp: 286.9579 - tn: 457.8526 - fn: 375.1474 - accuracy: 0.5487 - precision: 0.6381 - recall: 0.4146 - val_loss: 0.6125 - val_tp: 82.0000 - val_fp: 512.0000 - val_tn: 488.0000 - val_fn: 18.0000 - val_accuracy: 0.5182 - val_precision: 0.1380 - val_recall: 0.8200
     Epoch 7/10
-    63/63 [==============================] - 5s 86ms/step - loss: 0.6587 - tp: 352.2812 - fp: 216.5469 - tn: 282.5000 - fn: 187.6719 - accuracy: 0.5978 - precision: 0.6519 - recall: 0.5715 - val_loss: 0.5705 - val_tp: 54.0000 - val_fp: 261.0000 - val_tn: 739.0000 - val_fn: 46.0000 - val_accuracy: 0.7209 - val_precision: 0.1714 - val_recall: 0.5400
+    94/94 [==============================] - 8s 84ms/step - loss: 0.6503 - tp: 581.7789 - fp: 341.5053 - tn: 403.3053 - fn: 208.9053 - accuracy: 0.6416 - precision: 0.6351 - recall: 0.7337 - val_loss: 0.5782 - val_tp: 70.0000 - val_fp: 302.0000 - val_tn: 698.0000 - val_fn: 30.0000 - val_accuracy: 0.6982 - val_precision: 0.1882 - val_recall: 0.70004.4407 - tn: 244.5763 - fn: 131.2373 - accuracy: 0.6412 -
     Epoch 8/10
-    63/63 [==============================] - 5s 86ms/step - loss: 0.6279 - tp: 363.0938 - fp: 185.9531 - tn: 313.0938 - fn: 176.8594 - accuracy: 0.6466 - precision: 0.6876 - recall: 0.6219 - val_loss: 0.4938 - val_tp: 31.0000 - val_fp: 118.0000 - val_tn: 882.0000 - val_fn: 69.0000 - val_accuracy: 0.8300 - val_precision: 0.2081 - val_recall: 0.3100
+    94/94 [==============================] - 8s 85ms/step - loss: 0.6527 - tp: 535.9263 - fp: 331.4526 - tn: 413.3579 - fn: 254.7579 - accuracy: 0.6123 - precision: 0.6257 - recall: 0.6477 - val_loss: 0.6014 - val_tp: 75.0000 - val_fp: 425.0000 - val_tn: 575.0000 - val_fn: 25.0000 - val_accuracy: 0.5909 - val_precision: 0.1500 - val_recall: 0.7500
     Epoch 9/10
-    63/63 [==============================] - 5s 87ms/step - loss: 0.6273 - tp: 346.9219 - fp: 179.2969 - tn: 319.7500 - fn: 193.0312 - accuracy: 0.6283 - precision: 0.6866 - recall: 0.5725 - val_loss: 0.4830 - val_tp: 37.0000 - val_fp: 114.0000 - val_tn: 886.0000 - val_fn: 63.0000 - val_accuracy: 0.8391 - val_precision: 0.2450 - val_recall: 0.3700
+    94/94 [==============================] - 8s 84ms/step - loss: 0.6366 - tp: 541.8842 - fp: 263.9895 - tn: 480.8211 - fn: 248.8000 - accuracy: 0.6612 - precision: 0.6804 - recall: 0.6656 - val_loss: 0.4841 - val_tp: 56.0000 - val_fp: 192.0000 - val_tn: 808.0000 - val_fn: 44.0000 - val_accuracy: 0.7855 - val_precision: 0.2258 - val_recall: 0.5600
     Epoch 10/10
-    63/63 [==============================] - 5s 86ms/step - loss: 0.5958 - tp: 374.5156 - fp: 165.8125 - tn: 333.2344 - fn: 165.4375 - accuracy: 0.6745 - precision: 0.7131 - recall: 0.6510 - val_loss: 0.5675 - val_tp: 62.0000 - val_fp: 263.0000 - val_tn: 737.0000 - val_fn: 38.0000 - val_accuracy: 0.7264 - val_precision: 0.1908 - val_recall: 0.6200
+    94/94 [==============================] - 8s 85ms/step - loss: 0.6268 - tp: 551.7053 - fp: 267.6316 - tn: 477.1789 - fn: 238.9789 - accuracy: 0.6589 - precision: 0.6776 - recall: 0.6637 - val_loss: 0.4209 - val_tp: 45.0000 - val_fp: 118.0000 - val_tn: 882.0000 - val_fn: 55.0000 - val_accuracy: 0.8427 - val_precision: 0.2761 - val_recall: 0.4500
     
 
 
@@ -284,25 +83,25 @@ history_unbalanced = model_unbalanced.fit(train_ds_unbalanced, epochs=NUM_EPOCHS
 ```
 
     Epoch 1/10
-    35/35 [==============================] - 6s 131ms/step - loss: 0.7253 - tp: 103.1944 - fp: 365.5000 - tn: 1131.1944 - fn: 90.1111 - accuracy: 0.7239 - precision: 0.2206 - recall: 0.5357 - val_loss: 1.8799 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
+    52/52 [==============================] - 8s 120ms/step - loss: 0.6336 - tp: 123.7547 - fp: 243.4528 - tn: 1480.0943 - fn: 115.5660 - accuracy: 0.8100 - precision: 0.3371 - recall: 0.5146 - val_loss: 3.0452 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
     Epoch 2/10
-    35/35 [==============================] - 4s 112ms/step - loss: 4.7056 - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 496.6944 - fn: 93.3056 - accuracy: 0.7612 - precision: 0.0000e+00 - recall: 0.0000e+00 - val_loss: 1.4484 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
+    52/52 [==============================] - 5s 105ms/step - loss: 6.7396 - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 723.5472 - fn: 139.3208 - accuracy: 0.7552 - precision: 0.0000e+00 - recall: 0.0000e+00 - val_loss: 5.4944 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
     Epoch 3/10
-    35/35 [==============================] - 4s 113ms/step - loss: 3.4133 - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 496.6944 - fn: 93.3056 - accuracy: 0.7612 - precision: 0.0000e+00 - recall: 0.0000e+00 - val_loss: 0.8440 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
+    52/52 [==============================] - 5s 105ms/step - loss: 9.4548 - tp: 0.0000e+00 - fp: 1.5094 - tn: 722.0377 - fn: 139.3208 - accuracy: 0.7535 - precision: 0.0000e+00 - recall: 0.0000e+00 - val_loss: 2.6275 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
     Epoch 4/10
-    35/35 [==============================] - 4s 113ms/step - loss: 2.3146 - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 496.6944 - fn: 93.3056 - accuracy: 0.7612 - precision: 0.0000e+00 - recall: 0.0000e+00 - val_loss: 0.4698 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
+    52/52 [==============================] - 5s 106ms/step - loss: 4.9902 - tp: 0.0000e+00 - fp: 22.9811 - tn: 700.5660 - fn: 139.3208 - accuracy: 0.7299 - precision: 0.0000e+00 - recall: 0.0000e+00 - val_loss: 2.0154 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00fn: 133.8286 - accuracy: 0.6570 - precisio
     Epoch 5/10
-    35/35 [==============================] - 4s 112ms/step - loss: 0.5496 - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 496.6944 - fn: 93.3056 - accuracy: 0.7612 - precision: 0.0000e+00 - recall: 0.0000e+00 - val_loss: 0.3351 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
+    52/52 [==============================] - 5s 104ms/step - loss: 3.9752 - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 723.5472 - fn: 139.3208 - accuracy: 0.7552 - precision: 0.0000e+00 - recall: 0.0000e+00 - val_loss: 2.1523 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
     Epoch 6/10
-    35/35 [==============================] - 4s 111ms/step - loss: 0.9683 - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 496.6944 - fn: 93.3056 - accuracy: 0.7612 - precision: 0.0000e+00 - recall: 0.0000e+00 - val_loss: 0.3327 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
+    52/52 [==============================] - 5s 105ms/step - loss: 3.8912 - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 723.5472 - fn: 139.3208 - accuracy: 0.7552 - precision: 0.0000e+00 - recall: 0.0000e+00 - val_loss: 0.5992 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+0000e+00 - fp: 0.0000e+00 - tn: 157.3750 - fn: 114.6250 - accuracy: 0.5338 - precision: 0.0000e+00 - recall: 0.000 - ETA: 1s - loss: 6.6593 - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 228.9524 - fn: 123.0476 - accuracy: 0.5857 - precision: 0.0000e+00 - recall - ETA: 1s - loss: 5.1668 - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 411.1515 - fn: 132.8485 - accuracy: 0.6734 - precision: 0.0000e+00 -
     Epoch 7/10
-    35/35 [==============================] - 4s 111ms/step - loss: 0.7072 - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 496.6944 - fn: 93.3056 - accuracy: 0.7612 - precision: 0.0000e+00 - recall: 0.0000e+00 - val_loss: 0.3245 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
+    52/52 [==============================] - 5s 106ms/step - loss: 1.5379 - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 723.5472 - fn: 139.3208 - accuracy: 0.7552 - precision: 0.0000e+00 - recall: 0.0000e+00 - val_loss: 0.7308 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
     Epoch 8/10
-    35/35 [==============================] - 4s 111ms/step - loss: 0.8402 - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 496.6944 - fn: 93.3056 - accuracy: 0.7612 - precision: 0.0000e+00 - recall: 0.0000e+00 - val_loss: 0.3247 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
+    52/52 [==============================] - 5s 105ms/step - loss: 1.7880 - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 723.5472 - fn: 139.3208 - accuracy: 0.7552 - precision: 0.0000e+00 - recall: 0.0000e+00 - val_loss: 0.3189 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
     Epoch 9/10
-    35/35 [==============================] - 4s 110ms/step - loss: 0.8093 - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 496.6944 - fn: 93.3056 - accuracy: 0.7612 - precision: 0.0000e+00 - recall: 0.0000e+00 - val_loss: 0.3231 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
+    52/52 [==============================] - 5s 106ms/step - loss: 0.7203 - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 723.5472 - fn: 139.3208 - accuracy: 0.7552 - precision: 0.0000e+00 - recall: 0.0000e+00 - val_loss: 0.3168 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
     Epoch 10/10
-    35/35 [==============================] - 4s 110ms/step - loss: 0.7270 - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 496.6944 - fn: 93.3056 - accuracy: 0.7612 - precision: 0.0000e+00 - recall: 0.0000e+00 - val_loss: 0.3280 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
+    52/52 [==============================] - 5s 106ms/step - loss: 0.8390 - tp: 0.0000e+00 - fp: 0.0000e+00 - tn: 723.5472 - fn: 139.3208 - accuracy: 0.7552 - precision: 0.0000e+00 - recall: 0.0000e+00 - val_loss: 0.3125 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
     
 
 #### Experiment #1 Evaluation
@@ -314,7 +113,7 @@ plot_loss(history_balanced, "Balanced Training")
 
 
     
-![png](2021-05-02-training-on-unbalanced-datasets_files/2021-05-02-training-on-unbalanced-datasets_39_0.png)
+![png](2021-05-02-training-on-unbalanced-datasets_files/2021-05-02-training-on-unbalanced-datasets_13_0.png)
     
 
 
@@ -325,7 +124,7 @@ plot_loss(history_unbalanced, "Unbalanced Training")
 
 
     
-![png](2021-05-02-training-on-unbalanced-datasets_files/2021-05-02-training-on-unbalanced-datasets_40_0.png)
+![png](2021-05-02-training-on-unbalanced-datasets_files/2021-05-02-training-on-unbalanced-datasets_14_0.png)
     
 
 
@@ -341,14 +140,14 @@ for name, value in zip(model_balanced.metrics_names, eval_balanced):
     print(name, ': ', value)
 ```
 
-    loss :  0.5695805549621582
-    tp :  63.0
-    fp :  279.0
-    tn :  721.0
-    fn :  37.0
-    accuracy :  0.7127272486686707
-    precision :  0.18421052396297455
-    recall :  0.6299999952316284
+    loss :  0.44630274176597595
+    tp :  40.0
+    fp :  147.0
+    tn :  853.0
+    fn :  60.0
+    accuracy :  0.8118181824684143
+    precision :  0.2139037400484085
+    recall :  0.4000000059604645
     
 
 
@@ -357,7 +156,7 @@ for name, value in zip(model_unbalanced.metrics_names, eval_unbalanced):
     print(name, ': ', value)
 ```
 
-    loss :  0.32628217339515686
+    loss :  0.31001996994018555
     tp :  0.0
     fp :  0.0
     tn :  1000.0
@@ -383,7 +182,7 @@ plot_cm(true_labels, balanced_preds)
 
 
     
-![png](2021-05-02-training-on-unbalanced-datasets_files/2021-05-02-training-on-unbalanced-datasets_46_0.png)
+![png](2021-05-02-training-on-unbalanced-datasets_files/2021-05-02-training-on-unbalanced-datasets_20_0.png)
     
 
 
@@ -394,7 +193,7 @@ plot_cm(true_labels, unbalanced_preds)
 
 
     
-![png](2021-05-02-training-on-unbalanced-datasets_files/2021-05-02-training-on-unbalanced-datasets_47_0.png)
+![png](2021-05-02-training-on-unbalanced-datasets_files/2021-05-02-training-on-unbalanced-datasets_21_0.png)
     
 
 
@@ -415,25 +214,25 @@ history_weighted = model_weighted.fit(train_ds_unbalanced, epochs=NUM_EPOCHS, va
 ```
 
     Epoch 1/10
-    35/35 [==============================] - 6s 131ms/step - loss: 5.3339 - tp: 77.2222 - fp: 239.3611 - tn: 1257.3333 - fn: 116.0833 - accuracy: 0.7927 - precision: 0.2871 - recall: 0.3934 - val_loss: 1.8418 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
+    52/52 [==============================] - 8s 117ms/step - loss: 2.0352 - tp: 133.5472 - fp: 167.3585 - tn: 1556.1887 - fn: 105.7736 - accuracy: 0.8569 - precision: 0.4539 - recall: 0.5473 - val_loss: 2.9559 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
     Epoch 2/10
-    35/35 [==============================] - 4s 110ms/step - loss: 46.7652 - tp: 0.0000e+00 - fp: 1.1111 - tn: 495.5833 - fn: 93.3056 - accuracy: 0.7598 - precision: 0.0000e+00 - recall: 0.0000e+00 - val_loss: 1.3167 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
+    52/52 [==============================] - 5s 105ms/step - loss: 53.0102 - tp: 0.0000e+00 - fp: 38.4528 - tn: 685.0943 - fn: 139.3208 - accuracy: 0.7115 - precision: 0.0000e+00 - recall: 0.0000e+00 - val_loss: 3.1960 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00.0000e+00 - fp: 36.0000 - tn: 531.1628 - fn: 136.8372 - accuracy: 0.6744 - precision: 0.0000e+00 - recall: 0.0000e+ - ETA: 0s - loss: 59.5521 - tp: 0.0000e+00 - fp: 36.5778 - tn: 562.0000 - fn: 137.4222 - accuracy: 0.6826 - precision: 0.0000e+00 - recall: 0.0
     Epoch 3/10
-    35/35 [==============================] - 4s 111ms/step - loss: 27.7310 - tp: 0.0000e+00 - fp: 141.7500 - tn: 354.9444 - fn: 93.3056 - accuracy: 0.5591 - precision: 0.0000e+00 - recall: 0.0000e+00 - val_loss: 1.0065 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
+    52/52 [==============================] - 5s 104ms/step - loss: 53.7068 - tp: 0.8491 - fp: 255.1887 - tn: 468.3585 - fn: 138.4717 - accuracy: 0.4927 - precision: 0.0077 - recall: 0.0057 - val_loss: 1.0481 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00 fn: 133.9189 - accuracy: 0.4286 - prec
     Epoch 4/10
-    35/35 [==============================] - 4s 110ms/step - loss: 23.4990 - tp: 0.0000e+00 - fp: 303.7222 - tn: 192.9722 - fn: 93.3056 - accuracy: 0.3906 - precision: 0.0000e+00 - recall: 0.0000e+00 - val_loss: 0.6946 - val_tp: 55.0000 - val_fp: 684.0000 - val_tn: 316.0000 - val_fn: 45.0000 - val_accuracy: 0.3373 - val_precision: 0.0744 - val_recall: 0.5500
+    52/52 [==============================] - 5s 104ms/step - loss: 20.9313 - tp: 0.0000e+00 - fp: 353.7547 - tn: 369.7925 - fn: 139.3208 - accuracy: 0.4423 - precision: 0.0000e+00 - recall: 0.0000e+00 - val_loss: 0.6004 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00: 261.9500 - fn: 135.8500 - accuracy: 0.4349 - precision: 0.0000e
     Epoch 5/10
-    35/35 [==============================] - 4s 110ms/step - loss: 2.2057 - tp: 36.3889 - fp: 453.7222 - tn: 42.9722 - fn: 56.9167 - accuracy: 0.1943 - precision: 0.1469 - recall: 0.3787 - val_loss: 0.7014 - val_tp: 99.0000 - val_fp: 999.0000 - val_tn: 1.0000 - val_fn: 1.0000 - val_accuracy: 0.0909 - val_precision: 0.0902 - val_recall: 0.9900
+    52/52 [==============================] - 5s 105ms/step - loss: 11.1606 - tp: 9.5849 - fp: 271.3585 - tn: 452.1887 - fn: 129.7358 - accuracy: 0.4745 - precision: 0.1153 - recall: 0.0644 - val_loss: 0.5341 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00- fn: 122.6333 - accuracy: 0.3689 - precision: 0.1814  - ETA: 0s - loss: 13.9626 - tp: 9.0263 - fp: 231.8158 - tn: 257.0789 - fn: 126.0789 - accuracy: 0.4055 - precis
     Epoch 6/10
-    35/35 [==============================] - 4s 110ms/step - loss: 2.1641 - tp: 93.3056 - fp: 492.6111 - tn: 4.0833 - fn: 0.0000e+00 - accuracy: 0.2471 - precision: 0.2413 - recall: 1.0000 - val_loss: 0.7013 - val_tp: 98.0000 - val_fp: 993.0000 - val_tn: 7.0000 - val_fn: 2.0000 - val_accuracy: 0.0955 - val_precision: 0.0898 - val_recall: 0.9800
+    52/52 [==============================] - 5s 103ms/step - loss: 11.1932 - tp: 1.8302 - fp: 592.8302 - tn: 130.7170 - fn: 137.4906 - accuracy: 0.2248 - precision: 0.0594 - recall: 0.0132 - val_loss: 0.7219 - val_tp: 100.0000 - val_fp: 999.0000 - val_tn: 1.0000 - val_fn: 0.0000e+00 - val_accuracy: 0.0918 - val_precision: 0.0910 - val_recall: 1.0000
     Epoch 7/10
-    35/35 [==============================] - 4s 110ms/step - loss: 2.1644 - tp: 93.3056 - fp: 476.6944 - tn: 20.0000 - fn: 0.0000e+00 - accuracy: 0.2727 - precision: 0.2474 - recall: 1.0000 - val_loss: 0.7021 - val_tp: 98.0000 - val_fp: 975.0000 - val_tn: 25.0000 - val_fn: 2.0000 - val_accuracy: 0.1118 - val_precision: 0.0913 - val_recall: 0.9800
+    52/52 [==============================] - 5s 105ms/step - loss: 2.1647 - tp: 139.3208 - fp: 723.0189 - tn: 0.5283 - fn: 0.0000e+00 - accuracy: 0.2453 - precision: 0.2449 - recall: 1.0000 - val_loss: 0.7188 - val_tp: 100.0000 - val_fp: 999.0000 - val_tn: 1.0000 - val_fn: 0.0000e+00 - val_accuracy: 0.0918 - val_precision: 0.0910 - val_recall: 1.0000
     Epoch 8/10
-    35/35 [==============================] - 4s 110ms/step - loss: 2.1670 - tp: 90.4444 - fp: 463.3056 - tn: 33.3889 - fn: 2.8611 - accuracy: 0.2873 - precision: 0.2478 - recall: 0.9693 - val_loss: 0.7018 - val_tp: 98.0000 - val_fp: 969.0000 - val_tn: 31.0000 - val_fn: 2.0000 - val_accuracy: 0.1173 - val_precision: 0.0918 - val_recall: 0.9800
+    52/52 [==============================] - 5s 105ms/step - loss: 2.1660 - tp: 139.3208 - fp: 722.0377 - tn: 1.5094 - fn: 0.0000e+00 - accuracy: 0.2474 - precision: 0.2457 - recall: 1.0000 - val_loss: 0.7207 - val_tp: 100.0000 - val_fp: 999.0000 - val_tn: 1.0000 - val_fn: 0.0000e+00 - val_accuracy: 0.0918 - val_precision: 0.0910 - val_recall: 1.0000
     Epoch 9/10
-    35/35 [==============================] - 4s 110ms/step - loss: 2.1651 - tp: 89.6111 - fp: 443.3333 - tn: 53.3611 - fn: 3.6944 - accuracy: 0.3121 - precision: 0.2515 - recall: 0.9603 - val_loss: 0.7003 - val_tp: 95.0000 - val_fp: 914.0000 - val_tn: 86.0000 - val_fn: 5.0000 - val_accuracy: 0.1645 - val_precision: 0.0942 - val_recall: 0.9500
+    52/52 [==============================] - 5s 104ms/step - loss: 2.0718 - tp: 139.3208 - fp: 453.0189 - tn: 270.5283 - fn: 0.0000e+00 - accuracy: 0.4496 - precision: 0.2857 - recall: 1.0000 - val_loss: 2.0206 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
     Epoch 10/10
-    35/35 [==============================] - 4s 110ms/step - loss: 2.1727 - tp: 79.8333 - fp: 432.6944 - tn: 64.0000 - fn: 13.4722 - accuracy: 0.3193 - precision: 0.2496 - recall: 0.8496 - val_loss: 0.6937 - val_tp: 89.0000 - val_fp: 850.0000 - val_tn: 150.0000 - val_fn: 11.0000 - val_accuracy: 0.2173 - val_precision: 0.0948 - val_recall: 0.8900
+    52/52 [==============================] - 5s 105ms/step - loss: 29.4499 - tp: 22.5283 - fp: 628.2264 - tn: 95.3208 - fn: 116.7925 - accuracy: 0.2076 - precision: 0.1026 - recall: 0.1504 - val_loss: 0.7271 - val_tp: 100.0000 - val_fp: 1000.0000 - val_tn: 0.0000e+00 - val_fn: 0.0000e+00 - val_accuracy: 0.0909 - val_precision: 0.0909 - val_recall: 1.0000789 - fn: 113.9474 - accuracy: 0.2551 - precision: 0 - ETA: 0s - loss: 31.1127 - tp: 22.2449 - fp: 566.6939 - tn: 94.8571 - fn: 116.2041 - accuracy: 0.2182 - precision: 0.1095 - recall: 
     
 
 #### Experiment #2 Evaluation
@@ -449,14 +248,14 @@ for name, value in zip(model_weighted.metrics_names, eval_weighted):
     print(name, ': ', value)
 ```
 
-    loss :  0.5695805549621582
-    tp :  63.0
-    fp :  279.0
-    tn :  721.0
-    fn :  37.0
-    accuracy :  0.7127272486686707
-    precision :  0.18421052396297455
-    recall :  0.6299999952316284
+    loss :  0.44630274176597595
+    tp :  40.0
+    fp :  147.0
+    tn :  853.0
+    fn :  60.0
+    accuracy :  0.8118181824684143
+    precision :  0.2139037400484085
+    recall :  0.4000000059604645
     
 
 
@@ -471,7 +270,7 @@ plot_cm(true_labels, weighted_preds)
 
 
     
-![png](2021-05-02-training-on-unbalanced-datasets_files/2021-05-02-training-on-unbalanced-datasets_56_0.png)
+![png](2021-05-02-training-on-unbalanced-datasets_files/2021-05-02-training-on-unbalanced-datasets_30_0.png)
     
 
 
@@ -492,25 +291,25 @@ history_weighted2 = model_weighted2.fit(train_ds_unbalanced, epochs=NUM_EPOCHS, 
 ```
 
     Epoch 1/10
-    35/35 [==============================] - 6s 130ms/step - loss: 7.2505 - tp: 141.3056 - fp: 405.4167 - tn: 1091.2778 - fn: 52.0000 - accuracy: 0.7222 - precision: 0.2574 - recall: 0.7272 - val_loss: 2.1460 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
+    52/52 [==============================] - 8s 117ms/step - loss: 5.4867 - tp: 159.8679 - fp: 290.6038 - tn: 1432.9434 - fn: 79.4528 - accuracy: 0.8031 - precision: 0.3519 - recall: 0.6603 - val_loss: 1.6818 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
     Epoch 2/10
-    35/35 [==============================] - 4s 113ms/step - loss: 50.8568 - tp: 0.0000e+00 - fp: 24.6667 - tn: 472.0278 - fn: 93.3056 - accuracy: 0.7230 - precision: 0.0000e+00 - recall: 0.0000e+00 - val_loss: 1.5504 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
+    52/52 [==============================] - 5s 106ms/step - loss: 32.6174 - tp: 1.7736 - fp: 82.1698 - tn: 641.3774 - fn: 137.5472 - accuracy: 0.6695 - precision: 0.1169 - recall: 0.0119 - val_loss: 1.4399 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+009.5307 - tp: 0.6667 - fp: 0.0000e+00 - tn: 72.8889 - fn: 86.4444 - accuracy: 0.4613 - precision: 0.444 - ETA: 1s - loss: 59.5299 - tp: 1.4545 - fp: 42.9545 - tn: 200.7727 - fn: 122.8182 - accuracy: 0.5214 - precision: - ETA: 0s - loss: 36.0998 - tp: 1.7391 - fp: 77.9348 - tn: 536.3696 - fn: 135.9565 - accuracy: 0.6439 - precision: 0.1320 - recall: 0.01 - ETA: 0s - loss: 35.0198 - tp: 1.7500 - fp: 79.2708 - tn: 566.5208 - fn: 136.4583 - accuracy: 0.6517 - precision: 0.1272 - recall: 0.
     Epoch 3/10
-    35/35 [==============================] - 4s 112ms/step - loss: 33.8207 - tp: 0.0000e+00 - fp: 145.5556 - tn: 351.1389 - fn: 93.3056 - accuracy: 0.5539 - precision: 0.0000e+00 - recall: 0.0000e+00 - val_loss: 0.5051 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
+    52/52 [==============================] - 5s 104ms/step - loss: 23.4215 - tp: 5.1132 - fp: 155.8868 - tn: 567.6604 - fn: 134.2075 - accuracy: 0.5824 - precision: 0.0402 - recall: 0.0341 - val_loss: 2.0155 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
     Epoch 4/10
-    35/35 [==============================] - 4s 111ms/step - loss: 12.4551 - tp: 0.0000e+00 - fp: 161.8611 - tn: 334.8333 - fn: 93.3056 - accuracy: 0.5483 - precision: 0.0000e+00 - recall: 0.0000e+00 - val_loss: 0.3295 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
+    52/52 [==============================] - 5s 104ms/step - loss: 28.7920 - tp: 38.4340 - fp: 171.0000 - tn: 552.5472 - fn: 100.8868 - accuracy: 0.6034 - precision: 0.1804 - recall: 0.2569 - val_loss: 1.7657 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
     Epoch 5/10
-    35/35 [==============================] - 4s 112ms/step - loss: 5.9104 - tp: 4.3333 - fp: 303.2500 - tn: 193.4444 - fn: 88.9722 - accuracy: 0.3504 - precision: 0.0489 - recall: 0.0434 - val_loss: 0.5748 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
+    52/52 [==============================] - 5s 106ms/step - loss: 29.8723 - tp: 1.7170 - fp: 432.5472 - tn: 291.0000 - fn: 137.6038 - accuracy: 0.3384 - precision: 0.0271 - recall: 0.0115 - val_loss: 0.4318 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
     Epoch 6/10
-    35/35 [==============================] - 4s 112ms/step - loss: 2.7828 - tp: 14.6111 - fp: 383.1389 - tn: 113.5556 - fn: 78.6944 - accuracy: 0.2804 - precision: 0.1289 - recall: 0.1506 - val_loss: 0.7046 - val_tp: 99.0000 - val_fp: 995.0000 - val_tn: 5.0000 - val_fn: 1.0000 - val_accuracy: 0.0945 - val_precision: 0.0905 - val_recall: 0.9900
+    52/52 [==============================] - 5s 105ms/step - loss: 3.1502 - tp: 56.5472 - fp: 660.6604 - tn: 62.8868 - fn: 82.7736 - accuracy: 0.2167 - precision: 0.1800 - recall: 0.4089 - val_loss: 0.7229 - val_tp: 100.0000 - val_fp: 1000.0000 - val_tn: 0.0000e+00 - val_fn: 0.0000e+00 - val_accuracy: 0.0909 - val_precision: 0.0909 - val_recall: 1.0000
     Epoch 7/10
-    35/35 [==============================] - 4s 112ms/step - loss: 2.1691 - tp: 70.6944 - fp: 445.5278 - tn: 51.1667 - fn: 22.6111 - accuracy: 0.2614 - precision: 0.2151 - recall: 0.7559 - val_loss: 0.7038 - val_tp: 99.0000 - val_fp: 995.0000 - val_tn: 5.0000 - val_fn: 1.0000 - val_accuracy: 0.0945 - val_precision: 0.0905 - val_recall: 0.9900
+    52/52 [==============================] - 5s 105ms/step - loss: 2.1631 - tp: 139.3208 - fp: 723.5472 - tn: 0.0000e+00 - fn: 0.0000e+00 - accuracy: 0.2448 - precision: 0.2448 - recall: 1.0000 - val_loss: 0.7223 - val_tp: 100.0000 - val_fp: 1000.0000 - val_tn: 0.0000e+00 - val_fn: 0.0000e+00 - val_accuracy: 0.0909 - val_precision: 0.0909 - val_recall: 1.0000 - tn: 0.0000e+00 - fn: 0.0000e+00 - accuracy: 0.3511 - precision: 0.3511 - recall:  - ETA: 1s - loss: 2.5777 - tp: 133.8286 - fp: 442.1714 - tn: 0.0000e+00 - fn: 0.0000e+00 - accuracy: 0.3157 - precision: 0.3157
     Epoch 8/10
-    35/35 [==============================] - 4s 113ms/step - loss: 2.1738 - tp: 70.1667 - fp: 402.8056 - tn: 93.8889 - fn: 23.1389 - accuracy: 0.3480 - precision: 0.2460 - recall: 0.7564 - val_loss: 0.7029 - val_tp: 99.0000 - val_fp: 987.0000 - val_tn: 13.0000 - val_fn: 1.0000 - val_accuracy: 0.1018 - val_precision: 0.0912 - val_recall: 0.9900
+    52/52 [==============================] - 5s 105ms/step - loss: 2.1642 - tp: 139.3208 - fp: 723.5472 - tn: 0.0000e+00 - fn: 0.0000e+00 - accuracy: 0.2448 - precision: 0.2448 - recall: 1.0000 - val_loss: 0.7217 - val_tp: 100.0000 - val_fp: 1000.0000 - val_tn: 0.0000e+00 - val_fn: 0.0000e+00 - val_accuracy: 0.0909 - val_precision: 0.0909 - val_recall: 1.0000
     Epoch 9/10
-    35/35 [==============================] - 4s 113ms/step - loss: 2.1742 - tp: 63.3889 - fp: 380.3889 - tn: 116.3056 - fn: 29.9167 - accuracy: 0.3552 - precision: 0.2328 - recall: 0.6786 - val_loss: 0.7020 - val_tp: 98.0000 - val_fp: 982.0000 - val_tn: 18.0000 - val_fn: 2.0000 - val_accuracy: 0.1055 - val_precision: 0.0907 - val_recall: 0.9800
+    52/52 [==============================] - 5s 105ms/step - loss: 2.1655 - tp: 139.3208 - fp: 723.5472 - tn: 0.0000e+00 - fn: 0.0000e+00 - accuracy: 0.2448 - precision: 0.2448 - recall: 1.0000 - val_loss: 0.7211 - val_tp: 100.0000 - val_fp: 1000.0000 - val_tn: 0.0000e+00 - val_fn: 0.0000e+00 - val_accuracy: 0.0909 - val_precision: 0.0909 - val_recall: 1.0000
     Epoch 10/10
-    35/35 [==============================] - 4s 114ms/step - loss: 2.1708 - tp: 62.0833 - fp: 350.5000 - tn: 146.1944 - fn: 31.2222 - accuracy: 0.4027 - precision: 0.2512 - recall: 0.6588 - val_loss: 0.7007 - val_tp: 98.0000 - val_fp: 966.0000 - val_tn: 34.0000 - val_fn: 2.0000 - val_accuracy: 0.1200 - val_precision: 0.0921 - val_recall: 0.9800
+    52/52 [==============================] - 5s 105ms/step - loss: 2.1667 - tp: 139.3208 - fp: 723.5472 - tn: 0.0000e+00 - fn: 0.0000e+00 - accuracy: 0.2448 - precision: 0.2448 - recall: 1.0000 - val_loss: 0.7204 - val_tp: 100.0000 - val_fp: 1000.0000 - val_tn: 0.0000e+00 - val_fn: 0.0000e+00 - val_accuracy: 0.0909 - val_precision: 0.0909 - val_recall: 1.0000
     
 
 #### Experiment #2b Evaluation
@@ -526,14 +325,14 @@ for name, value in zip(model_weighted.metrics_names, eval_weighted):
     print(name, ': ', value)
 ```
 
-    loss :  0.5695805549621582
-    tp :  63.0
-    fp :  279.0
-    tn :  721.0
-    fn :  37.0
-    accuracy :  0.7127272486686707
-    precision :  0.18421052396297455
-    recall :  0.6299999952316284
+    loss :  0.44630274176597595
+    tp :  40.0
+    fp :  147.0
+    tn :  853.0
+    fn :  60.0
+    accuracy :  0.8118181824684143
+    precision :  0.2139037400484085
+    recall :  0.4000000059604645
     
 
 
@@ -548,7 +347,7 @@ plot_cm(true_labels, weighted_preds)
 
 
     
-![png](2021-05-02-training-on-unbalanced-datasets_files/2021-05-02-training-on-unbalanced-datasets_65_0.png)
+![png](2021-05-02-training-on-unbalanced-datasets_files/2021-05-02-training-on-unbalanced-datasets_39_0.png)
     
 
 
@@ -580,7 +379,7 @@ resampled_true_labels
 
 
 
-    <tf.Tensor: shape=(2000,), dtype=int64, numpy=array([0, 0, 0, ..., 0, 0, 0], dtype=int64)>
+    <tf.Tensor: shape=(3000,), dtype=int64, numpy=array([0, 0, 0, ..., 0, 0, 0], dtype=int64)>
 
 
 
@@ -592,7 +391,7 @@ sum(resampled_true_labels)
 
 
 
-    <tf.Tensor: shape=(), dtype=int64, numpy=1000>
+    <tf.Tensor: shape=(), dtype=int64, numpy=1500>
 
 
 
@@ -606,25 +405,25 @@ history_oversampled = model_oversampled.fit(resampled_ds, epochs=NUM_EPOCHS, val
 ```
 
     Epoch 1/10
-    63/63 [==============================] - 8s 99ms/step - loss: 1.6733 - tp: 394.0000 - fp: 588.6250 - tn: 910.4219 - fn: 245.9531 - accuracy: 0.6184 - precision: 0.3718 - recall: 0.5877 - val_loss: 0.4905 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
+    94/94 [==============================] - 10s 94ms/step - loss: 1.4639 - tp: 542.7053 - fp: 637.8000 - tn: 1107.0105 - fn: 347.9789 - accuracy: 0.6424 - precision: 0.4321 - recall: 0.5671 - val_loss: 0.6605 - val_tp: 3.0000 - val_fp: 12.0000 - val_tn: 988.0000 - val_fn: 97.0000 - val_accuracy: 0.9009 - val_precision: 0.2000 - val_recall: 0.0300
     Epoch 2/10
-    63/63 [==============================] - 5s 86ms/step - loss: 0.7255 - tp: 303.0000 - fp: 247.6406 - tn: 251.4062 - fn: 236.9531 - accuracy: 0.5220 - precision: 0.5472 - recall: 0.4450 - val_loss: 0.6257 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
+    94/94 [==============================] - 8s 87ms/step - loss: 0.6921 - tp: 478.7684 - fp: 372.0211 - tn: 372.7895 - fn: 311.9158 - accuracy: 0.5395 - precision: 0.5583 - recall: 0.5344 - val_loss: 0.5639 - val_tp: 5.0000 - val_fp: 16.0000 - val_tn: 984.0000 - val_fn: 95.0000 - val_accuracy: 0.8991 - val_precision: 0.2381 - val_recall: 0.0500fp: 16.3636 - tn: 70.2727 - fn: 83.9091 - accuracy: 0.4647 - precision: 0.5336 - - ETA: 4s - loss: 0.7066 - tp: 78.5652 - fp: 62.6087 - tn: 117.6522 - fn: 125.1739 - accuracy: 0.4927 - p - ETA: 2s - loss: 0.6992 - tp: 228.7843 - fp: 178.0980 - tn: 219.0784 - fn: 206.0392 - accuracy: 
     Epoch 3/10
-    63/63 [==============================] - 5s 86ms/step - loss: 0.6872 - tp: 228.0625 - fp: 147.6562 - tn: 351.3906 - fn: 311.8906 - accuracy: 0.5334 - precision: 0.6290 - recall: 0.3161 - val_loss: 0.3200 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
+    94/94 [==============================] - 8s 86ms/step - loss: 0.6519 - tp: 520.3368 - fp: 321.3263 - tn: 423.4842 - fn: 270.3474 - accuracy: 0.6032 - precision: 0.6437 - recall: 0.5866 - val_loss: 0.3287 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00- precision: 0.6457 - recall: - ETA: 0s - loss: 0.6527 - tp: 508.3441 - fp: 314.1935 - tn: 414.3763 - fn: 267.0860 - accuracy: 0.6024 - precision: 0.6441 - recall: 0.583
     Epoch 4/10
-    63/63 [==============================] - 6s 88ms/step - loss: 0.8273 - tp: 320.6562 - fp: 197.0000 - tn: 302.0469 - fn: 219.2969 - accuracy: 0.5749 - precision: 0.6009 - recall: 0.4940 - val_loss: 0.3626 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
+    94/94 [==============================] - 8s 87ms/step - loss: 0.6947 - tp: 576.1895 - fp: 265.2737 - tn: 479.5368 - fn: 214.4947 - accuracy: 0.6676 - precision: 0.6886 - recall: 0.6683 - val_loss: 0.3570 - val_tp: 1.0000 - val_fp: 3.0000 - val_tn: 997.0000 - val_fn: 99.0000 - val_accuracy: 0.9073 - val_precision: 0.2500 - val_recall: 0.01008.1250 - fn: 118.9250 - accuracy: 0.6356 - precision: 0.6953 - rec - ETA: 2s - loss: 0.7862 - tp: 294.2549 - fp: 137.2745 - tn: 259.9020 - fn: 140.5686 - accuracy: 0.6442 - precision: 0.6917 - recall:  - ETA: 2s - loss: 0.7682 - tp: 332.7719 - fp: 155.4737 - tn: 288.1754 - fn: 151.5789 - accuracy: 0.6481 - precision: 0.6905 - recall:  - ETA: 1s - loss: 0.7529 - tp: 371.5556 - fp: 173.8730 - tn: 316.3810 - fn: 162.1905 - accuracy: 0.6515 - pre
     Epoch 5/10
-    63/63 [==============================] - 5s 87ms/step - loss: 0.8374 - tp: 401.3750 - fp: 226.6562 - tn: 272.3906 - fn: 138.5781 - accuracy: 0.6184 - precision: 0.5987 - recall: 0.6505 - val_loss: 0.4203 - val_tp: 0.0000e+00 - val_fp: 0.0000e+00 - val_tn: 1000.0000 - val_fn: 100.0000 - val_accuracy: 0.9091 - val_precision: 0.0000e+00 - val_recall: 0.0000e+00
+    94/94 [==============================] - 8s 87ms/step - loss: 0.5646 - tp: 645.3053 - fp: 245.8421 - tn: 498.9684 - fn: 145.3789 - accuracy: 0.7215 - precision: 0.7151 - recall: 0.7667 - val_loss: 0.4652 - val_tp: 5.0000 - val_fp: 30.0000 - val_tn: 970.0000 - val_fn: 95.0000 - val_accuracy: 0.8864 - val_precision: 0.1429 - val_recall: 0.0500
     Epoch 6/10
-    63/63 [==============================] - 5s 87ms/step - loss: 0.7276 - tp: 425.2969 - fp: 182.4844 - tn: 316.5625 - fn: 114.6562 - accuracy: 0.6814 - precision: 0.7202 - recall: 0.6953 - val_loss: 0.4304 - val_tp: 8.0000 - val_fp: 19.0000 - val_tn: 981.0000 - val_fn: 92.0000 - val_accuracy: 0.8991 - val_precision: 0.2963 - val_recall: 0.0800
+    94/94 [==============================] - 8s 87ms/step - loss: 0.3855 - tp: 673.3158 - fp: 132.2842 - tn: 612.5263 - fn: 117.3684 - accuracy: 0.8197 - precision: 0.8377 - recall: 0.8171 - val_loss: 0.5273 - val_tp: 6.0000 - val_fp: 28.0000 - val_tn: 972.0000 - val_fn: 94.0000 - val_accuracy: 0.8891 - val_precision: 0.1765 - val_recall: 0.06005600 - fp: 38.3200 - tn: 157.6400 - fn: 49.4800 - accuracy: 0.7751 - precision: 0.8516 - - ETA: 3s - loss: 0.4351 - tp: 278.4250 - fp: 63.5250 - tn: 248.6000 - fn: 65.4500 - accuracy: 0.7892 - precision: 0.8370 - recall: 0.760 - ETA: 3s - loss: 0.4338 - tp: 285.5366 - fp: 65.0976 - tn: 254.7561 - fn: 66.
     Epoch 7/10
-    63/63 [==============================] - 5s 87ms/step - loss: 0.4909 - tp: 450.7969 - fp: 135.5000 - tn: 363.5469 - fn: 89.1562 - accuracy: 0.7604 - precision: 0.7821 - recall: 0.7752 - val_loss: 0.4514 - val_tp: 18.0000 - val_fp: 49.0000 - val_tn: 951.0000 - val_fn: 82.0000 - val_accuracy: 0.8809 - val_precision: 0.2687 - val_recall: 0.1800
+    94/94 [==============================] - 8s 86ms/step - loss: 0.2794 - tp: 713.3474 - fp: 91.8842 - tn: 652.9263 - fn: 77.3368 - accuracy: 0.8770 - precision: 0.8830 - recall: 0.8817 - val_loss: 0.5698 - val_tp: 15.0000 - val_fp: 40.0000 - val_tn: 960.0000 - val_fn: 85.0000 - val_accuracy: 0.8864 - val_precision: 0.2727 - val_recall: 0.1500n: 430.9531 - fn: 57.9688 - accuracy: 0.8670 - precision: 0.8785 - recall: 0. - ETA: 1s - loss: 0.2953 - tp: 513.3235 - fp: 70.6324 - tn: 459.2206 - fn: 60.8235 - accuracy: 0.8684 - precision: 0.8790 - recall: 0 - ETA: 1s - loss: 0.2921 - tp: 550.2192 - fp: 75.0548 - tn: 494.5616 - fn: 64.1644 - accuracy: 0.8700 - precision: 0.8795 - recall: 0 - ETA: 1s - loss: 0.2890 - tp: 587.3974 - fp: 79.1538 - tn: 530.1282 - fn: 67.3205 - accuracy: 0.8717 - precision: 0.8802 
     Epoch 8/10
-    63/63 [==============================] - 5s 87ms/step - loss: 0.3279 - tp: 463.5625 - fp: 65.0625 - tn: 433.9844 - fn: 76.3906 - accuracy: 0.8505 - precision: 0.8889 - recall: 0.8223 - val_loss: 0.4783 - val_tp: 16.0000 - val_fp: 45.0000 - val_tn: 955.0000 - val_fn: 84.0000 - val_accuracy: 0.8827 - val_precision: 0.2623 - val_recall: 0.1600
+    94/94 [==============================] - 8s 87ms/step - loss: 0.1790 - tp: 748.2211 - fp: 54.7158 - tn: 690.0947 - fn: 42.4632 - accuracy: 0.9289 - precision: 0.9304 - recall: 0.9339 - val_loss: 0.5990 - val_tp: 15.0000 - val_fp: 47.0000 - val_tn: 953.0000 - val_fn: 85.0000 - val_accuracy: 0.8800 - val_precision: 0.2419 - val_recall: 0.150038.0253 - accuracy: 0.9256 - precision: 0.9288 
     Epoch 9/10
-    63/63 [==============================] - 5s 87ms/step - loss: 0.2250 - tp: 493.6094 - fp: 40.9375 - tn: 458.1094 - fn: 46.3438 - accuracy: 0.9063 - precision: 0.9305 - recall: 0.8899 - val_loss: 0.5454 - val_tp: 23.0000 - val_fp: 64.0000 - val_tn: 936.0000 - val_fn: 77.0000 - val_accuracy: 0.8718 - val_precision: 0.2644 - val_recall: 0.2300
+    94/94 [==============================] - 8s 86ms/step - loss: 0.1020 - tp: 768.8211 - fp: 32.0000 - tn: 712.8105 - fn: 21.8632 - accuracy: 0.9615 - precision: 0.9599 - recall: 0.9667 - val_loss: 0.6806 - val_tp: 14.0000 - val_fp: 46.0000 - val_tn: 954.0000 - val_fn: 86.0000 - val_accuracy: 0.8800 - val_precision: 0.2333 - val_recall: 0.1400.1500 - tn: 14
     Epoch 10/10
-    63/63 [==============================] - 5s 86ms/step - loss: 0.1744 - tp: 507.1719 - fp: 27.1094 - tn: 471.9375 - fn: 32.7812 - accuracy: 0.9409 - precision: 0.9517 - recall: 0.9350 - val_loss: 0.6756 - val_tp: 23.0000 - val_fp: 65.0000 - val_tn: 935.0000 - val_fn: 77.0000 - val_accuracy: 0.8709 - val_precision: 0.2614 - val_recall: 0.2300
+    94/94 [==============================] - 8s 87ms/step - loss: 0.0664 - tp: 776.3895 - fp: 21.1895 - tn: 723.6211 - fn: 14.2947 - accuracy: 0.9774 - precision: 0.9757 - recall: 0.9810 - val_loss: 0.8054 - val_tp: 17.0000 - val_fp: 36.0000 - val_tn: 964.0000 - val_fn: 83.0000 - val_accuracy: 0.8918 - val_precision: 0.3208 - val_recall: 0.1700
     
 
 #### Experiment #3 Evaluation
@@ -640,14 +439,14 @@ for name, value in zip(model_oversampled.metrics_names, eval_oversampled):
     print(name, ': ', value)
 ```
 
-    loss :  0.6102479100227356
-    tp :  29.0
-    fp :  56.0
-    tn :  944.0
-    fn :  71.0
-    accuracy :  0.8845454454421997
-    precision :  0.34117648005485535
-    recall :  0.28999999165534973
+    loss :  0.6757662296295166
+    tp :  22.0
+    fp :  40.0
+    tn :  960.0
+    fn :  78.0
+    accuracy :  0.892727255821228
+    precision :  0.35483869910240173
+    recall :  0.2199999988079071
     
 
 
@@ -662,7 +461,7 @@ plot_cm(true_labels, oversampled_preds)
 
 
     
-![png](2021-05-02-training-on-unbalanced-datasets_files/2021-05-02-training-on-unbalanced-datasets_80_0.png)
+![png](2021-05-02-training-on-unbalanced-datasets_files/2021-05-02-training-on-unbalanced-datasets_54_0.png)
     
 
 
