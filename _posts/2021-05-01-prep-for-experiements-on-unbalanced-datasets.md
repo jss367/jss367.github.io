@@ -70,14 +70,6 @@ cat_dir = image_dir / 'cats'
 dog_dir = image_dir / 'dogs'
 ```
 
-Now let's turn them into tf.data datasets.
-
-
-```python
-cat_list_ds = tf.data.Dataset.list_files(str(cat_dir/'*'), shuffle=False, seed=42)
-dog_list_ds = tf.data.Dataset.list_files(str(dog_dir/'*'), shuffle=False, seed=42)
-```
-
 
 ```python
 num_cat_train_im = len(listdir(cat_dir))
@@ -89,6 +81,14 @@ print(f"There are a total of {num_dog_train_im} dog images in the entire dataset
     There are a total of 5000 cat images in the entire dataset.
     There are a total of 5000 dog images in the entire dataset.
     
+
+Now let's turn them into tf.data datasets.
+
+
+```python
+cat_list_ds = tf.data.Dataset.list_files(str(cat_dir/'*'), shuffle=False, seed=42)
+dog_list_ds = tf.data.Dataset.list_files(str(dog_dir/'*'), shuffle=False, seed=42)
+```
 
 We have the same number of each dataset. We’ll have to build a function that creates unbalanced subsets of the dataset.
 
