@@ -107,7 +107,7 @@ And you can load it:
 
 ## Running files with %run
 
-You can use `%run my_file.py` to run a separate file.
+You can use `%run my_file.py` to run a separate file. You can also do this with other Jupyter Notebooks by doing `%run my_notebook.ipynb`.
 
 ## Measuring execution time with %timeit
 
