@@ -34,11 +34,6 @@ Then:
 
 Now let's look at some of the extensions.
 
-## [2to3 converter](http://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/code_prettify/README_2to3.html)
-
-You can Convert Python 2 code to Python 3 in a single click with [2to3 converter](http://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/code_prettify/README_2to3.html).
-
-
 ## [Autopep8](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/code_prettify/README_autopep8.html)
 
 You can use [Autopep8](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/code_prettify/README_autopep8.html) to format your code based to be consistent with the [PEP8 style guide](https://www.python.org/dev/peps/pep-0008/).
