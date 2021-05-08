@@ -383,13 +383,9 @@ print(len(good_wallaby_files))
     1856
     
 
-There are more images of kangaroos than wallabies, so the datasets will be unbalanced. That won't be a problem as long as we take it into consideration when we measure the quality of the model in the third post.
+There are more images of kangaroos than wallabies, so the datasets will be unbalanced. That won't be a problem as long as we take it into consideration when we measure the quality of the model.
 
 ## Next steps
 
 Although we have thousands of images to work with, that isn't nearly enough to train state-of-the-art neural networks. In the next notebook, we'll look at how we can [augment our dataset with Keras](https://jss367.github.io/augmenting-with-keras.html) to make up for this.
 
-
-```python
-
-```
