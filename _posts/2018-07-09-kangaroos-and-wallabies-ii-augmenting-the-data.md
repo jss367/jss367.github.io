@@ -246,4 +246,4 @@ But we don't want to use this on just one image. We want to run this augmentor o
 
 ## Next steps
 
-Now that we have enough data, we can try to classify it. We'll do that in the [next notebook](https://jss367.github.io/kangaroos-and-wallabies-iii.html).
+Now that we have enough data, we can try to classify it. We'll do that in the [next notebook](https://jss367.github.io/kangaroos-and-wallabies-iii-classifying-the-data.html).

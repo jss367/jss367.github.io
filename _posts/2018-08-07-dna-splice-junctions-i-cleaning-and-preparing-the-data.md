@@ -3363,7 +3363,7 @@ I was originally going to combine the `X_donor` array with `X_one_hot` as the fi
 X = X_one_hot
 ```
 
-Now we save it off into a csv file to examine in the [next notebook](https://jss367.github.io/dna-logistic-regression.html).
+Now we save it off into a csv file to examine in the [next notebook](https://jss367.github.io/dna-splice-junctions-ii-logistic-regression-from-scratch.html).
 
 
 ```python

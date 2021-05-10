@@ -6,7 +6,7 @@ thumbnail: "assets/img/sunrays.jpg"
 tags: [Deep Learning, Python, TensorFlow]
 ---
 
-In this post I'm going to look at different methods of dealing with unbalanced data. This is a supplement to my post on training on balanced datasets. This post focuses on the evaluation portion. For background, please see the [setup post](https://jss367.github.io/prep-for-experiements-on-unbalanced-datasets.html).
+In this post I'm going to look at different methods of dealing with unbalanced data. This is a supplement to my post on training on balanced datasets. This post focuses on the evaluation portion. For background, please see the [setup post](https://jss367.github.io/experiements-on-unbalanced-datasets-setup.html).
 
 <b>Table of contents</b>
 * TOC

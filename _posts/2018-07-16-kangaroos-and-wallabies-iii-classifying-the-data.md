@@ -6,7 +6,7 @@ thumbnail: "assets/img/ki_kangs.jpg"
 tags: [Computer Vision, Convolutional Neural Networks, Python, TensorFlow, Wildlife]
 ---
 
-In this notebook, we're going to take our [augmented dataset](https://jss367.github.io/kangaroos-and-wallabies-ii-augmenting-the-data.htm) and build a convolutional neural network to classify the images.
+In this notebook, we're going to take our [augmented dataset](https://jss367.github.io/kangaroos-and-wallabies-ii-augmenting-the-data.html) and build a convolutional neural network to classify the images.
 
 This is part three of a three-post series on creating your own dataset and classifying it using transfer learning.
 * [Preparing the Data](https://jss367.github.io/kangaroos-and-wallabies-i-preparing-the-data.html)
@@ -181,7 +181,7 @@ We have to specify the loss function, as well as an optimizer.
 model_final.compile(loss = "categorical_crossentropy", optimizer = optimizers.SGD(lr=0.0001, momentum=0.9), metrics=["accuracy"])
 ```
 
-We'll use the same augmentation techniques described in the [augmentation notebook](https://jss367.github.io/kangaroos-and-wallabies-ii.html). In this case we won't save the images to disk though.
+We'll use the same augmentation techniques described in the [augmentation notebook](https://jss367.github.io/kangaroos-and-wallabies-ii-augmenting-the-data.html). In this case we won't save the images to disk though.
 
 
 ```python

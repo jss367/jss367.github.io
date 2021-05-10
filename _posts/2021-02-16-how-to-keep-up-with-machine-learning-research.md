@@ -42,7 +42,7 @@ I find it difficult to keep up with the latest in machine learning, even though 
 I'm not usually a newsletters guy, but for some reason I've found that there are excellent newsletters in the machine learning world. Here are the ones I use:
 
 [The Batch](https://www.deeplearning.ai/thebatch/)
-* Newsletter by Andrew Ng and his company, [deeplearning.ai](deeplearning.ai)
+* Newsletter by Andrew Ng and his company, [deeplearning.ai](https://www.deeplearning.ai/)
 * Offers his thoughts on various hot topics, even if he is conspicuously anodyne
 * Includes a mix of general ML news and research findings
 
