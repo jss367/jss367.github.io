@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Exploring Images with Python"
+title: "Exploring Images with Python I"
 thumbnail: "assets/img/ghan_stretch.jpg"
 feature-img: "assets/img/rainbow.jpg"
 tags: [Python, Computer Vision]

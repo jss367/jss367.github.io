@@ -333,7 +333,7 @@ data
           wallaby4.jpg
 ```
           
-See [this post](https://jss367.github.io/Kangaroos-and-Wallabies-I.html) for a guide on how to set up your images like this.
+See [this post](https://jss367.github.io/kangaroos-and-wallabies-i-preparing-the-data.html) for a guide on how to set up your images like this.
 
 
 ```python
