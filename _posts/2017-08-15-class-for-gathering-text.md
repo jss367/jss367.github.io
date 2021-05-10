@@ -7,7 +7,7 @@ tags: [Python, Natural Language Processing]
 ---
 In [Gathering text from Project Gutenberg](https://jss367.github.io/getting-text-from-project-gutenberg.html) we retrieved text from Project Gutenberg and built a couple of functions along the way to help. The functions make us more efficient, but what we really need is a class for this work. This will allow us to store and analyze many different texts very efficiently. Let's build that.
 
-Let's make a class called `Book` that will store the methods and variables we need. Each book will have a title, a URL (from Project Gutenberg), a position where the text actually starts, and a position where the text actually ends. We'll also want to hold the raw text, the tokens, and the [parts of speech](https://jss367.github.io/visualize-parts-of-speech-1.html) within the class. We'll build methods within the class to determine each of these.
+Let's make a class called `Book` that will store the methods and variables we need. Each book will have a title, a URL (from Project Gutenberg), a position where the text actually starts, and a position where the text actually ends. We'll also want to hold the raw text, the tokens, and the [parts of speech](https://jss367.github.io/visualize-parts-of-speech-i-great-expectations.html) within the class. We'll build methods within the class to determine each of these.
 
 
 ```python
