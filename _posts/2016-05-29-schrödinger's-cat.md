@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Schrödinger's cat"
+title: "Schrödinger's Cat"
 description: "A simple quantum physics thought experiment showing that the notion of macroscopic objects (like cats) being simultaneously dead and alive does not withstand close inspection"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/fishing_cat.jpg"
