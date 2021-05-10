@@ -237,7 +237,7 @@ or
 
 `jupyter nbconvert --to markdown mynotebook.ipynb`
 
-See how I use it to [prepare Jupyter Notebooks for my blog](https://jss367.github.io/jupyter-notebooks-in-blog.html).
+See how I use it to [prepare Jupyter Notebooks for my blog](https://jss367.github.io/preparing-jupyter-notebooks-for-my-blog.html).
 
 # Little Tricks
 

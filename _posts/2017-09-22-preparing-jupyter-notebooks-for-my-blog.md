@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Preparing Jupyter Notebooks for this Blog"
+title: "Preparing Jupyter Notebooks for My Blog"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/blur.jpg"
 tags: [Jupyter Notebooks]
