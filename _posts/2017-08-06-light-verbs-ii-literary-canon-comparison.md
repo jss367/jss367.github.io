@@ -32,7 +32,7 @@ print(light_verbs)
     ['be', 'am', "'m", 'is', 'are', "'re", 'wa', 'were', 'been', 'have', 'ha', 'had', "'ve", 'do', 'doe', 'did', 'done', 'go', 'goe', 'went', 'gone', 'give', 'gave', 'given', 'put', 'take', 'took', 'taken', 'feel', 'felt', 'begin', 'began', 'begun', 'get', 'got', 'make', 'put', '']
     
 
-We're going to use the [class for getting text from Project Gutenberg](https://jss367.github.io/Class-for-Gathering-Text.html) we made previously.
+We're going to use the [class for getting text from Project Gutenberg](https://jss367.github.io/class-for-gathering-text.html) we made previously.
 
 
 ```python
