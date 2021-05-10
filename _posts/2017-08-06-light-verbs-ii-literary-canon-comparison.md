@@ -152,16 +152,11 @@ plt.show()
 plt.savefig('light_verbs_usage')
 ```
 
-    C:\ProgramData\Anaconda3\lib\site-packages\matplotlib\cbook\deprecation.py:107: MatplotlibDeprecationWarning: Passing one of 'on', 'true', 'off', 'false' as a boolean is deprecated; use an actual boolean (True/False) instead.
-      warnings.warn(message, mplDeprecation, stacklevel=1)
-    
 
 
 ![png]({{site.baseurl}}/assets/img/2017-08-06-Light-verbs-2_files/2017-08-06-Light-verbs-2_11_1.png)
 
 
-
-    <Figure size 432x288 with 0 Axes>
 
 
 Judging from this, it looks like anywhere between 30-45% of a text's verb can be light verbs. If you have more than that, perhaps try to substitute in some more action verbs to drive the writing along. If you have fewer than 30%, perhaps the writing is getting too complex.
