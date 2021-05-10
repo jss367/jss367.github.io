@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Useful Git Commands"
+title: "Git Cheat Sheet"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/lake_sunrise.jpg"
 tags: [Git, Cheat Sheet]
@@ -312,7 +312,7 @@ If there are files or directories still hanging around (like maybe they're being
 
 ## Git concepts to know
 
-### Git States
+* Git States
 
 Your files are always in one of three states with git: modified, staged, and committed
 
@@ -320,17 +320,17 @@ Your files are always in one of three states with git: modified, staged, and com
 * Staged means it will be commited during your next commit
 * Commited means it is stored in your (local) database, ready to be modified again
 
-### HEAD
+* HEAD
 
 HEAD is a reference to the last commit in the currently checked-out branch.
 
-### Origin vs Remote
+* Origin vs Remote
 
-### Working Tree
+* Working Tree
 
-### Working copy
+* Working copy
 
-### Index
+* Index
 
 ## Using gitignore
 
