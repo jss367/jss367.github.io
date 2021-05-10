@@ -7,7 +7,7 @@ thumbnail: "assets/img/sun_tas.jpg"
 tags: [Python, Data Cleaning, Pandas]
 ---
 
-In this notebook, I'm going to look at the basics of cleaning data with Python. I will be using a dataset of people involved in the Enron scandal. I first saw this dataset in the Intro to Machine Learning class at [Udacity](https://www.udacity.com/).
+In this notebook, I'm going to look at the basics of cleaning data with Python. I will be using a dataset of people involved in the [Enron scandal](https://en.wikipedia.org/wiki/Enron_scandal). I first saw this dataset in the Intro to Machine Learning class at [Udacity](https://www.udacity.com/).
 
 <b>Table of contents</b>
 * TOC
