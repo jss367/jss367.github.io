@@ -7,7 +7,7 @@ thumbnail: "assets/img/iris.jpg"
 tags: [Python, Matplotlib, Seaborn, Data Exploration, Data Visualization]
 ---
 
-In this notebook, we'll demonstrate some data exploration techniques using the famous [iris dataset](https://archive.ics.uci.edu/ml/datasets/iris). In [the second notebook](https://jss367.github.io/Visualize-shallow-learning.html), we'll use this data set to visualize a bunch of machine learning algorithms.
+In this notebook, we'll demonstrate some data exploration techniques using the famous [iris dataset](https://archive.ics.uci.edu/ml/datasets/iris). In [the second notebook](https://jss367.github.io/visualizing-machine-learning-algorithms.html), we'll use this data set to visualize a bunch of machine learning algorithms.
 
 <b>Table of contents</b>
 * TOC
@@ -297,8 +297,6 @@ vvdf = df[df['species'] != 'setosa']
 sns.pairplot(vvdf, hue="species", hue_order=hue_order, palette=palette, diag_kind='kde');
 ```
 
-
 ![png]({{site.baseurl}}/assets/img/2016-03-10-Exploring-Iris-Dataset_files/2016-03-10-Exploring-Iris-Dataset_24_0.png)
 
-
- OK, these are not as easy to separate. We make have to do the best that we can. In [Part II](https://jss367.github.io/Visualize-shallow-learning.html), we'll look at how we can use machine learning models to analyze the data.
+OK, these are not as easy to separate. We make have to do the best that we can. In [Part II](https://jss367.github.io/visualizing-machine-learning-algorithms.html), we'll look at how we can use machine learning models to analyze the data.
