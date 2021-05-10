@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Visualizing Machine Learning Algorithms on the Iris Dataset"
+title: "Visualizing Machine Learning Algorithms"
 description: "An in-depth exploration of various machine learning techniques. This goes over Gaussian naive Bayes, logistic regression, linear discriminant analysis, quadratic discriminant analysis, support vector machines, k-nearest neighbors, decision trees, perceptron, and neural networks (Multi-layer perceptron). It also shows how to visualize the algorithms. All the code is provided."
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/potoroo.jpg"
