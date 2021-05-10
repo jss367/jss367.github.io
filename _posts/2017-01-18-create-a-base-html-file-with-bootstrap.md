@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Creating a base.html file with Bootstrap"
+title: "Create a base.html file with Bootstrap"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/sunrays.jpg"
 tags: [HTML, JavaScript, CSS, Bootstrap]

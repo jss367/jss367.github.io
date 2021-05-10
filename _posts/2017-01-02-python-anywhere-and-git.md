@@ -10,7 +10,7 @@ Pythonanywhere has an excellent [tutorial for setting up a website with Flask](h
 
 ## Starting a new project
 
-1. Go to [Github](https://github.com/)
+1. Go to [Github.com](https://github.com/) and login
 
 1. Click on "New repository" on the right or open an existing repository if you already have one you want to work with
 
@@ -20,7 +20,7 @@ Pythonanywhere has an excellent [tutorial for setting up a website with Flask](h
 
 1. Then go to your bash console on pythonanywhere inside the folder you want to connect to Github. This is possibly your `mysite` folder. You'll want to initiate this as a git repository. Enter `git init`
 
-1. Type: `git remote add origin <remote_repository_URL>`. Your remote_repository_URL is the thing we copied above that looks like "https://github.com/jss367/pythonanywhere.git"
+1. Type: `git remote add origin <remote_repository_URL>`. Your remote_repository_URL is the thing we copied above that looks like `https://github.com/jss367/pythonanywhere.git`
 
 1. Then test out that the connection works. Type: `git remote -v`. You should get a response verifying the remote URL. It should look something like this:
 

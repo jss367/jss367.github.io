@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Linux Tricks and Tips"
+title: "Linux Cheat Sheet"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/peacock.jpg"
 tags: [Linux, Cheat Sheet]
