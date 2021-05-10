@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Pandas Cheatsheet"
+title: "Pandas Cheat Sheet"
 description: "A helpful cheatsheet of common tasks using the Python library pandas"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/koala.jpg"
