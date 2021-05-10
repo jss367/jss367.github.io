@@ -212,4 +212,4 @@ print("That is {:.2%} of all verbs in this text".format(len(light_verbs_in_text)
     That is 31.59% of all verbs in this text
     
 
-In [Part 2](https://jss367.github.io/light-verbs-2.html), we'll compare several texts from the literary canon and visualize it.
+In [Part 2](https://jss367.github.io/light-verbs-ii-literary-canon-comparison.html), we'll compare several texts from the literary canon and visualize it.

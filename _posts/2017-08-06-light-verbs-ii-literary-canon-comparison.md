@@ -65,7 +65,7 @@ for book in books:
     Extracting text from file
     
 
-Use the function we built in [Light Verbs 1](https://jss367.github.io/Light-verbs-1.html).
+Use the function we built in [the previous notebook](https://jss367.github.io/light-verbs-i-how-common-are-they.html).
 
 
 ```python
