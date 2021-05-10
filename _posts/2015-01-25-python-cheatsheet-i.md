@@ -701,7 +701,7 @@ else:
     9
     
 
-# List comprehensions
+# List Comprehensions
 
 List comprehensions are an alternative to for-loops. Every list comprehension can be rewritten as a for-loop, but not every for-loop can be written as a list comprehension.
 
