@@ -7,7 +7,7 @@ thumbnail: "assets/img/belted_kingfisher.jpg"
 tags: [Python, Machine Learning]
 ---
 
-Now that we've [cleaned and prepared the data](https://jss367.github.io/Clean-DNA-Dataset.html), let's try classifying it using logistic regression. Logistic regression is a popular machine learning algorithm for classification due to its speed and accuracy relative to its simplicity.
+Now that we've [cleaned and prepared the data](https://jss367.github.io/dna-splice-junctions-i-cleaning-and-preparing-the-data.html), let's try classifying it using logistic regression. Logistic regression is a popular machine learning algorithm for classification due to its speed and accuracy relative to its simplicity.
 
 Logistic regression is like linear regression in that it tries to find an appropriate way to weigh every input. 
 After multiplying each input by its respective weight, a bias is applied. Then the result is put into a nonlinear activation function and a prediction is made based on the result.
