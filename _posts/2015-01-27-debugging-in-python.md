@@ -7,9 +7,11 @@ thumbnail: "assets/img/wasp.jpg"
 tags: [Python, Cheat Sheet]
 ---
 
-# Debugging in Python
+My favorite place to debug a Python application is in a full IDE like VSCode or PyCharm. However, sometimes those options aren't available, soit's good to know the alternatives. This post shows some basic functionality of some Python debuggers.
 
-VSCode and PyCharm have the strongest debugging capabilities. Sometimes those options aren't available to you, so here are some alternatives.
+<b>Table of contents</b>
+* TOC
+{:toc}
 
 ## pdb
 

@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Python Cheatsheet II"
+title: "Python Cheat Sheet II"
 description: "A more advanced cheatsheet for programming in Python"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/black_headed_python.jpg"
