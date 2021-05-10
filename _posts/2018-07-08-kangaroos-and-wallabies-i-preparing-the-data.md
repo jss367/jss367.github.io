@@ -67,7 +67,7 @@ data
           wallaby6.jpg
 ```
 
-OK, let's start writing some code. We'll start by importing some libraries and providing the locations where the data are and where we want it to be. We'll use the [Class for Preparing Images](https://jss367.github.io/Class-for-Preparing-Images.html), which helps in presenting the data in the way we need it.
+OK, let's start writing some code. We'll start by importing some libraries and providing the locations where the data are and where we want it to be. We'll use the [Class for Preparing Images](https://jss367.github.io/class-for-preparing-images.html), which helps in presenting the data in the way we need it.
 
 
 ```python

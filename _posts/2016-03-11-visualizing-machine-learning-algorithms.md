@@ -196,7 +196,7 @@ Some assumption to be aware of are
 
 Logistic regression is a great machine learning model for classification problems. Logistic regression relies on finding proper weights for each input, just like linear regression, but then applies a nonlinear function on the results to turn it into a binary classifier. It's probably the most popular method for binary classification.
 
-The key to logistic regression in is finding the proper weight for every input. That would take a lot of work but, fortunately, we have machine learning to do that part. To learn more logistic regression this [post on using logistic regression to classify DNA splice junctions](https://jss367.github.io/dna-logistic-regression.html). Despite its name, logistic regression only works for classification, not regression (unlike linear regression).
+The key to logistic regression in is finding the proper weight for every input. That would take a lot of work but, fortunately, we have machine learning to do that part. To learn more logistic regression this [post on using logistic regression to classify DNA splice junctions](https://jss367.github.io/dna-splice-junctions-ii-logistic-regression-from-scratch.html). Despite its name, logistic regression only works for classification, not regression (unlike linear regression).
 
 #### Standardization
 
