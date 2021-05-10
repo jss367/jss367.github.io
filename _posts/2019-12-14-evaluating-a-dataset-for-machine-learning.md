@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Questions to Ask When Exploring a New Dataset"
+title: "Evaluating a Dataset for Machine Learning"
 description: "A post describing the steps to take when evaluating a new dataset for machine learning. The post is specific to computer vision but applies to other cases as well."
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/sunset_road.jpg"
@@ -80,7 +80,7 @@ What architecture might you use, and how would it solve this problem. Will you n
 
 For the objects, are the local features of the object sufficient to classify them, or do you need some surrounding context? Sometimes you'll be distinguishing between different rectangles (trucks vs. AC units on buildings), and you'll need context. This makes classification more challenging. Are there other things that look like the objects you're trying to detect (so-call non-target distractors)? If so, you might want to think about labeling them directly as well. If your car detector has problems distinguishing between cars and bushes, one possible solution is to use hard-negative mining on the bushes. Labeling them makes this possible.
 
-## Data labeling
+## Data Labeling
 
 If it's prelabeled data, it's always good to know about the labeling process as well. You'd like to know how the labels were generated - was it a single person or multiple people per image? Were their decisions combined like votes? Do you have access to the raw "votes"? You're likely going to find lots of noise in any real-world dataset. What other information did the labelers provide? Image quality scores? Confidence?
 
