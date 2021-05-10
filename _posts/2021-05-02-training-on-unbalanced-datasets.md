@@ -6,7 +6,7 @@ thumbnail: "assets/img/water_text.jpg"
 tags: [Deep Learning, Python, TensorFlow]
 ---
 
-This post is in a series on working with unbalanced datasets. It focuses on the training aspect. For background, please see the [setup](https://jss367.github.io/prep-for-experiements-on-unbalanced-datasets.html) post.
+This post is in a series on working with unbalanced datasets. It focuses on the training aspect. For background, please see the [setup](https://jss367.github.io/experiements-on-unbalanced-datasets-setup.html) post.
 
 When we thinkg about train on an unbalanced dataset, we answer a number of questions along the way. The first is, given that there are more cats than dogs in our population, should there also be more dogs than cats in the training data? That is, should we have unbalanced training data? Or is it better to have it balanced? And, if we want to balance the data, what's the best way to do it? If we can't add more data, the two most popular methods for rebalancing are adding more weight to the less common image or oversampling it. Which is better?
 
