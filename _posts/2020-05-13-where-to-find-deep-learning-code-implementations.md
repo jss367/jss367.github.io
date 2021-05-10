@@ -47,7 +47,7 @@ Some repositories focus on collecting domain-specific models, such as those for 
 
 ### PyTorch
 
-PyTorch doesn't have as many pre-trained models as Tensorflow but there's still a lot there. If you're interested in computer vision [Torchvision Models](https://pytorch.org/docs/stable/torchvision/models.html) is a good place to start.
+PyTorch doesn't have as many pre-trained models as Tensorflow but there's still a lot there. If you're interested in computer vision [Torchvision Models](https://pytorch.org/vision/stable/models.html) is a good place to start.
 
 Github user [qubvel](https://github.com/qubvel) has also created repos for PyTorch [segmentation](https://github.com/qubvel/segmentation_models.pytorch) models.
 
