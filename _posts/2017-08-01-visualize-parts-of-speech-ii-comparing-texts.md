@@ -6,7 +6,7 @@ thumbnail: "assets/img/cave.jpg"
 tags: [Python, Natural Language Processing, Matplotlib, Data Visualization]
 ---
 
-This notebook takes off from [Visualize Parts of Speech 1](https://jss367.github.io/visualize-parts-of-speech-1.html), which ended with a visualization from a single text. In this notebook, we look at how to visually compare the part of speech usage in many texts.
+This notebook takes off from [Visualize Parts of Speech 1](https://jss367.github.io/visualize-parts-of-speech-i-great-expectations.html), which ended with a visualization from a single text. In this notebook, we look at how to visually compare the part of speech usage in many texts.
 
 
 ```python
@@ -20,7 +20,7 @@ import re
 import get_gutenberg
 ```
 
-We're going to use the [class for gathering text](https://jss367.github.io/Class-for-Gathering-Text.html) we made previously.
+We're going to use the [class for gathering text](https://jss367.github.io/class-for-gathering-text.html) we made previously.
 
 
 ```python

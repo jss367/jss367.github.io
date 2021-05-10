@@ -9,9 +9,9 @@ tags: [Computer Vision, Python, TensorFlow, Wildlife]
 In this series of posts, I will show how to build an image classifier using your own dataset. I'll be using images of kangaroos and wallabies that I've taken, but these techniques should work well with any kind of images.
 
 This is part one of a three-post series on creating your own dataset and classifying it using deep learning.
-* [Preparing the Data](https://jss367.github.io/kangaroos-and-wallabies-i.html)
-* [Augmenting the Data](https://jss367.github.io/kangaroos-and-wallabies-ii.html)
-* [Classifying the Data](https://jss367.github.io/kangaroos-and-wallabies-iii.html)
+* [Preparing the Data](https://jss367.github.io/kangaroos-and-wallabies-i-preparing-the-data.html)
+* [Augmenting the Data](https://jss367.github.io/kangaroos-and-wallabies-ii-augmenting-the-data.html)
+* [Classifying the Data](https://jss367.github.io/kangaroos-and-wallabies-iii-classifying-the-data.html)
 
 <b>Table of contents</b>
 * TOC

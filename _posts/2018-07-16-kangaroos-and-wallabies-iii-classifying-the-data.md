@@ -6,12 +6,12 @@ thumbnail: "assets/img/ki_kangs.jpg"
 tags: [Computer Vision, Convolutional Neural Networks, Python, TensorFlow, Wildlife]
 ---
 
-In this notebook, we're going to take our [augmented dataset](https://jss367.github.io/kangaroos-and-wallabies-ii.html) and build a convolutional neural network to classify the images.
+In this notebook, we're going to take our [augmented dataset](https://jss367.github.io/kangaroos-and-wallabies-ii-augmenting-the-data.htm) and build a convolutional neural network to classify the images.
 
 This is part three of a three-post series on creating your own dataset and classifying it using transfer learning.
-* [Preparing the Data](https://jss367.github.io/kangaroos-and-wallabies-i.html)
-* [Augmenting the Data](https://jss367.github.io/kangaroos-and-wallabies-ii.html)
-* [Classifying the Data](https://jss367.github.io/kangaroos-and-wallabies-iii.html)
+* [Preparing the Data](https://jss367.github.io/kangaroos-and-wallabies-i-preparing-the-data.html)
+* [Augmenting the Data](https://jss367.github.io/kangaroos-and-wallabies-ii-augmenting-the-data.html)
+* [Classifying the Data](https://jss367.github.io/kangaroos-and-wallabies-iii-classifying-the-data.html)
 
 <b>Table of contents</b>
 * TOC
@@ -90,7 +90,7 @@ img_width, img_height = (my_data.image_size_)
 
 ## Establishing a baseline
 
-Before we get started building a complex model, we should develop a baseline so we can gauge our model. As I said in the [first post](https://jss367.github.io/kangaroos-and-wallabies-i.html), there are more images of kangaroos than of wallabies, so we need to take that into consideration. For example, if our model accurately predicted 75% of images, that might sound good. But if we just guessed that every image is of a kangaroo and got 70% correct, then maybe the model is not very good. So what's the baseline? How many would be great from pure guessing? To answer that, we'll use a dummy classifier. Our dummy classifier will find the most common label and predicts that every image will be that label.
+Before we get started building a complex model, we should develop a baseline so we can gauge our model. As I said in the [first post](https://jss367.github.io/kangaroos-and-wallabies-i-preparing-the-data.html), there are more images of kangaroos than of wallabies, so we need to take that into consideration. For example, if our model accurately predicted 75% of images, that might sound good. But if we just guessed that every image is of a kangaroo and got 70% correct, then maybe the model is not very good. So what's the baseline? How many would be great from pure guessing? To answer that, we'll use a dummy classifier. Our dummy classifier will find the most common label and predicts that every image will be that label.
 
 
 ```python

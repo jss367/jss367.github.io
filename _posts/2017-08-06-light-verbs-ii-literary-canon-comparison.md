@@ -6,10 +6,10 @@ thumbnail: "assets/img/flower.jpg"
 tags: [Python, Natural Language Processing, Matplotlib, Data Visualization]
 ---
 
-Let's take the [previous analysis](https://jss367.github.io/light-verbs-1.html) of a single text and formalize it so we can use it against many texts. From there we'll explore light verb use across many texts.
+Let's take the [previous analysis](https://jss367.github.io/light-verbs-i-how-common-are-they.html) of a single text and formalize it so we can use it against many texts. From there we'll explore light verb use across many texts.
 
 
-We're going to combine the `find_light_verbs` function from [Light Verbs 1](https://jss367.github.io/light-verbs-1.html) with the [class we made for Books](https://jss367.github.io/class-for-gathering-text.html). This will make comparisons across many texts very simple.
+We're going to combine the `find_light_verbs` function from [Light Verbs 1](https://jss367.github.io/light-verbs-i-how-common-are-they.html) with the [class we made for Books](https://jss367.github.io/class-for-gathering-text.html). This will make comparisons across many texts very simple.
 
 
 ```python

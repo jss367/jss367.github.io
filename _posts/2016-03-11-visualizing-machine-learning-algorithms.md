@@ -498,7 +498,7 @@ There is another algorithm similar to k-nearest neighbors, but it determines whi
 
 ## Decision Trees
 
-The idea of a decision tree is to make a series of decisions that leads to the categorization of the data. Out of all of the machine learning algorithms, a decision tree is probably the most similar to how people actually think, and therefore it's the easiest for people to [understand and visualize decision trees](https://jss367.github.io/Visualize-ML.html). In this notebook, we've been able to visualize different algorithms because we are only looking at two dimensions, but for a decision tree, we can observe every step of how it made its decision.
+The idea of a decision tree is to make a series of decisions that leads to the categorization of the data. Out of all of the machine learning algorithms, a decision tree is probably the most similar to how people actually think, and therefore it's the easiest for people to [understand and visualize decision trees](https://jss367.github.io/visualize-a-decision-tree-generated-by-machine-learning.html). In this notebook, we've been able to visualize different algorithms because we are only looking at two dimensions, but for a decision tree, we can observe every step of how it made its decision.
 
 Decision trees are nondeterministic, so we have to set a random state value to make our results repeatable.
 
