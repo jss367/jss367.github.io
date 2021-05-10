@@ -37,23 +37,28 @@ Then:
 
 Now let's look at some of the extensions.
 
-## [Autopep8](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/code_prettify/README_autopep8.html)
+## Formatting Extensions
+
+#### [Autopep8](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/code_prettify/README_autopep8.html)
 
 You can use [Autopep8](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/code_prettify/README_autopep8.html) to format your code based to be consistent with the [PEP8 style guide](https://www.python.org/dev/peps/pep-0008/).
 
 Install with `pip install autopep8`, then enable it.
 
-## [spellchecker](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html)
+#### Jupyter Black
 
-[spellchecker](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html) does exactly what you think it does.
+[Jupyter Black](https://github.com/drillan/jupyter-black) brings the [black](https://github.com/psf/black) formatter to Python.
 
 ## Others (Evaluating)
 
-> Note: Sometimes I add to this list
+#### [spellchecker](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html)
 
-* https://github.com/drillan/jupyter-black
+[spellchecker](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html) does exactly what you think it does.
 
-* https://github.com/connorferster/handcalcs
+#### Beautiful LaTeX
+
+Check out [handcalcs](https://github.com/connorferster/handcalcs) if you want to automatically create beautiful LaTeX equations.
+
 
 # Shell Commands
 
