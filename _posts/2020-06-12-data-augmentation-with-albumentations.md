@@ -7,7 +7,7 @@ thumbnail: "assets/img/dark_path.jpg"
 tags: [Computer Vision, Data Augmentation, Deep Learning, Python]
 ---
 
-This post is going to demonstrate how to do data augmentation for computer vision using the [albumentations](https://albumentations.ai/) library.
+This post is going to demonstrate how to do data augmentation for computer vision using the [albumentations](https://albumentations.ai/) library. The exact data augmentations you use are going to be specific to your use-case. For example, if you're training on overhead imagery the augmentations you use will probably be somewhat different than on an ImageNet-like dataset (although there will also be considerable overlap).
 
 <b>Table of contents</b>
 * TOC
@@ -59,7 +59,7 @@ plt.imshow(image);
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_10_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_10_0.png)
     
 
 
@@ -70,7 +70,7 @@ plt.imshow(mask);
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_11_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_11_0.png)
     
 
 
@@ -194,31 +194,31 @@ for i in range(5):
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_25_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_25_0.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_25_1.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_25_1.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_25_2.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_25_2.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_25_3.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_25_3.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_25_4.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_25_4.png)
     
 
 
@@ -253,7 +253,7 @@ visualize(image, augmented['image'])
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_34_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_34_0.png)
     
 
 
@@ -276,7 +276,7 @@ visualize(image, augmented['image'])
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_37_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_37_0.png)
     
 
 
@@ -298,7 +298,7 @@ visualize_group(aug_images)
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_39_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_39_0.png)
     
 
 
@@ -320,11 +320,11 @@ visualize(image, augmented_image)
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_42_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_42_0.png)
     
 
 
-## Posterize
+#### Posterize
 
 This isn't that obvious to see but it might be a good idea to use. I don't use it much. It was used in the [AutoAugment research by Google Brain](https://arxiv.org/pdf/1805.09501.pdf).
 
@@ -343,7 +343,7 @@ visualize(image, augmented_image)
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_45_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_45_0.png)
     
 
 
@@ -366,7 +366,7 @@ visualize(image, augmented_image)
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_47_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_47_0.png)
     
 
 
@@ -389,7 +389,7 @@ visualize(image, augmented_image)
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_49_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_49_0.png)
     
 
 
@@ -412,7 +412,7 @@ visualize_group(aug_ims)
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_51_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_51_0.png)
     
 
 
@@ -437,7 +437,7 @@ visualize_group(aug_ims)
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_54_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_54_0.png)
     
 
 
@@ -462,7 +462,7 @@ visualize_group(aug_ims)
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_57_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_57_0.png)
     
 
 
@@ -485,31 +485,31 @@ for i in range(5):
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_60_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_60_0.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_60_1.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_60_1.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_60_2.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_60_2.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_60_3.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_60_3.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_60_4.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_60_4.png)
     
 
 
@@ -528,31 +528,31 @@ for i in range(5):
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_61_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_61_0.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_61_1.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_61_1.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_61_2.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_61_2.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_61_3.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_61_3.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_61_4.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_61_4.png)
     
 
 
@@ -571,31 +571,31 @@ for i in range(5):
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_62_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_62_0.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_62_1.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_62_1.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_62_2.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_62_2.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_62_3.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_62_3.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_62_4.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_62_4.png)
     
 
 
@@ -617,31 +617,135 @@ for i in range(5):
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_64_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_64_0.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_64_1.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_64_1.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_64_2.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_64_2.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_64_3.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_64_3.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_64_4.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_64_4.png)
+    
+
+
+## Adding Effects
+
+You can also add things like rain, fog, shadows, and snow. I find these really helpful.
+
+#### RandomShadow
+
+Here is shadow with the defaults. I think they might work well for overhead imagery. They're kind of weird looking though.
+
+
+```python
+augments = A.Compose([
+        A.RandomShadow(p=1)
+])
+
+aug_ims = []
+for i in range(9):
+    augmented = augments(image=image, mask=mask)
+
+    aug_ims.append(augmented['image'])
+
+visualize_group(aug_ims)
+```
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_69_0.png)
+    
+
+
+#### RandomSnow
+
+RandomSnow is also a little strange in my opinion. It bleaches out some pixels to simulate snow. I haven't tried this in a real-world scenario so I don't know if this actually helps or not.
+
+
+```python
+augments = A.Compose([
+        A.RandomSnow(p=1)
+])
+
+aug_ims = []
+for i in range(9):
+    augmented = augments(image=image, mask=mask)
+
+    aug_ims.append(augmented['image'])
+
+visualize_group(aug_ims)
+```
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_72_0.png)
+    
+
+
+#### RandomRain
+
+RandomRain doesn't make as much sense from an overhead image, but it might be useful for a driverless car scenario.
+
+
+```python
+augments = A.Compose([
+        A.RandomRain(p=1)
+])
+
+aug_ims = []
+for i in range(9):
+    augmented = augments(image=image, mask=mask)
+
+    aug_ims.append(augmented['image'])
+
+visualize_group(aug_ims)
+```
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_75_0.png)
+    
+
+
+#### RandomFog
+
+To me, the default RandomFog behavior looks more like blurring than fog, but maybe it'll be useful for some applications.
+
+
+```python
+augments = A.Compose([
+        A.RandomFog(p=1)
+])
+
+aug_ims = []
+for i in range(9):
+    augmented = augments(image=image, mask=mask)
+
+    aug_ims.append(augmented['image'])
+
+visualize_group(aug_ims)
+```
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_78_0.png)
     
 
 
@@ -665,7 +769,7 @@ plt.imshow(aug(image=image)['image']);
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_69_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_83_0.png)
     
 
 
@@ -689,7 +793,7 @@ visualize_group(aug_ims)
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_72_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_86_0.png)
     
 
 
@@ -712,55 +816,55 @@ for i in range(9):
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_74_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_88_0.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_74_1.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_88_1.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_74_2.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_88_2.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_74_3.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_88_3.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_74_4.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_88_4.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_74_5.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_88_5.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_74_6.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_88_6.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_74_7.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_88_7.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_74_8.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_88_8.png)
     
 
 
@@ -781,55 +885,55 @@ for i in range(9):
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_76_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_90_0.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_76_1.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_90_1.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_76_2.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_90_2.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_76_3.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_90_3.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_76_4.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_90_4.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_76_5.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_90_5.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_76_6.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_90_6.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_76_7.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_90_7.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_76_8.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_90_8.png)
     
 
 
@@ -849,7 +953,7 @@ visualize_group(aug_ims)
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_77_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_91_0.png)
     
 
 
@@ -871,7 +975,7 @@ visualize_group(aug_ims)
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_79_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_93_0.png)
     
 
 
@@ -893,7 +997,7 @@ visualize_group(aug_ims)
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_81_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_95_0.png)
     
 
 
@@ -931,55 +1035,55 @@ for i in range(9):
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_86_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_100_0.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_86_1.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_100_1.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_86_2.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_100_2.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_86_3.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_100_3.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_86_4.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_100_4.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_86_5.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_100_5.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_86_6.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_100_6.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_86_7.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_100_7.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_86_8.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_100_8.png)
     
 
 
@@ -1013,55 +1117,55 @@ for i in range(9):
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_88_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_102_0.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_88_1.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_102_1.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_88_2.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_102_2.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_88_3.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_102_3.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_88_4.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_102_4.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_88_5.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_102_5.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_88_6.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_102_6.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_88_7.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_102_7.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_88_8.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_102_8.png)
     
 
 
@@ -1099,55 +1203,143 @@ for i in range(9):
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_91_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_105_0.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_91_1.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_105_1.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_91_2.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_105_2.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_91_3.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_105_3.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_91_4.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_105_4.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_91_5.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_105_5.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_91_6.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_105_6.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_91_7.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_105_7.png)
     
 
 
 
     
-![png](2020-06-12-Data-Augmentation-with-Albumentations_files/2020-06-12-Data-Augmentation-with-Albumentations_91_8.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_105_8.png)
+    
+
+
+#### Spatial, Pixel, Non-Rigid, Cropping, and Special Effects
+
+Why not add some shadows as well?
+
+
+```python
+augments = A.Compose([
+    # spatial-level transforms (no distortion)
+        A.HorizontalFlip(p=0.5),
+        A.VerticalFlip(p=0.5),
+        A.RandomRotate90(p=0.5),
+    # pixel-level transforms
+        A.CLAHE(p=0.5),
+        A.Equalize(p=0.5),
+        A.Posterize(num_bits=4, p=0.5),
+        A.RandomBrightness(limit=0.2, p=0.5),
+        A.RandomContrast(limit=0.2, p=0.5),
+        A.RandomGamma(gamma_limit=(80, 120), p=0.5),
+    # non-rigid
+        A.OneOf([A.OpticalDistortion(), A.ElasticTransform(), A.GridDistortion()
+                    ]),
+    # cropping
+        A.RandomResizedCrop(image.shape[0], image.shape[1]),
+    # special effects
+        A.RandomShadow()
+])
+
+aug_ims = []
+for i in range(9):
+    augmented = augments(image=image, mask=mask)
+    plt.imshow(augmented['image'])
+    plt.show()
+```
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_108_0.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_108_1.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_108_2.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_108_3.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_108_4.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_108_5.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_108_6.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_108_7.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_108_8.png)
     
 
 
