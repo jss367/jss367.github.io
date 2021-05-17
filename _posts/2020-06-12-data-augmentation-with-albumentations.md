@@ -228,7 +228,7 @@ There is also `A.RandomRotate90(p=0.5)` but I don't recommend it. The above are 
 
 Pixel-level augmentations change pixel values without changing the overall label of the image, so you don't need to worry about changing the mask when you use them.
 
-### CLAHE
+#### CLAHE
 
 Contrast Limited Adaptive Histogram Equalization (CLAHE) is a good option for pixel-level augmentation. I usually include it and leave the values at the defaults. This by default does a range, so you'll have to run it multiple times to see the different results.
 
@@ -302,7 +302,7 @@ visualize_group(aug_images)
     
 
 
-### Equalize
+#### Equalize
 
 Another good one is equalize. This just equalizes the image histogram. I wouldn't use it during training unless you also planned to use it during test time. Again it's not going to change the mask.
 
@@ -324,7 +324,7 @@ visualize(image, augmented_image)
     
 
 
-#### Posterize
+### Posterize
 
 This isn't that obvious to see but it might be a good idea to use. I don't use it much. It was used in the [AutoAugment research by Google Brain](https://arxiv.org/pdf/1805.09501.pdf).
 
@@ -347,7 +347,7 @@ visualize(image, augmented_image)
     
 
 
-### RandomBrightness
+#### RandomBrightness
 
 
 ```python
@@ -416,7 +416,7 @@ visualize_group(aug_ims)
     
 
 
-### RandomConstrast
+#### RandomConstrast
 
 `RandomContrast` is similar to `RandomBrightness` but I find you can get away with doing a bit more.
 
@@ -441,7 +441,7 @@ visualize_group(aug_ims)
     
 
 
-### RandomGamma
+#### RandomGamma
 
 RandomGamma doesn't have much of an effect. Here's what it looks like with the defaults.
 
