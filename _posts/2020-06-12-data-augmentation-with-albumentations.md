@@ -324,7 +324,7 @@ visualize(image, augmented_image)
     
 
 
-### Posterize
+#### Posterize
 
 This isn't that obvious to see but it might be a good idea to use. I don't use it much. It was used in the [AutoAugment research by Google Brain](https://arxiv.org/pdf/1805.09501.pdf).
 
