@@ -692,7 +692,7 @@ for i in range(9):
 
 visualize_group(aug_ims)
 ```
-
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_75_0.png)
 
     
 ![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_72_0.png)
@@ -722,7 +722,7 @@ visualize_group(aug_ims)
     
 ![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_75_0.png)
     
-
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_72_0.png)
 
 #### RandomFog
 
