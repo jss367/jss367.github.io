@@ -6,6 +6,8 @@ thumbnail: "assets/img/sun_tas.jpg"
 tags: [Deep Learning, Python, TensorFlow]
 ---
 
+In this series of posts I'm going to look at different methods of dealing with unbalanced data. Unbalanced datasets are common (and unavoidable) in the real world but I think don't get enough attention in the literature, where balanced datasets (e.g. MNIST, CIFAR 10) are too often used. Given an unbalanced real-world problem, we'll discuss on to set up the training, validation, and testing sets.
+
 This post is the first in a series on working with unbalanced data. We'll answer questions like how to train a model, how to validate it, and how to test it. Is it better than your datasets be balanced or representative of the real-world distribution?
 
 For these posts, we'll use the Kaggle [Dogs vs. Cats dataset](https://www.kaggle.com/c/dogs-vs-cats). The dataset has the same number of cat images as dog images, so we'll have to subset the dataset to run the experiments.  We’re going to pretend that there are 10 times as many cats as there are dogs in the “real world” population. Our goal is to build a model that answers the question, "Is this an image of a dog?"

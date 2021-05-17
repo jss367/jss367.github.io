@@ -6,12 +6,9 @@ thumbnail: "assets/img/sunrays.jpg"
 tags: [Deep Learning, Python, TensorFlow]
 ---
 
-In this series of posts I'm going to look at different methods of dealing with unbalanced data. Unbalanced datasets are common (and unavoidable) in the real world but I think don't get enough attention in the literature, where balanced datasets (e.g. MNIST, CIFAR 10) are too often used. Given an unbalanced real-world problem, we'll discuss on to set up the training, validation, and testing sets.
+This post is in a series on doing machine learning with unbalanced datasets. This post focuses on the evaluation aspect in particular. For background, please see the [setup](https://jss367.github.io/experiements-on-unbalanced-datasets-setup.html) post.
 
-For more background on these experiments, please see the [setup post](https://jss367.github.io/experiements-on-unbalanced-datasets-setup.html).
-
-This notebook focus on the makeup of the test set.
-
+When we're evaluating the performance of models on a unbalanced dataset, what should the makeup of the test set be? This post digs into this question.
 
 <b>Table of contents</b>
 * TOC
