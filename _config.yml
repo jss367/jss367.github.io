@@ -3,7 +3,7 @@ baseurl:
 url: "https://jss367.github.io"
 
 # THEME-SPECIFIC CONFIGURATION
-title: Analytically Speaking                            # site's title
+title: Julius' Data Science Blog                        # site's title
 description: "Exploring the world through data science" # used by search engines
 avatar: assets/img/avatars/possum.jpg                   # Empty for no avatar in navbar
 favicon: assets/favicon.ico                             # Icon displayed in the tab
