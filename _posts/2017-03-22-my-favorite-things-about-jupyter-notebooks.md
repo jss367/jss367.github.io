@@ -59,6 +59,10 @@ I like to customize the black formatter by changing the line length. To do this,
 
 [spellchecker](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html) does exactly what you think it does.
 
+#### Hinterlands
+
+Adds autocompletion to Jupyter Notebooks, which normally requires hitting the Tab button.
+
 ## Others (Evaluating)
 
 #### Beautiful LaTeX
