@@ -41,7 +41,7 @@ sys.version
 
 
 
-    '3.7.7 (default, May  6 2020, 11:45:54) [MSC v.1916 64 bit (AMD64)]'
+    '3.8.5 (default, Sep  3 2020, 21:29:08) [MSC v.1916 64 bit (AMD64)]'
 
 
 
@@ -68,13 +68,26 @@ sys.executable
 
     # conda environments:
     #
-    base                     C:\Users\Julius\anaconda3
+    base                  *  C:\Users\Julius\anaconda3
     pt                       C:\Users\Julius\anaconda3\envs\pt
-    pyt                      C:\Users\Julius\anaconda3\envs\pyt
-    solaris                  C:\Users\Julius\anaconda3\envs\solaris
-    tf                    *  C:\Users\Julius\anaconda3\envs\tf
-    tf2                      C:\Users\Julius\anaconda3\envs\tf2
+    tf                       C:\Users\Julius\anaconda3\envs\tf
+    tf-gpu                   C:\Users\Julius\anaconda3\envs\tf-gpu
     
+    
+
+## Where will Python look for modules?
+
+
+```python
+import sys
+```
+
+
+```python
+print(sys.path)
+```
+
+    ['C:\\Users\\Julius\\Google Drive\\JupyterNotebooks\\Blog', 'C:\\Users\\Julius\\Documents\\GitHub', 'C:\\Users\\Julius\\Documents\\GitHub\\cv\\src\\py', 'C:\\Users\\Julius\\Documents\\GitHub\\fastai-pythonic', 'C:\\Users\\Julius\\Documents\\GitHub\\facv\\src', 'C:\\Users\\Julius\\Documents\\GitHub\\fastai2', 'C:\\Users\\Julius\\Documents\\GitHub\\ObjectDetection', 'C:\\Users\\Julius\\Documents\\GitHub\\fastcore', 'C:\\Users\\Julius\\Documents\\GitHub\\cv_dataclass\\src', 'C:\\Users\\Julius\\Google Drive\\JupyterNotebooks\\Blog', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\python38.zip', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\DLLs', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\lib', 'C:\\Users\\Julius\\anaconda3\\envs\\tf', '', 'C:\\Users\\Julius\\AppData\\Roaming\\Python\\Python38\\site-packages', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\lib\\site-packages', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\lib\\site-packages\\win32', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\lib\\site-packages\\win32\\lib', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\lib\\site-packages\\Pythonwin', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\lib\\site-packages\\IPython\\extensions', 'C:\\Users\\Julius\\.ipython']
     
 
 ## Python modules
@@ -170,9 +183,9 @@ new_list = old_list[:]
 print(id(new_list))
 ```
 
-    2186639106504
-    2186639106504
-    2186639105672
+    3179513172992
+    3179513172992
+    3179513163712
     
 
 # Functional programming
@@ -360,44 +373,28 @@ There are [a bunch of Python error messages](https://www.tutorialspoint.com/pyth
 
 ```python
 a = [1,2,3,4]
-print(a[5]) # There is no element #5, so you get an error
+try:
+    print(a[5])
+except IndexError as e:
+    print("There is no element #5, so you get an IndexError: ", e)
 ```
 
-
-    ---------------------------------------------------------------------------
-
-    IndexError                                Traceback (most recent call last)
-
-    <ipython-input-28-c5031d474716> in <module>
-          1 a = [1,2,3,4]
-    ----> 2 print(a[5]) # There is no element #5, so you get an error
+    There is no element #5, so you get an IndexError:  list index out of range
     
-
-    IndexError: list index out of range
-
 
 ### NameError
 
 
 ```python
 my_variable = 4
-# I have introduced a typo, so the call to variable 'my_veriable' returns an error
-print(my_veriable)
+try:
+    print(my_veriable)
+except NameError:
+    print("I have introduced a typo, so the call to variable 'my_veriable' returns an error")
 ```
 
-
-    ---------------------------------------------------------------------------
-
-    NameError                                 Traceback (most recent call last)
-
-    <ipython-input-37-6c6800b68d90> in <module>
-          1 my_variable = 4
-          2 # I have introduced a typo, so the call to variable 'my_veriable' returns an error
-    ----> 3 print(my_veriable)
+    I have introduced a typo, so the call to variable 'my_veriable' returns an error
     
-
-    NameError: name 'my_veriable' is not defined
-
 
 ### TypeError
 
@@ -405,38 +402,33 @@ print(my_veriable)
 ```python
 # Trying to use a type in a way it cannot be
 print(a[2]) # works fine
-print(a['two']) # returns an error
+try:
+    print(a['two']) # returns an error
+except TypeError as err:
+    print(err)
 ```
 
     3
+    list indices must be integers or slices, not str
     
-
-
-    ---------------------------------------------------------------------------
-
-    TypeError                                 Traceback (most recent call last)
-
-    <ipython-input-38-01695fff8160> in <module>
-          1 # Trying to use a type in a way it cannot be
-          2 print(a[2]) # works fine
-    ----> 3 print(a['two']) # returns an error
-    
-
-    TypeError: list indices must be integers or slices, not str
-
 
 ### SyntaxError
 
+Syntax errors can be a little different. That's because the syntax is wrong, which prevents the `try`/`except` block from being set up.
+
 
 ```python
-print("Syntax often result from missing parentheses"
+try:
+    print("Syntax often result from missing parentheses"
+except SyntaxError:
+    print("This is never printed")
 ```
 
 
-      File "<ipython-input-39-c2f0579e9fa6>", line 1
-        print("Syntax often result from missing parentheses"
-                                                            ^
-    SyntaxError: unexpected EOF while parsing
+      File "<ipython-input-36-d35ece00e423>", line 3
+        except SyntaxError:
+        ^
+    SyntaxError: invalid syntax
     
 
 
@@ -449,23 +441,15 @@ It's a good idea to create your own exceptions. They don't actually need to do a
 class NiException(Exception):
     pass
 
-if 'ni' in 'knights who say ni':
-    raise NiException
+try:
+    if 'ni' in 'knights who say ni':
+        raise NiException
+except NiException:
+    print("We raised and caught our custom exception")
 ```
 
-
-    ---------------------------------------------------------------------------
-
-    NiException                               Traceback (most recent call last)
-
-    <ipython-input-40-d76c5f072f95> in <module>
-          3 
-          4 if 'ni' in 'knights who say ni':
-    ----> 5     raise NiException
+    We raised and caught our custom exception
     
-
-    NiException: 
-
 
 ## Try, except statements
 
@@ -487,14 +471,15 @@ except:
 ```
 
     If you provide two integers, I will devide the first by the second
-    Give me a number: 00
+    Give me a number: 2
     Give me another: 0
     Can't divide by zero
     
 
+You can also use a finally statement to do something even after an error has been raised
+
 
 ```python
-# You can also use a finally statement to do something even after an error has been raised
 try:
     a = int(input('Give me a number: '))
     b = int(input('Give me another: '))
@@ -505,9 +490,9 @@ finally:
     print("Whether there's an exception or not, this runs. Good for closing a file.")
 ```
 
-    Give me a number: 9
-    Give me another: 5
-    1.8
+    Give me a number: 1
+    Give me another: 1.5
+    That's not an int
     Whether there's an exception or not, this runs. Good for closing a file.
     
 
@@ -517,9 +502,9 @@ You can also raise exceptions directly
 ```python
 try:
     1/0
-except:
+except ZeroDivisionError:
     print("I've just picked up a fault in the AE35 unit. It's going to go 100% failure in 72 hours.")
-    raise
+    raise NiException
 ```
 
     I've just picked up a fault in the AE35 unit. It's going to go 100% failure in 72 hours.
@@ -530,16 +515,59 @@ except:
 
     ZeroDivisionError                         Traceback (most recent call last)
 
-    <ipython-input-44-b11c5b22cc8c> in <module>
+    <ipython-input-45-413944f2b329> in <module>
           1 try:
     ----> 2     1/0
-          3 except:
-          4     print("I've just picked up a fault in the AE35 unit. It's going to go 100% failure in 72 hours.")
-          5     raise
+          3 except ZeroDivisionError:
     
 
     ZeroDivisionError: division by zero
 
+    
+    During handling of the above exception, another exception occurred:
+    
+
+    NiException                               Traceback (most recent call last)
+
+    <ipython-input-45-413944f2b329> in <module>
+          3 except ZeroDivisionError:
+          4     print("I've just picked up a fault in the AE35 unit. It's going to go 100% failure in 72 hours.")
+    ----> 5     raise NiException
+    
+
+    NiException: 
+
+
+Note that you can't use this on some `SyntaxError`s as the compiler has to parse everything to set up the `try`/`except` blocks, and a `SyntaxError` can prevent that from happening. Here's an example:
+
+
+```python
+try:
+    [2 * x for x in [1,2,3] if x > 1 else 0]
+except SyntaxError:
+    print("This doesn't get printed")
+```
+
+
+      File "<ipython-input-46-f08e10e9850e>", line 2
+        [2 * x for x in [1,2,3] if x > 1 else 0]
+                                         ^
+    SyntaxError: invalid syntax
+    
+
+
+If you want to do this, you can wrap the statement in an `eval` statement, so the compiler has time to set up the `try`/`except` block.
+
+
+```python
+try:
+    eval("[2 * x for x in [1,2,3] if x > 1 else 0]")
+except SyntaxError:
+    print("This DOES get printed")
+```
+
+    This DOES get printed
+    
 
 ## Assert
 
@@ -548,29 +576,14 @@ except:
 def div_by_two(x):
     assert (x%2 == 0), "Number must be even"#Assert that x is even; this makes the program stop immediately if it is not
     return x / 2
-print(div_by_two(3))
+try:
+    print(div_by_two(3))
+except AssertionError as err:
+    print('Error:', err)
 ```
 
-
-    ---------------------------------------------------------------------------
-
-    AssertionError                            Traceback (most recent call last)
-
-    <ipython-input-45-c78c5e458a78> in <module>
-          2     assert (x%2 == 0), "Number must be even"#Assert that x is even; this makes the program stop immediately if it is not
-          3     return x / 2
-    ----> 4 print(div_by_two(3))
+    Error: Number must be even
     
-
-    <ipython-input-45-c78c5e458a78> in div_by_two(x)
-          1 def div_by_two(x):
-    ----> 2     assert (x%2 == 0), "Number must be even"#Assert that x is even; this makes the program stop immediately if it is not
-          3     return x / 2
-          4 print(div_by_two(3))
-    
-
-    AssertionError: Number must be even
-
 
 ## Aliasing
 
@@ -627,9 +640,9 @@ new_list = old_list[:]
 print(id(new_list))
 ```
 
-    2186641155016
-    2186641155016
-    2186641154568
+    3179535780032
+    3179535780032
+    3179534011968
     
 
 # Testing
@@ -737,138 +750,6 @@ except TypeError:
     Can't do interger comparison with standard Enums
     
 
-# Pathlib
-
-Pathlib does much of the same work as `os.path` but it contains a lot more. I strongly recommend that people checkout Pathlib.
-
-
-```python
-from pathlib import Path
-```
-
-
-```python
-path = Path(r'E:\Data\Raw\PennFudanPed')
-```
-
-
-```python
-all_objs = path.glob('**/*')
-```
-
-
-```python
-all_objs
-```
-
-
-
-
-    <generator object Path.glob at 0x000001B136675EC8>
-
-
-
-
-```python
-files = [f for f in all_objs if f.is_file()]
-```
-
-
-```python
-files[:5]
-```
-
-
-
-
-    [WindowsPath('E:/Data/Raw/PennFudanPed/added-object-list.txt'),
-     WindowsPath('E:/Data/Raw/PennFudanPed/readme.txt'),
-     WindowsPath('E:/Data/Raw/PennFudanPed/Annotation/FudanPed00001.txt'),
-     WindowsPath('E:/Data/Raw/PennFudanPed/Annotation/FudanPed00002.txt'),
-     WindowsPath('E:/Data/Raw/PennFudanPed/Annotation/FudanPed00003.txt')]
-
-
-
-
-```python
-path.stem
-```
-
-
-
-
-    'PennFudanPed'
-
-
-
-
-```python
-path.name
-```
-
-
-
-
-    'PennFudanPed'
-
-
-
-
-```python
-file_path = Path(files[0])
-file_path
-```
-
-
-
-
-    WindowsPath('E:/Data/Raw/PennFudanPed/added-object-list.txt')
-
-
-
-
-```python
-file_path.stem
-```
-
-
-
-
-    'added-object-list'
-
-
-
-
-```python
-file_path.name
-```
-
-
-
-
-    'added-object-list.txt'
-
-
-
-Pathlib also has a great one-liner for reading in text files. No more context managers.
-
-
-```python
-text = Path(r'E:/Data/Raw/PennFudanPed/readme.txt').read_text()
-```
-
-
-```python
-text[:500]
-```
-
-
-
-
-    '1. Directory structure:\n\nPNGImages:   All the database images in PNG format.\n\nPedMasks :   Mask for each image, also in PNG format. Pixels are labeled 0 for background, or > 0 corresponding\nto a particular pedestrian ID.\n\nAnnotation:  Annotation information for each image.  Each file is in the following format (take FudanPed00001.txt as an example):\n\n# Compatible with PASCAL Annotation Version 1.00\nImage filename : "PennFudanPed/PNGImages/FudanPed00001.png"\nImage size (X x Y x C) : 559 x 536 x 3'
-
-
-
 # Scope
 
 Scope is very important in Python. Different objects perform differently when they are modified in a function.
@@ -929,6 +810,30 @@ q
 
 
 
+# Type Annotations
+
+I'm really into type annotations in Python, but I have to say, sometimes they make things ugly. Compare the follwing, with and without type annotations.
+
+
+```python
+import pandas as pd
+def func(inp):
+    df = pd.read_csv(inp)
+    return df
+```
+
+
+```python
+import pandas as pd
+from pathlib import Path
+from typing import AnyStr, IO, Union
+def f(inp: Union[str, Path, IO[AnyStr]]) -> pd.DataFrame:
+    df = pd.read_csv(inp)
+    return df
+```
+
+You can see how [pandas tried to solve the problem here](https://github.com/pandas-dev/pandas/blob/1ce1c3c1ef9894bf1ba79805f37514291f52a9da/pandas/_typing.py#L48:1), but it's still messy.
+
 # Python Disassembler
 
 The Python disassembler is a great tool if you want to see how a Python statement would be done in bytecode. For example, let's say you're wondering which of the two commands is better to use:
@@ -979,3 +884,95 @@ dis(func2)
     
 
 It turns out there is no difference (although I think the first is easier to read and is [recommended by PEP-8](https://www.python.org/dev/peps/pep-0008/#programming-recommendations)).
+
+# Inspection
+
+
+```python
+class Rectangle:
+    def __init__(self, length, width):
+        self.length = length
+        self.width = width
+        
+    def get_area(self):
+        return self.length * self.width
+```
+
+
+```python
+r = Rectangle(3,5)
+```
+
+
+```python
+r.get_area()
+```
+
+
+
+
+    15
+
+
+
+
+```python
+import inspect
+```
+
+
+```python
+print(inspect.getsource(Rectangle.__init__))
+```
+
+        def __init__(self, length, width):
+            self.length = length
+            self.width = width
+    
+    
+
+
+```python
+print(inspect.getsource(Rectangle.get_area))
+```
+
+        def get_area(self):
+            return self.length * self.width
+    
+    
+
+# Namespace Mangling
+
+
+```python
+class MyClass:
+    
+    def __dunder_example(self):
+        print("Dunder Example")
+```
+
+if you want to access `MyClass.__dunder_example`, you'll need to use `self._MyClass__dunder_example`. This is especially useful when debugging.
+
+
+```python
+mc = MyClass()
+```
+
+
+```python
+try:
+    mc.__dunder_example()
+except AttributeError:
+    print("Because of namespace mangling, you can't access this")
+```
+
+    Because of namespace mangling, you can't access this
+    
+
+
+```python
+mc._MyClass__dunder_example()
+```
+
+    Dunder Example
+    
