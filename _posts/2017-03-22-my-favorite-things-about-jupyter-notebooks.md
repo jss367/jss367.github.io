@@ -64,7 +64,11 @@ Check out [handcalcs](https://github.com/connorferster/handcalcs) if you want to
 
 # Shell Commands
 
-You can also use shell commands inside Jupyter Notebooks. Some are built-in so you can type them directly, such as `ls` or `pwd`.
+You can also use shell commands inside Jupyter Notebooks.
+
+## Built-in
+
+Some are built-in so you can type them directly, such as `ls` or `pwd`.
 
 
 ```python
@@ -74,6 +78,7 @@ pwd
 
     'C:\\Users\\Julius\\Google Drive\\JupyterNotebooks\\Blog'
 
+## Any, such as pip
 
 To access other  shell commands, you will need to prefix them with a `!`. For example, you pip install directly from Jupyter Notebooks:
 
