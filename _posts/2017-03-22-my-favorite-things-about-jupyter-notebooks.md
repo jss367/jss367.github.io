@@ -51,11 +51,15 @@ Install with `pip install autopep8`, then enable it.
 
 ![jupyter_black]({{site.baseurl}}/assets/img/jupyter_black.png "Jupyter Black")
 
-## Others (Evaluating)
+I like to customize the black formatter by changing the line length. To do this, you will have to select Jupyter Black in the Nbextensions tab as shown above and scroll down until you see the image below. You can add the `line_length` as an argument to `black.FileMode()` as shown in the red circle below:
+
+![customize_jupyter_black]({{site.baseurl}}/assets/img/customzie_jupyter_black.png "Customize Jupyter Black")
 
 #### [spellchecker](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html)
 
 [spellchecker](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html) does exactly what you think it does.
+
+## Others (Evaluating)
 
 #### Beautiful LaTeX
 
