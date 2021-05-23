@@ -45,11 +45,9 @@ You can use [Autopep8](https://jupyter-contrib-nbextensions.readthedocs.io/en/la
 
 Install with `pip install autopep8`, then enable it.
 
-#### Jupyter Black / NB Black
+#### Jupyter Black
 
-[Jupyter Black](https://github.com/drillan/jupyter-black) brings the [black](https://github.com/psf/black) formatter to Python.
-
-[nb_black](https://github.com/dnanhkhoa/nb_black) does the same thing.
+[Jupyter Black](https://github.com/drillan/jupyter-black) brings the [black](https://github.com/psf/black) formatter to Python. You can install it with: `jupyter nbextension install https://github.com/drillan/jupyter-black/archive/master.zip --sys-prefix`
 
 ## Others (Evaluating)
 
@@ -78,7 +76,7 @@ pwd
 
     'C:\\Users\\Julius\\Google Drive\\JupyterNotebooks\\Blog'
 
-## Any, such as pip
+## Other (such as pip)
 
 To access other  shell commands, you will need to prefix them with a `!`. For example, you pip install directly from Jupyter Notebooks:
 
