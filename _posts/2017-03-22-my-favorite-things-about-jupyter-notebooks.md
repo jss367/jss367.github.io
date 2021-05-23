@@ -63,6 +63,10 @@ I like to customize the black formatter by changing the line length. To do this,
 
 Adds autocompletion to Jupyter Notebooks, which normally requires hitting the Tab button.
 
+#### table_beautifier
+
+Adds bootstrap style to tables, which is great because it makes pandas DataFrames sortable by default.
+
 ## Others (Evaluating)
 
 #### Beautiful LaTeX
