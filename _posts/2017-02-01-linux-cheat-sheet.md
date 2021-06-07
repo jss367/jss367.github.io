@@ -199,3 +199,17 @@ The only different is that we change the "-c" for Create to "-x" for eXtract
 # Looking at directories, datasets
 
 `tree --filelimit 10 --dirsfirst`
+
+# Delete old files
+
+## Just files
+
+The command is of the form: `find /path/to/files* -mtime +5 -exec command {} \;`
+
+`find . -mtime +5 -exec rm {} \;`
+
+## Files and folders
+
+`find . -mtime +30 -exec rm -rf {} \;`
+
+
