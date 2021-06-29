@@ -28,7 +28,7 @@ Then under `Account Settings` click on `SSH and GPG keys`.
 
 ![png]({{site.baseurl}}/assets/img/github-ssh/github_ssh_menu.png)
 
-Then copy everything that printed when you ran `cat id_rsa.pub` and paste it into GitHub. This includes the `ssh-rsa` at the beginning and the `username@host` at the end.
+Then enter a title and copy everything that printed when you ran `cat id_rsa.pub` and paste it into GitHub. This includes the `ssh-rsa` at the beginning and the `username@host` at the end.
 
 ![png]({{site.baseurl}}/assets/img/github-ssh/add_new_key.png)
 
