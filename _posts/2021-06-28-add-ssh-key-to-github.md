@@ -23,7 +23,6 @@ This is the public key that you can share with external entities like GitHub. Yo
 Now you need to go to [GitHub](https://github.com/) and enter your public key. Start by click on your icon on the top right and selecting `Settings` in the dropdown.
 
 ![png]({{site.baseurl}}/assets/img/github-ssh/github_settings.png)
-![png]({{site.baseurl}}/assets/img/github-ssh/github_settings2.png)
 
 Then under `Account Settings` click on `SSH and GPG keys`.
 
