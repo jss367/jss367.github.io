@@ -18,7 +18,7 @@ Now you've created both a public and a private key. The public key is `id_rsa.pu
 
 ![png]({{site.baseurl}}/assets/img/github-ssh/public_key.png)
 
-This is the public key that you can share with external entities like GitHub. You can also look at your private key by entering `cat id_rsa`, although you shouldn't need to. That key is just for your system and not for sharing or posting on blogs :)
+This is the public key that you can share with external entities like GitHub. You can also look at your private key by entering `cat id_rsa`, although you shouldn't need to. That key is just for your system and not for sharing with others or posting on blogs :)
 
 Now you need to go to [GitHub](https://github.com/) and enter your public key. Start by click on your icon on the top right and selecting `Settings` in the dropdown.
 
