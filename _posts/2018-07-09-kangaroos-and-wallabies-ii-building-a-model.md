@@ -600,11 +600,6 @@ results_path = Path(r'C:\Users\Julius\Documents\GitHub\cv\results\KangWall_' + d
 os.makedirs(results_path, exist_ok=True)
 ```
 
-We'll use the same augmentation techniques described in the [augmentation notebook](https://jss367.github.io/Augmenting-with-Keras.html). In this case we won't save the images to disk though.
-
-You have to put locations for the epoch and stuff in the checkpoint.
-
-
 ```python
 # Save the model according to the conditions
 
