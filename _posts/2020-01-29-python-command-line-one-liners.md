@@ -3,7 +3,7 @@ layout: post
 title: "Python Command Line One-Liners"
 description: "Some quick ways to print Python from the command line"
 feature-img: "assets/img/rainbow.jpg"
-thumbnail: "assets/img/rainbow.jpg"
+thumbnail: "assets/img/barn_owl_flying.jpg"
 tags: [Linux, Python, Windows]
 ---
 
