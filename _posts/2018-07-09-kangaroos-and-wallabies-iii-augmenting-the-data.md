@@ -8,11 +8,6 @@ tags: [Computer Vision, Python, TensorFlow, Wildlife]
 
 In this notebook, we're going to take our [prepared images](https://jss367.github.io/class-for-preparing-images.html) and augment them to increase the size of our dataset.
 
-This is part two of a three-post series on creating your own dataset and classifying it using transfer learning.
-* [Preparing the Data](https://jss367.github.io/kangaroos-and-wallabies-i-preparing-the-data.html)
-* [Augmenting the Data](https://jss367.github.io/kangaroos-and-wallabies-ii-augmenting-the-data.html)
-* [Classifying the Data](https://jss367.github.io/kangaroos-and-wallabies-iii-classifying-the-data.html)
-
 <b>Table of contents</b>
 * TOC
 {:toc}
@@ -238,12 +233,4 @@ augment_image(input_path, output_path, datagen)
 </tr>
 </table>
 
-All of these are still identifiable as kangaroos, so that's good.
-
-### Using every training image
-
-But we don't want to use this on just one image. We want to run this augmentor on every image in the dataset. To see how that's done, take a look at the implementation in the [class for preparing images](https://jss367.github.io/class-for-preparing-images.html).
-
-## Next steps
-
-Now that we have enough data, we can try to classify it. We'll do that in the [next notebook](https://jss367.github.io/kangaroos-and-wallabies-iii-classifying-the-data.html).
+All of these are still identifiable as kangaroos, so that's good. We've got a good augmentation pipeline going that we could now use to prevent overfitting.
