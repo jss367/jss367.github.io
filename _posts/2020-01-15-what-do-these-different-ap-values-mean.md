@@ -6,11 +6,11 @@ thumbnail: "assets/img/palm_sunset.jpg"
 tags: [Python]
 ---
 
-The most frequently used evaluation metric for object detection is "Average Precision (AP)". But despite the attempts of well-intentioned researchers to create a single metric for comparing models, no single metric is the right one for all the cases that exist. Thus the landscape of metrics has become filled with small variations on the idea of average precision. This post aims to clarify those variations.
+The most frequently used evaluation metric for object detection is "Average Precision (AP)". But, despite the attempts of well-intentioned researchers to create a single metric for comparing models, no single metric is the right one for all the cases. Thus the landscape of metrics has become filled with small variations on the idea of average precision. This post aims to clarify those variations.
 
 ## Precision and Recall
 
-Before we can get into average precision, we'll have to start with **precision** and **recall**. These are two of the most important metrics when evaluating the quality of a statistical model. They are particularly useful because they are mathematically rigorous and have intuitive meanings. Imagine any model that classifies inputs are either "positive" or "negative". Precisions asks, "Out of all the times the model said the input was positive, what percentage were correct?" Recall, asks "Out of all the times there was a positive, what percentage were found by the model?" Mathematically, they are calculated by looking at the number of **true positives**, **false positives**, and **false negatives** as follows:
+Before we can get into average precision, we'll have to start with **precision** and **recall**. These are two of the most important metrics when evaluating the quality of a statistical model. They are particularly useful because they are both mathematically rigorous and have intuitive meanings. Imagine any model that classifies inputs are either "positive" or "negative". Precision asks, "Out of all the times the model said the input was positive, what percentage were correct?" Recall asks "Out of all the times there was a positive, what percentage were found by the model?" Mathematically, they are calculated by looking at the number of **true positives**, **false positives**, and **false negatives** as follows:
 
 $$ \text{Precision}=\frac{TP}{TP+FP} $$
 
@@ -40,7 +40,7 @@ OK, so you know that "Average Precision", or AP, is the area under the precision
 
 ## Multiclass classification
 
-Many datasets have lots of objects. [COCO](http://cocodataset.org/#home), for example, has 80. To compare performance over all object categories, the **mean AP (mAP)** averaged over all object categories is usually used. This means we find the AP value for each class and take the average. Note that mAP is not weighed by category frequency. If you have 1000 examples of a cat and an AP value of 0.9 and 10 examples of a dog and an AP value of 0.7, your mAP would be 0.8.
+Many datasets have lots of objects. [COCO](http://cocodataset.org/#home), for example, has 80. To compare a model's performance over every object category, the **mean AP (mAP)** averaged over all object categories is usually used. This means we find the AP value for each class and take the average. Note that mAP is not weighed by category frequency. If you have 1000 examples of a cat and an AP value of 0.9 and 10 examples of a dog and an AP value of 0.7, your mAP would be 0.8.
 
 
 ## Multiple Thresholds
@@ -65,7 +65,7 @@ Sometimes, different competitions use different values. For Pascal VOC, you'll o
 
 ## Small, Medium, and Large Objects
 
-Sometimes you'll want to know the performance on objects of a specific size. That's where $$ AP_S $$, $$ AP_M $$, and $$ AP_L $$ come in.
+Sometimes you'll want to know the performance of models on objects of a specific size. That's where $$ AP_S $$, $$ AP_M $$, and $$ AP_L $$ come in.
 
 * Small objects are defined as being between 0^2 and 32^2 pixels in area
 * Medium objects are defined as being between 32^2 and 96^2 pixels in area
