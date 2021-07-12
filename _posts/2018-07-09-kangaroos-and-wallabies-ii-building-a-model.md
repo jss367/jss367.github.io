@@ -6,7 +6,7 @@ thumbnail: "assets/img/ki_kangs.jpg"
 tags: [Computer Vision, Convolutional Neural Networks, Python, TensorFlow, Wildlife]
 ---
 
-In this notebook, we're going to take the [datatset we prepared]https://jss367.github.io/kangaroos-and-wallabies-i-preparing-the-data.html) and build a model to classify the images.
+In this notebook, we're going to take the [datatset we prepared](https://jss367.github.io/kangaroos-and-wallabies-i-preparing-the-data.html) and build a model to classify the images.
 
 <b>Table of contents</b>
 * TOC
@@ -16,7 +16,7 @@ In this notebook, we're going to take the [datatset we prepared]https://jss367.g
 
 What model should we use? A simple model, such as logistic regression, is able to do fairly well on a simple image classification task like [MNIST](http://yann.lecun.com/exdb/mnist/) or even cat vs non-cat, but won't really cut it for this task. Because kangaroos and wallabies are so similar, even a fully connected neural network doesn't score particularly well on this dataset.
 
-So we're just going to skip those and go straight to the most popular model in modern computer vision: convolutional neural networks. We're going to take a huge model known as [Xception](https://arxiv.org/abs/1610.02357) and apply it to our dataset. But we're not just going to take the model, we're going to take the actual ImageNet weights that have been developed by weeks of training it on the ImageNet dataset. Then we will freeze everything except the last layers and train them with our dataset. This is known as transfer learning and it allows us to benefit from the highly tuned convolutional layers that are so good at extracting features while allowing us to tweak the last layers specifically for our problem.
+So we're just going to skip those and go straight to the most popular model in modern computer vision: convolutional neural networks. We're going to take a huge model known as [Xception](https://arxiv.org/abs/1610.02357) and apply it to our dataset. But we're not just going to take the model architecture, we're going to take the actual ImageNet weights that have been developed by weeks of training it on the ImageNet dataset. Then we will freeze everything except the last layers and train them with our dataset. This is known as transfer learning and it allows us to benefit from the highly tuned convolutional layers that are so good at extracting features while allowing us to tweak the last layers specifically for our problem.
 
 
 ```python
@@ -42,11 +42,11 @@ os.environ['TF_FORCE_GPU_ALLOW_GROWTH'] = 'true'
 ```
 
     Num GPUs Available:  1
-    
+
 
 ## Prepare the Data
 
-Now we'll turn our data into tf.data.Datasets.
+Now we'll prepared our data using TensorFlow's `tf.data.Datasets`.
 
 
 ```python
@@ -70,7 +70,7 @@ print(class_names)
 ```
 
     ['kangaroo' 'wallaby']
-    
+
 
 We'll set the image size we want to work with and the number of epochs.
 
@@ -139,7 +139,7 @@ display_image(image, label)
     
 
 
-Now we create the image data pipeline. This is the process of steps to take us from a `tf.data.Dataset` object into a parsed and batched image and label pair ready for training. We'll also use TensorFlow's `prefetch` ability to speed up the data loading.
+Now we create the image data pipeline. This is the process of steps to take us from a `tf.data.Dataset` object into parsed and batched image and label pairs ready for training. We'll also use TensorFlow's `prefetch` ability to speed up the data loading.
 
 
 ```python
@@ -208,15 +208,15 @@ np.unique(examp_label)
 
 
 
+Looks good!
+
 ## Establish a Baseline
 
 Before we build a complex model, we should develop a baseline so we can gauge our model's performance. As we saw in the [first post](https://jss367.github.io/Preparing-folder-structure.html), there are more images of kangaroos than of wallabies, so we need to take that into consideration. For example, if our model accurately predicted 75% of images, that might sound good. But what if simply guessing "kangaroo" each time got the same result, then maybe the model isn't learning much at all. So what's the baseline? How many would we get from pure guessing? To answer that, we'll use a dummy classifier. Our dummy classifier will find the most common label and predict that for every image.
 
-If we had many classes, we could use something like sklearn's [DummyClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.dummy.DummyClassifier.html) with the `most_frequent` strategy, but we only have two classes so we don't need to do that. Let's simply figure out which of more classes we have then apply that to our test data.
+If we had many classes, we could use something like sklearn's [DummyClassifier](https://scikit-learn.org/stable/modules/generated/sklearn.dummy.DummyClassifier.html) with the `most_frequent` strategy, but we only have two classes so we can simplify the process. Let's figure out which class has more examples and then guess that for every example in our test dataset.
 
 We know that all of our classes are either 0 or 1, so we can see which we have more of like so.
-
-We'll look at the test data because that's what we'll be comparing our final results against.
 
 
 ```python
@@ -232,21 +232,19 @@ num_wall_images = len(list(wall_dir.glob('*')))
 
 
 ```python
-print(num_kang_images)
-print(num_wall_images)
+print(f"Number of kangaroo images: {num_kang_images}")
+print(f"Number of wallaby images: {num_wall_images}")
 print(f"If we just guessed the most common class each time, we would be right {num_kang_images / (num_kang_images + num_wall_images):.2%} of the time.")
 ```
 
-    306
-    195
+    Number of kangaroo images: 306
+    Number of wallaby images: 195
     If we just guessed the most common class each time, we would be right 61.08% of the time.
-    
+
 
 ## Prepare the Model
 
-We have to provide some basic characteristics of the network and how we want to train it.
-
-We'll use imagenet weights.
+We have to provide some basic characteristics of the network and how we want to train it. As we said before, we'll use ImageNet weights.
 
 
 ```python
@@ -580,7 +578,7 @@ model.summary()
     Trainable params: 33,555,202
     Non-trainable params: 21,385,768
     __________________________________________________________________________________________________
-    
+
 
 ## Compile the Model
 
@@ -599,6 +597,7 @@ results_path = Path(r'C:\Users\Julius\Documents\GitHub\cv\results\KangWall_' + d
 
 os.makedirs(results_path, exist_ok=True)
 ```
+
 
 ```python
 # Save the model according to the conditions
@@ -625,35 +624,35 @@ history = model.fit(train_dataset, epochs=EPOCHS, callbacks=[tensorboard_callbac
 ```
 
     Epoch 1/5
-    914/914 [==============================] - 698s 758ms/step - loss: 0.2623 - accuracy: 0.8878 - val_loss: 0.4274 - val_accuracy: 0.8536
+    914/914 [==============================] - 735s 796ms/step - loss: 0.2741 - accuracy: 0.8859 - val_loss: 0.5043 - val_accuracy: 0.8448
     
-    Epoch 00001: saving model to C:\Users\Julius\Documents\GitHub\cv\results\KangWall_20210508-151337\model-01-0.85.hdf5
+    Epoch 00001: saving model to C:\Users\Julius\Documents\GitHub\cv\results\KangWall_20210708-191155\model-01-0.84.hdf5
     Epoch 2/5
-    914/914 [==============================] - 907s 992ms/step - loss: 0.0601 - accuracy: 0.9830 - val_loss: 0.6169 - val_accuracy: 0.8289
+    914/914 [==============================] - 612s 670ms/step - loss: 0.0601 - accuracy: 0.9840 - val_loss: 0.5147 - val_accuracy: 0.8325
     
-    Epoch 00002: saving model to C:\Users\Julius\Documents\GitHub\cv\results\KangWall_20210508-151337\model-02-0.83.hdf5
+    Epoch 00002: saving model to C:\Users\Julius\Documents\GitHub\cv\results\KangWall_20210708-191155\model-02-0.83.hdf5
     Epoch 3/5
-    914/914 [==============================] - 662s 724ms/step - loss: 0.0288 - accuracy: 0.9933 - val_loss: 0.6423 - val_accuracy: 0.8342
+    914/914 [==============================] - 549s 601ms/step - loss: 0.0306 - accuracy: 0.9958 - val_loss: 0.5672 - val_accuracy: 0.8377
     
-    Epoch 00003: saving model to C:\Users\Julius\Documents\GitHub\cv\results\KangWall_20210508-151337\model-03-0.83.hdf5
+    Epoch 00003: saving model to C:\Users\Julius\Documents\GitHub\cv\results\KangWall_20210708-191155\model-03-0.84.hdf5
     Epoch 4/5
-    914/914 [==============================] - 696s 761ms/step - loss: 0.0150 - accuracy: 0.9997 - val_loss: 0.5500 - val_accuracy: 0.8377
+    914/914 [==============================] - 549s 601ms/step - loss: 0.0235 - accuracy: 0.9968 - val_loss: 0.5748 - val_accuracy: 0.8377
     
-    Epoch 00004: saving model to C:\Users\Julius\Documents\GitHub\cv\results\KangWall_20210508-151337\model-04-0.84.hdf5
+    Epoch 00004: saving model to C:\Users\Julius\Documents\GitHub\cv\results\KangWall_20210708-191155\model-04-0.84.hdf5
     Epoch 5/5
-    914/914 [==============================] - 713s 780ms/step - loss: 0.0121 - accuracy: 0.9998 - val_loss: 0.5540 - val_accuracy: 0.8430
+    914/914 [==============================] - 551s 603ms/step - loss: 0.0121 - accuracy: 0.9993 - val_loss: 0.5871 - val_accuracy: 0.8377
     
-    Epoch 00005: saving model to C:\Users\Julius\Documents\GitHub\cv\results\KangWall_20210508-151337\model-05-0.84.hdf5
+    Epoch 00005: saving model to C:\Users\Julius\Documents\GitHub\cv\results\KangWall_20210708-191155\model-05-0.84.hdf5
     Epoch 00005: early stopping
-    
+
 
 
 ```python
 model.save(str(results_path) + 'final_model')
 ```
 
-    INFO:tensorflow:Assets written to: C:\Users\Julius\Documents\GitHub\cv\results\KangWall_20210508-151337final_model\assets
-    
+    INFO:tensorflow:Assets written to: C:\Users\Julius\Documents\GitHub\cv\results\KangWall_20210708-191155final_model\assets
+
 
 Note how much higher the training accuracy is than the validation accuracy. That means we're overfitting the training data. We'll go over how to correct for that in a future notebook.
 
@@ -670,13 +669,13 @@ plt.legend(loc='lower right')
 
 
 
-    <matplotlib.legend.Legend at 0x1eb995f8070>
+    <matplotlib.legend.Legend at 0x1d210caab80>
 
 
 
 
     
-![png](2018-07-09-kangaroos-and-wallabies-II-building-a-model_files/2018-07-09-kangaroos-and-wallabies-II-building-a-model_60_1.png)
+![png](2018-07-09-kangaroos-and-wallabies-II-building-a-model_files/2018-07-09-kangaroos-and-wallabies-II-building-a-model_57_1.png)
     
 
 
@@ -694,12 +693,14 @@ model_eval = tf.keras.models.load_model(str(results_path) + 'final_model')
 model_eval.evaluate(test_dataset)
 ```
 
-    126/126 [==============================] - 91s 718ms/step - loss: 0.3282 - accuracy: 0.8902
-    
+    126/126 [==============================] - 88s 671ms/step - loss: 0.3407 - accuracy: 0.8922
 
 
 
 
-    [0.32820433378219604, 0.8902195692062378]
+
+    [0.34070613980293274, 0.8922155499458313]
 
 
+
+89% - that's pretty good!. But we're not done yet. In the next notebook, we'll talk about data augmentation and how we can use that to improve the model's performance on the test set.
