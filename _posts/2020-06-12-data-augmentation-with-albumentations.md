@@ -3,7 +3,7 @@ layout: post
 title: "Data Augmentation with Albumentations"
 description: "A walkthrough with lots of images of the albumentations library for data augmentation"
 feature-img: "assets/img/rainbow.jpg"
-thumbnail: "assets/img/dark_path.jpg"
+thumbnail: "assets/img/black_shouldered_kite.jpg"
 tags: [Computer Vision, Data Augmentation, Deep Learning, Python]
 ---
 

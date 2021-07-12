@@ -6,12 +6,6 @@ thumbnail: "assets/img/glass_ball.jpg"
 tags: [Linux, Mac, Windows]
 ---
 
-In this series of posts, I will show how to build an image classifier using your own dataset. I'll be using images of kangaroos and wallabies that I've taken, but these techniques should work well with any kind of images.
-
-<b>Table of contents</b>
-* TOC
-{:toc}
-
 I'm always curious about how people set up their computers and what software packages they have, so I thought I would share mine. I use Windows, Mac, and Linux, so the exact setup varies by operating system. For those of you on Windows, many of these can be installed with [Ninite](https://ninite.com/).
 
 <b>Table of contents</b>

@@ -3,7 +3,7 @@ layout: post
 title: "Path Problems"
 description: "A guide to some of the path problems you may face on various operating systems"
 feature-img: "assets/img/rainbow.jpg"
-thumbnail: "assets/img/rainbow.jpg"
+thumbnail: "assets/img/dark_path.jpg"
 tags: [Linux, Python, Windows]
 ---
 
