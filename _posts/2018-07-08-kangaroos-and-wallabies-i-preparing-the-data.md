@@ -382,5 +382,5 @@ There are more images of kangaroos than wallabies, so the datasets will be unbal
 
 ## Next Steps
 
-Although we have thousands of images to work with, that isn't nearly enough to train state-of-the-art neural networks. In the next notebook, we'll look at how we can [augment our dataset with Keras](https://jss367.github.io/kangaroos-and-wallabies-ii-augmenting-the-data.html) to make up for this.
+Now that we've cleaned up our dataset, we can build a model. In the next notebook, we'll look at how we can [train a model to classify the images](https://jss367.github.io/kangaroos-and-wallabies-ii-building-a-model.html).
 
