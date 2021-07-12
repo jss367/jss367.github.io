@@ -6,7 +6,7 @@ thumbnail: "assets/img/ki_kangs.jpg"
 tags: [Computer Vision, Convolutional Neural Networks, Python, TensorFlow, Wildlife]
 ---
 
-In this notebook, we're going to take the [datatset we prepared](https://jss367.github.io/kangaroos-and-wallabies-i.html) and build a model to classify the images.
+In this notebook, we're going to take the [datatset we prepared]https://jss367.github.io/kangaroos-and-wallabies-i-preparing-the-data.html) and build a model to classify the images.
 
 <b>Table of contents</b>
 * TOC
