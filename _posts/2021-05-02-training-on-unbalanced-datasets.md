@@ -2,7 +2,7 @@
 layout: post
 title: "Training on Unbalanced Datasets"
 feature-img: "assets/img/rainbow.jpg"
-thumbnail: "assets/img/water_text.jpg"
+thumbnail: "assets/img/nz.jpg"
 tags: [Deep Learning, Python, TensorFlow]
 ---
 
