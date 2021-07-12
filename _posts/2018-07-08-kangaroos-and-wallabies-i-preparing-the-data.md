@@ -2,7 +2,7 @@
 layout: post
 title: "Kangaroos and Wallabies I: Preparing the Data"
 feature-img: "assets/img/rainbow.jpg"
-thumbnail: "assets/img/glass_ball.jpg"
+thumbnail: "assets/img/wallaby.jpg"
 tags: [Computer Vision, Python, TensorFlow, Wildlife]
 ---
 

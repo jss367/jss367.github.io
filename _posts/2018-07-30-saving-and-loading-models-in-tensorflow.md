@@ -3,7 +3,7 @@ layout: post
 title: "Saving and Loading Models in TensorFlow"
 description: "This post demonstrates how to save and reload TensorFlow models"
 feature-img: "assets/img/rainbow.jpg"
-thumbnail: "assets/img/ki_kangs.jpg"
+thumbnail: "assets/img/sydney.jpg"
 tags: [Python, Computer Vision, TensorFlow, Neural Networks, Machine Learning, Convolutional Neural Networks]
 ---
 
