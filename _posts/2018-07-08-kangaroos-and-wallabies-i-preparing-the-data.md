@@ -103,7 +103,7 @@ wallaby_test_path = Path(r'E:\Data\Processed\WallabiesAndRoosFullSize\test\walla
 data_master = DataMaster()
 ```
 
-## Similar images
+## Similar Images
 
 In an ideal world, all the images in a dataset would be "equal" in the sense that they're all the same quality and equally different from the others, or at least if they're unequal, the "unequalness" is randomly scattered throughout the dataset. But this isn't an ideal dataset; it's a real one. And it is not perfect.
 
@@ -215,7 +215,7 @@ for i in [1, 13, 100]:
 
 I've noticed that the metadata can be inconsistent and the date we're looking for isn't in every image. We'll have to find and remove the images without the date.
 
-## Cleaning out bad data
+## Cleaning out Bad Data
 
 We saw above that some of the files don't have all the required information. We'll have to remove those. It is also a good practice to look through the dataset to ensure that the images are correctly labeled. I hand labeled this dataset, and gone through a few rounds of error correction so I believe it is accurate.
 
@@ -257,7 +257,7 @@ print(len(good_kangaroo_files))
 
 We'll have a few thousand pictures to work with.
 
-## Splitting the data by date
+## Splitting the Data by Date
 
 Let's build a function that finds the number of images in a day and assigns them to one of the data sets. We'll tell it how big each set should be and the function will tell us what days to include in that set.
 
@@ -385,7 +385,7 @@ print(len(good_wallaby_files))
 
 There are more images of kangaroos than wallabies, so the datasets will be unbalanced. That won't be a problem as long as we take it into consideration when we measure the quality of the model.
 
-## Next steps
+## Next Steps
 
 Although we have thousands of images to work with, that isn't nearly enough to train state-of-the-art neural networks. In the next notebook, we'll look at how we can [augment our dataset with Keras](https://jss367.github.io/kangaroos-and-wallabies-ii-augmenting-the-data.html) to make up for this.
 
