@@ -703,4 +703,4 @@ model_eval.evaluate(test_dataset)
 
 
 
-89% - that's pretty good!. But we're not done yet. In the next notebook, we'll talk about data augmentation and how we can use that to improve the model's performance on the test set.
+89% - that's pretty good! But we're not done yet. In the next notebook, we'll talk about data augmentation and how we can use that to improve the model's performance on the test set.
