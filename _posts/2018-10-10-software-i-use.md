@@ -318,6 +318,8 @@ Honorable mentions:
 * The best app for keeping track of scientific papers
 * Definitely use the browser extensions as well
 
+## New Tab Page
+[Start.me](https://start.me/)
 
 ## Evaluating
 
@@ -437,5 +439,3 @@ Mozilla also released a VPN that I've started using a bit
 [Pcloud Drive](https://www.pcloud.com/download-free-online-cloud-file-storage.html)
 * Not as good as the others so I stopped using it as much
 
-## New Tab Page
-https://start.me/
