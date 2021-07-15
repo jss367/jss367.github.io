@@ -96,10 +96,10 @@ Yes, I do use many different cloud services. All for slightly different purposes
 
 ## Productivity
 
-[Moom](https://manytricks.com/moom/) (Mac)
-* Great app for resizing windows
+[Rectangle](https://rectangleapp.com/) (FOSS, Mac only)
+* Makes moving and resizing windows easy on a Mac
 
-[Alfred](https://www.alfredapp.com/) (Mac)
+[Alfred](https://www.alfredapp.com/) (Mac only)
 * In the running for one of the best productivity apps in existence
 * This is probably my favorite app for the Mac
 * Can be as simple or complex as you like
@@ -397,6 +397,12 @@ but this only applies it to one file.
 # Decommissioned
 
 These are apps I used to use but for one reason or another don't anymore. I thought I'd keep them here as honorable mentions.
+
+## Productivity
+
+[Moom](https://manytricks.com/moom/) (Mac)
+* Great app for resizing windows
+* But why pay for something when there are so many FOSS alternatives
 
 ## Text Editors
 
