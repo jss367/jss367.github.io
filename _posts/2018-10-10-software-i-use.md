@@ -50,7 +50,9 @@ Still looking for one on Windows that I like
 ### Screenshots
 [Greenshot](https://getgreenshot.org/) (FOSS, Windows)
 - Good improvement to Windows' default screenshot tool
-- For a mac I just use the built-in tool
+
+For a mac I just use the built-in tool
+- Note that if you want to select just a part of your screen, you should use `command + shift + 4`, then if you want to copy it straight to your clipboard (so you can paste it), hold `control` while you draw the outline
 
 ### Unzipping
 [7-Zip](https://www.7-zip.org/download.html) (Ninite)
