@@ -6,7 +6,7 @@ thumbnail: "assets/img/glass_ball.jpg"
 tags: [Linux, Mac, Windows]
 ---
 
-I'm always curious about how people set up their computers and what software packages they have, so I thought I would share mine. I use Windows, Mac, and Linux, so the exact setup varies by operating system. For those of you on Windows, many of these can be installed with [Ninite](https://ninite.com/).
+I'm always curious about how people set up their computers and what software packages they have, so I thought I would share mine. So you know where I'm coming from, I use Windows, Mac, and Linux nearly every day. Part of my goal is to make transitioning between these systems as seemless as possible, but the exact setup varies by operating system. For those of you on Windows, many of these can be installed with [Ninite](https://ninite.com/).
 
 <b>Table of contents</b>
 * TOC
@@ -100,6 +100,9 @@ Yes, I do use many different cloud services. All for slightly different purposes
 
 [Rectangle](https://rectangleapp.com/) (FOSS, Mac only)
 * Makes moving and resizing windows easy on a Mac
+* Here are the default hot keys
+
+![png]({{site.baseurl}}/assets/img/rectangle_defaults.png)
 
 [Alfred](https://www.alfredapp.com/) (Mac only)
 * In the running for one of the best productivity apps in existence
@@ -170,6 +173,7 @@ In Windows, I use a mix, mostly because none of them are perfect. Here's a case 
 
 [Ubuntu terminal](https://ubuntu.com/tutorials/tutorial-ubuntu-on-windows#1-overview)
 * Still a work in progress. Gets better all the time but still has room for improvement.
+* Update: This has gotten much better. I'm now using this with zsh like I do on my Mac and am liking it a lot.
 
 As you can see, I'm strewn across half a dozen terminals in Windows and have found the one on Mac. For me, nothing beats iTerm2.
 
@@ -398,46 +402,4 @@ You'll want to make sure you used markdown-extended:
 View -> Syntax -> Markdown Extended
 but this only applies it to one file.
 
-# Decommissioned
-
-These are apps I used to use but for one reason or another don't anymore. I thought I'd keep them here as honorable mentions.
-
-## Productivity
-
-[Moom](https://manytricks.com/moom/) (Mac)
-* Great app for resizing windows
-* But why pay for something when there are so many FOSS alternatives
-
-## Text Editors
-
-[Notepad ++](https://notepad-plus-plus.org/) (Ninite)
-* Honorable mention but almost completely replaced by Sublime Text
-
-[Atom](https://atom.io/)
-* I've used this but prefer the others, so rarely go back to it
-
-#### Editting Markdown
-
-[Zettlr](https://www.zettlr.com/)
-* I've recently started using this and like it so far.
-* I don't like how it defaults to asking you to name a file for a new file but you can turn that off in the preferences
-
-[Mark Text](https://marktext.app/)
-* Here's the other one I use a lot. I recommend them both, about equally.
-
-## Malware Protection
-
-[Avast](https://www.avast.com/en-us/index#pc) (Ninite)
-* The free version has so many obnoxious popups it's basically adware. So you install adware to avoid malware, most of which is adware... I guess I'm supposed to buy the paid version. It's hard to know how good your anti-virus software is.
-
-## VPN
-
-[Windscribe](https://windscribe.com/)
-* I do not have a favorite VPN and I've tried many, both paid and free.
-
-Mozilla also released a VPN that I've started using a bit
-
-## Cloud Storage
-[Pcloud Drive](https://www.pcloud.com/download-free-online-cloud-file-storage.html)
-* Not as good as the others so I stopped using it as much
 
