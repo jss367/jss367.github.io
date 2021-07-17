@@ -140,11 +140,6 @@ Yes, I do use many different cloud services. All for slightly different purposes
 * Right now it's VSCode and I'm very happy with it. I have used many of the alternatives and, in general, I think there are a lot of good options, but I like VSCode.
 * Configuring your IDE that way you like it is essential, and VSCode is incredibly extensible.
 
-[PyCharm](https://www.jetbrains.com/pycharm/)
-* Honorable mention
-* I used to use this but since VSCode has improved its remote support so much I haven't gone back
-* It is excellent though and I recommend it
-
 [RStudio](https://rstudio.com/)
 * The clear winner in my opinion for R IDE, although I don't use R much anymore so this could no longer be true
 
