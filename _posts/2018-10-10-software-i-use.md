@@ -24,6 +24,17 @@ I'm always curious about how people set up their computers and what software pac
 * Really good but I just don't use it that much anymore
 * Good for long-term memory stuff, storing pictures (like receipts)
 
+## Office Suite
+
+[Google Docs](https://www.google.com/docs/about/)
+* Don't love it, but great for sharing and multi-person editing
+
+[Google Slides](https://www.google.com/slides/about/)
+* I prefer Excel, but it's free and I don't use spreadsheets enough to buy Excel
+
+[LibreOffice](https://www.libreoffice.org/) (FOSS, Ninite)
+* I prefer this to Google's offerings but I don't use this very much anymore.
+
 ## Utilities
 
 ### File Management
@@ -190,17 +201,6 @@ As you can see, I'm strewn across half a dozen terminals in Windows and have fou
 * You can also [install it on Windows](https://winsmarts.com/running-oh-my-zsh-on-windows-10-6fcb0fbc736b)
 * Overall, I like it. Easy to customize
 
-# Office Suite
-
-[Google Docs](https://www.google.com/docs/about/)
-* Don't love it, but great for sharing and multi-person editing
-
-[Google Slides](https://www.google.com/slides/about/)
-* I prefer Excel, but it's free and I don't use spreadsheets enough to buy Excel
-
-[LibreOffice](https://www.libreoffice.org/) (FOSS, Ninite)
-* I prefer this to Google's offerings but I don't use this very much anymore.
-
 # Security
 
 ## Malware Protection
@@ -213,10 +213,6 @@ I have no loyalty to any of these. I usually just go with the top free one recom
 
 [Bitwarden](https://bitwarden.com/)
 * I feel like I've finally found the password manager that I've been looking for. Does what I want without being obnoxious
-
-Honorable mentions:
-* [KeePass 2](https://keepass.info/) (FOSS, Ninite)
-* [Dashlane](https://www.dashlane.com/) (paid) - Lots of features but can be very annoying. Not good at interpreting input fields
 
 ## Managing Updates
 
