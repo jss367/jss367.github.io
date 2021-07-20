@@ -6,7 +6,7 @@ thumbnail: "assets/img/glass_ball.jpg"
 tags: [Linux, Mac, Windows]
 ---
 
-I'm always curious about how people set up their computers and what software packages they have, so I thought I would share mine. So you know where I'm coming from, I use Windows, Mac, and Linux nearly every day. Part of my goal is to make transitioning between these systems as seemless as possible, but the exact setup varies by operating system. For those of you on Windows, many of these can be installed with [Ninite](https://ninite.com/).
+I'm always curious about how people set up their computers and what software packages they have, so I thought I would share mine. So you know where I'm coming from, I use Windows, Mac, and Linux nearly every day. Part of my goal is to make transitioning between these systems as seemless as possible, but the exact setup varies by operating system. For those of you on Windows, many of these can be installed with [Ninite](https://ninite.com/). I do a pretty good job of keeping this list up-to-date, so it should reflect pretty well my recommendations for current software.
 
 <b>Table of contents</b>
 * TOC
@@ -64,6 +64,10 @@ Still looking for one on Windows that I like
 
 For a mac I just use the built-in tool
 - Note that if you want to select just a part of your screen, you should use `command + shift + 4`, then if you want to copy it straight to your clipboard (so you can paste it), hold `control` while you draw the outline
+
+### Package Managers
+[Homebrew](https://brew.sh/) (Mac)
+* By far the best pacakge manager for MacOS
 
 ### Unzipping
 [7-Zip](https://www.7-zip.org/download.html) (Ninite)
@@ -195,6 +199,16 @@ As you can see, I'm strewn across half a dozen terminals in Windows and have fou
 * Manage it with [Oh My Zsh](https://ohmyz.sh/)
 * You can also [install it on Windows](https://winsmarts.com/running-oh-my-zsh-on-windows-10-6fcb0fbc736b)
 * Overall, I like it. Easy to customize
+* Also [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) is great
+
+## Terminal Add-ons
+[Pygments](https://pygments.org/)
+* Syntax highlighter
+* I use it so often I alias it to the letter "c"
+* it's like `cat` but with colors
+
+[Autojump](https://github.com/wting/autojump)
+* This is the best way to get around a Unix terminal
 
 # Security
 
