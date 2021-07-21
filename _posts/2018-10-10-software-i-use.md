@@ -6,7 +6,7 @@ thumbnail: "assets/img/glass_ball.jpg"
 tags: [Linux, Mac, Windows]
 ---
 
-I'm always curious about how people set up their computers and what software packages they have, so I thought I would share mine. I use Windows, Mac, and Linux, so the exact setup varies by operating system. For those of you on Windows, many of these can be installed with [Ninite](https://ninite.com/).
+I'm always curious about how people set up their computers and what software packages they have, so I thought I would share mine. So you know where I'm coming from, I use Windows, Mac, and Linux nearly every day. Part of my goal is to make transitioning between these systems as seemless as possible, but the exact setup varies by operating system. For those of you on Windows, many of these can be installed with [Ninite](https://ninite.com/). I do a pretty good job of keeping this list up-to-date, so it should reflect pretty well my recommendations for current software.
 
 <b>Table of contents</b>
 * TOC
@@ -23,6 +23,17 @@ I'm always curious about how people set up their computers and what software pac
 [Evernote](https://evernote.com/) (Ninite)
 * Really good but I just don't use it that much anymore
 * Good for long-term memory stuff, storing pictures (like receipts)
+
+## Office Suite
+
+[Google Docs](https://www.google.com/docs/about/)
+* Don't love it, but great for sharing and multi-person editing
+
+[Google Slides](https://www.google.com/slides/about/)
+* I prefer Excel, but it's free and I don't use spreadsheets enough to buy Excel
+
+[LibreOffice](https://www.libreoffice.org/) (FOSS, Ninite)
+* I prefer this to Google's offerings but I don't use this very much anymore.
 
 ## Utilities
 
@@ -50,7 +61,13 @@ Still looking for one on Windows that I like
 ### Screenshots
 [Greenshot](https://getgreenshot.org/) (FOSS, Windows)
 - Good improvement to Windows' default screenshot tool
-- For a mac I just use the built-in tool
+
+For a mac I just use the built-in tool
+- Note that if you want to select just a part of your screen, you should use `command + shift + 4`, then if you want to copy it straight to your clipboard (so you can paste it), hold `control` while you draw the outline
+
+### Package Managers
+[Homebrew](https://brew.sh/) (Mac)
+* By far the best pacakge manager for MacOS
 
 ### Unzipping
 [7-Zip](https://www.7-zip.org/download.html) (Ninite)
@@ -96,10 +113,13 @@ Yes, I do use many different cloud services. All for slightly different purposes
 
 ## Productivity
 
-[Moom](https://manytricks.com/moom/) (Mac)
-* Great app for resizing windows
+[Rectangle](https://rectangleapp.com/) (FOSS, Mac only)
+* Makes moving and resizing windows easy on a Mac
+* Here are the default hot keys
 
-[Alfred](https://www.alfredapp.com/) (Mac)
+![png]({{site.baseurl}}/assets/img/rectangle_defaults.png)
+
+[Alfred](https://www.alfredapp.com/) (Mac only)
 * In the running for one of the best productivity apps in existence
 * This is probably my favorite app for the Mac
 * Can be as simple or complex as you like
@@ -123,11 +143,6 @@ Yes, I do use many different cloud services. All for slightly different purposes
 [VSCode](https://code.visualstudio.com/) (Ninite)
 * Right now it's VSCode and I'm very happy with it. I have used many of the alternatives and, in general, I think there are a lot of good options, but I like VSCode.
 * Configuring your IDE that way you like it is essential, and VSCode is incredibly extensible.
-
-[PyCharm](https://www.jetbrains.com/pycharm/)
-* Honorable mention
-* I used to use this but since VSCode has improved its remote support so much I haven't gone back
-* It is excellent though and I recommend it
 
 [RStudio](https://rstudio.com/)
 * The clear winner in my opinion for R IDE, although I don't use R much anymore so this could no longer be true
@@ -168,6 +183,7 @@ In Windows, I use a mix, mostly because none of them are perfect. Here's a case 
 
 [Ubuntu terminal](https://ubuntu.com/tutorials/tutorial-ubuntu-on-windows#1-overview)
 * Still a work in progress. Gets better all the time but still has room for improvement.
+* Update: This has gotten much better. I'm now using this with zsh like I do on my Mac and am liking it a lot.
 
 As you can see, I'm strewn across half a dozen terminals in Windows and have found the one on Mac. For me, nothing beats iTerm2.
 
@@ -183,17 +199,16 @@ As you can see, I'm strewn across half a dozen terminals in Windows and have fou
 * Manage it with [Oh My Zsh](https://ohmyz.sh/)
 * You can also [install it on Windows](https://winsmarts.com/running-oh-my-zsh-on-windows-10-6fcb0fbc736b)
 * Overall, I like it. Easy to customize
+* Also [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) is great
 
-# Office Suite
+## Terminal Add-ons
+[Pygments](https://pygments.org/)
+* Syntax highlighter
+* I use it so often I alias it to the letter "c"
+* it's like `cat` but with colors
 
-[Google Docs](https://www.google.com/docs/about/)
-* Don't love it, but great for sharing and multi-person editing
-
-[Google Slides](https://www.google.com/slides/about/)
-* I prefer Excel, but it's free and I don't use spreadsheets enough to buy Excel
-
-[LibreOffice](https://www.libreoffice.org/) (FOSS, Ninite)
-* I prefer this to Google's offerings but I don't use this very much anymore.
+[Autojump](https://github.com/wting/autojump)
+* This is the best way to get around a Unix terminal
 
 # Security
 
@@ -207,10 +222,6 @@ I have no loyalty to any of these. I usually just go with the top free one recom
 
 [Bitwarden](https://bitwarden.com/)
 * I feel like I've finally found the password manager that I've been looking for. Does what I want without being obnoxious
-
-Honorable mentions:
-* [KeePass 2](https://keepass.info/) (FOSS, Ninite)
-* [Dashlane](https://www.dashlane.com/) (paid) - Lots of features but can be very annoying. Not good at interpreting input fields
 
 ## Managing Updates
 
@@ -318,6 +329,8 @@ Honorable mentions:
 * The best app for keeping track of scientific papers
 * Definitely use the browser extensions as well
 
+## New Tab Page
+[Start.me](https://start.me/)
 
 ## Evaluating
 
@@ -394,42 +407,4 @@ You'll want to make sure you used markdown-extended:
 View -> Syntax -> Markdown Extended
 but this only applies it to one file.
 
-# Decommissioned
 
-These are apps I used to use but for one reason or another don't anymore. I thought I'd keep them here as honorable mentions.
-
-## Text Editors
-
-[Notepad ++](https://notepad-plus-plus.org/) (Ninite)
-* Honorable mention but almost completely replaced by Sublime Text
-
-[Atom](https://atom.io/)
-* I've used this but prefer the others, so rarely go back to it
-
-#### Editting Markdown
-
-[Zettlr](https://www.zettlr.com/)
-* I've recently started using this and like it so far.
-* I don't like how it defaults to asking you to name a file for a new file but you can turn that off in the preferences
-
-[Mark Text](https://marktext.app/)
-* Here's the other one I use a lot. I recommend them both, about equally.
-
-## Malware Protection
-
-[Avast](https://www.avast.com/en-us/index#pc) (Ninite)
-* The free version has so many obnoxious popups it's basically adware. So you install adware to avoid malware, most of which is adware... I guess I'm supposed to buy the paid version. It's hard to know how good your anti-virus software is.
-
-## VPN
-
-[Windscribe](https://windscribe.com/)
-* I do not have a favorite VPN and I've tried many, both paid and free.
-
-Mozilla also released a VPN that I've started using a bit
-
-## Cloud Storage
-[Pcloud Drive](https://www.pcloud.com/download-free-online-cloud-file-storage.html)
-* Not as good as the others so I stopped using it as much
-
-## New Tab Page
-https://start.me/
