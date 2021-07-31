@@ -1,18 +1,19 @@
 
+This post walks through my recommended shell setup.
 
 ## Oh My Zsh
 
-I recommend people use [Oh My Zsh](https://ohmyz.sh/)
+I recommend people use [Oh My Zsh](https://ohmyz.sh/).
 
+* I usually leave the theme as `ZSH_THEME="robbyrussell"`
 
-I usually leave the theme as `ZSH_THEME="robbyrussell"`
+* Then I create a profile and put in it `~/.oh-my-zsh/custom/profile.zsh`
 
+* That profile just says `source ~/.profile`
 
-Then I create a profile and put in it `~/.oh-my-zsh/custom/profile.zsh`
+* Then my detailed profile actually goes in `~/.profile`. Here are some things I recommend.
 
-That profile just says `source ~/.profile`
-
-Then my detailed profile actually goes in `~/.profile`. Here are some things I recommend.
+* To facilitate sharing my profile, I recommend making a separate file called something like `.my_credentials` and putting your passwords there so you can use them as environment variables.
 
 ```
 # general aliases
