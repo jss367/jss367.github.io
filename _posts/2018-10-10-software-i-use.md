@@ -418,7 +418,7 @@ but this only applies it to one file.
 
 I customize Terminator to make it more like iTerm2. To customize it, you'll need to right click on the window then select "Preferences". Then go into Keybindings.
 Here are some things I like to change:
-* close_window
+* close_term
 * new_window
 * split_horiz
 * split_vert
