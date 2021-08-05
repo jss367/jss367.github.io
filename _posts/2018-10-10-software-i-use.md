@@ -365,10 +365,10 @@ I don't like the way Sublime handles tabs, so I change it to make it more like C
 (Mac) Sublime Text -> Preferences -> Key Bindings
 
 Then add this to the file:
-
+```
 { "keys": ["ctrl+tab"], "command": "next_view" },
 { "keys": ["ctrl+shift+tab"], "command": "prev_view" }
-
+```
 #### Markdown Files
 
 I don't particularly like the way Sublime handles markdown files by default, so I change them. The exact menu location will depend on your operation system, but they're not too different.
