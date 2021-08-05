@@ -373,6 +373,7 @@ Then add this to the file:
 I don't particularly like the way Sublime handles markdown files by default, so I change them. The exact menu location will depend on your operation system, but they're not too different.
 * On a Mac, go into Preferences -> Settings -> Syntax Specific (Mac)
 * On Linux, go into Preferences -> Settings - Syntax Specific
+
 ![png]({{site.baseurl}}/assets/img/sublime_linux_settings.png)
 
 add this:
