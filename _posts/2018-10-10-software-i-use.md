@@ -341,9 +341,9 @@ I have no loyalty to any of these. I usually just go with the top free one recom
 
 [PowerToys](https://docs.microsoft.com/en-us/windows/powertoys/) (Windows)
 
-[GitKraken](https://www.gitkraken.com/)
-* Seems good so far, although the free version doesn't work for private repos.
-
+[Mamba](https://github.com/mamba-org/mamba)
+* Might become my new package manager
+ 
 [CyberDuck](https://cyberduck.io/)
 
 [HyperSwitch](https://bahoom.com/hyperswitch)
