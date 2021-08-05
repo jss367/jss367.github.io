@@ -370,7 +370,12 @@ Then add this to the file:
 
 #### Markdown Files
 
-I don't particularly like the way Sublime handles markdown files by default, so I go into Preferences -> Settings -> Syntax Specific (Mac) and add this:
+I don't particularly like the way Sublime handles markdown files by default, so I change them. The exact menu location will depend on your operation system, but they're not too different.
+* On a Mac, go into Preferences -> Settings -> Syntax Specific (Mac)
+* On Linux, go into Preferences -> Settings - Syntax Specific
+
+
+add this:
 ```
 {
 	"color_scheme": "Monokai.sublime-color-scheme",
