@@ -34,7 +34,7 @@ So, how do you calculate it? You have to change the threshold to keep increasing
 
 The way to do this in practice is to rank the detections by confidence and start with the highest confidence and see if that's a true positive or false negative, then calculate the precision and recall based on that then plot the point. Then drop to the next highest confidence and repeat.
 
-$$ AveP} = \int_0^1 p(r)dr $$
+$$ \text{AveP} = \int_0^1 p(r)dr $$
 
 OK, so you know that "Average Precision", or AP, is the area under the precision-recall curve. AP is between 0 and 100, with higher numbers better. Now let's go one step further. 
 
