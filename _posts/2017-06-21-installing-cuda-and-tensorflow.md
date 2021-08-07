@@ -7,6 +7,10 @@ tags: [CUDA, TensorFlow]
 
 This tutorial explains how get your NVIDIA graphics card working with for deep learning.
 
+<b>Table of contents</b>
+* TOC
+{:toc}
+
 ## Hardware Requirements
 
 Before you start, you'll want to make sure that your graphics card is properly installed and compatible with CUDA. 
