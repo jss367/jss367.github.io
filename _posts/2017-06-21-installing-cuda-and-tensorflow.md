@@ -27,7 +27,7 @@ python -c "import tensorflow as tf; print('tf version:', tf.__version__); print(
 
 If it says `Num GPU devices: 0` then your GPUs are not being recognized.
 
-![png](assets/torch.png)
+![png](assets/img/zero_gpus.png)
 
 
 #### CUDA version
@@ -292,7 +292,7 @@ Make sure you have gcc:
 
 `print(torch.__config__.show())`
 
-![png](assets/torch.png)
+![png](assets/img/torch.png)
 
 ## Still stuck
 
