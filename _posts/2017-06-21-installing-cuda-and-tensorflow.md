@@ -20,26 +20,7 @@ Then, make sure it is on this list: <https://developer.nvidia.com/cuda-gpus>
 
 Sometimes you'll get stuck somewhere in the middle, unsure of what actually installed correctly. You don't want to start from the beginning because you don't want to have multiple versions conflicting, but you don't know what you need to do next. That's why I want to start this off with some ways for you to figure out exactly where you are in the process first.
 
-Here's a good one-liner for this:
-```
-python -c "import tensorflow as tf; print('tf version:', tf.__version__); print('Num GPU devices: ', len(tf.config.list_physical_devices('GPU')))"
-```
-
-If it says `Num GPU devices: 0` then your GPUs are not being recognized.
-
-![png](assets/img/zero_gpus.png)
-
-One of the most common problems is version incompatibility, so we'll dig into that.
-
-## Compatibility
-
-This is a big deal in all this.
-
-#### CUDA and Tensorflow and cuDNN
-
-Tensorflow maintains [this chart](https://www.tensorflow.org/install/source#gpu) with the latest compatibility information.
-
-#### NVIDIA-smi
+#### Are GPUs Installed
 
 type `nvidia-smi` and see if everything there is as you expect
 
@@ -76,6 +57,28 @@ Tue Feb  2 15:05:43 2021
 +-----------------------------------------------------------------------------+
 ```
 > Note: The CUDA Version displayed isn't there isn't necessarily the version you have. It's the highest version that your driver can support.
+
+#### Can TensorFlow Detect GPUs
+
+Here's a good one-liner for this:
+```
+python -c "import tensorflow as tf; print('tf version:', tf.__version__); print('Num GPU devices: ', len(tf.config.list_physical_devices('GPU')))"
+```
+
+If it says `Num GPU devices: 0` then your GPUs are not being recognized.
+
+![png](assets/img/zero_gpus.png)
+
+One of the most common problems is version incompatibility, so we'll dig into that.
+
+## Compatibility
+
+Version incompatibility is probably the biggest source of problems  This is a big deal in all this.
+
+#### CUDA and Tensorflow and cuDNN
+
+Tensorflow maintains [this chart](https://www.tensorflow.org/install/source#gpu) with the latest compatibility information.
+
 
 
 #### CUDA version
@@ -170,16 +173,7 @@ Using these sites:
 http://blog.nitishmutha.com/tensorflow/2017/01/22/TensorFlow-with-gpu-for-windows.html
 
 
-https://www.tensorflow.org/install/install_windows - can I update this documentation? Is it open source?
 
-
-
-To check your version:
-
-Open a python console
-``` python
-import tensorflow as tf
-tf.__version__
 ```
 Then to upgrade it, `pip install tensorflow --upgrade`
 
