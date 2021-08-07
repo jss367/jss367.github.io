@@ -270,10 +270,14 @@ I have no loyalty to any of these. I usually just go with the top free one recom
 
 [Google Hangouts](https://hangouts.google.com/)
 
-# Photography
+# Image Editing
+[Adobe Lightroom](https://www.adobe.com/products/photoshop-lightroom.html) (Windows, Mac)
+* As much as I'd like to say GIMP is just as good, it's no match for the features of Lightroom. For someone who spends serious time editing photos, I don't think there's a better alternative.
 
-[Adobe Lightroom](https://www.adobe.com/products/photoshop-lightroom.html)
-* As much as I'd like to say [GIMP](https://www.gimp.org/ ) is just as good, it's no match for the features of Lightroom. For someone who spends serious time editing photos, I don't think there's a better alternative.
+[GIMP](https://www.gimp.org/)  (Linux)
+* The Paint program I like on Windows doesn't exist for Linux, so I use GIMP instead.
+
+# Photography
 
 [Image Composite Editor](https://www.microsoft.com/en-us/research/project/image-composite-editor/)
 * Free tool from Microsoft to stitch images for panoramas. Works better than Lightroom
