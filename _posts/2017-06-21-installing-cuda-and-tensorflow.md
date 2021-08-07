@@ -29,44 +29,15 @@ If it says `Num GPU devices: 0` then your GPUs are not being recognized.
 
 ![png](assets/img/zero_gpus.png)
 
+One of the most common problems is version incompatibility, so we'll dig into that.
 
-#### CUDA version
+## Compatibility
 
-`cat /usr/local/cuda/version.txt`
+This is a big deal in all this.
 
-You can see what versions of CUDA are avilable:
+#### CUDA and Tensorflow and cuDNN
 
-`conda search cudatoolkit`
-
-You can also find your version by opening a command prompt and enter `nvcc -V`
-
-```
-(tf) julius@julius-MS-7B09:~/git$ nvcc --version
-nvcc: NVIDIA (R) Cuda compiler driver
-Copyright (c) 2005-2019 NVIDIA Corporation
-Built on Sun_Jul_28_19:07:16_PDT_2019
-Cuda compilation tools, release 10.1, V10.1.243
-```
-
-
-
-#### cuDNN version
-
-It's probably here:
-
-`cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2`
-
-But if you're not sure you can check here:
-`cat $(whereis cudnn.h) | grep CUDNN_MAJOR -A 2`
-
-`cat $(whereis cuda)/include/cudnn.h | grep CUDNN_MAJOR -A 2`
-
-###### Windows
-
-If you're on Windows you should be able to find them here:
-`C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include`
-
-You can also type this: `where cudnn*`
+Tensorflow maintains [this chart](https://www.tensorflow.org/install/source#gpu) with the latest compatibility information.
 
 #### NVIDIA-smi
 
@@ -107,13 +78,48 @@ Tue Feb  2 15:05:43 2021
 > Note: The CUDA Version displayed isn't there isn't necessarily the version you have. It's the highest version that your driver can support.
 
 
-## Compatibility
+#### CUDA version
 
-This is a big deal in all this.
+`cat /usr/local/cuda/version.txt`
 
-#### CUDA and Tensorflow and cuDNN
+You can see what versions of CUDA are avilable:
 
-Tensorflow maintains [this chart](https://www.tensorflow.org/install/source#gpu) with the latest compatibility information.
+`conda search cudatoolkit`
+
+You can also find your version by opening a command prompt and enter `nvcc -V`
+
+```
+(tf) julius@julius-MS-7B09:~/git$ nvcc --version
+nvcc: NVIDIA (R) Cuda compiler driver
+Copyright (c) 2005-2019 NVIDIA Corporation
+Built on Sun_Jul_28_19:07:16_PDT_2019
+Cuda compilation tools, release 10.1, V10.1.243
+```
+
+
+
+#### cuDNN version
+
+It's probably here:
+
+`cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2`
+
+But if you're not sure you can check here:
+`cat $(whereis cudnn.h) | grep CUDNN_MAJOR -A 2`
+
+`cat $(whereis cuda)/include/cudnn.h | grep CUDNN_MAJOR -A 2`
+
+###### Windows
+
+If you're on Windows you should be able to find them here:
+`C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include`
+
+You can also type this: `where cudnn*`
+
+
+
+
+
 
 ## Instructions with Anaconda
 
