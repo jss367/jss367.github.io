@@ -8,6 +8,10 @@ tags: [Python]
 
 The most frequently used evaluation metric for object detection is "Average Precision (AP)". But, despite the attempts of well-intentioned researchers to create a single metric for comparing models, no single metric is the right one for all the cases. Thus the landscape of metrics has become filled with small variations on the idea of average precision. This post aims to clarify those variations.
 
+<b>Table of contents</b>
+* TOC
+{:toc}
+
 ## Precision and Recall
 
 Before we can get into average precision, we'll have to start with **precision** and **recall**. These are two of the most important metrics when evaluating the quality of a statistical model. They are particularly useful because they are both mathematically rigorous and have intuitive meanings. Imagine any model that classifies inputs are either "positive" or "negative". Precision asks, "Out of all the times the model said the input was positive, what percentage were correct?" Recall asks "Out of all the times there was a positive, what percentage were found by the model?" Mathematically, they are calculated by looking at the number of **true positives**, **false positives**, and **false negatives** as follows:
@@ -49,7 +53,7 @@ The final thing to introduce is the notion of multiple thresholds. Sometimes you
 
 Instead of using a fixed IoU threshold, MS-COCO AP is averaged over multiple IoU thresholds between 0.5 (coarse localization) and 0.95 (near-perfect localization). So you get 10 different values. The mean of those values is the **AP@[0.5:0.95]**. This change of the metric has encouraged more accurate object localization and may be of great importance for some real-world applications. This is the most common metric for COCO evaluation and is written as **mAP@(0.5:0.95)**.
 
-## Research Usecases
+## Research Use Cases
 
 A lot of papers will use both statistics. Here's an example Faster R-CNN showing both:
 
@@ -103,6 +107,6 @@ Note that this is a generalization of FBeta
 $$ F_\beta = (1 + \beta^2) \cdot \frac{\mathrm{precision} \cdot \mathrm{recall}}{(\beta^2 \cdot \mathrm{precision}) + \mathrm{recall}} $$
 
 
-## Other attempts
+## Other Metrics
 
 The question of which metrics to use isn't a settled one. In fact, researchers are working on new approaches, like [Localization Recall Precision](https://arxiv.org/pdf/1807.01696), but they haven't seen widespread adoption.
