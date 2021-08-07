@@ -363,20 +363,20 @@ Unzip it
 
 
 
-<installpath>\cuda\bin\cudnn*.dll to C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\vx.x\bin
-
+`<installpath>\cuda\bin\cudnn*.dll to C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\vx.x\bin`
 
 If you downloaded it to Downloads, after you extract it
 
 
-C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2
+`C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2`
 
 
 it will look like this
 
-
+``
 cp C:\Users\Julius\Downloads
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2
+``
 
 It'll extract to C:\Users\Julius\Downloads\cudnn-11.2-windows-x64-v8.1.1.33
 
@@ -393,9 +393,8 @@ It'll extract to C:\Users\Julius\Downloads\cudnn-11.2-windows-x64-v8.1.1.33
 ```
 
 Then set your environment variables
-
-Do the system variables not the user ones
-This might already be done but ensure that it is
+* Do the system variables not the user ones
+* This might already be done but ensure that it is
 
 
 
