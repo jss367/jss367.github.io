@@ -5,45 +5,29 @@ feature-img: "assets/img/rainbow.jpg"
 tags: [CUDA, TensorFlow]
 ---
 
-
-CUDA used to be an acronym for Compute Inified Device Architecture, but now it's no longer an acronym. It's just CUDA.
-
 This tutorial explains how get your NVIDIA graphics card working with for deep learning.
-
 
 ## Hardware Requirements
 
-Before you start, you'll want to make sure that your graphics card is compatible with CUDA. 
-
-
-First, make sure your graphics card is installed properly and allows CUDA. You can either check your graphics card with the DirectX Diagnostic Tool
-
-
-
-If you're on Windows, you can use a tool like [Speccy](https://www.ccleaner.com/speccy).
+Before you start, you'll want to make sure that your graphics card is properly installed and compatible with CUDA. 
+* To find your graphics card, type `nvidia-smi`
+* If you're on Windows, you can use a tool like [Speccy](https://www.ccleaner.com/speccy).
 
 Then, make sure it is on this list: <https://developer.nvidia.com/cuda-gpus>
-
-
-
-#### Verify that there aren't conflicting drivers (Linux only)
-
-verify you have CUDA-enabled GPU:
-
-You should see something saying "NVIDIA" when you do:
-
-`lspci | grep -i nvidia`
-
-But you shouldn't see anything from:
-
-`lsmod | grep nouveau` 
-
-If you do, you'll need to remove it
 
 
 ## See where you are
 
 Sometimes you'll get stuck somewhere in the middle, unsure of what actually installed correctly. You don't want to start from the beginning because you don't want to have multiple versions conflicting, but you don't know what you need to do next. That's why I want to start this off with some ways for you to figure out exactly where you are in the process first.
+
+Here's a good one-liner for this:
+```
+python -c "import tensorflow as tf; print('tf version:', tf.__version__); print('Num GPU devices: ', len(tf.config.list_physical_devices('GPU')))"
+```
+
+If it says `Num GPU devices: 0` then your GPUs are not being recognized.
+
+![png](assets/torch.png)
 
 
 #### CUDA version
@@ -122,13 +106,6 @@ Tue Feb  2 15:05:43 2021
 ```
 > Note: The CUDA Version displayed isn't there isn't necessarily the version you have. It's the highest version that your driver can support.
 
-
-#### Can TensorFlow see the GPUs?
-
-Here's a good one-liner for this:
-```
-python -c "import tensorflow as tf; print('tf version:', tf.__version__); print('Num GPU devices: ', len(tf.config.list_physical_devices('GPU')))"
-```
 
 ## Compatibility
 
