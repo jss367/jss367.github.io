@@ -85,12 +85,18 @@ You can also search for file types, such as:
 
 ### grep
 
-`grep` is a great tool. Here are the flags I use most often:
+`grep` is a great tool. The basic usage is grep [flags] [pattern] [filename]
+
+Here are the flags I use most often:
 ```
 -i ignore case
 -n show line numbers
 -r recursive (search in folders); capitalize to add symlinks
 ```
+
+Here's a way to find all the files with the word "tensorflow":
+
+`git grep -irl 'tensorflow' .`
 
 Let's look at a `grep` command. Here's one I find particularly useful:
 
