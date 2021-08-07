@@ -164,14 +164,14 @@ Then install the CUDA Toolkit: https://developer.nvidia.com/cuda-downloads
 If you want an older version, you can go here: https://developer.nvidia.com/cuda-10.1-download-archive-base
 After you input your operation system information, you have the option of downloading either the network or local installer. Either will work. " The Network Installer allows you to download only the files you need. The Local Installer is a stand-alone installer with a large initial download."
 
-Here's an example extraction path: C:\Users\Julius\AppData\Local\Temp\CUDA
+Here's an example extraction path: `C:\Users\Julius\AppData\Local\Temp\CUDA`
 
 
 OK, now let's see if that worked by running `nvcc --version`
 
 
 
-Then, run deviceQuery.exe
+Then, run `deviceQuery.exe`
 
 You should find it somewhere like `C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\extras\demo_suite`
 
