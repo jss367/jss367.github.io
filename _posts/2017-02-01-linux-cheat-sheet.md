@@ -96,7 +96,7 @@ Here are the flags I use most often:
 
 Here's a way to find all the files with the word "tensorflow":
 
-`git grep -irl 'tensorflow' .`
+`grep -irl 'tensorflow' .`
 
 Let's look at a `grep` command. Here's one I find particularly useful:
 
