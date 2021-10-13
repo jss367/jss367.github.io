@@ -305,6 +305,10 @@ I have no loyalty to any of these. I usually just go with the top free one recom
 
 [Inkscape](https://inkscape.org/) (FOSS, Ninite)
 
+[Excalidraw](https://excalidraw.com/) (FOSS)
+* Can download it but also words directly on the website
+* Super simple to use
+
 [Docker](https://www.docker.com/)
 * Still a pain on Windows Home. Wonderful for Linux and Mac
 
