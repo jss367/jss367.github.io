@@ -2,7 +2,7 @@
 layout: post
 title: "Where to Find Datasets"
 description: "This post list some good places for finding datasets"
-thumbnail: "assets/img/uluru.jpg"
+thumbnail: "assets/img/black-necked_stilts.jpg"
 feature-img: "assets/img/rainbow.jpg"
 tags: [Data]
 ---
