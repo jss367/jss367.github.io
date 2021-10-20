@@ -6,6 +6,10 @@ thumbnail: "assets/img/glass_ball.jpg"
 tags: [Linux, Mac, Windows]
 ---
 
+<b>Table of contents</b>
+* TOC
+{:toc}
+
 ## Sublime
 
 #### Tabs
@@ -82,4 +86,4 @@ I did the same thing with tabs in VSCode. Here's how to do that:
 
 ![png]({{site.baseurl}}/assets/img/vscode_keyboard_shortcuts_windows.png)
 
-The ones you're look for are ``workbench.action.nextEditor` and `workbench.action.previousEditor`.
+The ones you're look for are `workbench.action.nextEditor` and `workbench.action.previousEditor`.
