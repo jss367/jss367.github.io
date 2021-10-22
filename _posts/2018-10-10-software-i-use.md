@@ -48,7 +48,7 @@ I'm always curious about how people set up their computers and what software pac
 * Might become my new file explorer for Mac
 * You might need to customize the hot keys
 
-
+![png]({{site.baseurl}}/assets/img/path_finder_options.png)
 
 [Files](https://github.com/files-community/Files) (FOSS, Windows)
 * I recently started using this on Windows and like it
