@@ -37,11 +37,18 @@ I'm always curious about how people set up their computers and what software pac
 
 ## Utilities
 
-### File Management
+### File Explorer
 
 [Commander One](https://mac.eltima.com/file-manager.html) (Mac only)
 * Dual-panel file explorer
 * *Much* better than Finder
+
+[Path Finder](https://cocoatech.com/) (Mac only)
+* Dual-panel file explorer
+* Might become my new file explorer for Mac
+* You might need to customize the hot keys
+
+
 
 [Files](https://github.com/files-community/Files) (FOSS, Windows)
 * I recently started using this on Windows and like it
@@ -50,8 +57,6 @@ I'm always curious about how people set up their computers and what software pac
 [muCommander](https://www.mucommander.com/)
 * More lightweight than Commander One, so I'm starting to prefer it
 * [This website](https://logicgrimoire.wordpress.com/2013/11/15/richs-quick-and-easy-guide-to-file-management-with-mucommander/) offers good tips on how to get started with it
-
-Still looking for one on Windows that I like
 
 ### Searching for files
 [Agent Ransack](https://www.mythicsoft.com/agentransack/) (Windows)
