@@ -256,6 +256,11 @@ or
 
 See how I use it to [prepare Jupyter Notebooks for my blog](https://jss367.github.io/preparing-jupyter-notebooks-for-my-blog.html).
 
+If you want to publish the notebook without code, you can also do this:
+
+`jupyter nbconvert --to markdown --no-input mynotebook.ipynb`
+
+
 # Little Tricks
 
 ## Splitting Cells
