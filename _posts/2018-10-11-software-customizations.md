@@ -10,7 +10,19 @@ tags: [Linux, Mac, Windows]
 * TOC
 {:toc}
 
-## Sublime
+## Sublime Text
+
+#### External Packages
+
+Sublime Text has a great ecosystem of packages and plugins. Here's how to open the package manager:
+* `cmd` + `shift` + `p`
+
+###### Package
+
+Here are some packages that I like
+* https://packagecontrol.io/packages/FileDiffs
+
+
 
 #### Tabs
 
