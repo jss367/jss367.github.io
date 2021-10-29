@@ -8,7 +8,7 @@ thumbnail: "assets/img/apple.jpg"
 
 Apple's M1 chips were released to much fanfare and some [very impressive benchmarks](https://www.cpubenchmark.net/cpu.php?cpu=Apple+M1+8+Core+3200+MHz&id=4104). Unfortunately, all these gains don't come for free. The downside of such a significant change is that it causes incompatibility issues. And because the basic CPU and instruction set are different, there are a lot of thorny issues. In this post, I'll walk through some I ran into when installing standard data science libraries and how I solved them. In the end, I was able to get everything working, although it took quite a bit of patience. Hopefully, these incompatibilities get resolved relatively soon, but, until then, here's my guide to help you out.
 
-I expect this process to get easier over time, but at the moment it's tricky. At the moment, Anaconda and M1 Macs aren't compatible, so I recommend people start with [`miniforge`](https://github.com/conda-forge/miniforge), which is a community-driven (like `conda-forge`), minimalisitic (like `miniconda`), package installer.
+At the moment, Anaconda and M1 Macs aren't compatible, so I recommend people start with [`miniforge`](https://github.com/conda-forge/miniforge), which is a community-driven (like `conda-forge`), minimalisitic (like `miniconda`), package installer.
 
 You'll also need [Rosetta 2](https://support.apple.com/en-us/HT211861) (also sometimes just called Rosetta), which translates binaries written for Intel processors to be compatible with Apple's chips.
 
