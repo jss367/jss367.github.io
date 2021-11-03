@@ -35,11 +35,10 @@ I find it difficult to keep up with the latest in machine learning, even though 
 
 [ConnectedPapers](https://www.connectedpapers.com/)
 * Creates a graph of papers, so you can find research that is similar the initial paper
-* I love the idea, although I haven't actually used the site much
 
 ## Newsletters
 
-I'm not usually a newsletters guy, but for some reason I've found that there are excellent newsletters in the machine learning world. Here are the ones I use:
+I'm not usually a newsletters guy, but for some reason, I've found that there are excellent newsletters in the machine learning world. Here are the ones I use:
 
 [The Batch](https://www.deeplearning.ai/thebatch/)
 * Newsletter by Andrew Ng and his company, [deeplearning.ai](https://www.deeplearning.ai/)
@@ -116,8 +115,7 @@ I don't find as many helpful machine learning blogs as I would like. I'm sure th
 
 ## Twitter
 
-Twitter is probably not the best place to find the latest in machine learning research, but sometimes it's worth it. Instead of listing a bunch of recommendations here, I'll just point you to a [link of who I follow on Twitter](https://twitter.com/JuliusSimonelli/following). I don't use Twitter much for anything else (or at all) so *most* of the people I follow are associated with ML.
-
+Twitter is probably not the best place to find the latest in machine learning research, but sometimes it's worth it. The lifecycle of people posting about ML before they get distracted by other topics seems pretty short, so I'm don't have any good recommendations at the moment. Feel free to look at [who I follow on Twitter](https://twitter.com/JuliusSimonelli/following) for some suggestions.
 ## Reddit
 
 I don't go to reddit much for finding the latest in ML, but you can definitely find stuff there. Here are some of the subreddits I've subscribed to.
