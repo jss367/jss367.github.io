@@ -113,6 +113,8 @@ I don't find as many helpful machine learning blogs as I would like. I'm sure th
 
 <https://veredshwartz.blogspot.com/>
 
+<https://huyenchip.com/blog/>
+
 ## Twitter
 
 Twitter is probably not the best place to find the latest in machine learning research, but sometimes it's worth it. The lifecycle of people posting about ML before they get distracted by other topics seems pretty short, so I'm don't have any good recommendations at the moment. Feel free to look at [who I follow on Twitter](https://twitter.com/JuliusSimonelli/following) for some suggestions.
