@@ -69,6 +69,12 @@ Keep in mind that you can run all of the commands either from a terminal or from
 
 OK, now let's talk about some examples where you might need these.
 
+#### Removing kernels
+
+You can remove a kernel like so:
+
+`jupyter kernelspec uninstall my_kernel`
+
 ## Environment not showing up in Jupyter
 
 Let's say you have three conda environments: `py2`, `py3_env1` and `py3_env2`. You activate `py3_env1` and then started a Jupyter Notebook in your environment. You start a notebook and everything looks right. But when you try to import packages that you *know* are in `py3_env1`, they are missing. Confused, you check which environment you're in.
