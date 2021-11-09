@@ -1,19 +1,14 @@
+In this post, I'll talk about how I set up my shell and environment. I Use Windows, Mac, and Linux on a daily basis, so I have different setups for different purposes, but I try to make them similar when I can.
 
-This post walks through my recommended shell setup.
+I use [zsh](https://www.zsh.org/) as my main shell. It's now the default shell on Macs and I think deservedly so. I use [Oh My Zsh](https://ohmyz.sh/) to configure it and highly recommend it.
 
-## Oh My Zsh
+I store all of my environment variables in a `~/.profile` file. Then I source that file in whatever shell I'm using. This makes it much easier to work across a variety of environments.
 
-I recommend people use [Oh My Zsh](https://ohmyz.sh/).
+## My .profile Setup
 
-* I usually leave the theme as `ZSH_THEME="robbyrussell"`
+* I usually share my `.profile` with others in my company (or wherever I am) so that we can all share shortcuts. In order to do this without sharing passwords, I make a separate file called something like `.my_credentials` and export my credentials from there.
 
-* Then I create a profile and put in it `~/.oh-my-zsh/custom/profile.zsh`
 
-* That profile just says `source ~/.profile`
-
-* Then my detailed profile actually goes in `~/.profile`. Here are some things I recommend.
-
-* To facilitate sharing my profile, I recommend making a separate file called something like `.my_credentials` and putting your passwords there so you can use them as environment variables.
 
 ```
 # general aliases
@@ -34,7 +29,9 @@ alias lls='ls -GlAFhS'
 alias showpath='echo $PATH | tr ":" "\n"'
 alias wgpu='watch -d -n 0.5 gpustat' # requires gpustat
 ```
-You'll want to find somewhere to put the conda init. Your can just put it in your profile if you want.
+
+
+You'll want to find somewhere to put the conda init. Upon installation, Anaconda is automatically added to a resource file, `.zshrc` in the case of Macs. It usually looks like one of the following (depending on whether you use Anaconda or Miniconda): 
 
 ```
 # >>> conda initialize >>>
@@ -70,11 +67,19 @@ unset __conda_setup
 # <<< conda initialize <<<
 ```
 
-You'll just use whatever your path to conda is. So if you're using miniconda you would just replace `/home/julius/anaconda3` with `/home/julius/miniconda3` everywhere. Other than that it should be exactly the same.
+I usually leave this in my `.zshrc` file, but that's the only thing I allow there. As I said, everything else goes in `~/.profile`.
 
-# Bash
+## Oh My Zsh Configuration
 
-However, I still use bash sometimes and here are some aliases I recommend.
+* I usually leave the theme as `ZSH_THEME="robbyrussell"`
+
+* Then I create a profile and put in it `~/.oh-my-zsh/custom/profile.zsh`
+
+* That profile just says `source ~/.profile`
+
+## Bash
+
+I still use Bash fairly often, and because it doesn't come with all the same aliases that Oh My Zsh does, I have to add some of the most important ones manually. Here are some I recommend.
 
 ```
 alias ff='find . -name'
@@ -167,9 +172,7 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 ```
-
-
-
+I also like to customize the git prompt if it's not already done for me. Here's one I like:
 
 ```
 parse_git_branch() {
@@ -207,4 +210,6 @@ case "$TERM" in
 esac
 ```
 
+ ## Windows
  
+ For Windows, I sometimes use [Ubuntu](https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab) as my command line. I do this because it's easiest for me to stick with Unix commands if I'm bouncing around between systems so much. In general, I try to run my Windows like a Linux system when I'm working with the command line a lot.
