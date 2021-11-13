@@ -85,7 +85,7 @@ You can also search for file types, such as:
 
 ### grep
 
-`grep` is a great tool. The basic usage is grep [flags] [pattern] [filename]
+`grep` is a great tool. The basic usage is `grep [flags] [pattern] [filename]`
 
 Here are the flags I use most often:
 ```
