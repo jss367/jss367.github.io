@@ -92,9 +92,26 @@ Here are some things I like to change:
 
 ## VSCode
 
-I did the same thing with tabs in VSCode. Here's how to do that:
+I did the same thing with tabs in VSCode.
 
+## Make Tabs Work Like Chrome
 
+I don't like the default behavior of tab cycling in VSCode because it switches tabs in order of most recently used, which I never remember. I prefer it to work like tabbing in Chrome, which is far more intuitive to me. Fortunately, VSCode lets you customize this. To change this, you'll need to edit your `keybindings.json` file like so:
+* Open Command Palette
+* Search for "Preferences: Open Keyboard Shortcuts (JSON)"
+* Open the file and add this to the file:
+```
+[
+    {
+        "key": "ctrl+tab",
+        "command": "workbench.action.nextEditorInGroup"
+    },
+    {
+        "key": "ctrl+shift+tab",
+        "command": "workbench.action.previousEditorInGroup"
+    }
+]
+```
 
 ![png]({{site.baseurl}}/assets/img/vscode_keyboard_shortcuts_windows.png)
 

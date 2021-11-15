@@ -26,44 +26,29 @@ You can do `CMD/CTRL + P` to open up search.
 * Just add `>` to the bar to make it the command palette.
 
 
-## Autoformat:
+## Autoformat
 
 Windows/Linux: `Alt + Shift + F`
 Mac: `Option + Shift + F`
 
-## Clean up imports:
+## Clean up imports
 
 Windows/Linux: `Alt + Shift + O`
 Mac: `Option + Shift + O`
 
 ## Snippets
 
-Control + Space to open snippets
+`Control + Spacebar` to open snippets
 This makes it easy to do things like type `main` and get if `__name__ == 'main':`
 
 ## Jupyter
 
-Shift enter to run through python interactive console
+`Shift + enter` to run through Python interactive console
 
+# Customizations
 
-## Make tabs work like chrome:
+See [the previous post for my recommended VSCode customizations](https://jss367.github.io/software-customizations.html).
 
-I don't like the default behavior of tab cycling in VSCode because it switches tabs in order of most recently used, which I never remember. I prefer it to work like tabbing in Chrome, which is far more intuitive to me. Fortunately, VSCode lets you customize this. To change this, you'll need to edit your `keybindings.json` file like so:
-* Open Command Palette
-* Search for "Preferences: Open Keyboard Shortcuts (JSON)"
-* Open the file and add this to the file:
-```
-[
-    {
-        "key": "ctrl+tab",
-        "command": "workbench.action.nextEditorInGroup"
-    },
-    {
-        "key": "ctrl+shift+tab",
-        "command": "workbench.action.previousEditorInGroup"
-    }
-]
-```
 
 # Settings 
 
@@ -95,9 +80,7 @@ Zen mode: `Ctrl+k z`
 
 
 
-## Environmental Variables
 
-Sometimes environmental variables can be tricky in VSCode. If you just open up VSCode from the application icon, it won't load with the variables. So, instead, you can open it from the command line with `code .` and it will have your environmental variables.
 
 ## Extensions
 
@@ -169,6 +152,11 @@ Here's an example with arguments:
 - defaults to true
 - restricts debugging to only the user-written code
 
+
+#### Running a module or a program
+
+In the `launch.json` file, you can choose to run either a `"module"` or a `"program"`.
+
 ## .env files ##
 Go at top of directory. Can add environment variables, python path, etc.
 
@@ -229,6 +217,14 @@ also, don't know why so have editors had the change tab rely on the previously o
 ## Testing
 
 Sometimes the Discover Tests functionality fails, often for path issues. Remember, even if it fails you can always runs tests by doing `python -m pytest my_tests`
+
+
+
+## Troubleshooting
+
+#### Environmental Variables
+
+Sometimes environmental variables won't show up in VSCode. I've found that this can sometimes happen whe VSCode is launch from the application icon. If this is happening, you can open VSCode directly from the terminal with `code .` and it should have your environmental variables. If you still don't see them, make sure they are present in your terminal.
 
 
 ## To Try
