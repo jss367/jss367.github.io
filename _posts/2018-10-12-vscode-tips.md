@@ -157,6 +157,10 @@ Here's an example with arguments:
 
 In the `launch.json` file, you can choose to run either a `"module"` or a `"program"`.
 
+#### Debugging subprocesses
+
+You can also debug subprocess in VSCode. All you need to do is add `"subProcess": true,` to your `launch.json`.
+
 ## .env files ##
 Go at top of directory. Can add environment variables, python path, etc.
 
