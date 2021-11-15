@@ -6,6 +6,10 @@ tags: [Software]
 
 This post contains some of my favorite tips and tricks for working with VSCode. For even more, VSCode has [their own tips and tricks page](https://code.visualstudio.com/docs/getstarted/tips-and-tricks) that I recommend.
 
+<b>Table of contents</b>
+* TOC
+{:toc}
+
 # Hot Keys
 
 ## Command Palette
