@@ -95,7 +95,9 @@ https://github.com/hediet/vscode-debug-visualizer/tree/master/extension
 The built-in terminal is a wonderful idea. You can pull it up with control + '&#96;', on either mac or windows. You can also pull it up from dragging up from the bottom of the screen.
 
 
+## Debugging
 
+To do multi-line debugging, all you have to do is hold down `shift` before you hit `return`.
 
 
 ## Code Completion
