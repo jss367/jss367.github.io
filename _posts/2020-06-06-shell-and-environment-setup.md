@@ -17,17 +17,20 @@ I store all of my environment variables in a `~/.profile` file. Then I source th
 
 # alias ll='ls -alF'
 
-alias please='sudo $(history -p !!)'
-alias rld='source ~/.zshrc' #reload
+alias rld='source ~/.zshrc' #reload, assume zsh
 
+alias please='sudo $(history -p !!)'
 alias ff='find . -name'
-alias findpy='find . -name "*.py" | xargs grep --color'
+alias fpy='find . -name "*.py" | xargs grep --color'
 alias grep='grep --color=auto'
 alias hgrep='history | grep -v grep | grep '
 alias ll='ls -GlAFh'
 alias lls='ls -GlAFhS'
 alias showpath='echo $PATH | tr ":" "\n"'
 alias wgpu='watch -d -n 0.5 gpustat' # requires gpustat
+alias nb='jupyter notebook'
+alias c='pygmentize -g' # like cat but with color
+alias ckenv='printenv | grep -i' # lookup rabbit, lookup database, etc.
 ```
 
 
