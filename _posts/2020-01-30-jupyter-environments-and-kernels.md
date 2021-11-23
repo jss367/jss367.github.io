@@ -37,17 +37,27 @@ import sys
 sys.executable
 ```
 
-The response should say something like this:
+The response on Linux should say something like this:
 
 `/opt/conda/envs/my_env/bin/python`
 
-On Windows it will look like this:
+On a Mac it will look like this:
+
+'/Users/julius/opt/anaconda3/envs/my_env/bin/python'
+
+And here's Windows:
 
 `'C:\\Users\\Julius\\anaconda3\\envs\\tf\\python.exe'`
 
 #### What kernels are available to Jupyter?
 
 `jupyter kernelspec list`
+
+Mac:
+
+![png]({{site.baseurl}}/assets/img/jupyter_kernelspec_mac.png)
+
+Windows:
 
 ![png]({{site.baseurl}}/assets/img/kernels2.png)
 
@@ -63,7 +73,7 @@ Here's what you might see on Windows:
 
 You should also be aware that different kernels will have different paths. For example, `import my_package` may work in one kernel but not in another. Check `sys.path` to see which paths are being called.
 
-Keep in mind that you can run all of the commands either from a terminal or from a Jupyter notebook. To run a Unix command from jupyter, you simply need to add a `!` before it. So you can run `!conda info --envs` or `!jupyter kernelspec list` from a notebook.
+Keep in mind that you can run all of the commands either from a terminal or from a Jupyter notebook. To run a Unix command from Jupyter, you simply need to add a `!` before it. So you can run `!conda info --envs` or `!jupyter kernelspec list` from a notebook.
 
 ![png]({{site.baseurl}}/assets/img/jupyter_commands.png)
 
@@ -201,3 +211,6 @@ You should see a `kernel.json` file. You can look inside it with `type kernel.js
 
 Now you can [add the kernel as shown above](https://jss367.github.io/jupyter-environments-and-kernels.html#adding-kernels).
 
+## Python and environment not matching
+
+If you're in your PT environment but that's not the Python distribution you're seeing when you `sys.executable`, you'll need to edit you `kernel.json` file that you found with `jupyter kernelspec list`.
