@@ -14,7 +14,7 @@ The post aims to show how to create Jupyter environments and how to debug any is
 * TOC
 {:toc}
 
-## Debugging tools
+## Debugging Commands
 
 Here are some commands I've found useful when debugging issues with my Jupyter environment. You'll see them used in the examples below.
 
@@ -69,7 +69,21 @@ Keep in mind that you can run all of the commands either from a terminal or from
 
 OK, now let's talk about some examples where you might need these.
 
-#### Removing kernels
+#### Adding Kernels
+
+You'll need to be in the envrionment that you launch Jupyter for this to work. Once you're there, you can add kernels like so:
+
+```
+python -m ipykernel install --user --name myenv --display-name "Python (myenv)"
+python -m ipykernel install --user --name pt --display-name "PyTorch"
+python -m ipykernel install --user --name fai --display-name "FastAI"
+python -m ipykernel install --user --name tf2 --display-name "TF2"
+```
+
+Now, if you reload your Jupyter Notebook page, your new kernels should be available (you shouldn't need to restart your Jupyter Notebook server).
+
+
+#### Removing Kernels
 
 You can remove a kernel like so:
 
@@ -185,18 +199,5 @@ You should see a `kernel.json` file. You can look inside it with `type kernel.js
 }
 ```
 
-
-
-Manually add them:
-
-```
-python -m ipykernel install --user --name myenv --display-name "Python (myenv)"
-python -m ipykernel install --user --name pyt --display-name "PyTorch FasiAI"
-python -m ipykernel install --user --name pt --display-name "pt"
-python -m ipykernel install --user --name tf2 --display-name "tf2"
-```
-
-Now, if you reload your Jupyter Notebook page, your new kernels should be available (you shouldn't need to restart your Jupyter Notebook server).
-
-
+Now you can [add the kernel as shown above](https://jss367.github.io/jupyter-environments-and-kernels.html#adding-kernels).
 
