@@ -210,7 +210,7 @@ The only different is that we change the "-c" for Create to "-x" for eXtract
 
 ## Just files
 
-The command is of the form: `find /path/to/files* -mtime +5 -exec command {} \;`
+The command is of the form: `find /path/to/files* -mtime +5 -exec command {} \;`. The number afer `mtime` is in **days**, so here's how you find and delete files older than 5 days:
 
 `find . -mtime +5 -exec rm {} \;`
 
