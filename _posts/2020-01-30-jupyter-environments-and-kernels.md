@@ -43,11 +43,11 @@ The response on Linux should say something like this:
 
 On a Mac it will look like this:
 
-'/Users/julius/opt/anaconda3/envs/my_env/bin/python'
+`/Users/julius/opt/anaconda3/envs/my_env/bin/python`
 
 And here's Windows:
 
-`'C:\\Users\\Julius\\anaconda3\\envs\\tf\\python.exe'`
+`C:\\Users\\Julius\\anaconda3\\envs\\tf\\python.exe`
 
 #### What kernels are available to Jupyter?
 
