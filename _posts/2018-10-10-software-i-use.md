@@ -365,4 +365,5 @@ I have no loyalty to any of these. I usually just go with the top free one recom
 * Like Alfred for Windows
 * Default is Alt + Spacebar, which is a little different on the keyboard than Alfred.
 
+[Boop](https://github.com/IvanMathy/Boop) (Mac, FOSS)
 
