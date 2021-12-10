@@ -70,7 +70,7 @@ unset __conda_setup
 # <<< conda initialize <<<
 ```
 
-I usually leave this in my `.zshrc` file, but that's the only thing I allow there. As I said, everything else goes in `~/.profile`.
+I usually leave this in my `.zshrc` file, but I don't add extra stuff. Also, things like `[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh` automatically get added here, so I leave those as well. As I said, everything else goes in `~/.profile`.
 
 ## Oh My Zsh Configuration
 

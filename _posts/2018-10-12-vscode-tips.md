@@ -52,7 +52,12 @@ See [the previous post for my recommended VSCode customizations](https://jss367.
 
 # Settings 
 
-User settings are not stored in the project. Instead, they are at: C:\Users\Julius\AppData\Roaming\Code\User\settings.json
+User settings are not stored in the project. Instead, they are at: 
+
+Windows: C:\Users\Julius\AppData\Roaming\Code\User\settings.json
+
+Mac: ~/Library/Application Support/Code/User/settings.json
+
 
 In the `launch.json` file, you can either use full paths or relative paths:
 

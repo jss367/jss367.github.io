@@ -49,6 +49,14 @@ And here's Windows:
 
 `C:\\Users\\Julius\\anaconda3\\envs\\tf\\python.exe`
 
+Note that if you are in your base environment, it might look different. Here's what it looks like on Mac:
+
+`/Users/jsimonelli/opt/anaconda3/bin/python`
+
+and linux:
+
+`/home/julius/anaconda3/bin/python`
+
 #### What kernels are available to Jupyter?
 
 `jupyter kernelspec list`

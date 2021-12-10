@@ -129,6 +129,8 @@ Don't forget `ls` can also be a great tool for this. Something as simple as `ls 
 
 Also, this question has a [great visualization of what the colors mean in ls](https://askubuntu.com/questions/17299/what-do-the-different-colors-mean-in-ls)
 
+You can, however, also use multiple asterisks with `ls`: `ls file_num_*_of_*`
+
 ## Viewing System Processes
 
 `top` is the default tool and is great, but for something easier to view, try [htop](https://hisham.hm/htop/).
