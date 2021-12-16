@@ -65,7 +65,7 @@ I'm always curious about how people set up their computers and what software pac
 
 ### Screenshots
 [Greenshot](https://getgreenshot.org/) (FOSS, Windows)
-- Good improvement to Windows' default screenshot tool
+- This is a perfect screenshot tool. It does everything I want
 
 For a mac I just use the built-in tool
 - Note that if you want to select just a part of your screen, you should use `command + shift + 4`, then if you want to copy it straight to your clipboard (so you can paste it), hold `control` while you draw the outline
@@ -313,6 +313,7 @@ I have no loyalty to any of these. I usually just go with the top free one recom
 [Excalidraw](https://excalidraw.com/) (FOSS)
 * Can download it but also words directly on the website
 * Super simple to use
+* Can also [make graphs with it](https://towardsdatascience.com/how-to-sketch-your-data-science-ideas-with-excalidraw-a993d049f55c)
 
 [Docker](https://www.docker.com/)
 * Still a pain on Windows Home. Wonderful for Linux and Mac
@@ -367,3 +368,4 @@ I have no loyalty to any of these. I usually just go with the top free one recom
 
 [Boop](https://github.com/IvanMathy/Boop) (Mac, FOSS)
 
+[GanttProject](https://www.ganttproject.biz/)
