@@ -265,7 +265,7 @@ If you want to publish the notebook without code, you can also do this:
 
 ## Splitting Cells
 
-One hot key that I like but sometimes forget is how to split a cell where my cursor is. So I just open up the command palatte and type in "split" and I see that it is Ctrl + Shift + - (Windows/Linux) Cmd + Shift + - (Mac).
+One hot key that I like but sometimes forget is how to split a cell where my cursor is. So I just open up the command palatte and type in "split" and I see that it is Ctrl + Shift + - (Windows/Linux/Mac).
 
 ## Printing LaTeX
 
