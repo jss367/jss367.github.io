@@ -7,12 +7,31 @@ thumbnail: "assets/img/windmills.jpg"
 tags: [Python, Cheatsheet]
 ---
 
-Pathlib does much of the same work as `os.path` but it contains a lot more. I strongly recommend that people checkout [Pathlib](https://docs.python.org/3/library/pathlib.html).
+[Pathlib](https://docs.python.org/3/library/pathlib.html) is a built-in Python library that is similar to `os.path` but contains a lot more. This post walks through some of the basics with pathlib.
+
+<b>Table of contents</b>
+* TOC
+{:toc}
 
 
 ```python
+import sys
 from pathlib import Path
 ```
+
+Since Python is built in, the version of pathlib you have will be based on the version of Python. I try to keep this notebook up-to-date with the latest version. Here's the latest version it was run on:
+
+
+```python
+sys.version
+```
+
+
+
+
+    '3.8.8 (default, Apr 13 2021, 15:08:03) [MSC v.1916 64 bit (AMD64)]'
+
+
 
 
 ```python
@@ -20,6 +39,8 @@ path = Path(r'E:\Data\Raw\PennFudanPed')
 ```
 
 ## Getting a list of files from a path
+
+You can do two sets of asterisks like so to get subdirectories.
 
 
 ```python
@@ -36,7 +57,7 @@ all_objs
 
 
 
-    <generator object Path.glob at 0x00000253CC2FD2E0>
+    <generator object Path.glob at 0x000002283654A120>
 
 
 
@@ -62,6 +83,26 @@ files[:5]
      WindowsPath('E:/Data/Raw/PennFudanPed/Annotation/FudanPed00003.txt')]
 
 
+
+Here's a way to list what's in a directory.
+
+
+```python
+list(path.iterdir())
+```
+
+
+
+
+    [WindowsPath('E:/Data/Raw/PennFudanPed/added-object-list.txt'),
+     WindowsPath('E:/Data/Raw/PennFudanPed/Annotation'),
+     WindowsPath('E:/Data/Raw/PennFudanPed/PedMasks'),
+     WindowsPath('E:/Data/Raw/PennFudanPed/PNGImages'),
+     WindowsPath('E:/Data/Raw/PennFudanPed/readme.txt')]
+
+
+
+> Note: This is what [FastAI uses for path.ls()](https://fastcore.fast.ai/xtras.html#Path.ls).
 
 ## Working with Pathlib objects
 
@@ -127,6 +168,25 @@ file_path.name
     'added-object-list.txt'
 
 
+
+
+```python
+file_path.suffix
+```
+
+
+
+
+    '.txt'
+
+
+
+It's also easy to make new directories.
+
+
+```python
+path.mkdir(parents=True, exist_ok=True)
+```
 
 ## Reading text files
 
