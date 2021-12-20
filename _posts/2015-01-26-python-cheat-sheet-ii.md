@@ -812,7 +812,7 @@ q
 
 # Type Annotations
 
-I'm really into type annotations in Python, but I have to say, sometimes they make things ugly. Compare the follwing, with and without type annotations.
+I'm really into type annotations in Python, but I have to say, sometimes they make things ugly. Compare the following, with and without type annotations.
 
 
 ```python
