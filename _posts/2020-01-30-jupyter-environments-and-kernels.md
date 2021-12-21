@@ -87,15 +87,32 @@ Keep in mind that you can run all of the commands either from a terminal or from
 
 OK, now let's talk about some examples where you might need these.
 
+#### What is the active kernel?
+
+Here's the only way I've found how to do this ([source](https://stackoverflow.com/questions/43759543/how-to-get-active-kernel-name-in-jupyter-notebook):
+```
+%%javascript
+var kernel = Jupyter.notebook.kernel
+kernel.execute('kernel_name = ' + '"' + kernel.name + '"')
+```
+
+```
+print(kernel_name)
+# my-kernel
+```
+
+```
+from jupyter_client import kernelspec
+spec = kernelspec.get_kernel_spec(kernel_name)
+print(spec.resource_dir)
+```
+
 #### Adding Kernels
 
 You'll need to be in the envrionment that you launch Jupyter for this to work. Once you're there, you can add kernels like so:
 
 ```
 python -m ipykernel install --user --name myenv --display-name "Python (myenv)"
-python -m ipykernel install --user --name pt --display-name "PyTorch"
-python -m ipykernel install --user --name fai --display-name "FastAI"
-python -m ipykernel install --user --name tf2 --display-name "TF2"
 ```
 
 Now, if you reload your Jupyter Notebook page, your new kernels should be available (you shouldn't need to restart your Jupyter Notebook server).
