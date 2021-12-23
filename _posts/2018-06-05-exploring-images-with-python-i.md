@@ -3,17 +3,20 @@ layout: post
 title: "Exploring Images with Python I"
 thumbnail: "assets/img/ghan_stretch.jpg"
 feature-img: "assets/img/rainbow.jpg"
-tags: [Python, Computer Vision]
+tags: [Computer Vision, Python]
 ---
-Let's look at how to explore images in Python. We'll use the popular and active [Pillow](https://pillow.readthedocs.io/en/5.1.x/) fork of PIL, the [Python Imaging Library](https://en.wikipedia.org/wiki/Python_Imaging_Library).
+
+Let's look at how to explore images in Python. We'll use the popular and active [Pillow](https://pillow.readthedocs.io/en/stable/) fork of PIL, the [Python Imaging Library](https://en.wikipedia.org/wiki/Python_Imaging_Library).
 
 <b>Table of contents</b>
 * TOC
 {:toc}
 
+
 ```python
 from PIL import Image
 import numpy as np
+from matplotlib import pyplot as plt
 ```
 
 
@@ -34,7 +37,9 @@ im
 
 
 
-![png]({{site.baseurl}}/assets/img/2018-06-05-Exploring%20Images%20with%20Python_files/2018-06-05-Exploring%20Images%20with%20Python_4_0.png)
+    
+![png](2018-06-05-exploring-images-with-python-i_files/2018-06-05-exploring-images-with-python-i_6_0.png)
+    
 
 
 
@@ -58,7 +63,9 @@ r
 
 
 
-![png]({{site.baseurl}}/assets/img/2018-06-05-Exploring%20Images%20with%20Python_files/2018-06-05-Exploring%20Images%20with%20Python_8_0.png)
+    
+![png](2018-06-05-exploring-images-with-python-i_files/2018-06-05-exploring-images-with-python-i_10_0.png)
+    
 
 
 
@@ -70,7 +77,9 @@ g
 
 
 
-![png]({{site.baseurl}}/assets/img/2018-06-05-Exploring%20Images%20with%20Python_files/2018-06-05-Exploring%20Images%20with%20Python_9_0.png)
+    
+![png](2018-06-05-exploring-images-with-python-i_files/2018-06-05-exploring-images-with-python-i_11_0.png)
+    
 
 
 
@@ -82,7 +91,9 @@ b
 
 
 
-![png]({{site.baseurl}}/assets/img/2018-06-05-Exploring%20Images%20with%20Python_files/2018-06-05-Exploring%20Images%20with%20Python_10_0.png)
+    
+![png](2018-06-05-exploring-images-with-python-i_files/2018-06-05-exploring-images-with-python-i_12_0.png)
+    
 
 
 
@@ -153,9 +164,39 @@ see_top_right_corner(img_array, 2, 8)
 
 
 
+You can also visualize it after converting it to an ndarray. This means you can perform some operations on it and then see your results. You can do this with either PIL or Matplotlib.
+
+
+```python
+# Using PIL.Image
+Image.fromarray(img_array)
+```
+
+
+
+
+    
+![png](2018-06-05-exploring-images-with-python-i_files/2018-06-05-exploring-images-with-python-i_24_0.png)
+    
+
+
+
+
+```python
+# Using matplotlib.pyplot
+plt.imshow(img_array, interpolation='nearest')
+plt.show()
+```
+
+
+    
+![png](2018-06-05-exploring-images-with-python-i_files/2018-06-05-exploring-images-with-python-i_25_0.png)
+    
+
+
 ## Greyscale
 
-Although the individual filters are grey, using just one of them generally isn't the best way to convert to greyscale. Pillow (and other image libraries, like [OpenCV](https://opencv.org/)) has a way to combine the different individual colors into a greyscale that most closely matches what you would expect.
+Although the individual filters are grey, using just one of them generally isn't the best way to convert to greyscale. Pillow (and other image libraries, like [OpenCV](https://opencv.org/)) has a way to combine the different individual colors into a greyscale that most closely matches what you would expect. In this case, you call the `.convert("L")` method. The "L" is for "luminosity" because we're converting it to a single luminosity measure. You'll also see `.convert("LA")`, which means luminosity and alpha (transparency).
 
 
 ```python
@@ -165,7 +206,9 @@ im.convert("L")
 
 
 
-![png]({{site.baseurl}}/assets/img/2018-06-05-Exploring%20Images%20with%20Python_files/2018-06-05-Exploring%20Images%20with%20Python_23_0.png)
+    
+![png](2018-06-05-exploring-images-with-python-i_files/2018-06-05-exploring-images-with-python-i_28_0.png)
+    
 
 
 
@@ -193,7 +236,9 @@ im_resize
 
 
 
-![png]({{site.baseurl}}/assets/img/2018-06-05-Exploring%20Images%20with%20Python_files/2018-06-05-Exploring%20Images%20with%20Python_28_0.png)
+    
+![png](2018-06-05-exploring-images-with-python-i_files/2018-06-05-exploring-images-with-python-i_33_0.png)
+    
 
 
 
@@ -209,58 +254,58 @@ im._getexif()
 
 
 
-    {271: 'NIKON CORPORATION',
+    {296: 2,
+     34665: 218,
+     271: 'NIKON CORPORATION',
      272: 'NIKON D7200',
-     282: (240, 1),
-     283: (240, 1),
-     296: 2,
      305: 'Adobe Photoshop Lightroom 6.12 (Windows)',
      306: '2017:10:16 13:48:45',
-     33434: (1, 8),
-     33437: (22, 1),
-     34665: 218,
-     34850: 1,
-     34855: 100,
-     34864: 2,
+     282: 240.0,
+     283: 240.0,
      36864: b'0230',
+     37377: 3.0,
+     37378: 8.918863,
      36867: '2017:03:31 06:41:30',
      36868: '2017:03:31 06:41:30',
-     37377: (3, 1),
-     37378: (8918863, 1000000),
-     37380: (-12, 6),
-     37381: (10, 10),
+     37380: -2.0,
+     37381: 1.0,
      37383: 5,
      37384: 0,
      37385: 16,
-     37386: (240, 10),
+     37386: 24.0,
+     40961: 1,
+     41987: 0,
+     41988: 1.0,
+     41486: 2558.6412048339844,
+     41487: 2558.6412048339844,
+     41488: 3,
      37521: '0411',
      37522: '0411',
-     40961: 1,
-     41486: (83841555, 32768),
-     41487: (83841555, 32768),
-     41488: 3,
+     41994: 0,
+     41996: 0,
      41495: 2,
      41728: b'\x03',
+     33434: 0.125,
+     33437: 22.0,
      41729: b'\x01',
+     34850: 1,
      41730: b'\x02\x00\x02\x00\x00\x01\x01\x02',
      41985: 0,
+     34855: 100,
      41986: 1,
-     41987: 0,
-     41988: (1, 1),
+     34864: 2,
+     42033: '2529332',
+     42034: (24.0, 24.0, 1.4, 1.4),
+     42036: '24.0 mm f/1.4',
      41989: 36,
      41990: 0,
      41991: 0,
      41992: 0,
-     41993: 0,
-     41994: 0,
-     41996: 0,
-     42033: '2529332',
-     42034: ((240, 10), (240, 10), (14, 10), (14, 10)),
-     42036: '24.0 mm f/1.4'}
+     41993: 0}
 
 
 
-It's not particularly intuitive. For example, the creation data is number 36867. To see the meanings of these values, see the bottom of this [webpage by Nicholas Armstrong](http://nicholasarmstrong.com/2010/02/exif-quick-reference/).
+It's not particularly intuitive. For example, the creation date is number 36867. To see the meanings of these values, see the bottom of this [webpage by Nicholas Armstrong](http://nicholasarmstrong.com/2010/02/exif-quick-reference/).
 
 
 ```python
