@@ -183,7 +183,7 @@ In Windows, I use a mix, mostly because none of them are perfect. Here's a case 
 [Anaconda Prompt](https://www.anaconda.com/)
 * I only use this for Anaconda stuff
 
-[Windows Subsystem for Linux (WSL 2)](https://docs.microsoft.com/en-us/windows/wsl/wsl2-install)
+[Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/install)
 * Promising, definite promising. Keep working on it Microsoft!
 
 [Ubuntu terminal](https://ubuntu.com/tutorials/tutorial-ubuntu-on-windows#1-overview)
