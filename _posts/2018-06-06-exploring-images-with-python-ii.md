@@ -108,7 +108,7 @@ plt.imshow(img);
 
 
     
-![png](output_14_0.png)
+![png](2018-06-06-exploring-images-with-python-ii_files/2018-06-06-exploring-images-with-python-ii_14_0.png)
     
 
 
@@ -122,7 +122,7 @@ ax.imshow(img);
 
 
     
-![png](output_16_0.png)
+![png](2018-06-06-exploring-images-with-python-ii_files/2018-06-06-exploring-images-with-python-ii_16_0.png)
     
 
 
@@ -134,7 +134,7 @@ plt.imshow(img);
 
 
     
-![png](output_17_0.png)
+![png](2018-06-06-exploring-images-with-python-ii_files/2018-06-06-exploring-images-with-python-ii_17_0.png)
     
 
 
@@ -147,7 +147,7 @@ ax.axis('off');
 
 
     
-![png](output_18_0.png)
+![png](2018-06-06-exploring-images-with-python-ii_files/2018-06-06-exploring-images-with-python-ii_18_0.png)
     
 
 
@@ -161,7 +161,7 @@ ax.axis('off');
 
 
     
-![png](output_19_0.png)
+![png](2018-06-06-exploring-images-with-python-ii_files/2018-06-06-exploring-images-with-python-ii_19_0.png)
     
 
 
@@ -186,7 +186,7 @@ pil_img
 
 
     
-![png](output_23_0.png)
+![png](2018-06-06-exploring-images-with-python-ii_files/2018-06-06-exploring-images-with-python-ii_23_0.png)
     
 
 
@@ -212,7 +212,7 @@ plt.imshow(img);
 
 
     
-![png](output_28_0.png)
+![png](2018-06-06-exploring-images-with-python-ii_files/2018-06-06-exploring-images-with-python-ii_28_0.png)
     
 
 
@@ -225,7 +225,7 @@ plt.imshow(img[:, :, ::-1]);
 
 
     
-![png](output_30_0.png)
+![png](2018-06-06-exploring-images-with-python-ii_files/2018-06-06-exploring-images-with-python-ii_30_0.png)
     
 
 
@@ -289,7 +289,7 @@ isinstance(img_arr, np.ndarray)
 
 As you can see, `imageio.core.util.Array` is a NumPy ndarray.
 
-# Visualizing from tf.keras.datasets.X.load_data()
+# Visualizing from TensorFlow Datasets
 
 
 ```python
@@ -323,7 +323,7 @@ plt.colorbar();
 
 
     
-![png](output_44_1.png)
+![png](2018-06-06-exploring-images-with-python-ii_files/2018-06-06-exploring-images-with-python-ii_44_1.png)
     
 
 
@@ -365,6 +365,6 @@ plt.show()
 
 
     
-![png](output_49_0.png)
+![png](2018-06-06-exploring-images-with-python-ii_files/2018-06-06-exploring-images-with-python-ii_49_0.png)
     
 
