@@ -189,7 +189,7 @@ You'll need to get cuDNN. The guide is [here](http://docs.nvidia.com/deeplearnin
 
 On Windows the procedure is similar. Download and unzip the files. 
 
-For me, they download into a folder like C:\Users\Julius\Downloads\cudnn-10.1-windows10-x64-v7.6.5.32
+For me, they download into a folder like `C:\Users\Julius\Downloads\cudnn-10.1-windows10-x64-v7.6.5.32`
 
 
 
@@ -198,10 +198,10 @@ Then you have to copy files:
 Copy the following files into the CUDA Toolkit directory.
 
 Going from here:
-* C:\Users\HMISYS\Downloads\cudnn-8.0-windows7-x64-v6.0\cuda\lib\x64
+* `C:\Users\HMISYS\Downloads\cudnn-8.0-windows7-x64-v6.0\cuda\lib\x64`
 
 to here:
-* C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0
+* `C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0`
 
 Copy the following files into the CUDA Toolkit directory.
 * Copy <installpath>\cuda\bin\cudnn64_7.dll to C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\bin.
@@ -211,7 +211,7 @@ Copy the following files into the CUDA Toolkit directory.
 Make sure you get the version right. You can cd to `C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA` and the use `dir` to see what versions you have (it should match what you previously saw).
 
 After extracting the files, here's my install path:
-C:\Users\Julius\Downloads\cudnn-10.1-windows10-x64-v7.6.5.32
+`C:\Users\Julius\Downloads\cudnn-10.1-windows10-x64-v7.6.5.32`
 
 For these to work you'll probably need to run as administrator
 
