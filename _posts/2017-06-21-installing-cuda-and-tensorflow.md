@@ -161,24 +161,10 @@ OK, now let's see if that worked by running `nvcc --version`
 
 
 
-Then, run `deviceQuery.exe`
-
-You should find it somewhere like `C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\extras\demo_suite`
-
-
-Go to a command prompt and run it by typing "deviceQuery.exe". Note that you cannot go to the folder and double click on it or it will open a command prompt, run, and close too quickly for you to see the results.
-
-
-Answering this question:
-
-
-Using these sites:
-
-http://blog.nitishmutha.com/tensorflow/2017/01/22/TensorFlow-with-gpu-for-windows.html
+Using these sites: http://blog.nitishmutha.com/tensorflow/2017/01/22/TensorFlow-with-gpu-for-windows.html
 
 
 
-```
 Then to upgrade it, `pip install tensorflow --upgrade`
 
 You can download the wheels from here: https://github.com/mind/wheels/releases/tag/tf1.4-gpu-cuda9
@@ -219,9 +205,9 @@ to here:
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0
 
 Copy the following files into the CUDA Toolkit directory.
-Copy <installpath>\cuda\bin\cudnn64_7.dll to C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\bin.
-Copy <installpath>\cuda\ include\cudnn.h to C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\include.
-Copy <installpath>\cuda\lib\x64\cudnn.lib to C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\lib\x64.
+* Copy <installpath>\cuda\bin\cudnn64_7.dll to C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\bin.
+* Copy <installpath>\cuda\ include\cudnn.h to C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\include.
+* Copy <installpath>\cuda\lib\x64\cudnn.lib to C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\lib\x64.
 ```
 
 Make sure you get the version right. You can cd to `C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA` and the use `dir` to see what versions you have (it should match what you previously saw).
