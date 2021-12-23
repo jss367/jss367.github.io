@@ -99,7 +99,7 @@ img[:, : , 0][:3]
 from matplotlib import pyplot as plt
 ```
 
-Matplotlib is my default for displaying images. Normally when you run a command in Jupyter Notebooks it will print the last output. But the output isn't very useful so to suppress it you can end the line with a semicolon.
+Matplotlib is my default for displaying images.
 
 
 ```python
@@ -107,7 +107,9 @@ plt.imshow(img);
 ```
 
 
-![png](2018-06-06-Exploring%20Images%20with%20Python%20II_files/2018-06-06-Exploring%20Images%20with%20Python%20II_12_0.png)
+    
+![png](output_14_0.png)
+    
 
 
 To have more control:
@@ -119,7 +121,9 @@ ax.imshow(img);
 ```
 
 
-![png](2018-06-06-Exploring%20Images%20with%20Python%20II_files/2018-06-06-Exploring%20Images%20with%20Python%20II_14_0.png)
+    
+![png](output_16_0.png)
+    
 
 
 
@@ -129,7 +133,9 @@ plt.imshow(img);
 ```
 
 
-![png](2018-06-06-Exploring%20Images%20with%20Python%20II_files/2018-06-06-Exploring%20Images%20with%20Python%20II_15_0.png)
+    
+![png](output_17_0.png)
+    
 
 
 
@@ -140,7 +146,9 @@ ax.axis('off');
 ```
 
 
-![png](2018-06-06-Exploring%20Images%20with%20Python%20II_files/2018-06-06-Exploring%20Images%20with%20Python%20II_16_0.png)
+    
+![png](output_18_0.png)
+    
 
 
 
@@ -152,7 +160,9 @@ ax.axis('off');
 ```
 
 
-![png](2018-06-06-Exploring%20Images%20with%20Python%20II_files/2018-06-06-Exploring%20Images%20with%20Python%20II_17_0.png)
+    
+![png](output_19_0.png)
+    
 
 
 ## PIL
@@ -175,7 +185,9 @@ pil_img
 
 
 
-![png](2018-06-06-Exploring%20Images%20with%20Python%20II_files/2018-06-06-Exploring%20Images%20with%20Python%20II_21_0.png)
+    
+![png](output_23_0.png)
+    
 
 
 
@@ -199,10 +211,12 @@ plt.imshow(img);
 ```
 
 
-![png](2018-06-06-Exploring%20Images%20with%20Python%20II_files/2018-06-06-Exploring%20Images%20with%20Python%20II_26_0.png)
+    
+![png](output_28_0.png)
+    
 
 
-OpenCV uses BGR internally. This usually doesn't come up unless you read an image with opencv and try to plot it with, say matplotlib. Then you'll need to switch the channels around. Note the flipped color channels. Here is how you can fix it.
+OpenCV uses BGR internally while most other libraries use RGB. This usually isn't an issue unless you read an image with `opencv` and try to plot it with, say, `matplotlib` (note the flipped color channels in the image above). Then you’ll need to switch the channels around. Here is how to do that.
 
 
 ```python
@@ -210,7 +224,9 @@ plt.imshow(img[:, :, ::-1]);
 ```
 
 
-![png](2018-06-06-Exploring%20Images%20with%20Python%20II_files/2018-06-06-Exploring%20Images%20with%20Python%20II_28_0.png)
+    
+![png](output_30_0.png)
+    
 
 
 ## ImageIO
@@ -220,6 +236,7 @@ ImageIO is nice because it has a common interface for different image types.
 
 ```python
 import imageio
+import numpy as np
 ```
 
 
@@ -258,7 +275,57 @@ type(img_arr)
 
 
 
-This is like a NumPy array.
+
+```python
+isinstance(img_arr, np.ndarray)
+```
+
+
+
+
+    True
+
+
+
+As you can see, `imageio.core.util.Array` is a NumPy ndarray.
+
+# Visualizing from tf.keras.datasets.X.load_data()
+
+
+```python
+import tensorflow as tf
+```
+
+
+```python
+(x_train, y_train), (x_test, y_test) = tf.keras.datasets.mnist.load_data()
+
+x_train, x_test = x_train / 255.0, x_test / 255.0
+
+print("Number of training examples:", len(x_train))
+print("Number of test examples:", len(x_test))
+```
+
+    Number of training examples: 60000
+    Number of test examples: 10000
+    
+
+
+```python
+print(y_train[0])
+
+plt.imshow(x_train[0, :, :])
+plt.colorbar();
+```
+
+    5
+    
+
+
+    
+![png](output_44_1.png)
+    
+
 
 # Plotting Multiple Images
 
@@ -297,5 +364,7 @@ plt.show()
 ```
 
 
-![png](2018-06-06-Exploring%20Images%20with%20Python%20II_files/2018-06-06-Exploring%20Images%20with%20Python%20II_42_0.png)
+    
+![png](output_49_0.png)
+    
 
