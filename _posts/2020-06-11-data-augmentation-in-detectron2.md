@@ -14,7 +14,7 @@ This post is a quick walkthrough of the different data augmentation methods avai
 
 ### Data Augmentation Methods
 
-Detectron2 has a [large list of available data augmentation methods](https://github.com/facebookresearch/detectron2/blob/master/detectron2/data/transforms/transform_gen.py). Let's go over them.
+Detectron2 has a [large list of available data augmentation methods](https://github.com/facebookresearch/detectron2/blob/main/detectron2/data/transforms/augmentation_impl.py). Let's go over them.
 
 
 #### RandomApply
