@@ -197,18 +197,16 @@ Then you have to copy files:
 
 Copy the following files into the CUDA Toolkit directory.
 
-```
+Going from here:
+* C:\Users\HMISYS\Downloads\cudnn-8.0-windows7-x64-v6.0\cuda\lib\x64
 
-going from here:
-C:\Users\HMISYS\Downloads\cudnn-8.0-windows7-x64-v6.0\cuda\lib\x64
 to here:
-C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0
+* C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0
 
 Copy the following files into the CUDA Toolkit directory.
 * Copy <installpath>\cuda\bin\cudnn64_7.dll to C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\bin.
 * Copy <installpath>\cuda\ include\cudnn.h to C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\include.
 * Copy <installpath>\cuda\lib\x64\cudnn.lib to C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\lib\x64.
-```
 
 Make sure you get the version right. You can cd to `C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA` and the use `dir` to see what versions you have (it should match what you previously saw).
 
@@ -295,10 +293,10 @@ This should give you an error message that you can Google.
 
 
 
-python -c "import tensorflow as tf; print('Num GPUs Available: ', len(tf.config.experimental.list_physical_devices('GPU')))"
+`python -c "import tensorflow as tf; print('Num GPUs Available: ', len(tf.config.experimental.list_physical_devices('GPU')))"`
 
 
-print("Num GPUs Available: ", len(tf.config.experimental.list_physical_devices('GPU')))
+`print("Num GPUs Available: ", len(tf.config.experimental.list_physical_devices('GPU')))`
 
 
 Check whether devices are availble
