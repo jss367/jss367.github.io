@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Deep Learning Art"
-date: 2017-10-07
+feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/neural_emu_thin.gif"
 tags: [Deep Learning, Neural Networks]
 ---
