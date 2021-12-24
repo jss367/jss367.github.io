@@ -2,7 +2,7 @@
 layout: post
 title: "Software Customizations"
 feature-img: "assets/img/rainbow.jpg"
-thumbnail: "assets/img/glass_ball.jpg"
+thumbnail: "assets/img/car.jpg"
 tags: [Linux, Mac, Windows]
 ---
 

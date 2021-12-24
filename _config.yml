@@ -10,7 +10,7 @@ favicon: assets/favicon.ico                             # Icon displayed in the 
 
 # Header and footer text
 header_text: Exploring the World Through Data Science  # Change Blog header text
-header_feature_image: assets/img/astro_crop_small.jpg
+header_feature_image: assets/img/astro_3_1.jpg
 footer_text: >
    &copy; 2015-2020 Julius Simonelli. Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
 
