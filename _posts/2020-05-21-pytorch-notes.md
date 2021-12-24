@@ -3,6 +3,7 @@ layout: post
 title: "PyTorch Notes"
 description: "Some notes on using PyTorch after working with TensorFlow and Keras."
 feature-img: "assets/img/rainbow.jpg"
+thumbnail: "assets/img/fire.jpg"
 tags: [Python, PyTorch]
 ---
 

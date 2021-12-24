@@ -2,6 +2,8 @@
 layout: post
 title: "Interview with GPT-3 On Modern Architecture: Part I"
 excerpt: "Why is modern architecture so ugly?"
+feature-img: "assets/img/rainbow.jpg"
+thumbnail: "assets/img/neural_network.jpg"
 tags: [Artificial Intelligence]
 ---
 

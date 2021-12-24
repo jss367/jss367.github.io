@@ -1,3 +1,11 @@
+---
+layout: post
+title: "Shell and Environment Setup"
+feature-img: "assets/img/rainbow.jpg"
+thumbnail: "assets/img/turtle.jpg"
+tags: [Software]
+---
+
 In this post, I'll talk about how I set up my shell and environment. I Use Windows, Mac, and Linux on a daily basis, so I have different setups for different purposes, but I try to make them similar when I can.
 
 I use [zsh](https://www.zsh.org/) as my main shell. It's now the default shell on Macs and I think deservedly so. I use [Oh My Zsh](https://ohmyz.sh/) to configure it and highly recommend it.

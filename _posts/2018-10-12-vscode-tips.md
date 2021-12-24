@@ -1,6 +1,8 @@
 ---
 layout: post
 title: "VSCode Tips"
+feature-img: "assets/img/rainbow.jpg"
+thumbnail: "assets/img/binary.jpg"
 tags: [Software]
 ---
 

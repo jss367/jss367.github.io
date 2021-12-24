@@ -2,6 +2,8 @@
 layout: post
 title: "Interview with GPT-3 On Modern Architecture: Part II"
 excerpt: "Is it barbaric to write poetry after Auschwitz?"
+feature-img: "assets/img/rainbow.jpg"
+thumbnail: "assets/img/neural_network.jpg"
 tags: [Artificial Intelligence]
 ---
 
