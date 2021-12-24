@@ -2,6 +2,7 @@
 layout: post
 title: "Installing CUDA and TensorFlow"
 feature-img: "assets/img/rainbow.jpg"
+thumbnail: "assets/img/spots.jpg"
 tags: [CUDA, TensorFlow]
 ---
 
