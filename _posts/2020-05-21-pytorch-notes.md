@@ -15,6 +15,7 @@ This posts contains some of my notes from switching to PyTorch after having work
 
 
 ```python
+import imageio
 import torch
 ```
 
@@ -83,6 +84,56 @@ print('Allocated:', round(torch.cuda.memory_allocated(0)/1024**3,1), 'GB')
 
     Allocated: 0.0 GB
     
+
+## Channels First
+
+PyTorch requires channels first, so you may have to use the `permute` method to get your images in the right shape.
+
+
+```python
+image_path = 'roo.jpg'
+```
+
+
+```python
+img_arr = imageio.imread(image_path)
+```
+
+
+```python
+img = torch.from_numpy(img_arr)
+```
+
+
+```python
+img.shape
+```
+
+
+
+
+    torch.Size([256, 192, 3])
+
+
+
+
+```python
+fixed_img = img.permute(2, 0, 1)
+```
+
+
+```python
+fixed_img.shape
+```
+
+
+
+
+    torch.Size([3, 256, 192])
+
+
+
+Note that `fixed_img` isn't a copy of the original, it's just a reshaping. So if you go on to change `img`, `fixed_img` will change as well.
 
 ## Missing from PyTorch
 
