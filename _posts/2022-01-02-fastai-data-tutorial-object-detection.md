@@ -15,6 +15,7 @@ from fastai.data.all import *
 from fastai.vision.all import *
 from torchvision.datasets.vision import VisionDataset
 from pycocotools.coco import COCO
+from pyxtend import struct # pyxtend is available on pypi
 ```
 
 ## DOTA - PyTorch
@@ -68,7 +69,7 @@ dota_dataset = DOTADataset(dota_train_images, dota_train_annotations)
 ```
 
     loading annotations into memory...
-    Done (t=1.56s)
+    Done (t=1.47s)
     creating index...
     index created!
     
@@ -141,22 +142,79 @@ show_annotations(*dota_dataset[0])
 
 OK, we've got the PyTorch part working. Now let's plug it into FastAI
 
+We need a way to get the images for the respective blocks. This will be a list of three functions, like so:
+
+
+```python
+imgs, lbl_bbox = get_annotations(dota_train_annotations)
+```
+
+
+```python
+imgs[:5]
+```
+
+
+
+
+    ['P0000.png', 'P0001.png', 'P0002.png', 'P0005.png', 'P0008.png']
+
+
+
+`lbl_bbox` contains lots of elements, so let's take a look at the structure of it.
+
+
+```python
+struct(lbl_bbox)
+```
+
+
+
+
+    {list: [{tuple: [{list: [{list: [float, float, float, '...4 total']},
+          {list: [float, float, float, '...4 total']},
+          {list: [float, float, float, '...4 total']},
+          '...323 total']},
+        {list: [str, str, str, '...323 total']}]},
+      {tuple: [{list: [{list: [float, float, float, '...4 total']},
+          {list: [float, float, float, '...4 total']},
+          {list: [float, float, float, '...4 total']},
+          '...40 total']},
+        {list: [str, str, str, '...40 total']}]},
+      {tuple: [{list: [{list: [float, float, float, '...4 total']},
+          {list: [float, float, float, '...4 total']},
+          {list: [float, float, float, '...4 total']},
+          '...288 total']},
+        {list: [str, str, str, '...288 total']}]},
+      '...1410 total']}
+
+
+
+Now we need a function to pass to `get_items` inside the datablock. Because we already have a list of all the items, all we need to do is write a function that returns that list.
+
 
 ```python
 def get_train_imgs(noop):
     return imgs
 ```
 
-We need a way to get the images for the respective blocks. This will be a list of three functions, like so:
+Given an we need to get the correct annotation. Fortunately, we can look it up in a dictionary.
 
 
 ```python
-getters = [lambda o: image_path/'train'/'images'/'all'/'images'/o,
+img2bbox = dict(zip(imgs, lbl_bbox))
+```
+
+Now, we put all that together in our `getters`.
+
+
+```python
+getters = [lambda o: dota_train_images/o,
            lambda o: img2bbox[o][0],
            lambda o: img2bbox[o][1]]
 ```
 
-Now we can add any transforms we want.
+We can add any transforms we want.
 
 
 ```python
@@ -164,7 +222,7 @@ item_tfms = [Resize(128, method='pad'),]
 batch_tfms = [Rotate(), Flip(), Normalize.from_stats(*imagenet_stats)]
 ```
 
-Now we turn it into a `DataBlock`.
+Now, we turn it into a `DataBlock`.
 
 
 ```python
@@ -181,20 +239,12 @@ From from there we create our `DataLoaders`.
 
 
 ```python
-dls = dota_dblock.dataloaders(image_path/'train')
+dls = dota_dblock.dataloaders(dota_train_images)
 ```
 
-
-    ---------------------------------------------------------------------------
-
-    NameError                                 Traceback (most recent call last)
-
-    ~\AppData\Local\Temp/ipykernel_35588/2198741525.py in <module>
-    ----> 1 dls = dota_dblock.dataloaders(image_path/'train')
+    Due to IPython and Windows limitation, python multiprocessing isn't available now.
+    So `number_workers` is changed to 0 to avoid getting stuck
     
-
-    NameError: name 'image_path' is not defined
-
 
 As you can see, the `show_batch` method doesn't work as well with many labels, as is often the case with aerial imagery. However, you can see use it to get a general sense.
 
@@ -203,9 +253,10 @@ As you can see, the `show_batch` method doesn't work as well with many labels, a
 dls.show_batch()
 ```
 
+
+    
+![png](2022-01-02-fastai-data-tutorial-object-detection_files/2022-01-02-fastai-data-tutorial-object-detection_36_0.png)
+    
+
+
 That's all there is to it!
-
-
-```python
-
-```
