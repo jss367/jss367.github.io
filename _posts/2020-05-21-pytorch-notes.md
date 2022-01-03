@@ -84,7 +84,7 @@ print('Allocated:', round(torch.cuda.memory_allocated(0)/1024**3,1), 'GB')
 
     Allocated: 0.0 GB
     
-## Specify which GPU to use
+## Specify Which GPU to Use
 
 Just like in TensorFlow, you can specify which GPU to use with the following. Be sure to do this before you import TensorFlow/PyTorch.
 
