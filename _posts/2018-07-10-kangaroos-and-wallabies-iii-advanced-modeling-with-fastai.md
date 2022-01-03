@@ -1,8 +1,9 @@
 ---
 layout: post
 title: "Kangaroos and Wallabies III: Advanced Modeling with FastAI"
-date: 2018-07-16
-tags: [Python, Computer vision, Keras, Neural Networks, Machine Learning, Convolutional Neural Network, Wildlife]
+feature-img: "assets/img/rainbow.jpg"
+thumbnail: "assets/img/wallaby_cliff.jpg"
+tags: [Computer Vision, Convolutional Neural Networks, Deep Learning, FastAI, Neural Networks, Wildlife]
 ---
 
 In this notebook, we're going to take the [dataset we prepared] and continue to iterate on the modeling. Last time [we built a model using TensorFlow and Xception](https://jss367.github.io/kangaroos-and-wallabies-ii-building-a-model.html). This time, we're going to iterate on that using [FastAI](https://github.com/fastai/fastai).
