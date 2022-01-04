@@ -9,7 +9,9 @@ tags: [FastAI, Python]
 
 This post is a tutorial for loading data with [FastAI](https://github.com/fastai/fastai). The interface has changed a lot since I originally wrote a FastAI data tutorial, so I deleted that one and I'm starting from scratch and making a brand new one. I'll try to keep this up-to-date with the latest version. FastAI seems to be quite stable at the moment, so hopefully this will continue to work with the latest version.
 
-## Using your Own Data
+<b>Table of Contents</b>
+* TOC
+{:toc}
 
 There are already [tutorials on the website](https://docs.fast.ai/tutorial.vision.html) for how to work with the provided data, so I thought I would talk about how to work with data that is saved on your disk. We'll use the Kangaroos and Wallabies dataset that I discuss in [this post](https://jss367.github.io/kangaroos-and-wallabies-i-preparing-the-data.html).
 
@@ -19,9 +21,18 @@ To start with, we do the standard FastAI imports.
 ```python
 from fastai.data.all import *
 from fastai.vision.all import *
+from pyxtend import struct
 ```
 
 To generate a dataset, you'll need to create a `DataBlock` and a `DataLoader`. The `DataBlock` is the first and main thing required to generate a dataset. A datablock explains what you are going to do with your data. DataBlocks are the building blocks of DataLoaders.
+
+
+```python
+if sys.platform == 'linux':
+    path = Path(r'/home/julius/data/WallabiesAndRoosFullSize')
+else:
+    path = Path(r'E:/Data/Raw/WallabiesAndRoosFullSize')
+```
 
 First, you'll need to specify what the input and labels look like. For standard use-cases the tools you need are already built into FastAI. For image data, you use an `ImageBlock` and for categorical labels you use a `CategoryBlock`.
 
@@ -32,44 +43,75 @@ blocks = ImageBlock, CategoryBlock
 
 You'll need to tell it where to get your items. `fastai` comes with a nice little function, `get_image_files`, that makes pulling files from a disk easy.
 
-Then, we need to explain how to get the label. In our case, the label name come right from the folder name. 
 
-Then, you can add a method to split between train and validation data, as well as any transform you want.
-
-Putting it all together, it will look like this:
+```python
+all_images = get_image_files(path)
+```
 
 
 ```python
-get_image_files
+all_images[:5]
 ```
 
 
 
 
-    <function fastai.data.transforms.get_image_files(path, recurse=True, folders=None)>
+    (#5) [Path('/home/julius/data/WallabiesAndRoosFullSize/test/wallaby/wallaby-376.jpg'),Path('/home/julius/data/WallabiesAndRoosFullSize/test/wallaby/wallaby-1735.jpg'),Path('/home/julius/data/WallabiesAndRoosFullSize/test/wallaby/wallaby-764.jpg'),Path('/home/julius/data/WallabiesAndRoosFullSize/test/wallaby/wallaby-754.jpg'),Path('/home/julius/data/WallabiesAndRoosFullSize/test/wallaby/wallaby-758.jpg')]
 
 
+
+Then, we need to explain how to get the label. In our case, the label name come right from the folder name. `fastai` has a function called `parent_label` that makes this easy.
+
+
+```python
+parent_label(all_images[0])
+```
+
+
+
+
+    'wallaby'
+
+
+
+Then, you can add a method to split between train and validation data.
+
+
+```python
+splitter = GrandparentSplitter('train', 'val')
+```
+
+If your splitter isn't working, it can be hard to debug. So before we put it into the `DataBlock`, let's test it out.
+
+
+```python
+struct(splitter(all_images))
+```
+
+
+
+
+    {tuple: [{list: [int, int, int, '...3653 total']},
+      {list: [int, int, int, '...567 total']}]}
+
+
+
+It returns a tuple of a list of train indices and a list of val indices. Perfect!
+
+## Creating the DataBlock
+
+Putting it all together, it will look like this:
 
 
 ```python
 dblock = DataBlock(blocks    = blocks,
                    get_items = get_image_files,
                    get_y     = parent_label,
-                   splitter  = GrandparentSplitter('train', 'val'),
+                   splitter  = splitter,
                    item_tfms = Resize(224))
 ```
 
-Note that we haven't actually told it where our images are on disk. That's because a `DataBlock` exists irrespective of underlying images. You will pass it a path of images to use it.
-
-
-```python
-if sys.platform == 'linux':
-    path = Path(r'/home/julius/data/WallabiesAndRoosFullSize')
-else:
-    path = Path(r'E:/Data/Raw/WallabiesAndRoosFullSize')
-```
-
-The best way to see if you have made a valid `DataBlock` is to use the `.summary()` method.
+The best way to see if you have made a valid `DataBlock` is to use the `.summary()` method. Note that we haven't actually told it where our images are on disk. That's because a `DataBlock` exists irrespective of underlying images. You will pass it a path of images to use it.
 
 
 ```python
@@ -80,6 +122,8 @@ dblock.summary(path)
     Collecting items from /home/julius/data/WallabiesAndRoosFullSize
     Found 4721 items
     2 datasets of sizes 3653,567
+    Setting up Pipeline: PILBase.create
+    Setting up Pipeline: parent_label -> Categorize -- {'vocab': None, 'sort': True, 'add_na': False}
     Setting up Pipeline: PILBase.create
     Setting up Pipeline: parent_label -> Categorize -- {'vocab': None, 'sort': True, 'add_na': False}
     
@@ -103,6 +147,8 @@ dblock.summary(path)
     Collecting items from /home/julius/data/WallabiesAndRoosFullSize
     Found 4721 items
     2 datasets of sizes 3653,567
+    Setting up Pipeline: PILBase.create
+    Setting up Pipeline: parent_label -> Categorize -- {'vocab': None, 'sort': True, 'add_na': False}
     Setting up Pipeline: PILBase.create
     Setting up Pipeline: parent_label -> Categorize -- {'vocab': None, 'sort': True, 'add_na': False}
     Setting up after_item: Pipeline: Resize -- {'size': (224, 224), 'method': 'crop', 'pad_mode': 'reflection', 'resamples': (2, 0), 'p': 1.0} -> ToTensor
@@ -137,7 +183,7 @@ Once you've got a `DataBlock`, you can convert it into either a dataset using `d
 
 ## DataLoaders
 
-Creating `DataLoaders` from a `DataBlock` is trivially simple - all you do is pass a path.
+Dataloader knows how to feed data into the model, such as batch size, transforms, etc. Creating `DataLoaders` from a `DataBlock` is trivially simple - all you do is pass a path.
 
 
 ```python
@@ -146,12 +192,39 @@ dls = dblock.dataloaders(path)
 
 
 ```python
+type(dls)
+```
+
+
+
+
+    fastai.data.core.DataLoaders
+
+
+
+The DataLoaders class is interesting. I had assumed it was inherited from the PyTorch DataLoader, but it is not.
+
+
+```python
+import inspect
+inspect.getmro(DataLoaders)
+```
+
+
+
+
+    (fastai.data.core.DataLoaders, fastcore.basics.GetAttr, object)
+
+
+
+
+```python
 dls.train.show_batch(max_n=4, nrows=1)
 ```
 
 
     
-![png](2022-01-01-fastai-data-tutorial-image-classification_files/2022-01-01-fastai-data-tutorial-image-classification_23_0.png)
+![png](2022-01-01-fastai-data-tutorial-image-classification_files/2022-01-01-fastai-data-tutorial-image-classification_32_0.png)
     
 
 
@@ -162,7 +235,7 @@ dls.valid.show_batch(max_n=4, nrows=1)
 
 
     
-![png](2022-01-01-fastai-data-tutorial-image-classification_files/2022-01-01-fastai-data-tutorial-image-classification_24_0.png)
+![png](2022-01-01-fastai-data-tutorial-image-classification_files/2022-01-01-fastai-data-tutorial-image-classification_33_0.png)
     
 
 
@@ -205,7 +278,7 @@ dls.train.show_batch(max_n=4, nrows=1)
 
 
     
-![png](2022-01-01-fastai-data-tutorial-image-classification_files/2022-01-01-fastai-data-tutorial-image-classification_31_1.png)
+![png](2022-01-01-fastai-data-tutorial-image-classification_files/2022-01-01-fastai-data-tutorial-image-classification_40_1.png)
     
 
 
@@ -260,21 +333,11 @@ OK, now we've got 5118 files and these are all train files. Fortunately, the sam
 
 
 ```python
-
-```
-
-
-```python
 dblock = DataBlock(blocks    = blocks,
                    get_items = get_image_files,
                    get_y     = parent_label,
                    splitter  = GrandparentSplitter('train', 'val'),
                    item_tfms = Resize(224))
-```
-
-
-```python
-
 ```
 
 ## Normalizing
@@ -288,7 +351,7 @@ std = torch.stack(stds).mean(dim=0)
 print(mean, std)
 ```
 
-    TensorImage([0.4947, 0.4527, 0.4030], device='cuda:0') TensorImage([0.2462, 0.2288, 0.2235], device='cuda:0')
+    TensorImage([0.4953, 0.4536, 0.4037], device='cuda:0') TensorImage([0.2454, 0.2282, 0.2235], device='cuda:0')
     
 
 
@@ -315,7 +378,7 @@ dls.train.show_batch(max_n=4, nrows=1)
 
 
     
-![png](2022-01-01-fastai-data-tutorial-image-classification_files/2022-01-01-fastai-data-tutorial-image-classification_48_0.png)
+![png](2022-01-01-fastai-data-tutorial-image-classification_files/2022-01-01-fastai-data-tutorial-image-classification_55_0.png)
     
 
 
@@ -331,7 +394,7 @@ dls
 
 
 
-    <fastai.data.core.DataLoaders at 0x7f0f2c315790>
+    <fastai.data.core.DataLoaders at 0x7f39c6b51220>
 
 
 
@@ -345,8 +408,8 @@ dls.loaders
 
 
 
-    [<fastai.data.core.TfmdDL at 0x7f0f2e0572e0>,
-     <fastai.data.core.TfmdDL at 0x7f0f2c3731c0>]
+    [<fastai.data.core.TfmdDL at 0x7f39c6805eb0>,
+     <fastai.data.core.TfmdDL at 0x7f39c4b05dc0>]
 
 
 
@@ -363,7 +426,7 @@ dl
 
 
 
-    <fastai.data.core.TfmdDL at 0x7f0f2e0572e0>
+    <fastai.data.core.TfmdDL at 0x7f39c6805eb0>
 
 
 
@@ -434,8 +497,8 @@ item[1]
 
 
 
-    TensorCategory([1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1,
-            0, 0, 1, 1, 1, 0, 0, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 1, 0, 0, 1, 0, 0, 0,
-            0, 1, 1, 0, 1, 0, 1, 1, 0, 0, 1, 0, 0, 0, 1, 0], device='cuda:0')
+    TensorCategory([0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0,
+            1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1,
+            0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0], device='cuda:0')
 
 
