@@ -51,7 +51,7 @@ PyTorch doesn't have as many pre-trained models as Tensorflow but there's still 
 
 Github user [qubvel](https://github.com/qubvel) has also created repos for PyTorch [segmentation](https://github.com/qubvel/segmentation_models.pytorch) models.
 
-The [PyTorch Image Models](https://github.com/rwightman/pytorch-image-models) repo has lots of different models in it, with more added all the time. Very up-to-date.
+The [PyTorch Image Models](https://github.com/rwightman/pytorch-image-models) repo has lots of different models in it, with more added all the time. Very up-to-date. You can also install this with `pip install timm`.
 
 ##### Object Detection
 
