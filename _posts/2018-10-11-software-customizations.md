@@ -6,7 +6,9 @@ thumbnail: "assets/img/car.jpg"
 tags: [Linux, Mac, Windows]
 ---
 
-<b>Table of contents</b>
+This post details some of the customizations I have made to some of the [software I use](https://jss367.github.io/software-i-use.html) in that hopes that it is helpful to others.
+
+<b>Table of Contents</b>
 * TOC
 {:toc}
 
