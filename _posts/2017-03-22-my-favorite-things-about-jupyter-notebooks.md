@@ -275,6 +275,11 @@ $$c = \sqrt{a^2 + b^2}$$
 
 Some things that work in Jupyter Notebooks don't work with the renderer I use for this blog, so I can't show everything. But in Jupyter Notebooks you can use LaTeX with a single `$` and use a double `$$` to center it the expression.
 
+## Suppressing Output
+
+When you run a command in Jupyter Notebooks the last output is printed. But if you some reason you don't want this, you can always surpress it with a semicolon. For example, you often don't want to return from `matplotlib` commands, so you can:
+
+`plt.show();`
 
 # Viewer
 
@@ -286,9 +291,4 @@ There's a really simple way to share beautiful notebooks, and it's called [nbvie
 There are so many awesome examples of Jupyter Notebooks out there. Here are some great ones:
 
 [A gallery of interesting Jupyter Notebooks](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks)
-
-
-
-
-
 
