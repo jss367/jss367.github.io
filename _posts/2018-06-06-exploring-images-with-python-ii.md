@@ -3,7 +3,7 @@ layout: post
 title: "Exploring Images with Python II"
 thumbnail: "assets/img/mining_landscape.jpg"
 feature-img: "assets/img/rainbow.jpg"
-tags: [Computer Vision, Python]
+tags: [Computer Vision, Data Visualization, Python]
 ---
 
 This post shows some of the various tools in Python for visualizing images. There are usually two steps to the visualization process. First, you'll need to read in the image, usually as a `numpy` array or something similar. Then, you can visualize it with various libraries.
