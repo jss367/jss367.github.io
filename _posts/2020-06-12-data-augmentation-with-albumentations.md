@@ -224,6 +224,53 @@ for i in range(5):
 
 There is also `A.RandomRotate90(p=0.5)` but I don't recommend it. The above are all you need.
 
+The above works well for overhead (e.g. satellite, aerial) imagery, but if you're using normal imagery you probably don't want to rotate it so significantly. Instead, I would do a gentle (perhaps 10 degrees) rotation on each side.
+
+
+```python
+augments = A.Compose([
+    A.Rotate (limit=20, p=1)    
+])
+
+for i in range(5):
+    augmented = augments(image=image, mask=mask)
+    image_aug = augmented['image']
+    mask_aug = augmented['mask']
+    visualize(image, image_aug, mask, mask_aug)
+```
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_28_0.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_28_1.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_28_2.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_28_3.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_28_4.png)
+    
+
+
+In general, for things that are spectra, I apply them 100% of the time. They can always have a small rotation of a few degrees, so it's like only applying it some of the time.
+
 ## Pixel-level augmentations
 
 Pixel-level augmentations change pixel values without changing the overall label of the image, so you don't need to worry about changing the mask when you use them.
@@ -253,11 +300,11 @@ visualize(image, augmented['image'])
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_34_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_37_0.png)
     
 
 
-The [default range](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.CLAHE) is 1-4 (unless in changes - check the link for the latest). Here's what 4 looks like.
+The [default range](https://albumentations.ai/docs/api_reference/augmentations/transforms/#albumentations.augmentations.transforms.CLAHE) is 1-4. Here's what 4 looks like.
 
 
 ```python
@@ -276,16 +323,16 @@ visualize(image, augmented['image'])
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_37_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_40_0.png)
     
 
 
-I find that the default range and probability works pretty well for me.
+I find that the default range is a little high, so here's what it looks like at 2.
 
 
 ```python
 augments = A.Compose([
-        A.CLAHE()
+        A.CLAHE(2)
 ])
 aug_images = []
 for i in range(9):
@@ -298,7 +345,7 @@ visualize_group(aug_images)
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_39_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_42_0.png)
     
 
 
@@ -320,7 +367,7 @@ visualize(image, augmented_image)
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_42_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_45_0.png)
     
 
 
@@ -343,7 +390,7 @@ visualize(image, augmented_image)
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_45_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_48_0.png)
     
 
 
@@ -366,7 +413,7 @@ visualize(image, augmented_image)
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_47_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_50_0.png)
     
 
 
@@ -389,7 +436,7 @@ visualize(image, augmented_image)
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_49_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_52_0.png)
     
 
 
@@ -412,7 +459,7 @@ visualize_group(aug_ims)
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_51_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_54_0.png)
     
 
 
@@ -437,7 +484,7 @@ visualize_group(aug_ims)
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_54_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_57_0.png)
     
 
 
@@ -462,7 +509,7 @@ visualize_group(aug_ims)
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_57_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_60_0.png)
     
 
 
@@ -485,31 +532,31 @@ for i in range(5):
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_60_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_63_0.png)
     
 
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_60_1.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_63_1.png)
     
 
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_60_2.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_63_2.png)
     
 
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_60_3.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_63_3.png)
     
 
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_60_4.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_63_4.png)
     
 
 
@@ -517,95 +564,6 @@ for i in range(5):
 ```python
 augments = A.Compose([
         A.ElasticTransform()
-])
-
-for i in range(5):
-    augmented = augments(image=image, mask=mask)
-    image_aug = augmented['image']
-    mask_aug = augmented['mask']
-    visualize(image, image_aug, mask, mask_aug)
-```
-
-
-    
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_61_0.png)
-    
-
-
-
-    
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_61_1.png)
-    
-
-
-
-    
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_61_2.png)
-    
-
-
-
-    
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_61_3.png)
-    
-
-
-
-    
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_61_4.png)
-    
-
-
-
-```python
-augments = A.Compose([
-        A.OpticalDistortion()
-])
-
-for i in range(5):
-    augmented = augments(image=image, mask=mask)
-    image_aug = augmented['image']
-    mask_aug = augmented['mask']
-    visualize(image, image_aug, mask, mask_aug)
-```
-
-
-    
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_62_0.png)
-    
-
-
-
-    
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_62_1.png)
-    
-
-
-
-    
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_62_2.png)
-    
-
-
-
-    
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_62_3.png)
-    
-
-
-
-    
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_62_4.png)
-    
-
-
-If you want to include multiple distortions but don't want them to add on to each other, you can always use the `OneOf` method.
-
-
-```python
-augments = A.Compose([
-        A.OneOf([A.OpticalDistortion(), A.ElasticTransform(), A.GridDistortion()
-                ])
 ])
 
 for i in range(5):
@@ -645,6 +603,95 @@ for i in range(5):
     
 
 
+
+```python
+augments = A.Compose([
+        A.OpticalDistortion()
+])
+
+for i in range(5):
+    augmented = augments(image=image, mask=mask)
+    image_aug = augmented['image']
+    mask_aug = augmented['mask']
+    visualize(image, image_aug, mask, mask_aug)
+```
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_65_0.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_65_1.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_65_2.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_65_3.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_65_4.png)
+    
+
+
+If you want to include multiple distortions but don't want them to add on to each other, you can always use the `OneOf` method.
+
+
+```python
+augments = A.Compose([
+        A.OneOf([A.OpticalDistortion(), A.ElasticTransform(), A.GridDistortion()
+                ])
+])
+
+for i in range(5):
+    augmented = augments(image=image, mask=mask)
+    image_aug = augmented['image']
+    mask_aug = augmented['mask']
+    visualize(image, image_aug, mask, mask_aug)
+```
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_67_0.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_67_1.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_67_2.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_67_3.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_67_4.png)
+    
+
+
 ## Adding Effects
 
 You can also add things like rain, fog, shadows, and snow. I find these really helpful.
@@ -670,7 +717,7 @@ visualize_group(aug_ims)
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_69_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_72_0.png)
     
 
 
@@ -695,7 +742,7 @@ visualize_group(aug_ims)
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_72_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_75_0.png)
     
 
 
@@ -720,7 +767,7 @@ visualize_group(aug_ims)
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_75_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_78_0.png)
     
 
 
@@ -745,7 +792,7 @@ visualize_group(aug_ims)
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_78_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_81_0.png)
     
 
 
@@ -769,7 +816,7 @@ plt.imshow(aug(image=image)['image']);
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_83_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_86_0.png)
     
 
 
@@ -793,11 +840,35 @@ visualize_group(aug_ims)
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_86_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_89_0.png)
     
 
 
 Compare the above to `Crop`, where the images aren't resized.
+
+The default scale for crop is `scale=(0.08, 1.0)`, which might be too much for many applications. Here's what it looks like if you back it off a bit.
+
+
+```python
+augments = A.Compose([
+        A.RandomResizedCrop(image.shape[0], image.shape[1], scale=(0.25, 1)),
+])
+
+aug_ims = []
+for i in range(9):
+    augmented = augments(image=image, mask=mask)
+    aug_ims.append(augmented['image'])
+
+visualize_group(aug_ims)
+```
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_92_0.png)
+    
+
+
+That usually looks better to me.
 
 
 ```python
@@ -806,7 +877,7 @@ augments = A.Compose([
 ])
 
 aug_ims = []
-for i in range(9):
+for i in range(4):
     augmented = augments(image=image, mask=mask)
 
     aug_ims.append(augmented['image'])
@@ -816,55 +887,25 @@ for i in range(9):
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_88_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_94_0.png)
     
 
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_88_1.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_94_1.png)
     
 
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_88_2.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_94_2.png)
     
 
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_88_3.png)
-    
-
-
-
-    
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_88_4.png)
-    
-
-
-
-    
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_88_5.png)
-    
-
-
-
-    
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_88_6.png)
-    
-
-
-
-    
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_88_7.png)
-    
-
-
-
-    
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_88_8.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_94_3.png)
     
 
 
@@ -885,55 +926,55 @@ for i in range(9):
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_90_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_96_0.png)
     
 
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_90_1.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_96_1.png)
     
 
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_90_2.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_96_2.png)
     
 
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_90_3.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_96_3.png)
     
 
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_90_4.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_96_4.png)
     
 
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_90_5.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_96_5.png)
     
 
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_90_6.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_96_6.png)
     
 
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_90_7.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_96_7.png)
     
 
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_90_8.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_96_8.png)
     
 
 
@@ -953,7 +994,7 @@ visualize_group(aug_ims)
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_91_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_97_0.png)
     
 
 
@@ -975,7 +1016,7 @@ visualize_group(aug_ims)
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_93_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_99_0.png)
     
 
 
@@ -997,7 +1038,7 @@ visualize_group(aug_ims)
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_95_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_101_0.png)
     
 
 
@@ -1017,8 +1058,7 @@ augments = A.Compose([
         A.VerticalFlip(p=0.5),
         A.RandomRotate90(p=0.5),
     # pixel-level transforms
-        A.CLAHE(p=0.5),
-        A.Equalize(p=0.5),
+        A.CLAHE(2),
         A.Posterize(num_bits=4, p=0.5),
         A.RandomBrightness(limit=0.2, p=0.5),
         A.RandomContrast(limit=0.2, p=0.5),
@@ -1035,55 +1075,55 @@ for i in range(9):
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_100_0.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_106_0.png)
     
 
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_100_1.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_106_1.png)
     
 
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_100_2.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_106_2.png)
     
 
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_100_3.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_106_3.png)
     
 
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_100_4.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_106_4.png)
     
 
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_100_5.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_106_5.png)
     
 
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_100_6.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_106_6.png)
     
 
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_100_7.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_106_7.png)
     
 
 
 
     
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_100_8.png)
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_106_8.png)
     
 
 
@@ -1097,8 +1137,7 @@ augments = A.Compose([
         A.VerticalFlip(p=0.5),
         A.RandomRotate90(p=0.5),
     # pixel-level transforms
-        A.CLAHE(p=0.5),
-        A.Equalize(p=0.5),
+        A.CLAHE(2),
         A.Posterize(num_bits=4, p=0.5),
         A.RandomBrightness(limit=0.2, p=0.5),
         A.RandomContrast(limit=0.2, p=0.5),
@@ -1106,180 +1145,6 @@ augments = A.Compose([
     # non-rigid
         A.OneOf([A.OpticalDistortion(), A.ElasticTransform(), A.GridDistortion()
                 ])
-])
-
-aug_ims = []
-for i in range(9):
-    augmented = augments(image=image, mask=mask)
-    plt.imshow(augmented['image'])
-    plt.show()
-```
-
-
-    
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_102_0.png)
-    
-
-
-
-    
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_102_1.png)
-    
-
-
-
-    
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_102_2.png)
-    
-
-
-
-    
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_102_3.png)
-    
-
-
-
-    
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_102_4.png)
-    
-
-
-
-    
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_102_5.png)
-    
-
-
-
-    
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_102_6.png)
-    
-
-
-
-    
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_102_7.png)
-    
-
-
-
-    
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_102_8.png)
-    
-
-
-#### Spatial, Pixel, Non-Rigid, and Cropping
-
-Or if you want to add cropping:
-
-
-```python
-augments = A.Compose([
-    # spatial-level transforms (no distortion)
-        A.HorizontalFlip(p=0.5),
-        A.VerticalFlip(p=0.5),
-        A.RandomRotate90(p=0.5),
-    # pixel-level transforms
-        A.CLAHE(p=0.5),
-        A.Equalize(p=0.5),
-        A.Posterize(num_bits=4, p=0.5),
-        A.RandomBrightness(limit=0.2, p=0.5),
-        A.RandomContrast(limit=0.2, p=0.5),
-        A.RandomGamma(gamma_limit=(80, 120), p=0.5),
-    # non-rigid
-        A.OneOf([A.OpticalDistortion(), A.ElasticTransform(), A.GridDistortion()
-                    ]),
-    # cropping
-        A.RandomResizedCrop(image.shape[0], image.shape[1])
-])
-
-aug_ims = []
-for i in range(9):
-    augmented = augments(image=image, mask=mask)
-    plt.imshow(augmented['image'])
-    plt.show()
-```
-
-
-    
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_105_0.png)
-    
-
-
-
-    
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_105_1.png)
-    
-
-
-
-    
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_105_2.png)
-    
-
-
-
-    
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_105_3.png)
-    
-
-
-
-    
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_105_4.png)
-    
-
-
-
-    
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_105_5.png)
-    
-
-
-
-    
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_105_6.png)
-    
-
-
-
-    
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_105_7.png)
-    
-
-
-
-    
-![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_105_8.png)
-    
-
-
-#### Spatial, Pixel, Non-Rigid, Cropping, and Special Effects
-
-Why not add some shadows as well?
-
-
-```python
-augments = A.Compose([
-    # spatial-level transforms (no distortion)
-        A.HorizontalFlip(p=0.5),
-        A.VerticalFlip(p=0.5),
-        A.RandomRotate90(p=0.5),
-    # pixel-level transforms
-        A.CLAHE(p=0.5),
-        A.Equalize(p=0.5),
-        A.Posterize(num_bits=4, p=0.5),
-        A.RandomBrightness(limit=0.2, p=0.5),
-        A.RandomContrast(limit=0.2, p=0.5),
-        A.RandomGamma(gamma_limit=(80, 120), p=0.5),
-    # non-rigid
-        A.OneOf([A.OpticalDistortion(), A.ElasticTransform(), A.GridDistortion()
-                    ]),
-    # cropping
-        A.RandomResizedCrop(image.shape[0], image.shape[1]),
-    # special effects
-        A.RandomShadow()
 ])
 
 aug_ims = []
@@ -1343,7 +1208,342 @@ for i in range(9):
     
 
 
+#### Spatial, Pixel, Non-Rigid, and Cropping
+
+Or if you want to add cropping:
+
 
 ```python
+augments = A.Compose([
+    # spatial-level transforms (no distortion)
+        A.HorizontalFlip(p=0.5),
+        A.VerticalFlip(p=0.5),
+        A.RandomRotate90(p=0.5),
+    # pixel-level transforms
+        A.CLAHE(2),
+        A.Posterize(num_bits=4, p=0.5),
+        A.RandomBrightness(limit=0.2, p=0.5),
+        A.RandomContrast(limit=0.2, p=0.5),
+        A.RandomGamma(gamma_limit=(80, 120), p=0.5),
+    # non-rigid
+        A.OneOf([A.OpticalDistortion(), A.ElasticTransform(), A.GridDistortion()
+                    ]),
+    # cropping
+        A.RandomResizedCrop(image.shape[0], image.shape[1], scale=(0.25, 1))
+])
 
+aug_ims = []
+for i in range(9):
+    augmented = augments(image=image, mask=mask)
+    plt.imshow(augmented['image'])
+    plt.show()
 ```
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_111_0.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_111_1.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_111_2.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_111_3.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_111_4.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_111_5.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_111_6.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_111_7.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_111_8.png)
+    
+
+
+#### Spatial, Pixel, Non-Rigid, Cropping, and Special Effects
+
+Why not add some shadows as well?
+
+
+```python
+augments = A.Compose([
+    # spatial-level transforms (no distortion)
+        A.HorizontalFlip(p=0.5),
+        A.VerticalFlip(p=0.5),
+        A.RandomRotate90(p=0.5),
+    # pixel-level transforms
+        A.CLAHE(2),
+        A.Posterize(num_bits=4, p=0.5),
+        A.RandomBrightness(limit=0.2, p=0.5),
+        A.RandomContrast(limit=0.2, p=0.5),
+        A.RandomGamma(gamma_limit=(80, 120), p=0.5),
+    # non-rigid
+        A.OneOf([A.OpticalDistortion(), A.ElasticTransform(), A.GridDistortion()
+                    ]),
+    # cropping
+        A.RandomResizedCrop(image.shape[0], image.shape[1], scale=(0.25, 1)),
+    # special effects
+        A.RandomShadow()
+])
+
+aug_ims = []
+for i in range(9):
+    augmented = augments(image=image, mask=mask)
+    plt.imshow(augmented['image'])
+    plt.show()
+```
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_114_0.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_114_1.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_114_2.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_114_3.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_114_4.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_114_5.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_114_6.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_114_7.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_114_8.png)
+    
+
+
+#### My Recommendation - Normal Imagery
+
+There's no data augmentation scheme that's going to consistently give you the best results, but here's a good baseline to try.
+
+
+```python
+augments = A.Compose([
+    # spatial-level transforms (no distortion)
+        A.Rotate (limit=20, p=1),
+    # pixel-level transforms
+        A.CLAHE(2),
+        A.Posterize(num_bits=4, p=0.5),
+        A.RandomBrightness(limit=0.2, p=0.5),
+        A.RandomContrast(limit=0.2, p=0.5),
+        A.RandomGamma(gamma_limit=(80, 120), p=0.5),
+    # non-rigid
+        A.OneOf([A.OpticalDistortion(), A.ElasticTransform(), A.GridDistortion()
+                    ]),
+    # cropping
+        A.RandomResizedCrop(image.shape[0], image.shape[1], scale=(0.25, 1)),
+])
+
+aug_ims = []
+for i in range(9):
+    augmented = augments(image=image, mask=mask)
+    plt.imshow(augmented['image'])
+    plt.show()
+```
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_117_0.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_117_1.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_117_2.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_117_3.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_117_4.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_117_5.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_117_6.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_117_7.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_117_8.png)
+    
+
+
+#### My Recommendation - Overhead Imagery
+
+The biggest difference for overhead imagery is that the flips and rotations can be different.
+
+
+```python
+augments = A.Compose([
+    # spatial-level transforms (no distortion)
+        A.HorizontalFlip(p=0.5),
+        A.VerticalFlip(p=0.5),
+        A.RandomRotate90(p=0.5),
+    # pixel-level transforms
+        A.CLAHE(2),
+        A.Posterize(num_bits=4, p=0.5),
+        A.RandomBrightness(limit=0.2, p=0.5),
+        A.RandomContrast(limit=0.2, p=0.5),
+        A.RandomGamma(gamma_limit=(80, 120), p=0.5),
+    # non-rigid
+        A.OneOf([A.OpticalDistortion(), A.ElasticTransform(), A.GridDistortion()
+                    ]),
+    # cropping
+        A.RandomResizedCrop(image.shape[0], image.shape[1], scale=(0.25, 1)),
+])
+
+aug_ims = []
+for i in range(9):
+    augmented = augments(image=image, mask=mask)
+    plt.imshow(augmented['image'])
+    plt.show()
+```
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_120_0.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_120_1.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_120_2.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_120_3.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_120_4.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_120_5.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_120_6.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_120_7.png)
+    
+
+
+
+    
+![png](2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_120_8.png)
+    
+
