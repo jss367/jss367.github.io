@@ -26,7 +26,7 @@ from matplotlib import pyplot as plt
 from mpl_toolkits.axes_grid1 import ImageGrid
 ```
 
-To illustrate the data augmentation techniques, I'm going to use a sample image from the [semantic drone dataset from Kaggle](https://www.kaggle.com/bulentsiyah/semantic-drone-dataset#). Credit for the [original dataset]((https://www.tugraz.at/index.php?id=22387) goes to the Institue of Computer Graphics and Vision at Graz University of Technology in Austria.
+To illustrate the data augmentation techniques, I'm going to use a sample image from the [semantic drone dataset from Kaggle](https://www.kaggle.com/bulentsiyah/semantic-drone-dataset#). Credit for the [original dataset](https://www.tugraz.at/index.php?id=22387) goes to the Institue of Computer Graphics and Vision at Graz University of Technology in Austria.
 
 Let's read in the image.
 
