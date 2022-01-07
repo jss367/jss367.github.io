@@ -1,9 +1,9 @@
 ---
 layout: post
-title: "Kangaroos and Wallabies II: Augmenting the Data"
+title: "Kangaroos and Wallabies III: Augmenting the Data"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/kang_horiz.jpg"
-tags: [Computer Vision, Python, TensorFlow, Wildlife]
+tags: [Computer Vision, Data Augmentation, Python, TensorFlow, Wildlife]
 ---
 
 In this notebook, we're going to take our [prepared images](https://jss367.github.io/class-for-preparing-images.html) and augment them to increase the size of our dataset.
