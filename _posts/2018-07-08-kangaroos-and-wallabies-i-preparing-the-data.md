@@ -3,10 +3,10 @@ layout: post
 title: "Kangaroos and Wallabies I: Preparing the Data"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/wallaby.jpg"
-tags: [Computer Vision, Python, TensorFlow, Wildlife]
+tags: [Computer Vision, Python, Wildlife]
 ---
 
-In this series of posts, I will show how to build an image classifier using your own dataset. I'll be using images of kangaroos and wallabies that I've taken, but these techniques should work well with any kind of images.
+In this series of posts, I will show how to build an image classifier using your own dataset. We'll discuss how to prepare a dataset for machine learning, how to build a model to classify it, and techniques to improve the model's performance. This post will focus on the data preparation.
 
 <b>Table of contents</b>
 * TOC
@@ -14,7 +14,7 @@ In this series of posts, I will show how to build an image classifier using your
 
 ## Introduction
 
-First, a fun fact on kangaroos and wallabies: There isn't a clear phylogenetic boundary between the two. It's simply that the smaller ones - those where the adult male weighs less than 20 kg and has feet less than 25 centimeters - are called "wallabies", and the larger ones are called "kangaroos". In fact, some wallabies are more closely related to kangaroos than they are to other wallabies. This tammar wallaby (top) is more closely related to this red kangaroo (middle) than to the black-footed rock wallaby (bottom).
+I'll be using images of kangaroos and wallabies that I've taken, but these techniques should work well with any kind of images. Distinguishing kangaroos and wallabies is actually somewhat tricky because they often look similar. In fact, there isn't a clear phylogenetic boundary between the two. It's simply that the smaller ones - those where the adult males generally weigh less than 20 kg and have feet less than 25 centimeters - are called "wallabies", and the larger ones are called "kangaroos". In fact, some wallabies are more closely related to kangaroos than they are to other wallabies. This tammar wallaby (top) is more closely related to this red kangaroo (middle) than to the black-footed rock wallaby (bottom).
 
 ![tammar]({{site.baseurl}}/assets/img/kangwall/tammar.jpg) ![red]({{site.baseurl}}/assets/img/kangwall/red.jpg) ![bfrw]({{site.baseurl}}/assets/img/kangwall/bfrw.jpg)
 
@@ -22,7 +22,7 @@ OK, let's get started with the directory structure.
 
 ## Directories
 
-To start, I have all of my kangaroo images in one folder and all my wallaby images in another. We will need to split them up into  training, validation, and testing sets.
+To start, I have all of my kangaroo images in one folder and all my wallaby images in another. The next step is to split them up into training, validation, and testing sets.
 
 Here is the directory structure. We're starting with this:
 ```
@@ -62,7 +62,7 @@ data
           wallaby6.jpg
 ```
 
-OK, let's start writing some code. We'll start by importing some libraries and providing the locations where the data are and where we want it to be. We'll use the [Class for Preparing Images](https://jss367.github.io/class-for-preparing-images.html), which helps in presenting the data in the way we need it.
+We'll start by importing some libraries and providing the locations where the data are and where we want it to be. We'll use the [a tool I wrote called DataMaster](https://github.com/jss367/cv/blob/master/src/cv/data/data_prep/data_master.py) for preparing images, which helps in presenting the data in the way we need it.
 
 
 ```python
@@ -80,17 +80,24 @@ from cv.data.data_prep.data_master import DataMaster
 
 
 ```python
-# Locations where the data are
-original_kangaroo_path = Path(r'E:\Data\Raw\WallabiesAndRoosFullSize\kangaroos')
-original_wallaby_path = Path(r'E:\Data\Raw\WallabiesAndRoosFullSize\wallabies')
+path = Path(os.getenv('DATA')) / 'KangWall512'
+kang_path = path / 'kangaroo'
+wall_path = path / 'wallaby'
+```
 
-# Locations where we want to copy the data to
-kangaroo_train_path = Path(r'E:\Data\Processed\WallabiesAndRoosFullSize\train\kangaroos')
-kangaroo_validation_path = Path(r'E:\Data\Processed\WallabiesAndRoosFullSize\valid\kangaroos')
-kangaroo_test_path = Path(r'E:\Data\Processed\WallabiesAndRoosFullSize\test\kangaroos')
-wallaby_train_path = Path(r'E:\Data\Processed\WallabiesAndRoosFullSize\train\wallabies')
-wallaby_validation_path = Path(r'E:\Data\Processed\WallabiesAndRoosFullSize\valid\wallabies')
-wallaby_test_path = Path(r'E:\Data\Processed\WallabiesAndRoosFullSize\test\wallabies')
+
+```python
+new_path = Path(os.getenv('DATA')) / 'KangWall512Split'
+```
+
+
+```python
+kang_train_path = new_path / 'train' / 'kangaroo'
+wall_train_path = new_path / 'train' / 'wallaby'
+kang_val_path = new_path / 'val' / 'kangaroo'
+wall_val_path = new_path / 'val' / 'wallaby'
+kang_test_path = new_path / 'test' / 'kangaroo'
+wall_test_path = new_path / 'test' / 'wallaby'
 ```
 
 
@@ -100,32 +107,45 @@ data_master = DataMaster()
 
 ## Similar Images
 
-In an ideal world, all the images in a dataset would be "equal" in the sense that they're all the same quality and equally different from the others, or at least if they're unequal, the "unequalness" is randomly scattered throughout the dataset. But this isn't an ideal dataset; it's a real one. And it is not perfect.
+In an ideal world, all the images in a dataset would be "equal" in the sense that they're all the same quality and equally different from the others, or at least if they're unequal, the "unequalness" is randomly scattered throughout the dataset. But this isn't an ideal dataset; it's a real one, so we have to account for a variety of possible issues.
 
-Usually, in wildlife photography, I take a series of photos in a row to make sure I get at least one good one. This means that I have many photos taken within seconds of each other, resulting in nearly identical images. This presents a problem for splitting the data into training, validating, and testing sets, as we can't have nearly identical images in different splits. This is known as data leakage and would allow our model to overfit on superfluous details and, because those same superfluous details are in the validate and test sets, appear to be better than it really is. We want to avoid this so we can build a robust detector.
+Usually when I photograph animals I take a series of photos in a row to make sure I get at least one good one. This means that I have many photos taken within seconds of each other, resulting in nearly identical images.
 
-Let's take a look at two photos taken next to each other.
+Let's take a look at an examples of two photos.
 
 
 ```python
-kangaroo_files = data_master.get_filenames(original_kangaroo_path)
+kangaroo_files = data_master.get_filenames(kang_path)
 ```
 
 
 ```python
-similar_files = [original_kangaroo_path / kangaroo_files[6], original_kangaroo_path / kangaroo_files[7]]
+similar_files = [kang_path / kangaroo_files[6], kang_path / kangaroo_files[7]]
 similar_images = [Image.open(img) for img in similar_files]
-combined_images = np.hstack((np.asarray(img) for img in similar_images))
+combined_images = np.hstack([np.asarray(img) for img in similar_images])
 Image.fromarray(combined_images)
 ```
 
-These are almost identical. We could just take one from each similar group of photos, but having nearly identical images isn't always a bad thing. In fact, it can be useful because there will be small variations in the background and specific pixel locations, but the subject is the same. That helps the model learn what is and isn't important in the image. So we're going to keep them in, we just have to confine each series of similar images to a single one of the datasets (which one doesn't actually matter, just that each series is confined to one).
 
-To separate them, we'll have to separate the images by date, so all the images taken on one day go to one of the data splits. One way to do that would be to put all the images taken before some date in the training set, then validate and test on sets taken later. But that creates another problem. The first picture I took doesn't look much like the most recent pictures. The first photos were taken with my phone and the later ones with a real camera. 
+
+
+    
+![png](2018-07-08-kangaroos-and-wallabies-i-preparing-the-data_files/2018-07-08-kangaroos-and-wallabies-i-preparing-the-data_20_0.png)
+    
+
+
+
+These are almost identical. We could just take one from each similar group of photos, but having nearly identical images isn't always a bad thing. In fact, it can be useful because there will be small variations in the background and specific pixel locations, but the subject is the same. That helps the model learn what is and isn't important in the image.
+
+One thing I like about this dataset is that it is real world data, and some real world datasets are going to contain points that are nearly (or are) identical to each other. It doesn't look like [CIFAR-10](https://www.cs.toronto.edu/~kriz/cifar.html), but there are lots of datasets like that, so maybe being different is a good thing. So we're going to keep them in. 
+
+This presents a problem, however, for splitting the data into training, validating, and testing sets, as we can't have nearly identical images in different splits. This is known as data leakage and would allow our model to overfit on superfluous details and, because those same superfluous details are in the validate and test sets, appear to be better than it really is.
+
+To separate them, we'll have to separate the images by date, so all the images taken on one day go to one of the data splits. One way to do that would be to put all the images taken before some date in the training set, then validate and test on sets taken later. But that creates another problem. The first picture I took doesn't look much like the most recent pictures. The first photos were taken with my phone and the later ones with a real camera and I (hope) I have improved as a photographer as well. We don't want to train on a bunch of crappy images and test on good ones, so we'll have to mix it up.
 
 
 ```python
-im = Image.open(os.path.join(original_kangaroo_path, kangaroo_files[0]))
+im = Image.open(os.path.join(kang_path, kangaroo_files[0]))
 ```
 
 
@@ -137,70 +157,71 @@ im
 
 
     
-![png]({{site.baseurl}}/assets/img/2018-07-08-Preparing-folder-structure_files/2018-07-08-Preparing-folder-structure_25_0.png)
+![png](2018-07-08-kangaroos-and-wallabies-i-preparing-the-data_files/2018-07-08-kangaroos-and-wallabies-i-preparing-the-data_24_0.png)
     
 
 
 
-My first picture of a kangaroo, taken with my phone. Obviously, I (hope) I have improved over time. We don't want to train on a bunch of crappy images and test on good ones. So we'll have to mix it up. Let's look into the metadata to see how to do that.
+My first picture of a kangaroo, which was taken with my phone.
+
+To split the images by date, we'll have to look into the metadata.
 
 ## Metadata
 
-There's a lot of information hidden in the metadata. Time, location, and equipment are often embedded in there. Let's take a look in there by calling `_getexif()`.
+There's a lot of information hidden in image metadata. Time, location, and equipment are often embedded in there. Let's take a look in there by calling `_getexif()`.
 
 
 ```python
-Image.open(original_kangaroo_path / kangaroo_files[1000])._getexif()
+Image.open(kang_path / kangaroo_files[1000])._getexif()
 ```
 
 
 
 
-    {36864: b'0231',
-     37377: (8965784, 1000000),
-     37378: (2275007, 1000000),
+    {296: 2,
+     34665: 212,
+     271: 'samsung',
+     272: 'SCH-I545',
+     305: 'Adobe Photoshop Lightroom Classic 9.3 (Windows)',
+     306: '2022:01:08 15:38:06',
+     282: 240.0,
+     283: 240.0,
+     36864: b'0231',
+     37377: 8.965784,
+     37378: 2.275007,
      36867: '2016:03:06 13:34:41',
      36868: '2016:03:06 13:34:41',
-     37379: (471552, 65536),
-     37380: (0, 10),
-     37381: (228, 100),
+     37379: 7.1953125,
+     37380: 0.0,
+     37381: 2.28,
      37383: 1,
      37384: 0,
      37385: 0,
-     37386: (420, 100),
+     37386: 4.2,
      37510: b'ASCII\x00\x00\x00METADATA-START',
      40961: 1,
      41989: 31,
      41990: 0,
-     36880: '-04:00',
-     272: 'SCH-I545',
-     271: 'samsung',
+     36880: '-08:00',
      41495: 2,
-     33434: (1, 500),
-     282: (240, 1),
-     283: (240, 1),
-     33437: (22, 10),
+     33434: 0.002,
+     33437: 2.2,
      41729: b'\x00',
      34850: 2,
      34855: 50,
-     296: 2,
-     34665: 214,
      41986: 0,
-     41987: 0,
-     305: 'Adobe Photoshop Lightroom Classic 9.2.1 (Windows)',
-     306: '2020:06:17 01:04:55'}
+     41987: 0}
 
 
 
-For more information on what the different values mean, see this [post by Nicholas Armstrong](http://nicholasarmstrong.com/2010/02/exif-quick-reference/).
+Unfortunately, the keys are not easily understandable. Some you can guess but others aren't so clear. To find out why they mean check out this [reference on image metadata](http://nicholasarmstrong.com/2010/02/exif-quick-reference/).
 
-We can separate them by date, putting some dates in the training set, and others in the validation and test sets. This will keep similar images together and spread out the images taken with different cameras. You can actually see my evolution in cameras in the metadata, starting with using my phone and ending with a Nikon D7200.
+Going through the metadata is kind of fun. You can actually see my evolution in cameras in the metadata, starting with using my phone and ending with a Nikon D7200.
 
 
 ```python
 for i in [1, 13, 100]:
-    print(Image.open(os.path.join(original_kangaroo_path,
-                                  kangaroo_files[i]))._getexif()[272])
+    print(Image.open(os.path.join(kang_path, kangaroo_files[i]))._getexif()[272])
 ```
 
     SCH-I545
@@ -210,9 +231,9 @@ for i in [1, 13, 100]:
 
 I've noticed that the metadata can be inconsistent and the date we're looking for isn't in every image. We'll have to find and remove the images without the date.
 
-## Cleaning out Bad Data
+## Removing Bad Data
 
-We saw above that some of the files don't have all the required information. We'll have to remove those. It is also a good practice to look through the dataset to ensure that the images are correctly labeled. I hand labeled this dataset, and gone through a few rounds of error correction so I believe it is accurate.
+Some of the files don't have all the required information. We'll have to remove those.
 
 
 ```python
@@ -234,23 +255,25 @@ def remove_files_without_dates(path, list_of_files):
 
 
 ```python
-kangaroo_file_dates, good_kangaroo_files = remove_files_without_dates(original_kangaroo_path, kangaroo_files)
+kangaroo_file_dates, good_kangaroo_files = remove_files_without_dates(kang_path, kangaroo_files)
 ```
 
     2 file(s) were missing dates and will not be used
     
 
-Only two bad ones, that's good. Let's see how many images we have left.
+Lots of datasets will have incorrectly labeled data, so it's a good practice to look through the dataset to ensure that the images are correctly labeled. I hand labeled this dataset, and gone through a few rounds of error correction so I believe it is accurate.
+
+Now that we're done cleaning, let's see how many images we have left.
 
 
 ```python
 print(len(good_kangaroo_files))
 ```
 
-    2865
+    2870
     
 
-We'll have a few thousand pictures to work with.
+Nice! We'll have a few thousand images to work with.
 
 ## Splitting the Data by Date
 
@@ -294,13 +317,13 @@ def split_days(list_of_dates, validation_set_size, test_set_size, seed=None):
     return validation_dates, test_dates
 ```
 
-Now we'll set the size of the train, validate, and test sets. We want to make training set as large as possible given the constraint that the variance in our validation and tests sets is low enough to be meaningful. The lower the variance, the more confidence we can have in our results. With only a few thousand images, we already don't have as much data as we would like. To keep the validation and test sets large enough to be useful, I think we should make them about 10% of our data. That leaves the other 80% for training.
+Now we'll set the size of the train, validate, and test sets. We want to make training set as large as possible given the constraint that the variance in our validation and tests sets is low enough to be meaningful. The lower the variance, the more confidence we can have in our results. With only a few thousand images, we already don't have as much data as we would like. To keep the validation and test sets large enough to be useful, I think we should make them about 15% of our data each. That leaves the other 70% for training.
 
 
 ```python
 # Set the size of the validation and test sets
-validation_set_size = 0.1
-test_set_size = 0.1
+validation_set_size = 0.15
+test_set_size = 0.15
 ```
 
 
@@ -336,7 +359,7 @@ def copy_files(original_path, train_path, validate_path, test_path, files, valid
 
 
 ```python
-copy_files(original_kangaroo_path, kangaroo_train_path, kangaroo_validation_path, kangaroo_test_path,
+copy_files(kang_path, kang_train_path, kang_val_path, kang_test_path,
            good_kangaroo_files, kangaroo_validation_dates, kangaroo_test_dates)
 ```
 
@@ -346,13 +369,13 @@ Now let's do the same thing with the wallaby images.
 
 
 ```python
-wallaby_files = data_master.get_filenames(original_wallaby_path)
+wallaby_files = data_master.get_filenames(wall_path)
 ```
 
 
 ```python
 wallaby_file_dates, good_wallaby_files = remove_files_without_dates(
-    original_wallaby_path, wallaby_files)
+    wall_path, wallaby_files)
 ```
 
     1 file(s) were missing dates and will not be used
@@ -366,7 +389,7 @@ wallaby_validation_dates, wallaby_test_dates = split_days(
 
 
 ```python
-copy_files(original_wallaby_path, wallaby_train_path, wallaby_validation_path, wallaby_test_path,
+copy_files(wall_path, wall_train_path, wall_val_path, wall_test_path,
            good_wallaby_files, wallaby_validation_dates, wallaby_test_dates)
 ```
 
@@ -375,12 +398,11 @@ copy_files(original_wallaby_path, wallaby_train_path, wallaby_validation_path, w
 print(len(good_wallaby_files))
 ```
 
-    1856
+    1846
     
 
 There are more images of kangaroos than wallabies, so the datasets will be unbalanced. That won't be a problem as long as we take it into consideration when we measure the quality of the model.
 
-## Next Steps
+## Next steps
 
 Now that we've cleaned up our dataset, we can build a model. In the next notebook, we'll look at how we can [train a model to classify the images](https://jss367.github.io/kangaroos-and-wallabies-ii-building-a-model.html).
-
