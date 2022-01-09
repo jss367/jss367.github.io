@@ -28,10 +28,7 @@ To generate a dataset, you'll need to create a `DataBlock` and a `DataLoader`. T
 
 
 ```python
-if sys.platform == 'linux':
-    path = Path(r'/home/julius/data/WallabiesAndRoosFullSize')
-else:
-    path = Path(r'E:/Data/Raw/WallabiesAndRoosFullSize')
+path = Path(os.getenv('DATA')) / r'KangWall512Split'
 ```
 
 First, you'll need to specify what the input and labels look like. For standard use-cases the tools you need are already built into FastAI. For image data, you use an `ImageBlock` and for categorical labels you use a `CategoryBlock`.
@@ -56,7 +53,7 @@ all_images[:5]
 
 
 
-    (#5) [Path('/home/julius/data/WallabiesAndRoosFullSize/test/wallaby/wallaby-376.jpg'),Path('/home/julius/data/WallabiesAndRoosFullSize/test/wallaby/wallaby-1735.jpg'),Path('/home/julius/data/WallabiesAndRoosFullSize/test/wallaby/wallaby-764.jpg'),Path('/home/julius/data/WallabiesAndRoosFullSize/test/wallaby/wallaby-754.jpg'),Path('/home/julius/data/WallabiesAndRoosFullSize/test/wallaby/wallaby-758.jpg')]
+    (#5) [Path('/home/julius/data/KangWall512Split/test/wallaby/wallaby-376.jpg'),Path('/home/julius/data/KangWall512Split/test/wallaby/wallaby-1735.jpg'),Path('/home/julius/data/KangWall512Split/test/wallaby/wallaby-463.jpg'),Path('/home/julius/data/KangWall512Split/test/wallaby/wallaby-282.jpg'),Path('/home/julius/data/KangWall512Split/test/wallaby/wallaby-274.jpg')]
 
 
 
@@ -91,8 +88,8 @@ struct(splitter(all_images))
 
 
 
-    {tuple: [{list: [int, int, int, '...3653 total']},
-      {list: [int, int, int, '...567 total']}]}
+    {tuple: [{list: [int, int, int, '...3094 total']},
+      {list: [int, int, int, '...886 total']}]}
 
 
 
@@ -119,9 +116,9 @@ dblock.summary(path)
 ```
 
     Setting-up type transforms pipelines
-    Collecting items from /home/julius/data/WallabiesAndRoosFullSize
-    Found 4721 items
-    2 datasets of sizes 3653,567
+    Collecting items from /home/julius/data/KangWall512Split
+    Found 4716 items
+    2 datasets of sizes 3094,886
     Setting up Pipeline: PILBase.create
     Setting up Pipeline: parent_label -> Categorize -- {'vocab': None, 'sort': True, 'add_na': False}
     Setting up Pipeline: PILBase.create
@@ -130,23 +127,23 @@ dblock.summary(path)
     Building one sample
       Pipeline: PILBase.create
         starting from
-          /home/julius/data/WallabiesAndRoosFullSize/train/wallaby/wallaby-385.jpg
+          /home/julius/data/KangWall512Split/train/wallaby/wallaby-558.jpg
         applying PILBase.create gives
-          PILImage mode=RGB size=4000x4000
+          PILImage mode=RGB size=512x512
       Pipeline: parent_label -> Categorize -- {'vocab': None, 'sort': True, 'add_na': False}
         starting from
-          /home/julius/data/WallabiesAndRoosFullSize/train/wallaby/wallaby-385.jpg
+          /home/julius/data/KangWall512Split/train/wallaby/wallaby-558.jpg
         applying parent_label gives
           wallaby
         applying Categorize -- {'vocab': None, 'sort': True, 'add_na': False} gives
           TensorCategory(1)
     
-    Final sample: (PILImage mode=RGB size=4000x4000, TensorCategory(1))
+    Final sample: (PILImage mode=RGB size=512x512, TensorCategory(1))
     
     
-    Collecting items from /home/julius/data/WallabiesAndRoosFullSize
-    Found 4721 items
-    2 datasets of sizes 3653,567
+    Collecting items from /home/julius/data/KangWall512Split
+    Found 4716 items
+    2 datasets of sizes 3094,886
     Setting up Pipeline: PILBase.create
     Setting up Pipeline: parent_label -> Categorize -- {'vocab': None, 'sort': True, 'add_na': False}
     Setting up Pipeline: PILBase.create
@@ -159,7 +156,7 @@ dblock.summary(path)
     Applying item_tfms to the first sample:
       Pipeline: Resize -- {'size': (224, 224), 'method': 'crop', 'pad_mode': 'reflection', 'resamples': (2, 0), 'p': 1.0} -> ToTensor
         starting from
-          (PILImage mode=RGB size=4000x4000, TensorCategory(1))
+          (PILImage mode=RGB size=512x512, TensorCategory(1))
         applying Resize -- {'size': (224, 224), 'method': 'crop', 'pad_mode': 'reflection', 'resamples': (2, 0), 'p': 1.0} gives
           (PILImage mode=RGB size=224x224, TensorCategory(1))
         applying ToTensor gives
@@ -306,7 +303,7 @@ len(wallaby_files), len(kangaroo_files)
 
 
 
-    (1465, 2188)
+    (1242, 1852)
 
 
 
@@ -325,7 +322,7 @@ len(oversampled_files), len(val_files)
 
 
 
-    (5118, 567)
+    (4336, 886)
 
 
 
@@ -351,7 +348,7 @@ std = torch.stack(stds).mean(dim=0)
 print(mean, std)
 ```
 
-    TensorImage([0.4953, 0.4536, 0.4037], device='cuda:0') TensorImage([0.2454, 0.2282, 0.2235], device='cuda:0')
+    TensorImage([0.5275, 0.4787, 0.4250], device='cuda:0') TensorImage([0.2351, 0.2233, 0.2291], device='cuda:0')
     
 
 
@@ -394,7 +391,7 @@ dls
 
 
 
-    <fastai.data.core.DataLoaders at 0x7f39c6b51220>
+    <fastai.data.core.DataLoaders at 0x7f7f1c1d0af0>
 
 
 
@@ -408,8 +405,8 @@ dls.loaders
 
 
 
-    [<fastai.data.core.TfmdDL at 0x7f39c6805eb0>,
-     <fastai.data.core.TfmdDL at 0x7f39c4b05dc0>]
+    [<fastai.data.core.TfmdDL at 0x7f7ffc3a22e0>,
+     <fastai.data.core.TfmdDL at 0x7f7ffc38e5b0>]
 
 
 
@@ -426,7 +423,7 @@ dl
 
 
 
-    <fastai.data.core.TfmdDL at 0x7f39c6805eb0>
+    <fastai.data.core.TfmdDL at 0x7f7ffc3a22e0>
 
 
 
@@ -497,8 +494,8 @@ item[1]
 
 
 
-    TensorCategory([0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 0, 0,
-            1, 0, 0, 1, 1, 0, 1, 0, 1, 1, 0, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1,
-            0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 0, 0], device='cuda:0')
+    TensorCategory([1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0,
+            1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,
+            1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0], device='cuda:0')
 
 
