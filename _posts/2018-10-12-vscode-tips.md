@@ -30,13 +30,13 @@ You can do `CMD/CTRL + P` to open up search.
 
 ## Autoformat
 
-Windows/Linux: `Alt + Shift + F`
-Mac: `Option + Shift + F`
+* Windows/Linux: `Alt + Shift + F`
+* Mac: `Option + Shift + F`
 
 ## Clean up imports
 
-Windows/Linux: `Alt + Shift + O`
-Mac: `Option + Shift + O`
+* Windows/Linux: `Alt + Shift + O`
+* Mac: `Option + Shift + O`
 
 ## Snippets
 
@@ -51,15 +51,12 @@ This makes it easy to do things like type `main` and get if `__name__ == 'main':
 
 See [the previous post for my recommended VSCode customizations](https://jss367.github.io/software-customizations.html).
 
-
 # Settings 
 
 User settings are not stored in the project. Instead, they are at: 
 
-Windows: C:\Users\Julius\AppData\Roaming\Code\User\settings.json
-
-Mac: ~/Library/Application Support/Code/User/settings.json
-
+* Windows: C:\Users\Julius\AppData\Roaming\Code\User\settings.json
+* Mac: ~/Library/Application Support/Code/User/settings.json
 
 In the `launch.json` file, you can either use full paths or relative paths:
 
