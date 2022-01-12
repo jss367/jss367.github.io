@@ -4,7 +4,7 @@ title: "Exploring the Iris Dataset"
 description: "A Python tutorial showing how to explore and visualize data using the famous iris dataset."
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/iris.jpg"
-tags: [Python, Matplotlib, Seaborn, Data Exploration, Data Visualization]
+tags: [Data Visualization, Exploratory Data Analysis, Matplotlib, Python, Seaborn]
 ---
 
 In this notebook, we'll demonstrate some data exploration techniques using the famous [iris dataset](https://archive.ics.uci.edu/ml/datasets/iris). In [the second notebook](https://jss367.github.io/visualizing-machine-learning-algorithms.html), we'll use this data set to visualize a bunch of machine learning algorithms.
