@@ -3,7 +3,7 @@ layout: post
 title: "DNA Splice Junctions I: Cleaning and Preparing the Data"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/falcon.jpg"
-tags: [Python, Data Cleaning, Pandas, Biology]
+tags: [Data Cleaning, Exploratory Data Analysis, Pandas, Python]
 ---
 
 Splice junctions are locations on sequences of DNA or RNA where superflous sections are removed when proteins are created. After the splice, a section, known as the intron, is removed and the remaining sections, known as the exons, are joined together. Being able to identify these sequences of DNA is useful but time-consuming. This begs the question: Can spliced sections of DNA be determined with machine learning? 
