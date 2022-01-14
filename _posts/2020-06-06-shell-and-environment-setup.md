@@ -41,6 +41,17 @@ alias c='pygmentize -g' # like cat but with color
 alias ckenv='printenv | grep -i' # lookup rabbit, lookup database, etc.
 ```
 
+## conda init
+
+This whole thing exists because for conda to fully work it needs to be initialized and activated. That's what this code block is doing.
+
+Let's do over what the conda init command does
+
+if [ $? -eq 0 ]; then
+
+`$?` is a variable that is equal to the return value of the last command you ran. This is often a return code, which is 0 for a success and non-zero if there's been an error. SO this line is saying, if the last command ran successfully, then...
+
+
 ## My .zshrc
 
 Conda will install the initialization script for conda inside `.zshrc` (for Macs). It usually looks like one of the following (depending on whether you use Anaconda or Miniconda): 
@@ -80,6 +91,8 @@ unset __conda_setup
 ```
 
 It's fine to keep in there, but if you use `tmux`, you might run into a problem. `tmux` doesn't source `.zshrc` - it only sources `.profile`, so conda won't load in a tmux window. Even worse, it may pull Python from `/usr/bin/python`, which will be old Python 2 (use `which python` to see which python is being used). So you might want to cut and paste the initialization over to .profile.
+
+I have found that if I don't include `conda activate $DEFAULT_CONDA_ENVIRONMENT` in my `.zshrc`, it doesn't activate my default profile, even though I have this in my `.profile`. So I leave it in `.zshrc`.
 
 Other stuff is added to `.zshrc` automatically as well. Things like `[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh` automatically get added here. If you don't need it for `tmux`, you can leave it here. Otherwise I would recommend moving it all over to `.profile`.
 
