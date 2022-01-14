@@ -41,8 +41,9 @@ alias c='pygmentize -g' # like cat but with color
 alias ckenv='printenv | grep -i' # lookup rabbit, lookup database, etc.
 ```
 
+## My .zshrc
 
-You'll want to find somewhere to put the conda init. Upon installation, Anaconda is automatically added to a resource file, `.zshrc` in the case of Macs. It usually looks like one of the following (depending on whether you use Anaconda or Miniconda): 
+Conda will install the initialization script for conda inside `.zshrc` (for Macs). It usually looks like one of the following (depending on whether you use Anaconda or Miniconda): 
 
 ```
 # >>> conda initialize >>>
@@ -78,7 +79,9 @@ unset __conda_setup
 # <<< conda initialize <<<
 ```
 
-I usually leave this in my `.zshrc` file, but I don't add extra stuff. Also, things like `[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh` automatically get added here, so I leave those as well. As I said, everything else goes in `~/.profile`.
+It's fine to keep in there, but if you use `tmux`, you might run into a problem. `tmux` doesn't source `.zshrc` - it only sources `.profile`, so conda won't load in a tmux window. Even worse, it may pull Python from `/usr/bin/python`, which will be old Python 2 (use `which python` to see which python is being used). So you might want to cut and paste the initialization over to .profile.
+
+Other stuff is added to `.zshrc` automatically as well. Things like `[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh` automatically get added here. If you don't need it for `tmux`, you can leave it here. Otherwise I would recommend moving it all over to `.profile`.
 
 ## Oh My Zsh Configuration
 
