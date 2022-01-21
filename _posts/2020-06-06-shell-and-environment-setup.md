@@ -68,6 +68,18 @@ alias tm='tmux ls'
 alias ip='ipython'
 #alias nb='jupyter notebook --port=8888 --no-browser --ip=0.0.0.0 --allow-root --NotebookApp.iopub_data_rate_limit=100000000000'
 alias nb='jupyter notebook'
+
+# Watch GPU usage
+alias wgpu='watch -d -n 0.5 nvidia-smi'
+alias ns='watch -d -n 0.5 $OI_BASE/core/nvidia-htop/nvidia-htop.py'
+
+# Moving around
+alias cdh='cd ~/git'
+
+# conda
+alias catf='conda activate tf' # tensorflow environment
+alias capt='conda activate pt' # pytorch environment
+
 ```
 
 ### Functions
@@ -80,6 +92,13 @@ alias ....='cd ../../../../'
 # git
 alias gs='git status'
 
+```
+
+### Exports
+```
+export HISTSIZE=1000000
+export HISTFILESIZE=1000000000
+export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
 ```
 
 ## conda init
