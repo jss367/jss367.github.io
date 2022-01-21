@@ -33,16 +33,30 @@ alias rld='source ~/.zshrc' #reload, assume zsh
 
 alias please='sudo $(history -p !!)'
 alias ff='find . -name'
+alias findpy='find . -name "*.py" | xargs grep --color'
 alias fpy='find . -name "*.py" | xargs grep --color'
 alias grep='grep --color=auto'
 alias hgrep='history | grep -v grep | grep '
+alias psgrep='ps aux | grep -v grep | grep '
+
 alias ll='ls -GlAFh'
 alias lls='ls -GlAFhS'
 alias showpath='echo $PATH | tr ":" "\n"'
 alias wgpu='watch -d -n 0.5 gpustat' # requires gpustat
 alias nb='jupyter notebook'
-alias c='pygmentize -g' # like cat but with color
+
 alias ckenv='printenv | grep -i' # lookup rabbit, lookup database, etc.
+
+## Redo the last command but with sudo in front
+alias please='sudo $(history -p !!)'
+
+alias ccat='pygmentize -O style=monokai -f console256 -g'
+alias c='pygmentize -g' # like cat but with color
+alias pu='popd'
+alias pd='pushd'
+alias c='clear'
+# See what's in your path
+alias path='echo -e ${PATH//:/\\n}'
 
 # tmux
 alias tmn='tmux new-session'
