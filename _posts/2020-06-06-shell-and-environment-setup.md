@@ -25,9 +25,7 @@ I store all of my environment variables in a `~/.profile` file. Then I source th
 ```bash
 # general aliases
 
-#alias myip='dig TXT +short o-o.myaddr.l.google.com @ns1.google.com'
 
-# alias ll='ls -alF'
 
 
 alias rld='source ~/.zshrc' #reload, assume zsh
@@ -42,6 +40,7 @@ alias hgrep='history | grep -v grep | grep '
 alias psgrep='ps aux | grep -v grep | grep '
 
 alias ll='ls -GlAFh'
+# alias ll='ls -alF'
 alias lls='ls -GlAFhS'
 alias showpath='echo $PATH | tr ":" "\n"'
 alias wgpu='watch -d -n 0.5 gpustat' # requires gpustat
