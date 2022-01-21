@@ -12,7 +12,13 @@ In this post, I'll talk about how I set up my shell and environment. I Use Windo
 * TOC
 {:toc}
 
-I use [zsh](https://www.zsh.org/) as my main shell. It's now the default shell on Macs and I think deservedly so. I use [Oh My Zsh](https://ohmyz.sh/) to configure it and highly recommend it.
+## Shell
+
+I use [zsh](https://www.zsh.org/) as my main shell. It's now the default shell so newer Macs will have it but older ones will need to install it.
+
+## Shell Configuration
+
+I use [Oh My Zsh](https://ohmyz.sh/) to configure zsh and highly recommend it.
 
 I store all of my environment variables in a `~/.profile` file. Then I source that file in whatever shell I'm using. This makes it much easier to work across a variety of environments.
 
@@ -28,13 +34,9 @@ I store all of my environment variables in a `~/.profile` file. Then I source th
 
 * I usually share my `.profile` with others in my company (or wherever I am) so that we can all share shortcuts. In order to do this without sharing passwords, I make a separate file called something like `.my_credentials` and export my credentials from there.
 
-
 ### Aliases
 ```bash
 # general aliases
-
-
-
 
 alias rld='source ~/.zshrc' #reload, assume zsh
 
@@ -215,7 +217,7 @@ alias ....='cd ../../../../'
 
 ```bash
 # reload user profile
-alias rld='source ~/.profile'
+alias rld='source ~/.bashrc'
 
 # better ls (column detail and no meta-files (., .., etc))
 alias ls='ls -lA'
