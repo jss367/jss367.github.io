@@ -22,15 +22,17 @@ I store all of my environment variables in a `~/.profile` file. Then I source th
 
 
 ### Aliases
-```
+```bash
 # general aliases
 
 #alias myip='dig TXT +short o-o.myaddr.l.google.com @ns1.google.com'
 
 # alias ll='ls -alF'
 
+
 alias rld='source ~/.zshrc' #reload, assume zsh
 
+#redo last command but with sudo
 alias please='sudo $(history -p !!)'
 alias ff='find . -name'
 alias findpy='find . -name "*.py" | xargs grep --color'
@@ -72,6 +74,9 @@ alias nb='jupyter notebook'
 # Watch GPU usage
 alias wgpu='watch -d -n 0.5 nvidia-smi'
 alias ns='watch -d -n 0.5 $OI_BASE/core/nvidia-htop/nvidia-htop.py'
+#alias wgpu='watch -d -n 0.5 gpustat' # requires gpustat
+#alias ns='watch -d -n 0.5 nvidia-htop.py
+
 
 # Moving around
 alias cdh='cd ~/git'
@@ -80,7 +85,10 @@ alias cdh='cd ~/git'
 alias catf='conda activate tf' # tensorflow environment
 alias capt='conda activate pt' # pytorch environment
 
+# git
+alias gs='git status'
 ```
+
 
 ### Functions
 
@@ -166,30 +174,20 @@ Other stuff is added to `.zshrc` automatically as well. Things like `[ -f ~/.fzf
 
 ## Bash
 
-I still use Bash fairly often, and because it doesn't come with all the same aliases that Oh My Zsh does, I have to add some of the most important ones manually. Here are some I recommend.
+I still use Bash fairly often, and because it doesn't come with all the same aliases that Oh My Zsh does, I have to add some of the most important ones manually. I use all the ones I use for zsh but I add these as well.
 
 ```
-alias ff='find . -name'
-alias findpy='find . -name "*.py" | xargs grep --color'
-alias grep='grep --color=auto'
-alias hgrep='history | grep -v grep | grep '
-alias ll='ls -GlAFh'
-alias lls='ls -GlAFhS'
+if [ $SHELL = "/bin/bash" ]
+then
+	shopt -s histappend                      # append to history, don't overwrite it
+	bind '"\e[A":history-search-backward'
+	bind '"\e[B":history-search-forward'
+fi
 alias ..='cd..'
 alias ...='cd../..'
 ```
 
-```
-alias gs='git status'
 
-#redo last command but with sudo
-please='sudo $(history -p !!)'
-
-wgpu='watch -d -n 0.5 gpustat' # requires gpustat
-ns='watch -d -n 0.5 nvidia-htop.py
-
-nb='jupyter notebook --port=8888 --no-browser --ip=0.0.0.0 ==allow-root --NotebookApp.iopub_data_rate_limit=1000000000'
-```
 
 ```
 # reload user profile
