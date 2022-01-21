@@ -16,6 +16,14 @@ I use [zsh](https://www.zsh.org/) as my main shell. It's now the default shell o
 
 I store all of my environment variables in a `~/.profile` file. Then I source that file in whatever shell I'm using. This makes it much easier to work across a variety of environments.
 
+## Oh My Zsh Configuration
+
+* I usually leave the theme as `ZSH_THEME="robbyrussell"`
+
+* Then I create a profile and put in it `~/.oh-my-zsh/custom/profile.zsh`
+
+* That profile just says `source ~/.profile`
+
 ## My .profile Setup
 
 * I usually share my `.profile` with others in my company (or wherever I am) so that we can all share shortcuts. In order to do this without sharing passwords, I make a separate file called something like `.my_credentials` and export my credentials from there.
@@ -132,9 +140,9 @@ export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
 This whole thing exists because for conda to fully work it needs to be initialized and activated. That's what this code block is doing.
 
 Let's do over what the conda init command does
-
+```bash
 if [ $? -eq 0 ]; then
-
+```
 `$?` is a variable that is equal to the return value of the last command you ran. This is often a return code, which is 0 for a success and non-zero if there's been an error. SO this line is saying, if the last command ran successfully, then...
 
 
@@ -142,7 +150,7 @@ if [ $? -eq 0 ]; then
 
 Conda will install the initialization script for conda inside `.zshrc` (for Macs). It usually looks like one of the following (depending on whether you use Anaconda or Miniconda): 
 
-```
+```bash
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
@@ -159,7 +167,7 @@ unset __conda_setup
 # <<< conda initialize <<<
 ```
 
-```
+```bash
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/julius/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
@@ -182,13 +190,7 @@ I have found that if I don't include `conda activate $DEFAULT_CONDA_ENVIRONMENT`
 
 Other stuff is added to `.zshrc` automatically as well. Things like `[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh` automatically get added here. If you don't need it for `tmux`, you can leave it here. Otherwise I would recommend moving it all over to `.profile`.
 
-## Oh My Zsh Configuration
 
-* I usually leave the theme as `ZSH_THEME="robbyrussell"`
-
-* Then I create a profile and put in it `~/.oh-my-zsh/custom/profile.zsh`
-
-* That profile just says `source ~/.profile`
 
 ## Bash
 
@@ -207,17 +209,13 @@ fi
 alias ..='cd ..'
 alias ...='cd ../../../'
 alias ....='cd ../../../../'
-
-alias ..='cd..'
-alias ...='cd../..'
 ```
 
 
 
-```
+```bash
 # reload user profile
-alias rp='source ~/.profile'
-alias rld='source ~/.bashrc' #reload
+alias rld='source ~/.profile'
 
 # better ls (column detail and no meta-files (., .., etc))
 alias ls='ls -lA'
