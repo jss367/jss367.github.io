@@ -54,7 +54,11 @@ alias ll='ls -GlAFh'
 alias lls='ls -GlAFhS'
 #alias la='ls -A'
 #alias l='ls -CF'
+# better ls (column detail and no meta-files (., .., etc))
+alias ls='ls -lA'
+
 alias showpath='echo $PATH | tr ":" "\n"'
+alias path='echo -e ${PATH//:/\\n}'
 alias wgpu='watch -d -n 0.5 gpustat' # requires gpustat
 alias nb='jupyter notebook'
 
@@ -69,7 +73,7 @@ alias pu='popd'
 alias pd='pushd'
 alias c='clear'
 # See what's in your path
-alias path='echo -e ${PATH//:/\\n}'
+
 
 # tmux
 alias tmn='tmux new-session'
@@ -220,12 +224,6 @@ alias ....='cd ../../../../'
 ```bash
 # reload user profile
 alias rld='source ~/.bashrc'
-
-# better ls (column detail and no meta-files (., .., etc))
-alias ls='ls -lA'
-
-alias showpath='echo $PATH | tr ":" "\n"'
-
 
 conda activate "$DEFAULT_CONDA_ENVIRONMENT"
  
