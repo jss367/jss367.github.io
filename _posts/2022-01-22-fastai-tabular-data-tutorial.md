@@ -429,9 +429,16 @@ train_df['salary'].value_counts()
 
 The first thing to note is that there is missing data. We'll have to deal with that - fortunately FastAI has tools that make this easy. Also, it looks like we have both continuous and categorical data. We'll split those apart so we can put the categorical data through embeddings. Also, the data is highly imbalanced, but not so much that we need to directly compensate. The network should be able to deal with this.
 
+Note that the variable we're trying to predict, salary, is in the DataFrame. That's fine, we'll just need to tell `cont_cat_split` what the dependent variables is so it isn't included in the training variables.
+
 
 ```python
-continuous_vars, categorical_vars = cont_cat_split(train_df)
+dep_var = 'salary'
+```
+
+
+```python
+continuous_vars, categorical_vars = cont_cat_split(train_df, dep_var=dep_var)
 ```
 
 The `cont_cat_split` function usually works well, but I always double check the results to see that they make sense.
@@ -470,17 +477,9 @@ train_df[categorical_vars].nunique()
     race               5
     sex                2
     native-country    41
-    salary             2
     dtype: int64
 
 
-
-Note that the variable we're trying to predict, salary, is in the variables. That's fine, we'll just need to tell our learner that that's the `y_names` variable.
-
-
-```python
-y_names = 'salary'
-```
 
 Let's think about the data. One thing that sticks out to me is that `native-country` has 41 different unique values in the train set. This means there's a good chance there will be a new `native-country` in the test set (or after we deploy it!). This will be a problem if we use embeddings. There are ways to deal with unknown categories and embeddings but it's easiest to simply remove it.
 
@@ -503,8 +502,7 @@ categorical_vars
      'occupation',
      'relationship',
      'race',
-     'sex',
-     'salary']
+     'sex']
 
 
 
@@ -553,7 +551,7 @@ TabularPandas.__mro__
 
 ```python
 df_wrapper = TabularPandas(train_df, procs=preprocessing, cat_names=categorical_vars, cont_names=continuous_vars,
-                   y_names=y_names, splits=splits)
+                   y_names=dep_var, splits=splits)
 ```
 
 Let's look at some examples to make sure they look right. All the data should be ready for deep learning.
@@ -591,7 +589,6 @@ df_wrapper.train.xs.iloc[:5]
       <th>relationship</th>
       <th>race</th>
       <th>sex</th>
-      <th>salary</th>
       <th>education-num_na</th>
       <th>age</th>
       <th>fnlwgt</th>
@@ -611,11 +608,10 @@ df_wrapper.train.xs.iloc[:5]
       <td>1</td>
       <td>5</td>
       <td>2</td>
-      <td>0</td>
       <td>1</td>
       <td>0.249781</td>
       <td>-1.145433</td>
-      <td>-1.193564</td>
+      <td>-1.193588</td>
       <td>-0.147240</td>
       <td>-0.215803</td>
       <td>0.372095</td>
@@ -630,10 +626,9 @@ df_wrapper.train.xs.iloc[:5]
       <td>3</td>
       <td>2</td>
       <td>1</td>
-      <td>1</td>
       <td>-0.991426</td>
       <td>0.610962</td>
-      <td>-0.022444</td>
+      <td>-0.022445</td>
       <td>-0.147240</td>
       <td>4.529230</td>
       <td>-0.354868</td>
@@ -648,10 +643,9 @@ df_wrapper.train.xs.iloc[:5]
       <td>5</td>
       <td>2</td>
       <td>1</td>
-      <td>1</td>
       <td>1.052916</td>
       <td>-0.422942</td>
-      <td>-3.145431</td>
+      <td>-3.145492</td>
       <td>0.914167</td>
       <td>-0.215803</td>
       <td>2.149115</td>
@@ -665,11 +659,10 @@ df_wrapper.train.xs.iloc[:5]
       <td>2</td>
       <td>3</td>
       <td>2</td>
-      <td>0</td>
       <td>1</td>
       <td>-0.115280</td>
       <td>1.585564</td>
-      <td>0.758303</td>
+      <td>0.758317</td>
       <td>-0.147240</td>
       <td>-0.215803</td>
       <td>-0.193321</td>
@@ -684,10 +677,9 @@ df_wrapper.train.xs.iloc[:5]
       <td>5</td>
       <td>2</td>
       <td>1</td>
-      <td>1</td>
       <td>-0.991426</td>
       <td>2.061897</td>
-      <td>1.539049</td>
+      <td>1.539079</td>
       <td>-0.147240</td>
       <td>-0.215803</td>
       <td>4.733873</td>
@@ -739,11 +731,11 @@ cat_vars[:5]
 
 
 
-    tensor([[ 5, 12,  1,  9,  2,  5,  2,  1,  1],
-            [ 5,  5,  5, 13,  4,  2,  1,  0,  1],
-            [ 5,  9,  5, 14,  4,  5,  2,  0,  1],
-            [ 1, 15,  3,  1,  1,  5,  2,  1,  1],
-            [ 3, 15,  1, 11,  5,  3,  1,  0,  1]])
+    tensor([[ 5,  9,  1,  8,  5,  5,  2,  1],
+            [ 3, 12,  3, 12,  1,  5,  2,  1],
+            [ 5, 10,  5, 11,  4,  5,  1,  1],
+            [ 5,  1,  3, 15,  1,  5,  2,  1],
+            [ 5,  8,  1, 11,  2,  3,  1,  1]])
 
 
 
@@ -755,11 +747,11 @@ cont_vars[:5]
 
 
 
-    tensor([[-0.6994, -0.9743, -0.4128,  1.3052, -0.2158, -0.0318],
-            [-0.8454, -0.7565, -2.7551, -0.1472, -0.2158, -1.6472],
-            [-0.6994, -0.3367,  0.3679, -0.1472, -0.2158, -0.0318],
-            [ 2.0751, -0.3081,  1.9294,  0.7388, -0.2158, -2.4550],
-            [ 0.4688, -0.5462,  1.9294, -0.1472,  4.0902, -0.0318]])
+    tensor([[-0.5534, -1.3979,  0.3679, -0.1472, -0.2158,  0.2105],
+            [-0.3343,  0.2319, -0.4128, -0.1472, -0.2158,  1.3414],
+            [-1.0644, -0.6032,  1.1487, -0.1472, -0.2158, -2.6165],
+            [-0.1153, -0.0658, -1.5840, -0.1472, -0.2158, -0.4356],
+            [ 1.3450, -1.3605,  0.7583, -0.1472, -0.2158, -0.0318]])
 
 
 
@@ -771,10 +763,10 @@ labels[:5]
 
 
 
-    tensor([[1],
-            [0],
-            [0],
+    tensor([[0],
             [1],
+            [0],
+            [0],
             [0]], dtype=torch.int8)
 
 
@@ -809,28 +801,28 @@ learn.fit(4, 1e-2)
   <tbody>
     <tr>
       <td>0</td>
-      <td>0.006316</td>
+      <td>0.332739</td>
       <td>None</td>
       <td>None</td>
-      <td>00:01</td>
+      <td>00:02</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>0.000220</td>
+      <td>0.331468</td>
       <td>None</td>
       <td>None</td>
       <td>00:01</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>0.000028</td>
+      <td>0.329105</td>
       <td>None</td>
       <td>None</td>
       <td>00:01</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>0.000009</td>
+      <td>0.320604</td>
       <td>None</td>
       <td>None</td>
       <td>00:01</td>
@@ -839,7 +831,7 @@ learn.fit(4, 1e-2)
 </table>
 
 
-    /Users/jsimonelli/opt/anaconda3/envs/pt/lib/python3.8/site-packages/fastprogress/fastprogress.py:74: UserWarning: Your generator is empty.
+    C:\Users\Julius\anaconda3\envs\pt\lib\site-packages\fastprogress\fastprogress.py:74: UserWarning: Your generator is empty.
       warn("Your generator is empty.")
     
 
@@ -849,8 +841,21 @@ Now we can save the model.
 
 
 ```python
-learn.save('my_tabular_model')
+save_path = Path(os.environ['MODELS']) / 'tabular'
+os.makedirs(save_path, exist_ok=True)
 ```
+
+
+```python
+learn.save(save_path / 'my_tabular_model')
+```
+
+
+
+
+    Path('I:/Models/tabular/my_tabular_model.pth')
+
+
 
 ## Part II
 
@@ -858,13 +863,13 @@ To fully simulate this being a separate test, I'm going to reload the model from
 
 
 ```python
-learn.load('my_tabular_model')
+learn.load(save_path / 'my_tabular_model')
 ```
 
 
 
 
-    <fastai.tabular.learner.TabularLearner at 0x7f9828f20820>
+    <fastai.tabular.learner.TabularLearner at 0x218b39e3e80>
 
 
 
@@ -882,7 +887,7 @@ learn.summary()
 
 
 
-    TabularModel (Input shape: 128 x 9)
+    TabularModel (Input shape: 128 x 8)
     ============================================================================
     Layer (type)         Output Shape         Param #    Trainable 
     ============================================================================
@@ -907,12 +912,11 @@ learn.summary()
                          128 x 3             
     Embedding                                 9          True      
     Embedding                                 9          True      
-    Embedding                                 9          True      
     Dropout                                                        
     BatchNorm1d                               12         True      
     ____________________________________________________________________________
                          128 x 20            
-    Linear                                    1020       True      
+    Linear                                    960        True      
     ReLU                                                           
     BatchNorm1d                               40         True      
     ____________________________________________________________________________
@@ -925,11 +929,11 @@ learn.summary()
     Linear                                    22         True      
     ____________________________________________________________________________
     
-    Total params: 1,764
-    Total trainable params: 1,764
+    Total params: 1,695
+    Total trainable params: 1,695
     Total non-trainable params: 0
     
-    Optimizer used: <function Adam at 0x7f9879e49700>
+    Optimizer used: <function Adam at 0x00000218ADE88550>
     Loss function: FlattenedLoss of CrossEntropyLoss()
     
     Model unfrozen
@@ -1122,7 +1126,7 @@ test_splits = no_split(range_of(test_df))
 
 
 ```python
-test_df_wrapper = TabularPandas(test_df, preprocessing, categorical_vars, continuous_vars, splits=test_splits, y_names=y_names)
+test_df_wrapper = TabularPandas(test_df, preprocessing, categorical_vars, continuous_vars, splits=test_splits, y_names=dep_var)
 ```
 
 Now we can turn that into a `DataLoaders` object.
@@ -1155,11 +1159,11 @@ preds[:5]
 
 
 
-    tensor([[9.9986e-01, 1.3628e-04],
-            [1.0685e-03, 9.9893e-01],
-            [9.9973e-01, 2.6673e-04],
-            [1.8451e-04, 9.9982e-01],
-            [9.9965e-01, 3.4817e-04]])
+    tensor([[0.9946, 0.0054],
+            [0.9468, 0.0532],
+            [0.6861, 0.3139],
+            [0.5667, 0.4333],
+            [0.8779, 0.1221]])
 
 
 
@@ -1191,7 +1195,7 @@ preds.sum(1)
 
 
 
-    tensor([1.0000, 1.0000, 1.0000,  ..., 1.0000, 1.0000, 1.0000])
+    tensor([1., 1., 1.,  ..., 1., 1., 1.])
 
 
 
@@ -1203,7 +1207,7 @@ torch.argmax(preds, dim=1)
 
 
 
-    tensor([0, 1, 0,  ..., 0, 0, 1])
+    tensor([0, 0, 0,  ..., 1, 0, 1])
 
 
 
@@ -1217,8 +1221,6 @@ accuracy_score(ground_truth, torch.argmax(preds, dim=1))
 
 
 
-    1.0
+    0.8539491462965237
 
 
-
-Wow! 100% accuracy. This actually makes me suspicious that there was a problem somewhere, such as data leakage. I don't think there was though. But I also don't think that the variable we're predicting - whether the salary is over 50k or not - would be possible to predict with this accuracy. Is there a bug in the code? If you see it, let me know.
