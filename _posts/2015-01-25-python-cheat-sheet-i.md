@@ -158,20 +158,14 @@ phrase.find('fort')
 
 
 ```python
-phrase.index('fort')
+try:
+    phrase.index('fort')
+except ValueError as e:
+    print(e)
 ```
 
-
-    ---------------------------------------------------------------------------
-
-    ValueError                                Traceback (most recent call last)
-
-    <ipython-input-59-d241ba1fe19d> in <module>()
-    ----> 1 phrase.index('fort')
+    substring not found
     
-
-    ValueError: substring not found
-
 
 
 ```python
@@ -225,7 +219,7 @@ print(unique_words)
 print("You have used {} unique words.".format(len(unique_words)))
 ```
 
-    {'is', 'this', 'sentence', 'my'}
+    {'is', 'sentence', 'my', 'this'}
     You have used 4 unique words.
     
 
@@ -451,21 +445,14 @@ tu = (1, 2, 3)
 
 ```python
 #tuple are immutable, so the following will give you an error:
-tu[2] = 5
+try:
+    tu[2] = 5
+except TypeError as e:
+    print(e)
 ```
 
-
-    ---------------------------------------------------------------------------
-
-    TypeError                                 Traceback (most recent call last)
-
-    <ipython-input-108-6f2f318298ea> in <module>()
-          1 #tuple are immutable, so the following will give you an error:
-    ----> 2 tu[2] = 5
+    'tuple' object does not support item assignment
     
-
-    TypeError: 'tuple' object does not support item assignment
-
 
 
 ```python
@@ -538,8 +525,6 @@ print(entries.values())
 
 # Printing
 
-`print` is a function in Python 3, so the text to be printed must have parenthesis around it. In Python 2, this was not that case
-
 
 ```python
 print("Hello world!")
@@ -547,21 +532,6 @@ print("Hello world!")
 
     Hello world!
     
-
-
-```python
-# In Python 2, you can do this
-print "Hello world!"
-# But it doesn't work in Python 3
-```
-
-
-      File "<ipython-input-137-e74dbf0a8ff8>", line 2
-        print "Hello world!"
-                           ^
-    SyntaxError: Missing parentheses in call to 'print'
-    
-
 
 
 ```python
@@ -669,13 +639,6 @@ for word in ['Beware', 'the', 'ides', 'of', 'March']:
     March
     
 
-
-
-
-    '\nPython Expression\tComment\nfor item in s\titerate over the items of s\nfor item in sorted(s)\titerate over the items of s in order\nfor item in set(s)\titerate over unique elements of s\nfor item in reversed(s)\titerate over elements of s in reverse\nfor item in set(s).difference(t)\titerate over elements of s not in t'
-
-
-
 Note that you can end a for-loop with an `else` statement. This might seem a little strange, but you can think of "else" acting as a "then" in this situation. If the loop successfully completes, the `else` statement will run. But if there's a `break` in the loop, it doesn't.
 
 
@@ -707,29 +670,92 @@ List comprehensions are an alternative to for-loops. Every list comprehension ca
 
 
 ```python
-list_of_numbers = [2,54,8,4,26,3,8,3,7]
+numbers = [1,2,3,4,5]
 ```
 
 
 ```python
 small_numbers = []
-for number in list_of_numbers:
+for number in numbers:
     if number < 5:
         small_numbers.append(2*number)
 print(small_numbers)
 ```
 
-    [4, 8, 6, 6]
+    [2, 4, 6, 8]
     
 
 
 ```python
 # This can be rewritten as a list comprehension
-small_numbers = [2*number for number in list_of_numbers if number < 5]
+small_numbers = [2*number for number in numbers if number < 5]
 print(small_numbers)
 ```
 
-    [4, 8, 6, 6]
+    [2, 4, 6, 8]
     
 
 Check out this [excellent visualization of the relationship between for-loop and list comprehensions](http://treyhunner.com/2015/12/python-list-comprehensions-now-in-color/) to see how they relate.
+
+## Conditional List Comprehensions
+
+When there's only an if, you can do this:
+
+
+```python
+[2*number for number in numbers if number < 5]
+```
+
+
+
+
+    [2, 4, 6, 8]
+
+
+
+But if you want to add an else statement, you can't just add it after the if statement like so:
+
+
+```python
+try:
+    [2*number for number in numbers if number < 5 else 0]
+except SyntaxError as err:
+    print(err)
+```
+
+
+      File "C:\Users\Julius\AppData\Local\Temp/ipykernel_15528/3025308397.py", line 2
+        [2*number for number in numbers if number < 5 else 0]
+                                                      ^
+    SyntaxError: invalid syntax
+    
+
+
+Instead, you have to move the `if` and `else` statements near the beginning, like so:
+
+
+```python
+[2*number if number < 5 else number**2 for number in numbers]
+```
+
+
+
+
+    [2, 4, 6, 8, 25]
+
+
+
+I find this a bit odd because if you have the `if` statement there WITHOUT the `else`, it raises an error:
+
+
+```python
+[2*number if number < 5 for number in numbers]
+```
+
+
+      File "C:\Users\Julius\AppData\Local\Temp/ipykernel_15528/2907721880.py", line 1
+        [2*number if number < 5 for number in numbers]
+                                ^
+    SyntaxError: invalid syntax
+    
+
