@@ -556,9 +556,19 @@ df_wrapper = TabularPandas(train_df, procs=preprocessing, cat_names=categorical_
 
 Let's look at some examples to make sure they look right. All the data should be ready for deep learning.
 
+If we wanted to get the data in the familiar `X_train, y_train, X_test, y_test` format a scikit-learn model, all we have to do is this:
+
 
 ```python
-df_wrapper.train.xs.iloc[:5]
+X_train, y_train = df_wrapper.train.xs, df_wrapper.train.ys.values.ravel()
+X_test, y_test = df_wrapper.valid.xs, df_wrapper.valid.ys.values.ravel()
+```
+
+Now the data are in DataFrame fully ready to be used in a scikit-learn or xgboost model. We can explore the data to see this.
+
+
+```python
+X_train.head()
 ```
 
 
@@ -690,11 +700,28 @@ df_wrapper.train.xs.iloc[:5]
 
 
 
-We can see that the continuous variables are all normalized. This looks good! Now let's create the `DataLoaders`.
+We can see that the continuous variables are all normalized. This looks good! 
 
 
 ```python
-dls = df_wrapper.dataloaders(bs=128)
+y_train[:5]
+```
+
+
+
+
+    array([0, 1, 1, 0, 1], dtype=int8)
+
+
+
+## Continuing with FastAI
+
+If we wanted to use the data on a FastAI model, we'd need to create `DataLoaders`.
+
+
+```python
+batch_size = 128
+dls = df_wrapper.dataloaders(bs=batch_size)
 ```
 
 Let's look at our data to make sure it looks right.
@@ -731,11 +758,11 @@ cat_vars[:5]
 
 
 
-    tensor([[ 5,  9,  1,  8,  5,  5,  2,  1],
-            [ 3, 12,  3, 12,  1,  5,  2,  1],
-            [ 5, 10,  5, 11,  4,  5,  1,  1],
-            [ 5,  1,  3, 15,  1,  5,  2,  1],
-            [ 5,  8,  1, 11,  2,  3,  1,  1]])
+    tensor([[ 5, 12,  5,  2,  2,  5,  1,  1],
+            [ 5,  9,  3,  4,  1,  5,  2,  1],
+            [ 5, 12,  3, 13,  1,  5,  2,  1],
+            [ 5, 13,  3, 11,  6,  5,  1,  1],
+            [ 5, 12,  5,  8,  2,  5,  2,  1]])
 
 
 
@@ -747,11 +774,11 @@ cont_vars[:5]
 
 
 
-    tensor([[-0.5534, -1.3979,  0.3679, -0.1472, -0.2158,  0.2105],
-            [-0.3343,  0.2319, -0.4128, -0.1472, -0.2158,  1.3414],
-            [-1.0644, -0.6032,  1.1487, -0.1472, -0.2158, -2.6165],
-            [-0.1153, -0.0658, -1.5840, -0.1472, -0.2158, -0.4356],
-            [ 1.3450, -1.3605,  0.7583, -0.1472, -0.2158, -0.0318]])
+    tensor([[ 1.1989, -0.9330, -0.4128, -0.1472, -0.2158,  0.3721],
+            [ 0.3228,  1.7627,  0.3679, -0.1472, -0.2158, -0.0318],
+            [-0.4073, -0.6463, -0.4128, -0.1472, -0.2158,  0.3721],
+            [ 0.9069, -1.2090,  1.5391, -0.1472, -0.2158, -0.0318],
+            [-1.5025,  0.5148, -0.4128, -0.1472, -0.2158, -0.2741]])
 
 
 
@@ -764,9 +791,9 @@ labels[:5]
 
 
     tensor([[0],
+            [0],
+            [0],
             [1],
-            [0],
-            [0],
             [0]], dtype=torch.int8)
 
 
@@ -777,7 +804,7 @@ Now we make a learner. This data isn't very complex so we'll use a relatively sm
 
 
 ```python
-learn = tabular_learner(dls, layers=[20,10], metrics=accuracy)
+learn = tabular_learner(dls, layers=[20,10])
 ```
 
 Let's fit the model.
@@ -794,36 +821,31 @@ learn.fit(4, 1e-2)
       <th>epoch</th>
       <th>train_loss</th>
       <th>valid_loss</th>
-      <th>accuracy</th>
       <th>time</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <td>0</td>
-      <td>0.332739</td>
-      <td>None</td>
+      <td>0.327830</td>
       <td>None</td>
       <td>00:02</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>0.331468</td>
-      <td>None</td>
+      <td>0.328170</td>
       <td>None</td>
       <td>00:01</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>0.329105</td>
-      <td>None</td>
+      <td>0.318536</td>
       <td>None</td>
       <td>00:01</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>0.320604</td>
-      <td>None</td>
+      <td>0.320516</td>
       <td>None</td>
       <td>00:01</td>
     </tr>
@@ -841,19 +863,19 @@ Now we can save the model.
 
 
 ```python
-save_path = Path(os.environ['MODELS']) / 'tabular'
+save_path = Path(os.environ['MODELS']) / 'adult_dataset'
 os.makedirs(save_path, exist_ok=True)
 ```
 
 
 ```python
-learn.save(save_path / 'my_tabular_model')
+learn.save(save_path / 'baseline_neural_network')
 ```
 
 
 
 
-    Path('I:/Models/tabular/my_tabular_model.pth')
+    Path('I:/Models/adult_dataset/baseline_neural_network.pth')
 
 
 
@@ -863,13 +885,13 @@ To fully simulate this being a separate test, I'm going to reload the model from
 
 
 ```python
-learn.load(save_path / 'my_tabular_model')
+learn.load(save_path / 'baseline_neural_network')
 ```
 
 
 
 
-    <fastai.tabular.learner.TabularLearner at 0x218b39e3e80>
+    <fastai.tabular.learner.TabularLearner at 0x2655f8beb50>
 
 
 
@@ -933,7 +955,7 @@ learn.summary()
     Total trainable params: 1,695
     Total non-trainable params: 0
     
-    Optimizer used: <function Adam at 0x00000218ADE88550>
+    Optimizer used: <function Adam at 0x0000026563F1B550>
     Loss function: FlattenedLoss of CrossEntropyLoss()
     
     Model unfrozen
@@ -1135,7 +1157,7 @@ Now we can turn that into a `DataLoaders` object.
 
 
 ```python
-test_dls = test_df_wrapper.dataloaders(128, drop_last=False)
+test_dls = test_df_wrapper.dataloaders(batch_size, drop_last=False)
 ```
 
 Now we've got everything in place to make predictions.
@@ -1159,11 +1181,11 @@ preds[:5]
 
 
 
-    tensor([[0.9946, 0.0054],
-            [0.9468, 0.0532],
-            [0.6861, 0.3139],
-            [0.5667, 0.4333],
-            [0.8779, 0.1221]])
+    tensor([[0.9925, 0.0075],
+            [0.8829, 0.1171],
+            [0.6847, 0.3153],
+            [0.4921, 0.5079],
+            [0.7034, 0.2966]])
 
 
 
@@ -1195,7 +1217,7 @@ preds.sum(1)
 
 
 
-    tensor([1., 1., 1.,  ..., 1., 1., 1.])
+    tensor([1.0000, 1.0000, 1.0000,  ..., 1.0000, 1.0000, 1.0000])
 
 
 
@@ -1221,6 +1243,6 @@ accuracy_score(ground_truth, torch.argmax(preds, dim=1))
 
 
 
-    0.8539491462965237
+    0.8521066208082545
 
 
