@@ -425,12 +425,75 @@ except SyntaxError:
 ```
 
 
-      File "<ipython-input-36-d35ece00e423>", line 3
+      File "C:\Users\Julius\AppData\Local\Temp/ipykernel_29776/3723339239.py", line 3
         except SyntaxError:
         ^
     SyntaxError: invalid syntax
     
 
+
+There is a way around this using `eval`. Let's say you're trying to use a try/except in the following:
+
+
+```python
+try:
+    [2 * x for x in [1,2,3] if x > 1 else 0]
+except SyntaxError:
+    print("This is never printed")
+```
+
+
+      File "C:\Users\Julius\AppData\Local\Temp/ipykernel_29776/3576225009.py", line 2
+        [2 * x for x in [1,2,3] if x > 1 else 0]
+                                         ^
+    SyntaxError: invalid syntax
+    
+
+
+If you simply wrap it in an eval statement, it still doesn't work.
+
+
+```python
+try:
+    eval([2 * x for x in [1,2,3] if x > 1 else 0])
+except SyntaxError:
+    print("This is never printed")
+```
+
+
+      File "C:\Users\Julius\AppData\Local\Temp/ipykernel_29776/241822697.py", line 2
+        eval([2 * x for x in [1,2,3] if x > 1 else 0])
+                                              ^
+    SyntaxError: invalid syntax
+    
+
+
+But if it's a string, it will catch the `SyntaxError`.
+
+
+```python
+try:
+    eval("[2 * x for x in [1,2,3] if x > 1 else 0]")
+except SyntaxError:
+    print("But this is printed")
+```
+
+    But this is printed
+    
+
+And if there wasn't an error, it would still evaluate it.
+
+
+```python
+try:
+    a = eval("[2 * x for x in [1,2,3] if x > 1]")
+except SyntaxError:
+    print("But this is printed")
+print(a)
+```
+
+    [4, 6]
+    
 
 ## Creating Your Own Exceptions
 
