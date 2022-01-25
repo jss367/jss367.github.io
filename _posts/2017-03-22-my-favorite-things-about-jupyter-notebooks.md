@@ -193,12 +193,12 @@ Jupyter Notebooks have a lot of support for looking into code right from the not
 
 ## Command Palette
 
-Jupyter Notebooks has a command palatte that you can access with Ctrl + Shift + P (Windows/Linux) / Cmd + Shift + P (Mac) (just like VSCode). From there you can search for whatever feature you're looking for.
+Jupyter Notebooks has a command palatte that you can access with `Ctrl + Shift + P` (Windows/Linux) / `Cmd + Shift + P` (Mac) (just like VSCode). From there you can search for whatever feature you're looking for.
 
 
 ## Shift + Tab
 
-Shift + Tab is a great keyboard shortcut that every Jupyter Notebook user should know. You simply start to call a function and when you're inside the parentheses and can't remember the right inputs, hit Shift + Tab and it will show you the documentation. If you hit Tab multiple times while holding Shift it cycles through various displays of the documentation. Try it out!
+`Shift + Tab` is a great keyboard shortcut that every Jupyter Notebook user should know. You simply start to call a function and when you're inside the parentheses and can't remember the right inputs, hit `Shift + Tab` and it will show you the documentation. If you hit Tab multiple times while holding Shift it cycles through various displays of the documentation. Try it out!
 
 ## Question Marks
 
