@@ -12,6 +12,9 @@ tags: [Cheat Sheet, Software]
 
 CTRL + b is the prefix key. This opens up all the other hot keys.
 
+#### Detaching
+
+Prefix + d
 
 ## Remote Server
 
