@@ -366,7 +366,7 @@ reduce(lambda x,y: x+y, [23, 34, 12, 23])
 
 # Error handling
 
-There are [a bunch of Python error messages](https://www.tutorialspoint.com/python/standard_exceptions.htm), which are known as standard exceptions. Here are some of the most common.
+There is a [hierarchy of Python Exceptions](https://docs.python.org/3/library/exceptions.html#exception-hierarchy). It is best practice to use the most specific one that applies to your case, and if none do, to raise a custom Exception. Here are some of the most common Exceptions.
 
 ### IndexError
 
