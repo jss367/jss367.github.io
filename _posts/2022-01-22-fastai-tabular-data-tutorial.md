@@ -12,6 +12,7 @@ This post is a tutorial on working with tabular data using FastAI. One of FastAI
 
 ```python
 from fastai.tabular.all import *
+from pyxtend import struct
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 ```
@@ -427,7 +428,7 @@ train_df['salary'].value_counts()
 
 
 
-The first thing to note is that there is missing data. We'll have to deal with that - fortunately FastAI has tools that make this easy. Also, it looks like we have both continuous and categorical data. We'll split those apart so we can put the categorical data through embeddings. Also, the data is highly imbalanced, but not so much that we need to directly compensate. The network should be able to deal with this.
+The first thing to note is that there is missing data. We'll have to deal with that - fortunately FastAI has tools that make this easy. Also, it looks like we have both continuous and categorical data. We'll split those apart so we can put the categorical data through embeddings. Also, the data is highly imbalanced. We could correct for this but I'll skip over that for now. The imbalance isn't so bad that it would completely stop the network from learning.
 
 Note that the variable we're trying to predict, salary, is in the DataFrame. That's fine, we'll just need to tell `cont_cat_split` what the dependent variables is so it isn't included in the training variables.
 
@@ -529,6 +530,40 @@ def no_split(obj):
 splits = no_split(range_of(train_df))
 ```
 
+
+```python
+struct(splits)
+```
+
+
+
+
+    {tuple: [{list: [int, int, int, '...24420 total']}, {list: []}]}
+
+
+
+There are a lot of things that don't work as well in FastAI if you don't have a validation set, like `get_preds` and the output from training, so I'm going to add it here. This is simple to do.
+
+
+```python
+full_df = pd.concat([train_df, test_df])
+```
+
+
+```python
+val_indices = list(range(len(train_df),len(train_df) + len(test_df)))
+```
+
+
+```python
+ind_splitter = IndexSplitter(val_indices)
+```
+
+
+```python
+splits = ind_splitter(full_df) 
+```
+
 Now we need to create a `TabularPandas` for our data. A `TabularPandas` is wrapper for a pandas DataFrame where the continuous, categorical, and dependent variables are known. FastAI uses lots of inheritance, and the inheritances aren't always intuitive to me, so it's good to look at the method resolution order to get a sense of what the class is supposed to do. You can do so like this:
 
 
@@ -547,10 +582,10 @@ TabularPandas.__mro__
      object)
 
 
-
+If we just wanted to pass the train set, we would use `train_df` and `no_split(range_of(train_df))`. But we're going to pass the validation set as well, so we'll use `full_df` and `ind_splitter(full_df)`.
 
 ```python
-df_wrapper = TabularPandas(train_df, procs=preprocessing, cat_names=categorical_vars, cont_names=continuous_vars,
+df_wrapper = TabularPandas(full_df, procs=preprocessing, cat_names=categorical_vars, cont_names=continuous_vars,
                    y_names=dep_var, splits=splits)
 ```
 
@@ -758,11 +793,11 @@ cat_vars[:5]
 
 
 
-    tensor([[ 5, 12,  5,  2,  2,  5,  1,  1],
-            [ 5,  9,  3,  4,  1,  5,  2,  1],
-            [ 5, 12,  3, 13,  1,  5,  2,  1],
-            [ 5, 13,  3, 11,  6,  5,  1,  1],
-            [ 5, 12,  5,  8,  2,  5,  2,  1]])
+    tensor([[ 5, 12,  5,  9,  3,  3,  1,  1],
+            [ 2, 10,  3, 11,  1,  5,  2,  1],
+            [ 5, 12,  5, 14,  2,  5,  2,  1],
+            [ 5,  2,  7,  9,  5,  5,  1,  1],
+            [ 5, 12,  3,  5,  6,  5,  1,  1]])
 
 
 
@@ -774,11 +809,11 @@ cont_vars[:5]
 
 
 
-    tensor([[ 1.1989, -0.9330, -0.4128, -0.1472, -0.2158,  0.3721],
-            [ 0.3228,  1.7627,  0.3679, -0.1472, -0.2158, -0.0318],
-            [-0.4073, -0.6463, -0.4128, -0.1472, -0.2158,  0.3721],
-            [ 0.9069, -1.2090,  1.5391, -0.1472, -0.2158, -0.0318],
-            [-1.5025,  0.5148, -0.4128, -0.1472, -0.2158, -0.2741]])
+    tensor([[-0.5534,  0.0047, -0.4128, -0.1472, -0.2158, -0.0318],
+            [ 0.3228,  1.7249,  1.1487, -0.1472, -0.2158, -0.0318],
+            [-0.1883,  1.5283, -0.4128, -0.1472, -0.2158,  0.7760],
+            [ 0.1768,  1.4803, -1.1936, -0.1472, -0.2158, -0.0318],
+            [-0.0423, -0.0218, -0.4128, -0.1472, -0.2158,  1.1798]])
 
 
 
@@ -791,9 +826,9 @@ labels[:5]
 
 
     tensor([[0],
-            [0],
-            [0],
             [1],
+            [0],
+            [0],
             [0]], dtype=torch.int8)
 
 
@@ -827,37 +862,33 @@ learn.fit(4, 1e-2)
   <tbody>
     <tr>
       <td>0</td>
-      <td>0.327830</td>
-      <td>None</td>
+      <td>0.331239</td>
+      <td>0.322867</td>
       <td>00:02</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>0.328170</td>
-      <td>None</td>
+      <td>0.323588</td>
+      <td>0.318893</td>
       <td>00:01</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>0.318536</td>
-      <td>None</td>
+      <td>0.320338</td>
+      <td>0.325158</td>
       <td>00:01</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>0.320516</td>
-      <td>None</td>
+      <td>0.324844</td>
+      <td>0.321952</td>
       <td>00:01</td>
     </tr>
   </tbody>
 </table>
 
 
-    C:\Users\Julius\anaconda3\envs\pt\lib\site-packages\fastprogress\fastprogress.py:74: UserWarning: Your generator is empty.
-      warn("Your generator is empty.")
-    
-
-We didn't get any `valid_loss` or `accuracy` because we didn't pass a validation set. Normally we would use a validation set, but in this case we wanted to use it like a held-out test set.
+If we didn't pass a validation set we wouldn't have gotten any `valid_loss`.
 
 Now we can save the model.
 
@@ -891,7 +922,7 @@ learn.load(save_path / 'baseline_neural_network')
 
 
 
-    <fastai.tabular.learner.TabularLearner at 0x2655f8beb50>
+    <fastai.tabular.learner.TabularLearner at 0x1e79f48c730>
 
 
 
@@ -955,7 +986,7 @@ learn.summary()
     Total trainable params: 1,695
     Total non-trainable params: 0
     
-    Optimizer used: <function Adam at 0x0000026563F1B550>
+    Optimizer used: <function Adam at 0x000001E7A3A0D670>
     Loss function: FlattenedLoss of CrossEntropyLoss()
     
     Model unfrozen
@@ -1181,11 +1212,11 @@ preds[:5]
 
 
 
-    tensor([[0.9925, 0.0075],
-            [0.8829, 0.1171],
-            [0.6847, 0.3153],
-            [0.4921, 0.5079],
-            [0.7034, 0.2966]])
+    tensor([[0.9943, 0.0057],
+            [0.9559, 0.0441],
+            [0.6239, 0.3761],
+            [0.4550, 0.5450],
+            [0.7262, 0.2738]])
 
 
 
@@ -1243,6 +1274,6 @@ accuracy_score(ground_truth, torch.argmax(preds, dim=1))
 
 
 
-    0.8521066208082545
+    0.851001105515293
 
 
