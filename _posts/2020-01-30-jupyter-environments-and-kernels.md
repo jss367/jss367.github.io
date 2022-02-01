@@ -73,7 +73,9 @@ Windows:
 
 The exact location may vary, but for Mac/Linux users, it should look something like this:
 
-`ls /root/.local/share/jupyter/kernels/`
+`/root/.local/share/jupyter/kernels/`
+
+But if it's a machine you're directly working on, you won't have access to `/root`, so it's probably somewhere like `/home/julius/.local/share/jupyter/kernels/`
 
 Here's what you might see on Windows:
 
