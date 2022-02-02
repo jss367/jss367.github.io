@@ -292,3 +292,12 @@ There are so many awesome examples of Jupyter Notebooks out there. Here are some
 
 [A gallery of interesting Jupyter Notebooks](https://github.com/jupyter/jupyter/wiki/A-gallery-of-interesting-Jupyter-Notebooks)
 
+# Version Control
+
+By default, version control doesn't work that well with Jupyter Notebooks. But there are tools to help. For open source work and commercial work if you want to pay for it, there is [ReviewNB](https://www.reviewnb.com/). If you want to use a tool that is free and open source, I recommend [nbdime](https://github.com/jupyter/nbdime), which is what I use. I'll show some example commands
+
+Traditionally with git, you can compare your changes with the previous commit with `git diff HEAD^ HEAD`. With nbdime, you can do `nbdiff-web HEAD^ HEAD` to see a visual of the differences.
+
+
+
+
