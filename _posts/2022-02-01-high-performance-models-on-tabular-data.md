@@ -415,8 +415,8 @@ from sklearn.metrics import accuracy_score, f1_score
 
 
 ```python
-num_trials = 100
-svm_trials = 10 # svm takes much longer, so you may want to limit this
+num_trials = 500
+svm_trials = 100 # svm takes much longer, so you may want to limit this
 ```
 
 ## XGBoost
@@ -454,7 +454,7 @@ def train_clf(clf, params):
 ```python
 def train_xgb(params):
     """
-    xgb needs eval_metric or lots of warnings
+    xgb needs eval_metric or it produces lots of warnings
     """
     clf=XGBClassifier(**params)
     clf.fit(X_train, y_train, eval_metric='logloss')
@@ -475,18 +475,18 @@ fmin(fn = train_xgb,
     trials = trials)
 ```
 
-    100%|█████████████████████████████████████████████| 100/100 [00:25<00:00,  3.93trial/s, best loss: -0.7592954990215264]
+    100%|██████████████████████████████████████████████| 500/500 [02:25<00:00,  3.43trial/s, best loss: -0.764187866927593]
     
 
 
 
 
-    {'colsample_bytree': 0.664711277682662,
-     'gamma': 1.2129835895645058,
-     'max_depth': 15.0,
-     'min_child_weight': 3.0,
-     'reg_alpha': 44.0,
-     'reg_lambda': 0.36894533857340944}
+    {'colsample_bytree': 0.5671189561452116,
+     'gamma': 1.0071481663300468,
+     'max_depth': 14.0,
+     'min_child_weight': 2.0,
+     'reg_alpha': 50.0,
+     'reg_lambda': 0.6971844311013579}
 
 
 
@@ -503,13 +503,13 @@ best_hyperparams
 
 
 
-    {'colsample_bytree': 0.664711277682662,
-     'gamma': 1.2129835895645058,
-     'max_depth': 15,
-     'min_child_weight': 3.0,
+    {'colsample_bytree': 0.5671189561452116,
+     'gamma': 1.0071481663300468,
+     'max_depth': 14,
+     'min_child_weight': 2.0,
      'n_estimators': 180,
-     'reg_alpha': 44.0,
-     'reg_lambda': 0.36894533857340944,
+     'reg_alpha': 50.0,
+     'reg_lambda': 0.6971844311013579,
      'seed': 0}
 
 
@@ -524,21 +524,21 @@ xgb_clf = XGBClassifier(**best_hyperparams)
 xgb_clf.fit(X_train, y_train)
 ```
 
-    [22:30:08] WARNING: C:/Users/Administrator/workspace/xgboost-win64_release_1.5.1/src/learner.cc:1115: Starting in XGBoost 1.3.0, the default evaluation metric used with the objective 'binary:logistic' was changed from 'error' to 'logloss'. Explicitly set eval_metric if you'd like to restore the old behavior.
+    [00:09:42] WARNING: C:/Users/Administrator/workspace/xgboost-win64_release_1.5.1/src/learner.cc:1115: Starting in XGBoost 1.3.0, the default evaluation metric used with the objective 'binary:logistic' was changed from 'error' to 'logloss'. Explicitly set eval_metric if you'd like to restore the old behavior.
     
 
 
 
 
     XGBClassifier(base_score=0.5, booster='gbtree', colsample_bylevel=1,
-                  colsample_bynode=1, colsample_bytree=0.664711277682662,
-                  enable_categorical=False, gamma=1.2129835895645058, gpu_id=-1,
+                  colsample_bynode=1, colsample_bytree=0.5671189561452116,
+                  enable_categorical=False, gamma=1.0071481663300468, gpu_id=-1,
                   importance_type=None, interaction_constraints='',
-                  learning_rate=0.300000012, max_delta_step=0, max_depth=15,
-                  min_child_weight=3.0, missing=nan, monotone_constraints='()',
+                  learning_rate=0.300000012, max_delta_step=0, max_depth=14,
+                  min_child_weight=2.0, missing=nan, monotone_constraints='()',
                   n_estimators=180, n_jobs=12, num_parallel_tree=1,
-                  predictor='auto', random_state=0, reg_alpha=44.0,
-                  reg_lambda=0.36894533857340944, scale_pos_weight=1, seed=0,
+                  predictor='auto', random_state=0, reg_alpha=50.0,
+                  reg_lambda=0.6971844311013579, scale_pos_weight=1, seed=0,
                   subsample=1, tree_method='exact', validate_parameters=1,
                   verbosity=None)
 
@@ -557,7 +557,7 @@ f1_score(y_test, xgb_preds)
 
 
 
-    0.24074074074074073
+    0.25846153846153846
 
 
 
@@ -569,7 +569,7 @@ accuracy_score(y_test, xgb_preds)
 
 
 
-    0.7592954990215264
+    0.764187866927593
 
 
 
@@ -606,9 +606,13 @@ from sklearn.ensemble import RandomForestClassifier
 
 ```python
 rf_space = {
-    "n_estimators": scope.int(hp.quniform("n_estimators", 100, 600, 50)),
-    "max_depth": hp.quniform("max_depth", 1, 15, 1),
+    "n_estimators": hp.randint("n_estimators", 10, 700),
     "criterion": hp.choice("criterion", ["gini", "entropy"]),
+    "max_depth": hp.randint('max_depth', 1, 100),
+    "min_samples_split": hp.randint('min_samples_split', 2, 20),
+    "min_samples_leaf": hp.randint('min_samples_leaf', 1, 10),
+    "max_features": hp.choice('max_features', ['sqrt', 'log2']),
+    "random_state": 42
 }
 ```
 
@@ -623,13 +627,18 @@ fmin(fn = partial(train_clf, RandomForestClassifier),
     trials = trials)
 ```
 
-    100%|█████████████████████████████████████████████| 100/100 [01:54<00:00,  1.14s/trial, best loss: -0.8512720156555773]
+    100%|█████████████████████████████████████████████| 500/500 [09:01<00:00,  1.08s/trial, best loss: -0.8679060665362035]
     
 
 
 
 
-    {'criterion': 0, 'max_depth': 15.0, 'n_estimators': 500.0}
+    {'criterion': 0,
+     'max_depth': 98,
+     'max_features': 1,
+     'min_samples_leaf': 1,
+     'min_samples_split': 9,
+     'n_estimators': 535}
 
 
 
@@ -646,7 +655,13 @@ rf_best_hyperparams
 
 
 
-    {'criterion': 'gini', 'max_depth': 15.0, 'n_estimators': 500}
+    {'criterion': 'gini',
+     'max_depth': 98,
+     'max_features': 'log2',
+     'min_samples_leaf': 1,
+     'min_samples_split': 9,
+     'n_estimators': 535,
+     'random_state': 42}
 
 
 
@@ -663,7 +678,8 @@ rf_clf.fit(X_train, y_train)
 
 
 
-    RandomForestClassifier(max_depth=15.0, n_estimators=500)
+    RandomForestClassifier(max_depth=98, max_features='log2', min_samples_split=9,
+                           n_estimators=535, random_state=42)
 
 
 
@@ -680,7 +696,7 @@ f1_score(y_test, rf_preds)
 
 
 
-    0.14364640883977903
+    0.17177914110429446
 
 
 
@@ -692,7 +708,7 @@ accuracy_score(y_test, rf_preds)
 
 
 
-    0.8483365949119374
+    0.8679060665362035
 
 
 
@@ -722,17 +738,17 @@ trials = Trials()
 fmin(fn = partial(train_clf, SVC),
     space = svm_space,
     algo = tpe.suggest,
-    max_evals = 4, # svm takes too long so reducing num trials
+    max_evals = svm_trials,
     trials = trials)
 ```
 
-    100%|█████████████████████████████████████████████████| 4/4 [01:22<00:00, 20.66s/trial, best loss: -0.8003913894324853]
+    100%|█████████████████████████████████████████████| 100/100 [22:05<00:00, 13.25s/trial, best loss: -0.8111545988258317]
     
 
 
 
 
-    {'degree': 2, 'kernel': 2, 'probability': 0, 'svm_C': 0.2371250621465351}
+    {'degree': 2, 'kernel': 2, 'probability': 0, 'svm_C': 2.1465036697130855}
 
 
 
@@ -749,7 +765,7 @@ svm_best_hyperparams
 
 
 
-    {'C': 0.2371250621465351, 'degree': 4, 'kernel': 'poly', 'probability': True}
+    {'C': 2.1465036697130855, 'degree': 4, 'kernel': 'poly', 'probability': True}
 
 
 
@@ -766,7 +782,7 @@ svm_clf.fit(X_train, y_train)
 
 
 
-    SVC(C=0.2371250621465351, degree=4, kernel='poly', probability=True)
+    SVC(C=2.1465036697130855, degree=4, kernel='poly', probability=True)
 
 
 
@@ -783,7 +799,7 @@ f1_score(y_test, svm_preds)
 
 
 
-    0.28671328671328666
+    0.2771535580524344
 
 
 
@@ -795,7 +811,7 @@ accuracy_score(y_test, svm_preds)
 
 
 
-    0.8003913894324853
+    0.8111545988258317
 
 
 
@@ -1014,7 +1030,8 @@ nn_space = [
 ```python
 def objective(params):
     learn = tabular_learner(dls, y_range=(y.min(), y.max()), layers=[params[0]['layer1'],params[1]['layer2']], metrics=accuracy)
-    learn.fit(params[2]['epochs'], params[3]['lr'])
+    with learn.no_bar(), learn.no_logging():
+        learn.fit(params[2]['epochs'], params[3]['lr'])
     return {'loss': learn.recorder.losses[-1], 'status': STATUS_OK}
 ```
 
@@ -1030,7 +1047,187 @@ best = fmin(objective,
 print(best)
 ```
 
+    100%|███████████████████████████████████████████| 500/500 [2:36:05<00:00, 18.73s/trial, best loss: 0.12682415544986725]
+    {'epochs': 20.0, 'layer1': 181.0, 'layer2': 158.0, 'lr': 0.004167824772417915}
+    
 
+
+```python
+nn_best_hyperparams = space_eval(nn_space, trials.argmin)
+nn_best_hyperparams
+```
+
+
+
+
+    ({'layer1': 181},
+     {'layer2': 158},
+     {'epochs': 20},
+     {'lr': 0.004167824772417915})
+
+
+
+
+```python
+learn = tabular_learner(dls, y_range=(y.min(), y.max()), 
+                        layers=[nn_best_hyperparams[0]['layer1'], nn_best_hyperparams[1]['layer2']], metrics=my_acc)
+learn.fit(nn_best_hyperparams[2]['epochs'], nn_best_hyperparams[3]['lr'], )
+```
+
+
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th>epoch</th>
+      <th>train_loss</th>
+      <th>valid_loss</th>
+      <th>my_acc</th>
+      <th>time</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>0.152055</td>
+      <td>0.210501</td>
+      <td>0.703523</td>
+      <td>00:01</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0.149081</td>
+      <td>0.241731</td>
+      <td>0.587084</td>
+      <td>00:01</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>0.147788</td>
+      <td>0.208247</td>
+      <td>0.710372</td>
+      <td>00:01</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>0.144673</td>
+      <td>0.194463</td>
+      <td>0.737769</td>
+      <td>00:01</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>0.142503</td>
+      <td>0.195599</td>
+      <td>0.729941</td>
+      <td>00:01</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>0.143986</td>
+      <td>0.247592</td>
+      <td>0.614481</td>
+      <td>00:01</td>
+    </tr>
+    <tr>
+      <td>6</td>
+      <td>0.140043</td>
+      <td>0.233124</td>
+      <td>0.599804</td>
+      <td>00:01</td>
+    </tr>
+    <tr>
+      <td>7</td>
+      <td>0.140295</td>
+      <td>0.193624</td>
+      <td>0.726027</td>
+      <td>00:01</td>
+    </tr>
+    <tr>
+      <td>8</td>
+      <td>0.135865</td>
+      <td>0.200070</td>
+      <td>0.707436</td>
+      <td>00:01</td>
+    </tr>
+    <tr>
+      <td>9</td>
+      <td>0.134626</td>
+      <td>0.198199</td>
+      <td>0.737769</td>
+      <td>00:01</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>0.138697</td>
+      <td>0.211755</td>
+      <td>0.710372</td>
+      <td>00:01</td>
+    </tr>
+    <tr>
+      <td>11</td>
+      <td>0.133714</td>
+      <td>0.199920</td>
+      <td>0.726027</td>
+      <td>00:01</td>
+    </tr>
+    <tr>
+      <td>12</td>
+      <td>0.139617</td>
+      <td>0.222729</td>
+      <td>0.687867</td>
+      <td>00:01</td>
+    </tr>
+    <tr>
+      <td>13</td>
+      <td>0.131833</td>
+      <td>0.192564</td>
+      <td>0.747554</td>
+      <td>00:01</td>
+    </tr>
+    <tr>
+      <td>14</td>
+      <td>0.133367</td>
+      <td>0.180420</td>
+      <td>0.767123</td>
+      <td>00:01</td>
+    </tr>
+    <tr>
+      <td>15</td>
+      <td>0.133702</td>
+      <td>0.213077</td>
+      <td>0.709393</td>
+      <td>00:01</td>
+    </tr>
+    <tr>
+      <td>16</td>
+      <td>0.137790</td>
+      <td>0.210081</td>
+      <td>0.688845</td>
+      <td>00:01</td>
+    </tr>
+    <tr>
+      <td>17</td>
+      <td>0.134852</td>
+      <td>0.158134</td>
+      <td>0.800391</td>
+      <td>00:01</td>
+    </tr>
+    <tr>
+      <td>18</td>
+      <td>0.137128</td>
+      <td>0.197334</td>
+      <td>0.726027</td>
+      <td>00:01</td>
+    </tr>
+    <tr>
+      <td>19</td>
+      <td>0.130718</td>
+      <td>0.185704</td>
+      <td>0.740705</td>
+      <td>00:01</td>
+    </tr>
+  </tbody>
+</table>
 
 
 
@@ -1050,7 +1247,7 @@ my_acc(nn_preds, gt)
 
 
 
-    0.7465753424657534
+    0.7407045009784736
 
 
 
@@ -1110,17 +1307,17 @@ cb_clf.fit(X_train, y_train,
 
 
     Learning rate set to 0.052636
-    0:	test: 0.7411374	best: 0.7411374 (0)	total: 175ms	remaining: 2m 54s
-    200:	test: 0.7470514	best: 0.7940020 (9)	total: 5.79s	remaining: 23s
-    400:	test: 0.7385249	best: 0.7940020 (9)	total: 12.2s	remaining: 18.2s
-    600:	test: 0.7342070	best: 0.7940020 (9)	total: 18.2s	remaining: 12.1s
-    800:	test: 0.7256384	best: 0.7940020 (9)	total: 24.1s	remaining: 5.97s
-    999:	test: 0.7232863	best: 0.7940020 (9)	total: 30.4s	remaining: 0us
+    0:	test: 0.7928763	best: 0.7928763 (0)	total: 173ms	remaining: 2m 52s
+    200:	test: 0.7582745	best: 0.8060484 (11)	total: 5.18s	remaining: 20.6s
+    400:	test: 0.7407258	best: 0.8060484 (11)	total: 10.5s	remaining: 15.6s
+    600:	test: 0.7307124	best: 0.8060484 (11)	total: 15.9s	remaining: 10.6s
+    800:	test: 0.7226983	best: 0.8060484 (11)	total: 21.3s	remaining: 5.29s
+    999:	test: 0.7188004	best: 0.8060484 (11)	total: 26.9s	remaining: 0us
     
-    bestTest = 0.7940020161
-    bestIteration = 9
+    bestTest = 0.8060483871
+    bestIteration = 11
     
-    Shrink model to first 10 iterations.
+    Shrink model to first 12 iterations.
     
 
 
@@ -1136,7 +1333,7 @@ f1_score(y_test, cb_preds)
 
 
 
-    0.2608695652173913
+    0.2580645161290323
 
 
 
@@ -1148,7 +1345,7 @@ accuracy_score(y_test, cb_preds)
 
 
 
-    0.7504892367906066
+    0.7299412915851272
 
 
 
@@ -1173,11 +1370,11 @@ xgb_probs[:5]
 
 
 
-    array([[0.9609083 , 0.03909168],
-           [0.9253093 , 0.07469067],
-           [0.95745856, 0.04254143],
-           [0.2907248 , 0.7092752 ],
-           [0.32043564, 0.67956436]], dtype=float32)
+    array([[0.9548289 , 0.04517111],
+           [0.9358052 , 0.06419478],
+           [0.96357316, 0.03642686],
+           [0.3344649 , 0.6655351 ],
+           [0.23816943, 0.76183057]], dtype=float32)
 
 
 
@@ -1230,7 +1427,7 @@ f1_score(ensemble_ave, y_test)
 
 
 
-    0.26053639846743293
+    0.26562499999999994
 
 
 
@@ -1242,7 +1439,7 @@ accuracy_score(y_test, ensemble_ave)
 
 
 
-    0.8111545988258317
+    0.8160469667318982
 
 
 
@@ -1268,14 +1465,14 @@ ensemble = VotingClassifier(clfs, voting='hard')
 ensemble.fit(X_train, y_train)
 ```
 
-    [23:48:45] WARNING: C:/Users/Administrator/workspace/xgboost-win64_release_1.5.1/src/learner.cc:1115: Starting in XGBoost 1.3.0, the default evaluation metric used with the objective 'binary:logistic' was changed from 'error' to 'logloss'. Explicitly set eval_metric if you'd like to restore the old behavior.
+    [15:54:44] WARNING: C:/Users/Administrator/workspace/xgboost-win64_release_1.5.1/src/learner.cc:1115: Starting in XGBoost 1.3.0, the default evaluation metric used with the objective 'binary:logistic' was changed from 'error' to 'logloss'. Explicitly set eval_metric if you'd like to restore the old behavior.
     Learning rate set to 0.024769
-    0:	total: 38.2ms	remaining: 38.1s
-    200:	total: 6.34s	remaining: 25.2s
-    400:	total: 12.9s	remaining: 19.3s
-    600:	total: 19s	remaining: 12.6s
-    800:	total: 25.4s	remaining: 6.32s
-    999:	total: 32.3s	remaining: 0us
+    0:	total: 47.2ms	remaining: 47.2s
+    200:	total: 6.61s	remaining: 26.3s
+    400:	total: 13.4s	remaining: 20s
+    600:	total: 20.1s	remaining: 13.3s
+    800:	total: 26.7s	remaining: 6.63s
+    999:	total: 33.3s	remaining: 0us
     
 
 
@@ -1285,29 +1482,29 @@ ensemble.fit(X_train, y_train)
                                   XGBClassifier(base_score=0.5, booster='gbtree',
                                                 colsample_bylevel=1,
                                                 colsample_bynode=1,
-                                                colsample_bytree=0.664711277682662,
+                                                colsample_bytree=0.5671189561452116,
                                                 enable_categorical=False,
-                                                gamma=1.2129835895645058, gpu_id=-1,
+                                                gamma=1.0071481663300468, gpu_id=-1,
                                                 importance_type=None,
                                                 interaction_constraints='',
                                                 learning_rate=0.300000012,
-                                                max_delta_step=0, max_depth=15,
-                                                min_child_weight=3.0, missing=n...
-                                                predictor='auto', random_state=0,
-                                                reg_alpha=44.0,
-                                                reg_lambda=0.36894533857340944,
+                                                max_delta_step=0, max_depth=14,
+                                                min_child_weight=2.0, missing=...
                                                 scale_pos_weight=1, seed=0,
                                                 subsample=1, tree_method='exact',
                                                 validate_parameters=1,
                                                 verbosity=None)),
                                  ('rf',
-                                  RandomForestClassifier(max_depth=15.0,
-                                                         n_estimators=500)),
+                                  RandomForestClassifier(max_depth=98,
+                                                         max_features='log2',
+                                                         min_samples_split=9,
+                                                         n_estimators=535,
+                                                         random_state=42)),
                                  ('svm',
-                                  SVC(C=0.2371250621465351, degree=4, kernel='poly',
+                                  SVC(C=2.1465036697130855, degree=4, kernel='poly',
                                       probability=True)),
                                  ('cb',
-                                  <catboost.core.CatBoostClassifier object at 0x000001C06170FEB0>)])
+                                  <catboost.core.CatBoostClassifier object at 0x000001F10B3250A0>)])
 
 
 
@@ -1324,7 +1521,7 @@ f1_score(ensemble_preds, y_test)
 
 
 
-    0.22680412371134023
+    0.25773195876288657
 
 
 
@@ -1336,6 +1533,6 @@ accuracy_score(ensemble.predict(X_test), y_test)
 
 
 
-    0.8033268101761253
+    0.8590998043052838
 
 
