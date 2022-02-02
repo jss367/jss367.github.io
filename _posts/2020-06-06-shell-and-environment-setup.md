@@ -30,6 +30,10 @@ I store all of my environment variables in a `~/.profile` file. Then I source th
 
 * That profile just says `source ~/.profile`
 
+## Packages to Add
+
+One package I like is [Pygments](https://pygments.org/), a Python syntax highlighter. It's like `cat` with colors. I alias it to `c` (as seen below).
+
 ## My .profile Setup
 
 * I usually share my `.profile` with others in my company (or wherever I am) so that we can all share shortcuts. In order to do this without sharing passwords, I make a separate file called something like `.my_credentials` and export my credentials from there.
