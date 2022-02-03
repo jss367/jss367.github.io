@@ -1,15 +1,44 @@
 ---
 layout: post
-title: "Spoofing Argparse"
+title: "Argparse Notes"
 description: "This post shows how to spoof argparse to get modules to work in Jupyter Notebooks"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/kea.jpg"
-tags: [Jupyter Notebooks]
+tags: [Jupyter Notebooks, Python]
 ---
+
+## Required arguments
+
+Arguments that don't begin with "-" or "--" are positional and therefore required (much like arguments in Python functions). Arguments that start with  "-" or "--" are optional arguments, although `argparse` lets you mark this as required. This is considered bad design in most casee but isn't prevented.
+
+For example, you can do:
+
+```python
+parser = argparse.ArgumentParser()
+parser.add_argument('--foo', required=True)
+```
+
+
+This is how it's put in the documentation [documentation](https://docs.python.org/3/library/argparse.html#required):
+> Required options are generally considered bad form because users expect options to be optional, and thus they should be avoided when possible.
+
+
+## Spoofing Argpase
 
 It's often a good idea to construct deep learning code so that experiments can be conducted simply from the command line, allowing you to quickly iterate and record results. [argparse](https://docs.python.org/3/library/argparse.html) makes this super easy by allowing configurations to be passed as command-line arguments. But sometimes you want to do the opposite. You find a repo that has a `train.py` file ready-to-go but you want to walk through it line-by-line in a Jupyter Notebook.
 
-Unfortunately, `argparse` can get in the way here because the code is expecting an `argparse` object and you're not calling it from the command line. To get around this, you'll have to spoof `argparse`. In this post, I'll show how to do that using [`centermask2`](https://github.com/youngwanLEE/centermask2) as an example. `centermask2` is an implementation of [CenterMask: Real-Time Anchor-Free Instance Segmentation](https://arxiv.org/abs/1911.06667) based on Facebook AI Research's object detection [detectron2](https://github.com/facebookresearch/detectron2) framework.
+Unfortunately, `argparse` can get in the way here because the code is expecting an `argparse` object and you're not calling it from the command line. To get around this, you'll have to spoof `argparse`. 
+
+#### Simple Example
+
+If you're going to run a program in, say, VSCode, it's already going to have the file in `sys.argv`, even if you don't add any other arguments. If you want to quickly spoof argparse, you can extend `sys.argv` like so:
+
+`sys.argv.extend(["my_arg_1", "my_arg_2"])`
+
+
+#### Full Example
+
+For a fuller example, I'll show how to do that using [`centermask2`](https://github.com/youngwanLEE/centermask2) as an example. `centermask2` is an implementation of [CenterMask: Real-Time Anchor-Free Instance Segmentation](https://arxiv.org/abs/1911.06667) based on Facebook AI Research's object detection [detectron2](https://github.com/facebookresearch/detectron2) framework.
 
 Let's start by looking at the [centermask2 code](https://github.com/youngwanLEE/centermask2). If you go to the repository, you'll see that there's a `train_net.py` file. Opening it up, [at the bottom we see the following](https://github.com/youngwanLEE/centermask2/blob/588b2bde8a1a48756a3089190109cdc1f03cdc68/train_net.py#L221):
 
@@ -113,3 +142,5 @@ print("Command Line Args:", args)
     
 
 That's all there is!
+
+
