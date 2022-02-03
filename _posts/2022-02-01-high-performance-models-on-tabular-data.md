@@ -9,6 +9,10 @@ tags: [FastAI, Machine Learning, Neural Networks, Python, Scikit-Learn, XGBoost]
 
 This blog posts shows some ways to get generally good performance on tabular data. Most of the work in getting high performance models from tabular data comes from cleaning the dataset, clever feature engineering, and other tasks specific to the data set. We won't be doing that here. However, there's still a need for some good baseline parameters to know you're getting the best out of your model. This post provides a way to use Bayesian optimization to find good hyperparameters and get good performance.
 
+<b>Table of contents</b>
+* TOC
+{:toc}
+
 
 ```python
 import os
@@ -1319,6 +1323,8 @@ cb_clf.fit(X_train, y_train,
     
     Shrink model to first 12 iterations.
     
+
+> Note: The above command provides an interactive graph that is not displayed on the blog.
 
 
 ```python
