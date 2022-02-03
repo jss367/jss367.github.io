@@ -7,7 +7,7 @@ thumbnail: "assets/img/kea.jpg"
 tags: [Jupyter Notebooks, Python]
 ---
 
-## Required arguments
+## Required Arguments
 
 Arguments that don't begin with "-" or "--" are positional and therefore required (much like arguments in Python functions). Arguments that start with  "-" or "--" are optional arguments, although `argparse` lets you mark this as required. This is considered bad design in most casee but isn't prevented.
 
@@ -33,7 +33,9 @@ Unfortunately, `argparse` can get in the way here because the code is expecting 
 
 If you're going to run a program in, say, VSCode, it's already going to have the file in `sys.argv`, even if you don't add any other arguments. If you want to quickly spoof argparse, you can extend `sys.argv` like so:
 
-`sys.argv.extend(["my_arg_1", "my_arg_2"])`
+```python
+sys.argv.extend(["my_arg_1", "my_arg_2"])
+```
 
 
 #### Full Example
