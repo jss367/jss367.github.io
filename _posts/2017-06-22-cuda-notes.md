@@ -2,6 +2,7 @@
 layout: post
 title: "CUDA Notes"
 feature-img: "assets/img/rainbow.jpg"
+thumbnail: "assets/img/astro.jpg"
 tags: [CUDA, TensorFlow, PyTorch]
 ---
 
