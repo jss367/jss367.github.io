@@ -21,7 +21,7 @@ import pandas as pd
 print(pd.__version__)
 ```
 
-    1.2.1
+    1.3.4
     
 
 # Importing Data
@@ -337,6 +337,125 @@ df.head()
       <td>EI</td>
       <td>BABAPOE-DONOR-2817</td>
       <td>GCTCAGCCCCCAGGTCACCCAGGAACTGACGTG...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+Note that you can also read files directly from the Internet without downloading them first.
+
+
+```python
+df = pd.read_csv('https://web.stanford.edu/~hastie/ElemStatLearn/datasets/SAheart.data')
+df.head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>row.names</th>
+      <th>sbp</th>
+      <th>tobacco</th>
+      <th>ldl</th>
+      <th>adiposity</th>
+      <th>famhist</th>
+      <th>typea</th>
+      <th>obesity</th>
+      <th>alcohol</th>
+      <th>age</th>
+      <th>chd</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>160</td>
+      <td>12.00</td>
+      <td>5.73</td>
+      <td>23.11</td>
+      <td>Present</td>
+      <td>49</td>
+      <td>25.30</td>
+      <td>97.20</td>
+      <td>52</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2</td>
+      <td>144</td>
+      <td>0.01</td>
+      <td>4.41</td>
+      <td>28.61</td>
+      <td>Absent</td>
+      <td>55</td>
+      <td>28.87</td>
+      <td>2.06</td>
+      <td>63</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3</td>
+      <td>118</td>
+      <td>0.08</td>
+      <td>3.48</td>
+      <td>32.28</td>
+      <td>Present</td>
+      <td>52</td>
+      <td>29.14</td>
+      <td>3.81</td>
+      <td>46</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4</td>
+      <td>170</td>
+      <td>7.50</td>
+      <td>6.41</td>
+      <td>38.03</td>
+      <td>Present</td>
+      <td>51</td>
+      <td>31.99</td>
+      <td>24.26</td>
+      <td>58</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5</td>
+      <td>134</td>
+      <td>13.60</td>
+      <td>3.50</td>
+      <td>27.78</td>
+      <td>Present</td>
+      <td>60</td>
+      <td>25.99</td>
+      <td>57.34</td>
+      <td>49</td>
+      <td>1</td>
     </tr>
   </tbody>
 </table>
@@ -785,6 +904,7 @@ df.head()
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>Unnamed: 0</th>
       <th>Name</th>
       <th>Year</th>
       <th>Category</th>
@@ -793,30 +913,35 @@ df.head()
   <tbody>
     <tr>
       <th>0</th>
+      <td>0</td>
       <td>Titus Andronicus</td>
       <td>1592</td>
       <td>Tragedy</td>
     </tr>
     <tr>
       <th>1</th>
+      <td>1</td>
       <td>The Comedy of Errors</td>
       <td>1594</td>
       <td>Comedy</td>
     </tr>
     <tr>
       <th>2</th>
+      <td>2</td>
       <td>Richard II</td>
       <td>1595</td>
       <td>History</td>
     </tr>
     <tr>
       <th>3</th>
+      <td>3</td>
       <td>Romeo and Juliet</td>
       <td>1595</td>
       <td>Tragedy</td>
     </tr>
     <tr>
       <th>4</th>
+      <td>4</td>
       <td>A Midsummer Night’s Dream</td>
       <td>1595</td>
       <td>Comedy</td>
@@ -867,6 +992,7 @@ df.head()
   <thead>
     <tr style="text-align: right;">
       <th></th>
+      <th>Unnamed: 0.1</th>
       <th>Name</th>
       <th>Year</th>
       <th>Category</th>
@@ -875,30 +1001,35 @@ df.head()
   <tbody>
     <tr>
       <th>0</th>
+      <td>0</td>
       <td>Titus Andronicus</td>
       <td>1592</td>
       <td>Tragedy</td>
     </tr>
     <tr>
       <th>1</th>
+      <td>1</td>
       <td>The Comedy of Errors</td>
       <td>1594</td>
       <td>Comedy</td>
     </tr>
     <tr>
       <th>2</th>
+      <td>2</td>
       <td>Richard II</td>
       <td>1595</td>
       <td>History</td>
     </tr>
     <tr>
       <th>3</th>
+      <td>3</td>
       <td>Romeo and Juliet</td>
       <td>1595</td>
       <td>Tragedy</td>
     </tr>
     <tr>
       <th>4</th>
+      <td>4</td>
       <td>A Midsummer Night’s Dream</td>
       <td>1595</td>
       <td>Comedy</td>
@@ -1007,10 +1138,10 @@ df.sample(5)
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>Titus Andronicus</td>
-      <td>1592</td>
-      <td>Tragedy</td>
+      <th>2</th>
+      <td>Richard II</td>
+      <td>1595</td>
+      <td>History</td>
     </tr>
     <tr>
       <th>3</th>
@@ -1019,10 +1150,10 @@ df.sample(5)
       <td>Tragedy</td>
     </tr>
     <tr>
-      <th>4</th>
-      <td>A Midsummer Night’s Dream</td>
-      <td>1595</td>
-      <td>Comedy</td>
+      <th>6</th>
+      <td>Julius Caesar</td>
+      <td>1599</td>
+      <td>Tragedy</td>
     </tr>
     <tr>
       <th>7</th>
@@ -1031,10 +1162,10 @@ df.sample(5)
       <td>Tragedy</td>
     </tr>
     <tr>
-      <th>2</th>
-      <td>Richard II</td>
-      <td>1595</td>
-      <td>History</td>
+      <th>0</th>
+      <td>Titus Andronicus</td>
+      <td>1592</td>
+      <td>Tragedy</td>
     </tr>
   </tbody>
 </table>
@@ -1300,14 +1431,13 @@ You can do even more with quantitative data. You can find the mean of each quant
 
 
 ```python
-df.mean()
+df['Year'].mean()
 ```
 
 
 
 
-    Year    1597.333333
-    dtype: float64
+    1597.3333333333333
 
 
 
@@ -1520,6 +1650,31 @@ df['Name'].str.contains('(?i)julius')
     7    False
     8    False
     Name: Name, dtype: bool
+
+
+
+## Splitting by Strings
+
+If you want to split on the first element, you have to reference `str` again.
+
+
+```python
+df['Name'].str.split(' ').str[0]
+```
+
+
+
+
+    0      Titus
+    1        The
+    2    Richard
+    3      Romeo
+    4          A
+    5       King
+    6     Julius
+    7    Othello
+    8    Macbeth
+    Name: Name, dtype: object
 
 
 
@@ -1781,6 +1936,8 @@ new_df.reset_index(drop=True)
 </div>
 
 
+
+When you use `.iloc`, you can treat the results just like a `numpy` matrix. This means that trailing colons are always optional (just like `numpy`).
 
 # Cleaning Data
 
@@ -3309,13 +3466,13 @@ It's a good idea to do one-hot encoding of categorical variables before using th
 
 The downside of treating ordinal data as categorical is that we throw away information about the relative order. The downside of treating it as continuous data is that we introduce a notion of distance. For example, if we set "small" as "1", "medium" as "2", and "large" as "3", we're telling the model that a large is 3 times a small. This isn't a meaningful thing to say, so it can reduce model performance.
 
-## One-hot Encoding
+## Shuffling Data
 
-pandas can also do one-hot encoding.
+pandas makes it very easy to shuffle data.
 
 
 ```python
-pd.get_dummies(df[['price', 'color', 'size']])
+df.sample(frac=1).reset_index(drop=True)
 ```
 
 
@@ -3339,33 +3496,33 @@ pd.get_dummies(df[['price', 'color', 'size']])
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>price</th>
+      <th>color</th>
       <th>size</th>
-      <th>color_green</th>
-      <th>color_red</th>
+      <th>price</th>
+      <th>type</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>20</td>
+      <td>green</td>
       <td>2</td>
-      <td>1</td>
-      <td>0</td>
+      <td>20</td>
+      <td>polo</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>15</td>
+      <td>red</td>
       <td>3</td>
-      <td>0</td>
-      <td>1</td>
+      <td>15</td>
+      <td>T-shirt</td>
     </tr>
     <tr>
       <th>2</th>
+      <td>red</td>
+      <td>1</td>
       <td>15</td>
-      <td>1</td>
-      <td>0</td>
-      <td>1</td>
+      <td>polo</td>
     </tr>
   </tbody>
 </table>
@@ -3373,7 +3530,7 @@ pd.get_dummies(df[['price', 'color', 'size']])
 
 
 
-## Separately features from labels
+## Separating Features from Labels
 
 `pandas` also has a convenient way to extract the labels from a DataFrame, and that's by using the `pop` method. It will remove the specified column from the DataFrame and put it into a Series of its own.
 
@@ -3452,6 +3609,66 @@ labels
     1    15
     2    15
     Name: price, dtype: int64
+
+
+
+## One-hot Encoding
+
+pandas can also do one-hot encoding.
+
+
+```python
+pd.get_dummies(df[['color', 'size']])
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>size</th>
+      <th>color_green</th>
+      <th>color_red</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 
 
 
