@@ -3,7 +3,7 @@ layout: post
 title: "Data Augmentation in Detectron2"
 description: "A walkthrough of the different augmentation methods available in detectron2"
 feature-img: "assets/img/rainbow.jpg"
-thumbnail: "assets/img/bear_with_fish.jpg"
+thumbnail: "assets/img/female_fairywren.jpg"
 tags: [Computer Vision, Data Augmentation, Detectron2, Python]
 ---
 
