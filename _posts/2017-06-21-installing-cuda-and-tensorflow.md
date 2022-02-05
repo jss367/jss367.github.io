@@ -82,9 +82,7 @@ Version incompatibility is probably the biggest source of problems  This is a bi
 
 #### CUDA and Tensorflow and cuDNN
 
-Tensorflow maintains [this chart](https://www.tensorflow.org/install/source#gpu) with the latest compatibility information.
-
-
+Before you go any further, you should have a target. You should be clear on exactly which version of everything you're trying to install. To help you find out, TensorFlow maintains [this chart](https://www.tensorflow.org/install/source#gpu) with the latest compatibility information.
 
 #### CUDA version
 
@@ -364,3 +362,18 @@ Then set your environment variables
 
 
 
+## Other Possible Problems
+
+#### Verify that there aren't conflicting drivers (Linux only)
+
+verify you have CUDA-enabled GPU:
+
+You should see something saying "NVIDIA" when you do:
+
+`lspci | grep -i nvidia`
+
+But you shouldn't see anything from:
+
+`lsmod | grep nouveau`
+
+If you do, you'll need to remove it
