@@ -45,3 +45,28 @@ except OSError as err:
 ```
 
 
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: left;">
+      <th>epoch</th>
+      <th>train_loss</th>
+      <th>valid_loss</th>
+      <th>error_rate</th>
+      <th>time</th>
+    </tr>
+  </thead>
+  <tbody>
+  </tbody>
+</table><p>
+
+
+    Error! You have the following error: image file is truncated (7 bytes not processed)
+    
+
+The solution is to add the following before training your model: 
+
+
+```python
+from PIL import ImageFile
+ImageFile.LOAD_TRUNCATED_IMAGES = True
+```
