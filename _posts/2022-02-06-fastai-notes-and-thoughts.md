@@ -46,22 +46,6 @@ except OSError as err:
 
 
 
-    <div>
-        <style>
-            /* Turns off some styling */
-            progress {
-                /* gets rid of default border in Firefox and Opera. */
-                border: none;
-                /* Needs to be in here for Safari polyfill so background images work as expected. */
-                background-size: auto;
-            }
-            .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
-                background: #F44336;
-            }
-        </style>
-      <progress value='0' class='' max='1' style='width:300px; height:20px; vertical-align: middle;'></progress>
-      0.00% [0/1 00:00<00:00]
-    </div>
 
 <table border="1" class="dataframe">
   <thead>
@@ -77,27 +61,6 @@ except OSError as err:
   </tbody>
 </table><p>
 
-    <div>
-        <style>
-            /* Turns off some styling */
-            progress {
-                /* gets rid of default border in Firefox and Opera. */
-                border: none;
-                /* Needs to be in here for Safari polyfill so background images work as expected. */
-                background-size: auto;
-            }
-            .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
-                background: #F44336;
-            }
-        </style>
-      <progress value='0' class='' max='1' style='width:300px; height:20px; vertical-align: middle;'></progress>
-      0.00% [0/1 00:00<00:00]
-    </div>
-
-
-
-    Error! You have the following error: image file is truncated (7 bytes not processed)
-    
 
 The solution is to add the following before training your model: 
 
