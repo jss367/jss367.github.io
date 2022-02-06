@@ -116,50 +116,6 @@ except OSError as err:
 ```
 
 
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: left;">
-      <th>epoch</th>
-      <th>train_loss</th>
-      <th>valid_loss</th>
-      <th>error_rate</th>
-      <th>time</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>0</td>
-      <td>0.354445</td>
-      <td>0.307840</td>
-      <td>0.127273</td>
-      <td>00:04</td>
-    </tr>
-  </tbody>
-</table>
-
-
-
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: left;">
-      <th>epoch</th>
-      <th>train_loss</th>
-      <th>valid_loss</th>
-      <th>error_rate</th>
-      <th>time</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>0</td>
-      <td>0.136007</td>
-      <td>0.405595</td>
-      <td>0.163636</td>
-      <td>00:05</td>
-    </tr>
-  </tbody>
-</table>
-
 
 Now it works.
 
