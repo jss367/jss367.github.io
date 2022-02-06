@@ -161,7 +161,7 @@ except OSError as err:
 </table>
 
 
-Now it works!
+Now it works.
 
 ## Models
 
