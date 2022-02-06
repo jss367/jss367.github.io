@@ -42,3 +42,6 @@ MixUp and other data aug
 Half Precision
 
 
+
+if an image is too large (for im class), use a different random crop each epoch
+
