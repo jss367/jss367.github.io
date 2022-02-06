@@ -34,12 +34,7 @@ learn = cnn_learner(dls, resnet34, metrics=error_rate)
     So `number_workers` is changed to 0 to avoid getting stuck
     
 
-When I try to train this model, I run into an `OSError`.
-
-try:
-    learn.fine_tune(1)
-except OSError as err:
-    print(f"Error! You have the following error: {err}")
+When I try to train this model with `learn.fine_tune(1)`, I run into an `OSError`.
 
 The solution is to add the following before training your model: 
 
