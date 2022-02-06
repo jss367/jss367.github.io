@@ -129,9 +129,9 @@ except OSError as err:
   <tbody>
     <tr>
       <td>0</td>
-      <td>1.233215</td>
-      <td>2.767094</td>
-      <td>0.581818</td>
+      <td>0.354445</td>
+      <td>0.307840</td>
+      <td>0.127273</td>
       <td>00:04</td>
     </tr>
   </tbody>
@@ -152,9 +152,9 @@ except OSError as err:
   <tbody>
     <tr>
       <td>0</td>
-      <td>0.374323</td>
-      <td>1.359040</td>
-      <td>0.436364</td>
+      <td>0.136007</td>
+      <td>0.405595</td>
+      <td>0.163636</td>
       <td>00:05</td>
     </tr>
   </tbody>
@@ -183,7 +183,7 @@ This means that everything you would normally do with a PyTorch model, you can d
 
 
 ```python
-learn.model.eval()
+learn.model.eval();
 ```
 
 ## Transitioning From FastAI Version 1
@@ -208,13 +208,14 @@ Let's say you're got a model in at `analysis/catsvdogs/models/my_model` that you
 
 ```python
 path = Path('analysis/catsvdogs/models/my_model')
-learn.load(path)
+try:
+    learn.load(path)
+except FileNotFoundError as err:
+    print(err)
 ```
 
-
-```python
-FileNotFoundError: [Errno 2] No such file or directory: 'models/analysis/catsvdogs/models/my_model.pth'
-```
+    [Errno 2] No such file or directory: 'C:\\Users\\Julius\\.fastai\\data\\oxford-iiit-pet\\models\\analysis\\catsvdogs\\models\\my_model.pth'
+    
 
 It adds the word "model" in the beginning. This is great if you know it's going to do that, but not for people who aren't expecting that. It's not even obvious when you look at the default arguments how to turn this off. This is a minor annoyance, but there are a lot of these. I have found that FastAI seems to make more assumptions about what you want relative to other libraries.
 
