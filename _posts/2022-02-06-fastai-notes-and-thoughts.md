@@ -184,6 +184,12 @@ I see where the annoyance comes from. You have no idea what's in your namespace,
 
 There's a lot of inheriting from outer context in FastAI. This works well for a Jupyter Notebook environment, but makes it harder to use it in production.
 
+#### Versioning
+
+The transition from FastAI 1 to FastAI 2 has been difficult. A lot of previous methods no longer work and now the forum is much less helpful. Solutions point to broken links all the time. Here's an example:
+
+https://forums.fast.ai/t/reduce-verbosity-during-training/45583/2
+
 ## Conclusion
 
 I didn't want to end on a negative so I want to say that there's a lot I really like about FastAI. I hope the library continues to be developed. I've noticed that there's not a big development environment around it - right now there's only one core developer on it, and keeping a library going is a lot of work for a single person.
