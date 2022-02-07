@@ -1,4 +1,20 @@
+---
+layout: post
+title: "Saving and Loading Models in FastAI"
+feature-img: "assets/img/rainbow.jpg"
+thumbnail: "assets/img/welcome_swallow.jpg"
+tags: [FastAI, Python]
+---
+
 Saving and loading neural networks is always a little tricky. The best way to do it depends on what exactly you're trying to do. Do you want to continue training the model? If so, you'll need to save the optimizer state. If you just want to run it for inference, you might not need this. It also gets more complicated with custom functions. In this post I'll walk through how to save a FastAI model and then load it again for inference.
+
+<b>Table of Contents</b>
+* TOC
+{:toc}
+
+# Training
+
+Let's train a simple model straight from the FastAI tutorial.
 
 
 ```python
@@ -100,7 +116,7 @@ learn.show_results()
 
 
     
-![png](2022-02-06-saving-and-loading-models-in-fastai_files/2022-02-06-saving-and-loading-models-in-fastai_8_1.png)
+![png](2022-02-06-saving-and-loading-models-in-fastai_files/2022-02-06-saving-and-loading-models-in-fastai_12_1.png)
     
 
 

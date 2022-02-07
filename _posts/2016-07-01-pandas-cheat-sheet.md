@@ -9,7 +9,7 @@ tags: [Pandas, Python, Cheat Sheet]
 
 This notebook demonstrates some basic techniques for the Python library [pandas](https://pandas.pydata.org/). Even though I first posted this a while ago I try to keep this notebook updated to ensure that it works with the latest version of pandas. Below you can see the version of pandas that it was last tested with.
 
-<b>Table of contents</b>
+<b>Table of Contents</b>
 * TOC
 {:toc}
 
