@@ -148,6 +148,10 @@ function extract () {
   ## allow autojump
   [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
 
+  ## allow autojump - ubuntu
+  [[ -s /home/julius/.autojump/etc/profile.d/autojump.sh ]] && source /home/julius/.autojump/etc/profile.d/autojump.sh
+
+  autoload -U compinit && compinit -u
 
 #### BASH
 ```bash
