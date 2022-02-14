@@ -4,7 +4,7 @@ title: "FastAI Tabular Data Tutorial"
 description: "This tutorial describes how to work with the FastAI library for tabular data"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/signs.jpg"
-tags: [FastAI, Python]
+tags: [FastAI, Python, Tabular Data]
 ---
 
 This post is a tutorial on working with tabular data using FastAI. One of FastAI biggest contributions in working with tabular data is the ease with which embeddings can be used for categorical variables. I have found that using embeddings for categorical variables results in significantly better models than the alternatives (e.g. one-hot encoding). I have found that the combination of embeddings and neural networks reach very high performance with tabular data.
