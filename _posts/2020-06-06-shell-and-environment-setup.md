@@ -34,7 +34,7 @@ I store all of my environment variables in a `~/.profile` file. Then I source th
 
 * [Pygments](https://pygments.org/), a Python syntax highlighter. It's like `cat` with colors. I alias it to `c` (as seen below).
 * [autojump](https://github.com/wting/autojump)
-* zsh-syntax-highlighting
+* [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 
 ## My .profile Setup
 
