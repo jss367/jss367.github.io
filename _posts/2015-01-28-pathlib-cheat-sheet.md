@@ -4,7 +4,7 @@ title: "Pathlib Cheat Sheet"
 description: "A post showing basic operations with Pathlib"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/windmills.jpg"
-tags: [Python, Cheatsheet]
+tags: [Python, Cheat Sheet]
 ---
 
 [Pathlib](https://docs.python.org/3/library/pathlib.html) is a built-in Python library that is similar to `os.path` but contains a lot more. This post walks through some of the basics with pathlib.
