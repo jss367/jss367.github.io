@@ -135,7 +135,28 @@ function extract () {
 
 ```
 
+### Shell-specific
 
+#### ZSH
+
+```bash
+   alias rld='source ~/.zshrc' #reload profile
+
+  # zsh syntax highlighting
+  source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+  ## allow autojump
+  [ -f /usr/local/etc/profile.d/autojump.sh ] && . /usr/local/etc/profile.d/autojump.sh
+
+
+#### BASH
+```bash
+  # remote GPUs run bash
+   alias rld='source ~/.bashrc' #reload profile
+
+   [[ -s /usr/share/autojump/autojump.sh ]] && source /usr/share/autojump/autojump.sh
+
+```
 
 ## conda init
 
@@ -216,8 +237,7 @@ alias ....='cd ../../../../'
 
 
 ```bash
-# reload user profile
-alias rld='source ~/.bashrc'
+
 
 conda activate "$DEFAULT_CONDA_ENVIRONMENT"
  
