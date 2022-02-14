@@ -41,12 +41,12 @@ I store all of my environment variables in a `~/.profile` file. Then I source th
 * I usually share my `.profile` with others so that we can all share shortcuts. In order to do this without sharing passwords, I make a separate file called something like `.my_credentials` and export my credentials from there.
 
 ### Exports
-
+```bash
 export BASE="$HOME/git"
 export DATA="$HOME/data"
 export MODELS="$HOME/models"
 export FZF_DEFAULT_OPS="--extended"
-
+```
 ### Aliases
 
 ```bash
