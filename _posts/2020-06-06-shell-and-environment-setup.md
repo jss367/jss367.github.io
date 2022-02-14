@@ -41,74 +41,60 @@ I store all of my environment variables in a `~/.profile` file. Then I source th
 * I usually share my `.profile` with others so that we can all share shortcuts. In order to do this without sharing passwords, I make a separate file called something like `.my_credentials` and export my credentials from there.
 
 ### Aliases
+
 ```bash
-# general aliases
+# GENERAL ALIASES
 
-alias rld='source ~/.zshrc' #reload, assume zsh
+## MOVING AROUND
 
-#redo last command but with sudo
-alias please='sudo $(history -p !!)'
-alias ff='find . -name'
-alias findpy='find . -name "*.py" | xargs grep --color'
+alias cdh="cd $BASE"
+
+alias please='sudo $(history -p !!)' # redo last command but with sudo
+alias ff='find . -name' # find file
 alias fpy='find . -name "*.py" | xargs grep --color'
 alias grep='grep --color=auto'
 alias hgrep='history | grep -v grep | grep '
-alias psgrep='ps aux | grep -v grep | grep '
 
 alias ll='ls -GlAFh'
-# alias ll='ls -alF'
 alias lls='ls -GlAFhS'
-#alias la='ls -A'
-#alias l='ls -CF'
-# better ls (column detail and no meta-files (., .., etc))
-alias ls='ls -lA'
 
-alias showpath='echo $PATH | tr ":" "\n"'
-alias path='echo -e ${PATH//:/\\n}'
-alias wgpu='watch -d -n 0.5 gpustat' # requires gpustat
-alias nb='jupyter notebook'
+
+alias c='pygmentize -g' # like cat but with color
+alias t='tail -v'
 
 alias ckenv='printenv | grep -i' # lookup rabbit, lookup database, etc.
+alias path='echo $PATH | tr ":" "\n"'
+alias mkdir='mkdir -pv' # automatically make child directories
 
-## Redo the last command but with sudo in front
-alias please='sudo $(history -p !!)'
 
-alias ccat='pygmentize -O style=monokai -f console256 -g'
-alias c='pygmentize -g' # like cat but with color
+
 alias pu='popd'
 alias pd='pushd'
 alias c='clear'
-# See what's in your path
 
 
-# tmux
+## DATA SCIENCE
+
+alias ip='ipython'
+alias nb='jupyter notebook'
+alias wgpu='watch -d -n 0.5 gpustat' # requires gpustat
+alias ns='watch -d -n 0.5 $BASE/nvidia-htop.py'
+alias catf='conda activate tf' # tensorflow environment
+alias capt='conda activate pt' # pytorch environment
+
+
+## TMUX ALIASES
+
 alias tmn='tmux new-session'
 alias tmk='tmux kill-session -t'
 alias tma='tmux a -t'
 alias tm='tmux ls'
 
-# Python
-alias ip='ipython'
-#alias nb='jupyter notebook --port=8888 --no-browser --ip=0.0.0.0 --allow-root --NotebookApp.iopub_data_rate_limit=100000000000'
-alias nb='jupyter notebook'
+## GIT ALIASES
 
-# Watch GPU usage
-alias wgpu='watch -d -n 0.5 nvidia-smi'
-alias ns='watch -d -n 0.5 $OI_BASE/core/nvidia-htop/nvidia-htop.py'
-#alias wgpu='watch -d -n 0.5 gpustat' # requires gpustat
-#alias ns='watch -d -n 0.5 nvidia-htop.py
-
-
-# Moving around
-alias cdh='cd ~/git'
-
-# conda
-alias catf='conda activate tf' # tensorflow environment
-alias capt='conda activate pt' # pytorch environment
-
-# git
 alias gs='git status'
 ```
+
 
 
 ### Functions
@@ -142,12 +128,7 @@ function extract () {
 
 ```
 
-### Exports
-```bash
-export HISTSIZE=1000000
-export HISTFILESIZE=1000000000
-export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
-```
+
 
 ## conda init
 
@@ -295,3 +276,83 @@ esac
 ## Windows
  
 For Windows, I sometimes use [Ubuntu](https://www.microsoft.com/en-us/p/ubuntu/9nblggh4msv6?activetab=pivot:overviewtab) as my command line. I do this because it's easiest for me to stick with Unix commands if I'm bouncing around between systems so much. In general, I try to run my Windows like a Linux system when I'm working with the command line a lot.
+
+# Old
+
+### Exports
+```bash
+export HISTSIZE=1000000
+export HISTFILESIZE=1000000000
+export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
+```
+
+
+
+```bash
+# general aliases
+
+alias rld='source ~/.zshrc' #reload, assume zsh
+
+#redo last command but with sudo
+alias please='sudo $(history -p !!)'
+alias ff='find . -name'
+alias findpy='find . -name "*.py" | xargs grep --color'
+alias fpy='find . -name "*.py" | xargs grep --color'
+alias grep='grep --color=auto'
+alias hgrep='history | grep -v grep | grep '
+alias psgrep='ps aux | grep -v grep | grep '
+
+alias ll='ls -GlAFh'
+# alias ll='ls -alF'
+alias lls='ls -GlAFhS'
+#alias la='ls -A'
+#alias l='ls -CF'
+# better ls (column detail and no meta-files (., .., etc))
+alias ls='ls -lA'
+
+alias showpath='echo $PATH | tr ":" "\n"'
+alias path='echo -e ${PATH//:/\\n}'
+alias wgpu='watch -d -n 0.5 gpustat' # requires gpustat
+alias nb='jupyter notebook'
+
+alias ckenv='printenv | grep -i' # lookup rabbit, lookup database, etc.
+
+## Redo the last command but with sudo in front
+alias please='sudo $(history -p !!)'
+
+alias ccat='pygmentize -O style=monokai -f console256 -g'
+alias c='pygmentize -g' # like cat but with color
+alias pu='popd'
+alias pd='pushd'
+alias c='clear'
+# See what's in your path
+
+
+# tmux
+alias tmn='tmux new-session'
+alias tmk='tmux kill-session -t'
+alias tma='tmux a -t'
+alias tm='tmux ls'
+
+# Python
+alias ip='ipython'
+#alias nb='jupyter notebook --port=8888 --no-browser --ip=0.0.0.0 --allow-root --NotebookApp.iopub_data_rate_limit=100000000000'
+alias nb='jupyter notebook'
+
+# Watch GPU usage
+alias wgpu='watch -d -n 0.5 nvidia-smi'
+alias ns='watch -d -n 0.5 $OI_BASE/core/nvidia-htop/nvidia-htop.py'
+#alias wgpu='watch -d -n 0.5 gpustat' # requires gpustat
+#alias ns='watch -d -n 0.5 nvidia-htop.py
+
+
+# Moving around
+alias cdh='cd ~/git'
+
+# conda
+alias catf='conda activate tf' # tensorflow environment
+alias capt='conda activate pt' # pytorch environment
+
+# git
+alias gs='git status'
+```
