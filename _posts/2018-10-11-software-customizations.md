@@ -118,3 +118,11 @@ I don't like the default behavior of tab cycling in VSCode because it switches t
 ![png]({{site.baseurl}}/assets/img/vscode_keyboard_shortcuts_windows.png)
 
 The ones you're look for are `workbench.action.nextEditor` and `workbench.action.previousEditor`.
+
+### Syncing Settings Across Multiple Computers
+
+I usually sync the following:
+
+![image](https://user-images.githubusercontent.com/3067731/154163959-2cfa51c8-f760-46fd-b271-57db88ffd34c.png)
+
+I usually sync with my microsoft account, because I have different github accounts linked for different computers.
