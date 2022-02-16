@@ -102,6 +102,20 @@ I don't like the default behavior of tab cycling in VSCode because it switches t
 * Open Command Palette
 * Search for "Preferences: Open Keyboard Shortcuts (JSON)"
 * Open the file and add this to the file:
+
+```
+    {
+        "key": "ctrl+tab",
+        "command": "workbench.action.nextEditorInGroup"
+    },
+    {
+        "key": "ctrl+shift+tab",
+        "command": "workbench.action.previousEditorInGroup"
+    },
+```
+
+I have added other keybindings as well. My whole file looks like this:
+
 ```
 [
     {
