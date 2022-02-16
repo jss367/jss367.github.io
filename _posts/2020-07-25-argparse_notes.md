@@ -7,9 +7,9 @@ thumbnail: "assets/img/kea.jpg"
 tags: [Jupyter Notebooks, Python]
 ---
 
-## Required Arguments
+## Required vs Optional Arguments
 
-Arguments that don't begin with "-" or "--" are positional and therefore required (much like arguments in Python functions). Arguments that start with  "-" or "--" are optional arguments, although `argparse` lets you mark this as required. This is considered bad design in most casee but isn't prevented.
+Arguments that start with  `-` or `--` are optional arguments, while those that don't are positional and therefore required (much like positional arguments in Python functions). Even though, arguments starting with  `-` or `--` are generally optional, `argparse` still lets you mark them as required. This is considered bad design in most casee but isn't prevented.
 
 For example, you can do:
 
