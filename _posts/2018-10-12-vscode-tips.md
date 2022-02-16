@@ -196,12 +196,12 @@ maybe it's a path that only works because of your .env file
 Your linter doesn't use that. So when you run it, it will run, but not for pytest or your linter...
 try to fix your linter by exporting the environment variables you want
 
-As far as I understand it, the VSCode workspace setting python.pythonPath is not to be confused with the environment variable $PYTHONPATH.
-python.pythonPath is the path to the python interpreter used for debugging or running the code, while $PYTHONPATH is the environment variable which python uses to search for modules.
+As far as I understand it, the VSCode workspace setting `python.pythonPath` is not to be confused with the environment variable `$PYTHONPATH`.
+`python.pythonPath` is the path to the Python interpreter used for debugging or running the code, while `$PYTHONPATH` is the environment variable which python uses to search for modules.
 There are two different things going on here:
-Where the computer looks for the python interpreter - python.pythonPath
+Where the computer looks for the python interpreter - `python.pythonPath`
 
-And where that inpreter looks for packages - $PYTHONPATH
+And where that inpreter looks for packages - `$PYTHONPATH`
 
 ```
 Host host101
