@@ -55,20 +55,34 @@ See [the previous post for my recommended VSCode customizations](https://jss367.
 
 User settings are not stored in the project. Instead, they are at: 
 
-* Windows: C:\Users\Julius\AppData\Roaming\Code\User\settings.json
-* Mac: ~/Library/Application Support/Code/User/settings.json
+* Windows: `C:\Users\Julius\AppData\Roaming\Code\User\settings.json`
+* Mac: `~/Library/Application Support/Code/User/settings.json`
 
 In the `launch.json` file, you can either use full paths or relative paths:
 
-"program": "/full/path/to/python_trainer.py",
-            
-or 
+`"program": "/full/path/to/python_trainer.py"`,
 
-"program": "${file}",
+or
+
+`"program": "${file}"`,
 
 ## Don't write .pyc files
 
 `PYTHONDONTWRITEBYTECODE=1`
+
+
+## Applying Settings to a Single Language
+
+You can specify that you only want some settings to apply to a single language like so:
+
+```
+    "[python]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnPaste": false,
+        "editor.tabSize": 4,
+        "editor.defaultFormatter": "ms-python.python"
+    },
+```
 
 # Other
 
