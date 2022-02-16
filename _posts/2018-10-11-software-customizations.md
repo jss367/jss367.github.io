@@ -111,7 +111,17 @@ I don't like the default behavior of tab cycling in VSCode because it switches t
     {
         "key": "ctrl+shift+tab",
         "command": "workbench.action.previousEditorInGroup"
-    }
+    },
+    {
+        "key": "enter",
+        "command": "acceptSelectedSuggestion",
+        "when": "suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "tab",
+        "command": "-acceptSelectedSuggestion",
+        "when": "suggestWidgetVisible && textInputFocus"
+    },
 ]
 ```
 
