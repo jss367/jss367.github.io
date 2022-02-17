@@ -370,3 +370,8 @@ I have no loyalty to any of these. I usually just go with the top free one recom
 [Boop](https://github.com/IvanMathy/Boop) (Mac, FOSS)
 
 [GanttProject](https://www.ganttproject.biz/)
+
+[Pixea](https://www.imagetasks.com/pixea/) - good for a scroll through images on a Mac
+
+<img width="778" alt="image" src="https://user-images.githubusercontent.com/3067731/154590416-6858ae92-7625-45d2-b8fb-31f764e02df8.png">
+
