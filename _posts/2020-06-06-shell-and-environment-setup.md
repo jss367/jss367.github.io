@@ -108,6 +108,11 @@ alias gs='git status'
 
 ```bash
 
+# find text
+function ft {
+  grep -rn . -e "$1"
+}
+
 function cheat() {
       curl cht.sh/$1
   }
