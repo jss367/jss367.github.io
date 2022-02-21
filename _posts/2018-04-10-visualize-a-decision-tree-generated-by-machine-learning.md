@@ -13,16 +13,17 @@ To explore the power of decision trees, I'll use them to attempt to classify mus
 
 
 ```python
+import collections
+from collections import defaultdict
+
 import pandas as pd
+import pydotplus
+from sklearn import tree
 from sklearn.ensemble import RandomForestClassifier
-from sklearn.tree import DecisionTreeClassifier
+from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
-from collections import defaultdict
-from sklearn.metrics import accuracy_score
-from sklearn import tree
-import pydotplus
-import collections
+from sklearn.tree import DecisionTreeClassifier
 ```
 
 
