@@ -375,3 +375,5 @@ I have no loyalty to any of these. I usually just go with the top free one recom
 
 <img width="778" alt="image" src="https://user-images.githubusercontent.com/3067731/154590416-6858ae92-7625-45d2-b8fb-31f764e02df8.png">
 
+Static Type Checker - mypy
+* I put my mypy config in ~/.mypy.ini
