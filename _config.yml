@@ -4,12 +4,12 @@ url: "https://jss367.github.io"
 
 # THEME-SPECIFIC CONFIGURATION
 title: Julius' Data Science Blog                        # site's title
-description: "Exploring the world through data science and machine learning" # used by search engines
+description: "A blog about data science, machine learning, artificial intelligence (AI), and computer vision" # used by search engines
 avatar: assets/img/avatars/possum.jpg                   # Empty for no avatar in navbar
 favicon: assets/favicon.ico                             # Icon displayed in the tab
 
 # Header and footer text
-header_text: Exploring the World Through Data Science  # Change Blog header text
+header_text: Exploring the World Through Data Science and Machine Learning  # Change Blog header text
 header_feature_image: assets/img/astro_2_1.jpg
 footer_text: >
    &copy; 2015-2020 Julius Simonelli. Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
