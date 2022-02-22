@@ -26,19 +26,11 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.tree import DecisionTreeClassifier
 ```
 
-
-```python
-# There is a bug in sklearn which makes it give an error the way we reverse the transform
-# There is a pull request to fix this bug in the next version, but for now have to suppress warnings
-import warnings
-warnings.filterwarnings('ignore')
-```
-
 The attributes are all described on [the dataset's website](https://archive.ics.uci.edu/ml/datasets/mushroom), but they aren't included with the dataset. We'll have to tell pandas to skip the header and we'll add the column names manually afterward.
 
 
 ```python
-df = pd.read_csv('agaricus-lepiota.data', header=-1)
+df = pd.read_csv('agaricus-lepiota.data', header=None)
 ```
 
 Here are the attributes provided. The first is the toxicity, which is what we will be trying to predict from the other attributes.
@@ -971,12 +963,7 @@ clf.fit(X_train, y_train)
 
 
 
-    DecisionTreeClassifier(class_weight=None, criterion='gini', max_depth=None,
-                max_features=None, max_leaf_nodes=None,
-                min_impurity_decrease=0.0, min_impurity_split=None,
-                min_samples_leaf=1, min_samples_split=2,
-                min_weight_fraction_leaf=0.0, presort=False, random_state=None,
-                splitter='best')
+    DecisionTreeClassifier()
 
 
 
