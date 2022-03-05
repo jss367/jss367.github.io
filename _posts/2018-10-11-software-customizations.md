@@ -150,3 +150,42 @@ I usually sync the following:
 ![image](https://user-images.githubusercontent.com/3067731/154163959-2cfa51c8-f760-46fd-b271-57db88ffd34c.png)
 
 I usually sync with my microsoft account, because I have different github accounts linked for different computers.
+
+
+
+## Cmder
+
+You have to find your `%CMDER_ROOT%`. You can do this with `echo %CMDER_ROOT%`.
+
+
+Go there and into config. It might be at `C:\Users\Julius\Downloads\cmder\config`
+
+
+
+
+"C:\Users\Julius\Downloads\cmder\config\user_aliases.cmd"
+
+It might start be looking like:
+```
+;= @echo off
+;= rem Call DOSKEY and use this file as the macrofile
+;= %SystemRoot%\system32\doskey /listsize=1000 /macrofile=%0%
+;= rem In batch mode, jump to the end of the file
+;= goto:eof
+;= Add aliases below here
+e.=explorer .
+gl=git log --oneline --all --graph --decorate  $*
+ls=ls --show-control-chars -F --color $*
+pwd=cd
+clear=cls
+history=cat "%CMDER_ROOT%\config\.history"
+unalias=alias /d $1
+vi=vim $*
+cmderr=cd /d "%CMDER_ROOT%"
+```
+
+You can add your stuff to the bottom like so:
+
+```
+cdh=cd "C:\Users\Julius\Documents\GitHub"
+```
