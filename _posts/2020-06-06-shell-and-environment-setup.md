@@ -58,6 +58,7 @@ alias cdh="cd $BASE"
 
 alias please='sudo $(history -p !!)' # redo last command but with sudo
 alias ff='find . -name' # find file
+alias ftxt='grep -rnw . -e'
 alias fpy='find . -name "*.py" | xargs grep --color'
 alias grep='grep --color=auto'
 alias hgrep='history | grep -v grep | grep '
