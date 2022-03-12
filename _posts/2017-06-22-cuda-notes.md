@@ -26,8 +26,8 @@ os.environ["CUDA_VISIBLE_DEVICES"] = "0"
 If you want to do it in your VSCode `launch.json` file, it will look like this:
 ```json
 "env": {
-                "CUDA_VISIBLE_DEVICES": "0",
-            },
+        "CUDA_VISIBLE_DEVICES": "0",
+        },
 ```
 
 ## Test if Tensorflow is working on the GPU
