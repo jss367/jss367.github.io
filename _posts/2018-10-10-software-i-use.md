@@ -338,6 +338,9 @@ I have no loyalty to any of these. I usually just go with the top free one recom
 * Very nice tool to tracking GPU usage
 * Includes which user is user the GPU, significant upgrade to `nvidia-smi`
 
+[nvitop](https://github.com/XuehaiPan/nvitop)
+* Another nice tool for looking at GPU usage
+
 ## Research
 
 [Mendeley](https://www.mendeley.com/download-desktop-new/)
