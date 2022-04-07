@@ -186,9 +186,7 @@ There's a lot of inheriting from outer context in FastAI. This works well for a 
 
 #### Versioning
 
-The transition from FastAI 1 to FastAI 2 has been difficult. A lot of previous methods no longer work and now the forum is much less helpful. Solutions point to broken links all the time. Here's an example:
-
-https://forums.fast.ai/t/reduce-verbosity-during-training/45583/2
+The transition from FastAI 1 to FastAI 2 has been difficult. A lot of previous methods no longer work and now the forum is much less helpful. Solutions point to broken links all the time.
 
 ## Conclusion
 
