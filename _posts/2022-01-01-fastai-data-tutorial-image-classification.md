@@ -24,7 +24,7 @@ from fastai.vision.all import *
 from pyxtend import struct
 ```
 
-To generate a dataset, you'll need to create a `DataBlock` and a `DataLoader`. The `DataBlock` is the first and main thing required to generate a dataset. A datablock explains what you are going to do with your data. DataBlocks are the building blocks of DataLoaders.
+To generate a dataset, you'll need to create a `DataBlock` and a `DataLoader`. The `DataBlock` is the first and main thing required to generate a dataset. `DataBlocks` don't contain any data, just a pipeline of what you are going to do with it, like how you're going to load it. I think of the `DataBlock` as a `DataPipeline`. DataBlocks are the building blocks of DataLoaders.
 
 
 ```python
