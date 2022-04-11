@@ -180,7 +180,7 @@ Once you've got a `DataBlock`, you can convert it into either a dataset using `d
 
 ## DataLoaders
 
-Dataloader knows how to feed data into the model, such as batch size, transforms, etc. Creating `DataLoaders` from a `DataBlock` is trivially simple - all you do is pass a path.
+Because your `DataBlock` knows how to feed data into the model (i.e. it knows the batch size, transforms, etc.), creating `DataLoaders` from a `DataBlock` is trivially simple - all you do is pass a data source. This can be a path, a list of images, numpy arrays, or whatever else you want. It's whatever you want passed to the `get_items` function.
 
 
 ```python
