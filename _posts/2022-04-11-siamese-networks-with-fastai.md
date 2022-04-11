@@ -7,7 +7,7 @@ thumbnail: "assets/img/log.jpg"
 tags: [FastAI, Neural Networks, Python]
 ---
 
-This post walks through how to create a Siamese network using FastAI. It is based on [a tutorial from FastAI[(https://docs.fast.ai/tutorial.siamese.html), so some of the classes and function are directly copied from there, but I've adding things as well.
+This post walks through how to create a Siamese network using FastAI. It is based on [a tutorial from FastAI](https://docs.fast.ai/tutorial.siamese.html), so some of the classes and function are directly copied from there, but I've adding things as well.
 
 First we import the FastAI library.
 
