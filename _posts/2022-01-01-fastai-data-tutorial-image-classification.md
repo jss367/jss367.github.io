@@ -24,7 +24,7 @@ from fastai.vision.all import *
 from pyxtend import struct
 ```
 
-To generate a dataset, you'll need to create a `DataBlock` and a `DataLoader`. The `DataBlock` is the first and main thing required to generate a dataset. A datablock explains what you are going to do with your data. DataBlocks are the building blocks of DataLoaders.
+To generate a dataset, you'll need to create a `DataBlock` and a `DataLoader`. The `DataBlock` is the first and main thing required to generate a dataset. `DataBlocks` don't contain any data, just a pipeline of what you are going to do with it, like how you're going to load it. I think of the `DataBlock` as a `DataPipeline`. DataBlocks are the building blocks of DataLoaders.
 
 
 ```python
@@ -180,7 +180,7 @@ Once you've got a `DataBlock`, you can convert it into either a dataset using `d
 
 ## DataLoaders
 
-Dataloader knows how to feed data into the model, such as batch size, transforms, etc. Creating `DataLoaders` from a `DataBlock` is trivially simple - all you do is pass a path.
+Because your `DataBlock` knows how to feed data into the model (i.e. it knows the batch size, transforms, etc.), creating `DataLoaders` from a `DataBlock` is trivially simple - all you do is pass a data source. This can be a path, a list of images, numpy arrays, or whatever else you want. It's whatever you want passed to the `get_items` function.
 
 
 ```python
