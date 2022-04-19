@@ -9,6 +9,10 @@ tags: [FastAI, Python]
 
 In this tutorial, I will be looking at how to prepare a semantic segmentation dataset for use with FastAI. I will be using the [Chest X-Ray Images (Pneumonia)](https://www.kaggle.com/paultimothymooney/chest-xray-pneumonia) dataset from Kaggle as an example. This post focuses on the components that are specific to semantic segmentation. To see tricks and tips for using FastAI with data in general, see my [FastAI Data Tutorial - Image Classification](https://jss367.github.io/fastai-data-tutorial-image-classification.html).
 
+<b>Table of Contents</b>
+* TOC
+{:toc}
+
 
 ```python
 from fastai.vision.all import *
