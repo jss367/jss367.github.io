@@ -15,9 +15,13 @@ import numpy as np
 
 How does one divide up loss functions? They could be divided by regression and classification loss functions.
 
+<b>Table of Contents</b>
+* TOC
+{:toc}
+
 # Notes
 
-I wanted to start with a few notes on loss functions in PyTorch. We'll talk about 
+I wanted to start with a few notes on loss functions in PyTorch.
 
 ## Requires_grad
 
