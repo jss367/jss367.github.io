@@ -8,6 +8,14 @@ tags: [Neural Networks, Python, TensorFlow]
 ---
 
 
+<b>Table of Contents</b>
+* TOC
+{:toc}
+
+In this post I'll walk through how to implement various loss functions in TensorFlow and Keras. This post is still in draft.
+
+## Binary Cross Entropy Loss
+
 ```python
 import tensorflow.keras.backend as K
 import numpy as np
@@ -18,9 +26,6 @@ from tensorflow.errors import InvalidArgumentError
 EPSILON = np.finfo(float).eps
 ```
 
-In this post I'll walk through how to implement various loss functions in TensorFlow and Keras. This post is still in draft.
-
-## Binary Cross Entropy Loss
 
 Let's imagine the case where we have four different examples that's we've labeled either 0 or 1, like so:
 
