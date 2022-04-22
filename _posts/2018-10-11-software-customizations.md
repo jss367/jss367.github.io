@@ -99,7 +99,7 @@ I did the same thing with tabs in VSCode.
 ### Make Tabs Work Like Chrome
 
 I don't like the default behavior of tab cycling in VSCode because it switches tabs in order of most recently used, which I never remember. I prefer it to work like tabbing in Chrome, which is far more intuitive to me. Fortunately, VSCode lets you customize this. To change this, you'll need to edit your `keybindings.json` file like so:
-* Open Command Palette
+* Open Command Palette (`cmd` + `shift` + `p` on a Mac)
 * Search for "Preferences: Open Keyboard Shortcuts (JSON)"
 * Open the file and add this to the file:
 
