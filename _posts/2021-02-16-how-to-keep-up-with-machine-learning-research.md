@@ -65,21 +65,23 @@ I'm not usually a newsletters guy, but for some reason, I've found that there ar
 
 ## YouTube
 
-[Yannic Kilcher](https://www.youtube.com/channel/UCZHmQk67mSJgfCCTn7xBfew)
+[Yannic Kilcher](https://www.youtube.com/c/YannicKilcher)
 * Lots of videos, quite detailed paper reviews
 * Most in the range of 20-60 minutes
 
-[Two Minute Papers](https://www.youtube.com/channel/UCbfYPyITQ-7l4upoX8nvctg)
+[Two Minute Papers](https://www.youtube.com/c/K%C3%A1rolyZsolnai)
 * Hold on to your papers because this guy is great
 * Shortest videos (2-10 minutes) of them all
 
 [Henry AI Labs](https://www.youtube.com/channel/UCHB9VepY6kYvZjj0Bgxnpbw)
 * Not as popular as some of the others but still really good content
 
-[Arxiv Insights](https://www.youtube.com/channel/UCNIkB2IeJ-6AmZv7bQ1oBYg)
+[Arxiv Insights](https://www.youtube.com/c/ArxivInsights)
 * Not many videos but the ones he has are excellent
 
-[The AI Epiphany](https://www.youtube.com/channel/UCj8shE7aIn4Yawwbo2FceCQ)
+[The AI Epiphany](https://www.youtube.com/c/TheAIEpiphany)
+
+[AI Coffee Break with Letitia](https://www.youtube.com/c/AICoffeeBreak)
 
 ## Textbooks
 
