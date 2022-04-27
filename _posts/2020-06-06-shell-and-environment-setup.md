@@ -176,7 +176,7 @@ Let's do over what the conda init command does
 ```bash
 if [ $? -eq 0 ]; then
 ```
-`$?` is a variable that is equal to the return value of the last command you ran. This is often a return code, which is 0 for a success and non-zero if there's been an error. SO this line is saying, if the last command ran successfully, then...
+`$?` is a variable that is equal to the return value of the last command you ran. This is often a return code, which is 0 for a success and non-zero if there's been an error. This line is saying, if the last command ran successfully, then...
 
 
 ## My .zshrc
