@@ -73,10 +73,10 @@ learn.fine_tune(1)
   <tbody>
     <tr>
       <td>0</td>
-      <td>1.076228</td>
-      <td>0.875705</td>
-      <td>0.309091</td>
-      <td>00:10</td>
+      <td>0.818718</td>
+      <td>1.532427</td>
+      <td>0.527273</td>
+      <td>00:08</td>
     </tr>
   </tbody>
 </table>
@@ -96,10 +96,10 @@ learn.fine_tune(1)
   <tbody>
     <tr>
       <td>0</td>
-      <td>0.258873</td>
-      <td>0.541734</td>
-      <td>0.163636</td>
-      <td>00:12</td>
+      <td>0.300550</td>
+      <td>0.545057</td>
+      <td>0.254545</td>
+      <td>00:05</td>
     </tr>
   </tbody>
 </table>
@@ -161,9 +161,11 @@ import dill
 from fastai.tabular.all import *
 ```
 
+When you load a model, you can load it to the GPU or CPU. By default, it will load to the CPU. If you want it to load to the GPU, you'll need to pass `cpu=False`.
+
 
 ```python
-learn = load_learner(Path(os.getenv('MODELS')) / 'catsvdogs.pkl', pickle_module=dill)
+learn = load_learner(Path(os.getenv('MODELS')) / 'catsvdogs.pkl', cpu=False, pickle_module=dill)
 ```
 
 
@@ -183,6 +185,6 @@ learn.predict(test)
 
 
 
-    ('False', tensor(0), tensor([0.6608, 0.3392]))
+    ('True', tensor(1), tensor([0.3902, 0.6098]))
 
 
