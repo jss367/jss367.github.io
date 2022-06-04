@@ -478,15 +478,13 @@ plot_cm(concat_labels, concat_preds_unbalanced)
     
 
 
-## Conclusion
+## Round 1 Conclusion
 
 Overall, it looks like the model that used the balanced validation set did better on the test set. This might be a bit of a surprise as validation datasets are supposed representative of the test set, but that one did worse. I think what's going on is we're using our validation set for two separate tasks - validating our results and using it's loss in the callbacks. I've rerun this experiment several times and gotten similar results.
 
 Now let's try it with a better model. We used a simple model for the first round of experiments. Now let's do the same thing except using Xception.
 
-## Train
-
-## Experiment #1
+## Experiment #4
 
 
 ```python
@@ -531,7 +529,7 @@ history_representative, preds_representative, evals_representative = run_experim
     69/69 [==============================] - 10s 138ms/step
     
 
-#### Experiment #1 Evaluation
+#### Experiment #4 Evaluation
 
 
 ```python
@@ -540,7 +538,7 @@ plot_losses(history_balanced, "Balanced Validation")
 
 
     
-![png](2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_63_0.png)
+![png](2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_62_0.png)
     
 
 
@@ -551,7 +549,7 @@ plot_losses(history_representative, "Representative Validation")
 
 
     
-![png](2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_64_0.png)
+![png](2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_63_0.png)
     
 
 
@@ -613,7 +611,7 @@ plot_cm(concat_labels, concat_preds_balanced)
 
 
     
-![png](2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_70_0.png)
+![png](2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_69_0.png)
     
 
 
@@ -624,11 +622,11 @@ plot_cm(concat_labels, concat_preds_unbalanced)
 
 
     
-![png](2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_71_0.png)
+![png](2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_70_0.png)
     
 
 
-## Experiment #2
+## Experiment #5
 
 Using a higher learning rate.
 
@@ -675,7 +673,7 @@ history_representative, preds_representative, evals_representative = run_experim
     69/69 [==============================] - 10s 136ms/step
     
 
-#### Experiment #2 Evaluation
+#### Experiment #5 Evaluation
 
 
 ```python
@@ -684,7 +682,7 @@ plot_losses(history_balanced, "Balanced Validation")
 
 
     
-![png](2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_78_0.png)
+![png](2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_77_0.png)
     
 
 
@@ -695,7 +693,7 @@ plot_losses(history_representative, "Representative Validation")
 
 
     
-![png](2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_79_0.png)
+![png](2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_78_0.png)
     
 
 
@@ -750,7 +748,7 @@ plot_cm(concat_labels, concat_preds_balanced)
 
 
     
-![png](2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_84_0.png)
+![png](2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_83_0.png)
     
 
 
@@ -761,11 +759,11 @@ plot_cm(concat_labels, concat_preds_unbalanced)
 
 
     
-![png](2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_85_0.png)
+![png](2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_84_0.png)
     
 
 
-## Experiment #3
+## Experiment #6
 
 Once more with a much lower learning rate.
 
@@ -812,7 +810,7 @@ history_representative, preds_representative, evals_representative = run_experim
     69/69 [==============================] - 10s 141ms/step
     
 
-#### Experiment #3 Evaluation
+#### Experiment #6 Evaluation
 
 
 ```python
@@ -821,7 +819,7 @@ plot_losses(history_balanced, "Balanced Validation")
 
 
     
-![png](2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_92_0.png)
+![png](2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_91_0.png)
     
 
 
@@ -832,7 +830,7 @@ plot_losses(history_representative, "Representative Validation")
 
 
     
-![png](2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_93_0.png)
+![png](2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_92_0.png)
     
 
 
@@ -887,7 +885,7 @@ plot_cm(concat_labels, concat_preds_balanced)
 
 
     
-![png](2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_98_0.png)
+![png](2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_97_0.png)
     
 
 
@@ -898,10 +896,10 @@ plot_cm(concat_labels, concat_preds_unbalanced)
 
 
     
-![png](2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_99_0.png)
+![png](2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_98_0.png)
     
 
 
-## Conclusion
+## Overall Conclusion
 
 We ran the experiment with Xception three times and each time the models converged to about the same final performance. It seems like with more advanced models, the distribution of the validation set didn't matter. Because of that, I would make it representative to match the test set.
