@@ -118,7 +118,7 @@ def ImageTupleBlock():
 
 ```
 
-Now we have to split the data. We can do a random split.
+We have to split the data. We can do a random split.
 
 
 ```python
@@ -515,14 +515,6 @@ learn.freeze()
 ```python
 learn.lr_find()
 ```
-
-
-
-
-
-    /home/julius/miniconda3/envs/pt/lib/python3.8/site-packages/torch/nn/functional.py:718: UserWarning: Named tensors and all their associated APIs are an experimental feature and subject to change. Please do not use them for anything important until they are released as stable. (Triggered internally at  /opt/conda/conda-bld/pytorch_1623448234945/work/c10/core/TensorImpl.h:1156.)
-      return torch.max_pool2d(input, kernel_size, stride, padding, dilation, ceil_mode)
-    
 
 
 
