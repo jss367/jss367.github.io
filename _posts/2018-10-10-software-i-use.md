@@ -250,13 +250,8 @@ I have no loyalty to any of these. I usually just go with the top free one recom
 [Navicat for PostgreSQL](https://www.navicat.com/en/products/navicat-for-postgresql)
 * Not free but this is my favorite for databases
 
-[Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15)
-* Free and feels like VSCode in many ways
-* FOSS alternative to Navicat for PostgreSQL for me
-
-[Postico](https://eggerapps.at/postico/) (Mac only)
-* Not free but still very good
-
+[DBeaver](https://dbeaver.io/) (FOSS)
+* My current favorite open source to Navicat
 
 # LaTeX Editor
 
@@ -380,3 +375,13 @@ I have no loyalty to any of these. I usually just go with the top free one recom
 
 Static Type Checker - mypy
 * I put my mypy config in ~/.mypy.ini
+
+## Honorable Mentions
+
+[Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15)
+* Free and feels like VSCode in many ways
+* FOSS alternative to Navicat for PostgreSQL for me
+
+[Postico](https://eggerapps.at/postico/) (Mac only)
+* Not free but still very good
+
