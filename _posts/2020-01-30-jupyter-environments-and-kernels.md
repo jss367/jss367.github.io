@@ -111,7 +111,7 @@ print(spec.resource_dir)
 
 #### Adding Kernels
 
-You'll need to be in the envrionment that you launch Jupyter for this to work. Once you're there, you can add kernels like so:
+You'll need to be in the environment that you launch Jupyter for this to work. Once you're there, you can add kernels like so:
 
 ```
 python -m ipykernel install --user --name myenv --display-name "Python (myenv)"
