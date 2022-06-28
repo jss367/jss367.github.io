@@ -6,7 +6,7 @@ thumbnail: "assets/img/turtle.jpg"
 tags: [Software]
 ---
 
-In this post, I'll talk about how I set up my shell and environment. I Use Windows, Mac, and Linux on a daily basis, so I have different setups for different purposes, but I try to make them similar when I can.
+In this post, I'll talk about how I set up my shell and environment. I use Windows, Mac, and Linux on a daily basis, so I have different setups for different purposes, but I try to make them similar when I can.
 
 <b>Table of Contents</b>
 * TOC
