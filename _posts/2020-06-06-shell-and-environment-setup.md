@@ -217,7 +217,7 @@ unset __conda_setup
 # <<< conda initialize <<<
 ```
 
-It's fine to keep in there, but if you use `tmux`, you might run into a problem. `tmux` doesn't source `.zshrc` - it only sources `.profile`, so conda won't load in a tmux window. Even worse, it may pull Python from `/usr/bin/python`, which will be old Python 2 (use `which python` to see which python is being used). So you might want to cut and paste the initialization over to .profile.
+It's fine to keep in there, but if you use `tmux`, you might run into a problem. `tmux` doesn't always source `.zshrc`. Sometimes it only sources `.profile`, so conda won't load in a tmux window. Even worse, it may pull Python from `/usr/bin/python`, which will be old Python 2 (use `which python` to see which python is being used). So you might want to cut and paste the initialization over to .profile.
 
 I have found that if I don't include `conda activate $DEFAULT_CONDA_ENVIRONMENT` in my `.zshrc`, it doesn't activate my default profile, even though I have this in my `.profile`. So I leave it in `.zshrc`.
 
