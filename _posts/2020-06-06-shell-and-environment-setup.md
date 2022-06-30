@@ -181,7 +181,7 @@ if [ $? -eq 0 ]; then
 
 ## My .zshrc
 
-Conda will install the initialization script for conda inside `.zshrc` (for Macs). It usually looks like one of the following (depending on whether you use Anaconda or Miniconda): 
+Conda will install the initialization script for conda inside `.zshrc` (for Macs). It will depend on whether you installed Anaconda or Miniconda, and on whether you installed in for a single user or for all users. If it's installed for all users it will be somewhere like `/opt/anaconda3/etc/profile.d/conda.sh`. If it's just installed for one user it will be somewhere like `/Users/$USER/opt/anaconda3/etc/profile.d/conda.sh`. The whole initialization looks like one of the following (depending on whether you use Anaconda or Miniconda): 
 
 ```bash
 # >>> conda initialize >>>
