@@ -7,13 +7,13 @@ thumbnail: "assets/img/bald_eagle1.jpg"
 tags: [Deep Learning, Machine Learning, Unbalanced Data, Python]
 ---
 
-In this post I'm going to walk through how to solve a problem that you might run into when evaluating models on highly unbalanced datasets. Let's imagine you're classifying people who either have or don't have a really rare disease. You've labeled 100,000 instances randomly sampled from the real world distribution and only found 10 instances of the rare case. That's if you random sample, but you can also collect samples directly from a population that only has the rare condition. In the medical world, the first one might be like wandering the streets asking about if people have a specific rare disease (ignore privacy for the moment) and the second is by asking people at a treatment center for that disease.
+In this post, I'm going to walk through how to solve a problem that you might run into when evaluating models on highly unbalanced datasets. Let's imagine you're classifying whether people have a really rare disease or not. You asked 100,000 people at random and only found 10 instances of the disease. How are you going to be able to get enough data to train a machine learning model? Fortunately, you know of a treatment center that treats this specific disease.
 
-You can go to the treatment center and get lots of examples for your training set. This is fine, but what will you do when it comes time to test your model? If you include a bunch of data from the treatment center your distribution won't match the real world and your metrics will be off. But if you only use the data you collected in the real world distribution you'll only have 10 instances.
+You can go to the treatment center and get lots of examples for your training set. This is fine, but what will you do when it comes time to test your model? If you include a bunch of data from the treatment center your distribution won't match the real world and your metrics will be off. But if you only use the data you collected in the real-world distribution you'll only have 10 instances.
 
-Obviously, the best solution is to label more data. But you can't imagine asking another 100,000 people. Plus, that would only be another 10 labels, so you'd have to do even more to get a reasonable number.
+The best solution is to label more data. But you can't imagine asking another 100,000 people just to get 10 more with the disease. You'd have to do even more to get a reasonable number.
 
-Fortunately, there's another approach. You can add the treatment center data and calculate what your real world precision and recall would be. Let's take a look.
+Fortunately, there's another approach. You can add the treatment center data and calculate what your real-world precision and recall would be in the real-world distribution. Let's take a look.
 
 
 ```python
@@ -188,4 +188,4 @@ get_metrics(y_true, y_pred_recreated)
     F1: 13.56%
     
 
-We got our original value back. Don't believe this would work on a real dataset? In Part II, we'll explore that.
+We got our original value back. Don't believe this would work on a real dataset? In [Part II](https://jss367.github.io/test-set-metrics-on-unbalanced-datasets-part-ii.html), we'll explore that.
