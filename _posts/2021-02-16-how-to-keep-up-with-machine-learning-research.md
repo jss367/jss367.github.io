@@ -36,6 +36,8 @@ I find it difficult to keep up with the latest in machine learning, even though 
 [ConnectedPapers](https://www.connectedpapers.com/)
 * Creates a graph of papers, so you can find research that is similar the initial paper
 
+[labml.ai](https://papers.labml.ai/papers/monthly/)
+
 ## Newsletters
 
 I'm not usually a newsletters guy, but for some reason, I've found that there are excellent newsletters in the machine learning world. Here are the ones I use:
