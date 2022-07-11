@@ -36,6 +36,8 @@ I store all of my environment variables in a `~/.profile` file. Then I source th
 * [autojump](https://github.com/wting/autojump)
 * [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 
+Note that brew puts something in zprofile; conda adds to .zshrc
+
 ## My .profile Setup
 
 * I usually share my `.profile` with others so that we can all share shortcuts. In order to do this without sharing passwords, I make a separate file called something like `.my_credentials` and export my credentials from there.
