@@ -36,7 +36,7 @@ I store all of my environment variables in a `~/.profile` file. Then I source th
 * [autojump](https://github.com/wting/autojump)
 * [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 
-Note that brew puts something in zprofile; conda adds to .zshrc
+Note that brew puts something in `zprofile`; conda adds to `.zshrc` or sometimes `.bash_profile` depending on how you install it.
 
 ## My .profile Setup
 
