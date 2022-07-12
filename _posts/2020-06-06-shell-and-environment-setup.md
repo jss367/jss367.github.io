@@ -38,6 +38,12 @@ I store all of my environment variables in a `~/.profile` file. Then I source th
 
 Note that brew puts something in `zprofile`; conda adds to `.zshrc` or sometimes `.bash_profile` depending on how you install it.
 
+## File Chain
+
+A new terminal starts with `.zshrc`. The full chain goes like:
+
+`.zshrc` -> `.profile.zsh` -> `.profile` -> `.bash_profile` (if it exists)
+
 ## My .profile Setup
 
 * I usually share my `.profile` with others so that we can all share shortcuts. In order to do this without sharing passwords, I make a separate file called something like `.my_credentials` and export my credentials from there.
