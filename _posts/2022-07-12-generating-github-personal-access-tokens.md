@@ -13,19 +13,19 @@ This post contains instructions for how to work with personal access tokens on G
 
 <img src="{{site.baseurl}}/assets/img/github_settings_menu.png" alt="Drawing" style="width: 400px;"/>
 
-* Scroll down on the page until you see "developer settings"
+* Scroll down on the page until you see "Developer settings"
 
 <img src="/assets/img/github_developer_settings.png" alt="Drawing" style="width: 400px;"/>
 
-* There you'll see personal access tokens
+* There you'll see "Personal access tokens"
 
 ![png]({{site.baseurl}}/assets/img/github_pat_menu.png)
 
-* Click on personal access tokens
+* Click on "Personal access tokens"
 
 ![png]({{site.baseurl}}/assets/img/github_pat.png)
 
-* Click Generate New Token
+* Click on "Generate new token"
 
 ![png]({{site.baseurl}}/assets/img/github_new_token.png)
 
@@ -37,4 +37,4 @@ This post contains instructions for how to work with personal access tokens on G
 
 ![png]({{site.baseurl}}/assets/img/gh_pat_console.png)
 
-* Paste it in as your username, then for password, simply hit return again without entering anything
+* Paste it in as your username, then for password, simply hit return/enter again without entering anything
