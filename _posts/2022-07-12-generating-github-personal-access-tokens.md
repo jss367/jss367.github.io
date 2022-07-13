@@ -11,15 +11,13 @@ tags: [Git]
 
 ![png]({{site.baseurl}}/assets/img/github_settings_menu.png)
 
-<img src="{{site.baseurl}}/assets/img/neural_style/emu.jpg" alt="Drawing" style="width: 400px;"/>
-
 <img src="{{site.baseurl}}/assets/img/github_settings_menu.png" alt="Drawing" style="width: 400px;"/>
 
-<img src="{{site.baseurl}}/assets/img/github_settings_menu.png" alt="Drawing" style="height: 400px;"/>
+<img src="{{site.baseurl}}/assets/img/github_settings_menu.png" alt="Drawing" style="height: 1200px;"/>
 
 * Scroll down on the page until you see "developer settings"
 
-<img src="/assets/img/github_developer_settings.png" alt="Drawing" style="height: 200px;"/>
+<img src="/assets/img/github_developer_settings.png" alt="Drawing" style="height: 1000px;"/>
 
 ![png]({{site.baseurl}}/assets/img/github_developer_settings.png)
 
