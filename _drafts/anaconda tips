@@ -30,8 +30,6 @@ It will be somewhere like:
 
 `/Users/<USERNAME>/Anaconda3`
 
-Sometimes conda will be in 
-`/Users/jsimonelli/opt/anaconda3/condabin/conda`
 
 If you install it with Homebrew:
 
@@ -40,6 +38,13 @@ If you install it with Homebrew:
 Also, might be in:
 
 `/opt/anaconda3`
+
+Sometimes conda will be in:
+
+```
+/Users/<USERNAME>/opt/anaconda3/bin/conda
+/Users/<USERNAME>/opt/anaconda3/condabin/conda
+```
 
 ## Finding it
 
@@ -65,3 +70,5 @@ Unix:
 I recommend you put it early in your PATH, like so:
 
 `export PATH=/home/<USERNAME>/anaconda3/bin:$PATH`
+export PATH="/Users/username/miniconda3/bin:$PATH"
+
