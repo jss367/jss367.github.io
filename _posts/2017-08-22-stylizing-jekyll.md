@@ -131,6 +131,30 @@ If you need more control over it (such as adjusting the size) you can always use
 
 <img src="{{site.baseurl}}/assets/img/neural_style/emu.jpg" alt="Drawing" style="width: 400px;"/>
 
+
+
+`[emu]({{site.baseurl}}/assets/img/neural_style/emu.jpg "Picture of an emu" | width=100)`
+
+[emu]({{site.baseurl}}/assets/img/neural_style/emu.jpg "Picture of an emu" | width=100)
+
+
+
+`[emu]({{site.baseurl}}/assets/img/neural_style/emu.jpg | width=100)`
+
+[emu]({{site.baseurl}}/assets/img/neural_style/emu.jpg | width=100)
+
+
+
+`[emu]({{site.baseurl}}/assets/img/neural_style/emu.jpg =250x250)`
+
+[emu]({{site.baseurl}}/assets/img/neural_style/emu.jpg =250x250)
+
+
+
+
+
+
+
 # Tables
 
 `Content             |  Style           |  Result
