@@ -3,8 +3,8 @@ layout: post
 title: "Generating Github Personal Access Tokens"
 description: "This post shows how to generate and work with personal access tokens on Github."
 feature-img: "assets/img/rainbow.jpg"
-thumbnail: "assets/img/bald_eagle2.jpg"
-tags: [Deep Learning, Machine Learning, Unbalanced Data, Python]
+thumbnail: "assets/img/uluru.jpg"
+tags: [Git]
 ---
 
 * Go to [https://github.com/](https://github.com/) and click on your picture icon to open the settings menu
@@ -28,7 +28,6 @@ tags: [Deep Learning, Machine Learning, Unbalanced Data, Python]
 ![png]({{site.baseurl}}/assets/img/github_new_token.png)
 
 * At the bottom, click on "Generate token"
-
 
 * Your token will be a string of numbers and letters that looks like this (this isn't really mine):
 
