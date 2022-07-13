@@ -7,19 +7,15 @@ thumbnail: "assets/img/uluru.jpg"
 tags: [Git]
 ---
 
-* Go to [https://github.com/](https://github.com/) and click on your picture icon to open the settings menu
+This post contains instructions for how to work with personal access tokens on Github.
 
-![png]({{site.baseurl}}/assets/img/github_settings_menu.png)
+* Go to [https://github.com/](https://github.com/) and click on your picture icon to open the settings menu
 
 <img src="{{site.baseurl}}/assets/img/github_settings_menu.png" alt="Drawing" style="width: 400px;"/>
 
-<img src="{{site.baseurl}}/assets/img/github_settings_menu.png" alt="Drawing" style="height: 1200px;"/>
-
 * Scroll down on the page until you see "developer settings"
 
-<img src="/assets/img/github_developer_settings.png" alt="Drawing" style="height: 1000px;"/>
-
-![png]({{site.baseurl}}/assets/img/github_developer_settings.png)
+<img src="/assets/img/github_developer_settings.png" alt="Drawing" style="width: 400px;"/>
 
 * There you'll see personal access tokens
 
