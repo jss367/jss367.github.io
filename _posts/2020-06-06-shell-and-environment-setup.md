@@ -30,6 +30,16 @@ I store all of my environment variables in a `~/.profile` file. Then I source th
 
 * That profile just says `source ~/.profile`
 
+## ZSH Syntax Highlighting
+
+To activate the syntax highlighting, add the following at the end of your .zshrc:
+  source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+If you receive "highlighters directory not found" error message,
+you may need to add the following to your .zshenv:
+  export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlighting/highlighters
+
+
 ## Packages to Add
 
 * [Pygments](https://pygments.org/), a Python syntax highlighter. It's like `cat` with colors. I alias it to `c` (as seen below).
