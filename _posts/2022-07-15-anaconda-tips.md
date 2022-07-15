@@ -41,6 +41,10 @@ Also, might be in:
 
 Sometimes conda will be in:
 
+`/Users/<USERNAME>/opt/anaconda3`
+
+in which case your executables will be here:
+
 ```
 /Users/<USERNAME>/opt/anaconda3/bin/conda
 /Users/<USERNAME>/opt/anaconda3/condabin/conda
