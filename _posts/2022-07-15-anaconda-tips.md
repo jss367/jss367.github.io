@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Anaconda Tips"
-description: "This post shows how to generate and work with personal access tokens on Github."
+description: "This post shows tips and tricks for working with Anaconda, especially if you are confused about the path."
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/tiger_snake.jpg"
 tags: [Git]
