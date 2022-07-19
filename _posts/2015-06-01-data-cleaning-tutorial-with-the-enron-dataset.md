@@ -4,12 +4,12 @@ title: "Data Cleaning Tutorial with the Enron Dataset"
 description: "Tools, techniques, and tips to clean data in Python using the Enron dataset"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/sun_tas.jpg"
-tags: [Python, Data Cleaning, Pandas]
+tags: [Data Cleaning, Pandas, Python]
 ---
 
 In this notebook, I'm going to look at the basics of cleaning data with Python. I will be using a dataset of people involved in the [Enron scandal](https://en.wikipedia.org/wiki/Enron_scandal). I first saw this dataset in the Intro to Machine Learning class at [Udacity](https://www.udacity.com/).
 
-<b>Table of contents</b>
+<b>Table of Contents</b>
 * TOC
 {:toc}
 
@@ -24,19 +24,19 @@ import matplotlib.pyplot as plt
 from os.path import join
 ```
 
-# Loading the data
+# Loading the Data
 
-The first step is to load the data. It's saved as a pickle file, which is a filetype created by the pickle module - a Python module to efficiently serialize and de-serialize data. Serializing is a process of converting a Python data object, like a list or dictionary, into a stream of characters.
+The first step is to load the data. It's saved as a pickle file, which is a filetype created by the [pickle module](https://docs.python.org/3/library/pickle.html) - a Python module to efficiently serialize and de-serialize data. Serializing is a process of converting a Python data object, like a list or dictionary, into a stream of characters.
 
 
 ```python
-path = 'datasets/Enron/'
-file = 'final_project_dataset.pkl'
-with open(join(path, file), 'rb') as f:
+path = "datasets/Enron/"
+file = "final_project_dataset.pkl"
+with open(join(path, file), "rb") as f:
     enron_data = pickle.load(f)
 ```
 
-# Exploring the data
+# Exploring the Data
 
 Now let's look at the data. First, we'll see what type it is.
 
@@ -67,7 +67,7 @@ Now let's see what information we have about each person. We'll start with Ken L
 
 
 ```python
-enron_data['LAY KENNETH L']
+enron_data["LAY KENNETH L"]
 ```
 
 
@@ -97,14 +97,14 @@ enron_data['LAY KENNETH L']
 
 
 
-There are checksums built into the dataset, like total_payments and total_stock_value. We should be able to calculate these from the other values to double check the values.
+There are checksums built into the dataset, like total_payments and total_stock_value. We should be able to calculate these from the other values to double-check the values.
 
 
-We can also query for a specific value, like this.
+We can also query for a specific value, like this:
 
 
 ```python
-print("Jeff Skilling's total payments were ${:,.0f}.".format(enron_data['SKILLING JEFFREY K']['total_payments']))
+print("Jeff Skilling's total payments were ${:,.0f}.".format(enron_data["SKILLING JEFFREY K"]["total_payments"]))
 ```
 
     Jeff Skilling's total payments were $8,682,716.
@@ -115,8 +115,8 @@ Before we go any further, we'll put the data into a pandas DataFrame to make it 
 
 ```python
 # The keys of the dictionary are the people, so we'll want them to be the rows of the dataframe
-df = pd.DataFrame.from_dict(enron_data, orient='index')
-pd.set_option('display.max_columns', len(df.columns))
+df = pd.DataFrame.from_dict(enron_data, orient="index")
+pd.set_option("display.max_columns", len(df.columns))
 df.head()
 ```
 
@@ -166,75 +166,27 @@ df.head()
   </thead>
   <tbody>
     <tr>
-      <th>ALLEN PHILLIP K</th>
-      <td>201955</td>
-      <td>2902</td>
-      <td>2869717</td>
-      <td>4484442</td>
+      <th>METTS MARK</th>
+      <td>365788</td>
+      <td>807</td>
       <td>NaN</td>
-      <td>4175000</td>
-      <td>phillip.allen@enron.com</td>
-      <td>-126027</td>
-      <td>-3081055</td>
-      <td>1729541</td>
-      <td>13868</td>
-      <td>47</td>
-      <td>1729541</td>
-      <td>2195</td>
-      <td>152</td>
-      <td>65</td>
-      <td>False</td>
-      <td>304805</td>
-      <td>1407</td>
-      <td>126027</td>
+      <td>1061827</td>
       <td>NaN</td>
-    </tr>
-    <tr>
-      <th>BADUM JAMES P</th>
+      <td>600000</td>
+      <td>mark.metts@enron.com</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>178980</td>
-      <td>182466</td>
+      <td>585062</td>
+      <td>94299</td>
+      <td>38</td>
       <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>257817</td>
-      <td>3486</td>
-      <td>NaN</td>
-      <td>257817</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>False</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>BANNANTINE JAMES M</th>
-      <td>477</td>
-      <td>566</td>
-      <td>NaN</td>
-      <td>916197</td>
-      <td>NaN</td>
-      <td>NaN</td>
-      <td>james.bannantine@enron.com</td>
-      <td>-560222</td>
-      <td>-5104</td>
-      <td>5243487</td>
-      <td>56301</td>
-      <td>39</td>
-      <td>4046157</td>
       <td>29</td>
-      <td>864523</td>
-      <td>0</td>
+      <td>1740</td>
+      <td>1</td>
       <td>False</td>
       <td>NaN</td>
-      <td>465</td>
-      <td>1757552</td>
+      <td>702</td>
+      <td>585062</td>
       <td>NaN</td>
     </tr>
     <tr>
@@ -262,27 +214,75 @@ df.head()
       <td>NaN</td>
     </tr>
     <tr>
-      <th>BAY FRANKLIN R</th>
-      <td>239671</td>
-      <td>NaN</td>
-      <td>260455</td>
-      <td>827696</td>
-      <td>NaN</td>
-      <td>400000</td>
-      <td>frank.bay@enron.com</td>
-      <td>-82782</td>
-      <td>-201641</td>
-      <td>63014</td>
-      <td>129142</td>
+      <th>ELLIOTT STEVEN</th>
+      <td>170941</td>
       <td>NaN</td>
       <td>NaN</td>
+      <td>211725</td>
       <td>NaN</td>
-      <td>69</td>
+      <td>350000</td>
+      <td>steven.elliott@enron.com</td>
+      <td>NaN</td>
+      <td>-400729</td>
+      <td>6678735</td>
+      <td>78552</td>
+      <td>NaN</td>
+      <td>4890344</td>
+      <td>NaN</td>
+      <td>12961</td>
       <td>NaN</td>
       <td>False</td>
       <td>NaN</td>
       <td>NaN</td>
-      <td>145796</td>
+      <td>1788391</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>CORDES WILLIAM R</th>
+      <td>NaN</td>
+      <td>764</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>bill.cordes@enron.com</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1038185</td>
+      <td>NaN</td>
+      <td>10</td>
+      <td>651850</td>
+      <td>12</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>False</td>
+      <td>NaN</td>
+      <td>58</td>
+      <td>386335</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>HANNON KEVIN P</th>
+      <td>243293</td>
+      <td>1045</td>
+      <td>NaN</td>
+      <td>288682</td>
+      <td>NaN</td>
+      <td>1500000</td>
+      <td>kevin.hannon@enron.com</td>
+      <td>NaN</td>
+      <td>-3117011</td>
+      <td>6391065</td>
+      <td>34039</td>
+      <td>32</td>
+      <td>5538001</td>
+      <td>32</td>
+      <td>11350</td>
+      <td>21</td>
+      <td>True</td>
+      <td>1617011</td>
+      <td>1035</td>
+      <td>853064</td>
       <td>NaN</td>
     </tr>
   </tbody>
@@ -295,14 +295,14 @@ We can already see missing values, and it looks like they're entered as NaN, whi
 
 
 ```python
-df = df.replace('NaN', np.nan)
+df = df.replace("NaN", np.nan)
 ```
 
 Pandas makes summarizing the data simple. First, we'll configure pandas to print in standard notation with no decimal places.
 
 
 ```python
-pd.options.display.float_format = '{:10,.0f}'.format
+pd.options.display.float_format = "{:10,.0f}".format
 ```
 
 
@@ -537,7 +537,7 @@ df.describe()
 
 The highest salary was \$26 million, and the highest value for total payments was \$309 million. The value for total payments seems too high, even for Enron, so we'll have to look into that.
 
-# Cleaning the data
+# Cleaning the Data
 
 It looks like we have lots of integers and strings and a single column of booleans. The booleans column "poi" indicates whether the person is a "Person Of Interest". This is the column we'll be trying to predict using the other data. Every person in the DataFrame is marked as either a poi or not. Unfortunately, this is not the case with the other columns. From the first five rows, we can tell that the other columns have lots of missing data. Let's look at how bad it is.
 
@@ -578,13 +578,13 @@ That's a lot, and it isn't easy to analyze a dataset with that many missing valu
 ```python
 fig, ax = plt.subplots(figsize=(16, 10))
 x = np.arange(0, len(num_missing_values))
-matplotlib.rcParams.update({'font.size': 18})
-plt.xticks(x, (df.columns), rotation='vertical')
+matplotlib.rcParams.update({"font.size": 18})
+plt.xticks(x, (df.columns), rotation="vertical")
 
 # create the bars
-bars = plt.bar(x, num_missing_values, align='center', linewidth=0)
+bars = plt.bar(x, num_missing_values, align="center", linewidth=0)
 
-ax.set_ylabel('Number of missing values')
+ax.set_ylabel("Number of missing values")
 
 # remove the frame of the chart
 for spine in plt.gca().spines.values():
@@ -592,14 +592,22 @@ for spine in plt.gca().spines.values():
 
 # direct label each bar with Y axis values
 for bar in bars:
-    plt.gca().text(bar.get_x() + bar.get_width()/2, bar.get_height() - 5, str(int(bar.get_height())), 
-                 ha='center', color='w', fontsize=16)
-    
+    plt.gca().text(
+        bar.get_x() + bar.get_width() / 2,
+        bar.get_height() - 5,
+        str(int(bar.get_height())),
+        ha="center",
+        color="w",
+        fontsize=16,
+    )
+
 plt.show()
 ```
 
 
-![png]({{site.baseurl}}/assets/img/2015-06-01-Cleaning-Data-with-Enron-Dataset_files/2015-06-01-Cleaning-Data-with-Enron-Dataset_29_0.png)
+    
+![png](2015-06-01-data-cleaning-tutorial-with-the-enron-dataset_files/2015-06-01-data-cleaning-tutorial-with-the-enron-dataset_29_0.png)
+    
 
 
 The most common missing values are loan_advances and director_fees. I imagine these are likely to be zero for most employees. Based on the columns that have the most missing values, the complete lack of zeros in the dataset, and the way it's presented in the spreadsheet, I think we can say that all NaN values should actually be zero. Let's make that change.
@@ -641,7 +649,7 @@ df.head()
       <th>restricted_stock_deferred</th>
       <th>deferred_income</th>
       <th>total_stock_value</th>
-      <th>...</th>
+      <th>expenses</th>
       <th>from_poi_to_this_person</th>
       <th>exercised_stock_options</th>
       <th>from_messages</th>
@@ -656,75 +664,27 @@ df.head()
   </thead>
   <tbody>
     <tr>
-      <th>ALLEN PHILLIP K</th>
-      <td>201,955</td>
-      <td>2,902</td>
-      <td>2,869,717</td>
-      <td>4,484,442</td>
+      <th>METTS MARK</th>
+      <td>365,788</td>
+      <td>807</td>
       <td>0</td>
-      <td>4,175,000</td>
-      <td>phillip.allen@enron.com</td>
-      <td>-126,027</td>
-      <td>-3,081,055</td>
-      <td>1,729,541</td>
-      <td>...</td>
-      <td>47</td>
-      <td>1,729,541</td>
-      <td>2,195</td>
-      <td>152</td>
-      <td>65</td>
-      <td>False</td>
-      <td>304,805</td>
-      <td>1,407</td>
-      <td>126,027</td>
+      <td>1,061,827</td>
       <td>0</td>
-    </tr>
-    <tr>
-      <th>BADUM JAMES P</th>
+      <td>600,000</td>
+      <td>mark.metts@enron.com</td>
       <td>0</td>
       <td>0</td>
-      <td>178,980</td>
-      <td>182,466</td>
+      <td>585,062</td>
+      <td>94,299</td>
+      <td>38</td>
       <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>257,817</td>
-      <td>...</td>
-      <td>0</td>
-      <td>257,817</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>False</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-      <td>0</td>
-    </tr>
-    <tr>
-      <th>BANNANTINE JAMES M</th>
-      <td>477</td>
-      <td>566</td>
-      <td>0</td>
-      <td>916,197</td>
-      <td>0</td>
-      <td>0</td>
-      <td>james.bannantine@enron.com</td>
-      <td>-560,222</td>
-      <td>-5,104</td>
-      <td>5,243,487</td>
-      <td>...</td>
-      <td>39</td>
-      <td>4,046,157</td>
       <td>29</td>
-      <td>864,523</td>
-      <td>0</td>
+      <td>1,740</td>
+      <td>1</td>
       <td>False</td>
       <td>0</td>
-      <td>465</td>
-      <td>1,757,552</td>
+      <td>702</td>
+      <td>585,062</td>
       <td>0</td>
     </tr>
     <tr>
@@ -739,7 +699,7 @@ df.head()
       <td>0</td>
       <td>-1,386,055</td>
       <td>10,623,258</td>
-      <td>...</td>
+      <td>11,200</td>
       <td>0</td>
       <td>6,680,544</td>
       <td>0</td>
@@ -752,32 +712,79 @@ df.head()
       <td>0</td>
     </tr>
     <tr>
-      <th>BAY FRANKLIN R</th>
-      <td>239,671</td>
-      <td>0</td>
-      <td>260,455</td>
-      <td>827,696</td>
-      <td>0</td>
-      <td>400,000</td>
-      <td>frank.bay@enron.com</td>
-      <td>-82,782</td>
-      <td>-201,641</td>
-      <td>63,014</td>
-      <td>...</td>
+      <th>ELLIOTT STEVEN</th>
+      <td>170,941</td>
       <td>0</td>
       <td>0</td>
+      <td>211,725</td>
       <td>0</td>
-      <td>69</td>
+      <td>350,000</td>
+      <td>steven.elliott@enron.com</td>
+      <td>0</td>
+      <td>-400,729</td>
+      <td>6,678,735</td>
+      <td>78,552</td>
+      <td>0</td>
+      <td>4,890,344</td>
+      <td>0</td>
+      <td>12,961</td>
       <td>0</td>
       <td>False</td>
       <td>0</td>
       <td>0</td>
-      <td>145,796</td>
+      <td>1,788,391</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>CORDES WILLIAM R</th>
+      <td>0</td>
+      <td>764</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>bill.cordes@enron.com</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1,038,185</td>
+      <td>0</td>
+      <td>10</td>
+      <td>651,850</td>
+      <td>12</td>
+      <td>0</td>
+      <td>0</td>
+      <td>False</td>
+      <td>0</td>
+      <td>58</td>
+      <td>386,335</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>HANNON KEVIN P</th>
+      <td>243,293</td>
+      <td>1,045</td>
+      <td>0</td>
+      <td>288,682</td>
+      <td>0</td>
+      <td>1,500,000</td>
+      <td>kevin.hannon@enron.com</td>
+      <td>0</td>
+      <td>-3,117,011</td>
+      <td>6,391,065</td>
+      <td>34,039</td>
+      <td>32</td>
+      <td>5,538,001</td>
+      <td>32</td>
+      <td>11,350</td>
+      <td>21</td>
+      <td>True</td>
+      <td>1,617,011</td>
+      <td>1,035</td>
+      <td>853,064</td>
       <td>0</td>
     </tr>
   </tbody>
 </table>
-<p>5 rows × 21 columns</p>
 </div>
 
 
@@ -788,9 +795,24 @@ The original spreadsheet divides up the information into payments and stock valu
 
 
 ```python
-payment_categories = ['salary', 'bonus', 'long_term_incentive', 'deferred_income',
-                      'deferral_payments', 'loan_advances', 'other', 'expenses', 'director_fees', 'total_payments']
-stock_value_categories = ['exercised_stock_options', 'restricted_stock', 'restricted_stock_deferred', 'total_stock_value']
+payment_categories = [
+    "salary",
+    "bonus",
+    "long_term_incentive",
+    "deferred_income",
+    "deferral_payments",
+    "loan_advances",
+    "other",
+    "expenses",
+    "director_fees",
+    "total_payments",
+]
+stock_value_categories = [
+    "exercised_stock_options",
+    "restricted_stock",
+    "restricted_stock_deferred",
+    "total_stock_value",
+]
 ```
 
 Now let's sum together all the payment categories (except total_payments) and compare it to the total payments. It should be the same value. We'll print out any rows that aren't the same.
@@ -798,7 +820,7 @@ Now let's sum together all the payment categories (except total_payments) and co
 
 ```python
 # Look at the instances where the total we calculate is not equal to the total listed on the spreadsheet
-df[df[payment_categories[:-1]].sum(axis='columns') != df['total_payments']][payment_categories]
+df[df[payment_categories[:-1]].sum(axis="columns") != df["total_payments"]][payment_categories]
 ```
 
 
@@ -869,7 +891,7 @@ df[df[payment_categories[:-1]].sum(axis='columns') != df['total_payments']][paym
 
 
 ```python
-df[df[stock_value_categories[:-1]].sum(axis='columns') != df['total_stock_value']][stock_value_categories]
+df[df[stock_value_categories[:-1]].sum(axis="columns") != df["total_stock_value"]][stock_value_categories]
 ```
 
 
@@ -920,11 +942,11 @@ df[df[stock_value_categories[:-1]].sum(axis='columns') != df['total_stock_value'
 
 
 
-On the original spreadsheet, 102,500 is listed in Robert Belfer's deferred income section, not in deferral payments. And 3,285 should be the expenses column, and director fees should be 102,500, and total payments should be 3,285. It looks like everything shifted one column to the right. We'll have to move it one to the left to fix it. The opposite happened to Sanjay Bhatnagar, so we'll have to move his columns to the right to fix them. Let's do that now.
+On the original spreadsheet, 102,500 is listed in Robert Belfer's deferred income section, not in deferral payments. And 3,285 should be the expenses column, director fees should be 102,500, and total payments should be 3,285. It looks like everything shifted one column to the right. We'll have to move it one to the left to fix it. The opposite happened to Sanjay Bhatnagar, so we'll have to move his columns to the right to fix them. Let's do that now.
 
 
 ```python
-df.loc['BELFER ROBERT']
+df.loc["BELFER ROBERT"]
 ```
 
 
@@ -959,20 +981,20 @@ Unfortunately, the order of the columns in the actual spreadsheet is different t
 
 
 ```python
-df.loc[('BELFER ROBERT','deferral_payments')] = 0
-df.loc[('BELFER ROBERT','total_payments')] = 3285
-df.loc[('BELFER ROBERT','restricted_stock_deferred')] = -44093
-df.loc[('BELFER ROBERT','deferred_income')] = -102500
-df.loc[('BELFER ROBERT','total_stock_value')] = 0
-df.loc[('BELFER ROBERT','expenses')] = 3285
-df.loc[('BELFER ROBERT','exercised_stock_options')] = 0
-df.loc[('BELFER ROBERT','restricted_stock')] = 44093
-df.loc[('BELFER ROBERT','director_fees')] = 102500
+df.loc[("BELFER ROBERT", "deferral_payments")] = 0
+df.loc[("BELFER ROBERT", "total_payments")] = 3285
+df.loc[("BELFER ROBERT", "restricted_stock_deferred")] = -44093
+df.loc[("BELFER ROBERT", "deferred_income")] = -102500
+df.loc[("BELFER ROBERT", "total_stock_value")] = 0
+df.loc[("BELFER ROBERT", "expenses")] = 3285
+df.loc[("BELFER ROBERT", "exercised_stock_options")] = 0
+df.loc[("BELFER ROBERT", "restricted_stock")] = 44093
+df.loc[("BELFER ROBERT", "director_fees")] = 102500
 ```
 
 
 ```python
-df.loc['BHATNAGAR SANJAY']
+df.loc["BHATNAGAR SANJAY"]
 ```
 
 
@@ -1005,22 +1027,22 @@ df.loc['BHATNAGAR SANJAY']
 
 
 ```python
-df.loc[('BHATNAGAR SANJAY','total_payments')] = 137864
-df.loc[('BHATNAGAR SANJAY','restricted_stock_deferred')] = -2604490
-df.loc[('BHATNAGAR SANJAY','total_stock_value')] = 15456290
-df.loc[('BHATNAGAR SANJAY','expenses')] = 137864
-df.loc[('BHATNAGAR SANJAY','exercised_stock_options')] = 15456290
-df.loc[('BHATNAGAR SANJAY','other')] = 0
-df.loc[('BHATNAGAR SANJAY','restricted_stock')] = 2604490
-df.loc[('BHATNAGAR SANJAY','director_fees')] = 0
+df.loc[("BHATNAGAR SANJAY", "total_payments")] = 137864
+df.loc[("BHATNAGAR SANJAY", "restricted_stock_deferred")] = -2604490
+df.loc[("BHATNAGAR SANJAY", "total_stock_value")] = 15456290
+df.loc[("BHATNAGAR SANJAY", "expenses")] = 137864
+df.loc[("BHATNAGAR SANJAY", "exercised_stock_options")] = 15456290
+df.loc[("BHATNAGAR SANJAY", "other")] = 0
+df.loc[("BHATNAGAR SANJAY", "restricted_stock")] = 2604490
+df.loc[("BHATNAGAR SANJAY", "director_fees")] = 0
 ```
 
 Let's check to make sure that fixes our problems.
 
 
 ```python
-print(df[df[payment_categories[:-1]].sum(axis='columns') != df['total_payments']][payment_categories])
-print(df[df[stock_value_categories[:-1]].sum(axis='columns') != df['total_stock_value']][stock_value_categories])
+print(df[df[payment_categories[:-1]].sum(axis="columns") != df["total_payments"]][payment_categories])
+print(df[df[stock_value_categories[:-1]].sum(axis="columns") != df["total_stock_value"]][stock_value_categories])
 ```
 
     Empty DataFrame
@@ -1033,13 +1055,15 @@ print(df[df[stock_value_categories[:-1]].sum(axis='columns') != df['total_stock_
 
 Looks good!
 
-## Look for anomalies in the data
+## Look for Anomalies in the Data
 
 Now we're going to use a couple of functions provided by the Udacity class. They help to get data out of the dictionaries and into a more usable form. Here they are:
 
 
 ```python
-def featureFormat( dictionary, features, remove_NaN=True, remove_all_zeroes=True, remove_any_zeroes=False, sort_keys = False):
+def featureFormat(
+    dictionary, features, remove_NaN=True, remove_all_zeroes=True, remove_any_zeroes=False, sort_keys=False
+):
     """ convert dictionary to numpy array of features
         remove_NaN = True will convert "NaN" string to 0.0
         remove_all_zeroes = True will omit any data points for which
@@ -1054,13 +1078,13 @@ def featureFormat( dictionary, features, remove_NaN=True, remove_all_zeroes=True
             removal for zero or missing values.
     """
 
-
     return_list = []
 
     # Key order - first branch is for Python 3 compatibility on mini-projects,
     # second branch is for compatibility on final project.
     if isinstance(sort_keys, str):
         import pickle
+
         keys = pickle.load(open(sort_keys, "rb"))
     elif sort_keys:
         keys = sorted(dictionary.keys())
@@ -1076,14 +1100,14 @@ def featureFormat( dictionary, features, remove_NaN=True, remove_all_zeroes=True
                 print("error: key ", feature, " not present")
                 return
             value = dictionary[key][feature]
-            if value=="NaN" and remove_NaN:
+            if value == "NaN" and remove_NaN:
                 value = 0
-            tmp_list.append( float(value) )
+            tmp_list.append(float(value))
 
         # Logic for deciding whether or not to add the data point.
         append = True
         # exclude 'poi' class as criteria.
-        if features[0] == 'poi':
+        if features[0] == "poi":
             test_list = tmp_list[1:]
         else:
             test_list = tmp_list
@@ -1103,12 +1127,12 @@ def featureFormat( dictionary, features, remove_NaN=True, remove_all_zeroes=True
                 append = False
         ### Append the data point if flagged for addition.
         if append:
-            return_list.append( np.array(tmp_list) )
+            return_list.append(np.array(tmp_list))
 
     return np.array(return_list)
 
 
-def targetFeatureSplit( data ):
+def targetFeatureSplit(data):
     """ 
         given a numpy array like the one returned from
         featureFormat, separate out the first feature
@@ -1124,8 +1148,8 @@ def targetFeatureSplit( data ):
     target = []
     features = []
     for item in data:
-        target.append( item[0] )
-        features.append( item[1:] )
+        target.append(item[0])
+        features.append(item[1:])
 
     return target, features
 ```
@@ -1142,7 +1166,7 @@ data = featureFormat(enron_data, features)
 for point in data:
     salary = point[0]
     bonus = point[1]
-    plt.scatter( salary, bonus )
+    plt.scatter(salary, bonus)
 
 plt.xlabel("salary")
 plt.ylabel("bonus")
@@ -1150,14 +1174,16 @@ plt.show()
 ```
 
 
-![png]({{site.baseurl}}/assets/img/2015-06-01-Cleaning-Data-with-Enron-Dataset_files/2015-06-01-Cleaning-Data-with-Enron-Dataset_51_0.png)
+    
+![png](2015-06-01-data-cleaning-tutorial-with-the-enron-dataset_files/2015-06-01-data-cleaning-tutorial-with-the-enron-dataset_51_0.png)
+    
 
 
 OK, someone's bonus and salary are way higher than everyone else's. That looks suspicious so let's take a look at it.
 
 
 ```python
-df[df['salary'] > 10000000]
+df[df["salary"] > 10000000]
 ```
 
 
@@ -1191,7 +1217,7 @@ df[df['salary'] > 10000000]
       <th>restricted_stock_deferred</th>
       <th>deferred_income</th>
       <th>total_stock_value</th>
-      <th>...</th>
+      <th>expenses</th>
       <th>from_poi_to_this_person</th>
       <th>exercised_stock_options</th>
       <th>from_messages</th>
@@ -1217,7 +1243,7 @@ df[df['salary'] > 10000000]
       <td>-7,576,788</td>
       <td>-27,992,891</td>
       <td>434,509,511</td>
-      <td>...</td>
+      <td>5,235,198</td>
       <td>0</td>
       <td>311,764,000</td>
       <td>0</td>
@@ -1231,7 +1257,6 @@ df[df['salary'] > 10000000]
     </tr>
   </tbody>
 </table>
-<p>1 rows × 21 columns</p>
 </div>
 
 
@@ -1240,7 +1265,7 @@ Ah, there's an "employee" named "TOTAL" in the spreadsheet. Having a row that is
 
 
 ```python
-entries_to_delete = ['THE TRAVEL AGENCY IN THE PARK', 'TOTAL']
+entries_to_delete = ["THE TRAVEL AGENCY IN THE PARK", "TOTAL"]
 for entry in entries_to_delete:
     if entry in df.index:
         df = df.drop(entry)
@@ -1253,19 +1278,21 @@ Now let's look again.
 ### read in data dictionary, convert to numpy array
 
 features = ["salary", "bonus"]
-#data = df["salary", "bonus"]
+# data = df["salary", "bonus"]
 
-salary = df['salary'].values / 1000
-bonus = df['bonus'].values / 1000
+salary = df["salary"].values / 1000
+bonus = df["bonus"].values / 1000
 plt.scatter(salary, bonus)
 
-plt.xlabel("salary (thousands of dollars)")
-plt.ylabel("bonus (thousands of dollars)")
+plt.xlabel("Salary (thousands of dollars)")
+plt.ylabel("Bonus (thousands of dollars)")
 plt.show()
 ```
 
 
-![png]({{site.baseurl}}/assets/img/2015-06-01-Cleaning-Data-with-Enron-Dataset_files/2015-06-01-Cleaning-Data-with-Enron-Dataset_57_0.png)
+    
+![png](2015-06-01-data-cleaning-tutorial-with-the-enron-dataset_files/2015-06-01-data-cleaning-tutorial-with-the-enron-dataset_57_0.png)
+    
 
 
 That looks better.
@@ -1274,6 +1301,6 @@ Now that we've cleaned up the data let's save it as a CSV so we can pick it up a
 
 
 ```python
-clean_file = 'clean_df.csv'
-df.to_csv(path+clean_file, index_label='name')
+clean_file = "clean_df.csv"
+df.to_csv(path + clean_file, index_label="name")
 ```
