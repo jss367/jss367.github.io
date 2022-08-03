@@ -52,7 +52,8 @@ Note that brew puts something in `zprofile`; conda adds to `.zshrc` or sometimes
 
 A new terminal starts with `.zshrc`. The full chain goes like:
 
-`~/.zshrc` -> `~/.oh-my-zsh/custom/profile.zsh` -> `.profile` -> `.bash_profile` (if it exists)
+`~/.zshrc` -> `~/.oh-my-zsh/custom/profile.zsh` -> `.profile` -> `~.my_credentials`
+* Also `.profile` will go to `.bash_profile` if it exists
 
 ## My .profile Setup
 
