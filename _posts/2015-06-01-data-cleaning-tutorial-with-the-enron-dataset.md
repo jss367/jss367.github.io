@@ -15,13 +15,14 @@ In this notebook, I'm going to look at the basics of cleaning data with Python. 
 
 
 ```python
-# Basic imports that we'll use
-import pandas as pd
+# Imports
 import pickle
-import numpy as np
+from os.path import join
+
 import matplotlib
 import matplotlib.pyplot as plt
-from os.path import join
+import numpy as np
+import pandas as pd
 ```
 
 # Loading the Data
@@ -290,6 +291,13 @@ df.head()
 </div>
 
 
+
+Sometimes it can be helpful to export the data to a spreadsheet. If you want to do that, you can do it like so:
+
+
+```python
+df.to_csv('final_project_dataset.csv')
+```
 
 We can already see missing values, and it looks like they're entered as NaN, which Python will see as a string and not recognized as a null value. We can do a quick replacement on those.
 
