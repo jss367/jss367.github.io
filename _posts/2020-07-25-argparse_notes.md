@@ -7,6 +7,16 @@ thumbnail: "assets/img/kea.jpg"
 tags: [Jupyter Notebooks, Python]
 ---
 
+## What Arguments Were Passed
+
+If you ever want to see what arguments were passed into a module, you can do the following:
+```python
+import sys
+print(sys.argv)
+```
+
+Note that the first argument will be the path to the module, not an actual argument.
+
 ## Required vs Optional Arguments
 
 Arguments that start with  `-` or `--` are optional arguments, while those that don't are positional and therefore required (much like positional arguments in Python functions). Even though, arguments starting with  `-` or `--` are generally optional, `argparse` still lets you mark them as required. This is considered bad design in most casee but isn't prevented.
