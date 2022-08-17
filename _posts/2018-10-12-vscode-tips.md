@@ -122,15 +122,6 @@ To do multi-line debugging, all you have to do is hold down `shift` before you h
 
 Control + Space to pull it up manually
 
-## Shortcuts
-
-"cwd": "${workspaceFolder}",
-
-or
-
-"cwd": "${fileDirname}"
-
-
 ## launch.json
 
 Writing launch.json files is very useful. It makes it easy to run files in different configurations, such as passing different arguments. Here's the default starting place:
@@ -172,6 +163,13 @@ Here's an example with arguments:
 - defaults to true
 - restricts debugging to only the user-written code
 
+#### cwd
+
+Part of your command will include a reference from where to start from. One way to do that is by using `cwd`.
+
+* "cwd": "${workspaceFolder}", - start from the workplace folder
+* "cwd": "${fileDirname}" - start from the directory of the current file. This will change depending which file you want to have open, so I only recommend using it when you're running the current file (so you'll have `"program": "${file}",` as well)
+* Note that you don't always need to include `cwd`. For example, you don't need it when running a module.
 
 #### Running a module or a program
 
