@@ -216,6 +216,12 @@ As you can see, I'm strewn across half a dozen terminals in Windows and have fou
 [Autojump](https://github.com/wting/autojump)
 * This is the best way to get around a Unix terminal
 
+[Glances](https://nicolargo.github.io/glances/)
+* A great system monitoring tools
+* Works across all platforms
+
+You can also find a lot of great tools here: https://github.com/ibraheemdev/modern-unix
+
 # Security
 
 ## Malware Protection
