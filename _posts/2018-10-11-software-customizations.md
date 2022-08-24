@@ -189,3 +189,21 @@ You can add your stuff to the bottom like so:
 ```
 cdh=cd "C:\Users\Julius\Documents\GitHub"
 ```
+
+
+## DataGrip
+
+DataGrip also has a default tab process that I don't like. Here's how to update it to make it more like Chrome's:
+
+* Go into Preferences -> Keymap and type in switcher.
+
+<img width="974" alt="image" src="https://user-images.githubusercontent.com/3067731/186535752-d7b07286-40e8-4512-921e-2994756d9b42.png">
+
+* Double click on the actions to remove them. Remove both of them.
+
+* Type in "select tab" into the search and add the new commands to "Select Next Tab" and "Select Previous Tab" under Main Menu -> Window -> Editor Tabs
+
+* It should look like this in the end:
+
+<img width="984" alt="image" src="https://user-images.githubusercontent.com/3067731/186536462-34900e69-1f70-4344-b847-fd3bec14e2ac.png">
+
