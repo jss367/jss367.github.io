@@ -277,12 +277,12 @@ I have no loyalty to any of these. I usually just go with the top free one recom
 
 [Google Hangouts](https://hangouts.google.com/)
 
+# Image Viewer
+[Xee](https://theunarchiver.com/xee) (Mac)
+
 # Image Editing
 [Adobe Lightroom](https://www.adobe.com/products/photoshop-lightroom.html) (Windows, Mac)
 * As much as I'd like to say GIMP is just as good, it's no match for the features of Lightroom. For someone who spends serious time editing photos, I don't think there's a better alternative.
-
-[GIMP](https://www.gimp.org/)  (Linux)
-* The Paint program I like on Windows doesn't exist for Linux, so I use GIMP instead.
 
 # Photography
 
@@ -391,3 +391,5 @@ Static Type Checker - mypy
 [Postico](https://eggerapps.at/postico/) (Mac only)
 * Not free but still very good
 
+[GIMP](https://www.gimp.org/)  (Linux)
+* The Paint program I like on Windows doesn't exist for Linux, so I use GIMP instead.
