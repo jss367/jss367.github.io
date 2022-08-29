@@ -91,7 +91,7 @@ OK, now let's talk about some examples where you might need these.
 
 #### What is the active kernel?
 
-Here's the only way I've found how to do this ([source](https://stackoverflow.com/questions/43759543/how-to-get-active-kernel-name-in-jupyter-notebook):
+Here's the only way I've found how to do this ([source](https://stackoverflow.com/questions/43759543/how-to-get-active-kernel-name-in-jupyter-notebook)):
 ```
 %%javascript
 var kernel = Jupyter.notebook.kernel
