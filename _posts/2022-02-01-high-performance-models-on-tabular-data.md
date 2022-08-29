@@ -821,7 +821,7 @@ accuracy_score(y_test, svm_preds)
 
 ## Neural Network with FastAI
 
-I've had poor-to-mixes results with neural networks and hyperopt. But I still included it because I thought it might be helpful.
+I've had poor-to-mixed results with neural networks and hyperopt. But I still included it because I thought it might be helpful.
 
 
 ```python
