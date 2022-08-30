@@ -11,7 +11,7 @@ It's important to know whether a model has been trained well or not. One way to 
 
 We'll use well-known pre-trained models like VGG-16 and ResNet50. But before we do that, let's look at an untrained network so we can see how the weights change after they are trained. We'll see how the distribution changes from an untrained network to a trained one.
 
-<b>Table of contents</b>
+<b>Table of Contents</b>
 * TOC
 {:toc}
 
