@@ -33,11 +33,11 @@ I store all of my environment variables in a `~/.profile` file. Then I source th
 ## ZSH Syntax Highlighting
 
 To activate the syntax highlighting, add the following at the end of your .zshrc:
-  source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  `source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh`
 
 If you receive "highlighters directory not found" error message,
 you may need to add the following to your .zshenv:
-  export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlighting/highlighters
+  `export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlighting/highlighters`
 
 
 ## Packages to Add
