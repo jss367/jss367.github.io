@@ -24,3 +24,8 @@ Note that you have to use execute
 
 
 `update my_table set deleted=now() where ...`
+
+
+If you're using an ORM and want to update an object, you'll have to get the record, then update it and run `merge`.
+
+
