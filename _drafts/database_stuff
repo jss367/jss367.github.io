@@ -1,0 +1,23 @@
+If you have a query like:
+
+query_string = f"""
+select * from my_table where col = 123
+"""
+
+You can write a function that queries the database:
+
+record = query_db(query_string, user, password, host, dbname="bvds")
+
+
+Or you could use an ORM
+
+If it's a raw string, you can just do this:
+
+with db_session(engine=get_engine('bvds', db_name='bvds')) as sess:
+    records = (sess.execute(query_string))
+
+Note that you have to use execute
+
+
+
+
