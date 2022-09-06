@@ -20,4 +20,7 @@ Note that you have to use execute
 
 
 
+## Useful commands:
 
+
+`update my_table set deleted=now() where ...`
