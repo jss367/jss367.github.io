@@ -1,12 +1,12 @@
 ---
 layout: post
-title: "Installing CUDA and TensorFlow"
+title: "Installing and Debugging CUDA and TensorFlow"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/spots.jpg"
 tags: [CUDA, TensorFlow]
 ---
 
-This tutorial explains how get your NVIDIA graphics card working for deep learning.
+This tutorial explains how debug problems with your NVIDIA graphics card when doing deep learning.
 
 <b>Table of contents</b>
 * TOC
@@ -23,7 +23,7 @@ Then, make sure it is on this list: <https://developer.nvidia.com/cuda-gpus>
 
 ## See where you are
 
-Sometimes you'll get stuck somewhere in the middle, unsure of what actually installed correctly. You don't want to start from the beginning because you don't want to have multiple versions conflicting, but you don't know what you need to do next. That's why I want to start this off with some ways for you to figure out exactly where you are in the process first.
+Sometimes you'll get stuck somewhere in the middle of an installation and you're unsure of what installed correctly. You don't want to start from the beginning because you don't want to have multiple versions conflicting, but you don't know what you need to do next. That's why I want to start this off with some ways for you to figure out exactly where you are in the process.
 
 #### Are GPUs Installed
 
@@ -65,7 +65,7 @@ Tue Feb  2 15:05:43 2021
 
 #### Can TensorFlow Detect GPUs
 
-Here's a good one-liner for this:
+Next check if TensorFlow can detect the GPUs. Here's a good one-liner for that:
 ```
 python -c "import tensorflow as tf; print('tf version:', tf.__version__); print('Num GPU devices: ', len(tf.config.list_physical_devices('GPU')))"
 ```
@@ -82,17 +82,19 @@ Version incompatibility is probably the biggest source of problems  This is a bi
 
 #### CUDA and Tensorflow and cuDNN
 
-Before you go any further, you should have a target. You should be clear on exactly which version of everything you're trying to install. To help you find out, TensorFlow maintains [this chart](https://www.tensorflow.org/install/source#gpu) with the latest compatibility information.
+Before you go any further, you should have target versions for your main components. You should be clear on exactly which version of everything you're trying to install. To help you find out, TensorFlow maintains [this chart](https://www.tensorflow.org/install/source#gpu) with the latest compatibility information.
 
 #### CUDA version
 
+You can see which version of CUDA you have installed with this:
+
 `cat /usr/local/cuda/version.txt`
 
-You can see what versions of CUDA are avilable:
+You can see which versions of CUDA are available through `conda` with this:
 
 `conda search cudatoolkit`
 
-You can also find your version by opening a command prompt and enter `nvcc -V`
+You can also find your version by opening a command prompt and entering `nvcc -V`
 
 ```
 (tf) julius@julius-MS-7B09:~/git$ nvcc --version
@@ -102,18 +104,15 @@ Built on Sun_Jul_28_19:07:16_PDT_2019
 Cuda compilation tools, release 10.1, V10.1.243
 ```
 
-
-
 #### cuDNN version
 
-It's probably here:
+If you've found CUDA and you have the right version, you'll want to look for cuDNN. You'll probably be able to find it with this:
 
 `cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2`
 
-But if you're not sure you can check here:
-`cat $(whereis cudnn.h) | grep CUDNN_MAJOR -A 2`
-
-`cat $(whereis cuda)/include/cudnn.h | grep CUDNN_MAJOR -A 2`
+But if you're not sure you can check with these:
+* `cat $(whereis cudnn.h) | grep CUDNN_MAJOR -A 2`
+* `cat $(whereis cuda)/include/cudnn.h | grep CUDNN_MAJOR -A 2`
 
 ###### Windows
 
