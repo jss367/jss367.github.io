@@ -10,7 +10,9 @@ CUDA used to be an acronym for Compute Inified Device Architecture, but now itâ€
 
 ## Check if GPUs are available
 
+```bash
 python -c "import tensorflow as tf; print('Num GPUs Available: ', len(tf.config.experimental.list_physical_devices('GPU')))"
+```
 
 ## Specify Which GPU to Use
 
