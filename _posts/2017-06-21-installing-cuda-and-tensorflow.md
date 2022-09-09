@@ -6,7 +6,7 @@ thumbnail: "assets/img/spots.jpg"
 tags: [CUDA, TensorFlow]
 ---
 
-This tutorial explains how get your NVIDIA graphics card working with for deep learning.
+This tutorial explains how get your NVIDIA graphics card working for deep learning.
 
 <b>Table of contents</b>
 * TOC
