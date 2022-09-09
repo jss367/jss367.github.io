@@ -88,11 +88,11 @@ Before you go any further, you should have target versions for your main compone
 
 You can see which version of CUDA you have installed with this:
 
-`cat /usr/local/cuda/version.txt`
+* `cat /usr/local/cuda/version.txt`
 
 You can see which versions of CUDA are available through `conda` with this:
 
-`conda search cudatoolkit`
+* `conda search cudatoolkit`
 
 You can also find your version by opening a command prompt and entering `nvcc -V`
 
@@ -108,7 +108,7 @@ Cuda compilation tools, release 10.1, V10.1.243
 
 If you've found CUDA and you have the right version, you'll want to look for cuDNN. You'll probably be able to find it with this:
 
-`cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2`
+* `cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2`
 
 But if you're not sure you can check with these:
 * `cat $(whereis cudnn.h) | grep CUDNN_MAJOR -A 2`
@@ -122,19 +122,14 @@ If you're on Windows you should be able to find them here:
 You can also type this: `where cudnn*`
 
 
-
-
-
-
 ## Instructions with Anaconda
 
-This is my recommendation
+I recommend installing CUDA through Anaconda when possible.
 
 Install Anaconda like normal. It's a little annoying on Windows because of how paths work. If you are on Windows, don't add it to the path environment in the setup window
 
 What you'll do is open Anaconda3 from the Start menu and ...
 
-Although tensorflow-gpu and tensorflow is a distinction of version <= 1.15, the distinction matters quite a lot here. If you do `conda create -n tf tensorflow` it will not create a GPU version, even though it installs a 2.X version of Tensorflow. You'll need to use `conda create -n tf tensorflow-gpu` to get the GPU version.
 
 ## Tensorflow and CUDA compatibility
 
@@ -376,3 +371,9 @@ But you shouldn't see anything from:
 `lsmod | grep nouveau`
 
 If you do, you'll need to remove it
+  
+## Old information
+  
+Some things are no longer relevant to the latest version of TensorFlow, but might be helping in debugging old versions. I've move that information here.
+
+Although tensorflow-gpu and tensorflow is a distinction of version <= 1.15, the distinction matters quite a lot here. If you do `conda create -n tf tensorflow` it will not create a GPU version, even though it installs a 2.X version of Tensorflow. You'll need to use `conda create -n tf tensorflow-gpu` to get the GPU version.
