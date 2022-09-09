@@ -8,6 +8,10 @@ tags: [CUDA, TensorFlow, PyTorch]
 
 CUDA used to be an acronym for Compute Inified Device Architecture, but now it’s no longer an acronym. It’s just CUDA. CUDA is basically C for GPUs. Just like operations in NumPy use C and go much faster, the same is true for CUDA operations in GPUs.
 
+## Check if GPUs are available
+
+python -c "import tensorflow as tf; print('Num GPUs Available: ', len(tf.config.experimental.list_physical_devices('GPU')))"
+
 ## Specify Which GPU to Use
 
 Just like in TensorFlow, you can specify which GPU to use. If you're going to do this from the command line, you can do:
