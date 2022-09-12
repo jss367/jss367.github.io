@@ -301,6 +301,8 @@ I have no loyalty to any of these. I usually just go with the top free one recom
 [Grammarly](https://www.grammarly.com/)
 * Pretty good. I hope it keeps getting better as natural language processing improves
 
+[Paintbrush](https://paintbrush.sourceforge.io/) (FOSS, Mac only)
+
 [Google Earth](https://www.google.com/earth/) (Ninite)
 
 [AutoHotkey](https://www.autohotkey.com/)
