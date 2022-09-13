@@ -168,6 +168,7 @@ file_path.name
     'added-object-list.txt'
 
 
+You can even get the file extension:
 
 
 ```python
