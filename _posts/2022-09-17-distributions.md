@@ -89,9 +89,21 @@ Whether things are truly continuously distributed or not can be a bit of a quest
 * The location a dart lands on a dartboard
 * Asteroid impacts (roughly - it would only be continuous given a steady state of the universe)
 
-## Gaussian (or normal) Distribution
+## Gaussian (or Normal) Distribution
 
-This is the famous bell-curve.
+
+```python
+
+```
+
+
+```python
+
+```
+
+Gaussian distributions are all around us. These are the famous bell curves. I've found that physicists are more likely to say "Gaussian" and mathematicians are more likely to say "normal". It seems that "normal" is more popular, although old habits die hard, so I still say "Gaussian".
+
+#### Equation
 
 $$
 f(x) = \frac{e^{-\frac{x^2}{2}}}{\sqrt{2\pi} } 
@@ -131,7 +143,7 @@ plt.show()
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_24_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_27_0.png)
     
 
 
@@ -151,7 +163,7 @@ ax.set(xlabel='Variable', ylabel='Count');
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_27_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_30_0.png)
     
 
 
@@ -186,7 +198,7 @@ plt.show()
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_36_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_39_0.png)
     
 
 
@@ -199,9 +211,7 @@ plt.show()
 
 ## Binomial Distribution
 
-From Wikipedia, a "binomial distribution with parameters n and p is the discrete probability distribution of the number of successes in a sequence of n independent experiments, each asking a yes–no question, and each with its own Boolean-valued outcome"
-
-It is based on discrete events, like flipping a coin.
+Binomial distribution are based on discrete results from discrete events, like flipping a coin `n` times. From Wikipedia, a "binomial distribution with parameters n and p is the discrete probability distribution of the number of successes in a sequence of n independent experiments, each asking a yes–no question, and each with its own Boolean-valued outcome"
 
 #### Plot
 
@@ -242,7 +252,7 @@ plt.show()
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_47_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_49_0.png)
     
 
 
@@ -259,7 +269,7 @@ plt.show()
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_49_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_51_0.png)
     
 
 
@@ -299,7 +309,7 @@ ax.set(xlabel='Variable', ylabel='Count');
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_58_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_60_0.png)
     
 
 
@@ -326,8 +336,3 @@ math.exp(-1)*(1**5/math.factorial(5))
     0.0030656620097620196
 
 
-
-
-```python
-
-```
