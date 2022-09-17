@@ -1,3 +1,12 @@
+---
+layout: post
+title: "Distributions"
+description: "This post shows distributions and how to plot them."
+feature-img: "assets/img/rainbow.jpg"
+thumbnail: "assets/img/rug.jpg"
+tags: [Data Visualization, Python, Statistics]
+---
+
 Distributions are super important. In this post I'll talk about some common distributions, how to plot them, and what they can be used for.
 
 
@@ -54,7 +63,7 @@ plot_hist(bins)
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_11_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_12_0.png)
     
 
 
@@ -69,7 +78,7 @@ plot_hist(bins)
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_13_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_14_0.png)
     
 
 
@@ -122,7 +131,7 @@ plt.show()
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_23_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_24_0.png)
     
 
 
@@ -142,7 +151,7 @@ ax.set(xlabel='Variable', ylabel='Count');
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_26_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_27_0.png)
     
 
 
@@ -177,7 +186,7 @@ plt.show()
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_35_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_36_0.png)
     
 
 
@@ -233,7 +242,7 @@ plt.show()
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_46_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_47_0.png)
     
 
 
@@ -250,7 +259,7 @@ plt.show()
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_48_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_49_0.png)
     
 
 
@@ -290,7 +299,7 @@ ax.set(xlabel='Variable', ylabel='Count');
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_57_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_58_0.png)
     
 
 
