@@ -9,6 +9,12 @@ tags: [Data Visualization, Python, Statistics]
 
 Distributions are super important. In this post I'll talk about some common distributions, how to plot them, and what they can be used for.
 
+<b>Table of Contents</b>
+* TOC
+{:toc}
+
+Distributions can be categorized as discrete or continuous based on whether the variable is discrete or continuous.
+
 
 ```python
 import math
@@ -24,12 +30,6 @@ from scipy.stats import binom, norm, poisson
 # set seed
 np.random.seed(0)
 ```
-
-<b>Table of Contents</b>
-* TOC
-{:toc}
-
-Distributions can be categorized as discrete or continuous based on whether the variable is discrete or continuous.
 
 # Continuous Distributions
 
