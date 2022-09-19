@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Machine Learning Algorithms and Gains Charts"
+title: "Evaluating Machine Learning Algorithms"
 description: "This post shows how you can measure machine learning algorithm quality with gains charts, lift charts, and KS statistics."
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/quokka.jpg"
@@ -26,6 +26,7 @@ import xgboost as xgb
 from mlxtend.plotting import plot_decision_regions
 from sklearn import metrics, model_selection
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis, QuadraticDiscriminantAnalysis
+from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import GridSearchCV, train_test_split
 from sklearn.naive_bayes import GaussianNB
@@ -48,7 +49,9 @@ sns.set(font_scale=1.5)
 df = sns.load_dataset("iris")
 ```
 
-The dataset has four different features which makes it harder to visualize. But from our previous analysis, we could see that the most important features for distinguishing between the different species are petal length and petal width. To make it easier to visualize, we're going to focus on just those two.
+We'll keep using the iris dataset. Last time we looked at petal length and petal width because they provided good separation between this classes. This time we'll look at sepal length and sepal width to make it more challenging for the classifiers.
+
+Most everything else is the same as last time, so I won't go into much detail here.
 
 
 ```python
@@ -58,9 +61,7 @@ y = df['species']
 y = pd.factorize(y, sort=True)[0]
 ```
 
-We know from the previous analysis that the labels are balanced, so we don't need to stratify the data. We'll just randomly divide up the dataset into testing and training sets using Scikit-learn.
-
-The vericolor one is in between the other two, so it's probably the hardest to distinguish. Let's say instead we were just trying to determine whether an iris is versicolor or not.
+In this case, we're going to build an algorithm to determine whether an iris is the versicolor species. This will allow us to use lift and gain charts to analyze our results.
 
 
 ```python
@@ -82,8 +83,6 @@ X_train_array = np.asarray(X_train)
 X_test_array = np.asarray(X_test)
 ```
 
-Let's take a look at our dataset. Since we're going to visualize a lot of algorithms, we'll use the [mlxtend](http://rasbt.github.io/mlxtend/) library and build a simple function to label the graphs.
-
 
 ```python
 def add_labels(standardized=False):
@@ -103,43 +102,23 @@ def add_labels(standardized=False):
 y_str = y.astype(str)
 y_str[y_str == '0'] = 'red'
 y_str[y_str == '1'] = 'blue'
-y_str[y_str == '2'] = 'green'
 ```
 
 
 ```python
 plt.scatter(X['sepal_length'], X['sepal_width'], c=y_str)
-# plt.xlim(0, 7.9)
-# plt.ylim(-0.9, 3.5)
 add_labels()
 ```
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_17_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_16_0.png)
     
 
 
-
-```python
-
-```
-
 # Algorithms
 
-There are lots of good algorithms to try, some will work better with some data. Here are all the ones we'll look at:
-- Gaussian Naive Bayes
-- Logistic Regression
-- K Nearest Neighbors
-- Support Vector Machines (linear and nonlinear)
-- Linear Discriminant Analysis / Quadratic Discriminant Analysis
-- Decision Tree Classifier
-- Perceptron
-- Neural Network (Multi-layer perceptron)
-
 ## Gaussian Naive Bayes
-
-OK. Let's train the classifier using our data.
 
 
 ```python
@@ -168,6 +147,8 @@ def show_scores(preds, y_true):
     for i, label in enumerate(sorted_y_true):
         print(f"Label: {label}, Prediction: {round(sorted_preds[i], 4)}")
 ```
+
+We can sometimes get a better since of what's going on by looking at the raw scores.
 
 
 ```python
@@ -221,7 +202,7 @@ plt.hist(predicted_probas_gnb[:,1]);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_27_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_24_0.png)
     
 
 
@@ -232,7 +213,7 @@ skplt.metrics.plot_cumulative_gain(y_test, predicted_probas_gnb);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_28_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_25_0.png)
     
 
 
@@ -243,7 +224,7 @@ skplt.metrics.plot_lift_curve(y_test, predicted_probas_gnb);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_29_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_26_0.png)
     
 
 
@@ -254,7 +235,7 @@ skplt.metrics.plot_ks_statistic(y_test, predicted_probas_gnb);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_30_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_27_0.png)
     
 
 
@@ -286,14 +267,14 @@ print(
 
 ```python
 plot_decision_regions(
-    X_std, y, clf=lgr, X_highlight=X_test_std, colors='red,blue,green'
+    X_std, y, clf=lgr, X_highlight=X_test_std, colors='red,blue'
 )
 add_labels(standardized=True)
 ```
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_34_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_31_0.png)
     
 
 
@@ -305,7 +286,7 @@ skplt.metrics.plot_cumulative_gain(y_test, predicted_probas_lgr);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_35_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_32_0.png)
     
 
 
@@ -316,7 +297,7 @@ skplt.metrics.plot_lift_curve(y_test, predicted_probas_lgr);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_36_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_33_0.png)
     
 
 
@@ -327,7 +308,7 @@ skplt.metrics.plot_ks_statistic(y_test, predicted_probas_lgr);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_37_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_34_0.png)
     
 
 
@@ -355,8 +336,6 @@ print(
     63.2% of the test set was correct.
     
 
-Let's see what the best hyperparameters were
-
 
 ```python
 print(lgr_grid.best_estimator_)
@@ -368,14 +347,14 @@ print(lgr_grid.best_estimator_)
 
 ```python
 plot_decision_regions(
-    X_std, y, clf=lgr_grid, X_highlight=X_test_std, colors='red,blue,green'
+    X_std, y, clf=lgr_grid, X_highlight=X_test_std, colors='red,blue'
 )
 add_labels(standardized=True)
 ```
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_43_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_39_0.png)
     
 
 
@@ -387,7 +366,7 @@ skplt.metrics.plot_cumulative_gain(y_test, predicted_probas_lgr_grid);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_44_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_40_0.png)
     
 
 
@@ -398,7 +377,7 @@ skplt.metrics.plot_lift_curve(y_test, predicted_probas_lgr_grid);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_45_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_41_0.png)
     
 
 
@@ -409,7 +388,7 @@ skplt.metrics.plot_ks_statistic(y_test, predicted_probas_lgr_grid);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_46_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_42_0.png)
     
 
 
@@ -432,18 +411,14 @@ print(
 
 ```python
 plot_decision_regions(
-    X_array, y, clf=lda, X_highlight=X_test_array, colors='red,blue,green'
+    X_array, y, clf=lda, X_highlight=X_test_array, colors='red,blue'
 )
 add_labels()
 ```
 
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\base.py:450: UserWarning: X does not have valid feature names, but LinearDiscriminantAnalysis was fitted with feature names
-      warnings.warn(
-    
-
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_49_1.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_45_0.png)
     
 
 
@@ -456,7 +431,7 @@ plt.show()
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_50_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_46_0.png)
     
 
 
@@ -467,7 +442,7 @@ skplt.metrics.plot_lift_curve(y_test, predicted_probas_lda);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_51_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_47_0.png)
     
 
 
@@ -478,7 +453,7 @@ skplt.metrics.plot_ks_statistic(y_test, predicted_probas_lda);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_52_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_48_0.png)
     
 
 
@@ -501,18 +476,14 @@ metrics.accuracy_score(y_test, qda.predict(X_test))
 
 ```python
 plot_decision_regions(
-    X_array, y, clf=qda, X_highlight=X_test_array, colors='red,blue,green'
+    X_array, y, clf=qda, X_highlight=X_test_array, colors='red,blue'
 )
 add_labels()
 ```
 
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\base.py:450: UserWarning: X does not have valid feature names, but QuadraticDiscriminantAnalysis was fitted with feature names
-      warnings.warn(
-    
-
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_55_1.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_51_0.png)
     
 
 
@@ -525,7 +496,7 @@ plt.show()
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_56_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_52_0.png)
     
 
 
@@ -536,7 +507,7 @@ skplt.metrics.plot_lift_curve(y_test, predicted_probas_qda);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_57_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_53_0.png)
     
 
 
@@ -547,11 +518,9 @@ skplt.metrics.plot_ks_statistic(y_test, predicted_probas_qda);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_58_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_54_0.png)
     
 
-
-You can sometimes get a better since of what's going on by looking at the raw scores.
 
 
 ```python
@@ -617,14 +586,14 @@ print(
 
 ```python
 plot_decision_regions(
-    X_std, y, clf=knn, X_highlight=X_test_std, colors='red,blue,green'
+    X_std, y, clf=knn, X_highlight=X_test_std, colors='red,blue'
 )
 add_labels(standardized=True)
 ```
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_63_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_58_0.png)
     
 
 
@@ -636,7 +605,7 @@ skplt.metrics.plot_cumulative_gain(y_test, predicted_probas_knn);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_64_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_59_0.png)
     
 
 
@@ -647,7 +616,7 @@ skplt.metrics.plot_lift_curve(y_test, predicted_probas_knn);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_65_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_60_0.png)
     
 
 
@@ -658,7 +627,7 @@ skplt.metrics.plot_ks_statistic(y_test, predicted_probas_knn);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_66_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_61_0.png)
     
 
 
@@ -681,18 +650,14 @@ print(
 
 ```python
 plot_decision_regions(
-    X_array, y, clf=tre, X_highlight=X_test_array, colors='red,blue,green'
+    X_array, y, clf=tre, X_highlight=X_test_array, colors='red,blue'
 )
 add_labels()
 ```
 
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\base.py:450: UserWarning: X does not have valid feature names, but DecisionTreeClassifier was fitted with feature names
-      warnings.warn(
-    
-
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_69_1.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_64_0.png)
     
 
 
@@ -705,7 +670,7 @@ plt.show()
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_70_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_65_0.png)
     
 
 
@@ -716,7 +681,7 @@ skplt.metrics.plot_lift_curve(y_test, predicted_probas_tre);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_71_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_66_0.png)
     
 
 
@@ -727,7 +692,7 @@ skplt.metrics.plot_ks_statistic(y_test, predicted_probas_tre);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_72_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_67_0.png)
     
 
 
@@ -782,11 +747,6 @@ show_scores(predicted_probas_tre[:,1], y_test)
 
 
 ```python
-from sklearn.ensemble import RandomForestClassifier
-```
-
-
-```python
 rfc = RandomForestClassifier(random_state=0)
 rfc.fit(X_train, y_train)
 print(
@@ -802,18 +762,14 @@ print(
 
 ```python
 plot_decision_regions(
-    X_array, y, clf=rfc, X_highlight=X_test_array, colors='red,blue,green'
+    X_array, y, clf=rfc, X_highlight=X_test_array, colors='red,blue'
 )
 add_labels()
 ```
 
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\base.py:450: UserWarning: X does not have valid feature names, but RandomForestClassifier was fitted with feature names
-      warnings.warn(
-    
-
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_78_1.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_72_0.png)
     
 
 
@@ -826,7 +782,7 @@ plt.show()
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_79_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_73_0.png)
     
 
 
@@ -837,7 +793,7 @@ skplt.metrics.plot_lift_curve(y_test, predicted_probas_rfc);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_80_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_74_0.png)
     
 
 
@@ -848,7 +804,7 @@ skplt.metrics.plot_ks_statistic(y_test, predicted_probas_rfc);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_81_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_75_0.png)
     
 
 
@@ -921,14 +877,14 @@ print(
 
 ```python
 plot_decision_regions(
-    X_array, y, clf=xg, X_highlight=X_test_array, colors='red,blue,green'
+    X_array, y, clf=xg, X_highlight=X_test_array, colors='red,blue'
 )
 add_labels()
 ```
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_87_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_81_0.png)
     
 
 
@@ -941,7 +897,7 @@ plt.show()
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_88_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_82_0.png)
     
 
 
@@ -952,7 +908,7 @@ skplt.metrics.plot_lift_curve(y_test, predicted_probas_xg);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_89_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_83_0.png)
     
 
 
@@ -963,7 +919,7 @@ skplt.metrics.plot_ks_statistic(y_test, predicted_probas_xg);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_90_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_84_0.png)
     
 
 
@@ -1031,14 +987,14 @@ print(
 
 ```python
 plot_decision_regions(
-    X_std, y, clf=mlp, X_highlight=X_test_std, colors='red,blue,green'
+    X_std, y, clf=mlp, X_highlight=X_test_std, colors='red,blue'
 )
 add_labels(standardized=True)
 ```
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_94_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_88_0.png)
     
 
 
@@ -1051,7 +1007,7 @@ plt.show()
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_95_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_89_0.png)
     
 
 
@@ -1062,7 +1018,7 @@ skplt.metrics.plot_lift_curve(y_test, predicted_probas_mlp);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_96_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_90_0.png)
     
 
 
@@ -1073,7 +1029,7 @@ skplt.metrics.plot_ks_statistic(y_test, predicted_probas_mlp);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_97_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_91_0.png)
     
 
 
@@ -1082,49 +1038,47 @@ skplt.metrics.plot_ks_statistic(y_test, predicted_probas_mlp);
 show_scores(predicted_probas_mlp[:,1], y_test)
 ```
 
-    Label: 1, Prediction: 0.8411
-    Label: 1, Prediction: 0.7958
-    Label: 0, Prediction: 0.7901
-    Label: 0, Prediction: 0.706
-    Label: 1, Prediction: 0.6809
-    Label: 1, Prediction: 0.6362
-    Label: 1, Prediction: 0.6092
-    Label: 1, Prediction: 0.6036
-    Label: 1, Prediction: 0.5744
-    Label: 0, Prediction: 0.5649
-    Label: 0, Prediction: 0.5545
-    Label: 1, Prediction: 0.5476
-    Label: 1, Prediction: 0.5432
-    Label: 1, Prediction: 0.5432
-    Label: 1, Prediction: 0.4929
-    Label: 0, Prediction: 0.4856
-    Label: 0, Prediction: 0.404
-    Label: 0, Prediction: 0.4014
-    Label: 1, Prediction: 0.3816
-    Label: 1, Prediction: 0.3809
-    Label: 0, Prediction: 0.3776
-    Label: 1, Prediction: 0.3286
-    Label: 1, Prediction: 0.257
-    Label: 1, Prediction: 0.2018
-    Label: 0, Prediction: 0.0721
-    Label: 0, Prediction: 0.0267
-    Label: 0, Prediction: 0.0195
-    Label: 0, Prediction: 0.0092
-    Label: 0, Prediction: 0.0073
-    Label: 0, Prediction: 0.0061
-    Label: 0, Prediction: 0.0061
-    Label: 0, Prediction: 0.0032
-    Label: 0, Prediction: 0.0025
-    Label: 0, Prediction: 0.0022
-    Label: 0, Prediction: 0.001
-    Label: 0, Prediction: 0.0009
-    Label: 0, Prediction: 0.0007
-    Label: 0, Prediction: 0.0002
+    Label: 1, Prediction: 0.8378
+    Label: 1, Prediction: 0.7979
+    Label: 0, Prediction: 0.7831
+    Label: 0, Prediction: 0.7228
+    Label: 1, Prediction: 0.6435
+    Label: 1, Prediction: 0.6263
+    Label: 1, Prediction: 0.6191
+    Label: 1, Prediction: 0.5993
+    Label: 0, Prediction: 0.5829
+    Label: 1, Prediction: 0.5762
+    Label: 1, Prediction: 0.5762
+    Label: 1, Prediction: 0.5687
+    Label: 0, Prediction: 0.5669
+    Label: 1, Prediction: 0.5652
+    Label: 0, Prediction: 0.5197
+    Label: 1, Prediction: 0.5173
+    Label: 0, Prediction: 0.4077
+    Label: 0, Prediction: 0.3957
+    Label: 1, Prediction: 0.375
+    Label: 0, Prediction: 0.374
+    Label: 1, Prediction: 0.3698
+    Label: 1, Prediction: 0.3395
+    Label: 1, Prediction: 0.2695
+    Label: 1, Prediction: 0.1982
+    Label: 0, Prediction: 0.0616
+    Label: 0, Prediction: 0.0345
+    Label: 0, Prediction: 0.0169
+    Label: 0, Prediction: 0.0119
+    Label: 0, Prediction: 0.0105
+    Label: 0, Prediction: 0.0072
+    Label: 0, Prediction: 0.0072
+    Label: 0, Prediction: 0.0041
+    Label: 0, Prediction: 0.0029
+    Label: 0, Prediction: 0.0028
+    Label: 0, Prediction: 0.0016
+    Label: 0, Prediction: 0.0014
+    Label: 0, Prediction: 0.0008
+    Label: 0, Prediction: 0.0005
     
 
 #### Hyperparameter Tuning a Neural Network
-
-This is another one that can be improved greatly by tuning
 
 
 ```python
@@ -1147,184 +1101,6 @@ print(
 )
 ```
 
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (2000) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (2000) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (2000) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (2000) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (2000) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (2000) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (2000) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (2000) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (2000) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (2000) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (2000) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (2000) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (2000) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (2000) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (2000) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    C:\Users\Julius\anaconda3\lib\site-packages\sklearn\neural_network\_multilayer_perceptron.py:692: ConvergenceWarning: Stochastic Optimizer: Maximum iterations (200) reached and the optimization hasn't converged yet.
-      warnings.warn(
-    
-
     73.7% of the test set was correct.
     
 
@@ -1333,20 +1109,20 @@ print(
 print(mlp_grid.best_estimator_)
 ```
 
-    MLPClassifier(alpha=0.1, learning_rate_init=0.01, max_iter=2000)
+    MLPClassifier(alpha=0.1, max_iter=2000)
     
 
 
 ```python
 plot_decision_regions(
-    X_std, y, clf=mlp_grid, X_highlight=X_test_std, colors='red,blue,green'
+    X_std, y, clf=mlp_grid, X_highlight=X_test_std, colors='red,blue'
 )
 add_labels(standardized=True)
 ```
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_104_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_97_0.png)
     
 
 
@@ -1359,7 +1135,7 @@ plt.show()
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_105_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_98_0.png)
     
 
 
@@ -1370,7 +1146,7 @@ skplt.metrics.plot_lift_curve(y_test, predicted_probas_mlp_grid);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_106_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_99_0.png)
     
 
 
@@ -1381,6 +1157,6 @@ skplt.metrics.plot_ks_statistic(y_test, predicted_probas_mlp_grid);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_107_0.png)
+![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_100_0.png)
     
 
