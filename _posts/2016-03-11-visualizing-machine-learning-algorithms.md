@@ -88,7 +88,7 @@ def add_labels(standardized=False):
 
 
 ```python
-y_str = y.astype(np.str)
+y_str = y.astype(str)
 y_str[y_str == '0'] = 'red'
 y_str[y_str == '1'] = 'blue'
 y_str[y_str == '2'] = 'green'
