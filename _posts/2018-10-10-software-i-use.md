@@ -137,6 +137,9 @@ Yes, I do use many different cloud services. All for slightly different purposes
 * I use this to make control jump over words
   * Lots of useful things under complex rules
 
+<img width="595" alt="image" src="https://user-images.githubusercontent.com/3067731/192059457-8d66f48e-1757-4494-bcba-1ed739ede295.png">
+
+
 # Programming
 
 ## Python Distribution
