@@ -101,7 +101,8 @@ I always have three or more web browsers on each computer. I use them for differ
 * [AdBlockPlus](https://adblockplus.org/)
 * [BitWarden](https://bitwarden.com/)
 
-
+## New Tab Page
+[Start.me](https://start.me/)
 
 # Programming
 
@@ -173,6 +174,8 @@ Yes, I do use many different cloud services. All for slightly different purposes
 
 [Todoist](https://todoist.com/)
 
+## Make macOS more like Windows
+
 [Karabiner-Elements](https://karabiner-elements.pqrs.org/) (FOSS, Mac only)
 * Great for remapping keys
 * You can [add the best Windows shortcuts to Mac](https://ke-complex-modifications.pqrs.org/?q=windows) with it
@@ -187,6 +190,9 @@ Usually the apps you need to give permissions to pop up in the list when you loo
 <img width="692" alt="image" src="https://user-images.githubusercontent.com/3067731/192062121-467eb3f1-055c-4e8e-990b-7948493d10e9.png">
 
 [Scroll Reverser](https://pilotmoon.com/scrollreverser/) (FOSS, Mac)
+
+[Witch](https://manytricks.com/witch/)
+* Switch between applications more like Windows
 
 # Terminals
 
@@ -374,10 +380,7 @@ I have no loyalty to any of these. I usually just go with the top free one recom
 * The best app for keeping track of scientific papers
 * Definitely use the browser extensions as well
 
-## New Tab Page
-[Start.me](https://start.me/)
-
-## Evaluating
+# Evaluating
 
 [Belarc Advisor](https://www.belarc.com/products_belarc_advisor)
 * Similar to Speccy
@@ -397,7 +400,7 @@ I have no loyalty to any of these. I usually just go with the top free one recom
 Static Type Checker - mypy
 * I put my mypy config in ~/.mypy.ini
 
-## Honorable Mentions
+# Honorable Mentions
 
 There are applications that were either neck-and-neck with other ones, or I use very infrequently, or I used to use but no longer do. I generally still think they're worth checking out.
 
