@@ -162,7 +162,7 @@ Usually the apps you need to give permissions to pop up in the list when you loo
 
 ## Version Control
 [Git](https://git-scm.com/)
-* I think git has by-and-large won the version control market
+* git has by-and-large won the version control market
 * Used in partnership with [GitHub](https://github.com/)
 * Git is great but frustrating when you [can't figure it out](https://xkcd.com/1597/) (yes, I've done this)
 * [GitHub Desktop](https://desktop.github.com/) is amazing and makes git much more beginner-friendly
@@ -261,11 +261,10 @@ I have no loyalty to any of these. I usually just go with the top free one recom
 
 # Databases
 
-[Navicat for PostgreSQL](https://www.navicat.com/en/products/navicat-for-postgresql)
-* Not free but this is my favorite for databases
+[DataGrip](jetbrains.com/datagrip/)
 
 [DBeaver](https://dbeaver.io/) (FOSS)
-* My current favorite open source to Navicat
+* My current favorite open source database software
 
 # LaTeX Editor
 
@@ -375,13 +374,8 @@ I have no loyalty to any of these. I usually just go with the top free one recom
 [Mamba](https://github.com/mamba-org/mamba)
 * Might become my new package manager
  
-[CyberDuck](https://cyberduck.io/)
 
-[HyperSwitch](https://bahoom.com/hyperswitch)
 
-[Wox](https://github.com/Wox-launcher/Wox) (Windows, FOSS)
-* Like Alfred for Windows
-* Default is Alt + Spacebar, which is a little different on the keyboard than Alfred.
 
 [Boop](https://github.com/IvanMathy/Boop) (Mac, FOSS)
 
@@ -405,3 +399,14 @@ Static Type Checker - mypy
 
 [GIMP](https://www.gimp.org/)  (Linux)
 * The Paint program I like on Windows doesn't exist for Linux, so I use GIMP instead.
+
+[Wox](https://github.com/Wox-launcher/Wox) (Windows, FOSS)
+* Like Alfred for Windows
+* Default is Alt + Spacebar, which is a little different on the keyboard than Alfred.
+
+[CyberDuck](https://cyberduck.io/)
+
+[HyperSwitch](https://bahoom.com/hyperswitch)
+
+[Navicat for PostgreSQL](https://www.navicat.com/en/products/navicat-for-postgresql)
+* Not free but this is my favorite for databases
