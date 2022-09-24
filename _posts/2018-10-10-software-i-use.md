@@ -283,6 +283,9 @@ I have no loyalty to any of these. I usually just go with the top free one recom
 
 [Google Hangouts](https://hangouts.google.com/)
 
+## Online Get Togethers
+
+[Gather](https://www.gather.town/)
 
 # Databases
 
@@ -359,9 +362,9 @@ I have no loyalty to any of these. I usually just go with the top free one recom
 [nvitop](https://github.com/XuehaiPan/nvitop)
 * Another nice tool for looking at GPU usage
 
-[Gather](https://www.gather.town/)
 
-[QGIS](https://qgis.org/en/site/)
+
+[QGIS](https://qgis.org/en/site/) (FOSS)
 
 ## Research
 
