@@ -101,58 +101,7 @@ I always have three or more web browsers on each computer. I use them for differ
 * [AdBlockPlus](https://adblockplus.org/)
 * [BitWarden](https://bitwarden.com/)
 
-## Media
-[Spotify](https://www.spotify.com/us/) (Ninite)
-* Seems to have won the music player market for now
 
-[VLC](https://www.videolan.org/vlc/index.html) (FOSS, Ninite)
-
-[Audacity](https://www.audacityteam.org/) (FOSS, Ninite)
-
-
-## Cloud Storage
-
-[Google backup and sync](https://www.google.com/drive/download/backup-and-sync/) (Ninite)
-* Unlimited photos, very good app
-* They keep renaming it, and I expect that to continue. It's Google
-
-[Dropbox](https://www.dropbox.com/) (Ninite)
-* Poor website interface but other than that one of my favorites
-
-[Microsoft OneDrive](https://products.office.com/en-us/onedrive/online-cloud-storage) (Ninite)
-* This does syncing very well
-
-Yes, I do use many different cloud services. All for slightly different purposes.
-
-## Productivity
-
-[Rectangle](https://rectangleapp.com/) (FOSS, Mac only)
-* Makes moving and resizing windows easy on a Mac
-* Here are the default hot keys
-
-![png]({{site.baseurl}}/assets/img/rectangle_defaults.png)
-
-[Alfred](https://www.alfredapp.com/) (Mac only)
-* In the running for one of the best productivity apps in existence
-* This is probably my favorite app for the Mac
-* Can be as simple or complex as you like
-
-[Todoist](https://todoist.com/)
-
-[Karabiner-Elements](https://karabiner-elements.pqrs.org/) (FOSS, Mac only)
-* Great for remapping keys
-* You can [add the best Windows shortcuts to Mac](https://ke-complex-modifications.pqrs.org/?q=windows) with it
-* I use this to make control jump over words
-  * Lots of useful things under complex rules
-* Check out Windows shortcuts on macOS
-
-<img width="595" alt="image" src="https://user-images.githubusercontent.com/3067731/192059457-8d66f48e-1757-4494-bcba-1ed739ede295.png">
-
-Usually the apps you need to give permissions to pop up in the list when you look for them, but not everything for Karabiner did for me. So I had to click the plus sign and go find whatever was missing.†
-
-<img width="692" alt="image" src="https://user-images.githubusercontent.com/3067731/192062121-467eb3f1-055c-4e8e-990b-7948493d10e9.png">
-
-[Scroll Reverser](https://pilotmoon.com/scrollreverser/) (FOSS, Mac)
 
 # Programming
 
@@ -185,6 +134,59 @@ Usually the apps you need to give permissions to pop up in the list when you loo
 * [HxD](https://mh-nexus.de/en/hxd/) (Windows only)
 
 * For Mac I'm trying out [Hex Fiend](https://ridiculousfish.com/hexfiend/)
+
+# Media
+[Spotify](https://www.spotify.com/us/) (Ninite)
+* Seems to have won the music player market for now
+
+[VLC](https://www.videolan.org/vlc/index.html) (FOSS, Ninite)
+
+[Audacity](https://www.audacityteam.org/) (FOSS, Ninite)
+
+
+# Cloud Storage
+
+[Google backup and sync](https://www.google.com/drive/download/backup-and-sync/) (Ninite)
+* Unlimited photos, very good app
+* They keep renaming it, and I expect that to continue. It's Google
+
+[Dropbox](https://www.dropbox.com/) (Ninite)
+* Poor website interface but other than that one of my favorites
+
+[Microsoft OneDrive](https://products.office.com/en-us/onedrive/online-cloud-storage) (Ninite)
+* This does syncing very well
+
+Yes, I do use many different cloud services. All for slightly different purposes.
+
+# Productivity
+
+[Rectangle](https://rectangleapp.com/) (FOSS, Mac only)
+* Makes moving and resizing windows easy on a Mac
+* Here are the default hot keys
+
+![png]({{site.baseurl}}/assets/img/rectangle_defaults.png)
+
+[Alfred](https://www.alfredapp.com/) (Mac only)
+* In the running for one of the best productivity apps in existence
+* This is probably my favorite app for the Mac
+* Can be as simple or complex as you like
+
+[Todoist](https://todoist.com/)
+
+[Karabiner-Elements](https://karabiner-elements.pqrs.org/) (FOSS, Mac only)
+* Great for remapping keys
+* You can [add the best Windows shortcuts to Mac](https://ke-complex-modifications.pqrs.org/?q=windows) with it
+* I use this to make control jump over words
+  * Lots of useful things under complex rules
+* Check out Windows shortcuts on macOS
+
+<img width="595" alt="image" src="https://user-images.githubusercontent.com/3067731/192059457-8d66f48e-1757-4494-bcba-1ed739ede295.png">
+
+Usually the apps you need to give permissions to pop up in the list when you look for them, but not everything for Karabiner did for me. So I had to click the plus sign and go find whatever was missing.†
+
+<img width="692" alt="image" src="https://user-images.githubusercontent.com/3067731/192062121-467eb3f1-055c-4e8e-990b-7948493d10e9.png">
+
+[Scroll Reverser](https://pilotmoon.com/scrollreverser/) (FOSS, Mac)
 
 # Terminals
 
