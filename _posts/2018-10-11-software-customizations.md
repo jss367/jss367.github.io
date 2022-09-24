@@ -16,14 +16,23 @@ This post details some of the customizations I have made to some of the [softwar
 
 #### External Packages
 
-Sublime Text has a great ecosystem of packages and plugins. Here's how to open the package manager:
+Sublime Text has a great ecosystem of packages and plugins. First you need to install the package manager:
 * `cmd` + `shift` + `p`
+* Click on Install Package Control
+
+<img width="600" alt="image" src="https://user-images.githubusercontent.com/3067731/192116256-61e0fe61-0c45-42da-8313-78947b0dc0d1.png">
+
+Then you need to install packages with it
+* `cmd` + `shift` + `p`
+* Click on Package Control: Install Package
+
+<img width="609" alt="image" src="https://user-images.githubusercontent.com/3067731/192116339-b32afeb9-d5b1-4172-ac20-b6cd02939674.png">
+
 
 ###### Package
 
 Here are some packages that I like
 * https://packagecontrol.io/packages/FileDiffs
-
 
 
 #### Tabs
