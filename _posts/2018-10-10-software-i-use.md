@@ -136,8 +136,13 @@ Yes, I do use many different cloud services. All for slightly different purposes
 * You can [add the best Windows shortcuts to Mac](https://ke-complex-modifications.pqrs.org/?q=windows) with it
 * I use this to make control jump over words
   * Lots of useful things under complex rules
+* Check out Windows shortcuts on macOS
 
 <img width="595" alt="image" src="https://user-images.githubusercontent.com/3067731/192059457-8d66f48e-1757-4494-bcba-1ed739ede295.png">
+
+Usually the apps you need to give permissions to pop up in the list when you look for them, but not everything for Karabiner did for me. So I had to click the plus sign and go find whatever was missing.†
+
+<img width="692" alt="image" src="https://user-images.githubusercontent.com/3067731/192062121-467eb3f1-055c-4e8e-990b-7948493d10e9.png">
 
 
 # Programming
@@ -244,7 +249,7 @@ I have no loyalty to any of these. I usually just go with the top free one recom
 * I'm still looking for something to help me automatically update software on my computer. So far I've gone with patch my pc but there's nothing I like
 
 
-## Messaging
+# Messaging
 
 [Discord](https://discordapp.com/) (Ninite)
 
