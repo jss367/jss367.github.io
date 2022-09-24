@@ -12,7 +12,8 @@ I'm always curious about how people set up their computers and what software pac
 * TOC
 {:toc}
 
-# General
+
+# Writing
 
 ## Text Editors
 [Sublime Text](https://www.sublimetext.com/)
@@ -33,11 +34,22 @@ I'm always curious about how people set up their computers and what software pac
 * I prefer Excel, but it's free and I don't use spreadsheets enough to buy Excel
 
 [LibreOffice](https://www.libreoffice.org/) (FOSS, Ninite)
-* I prefer this to Google's offerings but I don't use this very much anymore.
+* I prefer this to Google's offerings so I don't use this very much anymore.
 
-## Utilities
+## LaTeX Editor
 
-### File Explorer
+[Texmaker](https://www.xm1math.net/texmaker/)
+* Requires a distribution with it. I like MIKTEX
+* I also recommend pdflatex (through miktex)
+
+## Spelling and Grammar
+
+[Grammarly](https://www.grammarly.com/)
+* Very good. I hope it keeps getting better as natural language processing improves
+
+# Utilities
+
+## File Explorer
 
 [Commander One](https://mac.eltima.com/file-manager.html) (Mac only)
 * Dual-panel file explorer
@@ -54,42 +66,38 @@ I'm always curious about how people set up their computers and what software pac
 * I recently started using this on Windows and like it
 * Good use of tabs and windows
 
-[muCommander](https://www.mucommander.com/)
-* More lightweight than Commander One, so I'm starting to prefer it
-* [This website](https://logicgrimoire.wordpress.com/2013/11/15/richs-quick-and-easy-guide-to-file-management-with-mucommander/) offers good tips on how to get started with it
-
-### Searching for files
+## File Search
 [Agent Ransack](https://www.mythicsoft.com/agentransack/) (Windows)
 - Perfect search tool. I strongly favor this over the (otherwise also very good) alternatives
 - No equivalent for Linux or Mac, although there are decent built-in options
 
-### Screenshots
+## Screenshots
 [Greenshot](https://getgreenshot.org/) (FOSS, Windows)
 - This is a perfect screenshot tool. It does everything I want
 
 For a mac I just use the built-in tool
 - Note that if you want to select just a part of your screen, you should use `command + shift + 4`, then if you want to copy it straight to your clipboard (so you can paste it), hold `control` while you draw the outline
 
-### Package Managers
+## Package Managers
 [Homebrew](https://brew.sh/) (Mac)
 * By far the best pacakge manager for MacOS
 
-### Unzipping
+## Unzipping
 [7-Zip](https://www.7-zip.org/download.html) (Ninite)
 - The clear winner for Windows
 
-### Checking disk space
+## Checking disk space
 [WinDirStat](https://windirstat.net/index.html) (Ninite, Window)
 
 [ncdu](https://dev.yorhel.nl/ncdu)
 
-## Web Browsers
+# Web Browsers
 I always have three or more web browsers on each computer. I use them for different things. All are very good.
 * [Google Chrome](https://www.google.com/chrome/) (Ninite)
 * [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/) (Ninite)
 * [Brave](https://brave.com/)
 
-### Brower Extensions
+## Brower Extensions
 * [AdBlockPlus](https://adblockplus.org/)
 * [BitWarden](https://bitwarden.com/)
 
@@ -144,6 +152,7 @@ Usually the apps you need to give permissions to pop up in the list when you loo
 
 <img width="692" alt="image" src="https://user-images.githubusercontent.com/3067731/192062121-467eb3f1-055c-4e8e-990b-7948493d10e9.png">
 
+[Scroll Reverser](https://pilotmoon.com/scrollreverser/) (FOSS, Mac)
 
 # Programming
 
@@ -151,6 +160,9 @@ Usually the apps you need to give permissions to pop up in the list when you loo
 
 [Anaconda](https://www.anaconda.com/distribution/) (FOSS)
 * Now a no-brainer for data scientists
+
+[Mamba](https://github.com/mamba-org/mamba)
+* This is a superior package manager to conda
 
 ## Integrated Development Environment (IDE)
 [VSCode](https://code.visualstudio.com/) (Ninite)
@@ -168,6 +180,11 @@ Usually the apps you need to give permissions to pop up in the list when you loo
 * [GitHub Desktop](https://desktop.github.com/) is amazing and makes git much more beginner-friendly
   * I also recommend the [GitHub CLI](https://github.com/cli/cli)
   * GitHub Desktop also has a [version for Linux](https://github.com/shiftkey/desktop) that I use
+
+## Hex Editor
+* [HxD](https://mh-nexus.de/en/hxd/) (Windows only)
+
+* For Mac I'm trying out [Hex Fiend](https://ridiculousfish.com/hexfiend/)
 
 # Terminals
 
@@ -248,8 +265,9 @@ I have no loyalty to any of these. I usually just go with the top free one recom
 [Patch My PC](https://patchmypc.com/home-updater-download) (Windows only)
 * I'm still looking for something to help me automatically update software on my computer. So far I've gone with patch my pc but there's nothing I like
 
+# Social
 
-# Messaging
+## Messaging
 
 [Discord](https://discordapp.com/) (Ninite)
 
@@ -259,6 +277,13 @@ I have no loyalty to any of these. I usually just go with the top free one recom
 [Viber](https://www.viber.com/)
 * Beware: has ads, though I don't find them particularly intrusive
 
+## Video Conferencing
+
+[Zoom](https://zoom.us/) (Ninite)
+
+[Google Hangouts](https://hangouts.google.com/)
+
+
 # Databases
 
 [DataGrip](jetbrains.com/datagrip/)
@@ -266,32 +291,19 @@ I have no loyalty to any of these. I usually just go with the top free one recom
 [DBeaver](https://dbeaver.io/) (FOSS)
 * My current favorite open source database software
 
-# LaTeX Editor
+# Images
 
-[Texmaker](https://www.xm1math.net/texmaker/)
-* Requires a distribution with it. I like MIKTEX
-* I also recommend pdflatex (through miktex)
-
-# Hex Editor
-* [HxD](https://mh-nexus.de/en/hxd/) (Windows only)
-
-* For Mac I'm trying out [Hex Fiend](https://ridiculousfish.com/hexfiend/)
-
-
-# Video Conferencing
-
-[Zoom](https://zoom.us/) (Ninite)
-
-[Google Hangouts](https://hangouts.google.com/)
-
-# Image Viewer
+## Image Viewer
 [Xee](https://theunarchiver.com/xee) (Mac)
 
-# Image Editing
+## Image Editing
 [Adobe Lightroom](https://www.adobe.com/products/photoshop-lightroom.html) (Windows, Mac)
 * As much as I'd like to say GIMP is just as good, it's no match for the features of Lightroom. For someone who spends serious time editing photos, I don't think there's a better alternative.
 
-# Photography
+[Paintbrush](https://paintbrush.sourceforge.io/) (FOSS, Mac only)
+* Simple image editing on Mac
+
+## Photography
 
 [Image Composite Editor](https://www.microsoft.com/en-us/research/project/image-composite-editor/)
 * Free tool from Microsoft to stitch images for panoramas. Works better than Lightroom
@@ -305,10 +317,6 @@ I have no loyalty to any of these. I usually just go with the top free one recom
 
 # Other
 
-[Grammarly](https://www.grammarly.com/)
-* Pretty good. I hope it keeps getting better as natural language processing improves
-
-[Paintbrush](https://paintbrush.sourceforge.io/) (FOSS, Mac only)
 
 [Google Earth](https://www.google.com/earth/) (Ninite)
 
@@ -342,7 +350,7 @@ I have no loyalty to any of these. I usually just go with the top free one recom
 [Papertrail](https://www.papertrail.com/)
 * Cloud-hosted logging
 
-[Scroll Reverser](https://pilotmoon.com/scrollreverser/) (FOSS, Mac)
+
 
 [gpustat](https://github.com/wookayin/gpustat)
 * Very nice tool to tracking GPU usage
@@ -352,6 +360,8 @@ I have no loyalty to any of these. I usually just go with the top free one recom
 * Another nice tool for looking at GPU usage
 
 [Gather](https://www.gather.town/)
+
+[QGIS](https://qgis.org/en/site/)
 
 ## Research
 
@@ -371,12 +381,6 @@ I have no loyalty to any of these. I usually just go with the top free one recom
 
 [PowerToys](https://docs.microsoft.com/en-us/windows/powertoys/) (Windows)
 
-[Mamba](https://github.com/mamba-org/mamba)
-* Might become my new package manager
- 
-
-
-
 [Boop](https://github.com/IvanMathy/Boop) (Mac, FOSS)
 
 [GanttProject](https://www.ganttproject.biz/)
@@ -389,6 +393,8 @@ Static Type Checker - mypy
 * I put my mypy config in ~/.mypy.ini
 
 ## Honorable Mentions
+
+There are applications that were either neck-and-neck with other ones, or I use very infrequently, or I used to use but no longer do. I generally still think they're worth checking out.
 
 [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15)
 * Free and feels like VSCode in many ways
@@ -410,3 +416,7 @@ Static Type Checker - mypy
 
 [Navicat for PostgreSQL](https://www.navicat.com/en/products/navicat-for-postgresql)
 * Not free but this is my favorite for databases
+
+[muCommander](https://www.mucommander.com/)
+* More lightweight than Commander One, so I sometimes use it
+* [This website](https://logicgrimoire.wordpress.com/2013/11/15/richs-quick-and-easy-guide-to-file-management-with-mucommander/) offers good tips on how to get started with it
