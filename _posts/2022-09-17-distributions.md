@@ -23,6 +23,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
 from scipy.stats import binom, norm, poisson
+from tweedie import tweedie
 ```
 
 
@@ -51,7 +52,12 @@ def plot_hist(bins):
 
 
 ```python
-x = np.random.uniform(0, 1, 10000)
+num_samples = 10000
+```
+
+
+```python
+x = np.random.uniform(0, 1, num_samples)
 ```
 
 
@@ -63,7 +69,7 @@ plot_hist(bins)
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_12_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_13_0.png)
     
 
 
@@ -78,7 +84,7 @@ plot_hist(bins)
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_14_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_15_0.png)
     
 
 
@@ -90,16 +96,6 @@ Whether things are truly continuously distributed or not can be a bit of a quest
 * Asteroid impacts (roughly - it would only be continuous given a steady state of the universe)
 
 ## Gaussian (or Normal) Distribution
-
-
-```python
-
-```
-
-
-```python
-
-```
 
 Gaussian distributions are all around us. These are the famous bell curves. I've found that physicists are more likely to say "Gaussian" and mathematicians are more likely to say "normal". It seems that "normal" is more popular, although old habits die hard, so I still say "Gaussian".
 
@@ -125,7 +121,7 @@ fig = plt.figure()
 
 mean = 0
 standard_deviation = 1
-x = np.random.normal(loc=mean, scale=standard_deviation, size=10000) # You are generating 1000 points between 0 and 1.
+x = np.random.normal(loc=mean, scale=standard_deviation, size=num_samples)
 
 num_bins = 50
 n, bins, patches = plt.hist(x, num_bins, density=True, color='g', alpha=0.9)
@@ -143,7 +139,7 @@ plt.show()
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_27_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_26_0.png)
     
 
 
@@ -152,7 +148,7 @@ You can also do this with `seaborn` and `displot`.
 
 ```python
 mu, sigma = 0, 0.1 # mean and standard deviation
-s = np.random.normal(mu, sigma, 1000)
+s = np.random.normal(mu, sigma, num_samples)
 ```
 
 
@@ -163,13 +159,48 @@ ax.set(xlabel='Variable', ylabel='Count');
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_30_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_29_0.png)
     
 
 
 #### Uses
 
 * Height is a famous example of a Gaussian distribution
+
+## Tweedie Distribution
+
+
+```python
+num_params = 20
+```
+
+
+```python
+exog = np.random.rand(num_samples, num_params - 1)
+exog = np.hstack((np.ones((num_samples, 1)), exog))
+beta = np.concatenate(([500], np.random.randint(-100, 100, num_params - 1))) / 100
+eta = np.dot(exog, beta)
+mu = np.exp(eta)
+
+x = tweedie(mu=mu, p=1.5, phi=20).rvs(num_samples)
+```
+
+
+```python
+num_bins = 50
+n, bins, patches = plt.hist(x, num_bins, density=True, color='g', alpha=0.9)
+plt.xlabel('Variable')
+plt.ylabel('Probability')
+
+plt.title("Tweedie Distribution".format(num_bins))
+plt.show()
+```
+
+
+    
+![png](2022-09-17-distributions_files/2022-09-17-distributions_35_0.png)
+    
+
 
 # Discrete Distributions
 
@@ -183,7 +214,7 @@ Lots of things are discrete uniform distribution.
 
 
 ```python
-x = np.random.randint(0, 10, 10000)
+x = np.random.randint(0, 10, num_samples)
 ```
 
 
@@ -198,7 +229,7 @@ plt.show()
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_39_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_42_0.png)
     
 
 
@@ -229,7 +260,7 @@ x = np.random.binomial(n=100, p=0.1)
 print(f"In this experiment, we got heads {x} times")
 ```
 
-    In this experiment, we got heads 13 times
+    In this experiment, we got heads 14 times
     
 
 But we can run this whole experiment over and over again and see what we get.
@@ -237,7 +268,7 @@ But we can run this whole experiment over and over again and see what we get.
 
 ```python
 fig = plt.figure()
-x = np.random.binomial(n=num_trials, p=prob_success, size=50000)
+x = np.random.binomial(n=num_trials, p=prob_success, size=num_samples)
 num_bins = 25
 
 n, bins, patches = plt.hist(x, num_bins, density=True, color='g', alpha=0.9, rwidth=0.9)
@@ -252,7 +283,7 @@ plt.show()
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_49_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_52_0.png)
     
 
 
@@ -260,7 +291,7 @@ You can also do the same thing with `scipy`.
 
 
 ```python
-binon_sim = binom.rvs(n=num_trials, p=prob_success, size=10000)
+binon_sim = binom.rvs(n=num_trials, p=prob_success, size=num_samples)
 plt.hist(binon_sim, bins=num_bins, density=True, rwidth=0.9)
 plt.xlabel('Variable')
 plt.ylabel('Probability')
@@ -269,7 +300,7 @@ plt.show()
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_51_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_54_0.png)
     
 
 
@@ -298,7 +329,7 @@ Mathematically, this looks like: $$ P(x = k) = e^{-\lambda}\frac{\lambda^k}{k!} 
 
 
 ```python
-data_poisson = poisson.rvs(mu=3, size=10000)
+data_poisson = poisson.rvs(mu=3, size=num_samples)
 ```
 
 
@@ -309,7 +340,7 @@ ax.set(xlabel='Variable', ylabel='Count');
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_60_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_63_0.png)
     
 
 
