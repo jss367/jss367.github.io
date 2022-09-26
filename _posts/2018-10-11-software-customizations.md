@@ -206,27 +206,29 @@ cdh=cd "C:\Users\Julius\Documents\GitHub"
 
 I find it's easier to hot a hotkey that can easily be done with the left hand only. It also matches the default from Navicat, which is nice if you switch back and forth.
 
-<img width="974" alt="image" src="https://user-images.githubusercontent.com/3067731/192343012-b90c4e05-004f-4da3-ad83-d19b4d9b40f0.png">
-
-<img width="973" alt="image" src="https://user-images.githubusercontent.com/3067731/192343089-1ccb6c5f-20dd-453c-a4cd-6a2bb9d0ce34.png">
-
 Go into Preferences -> Keymap and type in "execute" in the search bar. Then change `Execute (2)` from empty to `command + R`. This way you don't have to disable `shift + return`.
 
 <img width="972" alt="image" src="https://user-images.githubusercontent.com/3067731/192343390-ecc29eb2-6982-48c8-be27-4ad2d7f0c087.png">
 
 That hotkey is already assigned to "Refresh", but I remove it from there.
 
+Note that you can also go into more detail with your `Execute` command in the Database -> Query Execution menu
+
+<img width="974" alt="image" src="https://user-images.githubusercontent.com/3067731/192343012-b90c4e05-004f-4da3-ad83-d19b4d9b40f0.png">
+
 #### Tabs
 
 DataGrip also has a default tab process that I don't like. Here's how to update it to make it more like Chrome's:
 
-* Go into Preferences -> Keymap and type in switcher.
+* Go into Preferences -> Keymap and type in "switcher".
 
 <img width="974" alt="image" src="https://user-images.githubusercontent.com/3067731/186535752-d7b07286-40e8-4512-921e-2994756d9b42.png">
 
-* Double click on the actions to remove them. Remove both of them.
+* Double click on the keyboard shortcut icons on the right and remove them. Remove both of them.
 
 * Type in "select tab" into the search and add the new commands to "Select Next Tab" and "Select Previous Tab" under Main Menu -> Window -> Editor Tabs
+
+* Note that you can't just do the keyboard shortcut because it will think you are using `tab` to switch to the next box, so you have to click on the `+` on the right and select the appropriate hotkeys from the dropdown.
 
 * It should look like this in the end:
 
