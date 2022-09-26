@@ -202,6 +202,22 @@ cdh=cd "C:\Users\Julius\Documents\GitHub"
 
 ## DataGrip
 
+#### Execute Command
+
+I find it's easier to hot a hotkey that can easily be done with the left hand only. It also matches the default from Navicat, which is nice if you switch back and forth.
+
+<img width="974" alt="image" src="https://user-images.githubusercontent.com/3067731/192343012-b90c4e05-004f-4da3-ad83-d19b4d9b40f0.png">
+
+<img width="973" alt="image" src="https://user-images.githubusercontent.com/3067731/192343089-1ccb6c5f-20dd-453c-a4cd-6a2bb9d0ce34.png">
+
+Go into Preferences -> Keymap and type in "execute" in the search bar. Then change `Execute (2)` from empty to `command + R`. This way you don't have to disable `shift + return`.
+
+<img width="972" alt="image" src="https://user-images.githubusercontent.com/3067731/192343390-ecc29eb2-6982-48c8-be27-4ad2d7f0c087.png">
+
+That hotkey is already assigned to "Refresh", but I remove it from there.
+
+#### Tabs
+
 DataGrip also has a default tab process that I don't like. Here's how to update it to make it more like Chrome's:
 
 * Go into Preferences -> Keymap and type in switcher.
