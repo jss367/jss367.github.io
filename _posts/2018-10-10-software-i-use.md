@@ -253,6 +253,8 @@ As you can see, I'm strewn across half a dozen terminals in Windows and have fou
 * A great system monitoring tools
 * Works across all platforms
 
+[tmux](https://github.com/tmux/tmux)
+
 You can also find a lot of great tools here: https://github.com/ibraheemdev/modern-unix
 
 # Security
