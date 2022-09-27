@@ -21,7 +21,7 @@ Before you start, you'll want to make sure that your graphics card is properly i
 Then, make sure it is on this list: <https://developer.nvidia.com/cuda-gpus>
 
 
-## See where you are
+## See Where You Are
 
 Sometimes you'll get stuck somewhere in the middle of an installation and you're unsure of what installed correctly. You don't want to start from the beginning because you don't want to have multiple versions conflicting, but you don't know what you need to do next. That's why I want to start this off with some ways for you to figure out exactly where you are in the process.
 
