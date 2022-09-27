@@ -21,7 +21,7 @@ import pandas as pd
 print(pd.__version__)
 ```
 
-    1.3.4
+    1.4.2
     
 
 # Importing Data
@@ -992,7 +992,7 @@ df.head()
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>Unnamed: 0.1</th>
+      <th>Unnamed: 0</th>
       <th>Name</th>
       <th>Year</th>
       <th>Category</th>
@@ -1138,21 +1138,15 @@ df.sample(5)
   </thead>
   <tbody>
     <tr>
-      <th>2</th>
-      <td>Richard II</td>
-      <td>1595</td>
-      <td>History</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Romeo and Juliet</td>
-      <td>1595</td>
+      <th>8</th>
+      <td>Macbeth</td>
+      <td>1606</td>
       <td>Tragedy</td>
     </tr>
     <tr>
-      <th>6</th>
-      <td>Julius Caesar</td>
-      <td>1599</td>
+      <th>0</th>
+      <td>Titus Andronicus</td>
+      <td>1592</td>
       <td>Tragedy</td>
     </tr>
     <tr>
@@ -1162,10 +1156,16 @@ df.sample(5)
       <td>Tragedy</td>
     </tr>
     <tr>
-      <th>0</th>
-      <td>Titus Andronicus</td>
-      <td>1592</td>
-      <td>Tragedy</td>
+      <th>5</th>
+      <td>King John</td>
+      <td>1596</td>
+      <td>History</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>A Midsummer Night’s Dream</td>
+      <td>1595</td>
+      <td>Comedy</td>
     </tr>
   </tbody>
 </table>
@@ -3505,24 +3505,24 @@ df.sample(frac=1).reset_index(drop=True)
   <tbody>
     <tr>
       <th>0</th>
+      <td>red</td>
+      <td>1</td>
+      <td>15</td>
+      <td>polo</td>
+    </tr>
+    <tr>
+      <th>1</th>
       <td>green</td>
       <td>2</td>
       <td>20</td>
       <td>polo</td>
     </tr>
     <tr>
-      <th>1</th>
+      <th>2</th>
       <td>red</td>
       <td>3</td>
       <td>15</td>
       <td>T-shirt</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>red</td>
-      <td>1</td>
-      <td>15</td>
-      <td>polo</td>
     </tr>
   </tbody>
 </table>
@@ -3665,6 +3665,305 @@ pd.get_dummies(df[['color', 'size']])
       <td>1</td>
       <td>0</td>
       <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+# Changing Specific Rows
+
+Note that there are a lot of wrong ways to do this in pandas.
+
+
+```python
+df = pd.DataFrame(list(zip(names,years,categories)), columns=['Name', 'Year', 'Category'])
+```
+
+
+```python
+df
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Year</th>
+      <th>Category</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Titus Andronicus</td>
+      <td>1592</td>
+      <td>Tragedy</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>The Comedy of Errors</td>
+      <td>1594</td>
+      <td>Comedy</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Richard II</td>
+      <td>1595</td>
+      <td>History</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Romeo and Juliet</td>
+      <td>1595</td>
+      <td>Tragedy</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>A Midsummer Night’s Dream</td>
+      <td>1595</td>
+      <td>Comedy</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>King John</td>
+      <td>1596</td>
+      <td>History</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Julius Caesar</td>
+      <td>1599</td>
+      <td>Tragedy</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Othello</td>
+      <td>1604</td>
+      <td>Tragedy</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Macbeth</td>
+      <td>1606</td>
+      <td>Tragedy</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+Here you might think you're setting the value, but you're not.
+
+
+```python
+df.loc[df.index[-4:]]['Category'] = 'Drama'
+```
+
+
+```python
+df
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Year</th>
+      <th>Category</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Titus Andronicus</td>
+      <td>1592</td>
+      <td>Tragedy</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>The Comedy of Errors</td>
+      <td>1594</td>
+      <td>Comedy</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Richard II</td>
+      <td>1595</td>
+      <td>History</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Romeo and Juliet</td>
+      <td>1595</td>
+      <td>Tragedy</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>A Midsummer Night’s Dream</td>
+      <td>1595</td>
+      <td>Comedy</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>King John</td>
+      <td>1596</td>
+      <td>History</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Julius Caesar</td>
+      <td>1599</td>
+      <td>Tragedy</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Othello</td>
+      <td>1604</td>
+      <td>Tragedy</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Macbeth</td>
+      <td>1606</td>
+      <td>Tragedy</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+This is how you have to do it.
+
+
+```python
+df.loc[df.index[-4:], 'Category'] = 'Drama'
+```
+
+
+```python
+df
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Name</th>
+      <th>Year</th>
+      <th>Category</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Titus Andronicus</td>
+      <td>1592</td>
+      <td>Tragedy</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>The Comedy of Errors</td>
+      <td>1594</td>
+      <td>Comedy</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Richard II</td>
+      <td>1595</td>
+      <td>History</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Romeo and Juliet</td>
+      <td>1595</td>
+      <td>Tragedy</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>A Midsummer Night’s Dream</td>
+      <td>1595</td>
+      <td>Comedy</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>King John</td>
+      <td>1596</td>
+      <td>Drama</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Julius Caesar</td>
+      <td>1599</td>
+      <td>Drama</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Othello</td>
+      <td>1604</td>
+      <td>Drama</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Macbeth</td>
+      <td>1606</td>
+      <td>Drama</td>
     </tr>
   </tbody>
 </table>
