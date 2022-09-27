@@ -19,12 +19,14 @@ To start with, we do the standard FastAI imports.
 
 
 ```python
+import inspect
+
 from fastai.data.all import *
 from fastai.vision.all import *
 from pyxtend import struct
 ```
 
-To generate a dataset, you'll need to create a `DataBlock` and a `DataLoader`. The `DataBlock` is the first and main thing required to generate a dataset. `DataBlocks` don't contain any data, just a pipeline of what you are going to do with it, like how you're going to load it. I think of the `DataBlock` as a `DataPipeline`. DataBlocks are the building blocks of DataLoaders.
+To generate a dataset, you'll need to create a `DataBlock` and a `DataLoader`. The `DataBlock` is the first and main thing required to generate a dataset. `DataBlock`s don't contain any data; they are just a pipeline of what to do with the data, like how to load it. I think of the `DataBlock` as a `DataPipeline`. DataBlocks are the building blocks of DataLoaders.
 
 
 ```python
@@ -53,7 +55,7 @@ all_images[:5]
 
 
 
-    (#5) [Path('/home/julius/data/KangWall512Split/test/wallaby/wallaby-376.jpg'),Path('/home/julius/data/KangWall512Split/test/wallaby/wallaby-1735.jpg'),Path('/home/julius/data/KangWall512Split/test/wallaby/wallaby-463.jpg'),Path('/home/julius/data/KangWall512Split/test/wallaby/wallaby-282.jpg'),Path('/home/julius/data/KangWall512Split/test/wallaby/wallaby-274.jpg')]
+    (#5) [Path('I:/Data/KangWall512Split/train/kangaroo/kangaroo-10.jpg'),Path('I:/Data/KangWall512Split/train/kangaroo/kangaroo-1000.jpg'),Path('I:/Data/KangWall512Split/train/kangaroo/kangaroo-1001.jpg'),Path('I:/Data/KangWall512Split/train/kangaroo/kangaroo-1002.jpg'),Path('I:/Data/KangWall512Split/train/kangaroo/kangaroo-1003.jpg')]
 
 
 
@@ -67,7 +69,7 @@ parent_label(all_images[0])
 
 
 
-    'wallaby'
+    'kangaroo'
 
 
 
@@ -116,38 +118,36 @@ dblock.summary(path)
 ```
 
     Setting-up type transforms pipelines
-    Collecting items from /home/julius/data/KangWall512Split
+    Collecting items from I:\Data\KangWall512Split
     Found 4716 items
     2 datasets of sizes 3094,886
-    Setting up Pipeline: PILBase.create
-    Setting up Pipeline: parent_label -> Categorize -- {'vocab': None, 'sort': True, 'add_na': False}
     Setting up Pipeline: PILBase.create
     Setting up Pipeline: parent_label -> Categorize -- {'vocab': None, 'sort': True, 'add_na': False}
     
     Building one sample
       Pipeline: PILBase.create
         starting from
-          /home/julius/data/KangWall512Split/train/wallaby/wallaby-558.jpg
+          I:\Data\KangWall512Split\train\kangaroo\kangaroo-10.jpg
         applying PILBase.create gives
           PILImage mode=RGB size=512x512
       Pipeline: parent_label -> Categorize -- {'vocab': None, 'sort': True, 'add_na': False}
         starting from
-          /home/julius/data/KangWall512Split/train/wallaby/wallaby-558.jpg
+          I:\Data\KangWall512Split\train\kangaroo\kangaroo-10.jpg
         applying parent_label gives
-          wallaby
+          kangaroo
         applying Categorize -- {'vocab': None, 'sort': True, 'add_na': False} gives
-          TensorCategory(1)
+          TensorCategory(0)
     
-    Final sample: (PILImage mode=RGB size=512x512, TensorCategory(1))
+    Final sample: (PILImage mode=RGB size=512x512, TensorCategory(0))
     
     
-    Collecting items from /home/julius/data/KangWall512Split
+    Collecting items from I:\Data\KangWall512Split
     Found 4716 items
     2 datasets of sizes 3094,886
     Setting up Pipeline: PILBase.create
     Setting up Pipeline: parent_label -> Categorize -- {'vocab': None, 'sort': True, 'add_na': False}
-    Setting up Pipeline: PILBase.create
-    Setting up Pipeline: parent_label -> Categorize -- {'vocab': None, 'sort': True, 'add_na': False}
+    Due to IPython and Windows limitation, python multiprocessing isn't available now.
+    So `number_workers` is changed to 0 to avoid getting stuck
     Setting up after_item: Pipeline: Resize -- {'size': (224, 224), 'method': 'crop', 'pad_mode': 'reflection', 'resamples': (2, 0), 'p': 1.0} -> ToTensor
     Setting up before_batch: Pipeline: 
     Setting up after_batch: Pipeline: IntToFloatTensor -- {'div': 255.0, 'div_mask': 1}
@@ -156,11 +156,11 @@ dblock.summary(path)
     Applying item_tfms to the first sample:
       Pipeline: Resize -- {'size': (224, 224), 'method': 'crop', 'pad_mode': 'reflection', 'resamples': (2, 0), 'p': 1.0} -> ToTensor
         starting from
-          (PILImage mode=RGB size=512x512, TensorCategory(1))
+          (PILImage mode=RGB size=512x512, TensorCategory(0))
         applying Resize -- {'size': (224, 224), 'method': 'crop', 'pad_mode': 'reflection', 'resamples': (2, 0), 'p': 1.0} gives
-          (PILImage mode=RGB size=224x224, TensorCategory(1))
+          (PILImage mode=RGB size=224x224, TensorCategory(0))
         applying ToTensor gives
-          (TensorImage of size 3x224x224, TensorCategory(1))
+          (TensorImage of size 3x224x224, TensorCategory(0))
     
     Adding the next 3 samples
     
@@ -171,9 +171,9 @@ dblock.summary(path)
     Applying batch_tfms to the batch built
       Pipeline: IntToFloatTensor -- {'div': 255.0, 'div_mask': 1}
         starting from
-          (TensorImage of size 4x3x224x224, TensorCategory([1, 1, 1, 1], device='cuda:0'))
+          (TensorImage of size 4x3x224x224, TensorCategory([0, 0, 0, 0], device='cuda:0'))
         applying IntToFloatTensor -- {'div': 255.0, 'div_mask': 1} gives
-          (TensorImage of size 4x3x224x224, TensorCategory([1, 1, 1, 1], device='cuda:0'))
+          (TensorImage of size 4x3x224x224, TensorCategory([0, 0, 0, 0], device='cuda:0'))
     
 
 Once you've got a `DataBlock`, you can convert it into either a dataset using `dblock.datasets` or a dataloader using `dblock.dataloaders`. In this case, we'll do the `DataLoader`.
@@ -187,6 +187,24 @@ Because your `DataBlock` knows how to feed data into the model (i.e. it knows th
 dls = dblock.dataloaders(path)
 ```
 
+    Due to IPython and Windows limitation, python multiprocessing isn't available now.
+    So `number_workers` is changed to 0 to avoid getting stuck
+    
+
+You might think that's not enough information to know how to load the data, and you're right. For example, we haven't told it what batch size to use. But instead of making these required arguments, `fastai` sets reasonable defaults for you so you can always adjust them, but if you just want to try something, it doesn't slow you down. If you're curious, the default batch size is 64.
+
+
+```python
+dls.bs
+```
+
+
+
+
+    64
+
+
+
 
 ```python
 type(dls)
@@ -199,11 +217,10 @@ type(dls)
 
 
 
-The DataLoaders class is interesting. I had assumed it was inherited from the PyTorch DataLoader, but it is not.
+The DataLoaders class is interesting. I had assumed it was inherited from the [PyTorch DataLoader](https://pytorch.org/docs/stable/data.html#torch.utils.data.DataLoader), but that's not the case.
 
 
 ```python
-import inspect
 inspect.getmro(DataLoaders)
 ```
 
@@ -221,7 +238,7 @@ dls.train.show_batch(max_n=4, nrows=1)
 
 
     
-![png](2022-01-01-fastai-data-tutorial-image-classification_files/2022-01-01-fastai-data-tutorial-image-classification_32_0.png)
+![png](2022-01-01-fastai-data-tutorial-image-classification_files/2022-01-01-fastai-data-tutorial-image-classification_34_0.png)
     
 
 
@@ -232,7 +249,7 @@ dls.valid.show_batch(max_n=4, nrows=1)
 
 
     
-![png](2022-01-01-fastai-data-tutorial-image-classification_files/2022-01-01-fastai-data-tutorial-image-classification_33_0.png)
+![png](2022-01-01-fastai-data-tutorial-image-classification_files/2022-01-01-fastai-data-tutorial-image-classification_35_0.png)
     
 
 
@@ -264,18 +281,13 @@ dls = dblock.dataloaders(path)
 dls.train.show_batch(max_n=4, nrows=1)
 ```
 
-    /home/julius/miniconda3/envs/fai/lib/python3.8/site-packages/torch/_tensor.py:1023: UserWarning: torch.solve is deprecated in favor of torch.linalg.solveand will be removed in a future PyTorch release.
-    torch.linalg.solve has its arguments reversed and does not return the LU factorization.
-    To get the LU factorization see torch.lu, which can be used with torch.lu_solve or torch.lu_unpack.
-    X = torch.solve(B, A).solution
-    should be replaced with
-    X = torch.linalg.solve(A, B) (Triggered internally at  /opt/conda/conda-bld/pytorch_1623448234945/work/aten/src/ATen/native/BatchLinearAlgebra.cpp:760.)
-      ret = func(*args, **kwargs)
+    Due to IPython and Windows limitation, python multiprocessing isn't available now.
+    So `number_workers` is changed to 0 to avoid getting stuck
     
 
 
     
-![png](2022-01-01-fastai-data-tutorial-image-classification_files/2022-01-01-fastai-data-tutorial-image-classification_40_1.png)
+![png](2022-01-01-fastai-data-tutorial-image-classification_files/2022-01-01-fastai-data-tutorial-image-classification_42_1.png)
     
 
 
@@ -348,7 +360,7 @@ std = torch.stack(stds).mean(dim=0)
 print(mean, std)
 ```
 
-    TensorImage([0.5275, 0.4787, 0.4250], device='cuda:0') TensorImage([0.2351, 0.2233, 0.2291], device='cuda:0')
+    TensorImage([0.5279, 0.4788, 0.4261], device='cuda:0') TensorImage([0.2345, 0.2232, 0.2285], device='cuda:0')
     
 
 
@@ -373,9 +385,13 @@ dls = dblock.dataloaders(path)
 dls.train.show_batch(max_n=4, nrows=1)
 ```
 
+    Due to IPython and Windows limitation, python multiprocessing isn't available now.
+    So `number_workers` is changed to 0 to avoid getting stuck
+    
+
 
     
-![png](2022-01-01-fastai-data-tutorial-image-classification_files/2022-01-01-fastai-data-tutorial-image-classification_55_0.png)
+![png](2022-01-01-fastai-data-tutorial-image-classification_files/2022-01-01-fastai-data-tutorial-image-classification_57_1.png)
     
 
 
@@ -391,11 +407,11 @@ dls
 
 
 
-    <fastai.data.core.DataLoaders at 0x7f7f1c1d0af0>
+    <fastai.data.core.DataLoaders at 0x290a140cd90>
 
 
 
-The `DataLoaders` class is a wrapper around multiple, you guessed it, `DataLoader` classes. This is particularly useful when using a train and a test set. Let's see what `DataLoader`s we have here.
+The `DataLoaders` class is a wrapper around multiple `DataLoader` classes. This is particularly useful when using a train and a test set. Let's see what `DataLoader`s we have here.
 
 
 ```python
@@ -405,10 +421,28 @@ dls.loaders
 
 
 
-    [<fastai.data.core.TfmdDL at 0x7f7ffc3a22e0>,
-     <fastai.data.core.TfmdDL at 0x7f7ffc38e5b0>]
+    [<fastai.data.core.TfmdDL at 0x290804d9610>,
+     <fastai.data.core.TfmdDL at 0x290a94b8220>]
 
 
+
+`Dataloaders` don't have a `len`, so you'll have to specify which subset to see the length of.
+
+
+```python
+len(dls.train.items), len(dls.valid.items)
+```
+
+
+
+
+    (3094, 886)
+
+
+
+## Exploring A DataLoader
+
+Now let's look at a single DataLoader.
 
 
 ```python
@@ -423,7 +457,58 @@ dl
 
 
 
-    <fastai.data.core.TfmdDL at 0x7f7ffc3a22e0>
+    <fastai.data.core.TfmdDL at 0x290804d9610>
+
+
+
+
+```python
+inspect.getmro(DataLoader)
+```
+
+
+
+
+    (fastai.data.load.DataLoader, fastcore.basics.GetAttr, object)
+
+
+
+It's a good idea to inspect your DataLoader a bit to see that it's working. Here are some ways.
+
+
+```python
+# check the batch size
+dl.bs
+```
+
+
+
+
+    64
+
+
+
+
+```python
+dl.device
+```
+
+
+
+
+    device(type='cuda', index=0)
+
+
+
+
+```python
+dl.dataset
+```
+
+
+
+
+    (#3094) [(PILImage mode=RGB size=512x512, TensorCategory(0)),(PILImage mode=RGB size=512x512, TensorCategory(0)),(PILImage mode=RGB size=512x512, TensorCategory(0)),(PILImage mode=RGB size=512x512, TensorCategory(0)),(PILImage mode=RGB size=512x512, TensorCategory(0)),(PILImage mode=RGB size=512x512, TensorCategory(0)),(PILImage mode=RGB size=512x512, TensorCategory(0)),(PILImage mode=RGB size=512x512, TensorCategory(0)),(PILImage mode=RGB size=512x512, TensorCategory(0)),(PILImage mode=RGB size=512x512, TensorCategory(0))...]
 
 
 
@@ -432,6 +517,7 @@ Let's see what it spits out.
 
 ```python
 item = next(iter(dl))
+# note that you could also do dl.one_batch()
 ```
 
 
@@ -494,8 +580,8 @@ item[1]
 
 
 
-    TensorCategory([1, 0, 0, 0, 0, 0, 0, 1, 1, 1, 0, 0, 0, 0, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0,
-            1, 1, 0, 1, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0,
-            1, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0, 0, 0], device='cuda:0')
+    TensorCategory([0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1, 1, 0, 0, 0, 1, 1, 1, 0,
+            0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 0,
+            0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0], device='cuda:0')
 
 
