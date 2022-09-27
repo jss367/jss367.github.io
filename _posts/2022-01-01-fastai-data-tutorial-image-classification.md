@@ -440,7 +440,7 @@ len(dls.train.items), len(dls.valid.items)
 
 
 
-## Exploring A DataLoader
+## Exploring a DataLoader
 
 Now let's look at a single DataLoader.
 
