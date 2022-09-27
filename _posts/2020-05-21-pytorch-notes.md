@@ -76,3 +76,19 @@ Note that `fixed_img` isn't a copy of the original, it's just a reshaping. So if
 #### model.summary()
 
 There is no `model.summary()` like there is in Keras, so instead I recommend [torchinfo](https://github.com/TylerYep/torchinfo). This is a great tool for sanity checking a network.
+
+
+## GPU Compatibility
+
+cudatoolkit-10.2.89
+torch                          1.12.1
+torchaudio                     0.12.1
+torchvision                    0.13.1
+
+RTX 2080
+
+Driver Version: 470.141.03   CUDA Version: 11.4
+
+
+
+
