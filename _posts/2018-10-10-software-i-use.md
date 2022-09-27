@@ -190,6 +190,9 @@ Usually the apps you need to give permissions to pop up in the list when you loo
 <img width="692" alt="image" src="https://user-images.githubusercontent.com/3067731/192062121-467eb3f1-055c-4e8e-990b-7948493d10e9.png">
 
 [Scroll Reverser](https://pilotmoon.com/scrollreverser/) (FOSS, Mac)
+* Here's how I set mine up
+
+<img width="394" alt="image" src="https://user-images.githubusercontent.com/3067731/192405163-11a1a60c-655a-49f4-86cd-260062c66d0d.png">
 
 [Witch](https://manytricks.com/witch/)
 * Switch between applications more like Windows
