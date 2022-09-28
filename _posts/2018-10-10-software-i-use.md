@@ -178,10 +178,9 @@ Yes, I do use many different cloud services. All for slightly different purposes
 
 [Karabiner-Elements](https://karabiner-elements.pqrs.org/) (FOSS, Mac only)
 * Great for remapping keys
+* See my [software customizations](https://jss367.github.io/software-customizations.html#karabiner-elements) for how I set it up
 
-<img width="595" alt="image" src="https://user-images.githubusercontent.com/3067731/192059457-8d66f48e-1757-4494-bcba-1ed739ede295.png">
-
-Usually the apps you need to give permissions to pop up in the list when you look for them, but not everything for Karabiner did for me. So I had to click the plus sign and go find whatever was missing.†
+Usually the apps you need to give permissions to pop up in the list when you look for them, but not everything for Karabiner did for me. So I had to click the plus sign and go find whatever was missing.
 
 <img width="692" alt="image" src="https://user-images.githubusercontent.com/3067731/192062121-467eb3f1-055c-4e8e-990b-7948493d10e9.png">
 
