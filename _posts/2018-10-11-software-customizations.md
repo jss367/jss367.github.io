@@ -234,3 +234,11 @@ DataGrip also has a default tab process that I don't like. Here's how to update 
 
 <img width="984" alt="image" src="https://user-images.githubusercontent.com/3067731/186536462-34900e69-1f70-4344-b847-fd3bec14e2ac.png">
 
+## Karabiner Elements
+
+Karabiner Elements is all about customization. I mainly use mine to make my experience across Mac, Linux, and Windows as seemless as possible.
+
+* I recommend use the [Windows shortcuts on macOS](https://ke-complex-modifications.pqrs.org/?q=windows%20shortcuts%20on%20macOS)
+  * I use this to do a lot of thinks I like to do in Windows, like using `control` and the arrows to jump over words
+  * I delete the shortcut that remaps `command` + `tab` because I like to keep that for switching between applications
+* Lots of useful things under complex rules
