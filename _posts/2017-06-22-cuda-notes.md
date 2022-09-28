@@ -6,7 +6,7 @@ thumbnail: "assets/img/astro.jpg"
 tags: [CUDA, TensorFlow, PyTorch]
 ---
 
-CUDA used to be an acronym for Compute Inified Device Architecture, but now it’s no longer an acronym. It’s just CUDA. CUDA is basically C for GPUs. Just like operations in NumPy use C and go much faster, the same is true for CUDA operations in GPUs.
+CUDA used to be an acronym for Compute Unified Device Architecture, but now it’s no longer an acronym. It’s just CUDA. CUDA is basically C for GPUs. Just like operations in NumPy use C and go much faster, the same is true for CUDA operations in GPUs.
 
 ## Check if GPUs are available
 
