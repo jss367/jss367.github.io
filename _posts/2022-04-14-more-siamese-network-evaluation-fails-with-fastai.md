@@ -7,7 +7,7 @@ thumbnail: "assets/img/platypus4.jpg"
 tags: [FastAI, Neural Networks, Python]
 ---
 
-I had too many failures for one post, so this describe **even more** ways not to evaluate models with FastAI.
+I had too many failures for one post, so this post describes **even more** ways not to evaluate models with FastAI.
 
 
 ```python
