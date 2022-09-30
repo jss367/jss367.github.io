@@ -16,8 +16,6 @@ import dill
 from fastai.vision.all import *
 ```
 
-Get all the pairs from the database
-
 
 ```python
 learner = load_learner(Path(os.getenv('MODELS')) / 'siamese_catsvdogs.pkl', cpu=False, pickle_module=dill)
