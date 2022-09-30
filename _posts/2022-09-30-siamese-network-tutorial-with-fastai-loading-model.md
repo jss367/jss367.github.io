@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Siamese Networks with FastAI"
+title: "Siamese Networks with FastAI - Loading Model"
 description: "This tutorial describes how to work with the FastAI library for siamese networks"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/platypus2.jpg"
