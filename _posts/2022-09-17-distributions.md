@@ -3,7 +3,7 @@ layout: post
 title: "Distributions"
 description: "This post shows distributions and how to plot them."
 feature-img: "assets/img/rainbow.jpg"
-thumbnail: "assets/img/rug.jpg"
+thumbnail: "assets/img/cradle_mountain.jpg"
 tags: [Data Visualization, Python, Statistics]
 ---
 
