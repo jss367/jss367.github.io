@@ -123,6 +123,11 @@ This means that everything you would normally do with a PyTorch model, you can d
 learn.model.eval();
 ```
 
+## Versioning
+
+You have to be very careful with what versions of FastAI and Python you use. For example, if you trained a model using Python 3.8, it won't work if you try to use it in Python 3.10.
+
+
 ## Transitioning From FastAI Version 1
 
 For those of you who used the first version of FastAI, there are a lot of differences. When loading data, you might be looking for `DataBunch`es. Those no longer exist, but you will see similar functionality in the `DataBlock`s. Also, lots of smaller data classes, such as `ImageList` and `ImageImageList`, no longer exist. Check out my [data tutorial](https://jss367.github.io/fastai-data-tutorial-image-classification.html) to see how to work with `DataBlock`s.
