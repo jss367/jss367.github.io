@@ -7,7 +7,7 @@ thumbnail: "assets/img/platypus1.jpg"
 tags: [FastAI, Neural Networks, Python]
 ---
 
-This is post is a walkthrough of creating a Siamese network with FastAI. I had planned to simply use the [tutorial from FastAI](https://docs.fast.ai/tutorial.siamese.html), but I had to change so much to be able to load the model and make it all work in Python 3.10 that I figured I would turn it into a blog post. This is really similar to my other post on [Siamese Networks with FastAI](https://jss367.github.io/siamese-networks-with-fastai.html), except that in this one I will follow on with a [post about how to run inference with the model](https://jss367.github.io/siamese-network-tutorial-with-fastai-loading-model.html).
+This is post is a walkthrough of creating a Siamese network with FastAI. I had planned to simply use the [tutorial from FastAI](https://docs.fast.ai/tutorial.siamese.html), but I had to change so much to be able to load the model and make it all work in Python 3.10 that I figured I would turn it into a blog post. This is really similar to my other post on [Siamese Networks with FastAI](https://jss367.github.io/siamese-networks-with-fastai.html), except that in this one I will follow on with a [post about how to run inference with the model](https://jss367.github.io/siamese-network-tutorial-with-fastai-loading-models.html).
 
 <b>Table of Contents</b>
 * TOC
