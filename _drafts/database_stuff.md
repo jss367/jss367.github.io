@@ -93,4 +93,3 @@ with db_session(engine=get_engine("bvds")) as sess:
 
 If you're using an ORM and want to update an object, you'll have to get the record, then update it and run `merge`.
 
-
