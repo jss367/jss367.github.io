@@ -36,6 +36,10 @@ You could also make a `sessionmaker`.
 
 
 
+
+
+
+
 You can write a function that queries the database:
 
 ```
@@ -59,6 +63,27 @@ With an ORM, you can see if a record exists
 
 session.query(My_Table).filter_by(name='My Name')
 
+
+filter vs filter_by: `https://stackoverflow.com/questions/2128505/difference-between-filter-and-filter-by-in-sqlalchemy`
+
+x = session.query(Customers).get(2)
+
+To get the record, you could do `.first()`, `.get(2)`, or `.one()`
+
+
+## Updating
+
+with db_session(engine=get_engine("bvds")) as sess:
+    records = sess.query(MyTable).filter_by(id = 12345)
+rec = records.first()
+rec.my_column = 'new_value'
+with db_session(engine=get_engine("bvds")) as sess:
+    sess.merge(rec)
+    try:
+        sess.commit()
+    except Exception as ex:
+        print(ex)
+        sess.rollback()
 
 ## Useful commands:
 
