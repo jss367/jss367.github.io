@@ -122,6 +122,10 @@ To do multi-line debugging, all you have to do is hold down `shift` before you h
 
 Control + Space to pull it up manually
 
+## Workspace file
+
+If you keep all your repos in a `git` folder like I do, I recommend putting your workspace file there (I call mine `workspace.code-workspace`). That way all the folders and paths are straightforward. Sometimes it will by default put them in `/Users/<username>/Library/Application Support/Code/Workspaces/<some_number>/workspace.json`. I don't use them there.
+
 ## launch.json
 
 Writing launch.json files is very useful. It makes it easy to run files in different configurations, such as passing different arguments. Here's the default starting place:
