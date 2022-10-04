@@ -1,19 +1,21 @@
 ---
 layout: post
-title: "Pandas Cheat Sheet"
+title: "Pandas Cheat Sheet I"
 description: "A helpful cheatsheet of common tasks using the Python library pandas"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/koala.jpg"
 tags: [Pandas, Python, Cheat Sheet]
 ---
 
-This notebook demonstrates some basic techniques for the Python library [pandas](https://pandas.pydata.org/). Even though I first posted this a while ago I try to keep this notebook updated to ensure that it works with the latest version of pandas. Below you can see the version of pandas that it was last tested with.
+This post demonstrates some basic techniques for the Python library [pandas](https://pandas.pydata.org/).
 
 <b>Table of Contents</b>
 * TOC
 {:toc}
 
-# Versioning
+# Version
+
+I rerun this code every once in a while to ensure it's up-to-date. Here's the latest version it was tested on:
 
 
 ```python
@@ -21,7 +23,7 @@ import pandas as pd
 print(pd.__version__)
 ```
 
-    1.4.2
+    1.4.4
     
 
 # Importing Data
@@ -32,7 +34,7 @@ In pandas, DataFrames are the primary structure for dealing with data. They prov
 
 
 ```python
-shakespeare_path = 'C:/Users/Julius/Google Drive/JupyterNotebooks/data/shakespeare.csv'
+shakespeare_path = "C:/Users/Julius/Google Drive/JupyterNotebooks/data/shakespeare.csv"
 ```
 
 
@@ -198,10 +200,11 @@ Another way you can create a DataFrame is by using StringIO, which allows you to
 
 ```python
 from io import StringIO
-csv_data = '''A,B,C,D
+
+csv_data = """A,B,C,D
 1.0, 2.0, 3.0, 4.0
 5.0, 6.0,, 8.0
-0.0, 11.0, 12.0,'''
+0.0, 11.0, 12.0,"""
 df = pd.read_csv(StringIO(csv_data))
 ```
 
@@ -271,9 +274,8 @@ Machine learning datasets from the [UCI Machine Learning Repository](https://arc
 
 
 ```python
-splice_path = 'C:/Users/Julius/Google Drive/JupyterNotebooks/data/splice.data'
-df = pd.read_csv(splice_path,
-    names=["Class", "Instance", "Sequence"])
+splice_path = "C:/Users/Julius/Google Drive/JupyterNotebooks/data/splice.data"
+df = pd.read_csv(splice_path, names=["Class", "Instance", "Sequence"])
 ```
 
 
@@ -348,7 +350,7 @@ Note that you can also read files directly from the Internet without downloading
 
 
 ```python
-df = pd.read_csv('https://web.stanford.edu/~hastie/ElemStatLearn/datasets/SAheart.data')
+df = pd.read_csv("https://web.stanford.edu/~hastie/ElemStatLearn/datasets/SAheart.data")
 df.head()
 ```
 
@@ -469,10 +471,18 @@ You can also create a DataFrame from a list. For a single list, you can put it d
 
 
 ```python
-names = ['Titus Andronicus', 'The Comedy of Errors', 'Richard II',
-       'Romeo and Juliet', 'A Midsummer Night’s Dream', 'King John',
-       'Julius Caesar', 'Othello', 'Macbeth']
-pd.DataFrame(names, columns=['Name'])
+names = [
+    "Titus Andronicus",
+    "The Comedy of Errors",
+    "Richard II",
+    "Romeo and Juliet",
+    "A Midsummer Night’s Dream",
+    "King John",
+    "Julius Caesar",
+    "Othello",
+    "Macbeth",
+]
+pd.DataFrame(names, columns=["Name"])
 ```
 
 
@@ -547,13 +557,12 @@ But if you're combining multiple lists, you need to zip them first.
 
 ```python
 years = [1592, 1594, 1595, 1595, 1595, 1596, 1599, 1604, 1606]
-categories = ['Tragedy', 'Comedy', 'History', 'Tragedy', 'Comedy', 'History',
-       'Tragedy', 'Tragedy', 'Tragedy']
+categories = ["Tragedy", "Comedy", "History", "Tragedy", "Comedy", "History", "Tragedy", "Tragedy", "Tragedy"]
 ```
 
 
 ```python
-df = pd.DataFrame(list(zip(names, years, categories)), columns=['Name', 'Year', 'Category'])
+df = pd.DataFrame(list(zip(names, years, categories)), columns=["Name", "Year", "Category"])
 df
 ```
 
@@ -650,7 +659,7 @@ A more common way to do it is through dictionaries
 
 
 ```python
-my_dict = {'Name' : names, 'Year' : years, 'Category' : categories}
+my_dict = {"Name": names, "Year": years, "Category": categories}
 ```
 
 
@@ -782,14 +791,14 @@ There are many ways to save a DataFrame, including in a pickle, msgpack, CSV, an
 
 
 ```python
-df.to_csv('shakespeare.csv')
+df.to_csv("shakespeare.csv")
 ```
 
 There's something I find a little weird about saving a loading DataFrames. It's that if you save it as above and then load it, you'll get an column.
 
 
 ```python
-df = pd.read_csv('shakespeare.csv')
+df = pd.read_csv("shakespeare.csv")
 ```
 
 
@@ -870,12 +879,12 @@ There are two ways to avoid this. The first I recommend if your row names are ju
 
 
 ```python
-df.to_csv('shakespeare.csv', index=False)
+df.to_csv("shakespeare.csv", index=False)
 ```
 
 
 ```python
-df = pd.read_csv('shakespeare.csv')
+df = pd.read_csv("shakespeare.csv")
 ```
 
 
@@ -956,14 +965,14 @@ The second way is better in the case when you do have index names that you want 
 
 
 ```python
-df.to_csv('shakespeare.csv')
+df.to_csv("shakespeare.csv")
 ```
 
 Then when you open it, pass `index_col=0` like so:
 
 
 ```python
-df = pd.read_csv('shakespeare.csv', index_col=0)
+df = pd.read_csv("shakespeare.csv", index_col=0)
 ```
 
 
@@ -1138,34 +1147,34 @@ df.sample(5)
   </thead>
   <tbody>
     <tr>
-      <th>8</th>
-      <td>Macbeth</td>
-      <td>1606</td>
-      <td>Tragedy</td>
+      <th>1</th>
+      <td>The Comedy of Errors</td>
+      <td>1594</td>
+      <td>Comedy</td>
     </tr>
     <tr>
-      <th>0</th>
-      <td>Titus Andronicus</td>
-      <td>1592</td>
+      <th>3</th>
+      <td>Romeo and Juliet</td>
+      <td>1595</td>
       <td>Tragedy</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>Othello</td>
-      <td>1604</td>
-      <td>Tragedy</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>King John</td>
-      <td>1596</td>
-      <td>History</td>
     </tr>
     <tr>
       <th>4</th>
       <td>A Midsummer Night’s Dream</td>
       <td>1595</td>
       <td>Comedy</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Richard II</td>
+      <td>1595</td>
+      <td>History</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Othello</td>
+      <td>1604</td>
+      <td>Tragedy</td>
     </tr>
   </tbody>
 </table>
@@ -1297,7 +1306,7 @@ You can also select by column. A single column of a Pandas DataFrame is known as
 
 
 ```python
-type(df['Name'])
+type(df["Name"])
 ```
 
 
@@ -1311,7 +1320,7 @@ You can also make selections by inequalities, such as finding all the points whe
 
 
 ```python
-df[df['Year'] > 1600]
+df[df["Year"] > 1600]
 ```
 
 
@@ -1363,7 +1372,7 @@ You can also select a specific cell based on its label.
 
 
 ```python
-df.loc[1, 'Name']
+df.loc[1, "Name"]
 ```
 
 
@@ -1431,7 +1440,7 @@ You can do even more with quantitative data. You can find the mean of each quant
 
 
 ```python
-df['Year'].mean()
+df["Year"].mean()
 ```
 
 
@@ -1517,7 +1526,7 @@ Sorting is very simple with DataFrames.
 
 
 ```python
-df.sort_values('Name', ascending=True)
+df.sort_values("Name", ascending=True)
 ```
 
 
@@ -1611,7 +1620,7 @@ df.sort_values('Name', ascending=True)
 
 
 ```python
-df['Name'].str.contains('Julius')
+df["Name"].str.contains("Julius")
 ```
 
 
@@ -1634,7 +1643,7 @@ If you want to fond both uppper and lower case examples, you can pass `(?i)` to 
 
 
 ```python
-df['Name'].str.contains('(?i)julius')
+df["Name"].str.contains("(?i)julius")
 ```
 
 
@@ -1659,7 +1668,7 @@ If you want to split on the first element, you have to reference `str` again.
 
 
 ```python
-df['Name'].str.split(' ').str[0]
+df["Name"].str.split(" ").str[0]
 ```
 
 
@@ -1682,7 +1691,7 @@ df['Name'].str.split(' ').str[0]
 
 
 ```python
-df['Category'].groupby(df['Category']).count()
+df["Category"].groupby(df["Category"]).count()
 ```
 
 
@@ -1695,249 +1704,6 @@ df['Category'].groupby(df['Category']).count()
     Name: Category, dtype: int64
 
 
-
-## .loc vs .iloc
-
-.loc searches for labels by name (aka label-based indexing), .iloc gets rows by index number (aka positional indexing)
-
-For a DataFrame where the index matches the row number (i.e. it starts at 0 and doesn't skip any values), there is no difference between .loc and .iloc
-
-
-```python
-df.loc[1]
-```
-
-
-
-
-    Name        The Comedy of Errors
-    Year                        1594
-    Category                  Comedy
-    Name: 1, dtype: object
-
-
-
-
-```python
-df.iloc[1]
-```
-
-
-
-
-    Name        The Comedy of Errors
-    Year                        1594
-    Category                  Comedy
-    Name: 1, dtype: object
-
-
-
-But once the index and row numbers become different, you have to be careful about which one to use.
-
-
-```python
-new_df = df.drop(1)
-new_df
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Name</th>
-      <th>Year</th>
-      <th>Category</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Titus Andronicus</td>
-      <td>1592</td>
-      <td>Tragedy</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Richard II</td>
-      <td>1595</td>
-      <td>History</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>Romeo and Juliet</td>
-      <td>1595</td>
-      <td>Tragedy</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>A Midsummer Night’s Dream</td>
-      <td>1595</td>
-      <td>Comedy</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>King John</td>
-      <td>1596</td>
-      <td>History</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>Julius Caesar</td>
-      <td>1599</td>
-      <td>Tragedy</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>Othello</td>
-      <td>1604</td>
-      <td>Tragedy</td>
-    </tr>
-    <tr>
-      <th>8</th>
-      <td>Macbeth</td>
-      <td>1606</td>
-      <td>Tragedy</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-
-```python
-new_df.iloc[1]
-```
-
-
-
-
-    Name        Richard II
-    Year              1595
-    Category       History
-    Name: 2, dtype: object
-
-
-
-There is still an index of value 1, but there is no longer a label. So if we try `.loc[1]`, we'll get an error.
-
-
-```python
-try:
-    new_df.loc[1]
-except KeyError:
-    print("There is nothing with index 1")
-```
-
-    There is nothing with index 1
-    
-
-If you want to update your indices you can do so with `reset_index`.
-
-
-```python
-new_df.reset_index(drop=True)
-```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>Name</th>
-      <th>Year</th>
-      <th>Category</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>Titus Andronicus</td>
-      <td>1592</td>
-      <td>Tragedy</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>Richard II</td>
-      <td>1595</td>
-      <td>History</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>Romeo and Juliet</td>
-      <td>1595</td>
-      <td>Tragedy</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>A Midsummer Night’s Dream</td>
-      <td>1595</td>
-      <td>Comedy</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>King John</td>
-      <td>1596</td>
-      <td>History</td>
-    </tr>
-    <tr>
-      <th>5</th>
-      <td>Julius Caesar</td>
-      <td>1599</td>
-      <td>Tragedy</td>
-    </tr>
-    <tr>
-      <th>6</th>
-      <td>Othello</td>
-      <td>1604</td>
-      <td>Tragedy</td>
-    </tr>
-    <tr>
-      <th>7</th>
-      <td>Macbeth</td>
-      <td>1606</td>
-      <td>Tragedy</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
-When you use `.iloc`, you can treat the results just like a `numpy` matrix. This means that trailing colons are always optional (just like `numpy`).
 
 # Cleaning Data
 
@@ -2090,7 +1856,7 @@ To add a new column, simply declare it and make sure it has the correct number o
 
 
 ```python
-df['E'] = df['A'] * df['B'] + 1
+df["E"] = df["A"] * df["B"] + 1
 ```
 
 
@@ -2162,7 +1928,8 @@ You can also add columns using conditional logic
 
 ```python
 import numpy as np
-df['F'] = np.where(df['B'] > df['E'], 1, 0)
+
+df["F"] = np.where(df["B"] > df["E"], 1, 0)
 ```
 
 
@@ -2405,7 +2172,7 @@ df.drop([0,2])
 
 
 ```python
-df.drop(['D', 'C'], axis=1)
+df.drop(["D", "C"], axis=1)
 ```
 
 
@@ -2467,15 +2234,15 @@ Selecting specific columns is commonly used when preparing a dataset for machine
 
 
 ```python
-features = df.drop('A', axis=1)
-labels = df['A']
+features = df.drop("A", axis=1)
+labels = df["A"]
 ```
 
 You can also selective decide which rows to drop. You can decide to only drop rows where all columns are NaN.
 
 
 ```python
-df.dropna(how='all')
+df.dropna(how="all")
 ```
 
 
@@ -2615,7 +2382,7 @@ Or just drop rows where NaN appears in a specific column
 
 
 ```python
-df.dropna(subset=['D'])
+df.dropna(subset=["D"])
 ```
 
 
@@ -2750,13 +2517,13 @@ Note that pandas will only call a certain type of data as missing. It's possible
 
 
 ```python
-a = [False, 0, 'na', 'NaN']
-b = ['None', None, 'nan', 'NA']
+a = [False, 0, "na", "NaN"]
+b = ["None", None, "nan", "NA"]
 ```
 
 
 ```python
-df_missing = pd.DataFrame(list(zip(a,b)), columns=(['a','b']))
+df_missing = pd.DataFrame(list(zip(a, b)), columns=(["a", "b"]))
 ```
 
 
@@ -2877,11 +2644,10 @@ But when you import from a CSV, only the missing values will show up as missing.
 
 
 ```python
-bad_data = '''A,B,C,D
+bad_data = """A,B,C,D
 None, none, 3.0, 4.0
 Missing, 6.0,, 'None'
-0.0, NaN, False,'''
-
+0.0, NaN, False,"""
 ```
 
 
@@ -3016,7 +2782,7 @@ from sklearn.impute import SimpleImputer
 
 
 ```python
-imp = SimpleImputer(strategy='mean')
+imp = SimpleImputer(strategy="mean")
 ```
 
  It uses the same fit and transform approach as other SKLearn tools.
@@ -3182,11 +2948,8 @@ The last type is categorical, and that's where the differences aren't associated
 
 
 ```python
-df = pd.DataFrame([
-        ['green', 'M', 20, 'polo'],
-        ['red', 'L', 15, 'T-shirt'],
-        ['red', 'S', 15, 'polo']])
-df.columns=['color', 'size', 'price', 'type']
+df = pd.DataFrame([["green", "M", 20, "polo"], ["red", "L", 15, "T-shirt"], ["red", "S", 15, "polo"]])
+df.columns = ["color", "size", "price", "type"]
 df
 ```
 
@@ -3249,8 +3012,8 @@ Because size can be ranked, it is ordinal. We can map it to numbers to make it e
 
 
 ```python
-size_mapping = {'S':1, 'M': 2, 'L':3}
-df['size']=df['size'].map(size_mapping) # we can do a reverse mapping if we want to undo this in the end
+size_mapping = {"S": 1, "M": 2, "L": 3}
+df["size"] = df["size"].map(size_mapping)  # we can do a reverse mapping if we want to undo this in the end
 df
 ```
 
@@ -3314,8 +3077,9 @@ Even though the type is categorical, we can still map it to numbers
 
 ```python
 import numpy as np
-class_mapping = {label:idx for idx, label in enumerate(np.unique(df['type']))}
-df['type'] = df['type'].map(class_mapping)
+
+class_mapping = {label: idx for idx, label in enumerate(np.unique(df["type"]))}
+df["type"] = df["type"].map(class_mapping)
 df
 ```
 
@@ -3379,7 +3143,7 @@ After we perform whatever analysis we want to on the data, we could then invert 
 
 ```python
 inv_class_mapping = {v: k for k, v in class_mapping.items()}
-df['type'] = df['type'].map(inv_class_mapping)
+df["type"] = df["type"].map(inv_class_mapping)
 df
 ```
 
@@ -3445,7 +3209,7 @@ Another way to do this is the LabelEncoder class in scikit-learn
 from sklearn.preprocessing import LabelEncoder
 
 class_le = LabelEncoder()
-y = class_le.fit_transform(df['type'].values) #fit_transform is a shortcut for calling fit and transform separately
+y = class_le.fit_transform(df["type"].values)  # fit_transform is a shortcut for calling fit and transform separately
 print(y)
 class_le.inverse_transform(y)
 ```
@@ -3506,23 +3270,23 @@ df.sample(frac=1).reset_index(drop=True)
     <tr>
       <th>0</th>
       <td>red</td>
+      <td>3</td>
+      <td>15</td>
+      <td>T-shirt</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>red</td>
       <td>1</td>
       <td>15</td>
       <td>polo</td>
     </tr>
     <tr>
-      <th>1</th>
+      <th>2</th>
       <td>green</td>
       <td>2</td>
       <td>20</td>
       <td>polo</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>red</td>
-      <td>3</td>
-      <td>15</td>
-      <td>T-shirt</td>
     </tr>
   </tbody>
 </table>
@@ -3536,7 +3300,7 @@ df.sample(frac=1).reset_index(drop=True)
 
 
 ```python
-labels = df.pop('price')
+labels = df.pop("price")
 ```
 
 You can see that it's no longer in the DataFrame:
@@ -3618,7 +3382,7 @@ pandas can also do one-hot encoding.
 
 
 ```python
-pd.get_dummies(df[['color', 'size']])
+pd.get_dummies(df[["color", "size"]])
 ```
 
 
@@ -3678,7 +3442,7 @@ Note that there are a lot of wrong ways to do this in pandas.
 
 
 ```python
-df = pd.DataFrame(list(zip(names,years,categories)), columns=['Name', 'Year', 'Category'])
+df = pd.DataFrame(list(zip(names, years, categories)), columns=["Name", "Year", "Category"])
 ```
 
 
@@ -3777,7 +3541,7 @@ Here you might think you're setting the value, but you're not.
 
 
 ```python
-df.loc[df.index[-4:]]['Category'] = 'Drama'
+df.loc[df.index[-4:]]["Category"] = "Drama"
 ```
 
 
@@ -3876,7 +3640,7 @@ This is how you have to do it.
 
 
 ```python
-df.loc[df.index[-4:], 'Category'] = 'Drama'
+df.loc[df.index[-4:], "Category"] = "Drama"
 ```
 
 
@@ -3979,8 +3743,8 @@ pandas will by default truncate text that is over a certain limit. When working 
 
 
 ```python
-pd.set_option('display.max_colwidth', None)
-pd.set_option('display.max_rows', None)
+pd.set_option("display.max_colwidth", None)
+pd.set_option("display.max_rows", None)
 ```
 
 `pd.set_option` is a nice tool. But if for some reason you don't want to use that, you can also set it directly.
@@ -3997,7 +3761,7 @@ You can switch the rows and columns of a DataFrame by transposing it by adding `
 
 
 ```python
-df = pd.DataFrame(list(zip(names,years,categories)), columns=['Name', 'Year', 'Category'])
+df = pd.DataFrame(list(zip(names, years, categories)), columns=["Name", "Year", "Category"])
 ```
 
 
