@@ -167,11 +167,11 @@ Here's an example with arguments:
 - defaults to true
 - restricts debugging to only the user-written code
 
-#### cwd
+#### Relative paths (cwd)
 
 Part of your command will include a reference from where to start from. One way to do that is by using `cwd`.
 
-* "cwd": "${workspaceFolder}", - start from the workplace folder
+* `"cwd": "${workspaceFolder}"`, - start from the workplace folder
   * In a multi folder workspace, you'll need to identify the folder as well. It will look something like `"${workspaceFolder:my_repo}"`
 * "cwd": "${fileDirname}" - start from the directory of the current file. This will change depending which file you want to have open, so I only recommend using it when you're running the current file (so you'll have `"program": "${file}",` as well)
 * Note that you don't always need to include `cwd`. For example, you don't need it when running a module.
