@@ -306,6 +306,10 @@ I have no loyalty to any of these. I usually just go with the top free one recom
 
 ## Image Viewer
 [Xee](https://theunarchiver.com/xee) (Mac)
+* I make this my default image viewer
+  * To do so, right click an image file type in your window viewer (Command One in my case) and hold down `option` so "Get Info" turns into "Get Finder Info". Then you can expand "Open with" and select your image viewer of choice.
+
+<img width="247" alt="image" src="https://user-images.githubusercontent.com/3067731/194419494-fac5d7c8-2b26-427f-b19c-76137134db27.png">
 
 ## Image Editing
 [Adobe Lightroom](https://www.adobe.com/products/photoshop-lightroom.html) (Windows, Mac)
