@@ -311,6 +311,11 @@ I have no loyalty to any of these. I usually just go with the top free one recom
 
 <img width="247" alt="image" src="https://user-images.githubusercontent.com/3067731/194419494-fac5d7c8-2b26-427f-b19c-76137134db27.png">
 
+You'll have to go into preferences to change the way to scroll left and right.
+
+<img width="604" alt="image" src="https://user-images.githubusercontent.com/3067731/194420482-67b33200-d5b1-4ba9-b5b1-aaf7f8ac490e.png">
+
+
 ## Image Editing
 [Adobe Lightroom](https://www.adobe.com/products/photoshop-lightroom.html) (Windows, Mac)
 * As much as I'd like to say GIMP is just as good, it's no match for the features of Lightroom. For someone who spends serious time editing photos, I don't think there's a better alternative.
