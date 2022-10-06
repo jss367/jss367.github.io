@@ -73,17 +73,20 @@ To get the record, you could do `.first()`, `.get(2)`, or `.one()`
 
 ## Updating
 
+```sql
 with db_session(engine=get_engine("bvds")) as sess:
     records = sess.query(MyTable).filter_by(id = 12345)
 rec = records.first()
 rec.my_column = 'new_value'
-with db_session(engine=get_engine("bvds")) as sess:
+with db_session(engine=engine)) as sess:
     sess.merge(rec)
     try:
         sess.commit()
     except Exception as ex:
         print(ex)
         sess.rollback()
+```
+
 
 ## Useful commands:
 
