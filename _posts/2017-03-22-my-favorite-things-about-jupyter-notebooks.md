@@ -43,7 +43,9 @@ Install with `pip install autopep8`, then enable it.
 
 #### Jupyter Black
 
-[Jupyter Black](https://github.com/drillan/jupyter-black) brings the [black](https://github.com/psf/black) formatter to Python. You can install it with: `jupyter nbextension install https://github.com/drillan/jupyter-black/archive/master.zip --sys-prefix`. Then you should be able to enable it in the Nbextensions tab:
+[Jupyter Black](https://github.com/drillan/jupyter-black) brings the [black](https://github.com/psf/black) formatter to Python.
+* Install it with: `jupyter nbextension install https://github.com/drillan/jupyter-black/archive/master.zip --sys-prefix`.
+* Enable it in the Nbextensions tab:
 
 ![jupyter_black]({{site.baseurl}}/assets/img/jupyter_black.png "Jupyter Black")
 
