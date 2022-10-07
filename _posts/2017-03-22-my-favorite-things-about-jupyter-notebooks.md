@@ -29,13 +29,9 @@ pip install jupyter_contrib_nbextensions
 ```
 Then:
 * Enter: `jupyter contrib nbextension install --user`
-* Open up Jupyter Notebook and you will have a tab called Nbextensions
+* Open up Jupyter Notebook and you will have a tab called Nbextensions. You can enable individual extensions from this tab.
 
 ![png]({{site.baseurl}}/assets/img/nbextensions.png)
-
-* Go to the Nbextensions tab and enable it from there
-
-Now let's look at some of the extensions.
 
 ## Formatting Extensions
 
