@@ -27,4 +27,6 @@ https://stackoverflow.com/questions/17579357/time-time-vs-timeit-timeit
    It's even mentioned in Python: https://docs.python.org/3/glossary.html#term-eafp
    
    
+   ## other
    
+   a, b, c = map(list, zip(*sorted(zip(a, b, c))))
