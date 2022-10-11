@@ -17,3 +17,6 @@ can do .all()
 * Return single value, not in a list
 `(3,)`
 
+
+
+`sess.query` vs `sess.execute`
