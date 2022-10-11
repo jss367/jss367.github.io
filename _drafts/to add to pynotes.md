@@ -30,3 +30,9 @@ https://stackoverflow.com/questions/17579357/time-time-vs-timeit-timeit
    ## other
    
    a, b, c = map(list, zip(*sorted(zip(a, b, c))))
+   
+   
+   ## assert
+   
+Note that assert statements only run when Python’s built-in __debug__ variable is set to True. If it’s, assert statements won’t execute during runtime. So you wouldn't want to use them for control flow like you do `try`/`except`. You certainly wouldn't want to use them to validate a user input or for something like `assert user in validated_users`.
+
