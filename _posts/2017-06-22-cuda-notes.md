@@ -20,13 +20,13 @@ python -c "import tensorflow as tf; print('Num GPUs Available: ', len(tf.config.
 
 ## Specify Which GPU to Use
 
-Just like in TensorFlow, you can specify which GPU to use. If you're going to do this from the command line, you can do:
+You can specify which GPU to use. If you're going to do this from the command line, you can do:
 
 ```bash
 CUDA_VISIBLE_DEVICES="0" python -m my_trainer
 ```
 
-Or you could do this within Python. If you do, be sure to do this before you import TensorFlow/PyTorch.
+Or you could do this within Python. If you do, be sure to do this before you import `TensorFlow`/`PyTorch`.
 
 ```python
 import os
