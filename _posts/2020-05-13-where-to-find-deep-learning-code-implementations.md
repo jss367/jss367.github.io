@@ -8,7 +8,7 @@ tags: [Python, Computer Vision, Deep Learning, FastAI, TensorFlow, PyTorch]
 
 There are a lot of great resources on the web that contain implementations of deep learning architectures, but they can be a little hard to find. This post aims to highlight and categorize some of the best resources that I have found. Most repositories have either Tensorflow or PyTorch implementations, so this post is divided by frameworks.
 
-<b>Table of contents</b>
+<b>Table of Contents</b>
 * TOC
 {:toc}
 
