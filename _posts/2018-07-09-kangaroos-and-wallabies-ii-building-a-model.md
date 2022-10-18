@@ -31,18 +31,19 @@ from tensorflow.keras import applications, optimizers
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
 from tensorflow.keras.layers import Dense, Flatten
 from tensorflow.keras.models import Model
+tf.random.set_seed(0)
 ```
 
 Let's make sure we have a GPU available because this would take way too long on a CPU.
 
 
 ```python
-print("Num GPUs Available: ", len(tf.config.experimental.list_physical_devices('GPU')))
-os.environ['TF_FORCE_GPU_ALLOW_GROWTH'] = 'true'
+print("Num GPUs Available: ", len(tf.config.experimental.list_physical_devices("GPU")))
+os.environ["TF_FORCE_GPU_ALLOW_GROWTH"] = "true"
 ```
 
     Num GPUs Available:  1
-
+    
 
 ## Prepare the Data
 
@@ -50,16 +51,16 @@ Now we'll prepared our data using TensorFlow's `tf.data.Datasets`.
 
 
 ```python
-train_data_dir = Path('E:/WallabiesAndRoosFullSize/train')
-val_data_dir = Path('E:/WallabiesAndRoosFullSize/val')
-test_data_dir = Path('E:/WallabiesAndRoosFullSize/test')
+train_data_dir = Path(os.getenv("DATA")) / "WallabiesAndRoosFullSize/train"
+val_data_dir = Path(os.getenv("DATA")) / "WallabiesAndRoosFullSize/val"
+test_data_dir = Path(os.getenv("DATA")) / "WallabiesAndRoosFullSize/test"
 ```
 
 
 ```python
-train_files = tf.data.Dataset.list_files(str(train_data_dir/'*/*'), shuffle=True)
-val_files = tf.data.Dataset.list_files(str(val_data_dir/'*/*'), shuffle=False)
-test_files = tf.data.Dataset.list_files(str(test_data_dir/'*/*'), shuffle=False)
+train_files = tf.data.Dataset.list_files(str(train_data_dir / "*/*"), shuffle=True)
+val_files = tf.data.Dataset.list_files(str(val_data_dir / "*/*"), shuffle=False)
+test_files = tf.data.Dataset.list_files(str(test_data_dir / "*/*"), shuffle=False)
 ```
 
 
@@ -70,7 +71,7 @@ print(class_names)
 ```
 
     ['kangaroo' 'wallaby']
-
+    
 
 We'll set the image size we want to work with and the number of epochs.
 
@@ -89,6 +90,7 @@ def parse_label(filename):
     label = tf.argmax(one_hot_label)
     return label
 
+
 def parse_image(filename):
     img = tf.io.read_file(filename)
     image_decoded = tf.io.decode_jpeg(img, channels=3)
@@ -96,11 +98,11 @@ def parse_image(filename):
     image = tf.image.resize(image, (img_height, img_width))
     return image
 
+
 def parse_file_path(filename):
     image = parse_image(filename)
     label = parse_label(filename)
     return image, label
-
 ```
 
 Now let's look at some of our images
@@ -111,18 +113,20 @@ data_iter = iter(train_files)
 file_path = next(data_iter)
 image, label = parse_file_path(file_path)
 
+
 def display_image(image, label):
     plt.figure()
     plt.imshow(image)
     plt.title(class_names[label])
-    plt.axis('off')
+    plt.axis("off")
+
 
 display_image(image, label)
 ```
 
 
     
-![png](2018-07-09-kangaroos-and-wallabies-II-building-a-model_files/2018-07-09-kangaroos-and-wallabies-II-building-a-model_18_0.png)
+![png](2018-07-09-kangaroos-and-wallabies-ii-building-a-model_files/2018-07-09-kangaroos-and-wallabies-ii-building-a-model_18_0.png)
     
 
 
@@ -135,7 +139,7 @@ display_image(image, label)
 
 
     
-![png](2018-07-09-kangaroos-and-wallabies-II-building-a-model_files/2018-07-09-kangaroos-and-wallabies-II-building-a-model_19_0.png)
+![png](2018-07-09-kangaroos-and-wallabies-ii-building-a-model_files/2018-07-09-kangaroos-and-wallabies-ii-building-a-model_19_0.png)
     
 
 
@@ -192,7 +196,7 @@ plt.hist(examp_im.numpy().flatten());
 
 
     
-![png](2018-07-09-kangaroos-and-wallabies-II-building-a-model_files/2018-07-09-kangaroos-and-wallabies-II-building-a-model_27_0.png)
+![png](2018-07-09-kangaroos-and-wallabies-ii-building-a-model_files/2018-07-09-kangaroos-and-wallabies-ii-building-a-model_27_0.png)
     
 
 
@@ -220,27 +224,29 @@ We know that all of our classes are either 0 or 1, so we can see which we have m
 
 
 ```python
-kang_dir = test_data_dir / 'kangaroo'
-wall_dir = test_data_dir / 'wallaby'
+kang_dir = test_data_dir / "kangaroo"
+wall_dir = test_data_dir / "wallaby"
 ```
 
 
 ```python
-num_kang_images = len(list(kang_dir.glob('*')))
-num_wall_images = len(list(wall_dir.glob('*')))
+num_kang_images = len(list(kang_dir.glob("*")))
+num_wall_images = len(list(wall_dir.glob("*")))
 ```
 
 
 ```python
 print(f"Number of kangaroo images: {num_kang_images}")
 print(f"Number of wallaby images: {num_wall_images}")
-print(f"If we just guessed the most common class each time, we would be right {num_kang_images / (num_kang_images + num_wall_images):.2%} of the time.")
+print(
+    f"If we just guessed the most common class each time, we would be right {num_kang_images / (num_kang_images + num_wall_images):.2%} of the time."
+)
 ```
 
     Number of kangaroo images: 306
     Number of wallaby images: 195
     If we just guessed the most common class each time, we would be right 61.08% of the time.
-
+    
 
 ## Prepare the Model
 
@@ -248,17 +254,16 @@ We have to provide some basic characteristics of the network and how we want to 
 
 
 ```python
-model_encoder = applications.Xception(weights = "imagenet", include_top=False, input_shape = (img_width, img_height, 3))
+model_encoder = applications.Xception(weights="imagenet", include_top=False, input_shape=(img_width, img_height, 3))
 ```
 
 
 ```python
-# Add our own layers at the end 
+# Add our own layers at the end
 x = model_encoder.output
 x = Flatten()(x)
 x = tf.keras.layers.BatchNormalization()(x)
-x = Dense(256,
-          activation="relu")(x)
+x = Dense(256, activation="relu")(x)
 predictions = Dense(num_classes, activation="softmax")(x)
 ```
 
@@ -266,7 +271,7 @@ Create the model using the inputs from the pretrained model.
 
 
 ```python
-model = Model(inputs = model_encoder.input, outputs = predictions)
+model = Model(inputs=model_encoder.input, outputs=predictions)
 ```
 
 We will freeze all layers except the last five. Then we'll add our own layers at the end. For the final activation function, I'm going to use [softmax](https://en.wikipedia.org/wiki/Softmax_function). I could just use a sigmoid function, but using softmax makes it easier to scale the model to multiple classes, even though they're mathematically equivalent in the case of two classes.
@@ -578,7 +583,7 @@ model.summary()
     Trainable params: 33,555,202
     Non-trainable params: 21,385,768
     __________________________________________________________________________________________________
-
+    
 
 ## Compile the Model
 
@@ -593,7 +598,7 @@ I always like to save the model so I can reload it later if needed.
 
 
 ```python
-results_path = Path(r'C:\Users\Julius\Documents\GitHub\cv\results\KangWall_' + datetime.now().strftime("%Y%m%d-%H%M%S"))
+results_path = Path(r"C:\Users\Julius\Documents\GitHub\cv\results\KangWall_" + datetime.now().strftime("%Y%m%d-%H%M%S"))
 
 os.makedirs(results_path, exist_ok=True)
 ```
@@ -611,71 +616,64 @@ checkpoint = ModelCheckpoint(str(checkpoint_path), monitor='val_accuracy', verbo
 
 ```python
 tensorboard_callback = tf.keras.callbacks.TensorBoard(
-    log_dir=results_path, histogram_freq=0, write_graph=True, write_images=True,
-    update_freq='epoch')
+    log_dir=results_path, histogram_freq=0, write_graph=True, write_images=True, update_freq="epoch"
+)
 ```
 
 OK, now let's train the model.
 
 
 ```python
-history = model.fit(train_dataset, epochs=EPOCHS, callbacks=[tensorboard_callback, early, checkpoint], 
-                validation_data=val_dataset)
+history = model.fit(
+    train_dataset, epochs=EPOCHS, callbacks=[tensorboard_callback, early, checkpoint], validation_data=val_dataset
+)
 ```
 
     Epoch 1/5
-    914/914 [==============================] - 735s 796ms/step - loss: 0.2741 - accuracy: 0.8859 - val_loss: 0.5043 - val_accuracy: 0.8448
+    914/914 [==============================] - 678s 735ms/step - loss: 0.2790 - accuracy: 0.8730 - val_loss: 0.6247 - val_accuracy: 0.8289
     
-    Epoch 00001: saving model to C:\Users\Julius\Documents\GitHub\cv\results\KangWall_20210708-191155\model-01-0.84.hdf5
+    Epoch 00001: saving model to C:\Users\Julius\Documents\GitHub\cv\results\KangWall_20221017-211925\model-01-0.83.hdf5
     Epoch 2/5
-    914/914 [==============================] - 612s 670ms/step - loss: 0.0601 - accuracy: 0.9840 - val_loss: 0.5147 - val_accuracy: 0.8325
+    914/914 [==============================] - 558s 610ms/step - loss: 0.0592 - accuracy: 0.9836 - val_loss: 0.4672 - val_accuracy: 0.8501
     
-    Epoch 00002: saving model to C:\Users\Julius\Documents\GitHub\cv\results\KangWall_20210708-191155\model-02-0.83.hdf5
+    Epoch 00002: saving model to C:\Users\Julius\Documents\GitHub\cv\results\KangWall_20221017-211925\model-02-0.85.hdf5
     Epoch 3/5
-    914/914 [==============================] - 549s 601ms/step - loss: 0.0306 - accuracy: 0.9958 - val_loss: 0.5672 - val_accuracy: 0.8377
+    914/914 [==============================] - 559s 612ms/step - loss: 0.0285 - accuracy: 0.9943 - val_loss: 0.6124 - val_accuracy: 0.8413
     
-    Epoch 00003: saving model to C:\Users\Julius\Documents\GitHub\cv\results\KangWall_20210708-191155\model-03-0.84.hdf5
+    Epoch 00003: saving model to C:\Users\Julius\Documents\GitHub\cv\results\KangWall_20221017-211925\model-03-0.84.hdf5
     Epoch 4/5
-    914/914 [==============================] - 549s 601ms/step - loss: 0.0235 - accuracy: 0.9968 - val_loss: 0.5748 - val_accuracy: 0.8377
+    914/914 [==============================] - 566s 620ms/step - loss: 0.0168 - accuracy: 0.9975 - val_loss: 0.5485 - val_accuracy: 0.8413
     
-    Epoch 00004: saving model to C:\Users\Julius\Documents\GitHub\cv\results\KangWall_20210708-191155\model-04-0.84.hdf5
+    Epoch 00004: saving model to C:\Users\Julius\Documents\GitHub\cv\results\KangWall_20221017-211925\model-04-0.84.hdf5
     Epoch 5/5
-    914/914 [==============================] - 551s 603ms/step - loss: 0.0121 - accuracy: 0.9993 - val_loss: 0.5871 - val_accuracy: 0.8377
+    914/914 [==============================] - 556s 608ms/step - loss: 0.0126 - accuracy: 1.0000 - val_loss: 0.7400 - val_accuracy: 0.8131
     
-    Epoch 00005: saving model to C:\Users\Julius\Documents\GitHub\cv\results\KangWall_20210708-191155\model-05-0.84.hdf5
-    Epoch 00005: early stopping
-
+    Epoch 00005: saving model to C:\Users\Julius\Documents\GitHub\cv\results\KangWall_20221017-211925\model-05-0.81.hdf5
+    
 
 
 ```python
-model.save(str(results_path) + 'final_model')
+model.save(str(results_path) + "final_model")
 ```
 
-    INFO:tensorflow:Assets written to: C:\Users\Julius\Documents\GitHub\cv\results\KangWall_20210708-191155final_model\assets
-
+    INFO:tensorflow:Assets written to: C:\Users\Julius\Documents\GitHub\cv\results\KangWall_20221017-211925final_model\assets
+    
 
 Note how much higher the training accuracy is than the validation accuracy. That means we're overfitting the training data. We'll go over how to correct for that in a future notebook.
 
 
 ```python
-plt.plot(history.history['accuracy'], label='accuracy')
-plt.plot(history.history['val_accuracy'], label = 'val_accuracy')
-plt.xlabel('Epoch')
-plt.ylabel('Accuracy')
+plt.plot(history.history["accuracy"], label="accuracy")
+plt.plot(history.history["val_accuracy"], label="val_accuracy")
+plt.xlabel("Epoch")
+plt.ylabel("Accuracy")
 plt.ylim([0.5, 1])
-plt.legend(loc='lower right')
+plt.legend(loc="lower right");
 ```
 
 
-
-
-    <matplotlib.legend.Legend at 0x1d210caab80>
-
-
-
-
     
-![png](2018-07-09-kangaroos-and-wallabies-II-building-a-model_files/2018-07-09-kangaroos-and-wallabies-II-building-a-model_57_1.png)
+![png](2018-07-09-kangaroos-and-wallabies-ii-building-a-model_files/2018-07-09-kangaroos-and-wallabies-ii-building-a-model_57_0.png)
     
 
 
@@ -685,7 +683,7 @@ Note that we're only saving the model when it improves the validation set. Since
 
 
 ```python
-model_eval = tf.keras.models.load_model(str(results_path) + 'final_model')
+model_eval = tf.keras.models.load_model(str(results_path) + "final_model")
 ```
 
 
@@ -693,14 +691,14 @@ model_eval = tf.keras.models.load_model(str(results_path) + 'final_model')
 model_eval.evaluate(test_dataset)
 ```
 
-    126/126 [==============================] - 88s 671ms/step - loss: 0.3407 - accuracy: 0.8922
+    126/126 [==============================] - 82s 641ms/step - loss: 0.4245 - accuracy: 0.8463
+    
 
 
 
 
-
-    [0.34070613980293274, 0.8922155499458313]
-
+    [0.42446160316467285, 0.8463073968887329]
 
 
-89% - that's pretty good! But we're not done yet. In the next notebook, we'll talk about data augmentation and how we can use that to improve the model's performance on the test set.
+
+85% - that's pretty good! But we're not done yet - for one thing you can see clear overfitting in the plot. In the next notebook, we'll talk about data augmentation and how we can use that to improve the model's performance on the test set.
