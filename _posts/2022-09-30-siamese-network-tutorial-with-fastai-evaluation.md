@@ -1,19 +1,21 @@
 ---
 layout: post
-title: "Siamese Networks with FastAI - Loading Models"
+title: "Siamese Networks with FastAI - Evaluation"
 description: "This tutorial describes how to work with the FastAI library for siamese networks"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/platypus2.jpg"
 tags: [FastAI, Neural Networks, Python]
 ---
 
-This post shows how to load and run inference with the model we built in the [previous post](https://jss367.github.io/siamese-network-tutorial-with-fastai-update.html).
+This post shows how to load and evaluate the model we built in the [previous post](https://jss367.github.io/siamese-network-tutorial-with-fastai-update.html).
 
 
 ```python
-from fastai.vision.all import *
 import dill
 from siam_utils import SiameseImage
+from sklearn.metrics import accuracy_score
+
+from fastai.vision.all import *
 ```
 
 
@@ -41,7 +43,7 @@ siamtest.show();
 
 
     
-![png](2022-09-30-siamese-network-tutorial-with-fastai-loading-model_files/2022-09-30-siamese-network-tutorial-with-fastai-loading-model_6_0.png)
+![png](2022-09-30-siamese-network-tutorial-with-fastai-evaluation_files/2022-09-30-siamese-network-tutorial-with-fastai-evaluation_6_0.png)
     
 
 
@@ -88,7 +90,7 @@ res = learner.siampredict(siamtest)
 
 
     
-![png](2022-09-30-siamese-network-tutorial-with-fastai-loading-model_files/2022-09-30-siamese-network-tutorial-with-fastai-loading-model_8_2.png)
+![png](2022-09-30-siamese-network-tutorial-with-fastai-evaluation_files/2022-09-30-siamese-network-tutorial-with-fastai-evaluation_8_2.png)
     
 
 
@@ -106,7 +108,7 @@ siamtest.show();
 
 
     
-![png](2022-09-30-siamese-network-tutorial-with-fastai-loading-model_files/2022-09-30-siamese-network-tutorial-with-fastai-loading-model_10_0.png)
+![png](2022-09-30-siamese-network-tutorial-with-fastai-evaluation_files/2022-09-30-siamese-network-tutorial-with-fastai-evaluation_10_0.png)
     
 
 
@@ -141,13 +143,55 @@ res = learner.siampredict(siamtest)
 
 
     
-![png](2022-09-30-siamese-network-tutorial-with-fastai-loading-model_files/2022-09-30-siamese-network-tutorial-with-fastai-loading-model_11_2.png)
+![png](2022-09-30-siamese-network-tutorial-with-fastai-evaluation_files/2022-09-30-siamese-network-tutorial-with-fastai-evaluation_11_2.png)
     
 
 
-Oh well, it's not perfect.
+Let's see how well it does overall.
 
 
 ```python
+test_dl = learner.dls.test_dl(files)
+```
+
+
+```python
+preds, ground_truth = learner.get_preds(dl=test_dl)
 
 ```
+
+
+
+<style>
+    /* Turns off some styling */
+    progress {
+        /* gets rid of default border in Firefox and Opera. */
+        border: none;
+        /* Needs to be in here for Safari polyfill so background images work as expected. */
+        background-size: auto;
+    }
+    progress:not([value]), progress:not([value])::-webkit-progress-bar {
+        background: repeating-linear-gradient(45deg, #7e7e7e, #7e7e7e 10px, #5c5c5c 10px, #5c5c5c 20px);
+    }
+    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+        background: #F44336;
+    }
+</style>
+
+
+
+
+
+
+
+
+```python
+round(accuracy_score(ground_truth, torch.argmax(preds, dim=1)), 4)
+```
+
+
+
+
+    0.9306
+
+
