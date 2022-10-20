@@ -505,3 +505,10 @@ If you're using an ORM and want to update an object, you'll have to get the reco
 ```python
 
 ```
+
+## SQLAlchemy Commands
+
+#### Filter in Python list
+
+session.query(MyTable).filter(MyTable.id.in_(tuple(my_list))).all()
+
