@@ -7,7 +7,7 @@ thumbnail: "assets/img/platypus1.jpg"
 tags: [FastAI, Neural Networks, Python]
 ---
 
-This is post is a walkthrough of creating a Siamese network with FastAI. I had planned to simply use the [tutorial from FastAI](https://docs.fast.ai/tutorial.siamese.html), but I had to change so much to be able to load the model and make it all work in Python 3.10 that I figured I would turn it into a blog post. This is really similar to my other post on [Siamese Networks with FastAI](https://jss367.github.io/siamese-networks-with-fastai.html), except that in this one I will follow on with a [post about how to run inference with the model](https://jss367.github.io/siamese-network-tutorial-with-fastai-loading-models.html).
+This is post is a walkthrough of creating a Siamese network with FastAI. I had planned to simply use the [tutorial from FastAI](https://docs.fast.ai/tutorial.siamese.html), but I had to change so much to be able to load the model and make it all work with the latest versions that I figured I would turn it into a blog post. This is really similar to my other post on [Siamese Networks with FastAI](https://jss367.github.io/siamese-networks-with-fastai.html), except that in this one I will follow on with a post about [how to evaluate the model](https://jss367.github.io/siamese-network-tutorial-with-fastai-evaluation.html).
 
 <b>Table of Contents</b>
 * TOC
@@ -150,7 +150,7 @@ type(tst[0]), type(tst[1])
 ```python
 img1 = Resize(224)(img)
 tst = ToTensor()(img1)
-tst.show()
+tst.show();
 ```
 
 
@@ -295,8 +295,8 @@ class SiameseModel(Module):
 
 
 ```python
-# encoder = create_body(resnet34, cut=-2) # works in Python 3.8
-encoder = create_body(resnet34(), cut=-2) # update for Python 3.10
+# encoder = create_body(resnet34, cut=-2) # worked in old version of fastai/torchvision
+encoder = create_body(resnet34(weights=ResNet34_Weights.IMAGENET1K_V1), cut=-2) # update for new torchvision
 ```
 
 
@@ -349,8 +349,45 @@ learn.freeze()
 
 
 ```python
-# learn.lr_find()
+learn.lr_find()
 ```
+
+
+
+<style>
+    /* Turns off some styling */
+    progress {
+        /* gets rid of default border in Firefox and Opera. */
+        border: none;
+        /* Needs to be in here for Safari polyfill so background images work as expected. */
+        background-size: auto;
+    }
+    progress:not([value]), progress:not([value])::-webkit-progress-bar {
+        background: repeating-linear-gradient(45deg, #7e7e7e, #7e7e7e 10px, #5c5c5c 10px, #5c5c5c 20px);
+    }
+    .progress-bar-interrupted, .progress-bar-interrupted::-webkit-progress-bar {
+        background: #F44336;
+    }
+</style>
+
+
+
+
+
+
+
+
+
+
+    SuggestedLRs(valley=0.0030199517495930195)
+
+
+
+
+    
+![png](2022-09-29-siamese-network-tutorial-with-fastai-update_files/2022-09-29-siamese-network-tutorial-with-fastai-update_39_3.png)
+    
+
 
 
 ```python
@@ -391,31 +428,31 @@ learn.fit_one_cycle(4, 3e-3)
   <tbody>
     <tr>
       <td>0</td>
-      <td>0.784405</td>
-      <td>0.738067</td>
-      <td>0.511502</td>
+      <td>0.543962</td>
+      <td>0.344742</td>
+      <td>0.841678</td>
       <td>00:21</td>
     </tr>
     <tr>
       <td>1</td>
-      <td>0.755276</td>
-      <td>0.723324</td>
-      <td>0.520298</td>
+      <td>0.367816</td>
+      <td>0.221206</td>
+      <td>0.919486</td>
       <td>00:21</td>
     </tr>
     <tr>
       <td>2</td>
-      <td>0.729036</td>
-      <td>0.695713</td>
-      <td>0.516238</td>
-      <td>00:21</td>
+      <td>0.298733</td>
+      <td>0.179088</td>
+      <td>0.935724</td>
+      <td>00:22</td>
     </tr>
     <tr>
       <td>3</td>
-      <td>0.716655</td>
-      <td>0.690654</td>
-      <td>0.543978</td>
-      <td>00:21</td>
+      <td>0.252596</td>
+      <td>0.172828</td>
+      <td>0.937754</td>
+      <td>00:22</td>
     </tr>
   </tbody>
 </table>
@@ -488,7 +525,7 @@ def siampredict(self: Learner, item, rm_type_tfms=None, with_input=False):
 imgtest = PILImage.create(files[0])
 imgval = PILImage.create(files[100])
 siamtest = SiameseImage(imgval, imgtest)
-siamtest.show()
+siamtest.show();
 ```
 
 
