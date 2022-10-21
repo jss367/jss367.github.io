@@ -8,6 +8,9 @@ tags: [Databases, Python]
 
 This notebook is hiding here while it's in draft.
 
+<b>Table of Contents</b>
+* TOC
+{:toc}
 
 ```python
 import sqlalchemy
@@ -510,5 +513,5 @@ If you're using an ORM and want to update an object, you'll have to get the reco
 
 #### Filter in Python list
 
-session.query(MyTable).filter(MyTable.id.in_(tuple(my_list))).all()
+`session.query(MyTable).filter(MyTable.id.in_(tuple(my_list))).all()`
 
