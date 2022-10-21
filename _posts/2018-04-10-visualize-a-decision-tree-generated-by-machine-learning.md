@@ -9,6 +9,10 @@ tags: [Data Visualization, Decision Trees, Machine Learning, Pandas, Python, Sci
 
 What goes on inside the black box of a machine learning algorithm? While it may be impossible for a human to understand precisely why a large neural network produced the results it did, some algorithms are far more transparent. Decision trees are just such an example of a machine learning algorithm whose results can be understood by people.
 
+<b>Table of Contents</b>
+* TOC
+{:toc}
+
 To explore the power of decision trees, I'll use them to attempt to classify mushrooms into either poisonous or edible based on their look, smell, and habitat. The Audubon Society Field Guide to North American Mushrooms (1981) recorded these attributes for each of 8124 different mushrooms. As well as the toxicity, they came up with 22 other ways to characterize the mushrooms, such as cap shape, odor, and gill size. Credit for publishing [the dataset](https://archive.ics.uci.edu/ml/datasets/mushroom) goes to: Dua, D. and Karra Taniskidou, E. (2017). UCI Machine Learning Repository [http://archive.ics.uci.edu/ml]. Irvine, CA: University of California, School of Information and Computer Science.
 
 
@@ -44,7 +48,7 @@ columns = ['toxicity', 'cap-shape', 'cap-surface', 'cap-color', 'bruises', 'odor
 df.columns = columns
 ```
 
-## Data exploration
+## Data Exploration
 
 Now we'll take a quick look at the data.
 
@@ -408,7 +412,7 @@ In total, we have 8124 samples and 22 different attributes (not counting toxicit
 We also have a good class distribution. The most common toxicity category is 'e' for edible, but that's only 4208 samples. That means that there are 3196 poisonous samples in the dataset. That's close enough to 50-50, so we've got plenty of both categories.
 
 
-## Data cleaning
+## Data Cleaning
 
 The first thing to do is to check for missing data.
 
@@ -556,7 +560,7 @@ We'll also remove the label from the list of columns.
 del columns[columns.index('stalk-root')]
 ```
 
-## Preparing the data
+## Preparing the Data
 
 As we can see, the data are all categorical. We'll have to convert them to numbers before we use them. Let's go ahead and do that.
 
@@ -950,7 +954,7 @@ print("Number of samples to test the model: " + str(len(X_test)))
     Number of samples to test the model: 1625
     
 
-## Building the model
+## Building the Model
 
 Now we'll build the actual decision tree and train it on the data.
 
@@ -969,7 +973,7 @@ clf.fit(X_train, y_train)
 
 Let's see how well it did with the data we gave it.
 
-## Testing the model
+## Testing the Model
 
 
 ```python
@@ -991,7 +995,7 @@ print("The model correctly predicted {:.0%} of the test set.".format(accuracy_sc
 
 Even more impressive, we were able to correctly predict all 1625 samples that the model hadn't seen before. That's a pretty good model. Now, let's try to visualize it.
 
-## Visualizing the model
+## Visualizing the Model
 
 We'll use [Graphviz](https://www.graphviz.org/) and [PyDotPlus](http://pydotplus.readthedocs.io/) to visualize the model.
 
@@ -1077,7 +1081,7 @@ d['odor'].classes_
 
 From the graph, we can see that if the odor is in a category less than or equal to 3.5, which would be the first four categories, it is poisonous. Those categories are almond, creosote, foul, and anise. If it's not one of those, the mushroom is edible.
 
-## Random forests
+## Random Forests
 
 In a more complex scenario where we weren't able to predict with 100% accuracy from a single tree, we would build a "random forest" by combining many different decision trees. Then the trees can be weighed and combined in various ways to make an overall algorithm. The algorithm becomes harder to visualize at that point, but you can still learn a lot about the data from this technique.
 

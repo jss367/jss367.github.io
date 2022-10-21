@@ -8,6 +8,7 @@ tags: [Jekyll, Markdown, Cheat Sheet]
 ---
 This is a quick cheatsheet for stylizing Jekyll blog posts. Jekyll uses Markdown for formatting, so all the Markdown commands work in Jekyll. There are also some additional things one can do with Jekyll.<!--more-->
 
+<b>Table of Contents</b>
 * TOC
 {:toc}
 
