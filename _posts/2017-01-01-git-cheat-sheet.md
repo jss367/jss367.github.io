@@ -10,7 +10,7 @@ tags: [Git, Cheat Sheet]
 This post shows some of the most common Git commands. I find it very useful to have a quick reference with all of the most common tasks.
 
 
-<b>Table of contents</b>
+<b>Table of Contents</b>
 * TOC
 {:toc}
 

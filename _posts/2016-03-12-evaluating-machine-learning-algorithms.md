@@ -9,7 +9,7 @@ tags: [Python, Matplotlib, Seaborn, Machine Learning, Scikit-Learn, Data Visuali
 
 This post takes some of algorithms that we saw in the [previous post](https://jss367.github.io/visualizing-machine-learning-algorithms.html) and shows how they perform on the gains charts. Gains charts, which are also called lift charts, are a good way to see how much lift an algorithm has over guessing.
 
-<b>Table of contents</b>
+<b>Table of Contents</b>
 * TOC
 {:toc}
 

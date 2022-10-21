@@ -8,7 +8,7 @@ tags: [Linux, Cheat Sheet]
 
 This is a list of simple Linux tips and tricks.
 
-<b>Table of contents</b>
+<b>Table of Contents</b>
 * TOC
 {:toc}
 

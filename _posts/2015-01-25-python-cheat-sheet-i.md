@@ -9,7 +9,7 @@ tags: [Python, Cheat Sheet]
 
 This notebook is a collection of Python notes, tricks, and tips. It is set up to act as a quick reference for basic Python programming. I try to update the post every once in a while with the latest version of Python, so it should be roughly up to date.
 
-<b>Table of contents</b>
+<b>Table of Contents</b>
 * TOC
 {:toc}
 

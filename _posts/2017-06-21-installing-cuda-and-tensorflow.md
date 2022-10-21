@@ -8,7 +8,7 @@ tags: [CUDA, TensorFlow]
 
 This tutorial explains how debug problems with your NVIDIA graphics card when doing deep learning.
 
-<b>Table of contents</b>
+<b>Table of Contents</b>
 * TOC
 {:toc}
 

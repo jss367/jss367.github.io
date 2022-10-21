@@ -8,7 +8,7 @@ tags: [Computer Vision, Python, Wildlife]
 
 In this series of posts, I will show how to build an image classifier using your own dataset. We'll discuss how to prepare a dataset for machine learning, how to build a model to classify it, and techniques to improve the model's performance. This post will focus on the data preparation.
 
-<b>Table of contents</b>
+<b>Table of Contents</b>
 * TOC
 {:toc}
 

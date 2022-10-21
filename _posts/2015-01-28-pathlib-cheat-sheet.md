@@ -9,7 +9,7 @@ tags: [Python, Cheat Sheet]
 
 [Pathlib](https://docs.python.org/3/library/pathlib.html) is a built-in Python library that is similar to `os.path` but contains a lot more. This post walks through some of the basics with pathlib.
 
-<b>Table of contents</b>
+<b>Table of Contents</b>
 * TOC
 {:toc}
 

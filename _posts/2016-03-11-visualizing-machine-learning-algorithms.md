@@ -9,7 +9,7 @@ tags: [Data Visualization, Machine Learning, Matplotlib, Python, Scikit-learn, S
 
 This notebook takes over from [part I](https://jss367.github.io/exploring-the-iris-dataset.html), where we explored the [iris dataset](https://archive.ics.uci.edu/ml/datasets/iris). This time, we'll give a visual tour of some of the primary machine learning algorithms used in supervised learning, along with a high-level explanation of the algorithms.
 
-<b>Table of contents</b>
+<b>Table of Contents</b>
 * TOC
 {:toc}
 

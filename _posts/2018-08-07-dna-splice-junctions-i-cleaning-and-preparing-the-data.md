@@ -12,7 +12,7 @@ In the next two posts we'll try to do exactly that. To do this, we're going to u
 
 In this post, I'm going to focus on cleaning and preparing the data set. In the next I'll walk through logistic regression to show how it works.
 
-<b>Table of contents</b>
+<b>Table of Contents</b>
 * TOC
 {:toc}
 

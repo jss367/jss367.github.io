@@ -8,7 +8,7 @@ tags: [Computer Vision, Data Visualization, Python]
 
 This post shows some of the various tools in Python for visualizing images. There are usually two steps to the visualization process. First, you'll need to read in the image, usually as a `numpy` array or something similar. Then, you can visualize it with various libraries.
 
-<b>Table of contents</b>
+<b>Table of Contents</b>
 * TOC
 {:toc}
 

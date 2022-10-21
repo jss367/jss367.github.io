@@ -9,7 +9,7 @@ tags: [Data Visualization, Exploratory Data Analysis, Matplotlib, Python, Seabor
 
 In this notebook, we'll demonstrate some data exploration techniques using the famous [iris dataset](https://archive.ics.uci.edu/ml/datasets/iris). In [the second notebook](https://jss367.github.io/visualizing-machine-learning-algorithms.html), we'll use this data set to visualize a bunch of machine learning algorithms.
 
-<b>Table of contents</b>
+<b>Table of Contents</b>
 * TOC
 {:toc}
 

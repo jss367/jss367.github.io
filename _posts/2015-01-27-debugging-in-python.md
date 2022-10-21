@@ -9,7 +9,7 @@ tags: [Python, Cheat Sheet]
 
 My favorite place to debug a Python application is in a full IDE like VSCode or PyCharm. However, sometimes those options aren't available, soit's good to know the alternatives. This post shows some basic functionality of some Python debuggers.
 
-<b>Table of contents</b>
+<b>Table of Contents</b>
 * TOC
 {:toc}
 
