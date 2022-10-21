@@ -8,7 +8,7 @@ tags: [Python]
 
 The most frequently used evaluation metric for object detection is "Average Precision (AP)". But, despite the attempts of well-intentioned researchers to create a single metric for comparing models, no single metric is the right one for all the cases. Thus the landscape of metrics has become filled with small variations on the idea of average precision. This post aims to clarify those variations.
 
-<b>Table of contents</b>
+<b>Table of Contents</b>
 * TOC
 {:toc}
 

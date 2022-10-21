@@ -10,7 +10,7 @@ This post is in a series on doing machine learning with unbalanced datasets. Thi
 
 When we're evaluating the performance of models on a unbalanced dataset, what should the makeup of the test set be? This post digs into this question.
 
-<b>Table of contents</b>
+<b>Table of Contents</b>
 * TOC
 {:toc}
 

@@ -13,7 +13,7 @@ $$ Question > Dataset > Algorithm $$
 
 But how do we evaluate a dataset? What questions should we ask? In this post, I'm going to talk about how I evaluate imagery datasets and some key questions to ask when doing so. Some of the questions will apply to all machine learning datasets, but many of them are specific to imagery. There will also be domain-specific questions depending on what domain you're working in.
 
-<b>Table of contents</b>
+<b>Table of Contents</b>
 * TOC
 {:toc}
 

@@ -8,7 +8,7 @@ tags: [Linux, Mac, Software, Windows]
 
 I'm always curious about how people set up their computers and what software packages they have, so I thought I would share mine. So you know where I'm coming from, I use Windows, Mac, and Linux nearly every day. Part of my goal is to make transitioning between these systems as seemless as possible, but the exact setup varies by operating system. For those of you on Windows, many of these can be installed with [Ninite](https://ninite.com/). I do a pretty good job of keeping this list up-to-date, so it should reflect pretty well my recommendations for current software.
 
-<b>Table of contents</b>
+<b>Table of Contents</b>
 * TOC
 {:toc}
 

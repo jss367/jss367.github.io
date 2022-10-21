@@ -10,7 +10,7 @@ tags: [Jupyter Notebooks]
 The post aims to show how to create Jupyter environments and how to debug any issues. It also provides some commands that are good for general debugging.
 
 
-<b>Table of contents</b>
+<b>Table of Contents</b>
 * TOC
 {:toc}
 

@@ -8,7 +8,7 @@ tags: [Computer Vision, Data Augmentation, Python, TensorFlow]
 
 This post is going to demonstrate how to use the [Albumentations](https://albumentations.ai/) library with TensorFlow.
 
-<b>Table of contents</b>
+<b>Table of Contents</b>
 * TOC
 {:toc}
 

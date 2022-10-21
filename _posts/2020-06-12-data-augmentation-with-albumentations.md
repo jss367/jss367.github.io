@@ -9,7 +9,7 @@ tags: [Computer Vision, Data Augmentation, Deep Learning, Python]
 
 This post is going to demonstrate how to do data augmentation for computer vision using the [albumentations](https://albumentations.ai/) library. The exact data augmentations you use are going to be specific to your use-case. For example, if you're training on overhead imagery the augmentations you use will probably be somewhat different than on an ImageNet-like dataset (although there will also be considerable overlap).
 
-<b>Table of contents</b>
+<b>Table of Contents</b>
 * TOC
 {:toc}
 

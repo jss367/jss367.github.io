@@ -14,7 +14,7 @@ After multiplying each input by its respective weight, a bias is applied. Then t
 
 How on Earth could that work? Well, what I've described so far would never work, but here is where the machine learning comes in. For our first iteration, we'll only get about half right (in the case of two possible outputs). But we back propagate the difference between the correct answers and our results through the algorithm to update our weights. Then we'll make another set of predictions. Then we do it again. And again. Eventually, the weights will become tuned well enough to accurately make predictions. Let's see how it works.
 
-<b>Table of contents</b>
+<b>Table of Contents</b>
 * TOC
 {:toc}
 

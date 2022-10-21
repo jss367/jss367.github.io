@@ -8,7 +8,7 @@ tags: [Computer Vision, Data Augmentation, Python, TensorFlow, Wildlife]
 
 In this notebook, we're going to take our [prepared images](https://jss367.github.io/class-for-preparing-images.html) and augment them to increase the size of our dataset.
 
-<b>Table of contents</b>
+<b>Table of Contents</b>
 * TOC
 {:toc}
 

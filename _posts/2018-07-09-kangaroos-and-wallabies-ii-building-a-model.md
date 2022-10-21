@@ -8,7 +8,7 @@ tags: [Computer Vision, Convolutional Neural Networks, Python, TensorFlow, Wildl
 
 In this notebook, we're going to take the [datatset we prepared](https://jss367.github.io/kangaroos-and-wallabies-i-preparing-the-data.html) and build a model to classify the images.
 
-<b>Table of contents</b>
+<b>Table of Contents</b>
 * TOC
 {:toc}
 

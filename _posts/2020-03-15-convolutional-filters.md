@@ -8,7 +8,7 @@ thumbnail: "assets/img/coober.jpg"
 
 Convolutional neural networks (CNNs) are the powerhouse behind modern computer vision. And although they've grown in popularity with the rise of deep learning, they long predate it. In fact, CNNs have long been used with hand-crafted filters. These filters are used to extract specific components of an image which can then be used to understand what is in the image. This post demonstrates some of the most popular filters used in traditional computer vision. You'll notice that in deep learning the word "filter" is sometimes used interchangeably with the word "kernel". We'll use both terms here as well.
 
-<b>Table of contents</b>
+<b>Table of Contents</b>
 * TOC
 {:toc}
 

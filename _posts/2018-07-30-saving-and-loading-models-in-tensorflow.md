@@ -11,7 +11,7 @@ There are many ways to save and load models in TensorFlow and Keras. It's good t
 
 > Note: This post has been updated to use TensorFlow 2.
 
-<b>Table of contents</b>
+<b>Table of Contents</b>
 * TOC
 {:toc}
 

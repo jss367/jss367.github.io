@@ -12,7 +12,7 @@ When we think about training a machine learning model on an unbalanced dataset, 
 
 Adding more data to the less common class is almost certainly the best approach. But if that's not possible, what can we do? The two most popular methods for rebalancing data are adding more weight to the less common class or oversampling it. Which is better?
 
-<b>Table of contents</b>
+<b>Table of Contents</b>
 * TOC
 {:toc}
 

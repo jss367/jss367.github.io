@@ -9,7 +9,7 @@ tags: [Geospatial Analytics]
 
 This post provides a summary of some of the most important overhead imagery datasets for object detection. The aim of this post is to be a living document where I continue to add new datasets as they are released.
 
-<b>Table of contents</b>
+<b>Table of Contents</b>
 * TOC
 {:toc}
 

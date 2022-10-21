@@ -9,7 +9,7 @@ tags: [Linux, Python, Windows]
 
 Path problems are some of the most common and annoying problems machine learning engineers face, especially when frequently switching between operating systems. There are so many different issues ways to have path problems that no post could cover them all, but in this post, I'll try to provide some background on possible issues and how to resolve them.
 
-<b>Table of contents</b>
+<b>Table of Contents</b>
 * TOC
 {:toc}
 

@@ -10,7 +10,7 @@ tags: [Deep Learning, Machine Learning]
 
 I find it difficult to keep up with the latest in machine learning, even though it's part of my full-time job. Fortunately, there are a lot of resources out there to help sort through it all. I thought I would put together a list of resources that I use in case it helps anyone else. If you know of a great resource that I'm missing, please let me know!
 
-<b>Table of contents</b>
+<b>Table of Contents</b>
 * TOC
 {:toc}
 
