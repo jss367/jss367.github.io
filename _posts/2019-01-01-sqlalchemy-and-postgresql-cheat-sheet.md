@@ -515,3 +515,15 @@ If you're using an ORM and want to update an object, you'll have to get the reco
 
 `session.query(MyTable).filter(MyTable.id.in_(tuple(my_list))).all()`
 
+
+
+`Customers.__table__`
+
+
+`Customers.__table__.columns.keys()`
+
+
+
+
+
+
