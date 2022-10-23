@@ -55,39 +55,39 @@ Here is the code for a deep learning convolution.
 
 ```python
 import numpy as np
-from scipy.signal import correlate2d, convolve2d
 from matplotlib import pyplot as plt
 from PIL import Image
+from scipy.signal import correlate2d, convolve2d
 ```
 
 
 ```python
-def conv(receptive_field, kernel, mathematical_convolution=False):
+def conv(receptive_field: np.ndarray, kernel: np.ndarray, mathematical_convolution: bool = False) -> float:
     """
     Convolve a kernel with an identically-sized receptive field. Option to perform mathematical convolution instead.
-    
+
     Arguments:
-        receptive_field {numpy.ndarray} -- Section of array to be convolved
-        kernel {numpy.ndarray} -- Convolutional filter (aka kernel)
+        receptive_field -- Section of array to be convolved
+        kernel -- Convolutional filter (aka kernel)
 
     Keyword Arguments:
-        mathematical_convolution {bool} -- Assign to true to perform a mathematical convolution (default: {False})
-    
+        mathematical_convolution -- Assign to true to perform a mathematical convolution (default: {False})
+
     Returns:
-        float or int -- Scalar return of convolutional operation
+        Scalar return of convolutional operation
     """
     receptive_field_shape = receptive_field.shape
     kernel_shape = kernel.shape
-    assert len(kernel_shape) == 2, "Only two dimensional kernel is allowed, not {}".format(len(kernel_shape))
-    assert len(receptive_field_shape) == 2, "Only two dimensional matrix is allowed, not {}".format(len(receptive_field_shape))
+    assert len(kernel_shape) == 2, f"Only two dimensional kernel is allowed, not {len(kernel_shape)}"
+    assert len(receptive_field_shape) == 2, f"Only two dimensional matrix is allowed, not {len(receptive_field_shape)}"
     kernel_height, kernel_width = kernel_shape
     output = 0
     for i in range(kernel_height):
         for j in range(kernel_width):
             if mathematical_convolution:
-                output += receptive_field[i,j] * kernel[kernel_height-1-i,kernel_width-1-j]
+                output += receptive_field[i, j] * kernel[kernel_height - 1 - i, kernel_width - 1 - j]
             else:
-                output += receptive_field[i,j] * kernel[i,j]
+                output += receptive_field[i, j] * kernel[i, j]
     return output
 ```
 
@@ -95,23 +95,23 @@ Now we'll write a function that takes a kernel and scans it across a larger imag
 
 
 ```python
-def convolve(matrix, kernel, mathematical_convolution=False):
+def convolve(matrix: np.ndarray, kernel: np.ndarray, mathematical_convolution: bool = False) -> np.ndarray:
     """Perform a deep learning convolutional operation as commonly used in CNNs.
-    
+
     Arguments:
-        matrix {numpy.ndarray} -- Matrix to be convolved
-        kernel {numpy.ndarray} -- Convolutional kernel (also called a filter)
-    
+        matrix -- Matrix to be convolved
+        kernel -- Convolutional kernel (also called a filter)
+
     Keyword Arguments:
-        mathematical_convolution {bool} -- Assign to true to perform a mathematical convolution (default: {False})
-    
+        mathematical_convolution -- Assign to true to perform a mathematical convolution (default: {False})
+
     Returns:
-        numpy.ndarray -- Resulting matrix
+        Resulting matrix
     """
     matrix_shape = matrix.shape
     kernel_shape = kernel.shape
-    assert len(kernel_shape) == 2, "Only two dimensional kernelers allowed, not {}".format(len(kernel_shape))
-    assert len(matrix_shape) == 2, "Only two dimensional matrix is allowed, not {}".format(len(matrix_shape))
+    assert len(kernel_shape) == 2, f"Only two dimensional kernelers allowed, not {len(kernel_shape)}"
+    assert len(matrix_shape) == 2, f"Only two dimensional matrix is allowed, not {len(matrix_shape)}"
     # get shape of kerneler
     kernel_height, kernel_width = kernel_shape
     matrix_height, matrix_width = matrix_shape
@@ -120,16 +120,25 @@ def convolve(matrix, kernel, mathematical_convolution=False):
     output_matrix = np.zeros([num_vert_convs, num_hor_convs])
     for i in range(num_vert_convs):
         for j in range(num_hor_convs):
-            receptive_field = matrix[i:kernel_height+i, j:kernel_width+j]
-            output_matrix[i,j] = conv(receptive_field, kernel, mathematical_convolution=mathematical_convolution)
-    return output_matrix.astype('int')
+            receptive_field = matrix[i : kernel_height + i, j : kernel_width + j]
+            output_matrix[i, j] = conv(receptive_field, kernel, mathematical_convolution=mathematical_convolution)
+    return output_matrix.astype("int")
 ```
 
 Let's look at an example.
 
 
 ```python
-matrix = np.array(([1,0,2,0,2,0], [0,1,2,1,0,1], [2,2,1,1,1,2], [0,1,0,0,1,0], [0,1,0, 0, 1, 1], [0,0,1,1,0,1]))
+matrix = np.array(
+    (
+        [1, 0, 2, 0, 2, 0],
+        [0, 1, 2, 1, 0, 1],
+        [2, 2, 1, 1, 1, 2],
+        [0, 1, 0, 0, 1, 0],
+        [0, 1, 0, 0, 1, 1],
+        [0, 0, 1, 1, 0, 1],
+    )
+)
 print(matrix)
 ```
 
@@ -143,7 +152,7 @@ print(matrix)
 
 
 ```python
-conv_filter = np.array(([1,2,3], [0,1,0], [2,3,0]))
+conv_filter = np.array(([1, 2, 3], [0, 1, 0], [2, 3, 0]))
 print(conv_filter)
 ```
 
@@ -203,7 +212,7 @@ As stated above, the code for these operations was written to be understandable,
 
 
 ```python
-correlate2d(matrix, conv_filter, mode='valid')
+correlate2d(matrix, conv_filter, mode="valid")
 ```
 
 
@@ -237,7 +246,7 @@ In practice, many hand-crafted filters are symmetric. As you can see from the co
 
 
 ```python
-symmetric_filter = np.array(([1,2,1], [0,0,0], [1,2,1]))
+symmetric_filter = np.array(([1, 2, 1], [0, 0, 0], [1, 2, 1]))
 symmetric_filter
 ```
 
@@ -288,10 +297,10 @@ Let's get a test image to work with.
 
 
 ```python
-test_image = Image.open('coober_pedy.jpg')
+test_image = Image.open("coober_pedy.jpg")
 im_height, im_width = test_image.size
 # shrink the image
-test_image = test_image.resize((int(im_height/10), int(im_width/10)))
+test_image = test_image.resize((int(im_height / 10), int(im_width / 10)))
 ```
 
 
@@ -302,7 +311,9 @@ test_image
 
 
 
-![png]({{site.baseurl}}/assets/img/2020-03-15-Convolutional-Filters_files/2020-03-15-Convolutional-Filters_36_0.png)
+    
+![png](2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_36_0.png)
+    
 
 
 
@@ -310,7 +321,7 @@ These filters are usually applied on greyscale versions of the image. So we'll c
 
 
 ```python
-test_image = test_image.convert('L') # convert to greyscale
+test_image = test_image.convert("L")  # convert to greyscale
 ```
 
 
@@ -321,7 +332,9 @@ test_image
 
 
 
-![png]({{site.baseurl}}/assets/img/2020-03-15-Convolutional-Filters_files/2020-03-15-Convolutional-Filters_39_0.png)
+    
+![png](2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_39_0.png)
+    
 
 
 
@@ -335,7 +348,7 @@ This filter leaves the image intact with no changes.
 
 
 ```python
-identity = np.array(([0,0,0], [0,1,0], [0,0,0]))
+identity = np.array(([0, 0, 0], [0, 1, 0], [0, 0, 0]))
 identity
 ```
 
@@ -360,15 +373,15 @@ filtered_im = convolve(image_array, identity)
 
 
 ```python
-fsize = (12,8)
-plt.figure(figsize = fsize)
-plt.imshow(filtered_im, cmap='gray');
+fsize = (12, 8)
+plt.figure(figsize=fsize)
+plt.imshow(filtered_im, cmap="gray");
 ```
 
 
-
-
-![png]({{site.baseurl}}/assets/img/2020-03-15-Convolutional-Filters_files/2020-03-15-Convolutional-Filters_47_1.png)
+    
+![png](2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_47_0.png)
+    
 
 
 ### Random
@@ -378,7 +391,7 @@ First, let's establish a baseline. We'll use random numbers as our filter and se
 
 ```python
 np.random.seed(0)
-random = np.random.rand(3,3) * 1/9
+random = np.random.rand(3, 3) * 1 / 9
 print(random)
 ```
 
@@ -396,9 +409,9 @@ def show_filtered_image(image, kernel, absv=False):
     filtered_im = convolve(image_array, kernel)
     plt.figure(figsize=fsize)
     if absv:
-        plt.imshow(np.absolute(filtered_im), cmap='gray')
+        plt.imshow(np.absolute(filtered_im), cmap="gray")
     else:
-        plt.imshow(filtered_im, cmap='gray')
+        plt.imshow(filtered_im, cmap="gray")
 ```
 
 
@@ -407,7 +420,9 @@ show_filtered_image(test_image, random)
 ```
 
 
-![png]({{site.baseurl}}/assets/img/2020-03-15-Convolutional-Filters_files/2020-03-15-Convolutional-Filters_53_0.png)
+    
+![png](2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_53_0.png)
+    
 
 
 Randomly generated filters will usually perform some sort of slightly distorted blurring. Bluring as actually a common (and sometimes desired) affect, so let's look at that next.
@@ -418,7 +433,7 @@ One of the things you can do with a filter is blur the entire image. To do that 
 
 
 ```python
-const = 1/9
+const = 1 / 9
 blur = np.array(([const, const, const], [const, const, const], [const, const, const]))
 print(blur)
 ```
@@ -434,7 +449,9 @@ show_filtered_image(test_image, blur)
 ```
 
 
-![png]({{site.baseurl}}/assets/img/2020-03-15-Convolutional-Filters_files/2020-03-15-Convolutional-Filters_58_0.png)
+    
+![png](2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_58_0.png)
+    
 
 
 ### Sharpen
@@ -458,7 +475,9 @@ show_filtered_image(test_image, sharpen)
 ```
 
 
-![png]({{site.baseurl}}/assets/img/2020-03-15-Convolutional-Filters_files/2020-03-15-Convolutional-Filters_62_0.png)
+    
+![png](2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_62_0.png)
+    
 
 
 Why did the image become all gray? That's because our filter had negative numbers in it, so our image values go from being [0, 255] to [-255, 255]. Matplotlib has to correct for this so it does a linear transformation of $$ M_{gray} = (M_{orig} + 255) / 2 $$
@@ -494,7 +513,9 @@ show_filtered_image(test_image, sobel_vert)
 ```
 
 
-![png]({{site.baseurl}}/assets/img/2020-03-15-Convolutional-Filters_files/2020-03-15-Convolutional-Filters_68_0.png)
+    
+![png](2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_68_0.png)
+    
 
 
 Now let's look at the negative vertical filter.
@@ -516,7 +537,9 @@ show_filtered_image(test_image, sobel_vert_neg)
 ```
 
 
-![png]({{site.baseurl}}/assets/img/2020-03-15-Convolutional-Filters_files/2020-03-15-Convolutional-Filters_71_0.png)
+    
+![png](2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_71_0.png)
+    
 
 
 As you can see, the resulting image is very similar, and both of them do a good job at highlighting the vertical lines. But there's a key difference in there. Can you see it? The positive filter has made the left sides of the vertical lines high values and the right side low values. The high values are whiter and the low values are blacker, so the positive vertical filter has highlighted all the vertical lines by making the left side more white and the right side more dark. Now take a look at the negative filter. In that image, the left sides of the vertical lines are dark and the right sides are light.
@@ -525,7 +548,7 @@ Now let's look at the horizontal Sobel Filter and compare that.
 
 
 ```python
-sobel_hor = np.array(([1,2,1], [0,0,0], [-1,-2,-1]))
+sobel_hor = np.array(([1, 2, 1], [0, 0, 0], [-1, -2, -1]))
 print(sobel_hor)
 ```
 
@@ -540,14 +563,16 @@ show_filtered_image(test_image, sobel_hor)
 ```
 
 
-![png]({{site.baseurl}}/assets/img/2020-03-15-Convolutional-Filters_files/2020-03-15-Convolutional-Filters_75_0.png)
+    
+![png](2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_75_0.png)
+    
 
 
 Notice that the horizontal lines are much more emphasized with the horizontal Sobel filter. The negative version does the same thing except flips the light and dark sides of the horizontal line. Filters can be combined in interesting ways to create new filters. For example, combining a Sobel vertical with a horizontal Sobel filter make a great edge detection filter.
 
 
 ```python
-image_array = np.asarray(test_image.convert('L'))
+image_array = np.asarray(test_image.convert("L"))
 sobel_vert_im = convolve(image_array, sobel_vert)
 sobel_hor_im = convolve(image_array, sobel_hor)
 ```
@@ -560,23 +585,20 @@ sobel_edge_detector = np.sqrt(sobel_hor_im**2 + sobel_vert_im**2)
 
 ```python
 plt.figure(figsize=fsize)
-plt.imshow(sobel_edge_detector, cmap='gray');
+plt.imshow(sobel_edge_detector, cmap="gray");
 ```
 
 
-
-
-
-
-
-![png]({{site.baseurl}}/assets/img/2020-03-15-Convolutional-Filters_files/2020-03-15-Convolutional-Filters_79_1.png)
+    
+![png](2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_79_0.png)
+    
 
 
 ### Gaussian blur
 
 
 ```python
-gaussian_blur = (1/16)*np.array(([1, 2, 1], [2, 4, 2], [1, 2, 1]))
+gaussian_blur = (1 / 16) * np.array(([1, 2, 1], [2, 4, 2], [1, 2, 1]))
 gaussian_blur
 ```
 
@@ -595,7 +617,9 @@ show_filtered_image(test_image, gaussian_blur)
 ```
 
 
-![png]({{site.baseurl}}/assets/img/2020-03-15-Convolutional-Filters_files/2020-03-15-Convolutional-Filters_82_0.png)
+    
+![png](2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_82_0.png)
+    
 
 
 Gaussian blur filters are often used before a Sobel edge detection to remove some of the high frequency artifacts that appear like edges to the operator. Let's take a look.
@@ -607,16 +631,13 @@ sobel_vert_im_blurred = convolve(blurred_im, sobel_vert)
 sobel_hor_im_blurred = convolve(blurred_im, sobel_hor)
 sobel_edge_detector_blurred = np.sqrt(sobel_hor_im_blurred**2 + sobel_vert_im_blurred**2)
 plt.figure(figsize=fsize)
-plt.imshow(sobel_edge_detector_blurred, cmap='gray');
+plt.imshow(sobel_edge_detector_blurred, cmap="gray");
 ```
 
 
-
-
-
-
-
-![png]({{site.baseurl}}/assets/img/2020-03-15-Convolutional-Filters_files/2020-03-15-Convolutional-Filters_84_1.png)
+    
+![png](2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_84_0.png)
+    
 
 
 ### Sobel Feldman
@@ -640,7 +661,9 @@ show_filtered_image(test_image, sobel_feldman)
 ```
 
 
-![png]({{site.baseurl}}/assets/img/2020-03-15-Convolutional-Filters_files/2020-03-15-Convolutional-Filters_88_0.png)
+    
+![png](2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_88_0.png)
+    
 
 
 ### Scharr
@@ -664,7 +687,9 @@ show_filtered_image(test_image, scharr_filter)
 ```
 
 
-![png]({{site.baseurl}}/assets/img/2020-03-15-Convolutional-Filters_files/2020-03-15-Convolutional-Filters_92_0.png)
+    
+![png](2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_92_0.png)
+    
 
 
 ### Robert's Cross
@@ -687,7 +712,9 @@ show_filtered_image(test_image, roberts_cross_x)
 ```
 
 
-![png]({{site.baseurl}}/assets/img/2020-03-15-Convolutional-Filters_files/2020-03-15-Convolutional-Filters_96_0.png)
+    
+![png](2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_96_0.png)
+    
 
 
 
@@ -701,7 +728,9 @@ show_filtered_image(test_image, roberts_cross_y)
 ```
 
 
-![png]({{site.baseurl}}/assets/img/2020-03-15-Convolutional-Filters_files/2020-03-15-Convolutional-Filters_98_0.png)
+    
+![png](2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_98_0.png)
+    
 
 
 ### LaPlace
@@ -729,7 +758,9 @@ show_filtered_image(test_image, pos_laplace)
 ```
 
 
-![png]({{site.baseurl}}/assets/img/2020-03-15-Convolutional-Filters_files/2020-03-15-Convolutional-Filters_102_0.png)
+    
+![png](2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_102_0.png)
+    
 
 
 ### Prewitt
@@ -755,7 +786,9 @@ show_filtered_image(test_image, prewitt)
 ```
 
 
-![png]({{site.baseurl}}/assets/img/2020-03-15-Convolutional-Filters_files/2020-03-15-Convolutional-Filters_105_0.png)
+    
+![png](2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_105_0.png)
+    
 
 
 ### Double
@@ -773,5 +806,7 @@ show_filtered_image(test_image, double)
 ```
 
 
-![png]({{site.baseurl}}/assets/img/2020-03-15-Convolutional-Filters_files/2020-03-15-Convolutional-Filters_109_0.png)
+    
+![png](2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_109_0.png)
+    
 
