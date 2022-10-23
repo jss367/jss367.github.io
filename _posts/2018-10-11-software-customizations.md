@@ -172,9 +172,9 @@ Go there and into config. It might be at `C:\Users\Julius\Downloads\cmder\config
 
 
 
-"C:\Users\Julius\Downloads\cmder\config\user_aliases.cmd"
+`"C:\Users\Julius\Downloads\cmder\config\user_aliases.cmd"`
 
-It might start be looking like:
+It might start looking like:
 ```
 ;= @echo off
 ;= rem Call DOSKEY and use this file as the macrofile
