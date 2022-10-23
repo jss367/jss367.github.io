@@ -234,6 +234,14 @@ DataGrip also has a default tab process that I don't like. Here's how to update 
 
 <img width="984" alt="image" src="https://user-images.githubusercontent.com/3067731/186536462-34900e69-1f70-4344-b847-fd3bec14e2ac.png">
 
+## DBeaver
+
+I also don't like some of DBeaver's defaults.
+
+![image](https://user-images.githubusercontent.com/3067731/197381400-ae4ec5e3-0df2-4777-928a-132a96dbcb1a.png)
+
+You can change, for example, the "Execute SQL Statement" by going into Window -> Preferences -> User Interface -> Keys. Then you can change it to `Ctrl + R` (Windows) to match your other database tools.
+
 ## Karabiner Elements
 
 Karabiner Elements is all about customization. I mainly use mine to make my experience across Mac, Linux, and Windows as seemless as possible.
