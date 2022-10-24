@@ -2,7 +2,7 @@
 layout: post
 title: "SQLAlchemy and PostgreSQL Cheat Sheet"
 feature-img: "assets/img/rainbow.jpg"
-thumbnail: "assets/img/pallid_cuckoo.jpg"
+thumbnail: "assets/img/australian_grebe.jpg"
 tags: [Databases, Python]
 ---
 
