@@ -421,6 +421,11 @@ result
 
 
 
+
+If you want the SRID as well, you'll need to use `st_asewkt`.
+
+
+
 #### `sess.query` vs `sess.execute`
 
 ## Creating a Record
