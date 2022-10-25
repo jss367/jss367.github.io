@@ -128,7 +128,7 @@ If you keep all your repos in a `git` folder like I do, I recommend putting your
 
 ## launch.json
 
-Writing launch.json files is very useful. It makes it easy to run files in different configurations, such as passing different arguments. Here's the default starting place:
+Writing `launch.json` files is very useful. It makes it easy to run files in different configurations, such as passing different arguments. Here's the default starting place:
 
 ```json
 {
@@ -183,6 +183,10 @@ In the `launch.json` file, you can choose to run either a `"module"` or a `"prog
 #### Debugging subprocesses
 
 You can also debug subprocess in VSCode. All you need to do is add `"subProcess": true,` to your `launch.json`.
+
+#### Location
+
+`launch.json` files can be stored in different locations. Sometimes you might have one in `git/my_repo/.vscode/launch.json`. I generally try to avoid this. Instead of one for each repo, I would put them all in `git/.vscode/launch.json`.
 
 ## .env files ##
 Go at top of directory. Can add environment variables, python path, etc.
