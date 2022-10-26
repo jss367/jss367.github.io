@@ -7,6 +7,8 @@ thumbnail: "assets/img/kea.jpg"
 tags: [Jupyter Notebooks, Python]
 ---
 
+This post contains some of my notes on the `argparse` package.
+
 ## What Arguments Were Passed
 
 If you ever want to see what arguments were passed into a module, you can do the following:
@@ -29,7 +31,7 @@ parser.add_argument('--foo', required=True)
 ```
 
 
-This is how it's put in the documentation [documentation](https://docs.python.org/3/library/argparse.html#required):
+This is how it's put in the [documentation](https://docs.python.org/3/library/argparse.html#required):
 > Required options are generally considered bad form because users expect options to be optional, and thus they should be avoided when possible.
 
 
