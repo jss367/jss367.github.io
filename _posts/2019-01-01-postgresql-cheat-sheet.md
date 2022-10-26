@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "SQLAlchemy and PostgreSQL Cheat Sheet"
+title: "PostgreSQL Cheat Sheet"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/great_crested_grebe.jpg"
 tags: [Databases, Python]
