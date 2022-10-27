@@ -167,6 +167,10 @@ Here's an example with arguments:
 - defaults to true
 - restricts debugging to only the user-written code
 
+
+You can also set your Python interpreter specifically for that run. You need something like the following:
+* `"python": "/home/julius/miniconda3/envs/my_env/bin/python",`
+
 #### Relative paths (cwd)
 
 Part of your command will include a reference from where to start from. One way to do that is by using `cwd`.
