@@ -99,6 +99,25 @@ The solution is to change your single quotes to double quotes.
 
 ## Some samples
 
+```sql
+CREATE TABLE Customers (
+  name text,
+  email text,
+  entry_num int,
+  age int
+);
+
+INSERT INTO Customers(name, email, entry_num, age) VALUES ("John Smith", "js@gmail.com", 100, 25);
+INSERT INTO Customers(name, email, entry_num, age) VALUES ("Karen Smith", "ks@gmail.com", 101, 42);
+INSERT INTO Customers(name, email, entry_num, age) VALUES ("John Smith", "js@gmail.com", 102, 25);
+
+
+
+select entry_num, count(*) from customers
+group by entry_num
+having count(*)>1
+```
+
 #### Return all the names that are duplicated and the number of entries
 
 ```sql
