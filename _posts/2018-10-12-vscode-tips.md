@@ -243,6 +243,9 @@ Sometimes the Discover Tests functionality fails, often for path issues. Remembe
 
 if discover tests fails, go to the terminal  - click on the output tab - and change it to Python Test Log
 
+## Connecting to Remote Instances
+
+I wrote [a guide on how to connect to remote instances](https://jss367.github.io/connecting-vscode-to-google-cloud-platform-instances.html). I recommend storing your config file at `~/.ssh/config`
 
 ## Troubleshooting
 
