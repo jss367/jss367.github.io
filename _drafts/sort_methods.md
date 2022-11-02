@@ -18,3 +18,8 @@ stalin sort
 
 commiesort
 
+
+Genprog sort. Return an empty list
+
+Genghis concert sort. Replace all elements with Genghis Khan and multiply by a billion
+
