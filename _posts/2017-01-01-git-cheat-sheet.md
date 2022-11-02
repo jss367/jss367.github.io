@@ -355,6 +355,14 @@ Supposed you wanted to add something that combined a few git commands, like `git
 
 Now you can do `git all` to call this.
 
+#### In remote VSCode
+
+Sometimes you might have a problem where git is not configured.
+
+git config --global user.name "<Your Name>"
+
+git config --global user.email "<youremail@gmail.com>"
+
 
 ## git aliases
 
