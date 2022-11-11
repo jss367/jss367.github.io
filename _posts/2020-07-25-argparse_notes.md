@@ -30,8 +30,21 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--foo', required=True)
 ```
 
-
 This is how it's put in the [documentation](https://docs.python.org/3/library/argparse.html#required):
 > Required options are generally considered bad form because users expect options to be optional, and thus they should be avoided when possible.
 
+
+## Defaults for booleans
+
+If you want an argument to default to true:
+
+```python
+parser.add_argument('--foo', action='store_false')
+```
+
+If you want an argument to default to false:
+
+```python
+parser.add_argument('--foo', action='store_true')
+```
 
