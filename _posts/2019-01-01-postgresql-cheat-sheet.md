@@ -159,3 +159,8 @@ select name, email, age, min(entry_num) as entry_num from Customers group by ema
 ## Useful commands
 
 `update my_table set deleted=now() where ...`
+
+## Reminders
+
+If you're coming from a Python world, remember, single quotes and double quotes are not interchangeable!
+
