@@ -50,3 +50,18 @@ If you want an argument to default to false:
 parser.add_argument('--foo', action='store_true')
 ```
 
+This might be a little bit counter intuitive. Let's think about a case where you want something to do true. Let's say you want to include the training set in a train.
+
+The common way to do this would be:
+```python
+parser.add_argument('--exclude_train', action='store_true')
+```
+This means "if I add this tag, store true; otherwise, store false". But that's kind of like a double negative - leaving out the command to exclude the training set. Instead, let's say you want to affirm it. You would do that like so:
+
+parser.add_argument('--include_train', action='store_true')
+parser.add_argument('--include_val', action='store_true')
+parser.add_argument('--include_test', action='store_true')
+
+This is probably better in this case. This means if I didn't specify that set, don't include it.
+
+
