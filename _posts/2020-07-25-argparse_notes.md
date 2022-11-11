@@ -58,9 +58,11 @@ parser.add_argument('--exclude_train', action='store_true')
 ```
 This means "if I add this tag, store true; otherwise, store false". But that's kind of like a double negative - leaving out the command to exclude the training set. Instead, let's say you want to affirm it. You would do that like so:
 
+```python
 parser.add_argument('--include_train', action='store_true')
 parser.add_argument('--include_val', action='store_true')
 parser.add_argument('--include_test', action='store_true')
+```
 
 This is probably better in this case. This means if I didn't specify that set, don't include it.
 
