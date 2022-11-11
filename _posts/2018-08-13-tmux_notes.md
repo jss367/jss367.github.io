@@ -10,11 +10,11 @@ tags: [Cheat Sheet, Software]
 
 ## Prefix Key
 
-CTRL + b is the prefix key. This opens up all the other hot keys.
+`CTRL + b` is the prefix key (Mac/Linux/Windows). This opens up all the other hot keys.
 
 #### Detaching
 
-Prefix + d
+`Prefix + d`
 
 ## Remote Server
 
