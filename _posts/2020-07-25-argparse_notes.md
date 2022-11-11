@@ -42,6 +42,8 @@ If you want an argument to default to true:
 parser.add_argument('--foo', action='store_false')
 ```
 
+This means `foo` will be `True` unless `--foo` is added to the command, in which case it would become `False`.
+
 If you want an argument to default to false:
 
 ```python
