@@ -164,3 +164,5 @@ select name, email, age, min(entry_num) as entry_num from Customers group by ema
 
 If you're coming from a Python world, remember, single quotes and double quotes are not interchangeable!
 
+Note there is a difference between `->` and `->>`
+
