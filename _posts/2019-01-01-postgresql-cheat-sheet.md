@@ -156,6 +156,20 @@ on t.email=tt.email and t.name=tt.name and t.age=tt.age
 select name, email, age, min(entry_num) as entry_num from Customers group by email, name, age
 ```
 
+## Using pandas
+
+You can load results into a DataFrame like so:
+```python
+with db_session(engine=my_engine) as sess:
+    records = sess.execute(query_string)
+df = pd.DataFrame(records)
+```
+But you can also do it directly using `read_sql`:
+```python
+with db_session(engine=my_engine) as sess:
+    df = pd.read_sql(query_string, sess.bind)
+```
+
 ## Useful commands
 
 `update my_table set deleted=now() where ...`
