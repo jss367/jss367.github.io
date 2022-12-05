@@ -14,6 +14,6 @@ assignee = <hex_num> AND status not in (done) and created >= -100d
 ```
   
 ## Search by board and title
-``jql
+```jql
 project = MY_TEAM and summary ~ "my_topic*"
 ```
