@@ -1,3 +1,5 @@
+You should install local packages with `pip install -e .` or `pip install -qe .`
+
 You need a setup.py to do it
 
 If you depend on a local package and you don't want to have to reinstall it when you change the code.
