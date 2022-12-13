@@ -12,6 +12,11 @@ This post details some of the customizations I have made to some of the [softwar
 * TOC
 {:toc}
 
+## Mac General
+
+I do this to make it easier to navigate in terminals: https://stackoverflow.com/questions/6205157/how-to-set-keyboard-shortcuts-to-jump-to-beginning-end-of-line/22312856#22312856
+* also add ctrl+z for undo (so there are two ways to undo)
+
 ## Sublime Text
 
 #### External Packages
