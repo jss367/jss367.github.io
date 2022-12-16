@@ -17,3 +17,11 @@ assignee = <hex_num> AND status not in (done) and created >= -100d
 ```jql
 project = MY_TEAM and summary ~ "my_topic*"
 ```
+
+## What did X do in the last year?
+
+```jql
+created >= -365d AND assignee = <X> AND status = Done order by created DESC
+```
+
+
