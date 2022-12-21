@@ -248,7 +248,35 @@ I have found that if I don't include `conda activate $DEFAULT_CONDA_ENVIRONMENT`
 
 Other stuff is added to `.zshrc` automatically as well. Things like `[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh` automatically get added here. If you don't need it for `tmux`, you can leave it here. Otherwise I would recommend moving it all over to `.profile`.
 
+## Working on Remote Linux Instances
 
+If you're sshing into a remote Linux machine, you may have to set things up differently.
+
+You're likely to have a `.bashrc` and that will have stuff like `export PS1="\u@\h \[\e[32m\]\w \[\e[91m\]\$(parse_git_branch)\[\e[00m\]$ "` in it. It will also have your conda init. You will also want to put you `.my_credentials` file there, and may need to add a `export REMOTE_BASE="/home/me"` there.
+
+### Adding credentials to `.my_credentials`
+
+You might also want some environmental variables in your credentials file, especially if you are using it for other purposes. You can make it depend on the shell like so
+```
+export LOCAL_PATH="/Users/me"
+export REMOTE_PATH="/home/me"
+
+if [ -n "`$SHELL -c 'echo $ZSH_VERSION'`" ]; then
+   # PUT YOUR LOCAL DATASET LOCATION HERE
+  export TRUE_PATH=$LOCAL_PATH
+
+
+elif [ -n "`$SHELL -c 'echo $BASH_VERSION'`" ]; then
+
+  # remote GPUs run bash
+   alias rld='source ~/.bashrc' #reload profile
+
+   export TRUE_PATH=$REMOTE_PATH
+
+else
+   echo "Warning: Shell unknown"
+fi
+```
 
 ## Bash
 
