@@ -13,21 +13,26 @@ This post contains details of how I set up my shell and environment. I use Windo
 
 ## Shell
 
-I use [zsh](https://www.zsh.org/) as my main shell for Macs. It's now the default shell so newer Macs will have it but older ones will need to install it.
+On Macs, I use [zsh](https://www.zsh.org/) as my main shell. It's now the default shell so newer Macs will have it but older ones will need to install it. My setup is based around that.
 
-## Shell Configuration
+### Shell Configuration
 
 I use [Oh My Zsh](https://ohmyz.sh/) to configure zsh and highly recommend it.
 
-I store all of my environment variables in a `~/.profile` file. Then I source that file in whatever shell I'm using. This makes it much easier to work across a variety of environments.
-
-## Oh My Zsh Configuration
+#### Oh My Zsh Configuration
 
 * I usually leave the theme as `ZSH_THEME="robbyrussell"`
 
 * Then I create a profile file and put in it `~/.oh-my-zsh/custom/profile.zsh`
 
 * That profile just says `source ~/.profile`
+
+## Aliasing
+
+I have a particular way I set up my aliases. I store all of my aliases and environment variables other than my passwords in a `~/.profile` file. This way I can share it with a team and we can all have the same hotkeys. I make a separate file called something like `.my_credentials` and export my credentials from there. I source `~/.profile` from either the shell I'm using or, if I'm using oh-my-zsh, from there. The full chain looks like this:
+
+`~/.zshrc` -> `~/.oh-my-zsh/custom/profile.zsh` -> `~/.profile` -> `~/.my_credentials`
+* Also `.profile` will source `.bash_profile` if it exists
 
 ## ZSH Syntax Highlighting
 
@@ -49,16 +54,6 @@ There are a few packages I use to improve my terminal experience.
 
 Note that brew puts something in `zprofile`; conda adds to `.zshrc` or sometimes `.bash_profile` depending on how you install it.
 
-## File Chain
-
-A new terminal starts with `.zshrc`. The full chain goes like:
-
-`~/.zshrc` -> `~/.oh-my-zsh/custom/profile.zsh` -> `~/.profile` -> `~/.my_credentials`
-* Also `.profile` will source `.bash_profile` if it exists
-
-## My .profile Setup
-
-* I usually share my `.profile` with others so that we can all share keyboard shortcuts. In order to do this without sharing passwords, I make a separate file called something like `.my_credentials` and export my credentials from there.
 
 ### Exports
 ```bash
