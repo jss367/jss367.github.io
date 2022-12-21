@@ -34,7 +34,28 @@ I have a particular way I set up my aliases. I store all of my aliases and envir
 `~/.zshrc` -> `~/.oh-my-zsh/custom/profile.zsh` -> `~/.profile` -> `~/.my_credentials`
 * Also `.profile` will source `.bash_profile` if it exists
 
-## ZSH Syntax Highlighting
+## Additions to Other Files
+
+Sometimes other applications will place information in your profile files. Some examples:
+
+* brew puts something in `zprofile`
+* conda adds to `.zshrc` or sometimes `.bash_profile` depending on how you install it.
+
+## Packages
+
+There are a few packages I use to improve my terminal experience.
+
+### Pygments
+
+* [Pygments](https://pygments.org/), a Python syntax highlighter. It's like `cat` with colors. I alias it to `c` (as seen below).
+
+### Autojump
+
+* [autojump](https://github.com/wting/autojump)
+
+### ZSH Syntax Highlighting
+
+* [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
 
 To activate the syntax highlighting, add the following at the end of your .zshrc:
   `source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh`
@@ -43,16 +64,6 @@ If you receive "highlighters directory not found" error message,
 you may need to add the following to your .zshenv:
   `export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlighting/highlighters`
 
-
-## Packages
-
-There are a few packages I use to improve my terminal experience.
-
-* [Pygments](https://pygments.org/), a Python syntax highlighter. It's like `cat` with colors. I alias it to `c` (as seen below).
-* [autojump](https://github.com/wting/autojump)
-* [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
-
-Note that brew puts something in `zprofile`; conda adds to `.zshrc` or sometimes `.bash_profile` depending on how you install it.
 
 
 ### Exports
@@ -342,29 +353,10 @@ export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
 ```bash
 # general aliases
 
-alias rld='source ~/.zshrc' #reload, assume zsh
 
 #redo last command but with sudo
-alias please='sudo $(history -p !!)'
-alias ff='find . -name'
-alias findpy='find . -name "*.py" | xargs grep --color'
-alias fpy='find . -name "*.py" | xargs grep --color'
-alias grep='grep --color=auto'
-alias hgrep='history | grep -v grep | grep '
 alias psgrep='ps aux | grep -v grep | grep '
 
-alias ll='ls -GlAFh'
-# alias ll='ls -alF'
-alias lls='ls -GlAFhS'
-#alias la='ls -A'
-#alias l='ls -CF'
-# better ls (column detail and no meta-files (., .., etc))
-alias ls='ls -lA'
-
-alias showpath='echo $PATH | tr ":" "\n"'
-alias path='echo -e ${PATH//:/\\n}'
-alias wgpu='watch -d -n 0.5 gpustat' # requires gpustat
-alias nb='jupyter notebook'
 
 alias ccat='pygmentize -O style=monokai -f console256 -g'
 alias c='pygmentize -g' # like cat but with color
