@@ -5,8 +5,7 @@ feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/turtle.jpg"
 tags: [Software]
 ---
-
-In this post, I'll talk about how I set up my shell and environment. I use Windows, Mac, and Linux on a daily basis, so I have different setups for different purposes, but I try to make them similar when I can.
+This post contains details of how I set up my shell and environment. I use Windows, Mac, and Linux on a daily basis, so I have different setups for different purposes, but I try to make them similar when I can.
 
 <b>Table of Contents</b>
 * TOC
@@ -14,7 +13,7 @@ In this post, I'll talk about how I set up my shell and environment. I use Windo
 
 ## Shell
 
-I use [zsh](https://www.zsh.org/) as my main shell. It's now the default shell so newer Macs will have it but older ones will need to install it.
+I use [zsh](https://www.zsh.org/) as my main shell for Macs. It's now the default shell so newer Macs will have it but older ones will need to install it.
 
 ## Shell Configuration
 
@@ -26,7 +25,7 @@ I store all of my environment variables in a `~/.profile` file. Then I source th
 
 * I usually leave the theme as `ZSH_THEME="robbyrussell"`
 
-* Then I create a profile and put in it `~/.oh-my-zsh/custom/profile.zsh`
+* Then I create a profile file and put in it `~/.oh-my-zsh/custom/profile.zsh`
 
 * That profile just says `source ~/.profile`
 
@@ -40,7 +39,9 @@ you may need to add the following to your .zshenv:
   `export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlighting/highlighters`
 
 
-## Packages to Add
+## Packages
+
+There are a few packages I use to improve my terminal experience.
 
 * [Pygments](https://pygments.org/), a Python syntax highlighter. It's like `cat` with colors. I alias it to `c` (as seen below).
 * [autojump](https://github.com/wting/autojump)
@@ -52,12 +53,12 @@ Note that brew puts something in `zprofile`; conda adds to `.zshrc` or sometimes
 
 A new terminal starts with `.zshrc`. The full chain goes like:
 
-`~/.zshrc` -> `~/.oh-my-zsh/custom/profile.zsh` -> `.profile` -> `~.my_credentials`
-* Also `.profile` will go to `.bash_profile` if it exists
+`~/.zshrc` -> `~/.oh-my-zsh/custom/profile.zsh` -> `~/.profile` -> `~/.my_credentials`
+* Also `.profile` will source `.bash_profile` if it exists
 
 ## My .profile Setup
 
-* I usually share my `.profile` with others so that we can all share shortcuts. In order to do this without sharing passwords, I make a separate file called something like `.my_credentials` and export my credentials from there.
+* I usually share my `.profile` with others so that we can all share keyboard shortcuts. In order to do this without sharing passwords, I make a separate file called something like `.my_credentials` and export my credentials from there.
 
 ### Exports
 ```bash
@@ -89,10 +90,9 @@ alias lls='ls -GlAFhS'
 alias c='pygmentize -g' # like cat but with color
 alias t='tail -v'
 
-alias ckenv='printenv | grep -i' # lookup rabbit, lookup database, etc.
+alias ckenv='printenv | grep -i' # check environmental variables
 alias path='echo $PATH | tr ":" "\n"'
 alias mkdir='mkdir -pv' # automatically make child directories
-
 
 
 alias pu='popd'
@@ -307,7 +307,7 @@ If you make a shortcut to your code base like so:
 
 `export BASE='$HOME/git'`
 
-then if you want to use it an an alias you'll have to use double quotes.
+then if you want to use it in an alias you'll have to use double quotes.
 
 Instead of `alias cdh=cd $BASE'` you'll have to use `alias cdh="cd $BASE"`
 
@@ -371,11 +371,6 @@ alias path='echo -e ${PATH//:/\\n}'
 alias wgpu='watch -d -n 0.5 gpustat' # requires gpustat
 alias nb='jupyter notebook'
 
-alias ckenv='printenv | grep -i' # lookup rabbit, lookup database, etc.
-
-## Redo the last command but with sudo in front
-alias please='sudo $(history -p !!)'
-
 alias ccat='pygmentize -O style=monokai -f console256 -g'
 alias c='pygmentize -g' # like cat but with color
 alias pu='popd'
@@ -383,17 +378,6 @@ alias pd='pushd'
 alias c='clear'
 # See what's in your path
 
-
-# tmux
-alias tmn='tmux new-session'
-alias tmk='tmux kill-session -t'
-alias tma='tmux a -t'
-alias tm='tmux ls'
-
-# Python
-alias ip='ipython'
-#alias nb='jupyter notebook --port=8888 --no-browser --ip=0.0.0.0 --allow-root --NotebookApp.iopub_data_rate_limit=100000000000'
-alias nb='jupyter notebook'
 
 # Watch GPU usage
 alias wgpu='watch -d -n 0.5 nvidia-smi'
