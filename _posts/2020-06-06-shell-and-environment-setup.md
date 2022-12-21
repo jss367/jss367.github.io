@@ -66,14 +66,14 @@ you may need to add the following to your .zshenv:
 
 
 
-### Exports
+## Exports
 ```bash
 export BASE="$HOME/git"
 export DATA="$HOME/data"
 export MODELS="$HOME/models"
 export FZF_DEFAULT_OPS="--extended"
 ```
-### Aliases
+## Aliases
 
 ```bash
 # GENERAL ALIASES
@@ -130,7 +130,7 @@ alias gs='git status'
 
 
 
-### Functions
+## Functions
 
 ```bash
 
@@ -166,9 +166,9 @@ function extract () {
 
 ```
 
-### Shell-specific
+## Shell-specific
 
-#### ZSH
+### ZSH
 
 ```bash
    alias rld='source ~/.zshrc' #reload profile
