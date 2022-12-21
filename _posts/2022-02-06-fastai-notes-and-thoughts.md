@@ -9,8 +9,6 @@ tags: [FastAI, Python]
 
 This post is a collection of some notes and thoughts I've had when working with [FastAI](https://www.fast.ai/).
 
-FastAI Models.
-
 ## Working on Windows
 
 There seems to be an issue when training some models on Windows machines that I haven't run into when I've used Mac or Linux. Let's create a simple example to start.
