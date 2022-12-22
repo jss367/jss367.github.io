@@ -9,6 +9,10 @@ tags: [FastAI, Python]
 
 This post is a collection of some notes and thoughts I've had when working with [FastAI](https://www.fast.ai/).
 
+<b>Table of Contents</b>
+* TOC
+{:toc}
+
 ## Working on Windows
 
 There seems to be an issue when training some models on Windows machines that I haven't run into when I've used Mac or Linux. Let's create a simple example to start.
@@ -44,10 +48,7 @@ ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 
 ```python
-try:
-    learn.fine_tune(1)
-except OSError as err:
-    print(f"Error! You have the following error: {err}")
+learn.fine_tune(1)
 ```
 
 
@@ -64,10 +65,10 @@ except OSError as err:
   <tbody>
     <tr>
       <td>0</td>
-      <td>0.354445</td>
-      <td>0.307840</td>
-      <td>0.127273</td>
-      <td>00:04</td>
+      <td>1.202993</td>
+      <td>1.158934</td>
+      <td>0.472727</td>
+      <td>00:07</td>
     </tr>
   </tbody>
 </table>
@@ -87,9 +88,9 @@ except OSError as err:
   <tbody>
     <tr>
       <td>0</td>
-      <td>0.136007</td>
-      <td>0.405595</td>
-      <td>0.163636</td>
+      <td>0.418523</td>
+      <td>0.513215</td>
+      <td>0.181818</td>
       <td>00:05</td>
     </tr>
   </tbody>
@@ -121,10 +122,90 @@ This means that everything you would normally do with a PyTorch model, you can d
 learn.model.eval();
 ```
 
-## Versioning
+## Working on GPUs
 
-You have to be very careful with what versions of FastAI and Python you use. For example, if you trained a model using Python 3.8, it won't work if you try to use it in Python 3.10.
+FastAI makes working with GPUs easy. You need to make sure your models and your dataset are on the GPU. This might not be the case, especially if you load them from disk.
 
+To check your dataset:
+
+
+```python
+dls.device
+```
+
+
+
+
+    device(type='cuda', index=0)
+
+
+
+Then you can put in on the GPU with:
+
+
+```python
+learn.dls.cuda()
+```
+
+
+
+
+    <fastai.data.core.DataLoaders at 0x201a6eb6730>
+
+
+
+If you just have a single DataLoader, you can move it like this:
+
+
+```python
+dl = dls.train
+```
+
+
+```python
+dl.to('cuda') 
+#dl.to('cpu') # if you wanted to put it back on the cpu
+```
+
+
+
+
+    <fastai.data.core.TfmdDL at 0x201a6e972b0>
+
+
+
+To test a model, just use the PyTorch method.
+
+
+```python
+next(learn.model.parameters()).is_cuda
+```
+
+
+
+
+    True
+
+
+
+To move a model, you'll need to:
+
+
+```python
+learn.model = learn.model.cuda()
+```
+
+You can also make sure you load it right to the GPU.
+
+
+```python
+load_learner('my_model.pkl', cpu=False);
+```
+
+
+```python
+new_dls = new_dblock.dataloaders(final_df, device='cuda')
+```
 
 ## Transitioning From FastAI Version 1
 
@@ -159,6 +240,22 @@ except FileNotFoundError as err:
 
 It adds the word "model" in the beginning. This is great if you know it's going to do that, but not for people who aren't expecting that. It's not even obvious when you look at the default arguments how to turn this off. This is a minor annoyance, but there are a lot of these. I have found that FastAI seems to make more assumptions about what you want relative to other libraries.
 
+## Encoding and Decoding Images
+
+If you get an image like this, it will be normalized
+
+
+```python
+x, = first(dls.test_dl([img]))
+```
+
+So if you want to decode it, you'll have to do something like this:
+
+
+```python
+dls.train.decode((x,))[0][0].shape
+```
+
 ## Things I don't like
 
 There are a lot of things I like about FastAI, but there are also some things that I don't.
@@ -186,10 +283,6 @@ I see where the annoyance comes from. You have no idea what's in your namespace,
 #### Inheriting from Outer Context
 
 There's a lot of inheriting from outer context in FastAI. This works well for a Jupyter Notebook environment, but makes it harder to use it in production.
-
-#### Versioning
-
-The transition from FastAI 1 to FastAI 2 has been difficult. A lot of previous methods no longer work and now the forum is much less helpful. Solutions point to broken links all the time.
 
 ## Conclusion
 
