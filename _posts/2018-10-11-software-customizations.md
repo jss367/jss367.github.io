@@ -252,6 +252,15 @@ You can change, for example, the "Execute SQL Statement" by going into Window ->
 Karabiner Elements is all about customization. I mainly use mine to make my experience across Mac, Linux, and Windows as seemless as possible.
 
 * I recommend use the [Windows shortcuts on macOS](https://ke-complex-modifications.pqrs.org/?q=windows%20shortcuts%20on%20macOS)
+<img width="1218" alt="image" src="https://user-images.githubusercontent.com/3067731/209397616-c8552408-665d-4745-b918-5e839dd1e91a.png">
+
+<img width="987" alt="image" src="https://user-images.githubusercontent.com/3067731/209397778-6ade395b-6140-4385-aece-6c55c563fea3.png">
+
+<img width="933" alt="image" src="https://user-images.githubusercontent.com/3067731/209398081-c04af843-f244-4b7f-a2bc-a27ea91219c0.png">
+
+<img width="779" alt="image" src="https://user-images.githubusercontent.com/3067731/209398188-5aa0bf22-a783-4912-9f8b-12ebb43b6f0f.png">
+
+
   * I use this to do a lot of thinks I like to do in Windows, like using `control` and the arrows to jump over words
   * I delete the shortcut that remaps `command` + `tab` because I like to keep that for switching between applications
 * Lots of useful things under complex rules
