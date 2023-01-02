@@ -59,11 +59,6 @@ im
 
 
 
-
-```python
-img = im
-```
-
 # Load the Model
 
 Now let's get our model. For simplicity I'm going to use an off-the-shelf one: InceptionV3.
@@ -178,7 +173,7 @@ def batch_predict(images: list):
 
 
 ```python
-explanation = explainer.explain_instance(np.array(img), batch_predict, top_labels=1, hide_color=0, num_samples=1000)
+explanation = explainer.explain_instance(np.array(im), batch_predict, top_labels=1, hide_color=0, num_samples=1000)
 ```
 
 
