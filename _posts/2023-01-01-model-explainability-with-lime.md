@@ -1,3 +1,12 @@
+---
+layout: post
+title: "Model Explainability with LIME"
+description: "This post is a tutorial for how to use Local Interpretable Model-agnostic Explanations (LIME) to explain computer vision models."
+feature-img: "assets/img/rainbow.jpg"
+thumbnail: "assets/img/fruit_dove.jpg"
+tags: [Model Explainability, Python, PyTorch]
+---
+
 [Local Interpretable Model-agnostic Explanations (LIME)](https://arxiv.org/abs/1602.04938) is an important technique for explaining the predictions of machine learning models. It is called "model-agnostic" because it can be used to explain any machine learning model, regardless of the model's architecture or how it was trained. The key to LIME is to "zoom in" on a decision boundary and learn an interpretable model around that specific area. Then we can see exactly how various factors affect the decision boundary. In this post, I'll show how to use LIME to explain an image classification model.
 
 <b>Table of Contents</b>
@@ -45,7 +54,7 @@ im
 
 
     
-![png](2023-01-01-model-explainability-with-lime_files/2023-01-01-model-explainability-with-lime_8_0.png)
+![png](2023-01-01-model-explainability-with-lime_files/2023-01-01-model-explainability-with-lime_9_0.png)
     
 
 
@@ -186,7 +195,7 @@ plt.tick_params(left=False, right=False, labelleft=False, labelbottom=False, bot
 
 
     
-![png](2023-01-01-model-explainability-with-lime_files/2023-01-01-model-explainability-with-lime_36_0.png)
+![png](2023-01-01-model-explainability-with-lime_files/2023-01-01-model-explainability-with-lime_37_0.png)
     
 
 

@@ -4,7 +4,7 @@ title: "Evaluating Machine Learning Algorithms"
 description: "This post shows how you can measure machine learning algorithm quality with gains charts, lift charts, and KS statistics."
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/quokka.jpg"
-tags: [Python, Matplotlib, Seaborn, Machine Learning, Scikit-Learn, Data Visualization]
+tags: [Python, Matplotlib, Seaborn, Machine Learning, Scikit-learn, Data Visualization]
 ---
 
 This post takes some of algorithms that we saw in the [previous post](https://jss367.github.io/visualizing-machine-learning-algorithms.html) and shows how they perform on the gains charts. Gains charts, which are also called lift charts, are a good way to see how much lift an algorithm has over guessing.
