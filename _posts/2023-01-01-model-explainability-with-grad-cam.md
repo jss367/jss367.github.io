@@ -497,7 +497,7 @@ Now let's average the gradient over all the channels in the convolutional layer 
 pooled_grads = tf.reduce_mean(grads, axis=(0, 1, 2))
 ```
 
-Now we can compute the weighted summ of the convolutional layer output with respect to the averaged gradient. Then we sum all the channels to obtain the heatmap class activation.
+Now we can compute the weighted sum of the convolutional layer output with respect to the averaged gradient. Then we sum all the channels to obtain the heatmap class activation.
 
 
 ```python
