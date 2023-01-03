@@ -260,7 +260,7 @@ Sometimes environmental variables won't show up in VSCode. I've found that this 
 
 ## Syncing Across Desktops
 
-Here's what I recommend:
+Here's what I recommend keeping in sync between machines:
 
 ![image](https://user-images.githubusercontent.com/3067731/210435699-e71ff120-cfc3-413c-b99c-f98215d79924.png)
 
