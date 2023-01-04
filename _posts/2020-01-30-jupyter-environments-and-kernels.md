@@ -119,6 +119,9 @@ python -m ipykernel install --user --name myenv --display-name "Python (myenv)"
 
 Now, if you reload your Jupyter Notebook page, your new kernels should be available (you shouldn't need to restart your Jupyter Notebook server).
 
+If you want to add a kernel from one environment to another, say you want to add a new environment kernel to your main environment, you'll need to specify which Python you're referring to:
+
+(my_main_env) ➜  `/Users/<username>/opt/anaconda3/envs/my_new_env/bin/python -m ipykernel install --user --name my_new_env`
 
 #### Removing Kernels
 
