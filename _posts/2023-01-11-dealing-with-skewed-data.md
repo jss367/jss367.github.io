@@ -9,6 +9,9 @@ tags: [Python, Statistics]
 
 In this post I want to talk about some techniques for dealing with skewed data, especially left-skewed data. Left-skewed data is a bit of a rarity. It's something you don't see very often, kind of like a left-handed unicorn. It can also be difficult to work with if you're not prepared.
 
+<b>Table of Contents</b>
+* TOC
+{:toc}
 
 ```python
 import matplotlib.pyplot as plt
