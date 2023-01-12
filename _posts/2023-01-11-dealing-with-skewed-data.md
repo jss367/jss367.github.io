@@ -282,7 +282,7 @@ That's a nice right-skewed distribution. Many machine learning techniques have d
 
 However, the simplest thing to do is often to transform the data so that it is normally distributed.
 
-## Transforming Right-skewed data
+### Transforming Right-skewed data
 
 My first approach is to take the log. This is often all you need.
 
@@ -402,6 +402,8 @@ plt.hist(left_skewed_data);
 
 
 There we go! The mythical left-skewed data! (I swear you do see it in real life sometimes.)
+
+### Transforming Left-skewed data
 
 Let's try the transforms as before.
 
