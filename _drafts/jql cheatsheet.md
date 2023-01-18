@@ -24,4 +24,8 @@ project = MY_TEAM and summary ~ "my_topic*"
 created >= -365d AND assignee = <X> AND status = Done order by created DESC
 ```
 
+## Searching by ticket number
 
+```jql
+issuekey = 'MY_TICKET_1234'
+```
