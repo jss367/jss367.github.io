@@ -220,6 +220,10 @@ The command is of the form: `find /path/to/files* -mtime +5 -exec command {} \;`
 
 `find . -mtime +30 -exec rm -rf {} \;`
 
+If you just want to find them first, you might want something like this:
+
+`find . -mtime +30 -print`
+
 # Installing
 
 Some packages you'll have to install through a `.deb` file. VSCode is this way. The way to install these is:
