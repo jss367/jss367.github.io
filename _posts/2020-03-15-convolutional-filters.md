@@ -110,7 +110,7 @@ def convolve(matrix: np.ndarray, kernel: np.ndarray, mathematical_convolution: b
     """
     matrix_shape = matrix.shape
     kernel_shape = kernel.shape
-    assert len(kernel_shape) == 2, f"Only two dimensional kernelers allowed, not {len(kernel_shape)}"
+    assert len(kernel_shape) == 2, f"Only two dimensional kernels are allowed, not {len(kernel_shape)}"
     assert len(matrix_shape) == 2, f"Only two dimensional matrix is allowed, not {len(matrix_shape)}"
     # get shape of kerneler
     kernel_height, kernel_width = kernel_shape
