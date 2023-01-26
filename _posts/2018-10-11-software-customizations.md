@@ -245,6 +245,8 @@ It can be really useful to color code your databases. This makes them automatica
 
 <img width="450" alt="image" src="https://user-images.githubusercontent.com/3067731/214940892-2d062527-7a8c-41e4-93e2-c302c8edf772.png">
 
+You may need to restart DataGrip before the color changes take place in the Files menu (righthand side).
+
 ## DBeaver
 
 I also don't like some of DBeaver's defaults.
