@@ -241,7 +241,7 @@ DataGrip also has a default tab process that I don't like. Here's how to update 
 
 ### Color Coding Database
 
-It can be really useful to color code your databases. This makes them automatically appear in the files menu in that color. To do so, you need to right click on the database in the Database Explorer (left-side panel). The follow the menu as you can see in the image below.
+It can be really useful to color code your databases. This makes them automatically appear in the files menu in that color. To do so, you need to right click on a database or a subfolder in the Database Explorer (left-side panel). The follow the menu as you can see in the image below.
 
 <img width="450" alt="image" src="https://user-images.githubusercontent.com/3067731/214940892-2d062527-7a8c-41e4-93e2-c302c8edf772.png">
 
