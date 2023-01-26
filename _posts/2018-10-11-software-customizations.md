@@ -239,6 +239,12 @@ DataGrip also has a default tab process that I don't like. Here's how to update 
 
 <img width="984" alt="image" src="https://user-images.githubusercontent.com/3067731/186536462-34900e69-1f70-4344-b847-fd3bec14e2ac.png">
 
+### Color Coding Database
+
+It can be really useful to color code your databases. This makes them automatically appear in the files menu in that color. To do so, you need to right click on the database in the Database Explorer (left-side panel). The follow the menu as you can see in the image below.
+
+<img width="450" alt="image" src="https://user-images.githubusercontent.com/3067731/214940892-2d062527-7a8c-41e4-93e2-c302c8edf772.png">
+
 ## DBeaver
 
 I also don't like some of DBeaver's defaults.
