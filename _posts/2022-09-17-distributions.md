@@ -3,7 +3,7 @@ layout: post
 title: "Distributions"
 description: "This post shows distributions and how to plot them."
 feature-img: "assets/img/rainbow.jpg"
-thumbnail: "assets/img/rug.jpg"
+thumbnail: "assets/img/cradle_mountain.jpg"
 tags: [Data Visualization, Python, Statistics]
 ---
 
@@ -218,6 +218,8 @@ plt.show()
 
 The distribution between the famous "80-20 rule", the Pareto distribution is based on a power law. The Pareto distribution is seen all the time, from social issues to scientific ones.
 
+#### Plot
+
 
 ```python
 # Distribution parameters
@@ -243,7 +245,7 @@ plt.show()
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_39_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_40_0.png)
     
 
 
@@ -278,7 +280,7 @@ plt.show()
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_48_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_49_0.png)
     
 
 
@@ -333,7 +335,7 @@ plt.show()
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_58_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_59_0.png)
     
 
 
@@ -363,7 +365,7 @@ plt.show()
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_60_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_61_0.png)
     
 
 
@@ -381,7 +383,7 @@ plt.show()
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_62_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_63_0.png)
     
 
 
@@ -421,7 +423,7 @@ ax.set(xlabel='Variable', ylabel='Count');
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_71_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_72_0.png)
     
 
 
