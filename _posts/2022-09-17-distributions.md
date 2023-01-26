@@ -3,7 +3,7 @@ layout: post
 title: "Distributions"
 description: "This post shows distributions and how to plot them."
 feature-img: "assets/img/rainbow.jpg"
-thumbnail: "assets/img/cradle_mountain.jpg"
+thumbnail: "assets/img/rug.jpg"
 tags: [Data Visualization, Python, Statistics]
 ---
 
@@ -22,8 +22,8 @@ import math
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
-from scipy.stats import binom, norm, poisson
-from tweedie import tweedie
+from scipy.stats import binom, norm, pareto, poisson
+from tweedie import tweedie # used for tweedie distribution; download with `pip install tweedie`
 ```
 
 
@@ -133,7 +133,7 @@ plt.plot(bins, y, 'r--')
 plt.xlabel('Variable')
 plt.ylabel('Probability')
 
-plt.title("Gaussian Distribution".format(num_bins))
+plt.title("Gaussian Distribution")
 plt.show()
 ```
 
@@ -169,6 +169,8 @@ ax.set(xlabel='Variable', ylabel='Count');
 
 ## Tweedie Distribution
 
+#### Plot
+
 
 ```python
 num_params = 20
@@ -176,31 +178,78 @@ num_params = 20
 
 
 ```python
+# Generate random exogenous variables, num_samples x (num_params - 1)
 exog = np.random.rand(num_samples, num_params - 1)
+
+# Add a column of ones to the exogenous variables, num_samples x num_params
 exog = np.hstack((np.ones((num_samples, 1)), exog))
+
+# Generate random coefficients for the exogenous variables, num_params x 1
 beta = np.concatenate(([500], np.random.randint(-100, 100, num_params - 1))) / 100
+
+# Compute the linear predictor, num_samples x 1
 eta = np.dot(exog, beta)
+
+# Compute the mean of the Tweedie distribution, num_samples x 1
 mu = np.exp(eta)
 
+# Generate random samples from the Tweedie distribution, num_samples x 1
 x = tweedie(mu=mu, p=1.5, phi=20).rvs(num_samples)
 ```
 
 
 ```python
 num_bins = 50
-n, bins, patches = plt.hist(x, num_bins, density=True, color='g', alpha=0.9)
+n, bins, patches = plt.hist(x, num_bins, density=True, color='g', alpha=0.9, rwidth=0.9)
 plt.xlabel('Variable')
 plt.ylabel('Probability')
 
-plt.title("Tweedie Distribution".format(num_bins))
+plt.title("Tweedie Distribution")
 plt.show()
 ```
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_35_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_36_0.png)
     
 
+
+## Pareto Distribution
+
+The distribution between the famous "80-20 rule", the Pareto distribution is based on a power law. The Pareto distribution is seen all the time, from social issues to scientific ones.
+
+
+```python
+# Distribution parameters
+a = 2.0 # shape parameter
+b = 1.0 # scale parameter
+
+# Generate random samples from the distribution
+pareto_samples = pareto.rvs(a, scale=b, size=1000)
+
+# Plot the histogram of the samples
+plt.hist(pareto_samples, bins=50, density=True, color='g', alpha=0.9, rwidth=0.9)
+
+# Plot the probability density function (PDF)
+x = np.linspace(pareto.ppf(0.01, a, scale=b), pareto.ppf(0.99, a, scale=b), 100)
+plt.plot(x, pareto.pdf(x, a, scale=b), 'r-', lw=2, alpha=0.6, label='pareto pdf')
+
+plt.xlabel('Variable')
+plt.ylabel('Probability density')
+plt.title('Pareto Distribution')
+plt.legend()
+plt.show()
+```
+
+
+    
+![png](2022-09-17-distributions_files/2022-09-17-distributions_39_0.png)
+    
+
+
+#### Uses
+
+* 80-20 rule
 
 # Discrete Distributions
 
@@ -229,7 +278,7 @@ plt.show()
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_42_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_48_0.png)
     
 
 
@@ -260,7 +309,7 @@ x = np.random.binomial(n=100, p=0.1)
 print(f"In this experiment, we got heads {x} times")
 ```
 
-    In this experiment, we got heads 14 times
+    In this experiment, we got heads 11 times
     
 
 But we can run this whole experiment over and over again and see what we get.
@@ -268,10 +317,41 @@ But we can run this whole experiment over and over again and see what we get.
 
 ```python
 fig = plt.figure()
+
+# Generate data
 x = np.random.binomial(n=num_trials, p=prob_success, size=num_samples)
 num_bins = 25
 
 n, bins, patches = plt.hist(x, num_bins, density=True, color='g', alpha=0.9, rwidth=0.9)
+
+plt.xlabel('Variable')
+plt.ylabel('Probability')
+
+plt.title("Normal Distribution Histogram (Bin size {})".format(num_bins))
+plt.show()
+```
+
+
+    
+![png](2022-09-17-distributions_files/2022-09-17-distributions_58_0.png)
+    
+
+
+Note that sometimes the bin edges are not aligned with the integer values in your data, so you get the gaps that you see above. One solition is to define the bins explicitly, like so:
+
+
+```python
+fig = plt.figure()
+
+# Generate data
+x = np.random.binomial(n=num_trials, p=prob_success, size=num_samples)
+num_bins = 25
+
+# Define bin edges
+bin_edges = np.arange(min(x), max(x) + 2)
+
+# Plot the histogram
+plt.hist(x, bins=bin_edges, density=True, color='g', alpha=0.9, rwidth=0.9)
 
 plt.xlabel('Variable')
 plt.ylabel('Probability')
@@ -283,7 +363,7 @@ plt.show()
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_52_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_60_0.png)
     
 
 
@@ -292,7 +372,8 @@ You can also do the same thing with `scipy`.
 
 ```python
 binon_sim = binom.rvs(n=num_trials, p=prob_success, size=num_samples)
-plt.hist(binon_sim, bins=num_bins, density=True, rwidth=0.9)
+bin_edges = np.arange(min(x), max(x) + 2)
+plt.hist(x, bins=bin_edges, density=True, color='g', alpha=0.9, rwidth=0.9)
 plt.xlabel('Variable')
 plt.ylabel('Probability')
 plt.show()
@@ -300,11 +381,11 @@ plt.show()
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_54_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_62_0.png)
     
 
 
-#### Usage
+#### Uses
 
 * Flipping a coin
 * Shooting free throws
@@ -340,11 +421,11 @@ ax.set(xlabel='Variable', ylabel='Count');
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_63_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_71_0.png)
     
 
 
-#### Usage
+#### Uses
 
 * Decay events from radioactive sources
 * Meteorites hitting the Earth
