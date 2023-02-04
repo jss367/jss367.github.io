@@ -216,29 +216,6 @@ I recommend using keyboard snippets. Here are some useful ones that I use:
             "from polyplotter import plotpoly as p",
         ],
         "description": "Import the main function from polyplotter"
-    },
-    "Plot Polygon": {
-        "prefix": [
-            "plt_poly"
-        ],
-        "body": [
-            "plt.plot(*$0.exterior.xy)",
-            "plt.gca().axis('equal')",
-            "plt.show()"
-        ],
-        "description": "Set up Pytest"
-    },
-    "Plot MultiPolygon": {
-        "prefix": [
-            "plt_multi"
-        ],
-        "body": [
-            "for geom in $0.geoms:",
-            "    plt.plot(*geom.exterior.xy)",
-            "plt.gca().axis('equal')",
-            "plt.show()"
-        ],
-        "description": "Set up Pytest"
     }
 }
 ```
