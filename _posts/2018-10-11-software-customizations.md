@@ -165,7 +165,83 @@ I usually sync the following:
 
 I usually sync with my microsoft account, because I have different github accounts linked for different computers.
 
+### Snippets
 
+I recommend using keyboard snippets. Here are some useful ones that I use:
+```json
+{
+    "Import Matplotlib": {
+        "prefix": [
+            "plt"
+        ],
+        "body": [
+            "from matplotlib import pyplot as plt"
+        ],
+        "description": "Import matplotlib"
+    },
+    "Save Image": {
+        "prefix": [
+            "save"
+        ],
+        "body": [
+            "plt.imsave('$0.png', $0)"
+        ],
+        "description": "Save image"
+    },
+    "Show Image": {
+        "prefix": [
+            "show"
+        ],
+        "body": [
+            "plt.imshow($0)",
+            "plt.show()"
+        ],
+        "description": "Show image"
+    },
+    "Pytest": {
+        "prefix": [
+            "pytest"
+        ],
+        "body": [
+            "if __name__ == '__main__':",
+            "    pytest.main([__file__])"
+        ],
+        "description": "Set up Pytest"
+    },
+    "Import Polyplotter": {
+        "prefix": [
+            "ppp"
+        ],
+        "body": [
+            "from polyplotter import plotpoly as p",
+        ],
+        "description": "Import the main function from polyplotter"
+    },
+    "Plot Polygon": {
+        "prefix": [
+            "plt_poly"
+        ],
+        "body": [
+            "plt.plot(*$0.exterior.xy)",
+            "plt.gca().axis('equal')",
+            "plt.show()"
+        ],
+        "description": "Set up Pytest"
+    },
+    "Plot MultiPolygon": {
+        "prefix": [
+            "plt_multi"
+        ],
+        "body": [
+            "for geom in $0.geoms:",
+            "    plt.plot(*geom.exterior.xy)",
+            "plt.gca().axis('equal')",
+            "plt.show()"
+        ],
+        "description": "Set up Pytest"
+    }
+}
+```
 
 ## Cmder
 
