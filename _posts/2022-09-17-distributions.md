@@ -322,34 +322,11 @@ fig = plt.figure()
 
 # Generate data
 x = np.random.binomial(n=num_trials, p=prob_success, size=num_samples)
+# you could also do this with scipy like so:
+# x = binom.rvs(n=num_trials, p=prob_success, size=num_samples)
+
 num_bins = 25
-
-n, bins, patches = plt.hist(x, num_bins, density=True, color='g', alpha=0.9, rwidth=0.9)
-
-plt.xlabel('Variable')
-plt.ylabel('Probability')
-
-plt.title("Normal Distribution Histogram (Bin size {})".format(num_bins))
-plt.show()
-```
-
-
-    
-![png](2022-09-17-distributions_files/2022-09-17-distributions_59_0.png)
-    
-
-
-Note that sometimes the bin edges are not aligned with the integer values in your data, so you get the gaps that you see above. One solition is to define the bins explicitly, like so:
-
-
-```python
-fig = plt.figure()
-
-# Generate data
-x = np.random.binomial(n=num_trials, p=prob_success, size=num_samples)
-num_bins = 25
-
-# Define bin edges
+# Define bin edges explicitly to avoid gaps
 bin_edges = np.arange(min(x), max(x) + 2)
 
 # Plot the histogram
@@ -365,25 +342,7 @@ plt.show()
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_61_0.png)
-    
-
-
-You can also do the same thing with `scipy`.
-
-
-```python
-binon_sim = binom.rvs(n=num_trials, p=prob_success, size=num_samples)
-bin_edges = np.arange(min(x), max(x) + 2)
-plt.hist(x, bins=bin_edges, density=True, color='g', alpha=0.9, rwidth=0.9)
-plt.xlabel('Variable')
-plt.ylabel('Probability')
-plt.show()
-```
-
-
-    
-![png](2022-09-17-distributions_files/2022-09-17-distributions_63_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_59_0.png)
     
 
 
@@ -423,7 +382,7 @@ ax.set(xlabel='Variable', ylabel='Count');
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_72_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_68_0.png)
     
 
 
