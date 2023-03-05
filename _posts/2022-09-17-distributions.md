@@ -261,9 +261,9 @@ plt.show()
 
 The 80-20 rule is recursive. That is, if 20% of the people do 80% of the work, you can zoom in on those 20% and find that 20% of those do 80% of that work. So you can say something like
 
-$ (0.2)^x $ of the people do $ (0.8)^x $ of the work for any $ x $.
+$$ (0.2)^x $$ of the people do $$ (0.8)^x $$ of the work for any $$ x $$.
 
-For $ x=2 $, this would be:
+For $$ x=2 $$, this would be:
 
 
 ```python
@@ -273,7 +273,7 @@ print(f"{(0.2)**2: .4} of the people do{(0.8)**2: .4} of the work.")
      0.04 of the people do 0.64 of the work.
     
 
-For $ x=3 $, this would be:
+For $$ x=3 $$, this would be:
 
 
 ```python
