@@ -218,6 +218,12 @@ plt.show()
 
 The distribution between the famous "80-20 rule", the Pareto distribution is based on a power law. The Pareto distribution is seen all the time, from social issues to scientific ones.
 
+#### Equation
+
+Mathematically, this looks like: $$ P(x) = \frac{ab^a}{x^{a+1}} $$
+
+over the interval $$ x \ge b $$
+
 #### Plot
 
 
@@ -245,13 +251,37 @@ plt.show()
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_40_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_42_0.png)
     
 
 
 #### Uses
 
 * 80-20 rule
+
+The 80-20 rule is recursive. That is, if 20% of the people do 80% of the work, you can zoom in on those 20% and find that 20% of those do 80% of that work. So you can say something like
+
+$ (0.2)^x $ of the people do $ (0.8)^x $ of the work for any $ x $.
+
+For $ x=2 $, this would be:
+
+
+```python
+print(f"{(0.2)**2: .4} of the people do{(0.8)**2: .4} of the work.")
+```
+
+     0.04 of the people do 0.64 of the work.
+    
+
+For $ x=3 $, this would be:
+
+
+```python
+print(f"{(0.2)**3: .4} of the people do{(0.8)**3: .4} of the work.")
+```
+
+     0.008 of the people do 0.512 of the work.
+    
 
 # Discrete Distributions
 
@@ -280,7 +310,7 @@ plt.show()
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_49_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_57_0.png)
     
 
 
@@ -342,7 +372,7 @@ plt.show()
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_59_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_67_0.png)
     
 
 
@@ -382,7 +412,7 @@ ax.set(xlabel='Variable', ylabel='Count');
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_68_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_76_0.png)
     
 
 
