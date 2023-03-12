@@ -25,6 +25,9 @@ I’m always curious about how people set up their computers and what software p
 * Really good but I just don't use it that much anymore
 * Good for long-term memory stuff, storing pictures (like receipts)
 
+[Notion](https://www.notion.so/desktop)
+* Great for note-taking
+
 ## Office Suite
 
 [Google Docs](https://www.google.com/docs/about/)
