@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Sigmoid Functions"
+title: "Sigmoid Functions for Mathematical Modeling"
 description: "This post shows how to use sigmoid functions to model data."
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/tiger_snake.jpg"
@@ -8,6 +8,7 @@ tags: [Python]
 ---
 
 I use sigmoids all the time for fitting data. They are smooth and differentiable, as well as being easy to tie to boundaries. They natural exhibit the property of gradual then sudden increase without exploding. In this post, I provide some tips for how to adapt them to different problem cases.
+
 
 ```python
 from typing import Callable
@@ -76,7 +77,7 @@ plot_function(sigmoid)
 
 
     
-![png](2023-03-18-sigmoid-functions_files/2023-03-18-sigmoid-functions_9_0.png)
+![png](2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_9_0.png)
     
 
 
@@ -103,7 +104,7 @@ plot_function(sigmoid)
 
 
     
-![png](2023-03-18-sigmoid-functions_files/2023-03-18-sigmoid-functions_13_0.png)
+![png](2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_13_0.png)
     
 
 
@@ -116,7 +117,7 @@ plot_function(sigmoid, x_shift=4)
 
 
     
-![png](2023-03-18-sigmoid-functions_files/2023-03-18-sigmoid-functions_15_0.png)
+![png](2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_15_0.png)
     
 
 
@@ -129,11 +130,11 @@ plot_function(sigmoid, x_shift=4, y_shift=-5)
 
 
     
-![png](2023-03-18-sigmoid-functions_files/2023-03-18-sigmoid-functions_17_0.png)
+![png](2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_17_0.png)
     
 
 
-Now stretch it out. Note the change in the y-axis below.
+Now stretch it in the y-axis. Note the change in the y-axis labels below.
 
 
 ```python
@@ -142,24 +143,30 @@ plot_function(sigmoid, x_shift=4, y_shift=-5, y_scale=10)
 
 
     
-![png](2023-03-18-sigmoid-functions_files/2023-03-18-sigmoid-functions_19_0.png)
+![png](2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_19_0.png)
     
 
 
-Depending on your use-case, you may want to specify different values. For example, say you wanted to specify the min and max of the function. The `x_shift` and `x_scale` parameters could be anything in this case because we haven't specified them. We could, but for this example I'll simple leave them alone. That leaves use with two unknowns, `y_shift` and `y_scale` and two equations, which we can solve for.
+Depending on your use-case, you may want to specify certain conditions. For example, say you wanted to specify the min and max of the function. There's no explicit parameter for that, so we'll have to figure out how to express that given the parameters we have. The two that we care about for this case are `y_shift` and `y_scale`. The `x_shift` and `x_scale` parameters could be anything in this case because we haven't specified them. We could add additional constraints for them, but in this example I'll simply leave them alone. That leaves use with two unknowns, `y_shift` and `y_scale` and two conditions, which we can solve for.
 
 We know two points:
-1. x approaches infinity and y=desired_max
-2. x approaches negative infinity and y=desired_min
+1. x approaches infinity and `y=desired_max`
+2. x approaches negative infinity and `y=desired_min`
 
 We'll use $$ \sigma $$ to represent the sigmoid function.
 
-Our starting formula is what we wrote in the `sigmoid` function:
+Our starting formula is what we wrote in the sigmoid function:
 
 $$ \sigma(x) = \frac{y_\text{scale}}{1 + e^{-x_\text{scale}(x - x_\text{shift})}} + y_\text{shift} $$
 
 
-Now let's plug in $$ x = \infty $$ and $$ y = \text{desired_max} $$.
+Now let's plug in the following:
+
+$$ x = \infty $$
+
+$$ y = \text{desired_max} $$.
+
+Here's what we get:
 
 $$ \sigma(\infty) = \frac{y_\text{scale}}{1 + e^{-\infty}} + y_\text{shift} = \frac{y_\text{scale}}{1 + 0} + y_\text{shift} = y_\text{scale} + y_\text{shift} $$
 
@@ -182,8 +189,8 @@ $$ y_\text{scale} + \text{desired_min} = \text{desired_max} $$
 Ending with:
 
 $$ y_\text{shift} = \text{desired_min} $$
-$$ y_\text{scale} = \text{desired_max} - \text{desired_min} $$
 
+$$ y_\text{scale} = \text{desired_max} - \text{desired_min} $$
 
 Let's give it a try.
 
@@ -206,7 +213,7 @@ plot_function(sigmoid, y_shift=y_shift, y_scale=y_scale)
 
 
     
-![png](2023-03-18-sigmoid-functions_files/2023-03-18-sigmoid-functions_40_0.png)
+![png](2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_44_0.png)
     
 
 
@@ -217,9 +224,23 @@ Let's start with our sigmoid equation again.
 $$ \sigma(x) = \frac{y_\text{scale}}{1 + e^{-x_\text{scale}(x - x_\text{shift})}} + y_\text{shift} $$
 
 
-We'll start with $$ x = \infty $$ and $$ y = \text{desired_max} $$ again. We already know the answer:
+We'll start with the following:
+
+$$ x = \infty $$
+
+$$ y = \text{desired_max} $$
+
+We already know the answer:
 
 $$ y_\text{scale} + y_\text{shift} = \text{desired_max} $$
+
+copied
+
+$$ y_{\text{scale}} $$
+
+$$ y_\text{scale} $$
+
+$$ {y_\text{scale}} $$
 
 And therefore:
 
@@ -238,6 +259,10 @@ $$ \frac{y_\text{scale}}{2} + \text{desired_max} - y_\text{scale} = \text{y_infl
 Ending with:
 
 $$ y_\text{scale} = 2 * (\text{desired_max} - y_\text{inflection}) $$
+$$ y_\text{shift} = \text{desired_max} - y_\text{scale} $$
+
+$$ y_\text{scale} = 2 * (\text{desired_max} - y_\text{inflection}) $$
+
 $$ y_\text{shift} = \text{desired_max} - y_\text{scale} $$
 
 
@@ -261,7 +286,7 @@ plot_function(sigmoid, -10, 20, x_shift=x_shift, y_shift=y_shift, y_scale=y_scal
 
 
     
-![png](2023-03-18-sigmoid-functions_files/2023-03-18-sigmoid-functions_56_0.png)
+![png](2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_69_0.png)
     
 
 
@@ -288,7 +313,7 @@ plot_function(sigmoid, x_shift=x_shift, y_shift=y_shift, y_scale=y_scale)
 
 
     
-![png](2023-03-18-sigmoid-functions_files/2023-03-18-sigmoid-functions_60_0.png)
+![png](2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_73_0.png)
     
 
 
@@ -315,5 +340,6 @@ plot_function(sigmoid, x_shift=x_shift, y_shift=y_shift, y_scale=y_scale)
 
 
     
-![png](2023-03-18-sigmoid-functions_files/2023-03-18-sigmoid-functions_64_0.png)
+![png](2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_77_0.png)
     
+
