@@ -230,6 +230,12 @@ $$ x = \infty $$
 
 $$ y = \text{desired_max} $$
 
+$$ y = max_\text{desired} $$
+
+$$ y = \text{max}_\text{desired} $$
+
+$$ y = {\text{desired_max}} $$
+
 We already know the answer:
 
 $$ y_\text{scale} + y_\text{shift} = \text{desired_max} $$
@@ -286,7 +292,7 @@ plot_function(sigmoid, -10, 20, x_shift=x_shift, y_shift=y_shift, y_scale=y_scal
 
 
     
-![png](2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_69_0.png)
+![png](2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_72_0.png)
     
 
 
@@ -313,7 +319,7 @@ plot_function(sigmoid, x_shift=x_shift, y_shift=y_shift, y_scale=y_scale)
 
 
     
-![png](2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_73_0.png)
+![png](2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_76_0.png)
     
 
 
@@ -340,6 +346,6 @@ plot_function(sigmoid, x_shift=x_shift, y_shift=y_shift, y_scale=y_scale)
 
 
     
-![png](2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_77_0.png)
+![png](2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_80_0.png)
     
 
