@@ -7,6 +7,7 @@ thumbnail: "assets/img/tiger_snake.jpg"
 tags: [Python]
 ---
 
+I use sigmoids all the time for fitting data. They are smooth and differentiable, as well as being easy to tie to boundaries. They natural exhibit the property of gradual then sudden increase without exploding. In this post, I provide some tips for how to adapt them to different problem cases.
 
 ```python
 from typing import Callable
@@ -15,9 +16,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 ```
 
-I use sigmoids all the time for fitting data. They are smooth and differentiable, as well as being easy to tie to boundaries. They natural exhibit the property of gradual then sudden increase without exploding. In this post, I provide some tips for how to adapt them to different problem cases.
-
-First, here's the basic sigmoid function:
+Here's the basic sigmoid function:
 
 
 ```python
