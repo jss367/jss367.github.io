@@ -238,7 +238,7 @@ And therefore:
 
 $$ y_\text{shift} = max_\text{desired} - y_\text{scale} $$
 
-At the inflection point, we know that the inflection point in x in just `x_shift`, so we can say that $$ x=x_\text{inflection}=x_\text{shift} $$ and $$ y = y_\text{inflection} $$ (our desired point). Plugging that in, we get:
+At the inflection point, we know that the inflection point in x is just `x_shift`, so we can say that $$ x=x_\text{inflection}=x_\text{shift} $$ and $$ y = y_\text{inflection} $$ (our desired point). Plugging that in, we get:
 
 $$ \sigma(x_\text{inflection}) = \frac{y_\text{scale}}{1 + e^{0}} + y_\text{shift} = \frac{y_\text{scale}}{2} + y_\text{shift} = y_\text{inflection} $$
 
