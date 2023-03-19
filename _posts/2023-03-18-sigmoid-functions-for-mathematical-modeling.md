@@ -150,8 +150,8 @@ plot_function(sigmoid, x_shift=4, y_shift=-5, y_scale=10)
 Depending on your use-case, you may want to specify certain conditions. For example, say you wanted to specify the min and max of the function. There's no explicit parameter for that, so we'll have to figure out how to express that given the parameters we have. The two that we care about for this case are `y_shift` and `y_scale`. The `x_shift` and `x_scale` parameters could be anything in this case because we haven't specified them. We could add additional constraints for them, but in this example I'll simply leave them alone. That leaves use with two unknowns, `y_shift` and `y_scale` and two conditions, which we can solve for.
 
 We know two points:
-1. x approaches infinity and `y=desired_max`
-2. x approaches negative infinity and `y=desired_min`
+1. x approaches infinity and y approaches the desired max
+2. x approaches negative infinity and y approaches the desired min
 
 We'll use $$ \sigma $$ to represent the sigmoid function.
 
@@ -164,7 +164,7 @@ Now let's plug in the following:
 
 $$ x = \infty $$
 
-$$ y = \text{desired_max} $$.
+$$ y = max_\text{desired} $$
 
 Here's what we get:
 
@@ -172,7 +172,7 @@ $$ \sigma(\infty) = \frac{y_\text{scale}}{1 + e^{-\infty}} + y_\text{shift} = \f
 
 Therefore:
 
-$$ y_\text{scale} + y_\text{shift} = \text{desired_max} $$
+$$ y_\text{scale} + y_\text{shift} = max_\text{desired} $$
 
 At negative inifinity, we've got:
 
@@ -180,17 +180,17 @@ $$ \sigma(-\infty) = \frac{y_\text{scale}}{1 + e^{\infty}} + y_\text{shift} = \f
 
 Therefore:
 
-$$ y_\text{shift} = \text{desired_min} $$
+$$ y_\text{shift} = min_\text{desired} $$
 
 plugging this into the above equation, we have:
 
-$$ y_\text{scale} + \text{desired_min} = \text{desired_max} $$
+$$ y_\text{scale} + min_\text{desired} = max_\text{desired} $$
 
 Ending with:
 
-$$ y_\text{shift} = \text{desired_min} $$
+$$ y_\text{shift} = min_\text{desired} $$
 
-$$ y_\text{scale} = \text{desired_max} - \text{desired_min} $$
+$$ y_\text{scale} = max_\text{desired} - min_\text{desired} $$
 
 Let's give it a try.
 
@@ -228,48 +228,34 @@ We'll start with the following:
 
 $$ x = \infty $$
 
-$$ y = \text{desired_max} $$
-
 $$ y = max_\text{desired} $$
-
-$$ y = \text{max}_\text{desired} $$
-
-$$ y = {\text{desired_max}} $$
 
 We already know the answer:
 
-$$ y_\text{scale} + y_\text{shift} = \text{desired_max} $$
-
-copied
-
-$$ y_{\text{scale}} $$
-
-$$ y_\text{scale} $$
-
-$$ {y_\text{scale}} $$
+$$ y_\text{scale} + y_\text{shift} = max_\text{desired} $$
 
 And therefore:
 
-$$ y_\text{shift} = \text{desired_max} - y_\text{scale} $$
+$$ y_\text{shift} = max_\text{desired} - y_\text{scale} $$
 
 At the inflection point, we know that the inflection point in x in just `x_shift`, so we can say that $$ x=x_\text{inflection}=x_\text{shift} $$ and $$ y = y_\text{inflection} $$ (our desired point). Plugging that in, we get:
 
 $$ \sigma(x_\text{inflection}) = \frac{y_\text{scale}}{1 + e^{0}} + y_\text{shift} = \frac{y_\text{scale}}{2} + y_\text{shift} = y_\text{inflection} $$
 
 
-Plugging in $$ y_\text{shift} = \text{desired_max} - y_\text{scale} $$, we get:
+Plugging in $$ y_\text{shift} = max_\text{desired} - y_\text{scale} $$, we get:
 
-$$ \frac{y_\text{scale}}{2} + \text{desired_max} - y_\text{scale} = \text{y_inflection} $$
+$$ \frac{y_\text{scale}}{2} + max_\text{desired} - y_\text{scale} = y_\text{inflection} $$
 
 
 Ending with:
 
-$$ y_\text{scale} = 2 * (\text{desired_max} - y_\text{inflection}) $$
-$$ y_\text{shift} = \text{desired_max} - y_\text{scale} $$
+$$ y_\text{scale} = 2 * (max_\text{desired} - y_\text{inflection}) $$
+$$ y_\text{shift} = max_\text{desired} - y_\text{scale} $$
 
-$$ y_\text{scale} = 2 * (\text{desired_max} - y_\text{inflection}) $$
+$$ y_\text{scale} = 2 * (max_\text{desired} - y_\text{inflection}) $$
 
-$$ y_\text{shift} = \text{desired_max} - y_\text{scale} $$
+$$ y_\text{shift} = max_\text{desired} - y_\text{scale} $$
 
 
 ```python
@@ -292,7 +278,7 @@ plot_function(sigmoid, -10, 20, x_shift=x_shift, y_shift=y_shift, y_scale=y_scal
 
 
     
-![png](2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_72_0.png)
+![png](2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_65_0.png)
     
 
 
@@ -319,7 +305,7 @@ plot_function(sigmoid, x_shift=x_shift, y_shift=y_shift, y_scale=y_scale)
 
 
     
-![png](2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_76_0.png)
+![png](2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_69_0.png)
     
 
 
@@ -346,6 +332,6 @@ plot_function(sigmoid, x_shift=x_shift, y_shift=y_shift, y_scale=y_scale)
 
 
     
-![png](2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_80_0.png)
+![png](2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_73_0.png)
     
 
