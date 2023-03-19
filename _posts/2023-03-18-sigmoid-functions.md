@@ -317,9 +317,3 @@ plot_function(sigmoid, x_shift=x_shift, y_shift=y_shift, y_scale=y_scale)
     
 ![png](2023-03-18-sigmoid-functions_files/2023-03-18-sigmoid-functions_64_0.png)
     
-
-
-
-```python
-
-```
