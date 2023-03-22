@@ -130,7 +130,7 @@ decode_predictions(preds, top=10)[0]
 
 
 
-# Create GradCAM Model
+# Create Grad-CAM Model
 
 OK, now we have predictions. Now we have to create a model that outputs the activations of the last convolutional layer as well as the output predictions.
 
