@@ -9,6 +9,10 @@ tags: [Model Explainability, Python, Tensorflow]
 
 This post is a tutorial of how to use Grad-CAM to explain a neural network outputs. [Grad-CAM](https://arxiv.org/abs/1610.02391) is a technique for visualizing the regions in an image that are most important for a convolutional neural network (CNN) to make a prediction. It can be used with any CNN, but it is most commonly used with image classification models. This tutorial uses some code from the [keras tutorial](https://keras.io/examples/vision/grad_cam/).
 
+<b>Table of Contents</b>
+* TOC
+{:toc}
+
 
 ```python
 import matplotlib.cm as cm
@@ -126,11 +130,11 @@ decode_predictions(preds, top=10)[0]
 
 
 
-# Next Step
+# Create GradCAM Model
 
 OK, now we have predictions. Now we have to create a model that outputs the activations of the last convolutional layer as well as the output predictions.
 
-Ee don't know the name of the last convolutional layer, but we can print out all the layer names and look for the last one before a `flatten` or `avg_pool` layer. We know it's going to be one of the last layers, so we'll only print out the last ten.
+We don't know the name of the last convolutional layer, but we can print out all the layer names and look for the last one before a `flatten` or `avg_pool` layer. We know it's going to be one of the last layers, so we'll only print out the last ten.
 
 
 ```python
