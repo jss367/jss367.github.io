@@ -71,6 +71,19 @@ This will put you in a detached HEAD state.
 
 Then to get back you can `git checkout master` (or whatever branch you were on)
 
+### Understanding your configuration
+
+`git config --list`
+
+If your configuration is missing, you'll probably need to add your username and email. That should look something like this:
+
+```
+git config --global user.name <username>
+git config --global user.email <email address>
+```
+
+This has your username and email, along with any other settings
+
 ## Other Useful Commands
 
 ### Check out a remote branch
@@ -187,19 +200,6 @@ Those are SHA-1 hashs. They consistent of 40 characters although git often just 
 ### What can I do with my .git folder?
 
 You should never touch that folder. Let git do its thing.
-
-### How can I see my configuration?
-
-`git config --list`
-
-If your configuration is missing, you'll probably need to add your username and email. That should look something like this:
-
-```
-git config --global user.name <username>
-git config --global user.email <email address>
-```
-
-This has your username and email, along with any other settings
 
 ### I just want to copy my changes then 
 
