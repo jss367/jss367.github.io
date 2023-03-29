@@ -27,6 +27,17 @@ I use [Oh My Zsh](https://ohmyz.sh/) to configure zsh and highly recommend it.
 
 * That profile just says `source ~/.profile`
 
+## Installing brew
+
+On a mac I use homebrew. It installs in `/usr/local` for macOS Intel and `/opt/homebrew` for Apple Silicon. You can run the right location either way with this:
+```bash
+# Set Homebrew path and run eval
+HOMEBREW_PREFIX=$(brew --prefix)
+if [[ -d "${HOMEBREW_PREFIX}" ]]; then
+  eval "$("${HOMEBREW_PREFIX}/bin/brew" shellenv)"
+fi
+```
+
 ## Aliasing
 
 I have a particular way I set up my aliases. I store all of my aliases and environment variables other than my passwords in a `~/.profile` file. This way I can share it with a team and we can all have the same hotkeys. I make a separate file called something like `.my_credentials` and export my credentials from there. I source `~/.profile` from either the shell I'm using or, if I'm using oh-my-zsh, from there. The full chain looks like this:
