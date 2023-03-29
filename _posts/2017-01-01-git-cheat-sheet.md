@@ -71,7 +71,7 @@ This will put you in a detached HEAD state.
 
 Then to get back you can `git checkout master` (or whatever branch you were on)
 
-### Understanding your configuration
+## Understanding your configuration
 
 `git config --list`
 
