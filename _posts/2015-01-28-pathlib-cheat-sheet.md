@@ -29,7 +29,7 @@ sys.version
 
 
 
-    '3.8.8 (default, Apr 13 2021, 15:08:03) [MSC v.1916 64 bit (AMD64)]'
+    '3.8.13 (default, Mar 28 2022, 06:59:08) [MSC v.1916 64 bit (AMD64)]'
 
 
 
@@ -57,7 +57,7 @@ all_objs
 
 
 
-    <generator object Path.glob at 0x000002283654A120>
+    <generator object Path.glob at 0x000002A76E82F120>
 
 
 
@@ -110,38 +110,14 @@ Path objects are also really easy to work with to extract useful information.
 
 
 ```python
-path.stem
-```
-
-
-
-
-    'PennFudanPed'
-
-
-
-
-```python
-path.name
-```
-
-
-
-
-    'PennFudanPed'
-
-
-
-
-```python
-file_path = Path(files[0])
+file_path = Path(files[-1])
 file_path
 ```
 
 
 
 
-    WindowsPath('E:/Data/Raw/PennFudanPed/added-object-list.txt')
+    WindowsPath('E:/Data/Raw/PennFudanPed/PNGImages/PennPed00096.png')
 
 
 
@@ -153,7 +129,7 @@ file_path.stem
 
 
 
-    'added-object-list'
+    'PennPed00096'
 
 
 
@@ -165,7 +141,8 @@ file_path.name
 
 
 
-    'added-object-list.txt'
+    'PennPed00096.png'
+
 
 
 You can even get the file extension:
@@ -178,7 +155,7 @@ file_path.suffix
 
 
 
-    '.txt'
+    '.png'
 
 
 
