@@ -29,3 +29,8 @@ created >= -365d AND assignee = <X> AND status = Done order by created DESC
 ```jql
 issuekey = 'MY_TICKET_1234'
 ```
+
+## Works for any current user:
+```jql
+assignee = currentUser() AND status = Done AND updatedDate > "-90d" order by updated desc
+```
