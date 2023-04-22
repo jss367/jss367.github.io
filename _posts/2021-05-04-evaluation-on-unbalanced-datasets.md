@@ -2,7 +2,7 @@
 layout: post
 title: "Evaluation on Unbalanced Datasets"
 feature-img: "assets/img/rainbow.jpg"
-thumbnail: "assets/img/sunrays.jpg"
+thumbnail: "assets/img/rainbow_valley.jpg"
 tags: [Deep Learning, Python, TensorFlow]
 ---
 
