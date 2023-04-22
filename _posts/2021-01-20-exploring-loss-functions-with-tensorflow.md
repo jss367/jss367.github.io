@@ -7,14 +7,12 @@ thumbnail: "assets/img/frogmouth.jpg"
 tags: [Neural Networks, Python, TensorFlow]
 ---
 
+In this blog post, I will discuss how to use loss functions in TensorFlow. I'll focus on binary cross entropy loss.
 
 <b>Table of Contents</b>
 * TOC
 {:toc}
 
-In this post I'll walk through how to implement various loss functions in TensorFlow and Keras. This post is still in draft.
-
-## Binary Cross Entropy Loss
 
 ```python
 import tensorflow.keras.backend as K
@@ -26,6 +24,7 @@ from tensorflow.errors import InvalidArgumentError
 EPSILON = np.finfo(float).eps
 ```
 
+## Binary Cross Entropy Loss
 
 Let's imagine the case where we have four different examples that's we've labeled either 0 or 1, like so:
 
@@ -35,7 +34,7 @@ y_true = np.array([0, 1, 0, 0])
 y_pred = np.array([0.1, 0.95, 0.2, 0.6])
 ```
 
-Now let's find the loss
+Now let's find the loss.
 
 We're going to be dealing with logs. Just so we know what we're using, let's look at a log plot. 
 
@@ -52,7 +51,7 @@ plt.plot(x,y);
 
 
     
-![png](2021-01-20-exploring-loss-functions-with-tensorflow_files/2021-01-20-exploring-loss-functions-with-tensorflow_9_0.png)
+![png](2021-01-20-exploring-loss-functions-with-tensorflow_files/2021-01-20-exploring-loss-functions-with-tensorflow_10_0.png)
     
 
 
@@ -223,8 +222,3 @@ bce(y_true, y_pred).numpy()
     0.3240218758583069
 
 
-
-
-```python
-
-```
