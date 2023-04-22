@@ -7,27 +7,30 @@ thumbnail: "assets/img/frogmouth_staring.jpg"
 tags: [Neural Networks, Python, PyTorch]
 ---
 
+In this blog post, I will discuss how to use loss functions in PyTorch. I will cover how loss functions work in both regression and classification tasks, how to work with numpy arrays, the expected shape and type of loss functions in PyTorch, and demonstrate some types of losses.
+
+
 ```python
+import numpy as np
 import torch
 from torch import nn
-import numpy as np
 ```
-
-How does one divide up loss functions? They could be divided by regression and classification loss functions.
 
 <b>Table of Contents</b>
 * TOC
 {:toc}
 
-# Notes
+# Working with PyTorch
 
-I wanted to start with a few notes on loss functions in PyTorch.
+I wanted to start with a few notes on loss functions in PyTorch. We'll talk about things that people switching from TensorFlow should be aware of.
 
 ## Requires_grad
 
-Loss functions exist to help compute the gradients for trainable parameters. We want to find how the loss changes with each parameter, that is, $$\frac{\partial loss}{\partial x}$$ for each parameter $ x $.
+It's important to understand the role of `requires_grad` in loss functions and gradient computation. Our goal is to find how the loss changes with each parameter, i.e., $$\frac{\partial loss}{\partial x}$$ for each parameter x.
 
-So what you will see is this
+`requires_grad` is a flag that can be set on a tensor to indicate that gradients need to be computed for this tensor during the backward pass. When you create a tensor with `requires_grad=True`, PyTorch will track all the operations performed on that tensor and store the gradients when the backward pass is called.
+
+Here's an example demonstrating the use of requires_grad:
 
 
 ```python
@@ -37,108 +40,54 @@ y_true = torch.randn(3, 5)
 mae_loss = nn.L1Loss()
 output = mae_loss(y_pred, y_true)
 print(output)
+
+# Compute gradients
 output.backward()
+
+print("Gradients:", y_pred.grad)
+
 ```
 
-    tensor(1.1468, grad_fn=<L1LossBackward>)
+    tensor(1.6688, grad_fn=<L1LossBackward>)
+    Gradients: tensor([[ 0.0667, -0.0667, -0.0667,  0.0667, -0.0667],
+            [-0.0667, -0.0667, -0.0667, -0.0667, -0.0667],
+            [-0.0667,  0.0667, -0.0667, -0.0667,  0.0667]])
     
 
-For our purposes, we're just going to be stopping at creating the value, so we can skip `requires_grad` for some of the demo.
+In this example, we create an input tensor `y_pred` with `requires_grad=True` and a target tensor `y_true`. We compute the L1 loss between the two tensors and call the `backward()` method on the output tensor to compute gradients for `y_pred`.
 
-### Numpy
+In this notebook, I'll be focused on calculating the loss values and will skip the `requires_grad` flag and the `backward()` method. But if we were training a model, we would require gradients for optimization and include the `requires_grad=True` flag.
 
-Note that you can't directly put numpy arrays in a loss function. PyTorch losses rely on being able to call a `.size()` method, which doesn't exist for numpy arrays.
+## Numpy Arrays
 
+PyTorch primarily works with tensors, but it provides easy interoperability with numpy arrays. You can convert a numpy array to a PyTorch tensor using `torch.from_numpy()` and convert a tensor back to a numpy array using the `.numpy()` method. It is important to note that PyTorch expects input tensors to be of type float and target tensors to be of type long for classification tasks.
 
-```python
-np.random.randn(3,5)
-```
-
-
-
-
-    array([[-0.12188827,  0.51116533, -0.23330246, -0.26176837,  0.35833209],
-           [ 0.17633687,  0.10065291, -0.44017884, -1.42619676, -0.95035462],
-           [-2.09363552,  0.85312672, -1.69011215,  0.03842335,  0.86324746]])
-
-
+This means that you can't directly put numpy arrays in a loss function. PyTorch losses rely on being able to call a `.size()` method, which doesn't exist for numpy arrays.
 
 
 ```python
-y_pred = np.random.randn(3,5)
-y_true = np.random.randn(3,5)
-```
+y_pred_np = np.random.randn(3, 5)
+y_true_np = np.random.randn(3, 5)
 
-
-```python
+# Using PyTorch loss function directly with numpy arrays (will raise an error)
 loss = nn.L1Loss()
-```
-
-
-```python
 try:
-    output = loss(y_pred, y_true)
+    output = loss(y_pred_np, y_true_np)
 except TypeError:
-    pass
-```
+    print("TypeError: PyTorch loss functions expect tensors, not numpy arrays")
 
-If you have a numpy array, you'll need to convert it to a numpy tensor first.
-
-
-```python
-y_pred_np = np.array([0.1, 0.3, 0.5, 0.9])
-y_pred_np
-```
-
-
-
-
-    array([0.1, 0.3, 0.5, 0.9])
-
-
-
-
-```python
-y_true_np = np.array([0, 1, 1, 1])
-```
-
-
-```python
+# Converting numpy arrays to PyTorch tensors
 y_pred = torch.from_numpy(y_pred_np)
-y_pred
-```
-
-
-
-
-    tensor([0.1000, 0.3000, 0.5000, 0.9000], dtype=torch.float64)
-
-
-
-
-```python
 y_true = torch.from_numpy(y_true_np)
-y_true
+
+# Now, we can calculate the loss
+output = loss(y_pred, y_true)
+print("L1 Loss:", output.item())
 ```
 
-
-
-
-    tensor([0, 1, 1, 1], dtype=torch.int32)
-
-
-
-
-```python
-loss(y_pred, y_true)
-```
-
-
-
-
-    tensor(0.3500, dtype=torch.float64)
-
-
+    TypeError: PyTorch loss functions expect tensors, not numpy arrays
+    L1 Loss: 1.0592096183606834
+    
 
 OK, let's get to the loss functions.
 
@@ -152,81 +101,28 @@ Your inputs are going to look different based on the task. For a regression task
 
 For regression, the most commons losses are L1 and L2. Let's take a look at them.
 
-##### L1
+##### L1 and L2 Loss
 
 
 ```python
-y_pred = torch.tensor([1, 2.5, 4, 0.5])
+input_tensor = torch.tensor([1, 2.5, 4, 0.5])
+target_tensor = torch.tensor([2, 2.5, 2, 1])
+ 
+l1_loss = nn.L1Loss()
+l1_output = l1_loss(input_tensor, target_tensor)
+print("L1 (Mean Absolute Error) Loss:", l1_output.item())
+
+l2_loss = nn.MSELoss()
+l2_output = l2_loss(input_tensor, target_tensor)
+print("L2 (Mean Squared Error) Loss:", l2_output.item())
+
 ```
 
+    L1 (Mean Absolute Error) Loss: 0.875
+    L2 (Mean Squared Error) Loss: 1.3125
+    
 
-```python
-y_pred
-```
-
-
-
-
-    tensor([1.0000, 2.5000, 4.0000, 0.5000])
-
-
-
-
-```python
-y_true = torch.tensor([2, 2.5, 2, 1])
-```
-
-
-```python
-y_true
-```
-
-
-
-
-    tensor([2.0000, 2.5000, 2.0000, 1.0000])
-
-
-
-
-```python
-mae_loss = nn.L1Loss()
-```
-
-
-```python
-mae_loss(y_pred, y_true)
-```
-
-
-
-
-    tensor(0.8750)
-
-
-
-##### L2
-
-The same can be done with L2 loss.
-
-
-```python
-mse_loss = nn.MSELoss()
-```
-
-
-```python
-mse_loss(y_pred, y_true)
-```
-
-
-
-
-    tensor(1.3125)
-
-
-
-#### Image Classification
+### Image Classification
 
 Let's say we're predicting a batch of four items that are each one of three classes (0-2)
 
@@ -309,8 +205,23 @@ NLL is used in multiclass classification problems. It uses a softmax
 
 
 ```python
-nll = nn.NLLLoss()
+input_tensor = torch.randn(5, 3)
+target_tensor = torch.tensor([0, 1, 2, 1, 0], dtype=torch.long)
+
+# Softmax to convert input tensor to probabilities
+softmax = nn.Softmax(dim=1)
+input_prob = softmax(input_tensor)
+
+# Negative Log Loss (Negative Log Likelihood)
+nll_loss = nn.NLLLoss()
+nll_output = nll_loss(torch.log(input_prob), target_tensor)
+print("Negative Log Loss:", nll_output.item())
 ```
+
+    Negative Log Loss: 0.952965259552002
+    
+
+Note that you can also use `LogSoftmax`.
 
 
 ```python
@@ -331,7 +242,7 @@ softmax = nn.LogSoftmax(dim=1)
 
 
 ```python
-nll(softmax(y_pred), y_true)
+nll_loss(softmax(y_pred), y_true)
 ```
 
 
@@ -345,7 +256,7 @@ Note that it's important that we remember to do a softmax first. If we don't, we
 
 
 ```python
-nll(y_pred, y_true)
+nll_loss(y_pred, y_true)
 ```
 
 
@@ -354,8 +265,3 @@ nll(y_pred, y_true)
     tensor(-0.4325)
 
 
-
-
-```python
-
-```
