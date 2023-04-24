@@ -123,7 +123,7 @@ If you want to add a kernel from one environment to another, say you want to add
 
 `(my_main_env)` ➜  `/Users/<username>/opt/anaconda3/envs/my_new_env/bin/python -m ipykernel install --user --name my_new_env`
 
-You absolutely must include the full path name to python, otherwise you'll have to edit your `kernel.json` file. To get the full path, go to your new environment and enter `which python`.
+You absolutely must include the full path name to python, otherwise you'll have to edit your `kernel.json` file. To get the full path, go to your new environment and enter `which python`. Note that you'll also have to `pip install ipykernel` in the new environment.
 
 #### Removing Kernels
 
