@@ -9,3 +9,6 @@ error: Skipping analyzing "pandas": module is installed, but missing library stu
 One solution is to list the packages to ignore in a config file. This isn't a great solution because then you need to lug config files with `pandas`, `numpy`, etc. around everywhere with you.
 
 You can do `mypy . --ignore-missing-imports` but this isn't a great solution because it ignores too much. See the conversation here: https://github.com/python/mypy/issues/9789
+
+
+If you're trying to run mypy on a package that has hyphens in the name, you'll have to temporarily change those to underscores.
