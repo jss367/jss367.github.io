@@ -163,7 +163,7 @@ I usually sync the following:
 
 ![image](https://user-images.githubusercontent.com/3067731/154163959-2cfa51c8-f760-46fd-b271-57db88ffd34c.png)
 
-I usually sync with my microsoft account, because I have different github accounts linked for different computers.
+I usually sync with my Microsoft account, because I have different GitHub accounts linked for different computers.
 
 ### Snippets
 
