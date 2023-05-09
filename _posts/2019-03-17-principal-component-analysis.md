@@ -4,7 +4,7 @@ title: "Principal Component Analysis"
 description: "An introduction and visualization of Principal Component Analysis complete with Python code. This also discusses covariance, eigenvectors, and eigenvalues."
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/kings_canyon.jpg"
-tags: [Python]
+tags: [Python, Unsupervised Learning]
 ---
 
 This post is an introduction to principal component analysis (PCA). It was originally written to accompany a presentation to the [NOVA Deep Learning Meetup](https://www.meetup.com/novadeeplearning/).
