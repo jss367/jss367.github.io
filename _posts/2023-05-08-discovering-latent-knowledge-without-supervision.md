@@ -550,7 +550,7 @@ X_pos_train, X_pos_test, X_neg_train, X_neg_test, y_train, y_test = train_test_s
 )
 ```
 
-## Let's verify that the model's representations are good
+## Test Model Representations
 
 The question is, do we have good representations of the data? The way to check this is to make a simple model. If logistic regression can't use the hidden states to classify the review, they're not any good.
 
