@@ -7,9 +7,13 @@ thumbnail: "assets/img/tasmanian_devils.jpg"
 tags: [Python, Unsupervised Learning]
 ---
 
-This post walks through recent work on [Discovering Latent Knowledge in Language Models Without Supervision](https://arxiv.org/abs/2212.03827) by Burns et al. The paper looks uses latent knowledge in the model's activations to train the model. Their method answers yes-no questions accurately by identifying a direction in the activation space that adheres to logical consistency properties, such as having opposite truth values for a statement and its negation.
+This post walks through recent work on [Discovering Latent Knowledge in Language Models Without Supervision](https://arxiv.org/abs/2212.03827) by Burns et al. The paper uses latent knowledge in the model's activations to train the model. Their method answers yes-no questions accurately by identifying a direction in the activation space that adheres to logical consistency properties, such as having opposite truth values for a statement and its negation.
 
 This post walks through the code to demonstrate the result. Much of it was taken directly from the [author's repo](https://github.com/collin-burns/discovering_latent_knowledge/tree/main).
+
+<b>Table of Contents</b>
+* TOC
+{:toc}
 
 
 ```python
@@ -184,6 +188,8 @@ print(f"Special Tokens: {tokenizer.special_tokens_map}")
     Special Tokens: {'bos_token': '[CLS]', 'eos_token': '[SEP]', 'unk_token': '[UNK]', 'sep_token': '[SEP]', 'pad_token': '[PAD]', 'cls_token': '[CLS]', 'mask_token': '[MASK]'}
     
 
+Some of these attributes are worth going into a little more. "Vocabulary Size" refers to the number of unique tokens in the tokenizer's vocabulary. "Max Model Input Sizes" represents the maximum number of tokens the model can process in a single input sequence.
+
 Now let's tokenize a piece to text to get a look at it.
 
 
@@ -231,10 +237,10 @@ To get the hidden states we'll have to create our model.
 model = AutoModelForMaskedLM.from_pretrained("microsoft/deberta-v2-xxlarge", cache_dir=cache_dir)
 ```
 
-    Some weights of the model checkpoint at microsoft/deberta-v2-xxlarge were not used when initializing DebertaV2ForMaskedLM: ['lm_predictions.lm_head.LayerNorm.bias', 'lm_predictions.lm_head.LayerNorm.weight', 'deberta.embeddings.position_embeddings.weight', 'lm_predictions.lm_head.dense.weight', 'lm_predictions.lm_head.dense.bias', 'lm_predictions.lm_head.bias']
+    Some weights of the model checkpoint at microsoft/deberta-v2-xxlarge were not used when initializing DebertaV2ForMaskedLM: ['lm_predictions.lm_head.dense.weight', 'lm_predictions.lm_head.dense.bias', 'lm_predictions.lm_head.bias', 'deberta.embeddings.position_embeddings.weight', 'lm_predictions.lm_head.LayerNorm.bias', 'lm_predictions.lm_head.LayerNorm.weight']
     - This IS expected if you are initializing DebertaV2ForMaskedLM from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
     - This IS NOT expected if you are initializing DebertaV2ForMaskedLM from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
-    Some weights of DebertaV2ForMaskedLM were not initialized from the model checkpoint at microsoft/deberta-v2-xxlarge and are newly initialized: ['cls.predictions.transform.dense.bias', 'cls.predictions.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.LayerNorm.weight']
+    Some weights of DebertaV2ForMaskedLM were not initialized from the model checkpoint at microsoft/deberta-v2-xxlarge and are newly initialized: ['cls.predictions.transform.dense.bias', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.bias']
     You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
     
 
@@ -250,7 +256,7 @@ type(model)
 
 
 
-Let's move it to the approach device and set it to eval mode.
+Let's move it to the appropriate device and set it to eval mode.
 
 
 ```python
@@ -302,7 +308,7 @@ summary(model, input_data=dummy_input)
 
 
 
-We can also take a look at the configuation of the model.
+We can also take a look at the configuration of the model.
 
 
 ```python
@@ -424,19 +430,19 @@ plot_hidden_states(hidden_states_umap, "UMAP Visualization of Hidden States")
 
 
     
-![png](2023-05-08-discovering-latent-knowledge-without-supervision_files/2023-05-08-discovering-latent-knowledge-without-supervision_49_1.png)
+![png](2023-05-08-discovering-latent-knowledge-without-supervision_files/2023-05-08-discovering-latent-knowledge-without-supervision_51_1.png)
     
 
 
 
     
-![png](2023-05-08-discovering-latent-knowledge-without-supervision_files/2023-05-08-discovering-latent-knowledge-without-supervision_49_2.png)
+![png](2023-05-08-discovering-latent-knowledge-without-supervision_files/2023-05-08-discovering-latent-knowledge-without-supervision_51_2.png)
     
 
 
 
     
-![png](2023-05-08-discovering-latent-knowledge-without-supervision_files/2023-05-08-discovering-latent-knowledge-without-supervision_49_3.png)
+![png](2023-05-08-discovering-latent-knowledge-without-supervision_files/2023-05-08-discovering-latent-knowledge-without-supervision_51_3.png)
     
 
 
@@ -472,13 +478,11 @@ fig = px.scatter_3d(
 # fig.show()
 ```
 
-# Doing in at Scale
+# Doing it at Scale
 
 ## Getting Hidden States
 
 Now, we're going to get all the hidden states. We'll get the ones with positive sentiment and negative sentiment.
-
-## Now let's get lots of hidden states.
 
 
 ```python
@@ -570,9 +574,9 @@ print(f"Logistic regression accuracy: {lr.score(X_test, y_test)}")
 
 Yay! We've built good representations.
 
-## CCS Time
+## Contrast-Consistent Search
 
-Now let's use CCS. You can learn more about it in the paper linked at the top.
+Now let's use at Contrast-Consistent Search (CCS). You can learn more about it in the paper linked at the top.
 
 The first step is to prepare the data by normalizing it and turning it into a Pytorch tensor.
 
@@ -606,6 +610,8 @@ X_neg_train_tensor, X_pos_train_tensor = convert_to_tensors(X_neg_train_normed, 
 ```
 
 Now we can train with CCS. Note that we don't need any labels for this.
+
+To do this, we'll need to create a probe. A probe is a simple model used in self-supervised learning to learn a task-specific representation from the features extracted by an unsupervised model. In this case,  the probe is a binary classifier that distinguishes between the two sets of samples.
 
 
 ```python
@@ -773,3 +779,5 @@ print(f"CCS accuracy: {ccs_acc}")
 
     CCS accuracy: 0.84
     
+
+The final accuracy is pretty good! This indicates that the algorithm is able to learn meaningful patterns from the given data without the need for explicit labels.
