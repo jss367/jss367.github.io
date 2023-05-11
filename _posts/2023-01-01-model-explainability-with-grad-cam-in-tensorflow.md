@@ -1,13 +1,13 @@
 ---
 layout: post
-title: "Model Explainability with Grad-CAM"
+title: "Model Explainability with Grad-CAM in TensorFlow"
 description: "This post is a tutorial for how to use Grad-CAM to explain computer vision models."
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/camel.jpg"
 tags: [Model Explainability, Python, Tensorflow]
 ---
 
-This post is a tutorial of how to use Grad-CAM to explain a neural network outputs. [Grad-CAM](https://arxiv.org/abs/1610.02391) is a technique for visualizing the regions in an image that are most important for a convolutional neural network (CNN) to make a prediction. It can be used with any CNN, but it is most commonly used with image classification models.
+This post is a tutorial demonstrating how to use Grad-CAM for interpreting the output of a neural network. [Grad-CAM](https://arxiv.org/abs/1610.02391) is a visualization technique that highlights the regions a convolutional neural network (CNN) relied upon most to make predictions. While Grad-CAM is applicable to any CNN, it is predominantly employed with image classification models. This tutorial utilizes TensorFlow for implementation, but I made a parallel tutorial that works with PyTorch.
 
 <b>Table of Contents</b>
 * TOC
@@ -15,13 +15,16 @@ This post is a tutorial of how to use Grad-CAM to explain a neural network outpu
 
 
 ```python
+import json
+import urllib.request
 from typing import Optional
 
 import cv2
 import matplotlib.pyplot as plt
 import numpy as np
+import requests
 import tensorflow as tf
-from IPython.display import Image, display
+from PIL import Image
 from pyxtend import struct
 from tensorflow.keras.applications.xception import Xception, decode_predictions, preprocess_input
 from tensorflow.keras.preprocessing import image
@@ -29,25 +32,41 @@ from tensorflow.keras.preprocessing import image
 
 # Load the Image
 
+We'll pull the image from a remote URL so it's easy to use.
+
 
 ```python
+IMAGE_URL = "https://raw.githubusercontent.com/jss367/files/main/cat_and_dog_hats.png"
 img_path = 'cat_and_dog_hats.png'
 ```
 
 
 ```python
-display(Image(img_path))
+with urllib.request.urlopen(IMAGE_URL) as response, open(img_path, "wb") as out_file:
+    out_file.write(response.read())
+
+input_image = Image.open(img_path)
 ```
 
 
+```python
+input_image
+```
+
+
+
+
     
-![png](2023-01-01-model-explainability-with-grad-cam_files/2023-01-01-model-explainability-with-grad-cam_6_0.png)
+![png](2023-01-01-model-explainability-with-grad-cam-in-tensorflow_files/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_8_0.png)
     
 
 
-Although this image has two different ImageNet classes in it, I'm going to use it anyway so we can look at how to focus on specific classes within an image.
+
+This image has a few different objects in it, which might not be deal for an image classification demo. But I'm going to use it so we can look at how to focus on specific classes within an image.
 
 # Create a Model
+
+For this tutorial I'm going to use Xception, but you can use any model.
 
 
 ```python
@@ -67,23 +86,21 @@ def load_and_preprocess_image(img_path, img_size=(299, 299)):
     img = image.load_img(img_path, target_size=img_size)
     array = image.img_to_array(img)
     array = np.expand_dims(array, axis=0)
-    preprocessed_input = preprocess_input(array)
-    return preprocessed_input
+    return preprocess_input(array)
 
-img_path = 'cat_and_dog_hats.png'
 preprocessed_input = load_and_preprocess_image(img_path)
 ```
 
 # Predict the Top Class
 
-Now let's get the predictions.
+Now let's make a prediction.
 
 
 ```python
 predictions = model.predict(preprocessed_input)
 ```
 
-    1/1 [==============================] - 1s 663ms/step
+    1/1 [==============================] - 1s 781ms/step
     
 
 
@@ -94,10 +111,7 @@ struct(predictions)
 
 
 
-    {numpy.ndarray: [{numpy.ndarray: [numpy.float32,
-        numpy.float32,
-        numpy.float32,
-        '...1000 total']}]}
+    {'ndarray': ['float32, shape=(1, 1000)']}
 
 
 
@@ -105,6 +119,7 @@ The prediction is a numpy array of values. To understand the predictions, we’l
 
 
 ```python
+pred_class_idx = np.argmax(predictions)
 decoded_predictions = decode_predictions(predictions, top=10)[0]
 decoded_predictions
 ```
@@ -127,26 +142,36 @@ decoded_predictions
 
 We can also get the id associated with the top prediction.
 
+We can download the class labels to see what this correspond to.
+
 
 ```python
-predicted_class = np.argmax(predictions)
-predicted_class
+IMAGENET_CLASSES_URL = "https://raw.githubusercontent.com/jss367/files/main/imagenet_classes.json"
+class_labels = json.loads(requests.get(IMAGENET_CLASSES_URL).text)
+struct(class_labels, examples=True)
 ```
 
 
 
 
-    211
+    {'list': ['tench', 'goldfish', 'great white shark', '...1000 total']}
 
 
 
-Our prediction is class 211, which is a vizsla.
 
-# Create Grad-CAM Model
+```python
+predicted_class_name = class_labels[pred_class_idx]
+print(f"Predicted class: {predicted_class_name} (index: {pred_class_idx}, probability: {decoded_predictions[0][2]:.2%})")
+```
+
+    Predicted class: Vizsla (index: 211, probability: 17.10%)
+    
+
+# Determine Target Layer
 
 OK, now we have predictions. Now we have to create a model that outputs the activations of the last convolutional layer as well as the output predictions.
 
-We should use the last convolutional layer for Grad-CAM because it provides the highest level of spatial information before the model becomes spatially invariant. We don’t know the name of the last convolutional layer and unfortunately we can't just loop through them and look for `if isinstance(layer, (tf.keras.layers.Conv2D)` because many convolutional layers are not instances of `tf.keras.layers.Conv2D`. Instead, we can print out all the layer names and look for the last one before a `flatten` or `avg_pool` layer. We know it’s going to be one of the last layers, so we’ll only print out the last ten.
+We should use the last convolutional layer for Grad-CAM because it provides the highest level of spatial information before the model becomes spatially invariant. We don’t know the name of the last convolutional layer and unfortunately we can't just loop through them and look for `if isinstance(layer, tf.keras.layers.Conv2D)` because many convolutional layers are not instances of `tf.keras.layers.Conv2D`. Instead, we can print out all the layer names and look for the last one before a `flatten` or `avg_pool` layer. We know it’s going to be one of the last layers, so we’ll only print out the last ten.
 
 
 ```python
@@ -176,6 +201,8 @@ Looks like `block14_sepconv2_act` is what we’re looking for.
 last_conv_layer_name = 'block14_sepconv2_act'
 ```
 
+# Create Grad-CAM Model and Compute Heatmap
+
 Now let's create a Grad-CAM model
 
 
@@ -189,7 +216,7 @@ Now we have to calculate the gradient of the class output with respect to the co
 ```python
 with tf.GradientTape() as tape:
     last_conv_layer_output, predictions = gradcam_model(preprocessed_input)
-    loss = predictions[:, predicted_class]
+    loss = predictions[:, pred_class_idx]
 ```
 
 Get the gradient of the output neuron with respect to the convolutional layer output.
@@ -210,7 +237,7 @@ plt.hist(grads.numpy().flatten());
 
 
     
-![png](2023-01-01-model-explainability-with-grad-cam_files/2023-01-01-model-explainability-with-grad-cam_34_0.png)
+![png](2023-01-01-model-explainability-with-grad-cam-in-tensorflow_files/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_39_0.png)
     
 
 
@@ -228,7 +255,7 @@ plt.hist(pooled_grads.numpy().flatten());
 
 
     
-![png](2023-01-01-model-explainability-with-grad-cam_files/2023-01-01-model-explainability-with-grad-cam_37_0.png)
+![png](2023-01-01-model-explainability-with-grad-cam-in-tensorflow_files/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_42_0.png)
     
 
 
@@ -264,11 +291,13 @@ plt.matshow(heatmap);
 
 
     
-![png](2023-01-01-model-explainability-with-grad-cam_files/2023-01-01-model-explainability-with-grad-cam_45_0.png)
+![png](2023-01-01-model-explainability-with-grad-cam-in-tensorflow_files/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_50_0.png)
     
 
 
-That’s good. We’ve got a bit of work to do to display this though. We’ve got to resize, smooth, and overlay it so that we can really understand it. We'll create a function to do that now.
+# Visualize the Heatmap
+
+That’s good. We’ve got a bit of work to do to display this though. We’ve got to resize, smooth, and overlay it on the original image so that we can really understand it. We'll create a function to do that now.
 
 
 ```python
@@ -301,22 +330,23 @@ visualize_heatmap(img_path, heatmap)
 
 
     
-![png](2023-01-01-model-explainability-with-grad-cam_files/2023-01-01-model-explainability-with-grad-cam_48_0.png)
+![png](2023-01-01-model-explainability-with-grad-cam-in-tensorflow_files/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_54_0.png)
     
 
 
-Let's put it all into a function. But I want to make one more change. We previously only show the heatmap for the predicted class. Now I want to allow it to show the heatmap for any class we specify. Below are some relevant ImageNet class indexes that we can look for. You can get the full list [here](https://deeplearning.cms.waikato.ac.nz/user-guide/class-maps/IMAGENET/).
+Let's put it all into a function. But I want to make one more change. We previously only showed the heatmap for the predicted class. Now I want to allow it to show the heatmap for any class we specify. Below are some relevant ImageNet class indexes that we can look for. You can get the full list [here](https://deeplearning.cms.waikato.ac.nz/user-guide/class-maps/IMAGENET/).
 
 
 ```python
 GOOSE_INDEX = 99
 VIZSLA_INDEX = 211
-GERMAN_SHAPARD_INDEX = 235
+GERMAN_SHEPARD_INDEX = 235
 GREAT_DANE_INDEX = 246
 CHOW_INDEX = 260
 TABBY_CAT_INDEX = 281
 TIGER_CAT_INDEX = 282
 EGYPTIAN_CAT_INDEX = 285
+COWBOY_HAT_INDEX = 515
 ```
 
 
@@ -375,12 +405,12 @@ heatmap = grad_cam(model, preprocessed_input, last_conv_layer_name)
 visualize_heatmap(img_path, heatmap)
 ```
 
-    1/1 [==============================] - 0s 111ms/step
+    1/1 [==============================] - 0s 109ms/step
     
 
 
     
-![png](2023-01-01-model-explainability-with-grad-cam_files/2023-01-01-model-explainability-with-grad-cam_52_1.png)
+![png](2023-01-01-model-explainability-with-grad-cam-in-tensorflow_files/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_58_1.png)
     
 
 
@@ -388,11 +418,22 @@ visualize_heatmap(img_path, heatmap)
 ```python
 heatmap = grad_cam(model, preprocessed_input, last_conv_layer_name, EGYPTIAN_CAT_INDEX)
 visualize_heatmap(img_path, heatmap)
-
 ```
 
 
     
-![png](2023-01-01-model-explainability-with-grad-cam_files/2023-01-01-model-explainability-with-grad-cam_53_0.png)
+![png](2023-01-01-model-explainability-with-grad-cam-in-tensorflow_files/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_59_0.png)
+    
+
+
+
+```python
+heatmap = grad_cam(model, preprocessed_input, last_conv_layer_name, COWBOY_HAT_INDEX)
+visualize_heatmap(img_path, heatmap)
+```
+
+
+    
+![png](2023-01-01-model-explainability-with-grad-cam-in-tensorflow_files/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_60_0.png)
     
 
