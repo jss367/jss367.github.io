@@ -300,6 +300,10 @@ It can be really useful to color code your databases. This makes them automatica
 
 You may need to restart DataGrip before the color changes take place in the Files menu (righthand side).
 
+#### Refactor Code
+
+I think the hotkey for refactoring code is not good, so I recommend double caps lock.
+
 ## DBeaver
 
 I also don't like some of DBeaver's defaults.
