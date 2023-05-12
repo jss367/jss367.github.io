@@ -7,7 +7,7 @@ thumbnail: "assets/img/tiger_snake.jpg"
 tags: [Python]
 ---
 
-I use sigmoids all the time for fitting data. They are smooth and differentiable, as well as being easy to tie to boundaries. They natural exhibit the property of gradual then sudden increase without exploding. In this post, I provide some tips for how to adapt them to different problem cases.
+Sigmoid functions are a type of mathematical function that has a characteristic “S” shape. They are commonly used in mathematical modeling to represent a variety of phenomena, such as the probability of an event occurring, the growth of a population, or the spread of a disease. They natural exhibit the property of gradual then sudden increase without exploding. I use sigmoids all the time for fitting data. They are smooth and differentiable, as well as being easy add boundary conditions to. In this post, I provide some tips for how to adapt them to different problem cases.
 
 
 ```python
