@@ -134,9 +134,23 @@ And you can load it:
 
 You can use `%run my_file.py` to run a separate file. You can also do this with other Jupyter Notebooks by doing `%run my_notebook.ipynb`.
 
-## Measuring execution time with %timeit
+## Measuring Execution Time
 
-You can use `%timeit` to see how long it takes your code to run.
+You can use `timeit` to see how long it takes your code to run. To measure a single line of code, you can use %timeit:
+
+```python
+%timeit [x**2 for x in range(1000)]
+```
+
+To measure multiple lines of code, use %%timeit at the beginning of a cell:
+
+```python
+%%timeit
+squares = []
+for x in range(1000):
+    squares.append(x**2)
+```
+
 
 # Debugging
 
