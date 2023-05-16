@@ -13,3 +13,5 @@ is it too much to read all the  documentation? honestly, I think it is. for a 
 
 
 There are two many different workflows to get to the same place. You can find someone who has the exact same goals are you doing different commands, and can't find out which one is right.
+
+More thoughts https://matt-rickard.com/the-terrible-ux-of-git
