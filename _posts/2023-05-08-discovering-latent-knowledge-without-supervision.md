@@ -101,7 +101,7 @@ text
 
 
 
-Before it goes into the model we'll need to convert the text into statements that are either true or false. To do that, we can create a new statement that that the review is positive, and another to say that it's negative. That way we'll be guaranteed to have one true and one false statement.
+Before it goes into the model we'll need to convert the text into statements that are either true or false. To do that, we can create a new statement saying that the review is positive, and another to say that it's negative. That way we'll be guaranteed to have one true and one false statement.
 
 
 ```python
