@@ -26,3 +26,9 @@ You specify return types
             lambda polygon: convert_pixels_to_sqm(polygon.area, image_gsd=image_gsd),
             return_dtype=pl.Float
         ).alias("area")
+
+
+You can use the collect method to perform the computations on a LazyFrame and get a DataFrame.
+```
+df = lf.collect()
+```
