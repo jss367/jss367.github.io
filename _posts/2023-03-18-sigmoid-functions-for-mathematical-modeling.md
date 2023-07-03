@@ -7,7 +7,7 @@ thumbnail: "assets/img/tiger_snake.jpg"
 tags: [Python]
 ---
 
-Sigmoid functions are a type of mathematical function that has a characteristic “S” shape. They are commonly used in mathematical modeling to represent a variety of phenomena, such as the probability of an event occurring, the growth of a population, or the spread of a disease. They natural exhibit the property of gradual then sudden increase without exploding. I use sigmoids all the time for fitting data. They are smooth and differentiable, as well as being easy add boundary conditions to. In this post, I provide some tips for how to adapt them to different problem cases.
+Sigmoid functions are a type of mathematical function that has a characteristic “S” shape. They are commonly used in mathematical modeling to represent a variety of phenomena, such as the probability of an event occurring, the growth of a population, or the spread of a disease. They naturally exhibit the property of gradual then sudden increase without exploding. I use sigmoids all the time for fitting data. They are smooth and differentiable, as well as being easy to add boundary conditions to. In this post, I provide some tips for how to adapt them to different problem cases.
 
 
 ```python
@@ -147,7 +147,7 @@ plot_function(sigmoid, x_shift=4, y_shift=-5, y_scale=10)
     
 
 
-Depending on your use-case, you may want to specify certain conditions. For example, say you wanted to specify the min and max of the function. There's no explicit parameter for that, so we'll have to figure out how to express that given the parameters we have. The two that we care about for this case are `y_shift` and `y_scale`. The `x_shift` and `x_scale` parameters could be anything in this case because we haven't specified them. We could add additional constraints for them, but in this example I'll simply leave them alone. That leaves use with two unknowns, `y_shift` and `y_scale` and two conditions, which we can solve for.
+Depending on your use case, you may want to specify certain conditions. For example, say you wanted to specify the min and max of the function. There's no explicit parameter for that, so we'll have to figure out how to express that given the parameters we have. The two that we care about for this case are `y_shift` and `y_scale`. The `x_shift` and `x_scale` parameters could be anything in this case because we haven't specified them. We could add additional constraints for them, but in this example, I'll simply leave them alone. That leaves us with two unknowns, `y_shift` and `y_scale`, and two conditions, which we can solve for.
 
 We know two points:
 1. x approaches infinity and y approaches the desired max
@@ -174,7 +174,7 @@ Therefore:
 
 $$ y_\text{scale} + y_\text{shift} = max_\text{desired} $$
 
-At negative inifinity, we've got:
+At negative infinity, we've got:
 
 $$ \sigma(-\infty) = \frac{y_\text{scale}}{1 + e^{\infty}} + y_\text{shift} = \frac{y_\text{scale}}{\infty} + y_\text{shift} = y_\text{shift} $$
 
