@@ -62,11 +62,11 @@ input_image
 
 
 
-This image has a few different objects in it, which might not be deal for an image classification demo. But I'm going to use it so we can look at how to focus on specific classes within an image.
+This image has a few different objects in it, which might not be ideal for an image classification demo. But I'm going to use it so we can look at how to focus on specific classes within an image.
 
 # Create a Model
 
-For this tutorial I'm going to use Xception, but you can use any model.
+For this tutorial, I'm going to use Xception, but you can use any model.
 
 
 ```python
@@ -167,11 +167,11 @@ print(f"Predicted class: {predicted_class_name} (index: {pred_class_idx}, probab
     Predicted class: Vizsla (index: 211, probability: 17.10%)
     
 
-# Determine Target Layer
+# Determine the Target Layer
 
 OK, now we have predictions. Now we have to create a model that outputs the activations of the last convolutional layer as well as the output predictions.
 
-We should use the last convolutional layer for Grad-CAM because it provides the highest level of spatial information before the model becomes spatially invariant. We don’t know the name of the last convolutional layer and unfortunately we can't just loop through them and look for `if isinstance(layer, tf.keras.layers.Conv2D)` because many convolutional layers are not instances of `tf.keras.layers.Conv2D`. Instead, we can print out all the layer names and look for the last one before a `flatten` or `avg_pool` layer. We know it’s going to be one of the last layers, so we’ll only print out the last ten.
+We should use the last convolutional layer for Grad-CAM because it provides the highest level of spatial information before the model becomes spatially invariant. We don’t know the name of the last convolutional layer and unfortunately, we can't just loop through them and look for `if isinstance(layer, tf.keras.layers.Conv2D)` because many convolutional layers are not instances of `tf.keras.layers.Conv2D`. Instead, we can print out all the layer names and look for the last one before a `flatten` or `avg_pool` layer. We know it’s going to be one of the last layers, so we’ll only print out the last ten.
 
 
 ```python
