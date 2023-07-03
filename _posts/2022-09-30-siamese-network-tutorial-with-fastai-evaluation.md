@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Siamese Networks with FastAI - Evaluation"
-description: "This tutorial describes how to work with the FastAI library for siamese networks"
+description: "This tutorial describes how to work with the FastAI library for Siamese networks"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/platypus2.jpg"
 tags: [FastAI, Neural Networks, Python]
@@ -69,7 +69,7 @@ res = learner.siampredict(siamtest)
 <style>
     /* Turns off some styling */
     progress {
-        /* gets rid of default border in Firefox and Opera. */
+        /* gets rid of the default border in Firefox and Opera. */
         border: none;
         /* Needs to be in here for Safari polyfill so background images work as expected. */
         background-size: auto;
@@ -165,7 +165,7 @@ preds, ground_truth = learner.get_preds(dl=test_dl)
 <style>
     /* Turns off some styling */
     progress {
-        /* gets rid of default border in Firefox and Opera. */
+        /* gets rid of the default border in Firefox and Opera. */
         border: none;
         /* Needs to be in here for Safari polyfill so background images work as expected. */
         background-size: auto;
