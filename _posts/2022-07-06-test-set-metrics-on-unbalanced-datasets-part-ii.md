@@ -186,9 +186,9 @@ df['class'].value_counts()
 
 
 
-Just under a quarter of the data are of people with salaries above 50k. That's unbalanced but for this we want to look at a much more extreme example. We'll make it so that people in the >50K class are really rare.
+Just under a quarter of the data are of people with salaries above 50k. That's unbalanced but for this, we want to look at a much more extreme example. We'll make it so that people in the >50K class are really rare.
 
-Caveat: If I was really trying to build an algorithm to classify this data, I would go over the data in great detail. I can already see that education is listed as 11th in one case and HS-grad in another, so it needs to be cleaned up. But in this case I'm going to ignore all of that and jump right to encoding the data so it can be used in a model. It would also be good practice to split off test data before doing label encoding, but we'll skip that as well.
+Caveat: If I was really trying to build an algorithm to classify this data, I would go over the data in great detail. I can already see that education is listed as 11th in one case and HS-grad in another, so it needs to be cleaned up. But in this case, I'm going to ignore all of that and jump right to encoding the data so it can be used in a model. It would also be good practice to split off test data before doing label encoding, but we'll skip that as well.
 
 
 ```python
@@ -1047,7 +1047,7 @@ get_metrics(y_test_added, xgb_preds_added)
     F1: 8.69%
     
 
-We got a metrics, but they are not all an apples-to-apples comparison. In particular, the precision (and therefore F1 score) is far higher. That's because we've changed the ratio of positives to negatives in the dataset. To get back the original values,  we'll have to use the tricks we did in [Part I](https://jss367.github.io/test-set-metrics-on-unbalanced-datasets-part-i.html).
+We got metrics, but they are not all apples-to-apples comparisons. In particular, the precision (and therefore F1 score) is far higher. That's because we've changed the ratio of positives to negatives in the dataset. To get back the original values,  we'll have to use the tricks we did in [Part I](https://jss367.github.io/test-set-metrics-on-unbalanced-datasets-part-i.html).
 
 
 ```python
@@ -1113,4 +1113,4 @@ get_metrics(y_test_recreated, y_pred_recreated)
     F1: 1.04%
     
 
-These are better estimates of the model's preformance and are more precise than if it only used the true unbalanced test set.
+These are better estimates of the model's performance and are more precise than if it only used the true unbalanced test set.
