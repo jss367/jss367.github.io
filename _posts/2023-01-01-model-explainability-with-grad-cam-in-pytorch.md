@@ -63,7 +63,7 @@ input_image
 
 
 
-This image has a few different objects in it, which might not be deal for an image classification demo. But I'm going to use it so we can look at how to focus on specific classes within an image.
+This image has a few different objects in it, which might not be ideal for an image classification demo. But I'm going to use it so we can look at how to focus on specific classes within an image.
 
 # Create a Model
 
@@ -131,7 +131,7 @@ pred_class_idx = torch.argmax(probs, dim=1).item()
 predicted_prob = probs[0, pred_class_idx].item()
 ```
 
-We can download the class labels to see what this correspond to.
+We can download the class labels to see what this corresponds to.
 
 
 ```python
@@ -156,7 +156,7 @@ print(f"Predicted class: {predicted_class_name} (index: {pred_class_idx}, probab
     Predicted class: cowboy hat (index: 515, probability: 61.57%)
     
 
-# Determine Target Layer
+# Determine the Target Layer
 
 OK, now we have predictions. Now we have to create a model that outputs the activations of the last convolutional layer as well as the output predictions.
 
