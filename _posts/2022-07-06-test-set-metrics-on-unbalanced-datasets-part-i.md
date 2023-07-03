@@ -91,7 +91,7 @@ get_metrics(y_true, y_pred)
     F1: 13.56%
     
 
-How much can we trust these numbers? With so few positive examples, the precision and therefore F1 score are highly uncertain. This is where you add more positives. But that causes another problem. If we change the ratio of positives to negatives, we'll throw off our precision (and therefore F1 score). But all is not lost. The key is to find metrics that are invariant to the ratio of positive to negatives, then recover the precision from them.
+How much can we trust these numbers? With so few positive examples, the precision and therefore F1 score are highly uncertain. This is where you add more positives. But that causes another problem. If we change the ratio of positives to negatives, we'll throw off our precision (and therefore F1 score). But all is not lost. The key is to find metrics that are invariant to the ratio of positives to negatives, then recover the precision from them.
 
 Let's say we add 100 more examples to our positives.
 
