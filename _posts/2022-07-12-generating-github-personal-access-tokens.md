@@ -7,7 +7,7 @@ thumbnail: "assets/img/uluru.jpg"
 tags: [Git]
 ---
 
-This post contains instructions for how to work with personal access tokens on Github.
+This post contains instructions for how to work with personal access tokens on GitHub.
 
 * Go to [https://github.com/](https://github.com/) and click on your picture icon to open the settings menu
 
@@ -37,4 +37,4 @@ This post contains instructions for how to work with personal access tokens on G
 
 ![png]({{site.baseurl}}/assets/img/gh_pat_console.png)
 
-* Paste it in as your username, then for password, simply hit return/enter again without entering anything
+* Paste it in as your username, then for the password, simply hit return/enter again without entering anything
