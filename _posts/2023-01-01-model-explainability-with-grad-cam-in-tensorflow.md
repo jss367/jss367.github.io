@@ -4,7 +4,7 @@ title: "Model Explainability with Grad-CAM in TensorFlow"
 description: "This post is a tutorial for how to use Grad-CAM to explain computer vision models."
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/camel.jpg"
-tags: [Model Explainability, Python, Tensorflow]
+tags: [Model Explainability, Python, TensorFlow]
 ---
 
 This post is a tutorial demonstrating how to use [Grad-CAM (Gradient-weighted Class Activation Mapping)](https://arxiv.org/abs/1610.02391) for interpreting the output of a neural network. Grad-CAM is a visualization technique that highlights the regions a convolutional neural network (CNN) relied upon most to make predictions. While Grad-CAM is applicable to any CNN, it is predominantly employed with image classification models. This tutorial utilizes TensorFlow for implementation, but I made a [parallel tutorial that works with PyTorch](https://jss367.github.io/model-explainability-with-grad-cam-in-pytorch.html).
