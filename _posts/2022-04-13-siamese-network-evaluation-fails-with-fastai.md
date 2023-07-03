@@ -959,7 +959,7 @@ learner.get_preds(dl=dls.valid)
 
 However, this is still a super hacky method and not the right way to do it.
 
-You can also make predictions without using a `DataBlock`, but I don't recommend this. For one, you'll have to be careful to prepare the data correctly. You'll need to make sure you do all the item and batch transforms. In addition, if you try to manually load the data into a `DataLoader`, you'll have to use the `ImageTuple` class from the same place in memory. That means you'll have to pull it out of your Jupyter Notebook and put it in a file and load in from there in both the notebooks. If you don't, you'll get an error like:
+You can also make predictions without using a `DataBlock`, but I don't recommend this. For one, you'll have to be careful to prepare the data correctly. You'll need to make sure you do all the item and batch transforms. In addition, if you try to manually load the data into a `DataLoader`, you'll have to use the `ImageTuple` class from the same place in memory. That means you'll have to pull it out of your Jupyter Notebook and put it in a file and load it from there in both notebooks. If you don't, you'll get an error like:
 
 ```python
 AssertionError: Expected an input of type in 
