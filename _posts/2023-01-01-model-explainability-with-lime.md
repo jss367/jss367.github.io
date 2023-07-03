@@ -38,7 +38,7 @@ im_path = 'wallaby.jpg'
 im = Image.open(im_path)
 ```
 
-I'm going to resize it then take a look at it.
+I'm going to resize it and then take a look at it.
 
 
 ```python
@@ -61,7 +61,7 @@ im
 
 # Load the Model
 
-Now let's get our model. For simplicity I'm going to use an off-the-shelf one: InceptionV3.
+Now let's get our model. For simplicity, I'm going to use an off-the-shelf one: InceptionV3.
 
 
 ```python
