@@ -7,7 +7,7 @@ thumbnail: "assets/img/cradle_mountain.jpg"
 tags: [Data Visualization, Python, Statistics]
 ---
 
-Distributions are super important. In this post I'll talk about some common distributions, how to plot them, and what they can be used for.
+Distributions are super important. In this post, I'll talk about some common distributions, how to plot them, and what they can be used for.
 
 <b>Table of Contents</b>
 * TOC
@@ -34,7 +34,7 @@ np.random.seed(0)
 
 # Continuous Distributions
 
-## Continuious Uniform Distribution
+## Continuous Uniform Distribution
 
 The most basic distribution is the uniform distribution. In this case every value between the limits is equally likely to be called. These can be continuous or discrete. Continuous uniform distributions are also called rectangular distributions.
 
@@ -216,7 +216,7 @@ plt.show()
 
 ## Pareto Distribution
 
-The distribution between the famous "80-20 rule", the Pareto distribution is based on a power law. The Pareto distribution is seen all the time, from social issues to scientific ones.
+The distribution behind the famous "80-20 rule", the Pareto distribution is based on a power law. The Pareto distribution is seen all the time, from social issues to scientific ones.
 
 #### Equation
 
@@ -259,7 +259,7 @@ plt.show()
 
 * 80-20 rule
 
-The 80-20 rule is recursive. That is, if 20% of the people do 80% of the work, you can zoom in on those 20% and find that 20% of those do 80% of that work. So you can say something like
+The 80-20 rule is recursive. That is, if 20% of the people do 80% of the work, you can zoom in on that 20% and find that 20% of those do 80% of that work. So you can say something like
 
 $$ (0.2)^x $$ of the people do $$ (0.8)^x $$ of the work for any $$ x $$.
 
@@ -323,11 +323,11 @@ plt.show()
 
 ## Binomial Distribution
 
-Binomial distribution are based on discrete results from discrete events, like flipping a coin `n` times. From Wikipedia, a "binomial distribution with parameters n and p is the discrete probability distribution of the number of successes in a sequence of n independent experiments, each asking a yes–no question, and each with its own Boolean-valued outcome"
+Binomial distributions are based on discrete results from discrete events, like flipping a coin `n` times. From Wikipedia, a "binomial distribution with parameters n and p is the discrete probability distribution of the number of successes in a sequence of n independent experiments, each asking a yes-no question, and each with its own Boolean-valued outcome"
 
 #### Plot
 
-Let's say with run something with 100 trials, each of which has a 10% change of happening. To run that experiment, we can do:
+Let's say with run something with 100 trials, each of which has a 10% chance of happening. To run that experiment, we can do:
 
 
 ```python
@@ -384,12 +384,12 @@ plt.show()
 
 ## Poisson Distribution
 
-Many reallife things follow a Poisson distribution. Poisson distributions are like binomial distributions in that they count discrete events. But it's different in that there is no fixed number of experiments to run. Imagine a soccer game. So it's 
-discrete occurances (yes/no for a goal being scored) along a continuous distribution (time).
+Many real-life things follow a Poisson distribution. Poisson distributions are like binomial distributions in that they count discrete events. But it's different in that there is no fixed number of experiments to run. Imagine a soccer game. So it's 
+discrete occurrences (yes/no for a goal being scored) along a continuous distribution (time).
 
 At any moment, a goal could be scored. Thus it is continuous. There's no specific number of "goal attempts" in a Poisson distribution.
 
-If you wanted to find the number of shots on goal and see how many of them were goals, then it would become binomial. But if you look at it over time it's Poisson. It's like the limit of a binomial distribution where you have infinite attempts and each has an infintessimal change of being positive.
+If you wanted to find the number of shots on goal and see how many of them were goals, then it would become binomial. But if you look at it over time it's Poisson. It's like the limit of a binomial distribution where you have infinite attempts and each has an infinitesimal chance of being positive.
 
 Note that Poisson and binomial distributions can't be negative.
 
@@ -424,7 +424,7 @@ ax.set(xlabel='Variable', ylabel='Count');
 
 #### Example
 
-Poisson distributions are very useful in predicting rare events. If once-in-a-lifetime floods occur once every hundred years, what is the chance that we have five within a hundred year period?
+Poisson distributions are very useful in predicting rare events. If once-in-a-lifetime floods occur once every hundred years, what is the chance that we have five within a hundred-year period?
 
 In this case $$ \lambda = 1 $$ and $$ k = 5 $$
 
