@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Jupyter Environments and Kernels"
-description: "A discussion of how to set up jupyter environments both inside Docker containers and outside"
+description: "A discussion of how to set up Jupyter environments both inside Docker containers and outside"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/feral_pigeon.jpg"
 tags: [Jupyter Notebooks]
@@ -111,7 +111,7 @@ print(spec.resource_dir)
 
 #### Adding Kernels
 
-You'll need to be in the environment that you launch Jupyter for this to work. Once you're there, you can add kernels like so (display name is optional):
+You'll need to be in the environment where you launch Jupyter for this to work. Once you're there, you can add kernels like so (display name is optional):
 
 ```
 python -m ipykernel install --user --name myenv --display-name "Python (myenv)"
@@ -123,7 +123,9 @@ If you want to add a kernel from one environment to another, say you want to add
 
 `(my_main_env)` ➜  `/Users/<username>/opt/anaconda3/envs/my_new_env/bin/python -m ipykernel install --user --name my_new_env`
 
-You absolutely must include the full path name to python, otherwise you'll have to edit your `kernel.json` file. To get the full path, go to your new environment and enter `which python`. Note that you'll also have to `pip install ipykernel` in the new environment.
+You absolutely must include the full path name to Python, otherwise, you'll have to edit your `kernel.json` file. To get the full path, go to your new environment and enter `which python`. Note that you'll also have to `pip install ipykernel` in the new environment.
+
+Note that if you don't include `--name my_name`, the kernel will be connected with your default ipython kernel, which might be something like `/Users/<username>/Library/Jupyter/kernels/python3`
 
 #### Removing Kernels
 
@@ -197,7 +199,7 @@ You see
 }
 ```
 
-You have two environments sharing the Python 3 kernel. Why is the python 3 kernel only using the `py3_env2` environment?
+You have two environments sharing the Python 3 kernel. Why is the Python 3 kernel only using the `py3_env2` environment?
 
 
 You can now change the kernel by selecting "Kernel" in the file menu, then "Change kernel".
@@ -245,4 +247,4 @@ Now you can [add the kernel as shown above](https://jss367.github.io/jupyter-env
 
 ## Python and environment not matching
 
-If you're in your PT environment but that's not the Python distribution you're seeing when you `sys.executable`, you'll need to edit you `kernel.json` file that you found with `jupyter kernelspec list`.
+If you're in your PT environment but that's not the Python distribution you're seeing when you `sys.executable`, you'll need to edit your `kernel.json` file that you found with `jupyter kernelspec list`.
