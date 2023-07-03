@@ -220,11 +220,11 @@ is now
 from fastai.vision.all import *
 ```
 
-## There's Hidden Stuff All Around
+## There's Hidden Stuff All Over
 
-There's a lot of cool features hidden around FastAI. These are great when you know they're there, but surprising when you run into one unexpectedly.
+There are a lot of cool features hidden around FastAI. These are great when you know they're there, but surprising when you run into one unexpectedly.
 
-Let's say you're got a model in at `analysis/catsvdogs/models/my_model` that you want to load. So you create a `Path` with it and point `learn.load` to it. But instead of loading, this causes an error.
+Let's say you've got a model in at `analysis/catsvdogs/models/my_model` that you want to load. So you create a `Path` with it and point `learn.load` to it. But instead of loading, this causes an error.
 
 
 ```python
@@ -262,7 +262,7 @@ There are a lot of things I like about FastAI, but there are also some things th
 
 #### Evaluation
 
-I find the way evaluation works in FastAI to be counterintuitive. If you're familiar with `keras`, you're used to calling `.evaluate` on a model after it's been trained. But in `fastai`, there are only two splits - train and val. So if you want to evaluate on test data, you have to create a new `DataBunch` with training data, then swap in your test data by calling it validation data. At least, that's the way I've been getting it to work. If I find a better way, I'll update this post.
+I find the way evaluation works in FastAI to be counterintuitive. If you're familiar with `keras`, you're used to calling `.evaluate` on a model after it's been trained. But in `fastai`, there are only two splits - train and val. So if you want to evaluate on the test data, you have to create a new `DataBunch` with training data, then swap in your test data by calling it validation data. At least, that's the way I've been getting it to work. If I find a better way, I'll update this post.
 
 #### Variable Names
 
@@ -282,7 +282,7 @@ I see where the annoyance comes from. You have no idea what's in your namespace,
 
 #### Inheriting from Outer Context
 
-There's a lot of inheriting from outer context in FastAI. This works well for a Jupyter Notebook environment, but makes it harder to use it in production.
+There's a lot of inheriting from the outer context in FastAI. This works well for a Jupyter Notebook environment but makes it harder to use it in production.
 
 ## Conclusion
 
