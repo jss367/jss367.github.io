@@ -7,7 +7,7 @@ thumbnail: "assets/img/beach.jpg"
 tags: [Deep Learning, Python, PyTorch]
 ---
 
-Neural Tangent Kernels (NTKs) are an exciting topic in the field of machine learning that combines aspects of neural networks and kernel methods.
+Neural Tangent Kernels (NTKs) are an exciting topic in the field of machine learning that combine aspects of neural networks and kernel methods.
 
 Neural Tangent Kernels, introduced by [Arthur Jacot et al.](https://arxiv.org/abs/1806.07572) in 2018, provide an interesting perspective on training deep neural networks. The Neural Tangent Kernel is a method that allows us to approximate the behavior of a neural network with a kernel method. In simpler words, NTKs provide a kernelized view of neural networks, which has led to better insights into their training dynamics and generalization abilities.
 
