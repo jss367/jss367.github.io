@@ -12,7 +12,7 @@ This post shows some of the various tools in Python for visualizing images. Ther
 * TOC
 {:toc}
 
-# File Path to Array
+# Libraries
 
 There are many libraries in Python to help with loading and processing images. Let's look at a few of them.
 
