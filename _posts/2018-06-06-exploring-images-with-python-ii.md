@@ -3,18 +3,92 @@ layout: post
 title: "Exploring Images with Python II"
 thumbnail: "assets/img/mining_landscape.jpg"
 feature-img: "assets/img/rainbow.jpg"
-tags: [Computer Vision, Data Visualization, Python]
+tags: [Computer Vision, Data Visualization, Python, PyTorch, TensorFlow]
 ---
 
-This post shows some of the various tools in Python for visualizing images. There are usually two steps to the visualization process. First, you'll need to read in the image, usually as a `numpy` array or something similar. Then, you can visualize it with various libraries.
+This post shows some of the various tools in Python for visualizing images. There are usually two steps to the visualization process. First, you'll need to read in the image from a file path, usually as a `numpy` array or something similar. Then, you can visualize it with various libraries.
 
 <b>Table of Contents</b>
 * TOC
 {:toc}
 
-# Libraries
+# File Path to Array
 
 There are many libraries in Python to help with loading and processing images. Let's look at a few of them.
+
+
+```python
+from pyxtend import struct
+from matplotlib import pyplot as plt
+```
+
+## ImageIO
+
+ImageIO is nice because it has a common interface for different image types.
+
+
+```python
+import imageio
+import numpy as np
+```
+
+
+```python
+image_path = '../roo.jpg'
+```
+
+
+```python
+img_arr = imageio.v2.imread(image_path)
+```
+
+
+```python
+struct(img_arr)
+```
+
+
+
+
+    {'ndarray': ['uint8, shape=(256, 192, 3)']}
+
+
+
+
+```python
+type(img_arr)
+```
+
+
+
+
+    numpy.ndarray
+
+
+
+
+```python
+isinstance(img_arr, np.ndarray)
+```
+
+
+
+
+    True
+
+
+
+As you can see, `imageio.core.util.Array` is a NumPy ndarray.
+
+### Time Test
+
+
+```python
+%timeit img_arr = imageio.v2.imread(image_path)
+```
+
+    877 µs ± 23.9 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+    
 
 ## SKImage
 
@@ -33,165 +107,187 @@ image_path = '../roo.jpg'
 
 
 ```python
-img = imread(image_path)
-```
-
-
-```python
-img[:, : , 0][:3]
+skimage_read = imread(image_path)
+skimage_read
 ```
 
 
 
 
-    array([[232, 232, 232, 232, 232, 232, 232, 232, 232, 232, 232, 232, 232,
-            232, 232, 232, 234, 234, 234, 234, 234, 234, 234, 234, 231, 231,
-            231, 231, 231, 231, 231, 231, 234, 234, 234, 234, 234, 234, 234,
-            234, 237, 237, 237, 237, 237, 237, 237, 237, 241, 241, 241, 241,
-            241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241,
-            241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241,
-            241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241,
-            241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241,
-            241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241,
-            241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241,
-            241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241,
-            241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241,
-            241, 241, 241, 241, 234, 234, 234, 234, 234, 234, 234, 234, 232,
-            232, 232, 232, 232, 232, 232, 232, 229, 229, 229, 229, 229, 229,
-            229, 229, 227, 227, 227, 227, 227, 227, 227, 227],
-           [232, 232, 232, 232, 232, 232, 232, 232, 232, 232, 232, 232, 232,
-            232, 232, 232, 234, 234, 234, 234, 234, 234, 234, 234, 232, 232,
-            232, 232, 232, 232, 232, 232, 234, 234, 234, 234, 234, 234, 234,
-            234, 237, 237, 237, 237, 237, 237, 237, 237, 241, 241, 241, 241,
-            241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241,
-            241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241,
-            241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241,
-            241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241,
-            241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241,
-            241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241,
-            241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241,
-            241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241,
-            241, 241, 241, 241, 234, 234, 234, 234, 234, 234, 234, 234, 232,
-            232, 232, 232, 232, 232, 232, 232, 229, 229, 229, 229, 229, 229,
-            229, 229, 227, 227, 227, 227, 227, 227, 227, 227],
-           [232, 232, 232, 232, 232, 232, 232, 232, 232, 232, 232, 232, 232,
-            232, 232, 232, 234, 234, 234, 234, 234, 234, 234, 234, 232, 232,
-            232, 232, 232, 232, 232, 232, 234, 234, 234, 234, 234, 234, 234,
-            234, 237, 237, 237, 237, 237, 237, 237, 237, 241, 241, 241, 241,
-            241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241,
-            241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241,
-            241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241,
-            241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241,
-            241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241,
-            241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241,
-            241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241,
-            241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241, 241,
-            241, 241, 241, 241, 234, 234, 234, 234, 234, 234, 234, 234, 232,
-            232, 232, 232, 232, 232, 232, 232, 229, 229, 229, 229, 229, 229,
-            229, 229, 227, 227, 227, 227, 227, 227, 227, 227]], dtype=uint8)
-
-
-
-## Matplotlib
-
-
-```python
-from matplotlib import pyplot as plt
-```
-
-Matplotlib is my default for displaying images.
-
-
-```python
-plt.imshow(img);
-```
-
-
+    array([[[232, 236, 245],
+            [232, 236, 245],
+            [232, 236, 245],
+            ...,
+            [227, 232, 236],
+            [227, 232, 236],
+            [227, 232, 236]],
     
-![png](2018-06-06-exploring-images-with-python-ii_files/2018-06-06-exploring-images-with-python-ii_14_0.png)
+           [[232, 236, 245],
+            [232, 236, 245],
+            [232, 236, 245],
+            ...,
+            [227, 232, 236],
+            [227, 232, 236],
+            [227, 232, 236]],
     
-
-
-To have more control:
-
-
-```python
-fix, ax = plt.subplots()
-ax.imshow(img);
-```
-
-
+           [[232, 236, 245],
+            [232, 236, 245],
+            [232, 236, 245],
+            ...,
+            [227, 232, 236],
+            [227, 232, 236],
+            [227, 232, 236]],
     
-![png](2018-06-06-exploring-images-with-python-ii_files/2018-06-06-exploring-images-with-python-ii_16_0.png)
+           ...,
     
+           [[128, 140,  58],
+            [126, 138,  56],
+            [123, 135,  53],
+            ...,
+            [106, 123,  31],
+            [104, 121,  29],
+            [103, 120,  28]],
+    
+           [[124, 136,  54],
+            [122, 134,  52],
+            [119, 131,  49],
+            ...,
+            [102, 122,  27],
+            [ 99, 119,  24],
+            [ 98, 118,  23]],
+    
+           [[121, 133,  51],
+            [119, 131,  49],
+            [116, 128,  46],
+            ...,
+            [101, 121,  26],
+            [ 98, 118,  23],
+            [ 96, 116,  21]]], dtype=uint8)
+
 
 
 
 ```python
-plt.figure(figsize=(10, 10))
-plt.imshow(img);
+struct(skimage_read)
 ```
 
 
-    
-![png](2018-06-06-exploring-images-with-python-ii_files/2018-06-06-exploring-images-with-python-ii_17_0.png)
-    
 
+
+    {'ndarray': ['uint8, shape=(256, 192, 3)']}
+
+
+
+### Time Test
 
 
 ```python
-fig, ax = plt.subplots(figsize=(30, 10))
-ax.imshow(img)
-ax.axis('off');
+%timeit skimage_read = imread(image_path)
 ```
 
-
-    
-![png](2018-06-06-exploring-images-with-python-ii_files/2018-06-06-exploring-images-with-python-ii_18_0.png)
+    901 µs ± 18.6 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
     
 
+## PyTorch
 
 
 ```python
-plt.rcParams['figure.figsize'] = (30, 10)
-fig, ax = plt.subplots()
-ax.imshow(img)
-ax.axis('off');
-```
-
-
-    
-![png](2018-06-06-exploring-images-with-python-ii_files/2018-06-06-exploring-images-with-python-ii_19_0.png)
-    
-
-
-## PIL
-
-
-```python
-from PIL import Image
+from torchvision.io import read_image
 ```
 
 
 ```python
-pil_img = Image.fromarray(img)
+torch_read = read_image(image_path)
+torch_read
+```
+
+
+
+
+    tensor([[[232, 232, 232,  ..., 227, 227, 227],
+             [232, 232, 232,  ..., 227, 227, 227],
+             [232, 232, 232,  ..., 227, 227, 227],
+             ...,
+             [128, 126, 123,  ..., 106, 104, 103],
+             [124, 122, 119,  ..., 102,  99,  98],
+             [121, 119, 116,  ..., 101,  98,  96]],
+    
+            [[236, 236, 236,  ..., 232, 232, 232],
+             [236, 236, 236,  ..., 232, 232, 232],
+             [236, 236, 236,  ..., 232, 232, 232],
+             ...,
+             [140, 138, 135,  ..., 123, 121, 120],
+             [136, 134, 131,  ..., 122, 119, 118],
+             [133, 131, 128,  ..., 121, 118, 116]],
+    
+            [[245, 245, 245,  ..., 236, 236, 236],
+             [245, 245, 245,  ..., 236, 236, 236],
+             [245, 245, 245,  ..., 236, 236, 236],
+             ...,
+             [ 58,  56,  53,  ...,  31,  29,  28],
+             [ 54,  52,  49,  ...,  27,  24,  23],
+             [ 51,  49,  46,  ...,  26,  23,  21]]], dtype=torch.uint8)
+
+
+
+
+```python
+struct(torch_read)
+```
+
+
+
+
+    {'Tensor': ['torch.uint8, shape=(3, 256, 192)']}
+
+
+
+### Time Test
+
+
+```python
+%timeit torch_read = read_image(image_path)
+```
+
+    474 µs ± 4.75 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+    
+
+## TensorFlow
+
+
+```python
+import tensorflow as tf
 ```
 
 
 ```python
-pil_img
+tf_image = tf.io.read_file(image_path)
+tf_image = tf.image.decode_jpeg(tf_image)
+```
+
+
+```python
+struct(tf_image)
 ```
 
 
 
 
+    {'EagerTensor': ["<dtype: 'uint8'>, shape=(256, 192, 3)"]}
+
+
+
+### Time Test
+
+
+```python
+%timeit tf_image = tf.image.decode_jpeg(tf.io.read_file(image_path))
+```
+
+    707 µs ± 5.86 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
     
-![png](2018-06-06-exploring-images-with-python-ii_files/2018-06-06-exploring-images-with-python-ii_23_0.png)
-    
 
-
-
-## Open CV
+## OpenCV
 
 You can also read images off disk using OpenCV.
 
@@ -212,7 +308,7 @@ plt.imshow(img);
 
 
     
-![png](2018-06-06-exploring-images-with-python-ii_files/2018-06-06-exploring-images-with-python-ii_28_0.png)
+![png](2018-06-06-exploring-images-with-python-ii_files/2018-06-06-exploring-images-with-python-ii_41_0.png)
     
 
 
@@ -225,69 +321,57 @@ plt.imshow(img[:, :, ::-1]);
 
 
     
-![png](2018-06-06-exploring-images-with-python-ii_files/2018-06-06-exploring-images-with-python-ii_30_0.png)
+![png](2018-06-06-exploring-images-with-python-ii_files/2018-06-06-exploring-images-with-python-ii_43_0.png)
     
 
 
-## ImageIO
-
-ImageIO is nice because it has a common interface for different image types.
+### Time Test
 
 
 ```python
-import imageio
-import numpy as np
+%timeit cv2_img = cv2.imread(image_path)
+```
+
+    487 µs ± 5 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+    
+
+## PIL
+
+You can also use PIL for this.
+
+
+```python
+from PIL import Image
 ```
 
 
 ```python
-image_path = '../roo.jpg'
+pil_img = Image.open(image_path) # This is already from an img
 ```
 
 
 ```python
-img_arr = imageio.imread(image_path)
+%timeit pil_img = Image.open(image_path)
 ```
+
+    234 µs ± 4.71 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+    
+
+PIL is incredibly fast at reading images.
 
 
 ```python
-img_arr.shape
-```
-
-
-
-
-    (256, 192, 3)
-
-
-
-The three axes are the height, width, and number of color channels. So is image is 256 pixels high, 192 pixels wide, and has 3 color channels.
-
-
-```python
-type(img_arr)
-```
-
-
-
-
-    imageio.core.util.Array
-
-
-
-
-```python
-isinstance(img_arr, np.ndarray)
+pil_img
 ```
 
 
 
 
-    True
+    
+![png](2018-06-06-exploring-images-with-python-ii_files/2018-06-06-exploring-images-with-python-ii_52_0.png)
+    
 
 
-
-As you can see, `imageio.core.util.Array` is a NumPy ndarray.
 
 # Visualizing from TensorFlow Datasets
 
@@ -323,7 +407,7 @@ plt.colorbar();
 
 
     
-![png](2018-06-06-exploring-images-with-python-ii_files/2018-06-06-exploring-images-with-python-ii_44_1.png)
+![png](2018-06-06-exploring-images-with-python-ii_files/2018-06-06-exploring-images-with-python-ii_56_1.png)
     
 
 
@@ -365,6 +449,6 @@ plt.show()
 
 
     
-![png](2018-06-06-exploring-images-with-python-ii_files/2018-06-06-exploring-images-with-python-ii_49_0.png)
+![png](2018-06-06-exploring-images-with-python-ii_files/2018-06-06-exploring-images-with-python-ii_61_0.png)
     
 
