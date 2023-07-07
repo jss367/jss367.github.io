@@ -350,15 +350,9 @@ pil_img = Image.open(image_path) # This is already from an img
 ```
 
 
-```python
-%timeit pil_img = Image.open(image_path)
-```
 
-    234 µs ± 4.71 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
-    
 
-PIL is incredibly fast at reading images.
-
+Note that PIL returns a special file type that you can display right away in a Jupyter Notebook.
 
 ```python
 pil_img
@@ -370,6 +364,19 @@ pil_img
     
 ![png](2018-06-06-exploring-images-with-python-ii_files/2018-06-06-exploring-images-with-python-ii_52_0.png)
     
+
+
+### Time Test
+
+
+```python
+%timeit pil_img = Image.open(image_path)
+```
+
+    234 µs ± 4.71 µs per loop (mean ± std. dev. of 7 runs, 1,000 loops each)
+    
+
+PIL is incredibly fast at reading images.
 
 
 
