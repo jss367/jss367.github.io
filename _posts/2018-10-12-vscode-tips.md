@@ -212,8 +212,21 @@ You can also debug subprocess in VSCode. All you need to do is add `"subProcess"
 
 `launch.json` files can be stored in different locations. Sometimes you might have one in `git/my_repo/.vscode/launch.json`. I generally try to avoid this. Instead of one for each repo, I would put them all in `git/.vscode/launch.json`.
 
-## .env files ##
+## .env files
 Go at top of directory. Can add environment variables, python path, etc.
+
+It might look like this:
+```
+        {
+            "name": "Python: My Module",
+            "type": "python",
+            "request": "launch",
+            "module": "my_module",
+            "justMyCode": true,
+            "args": ["my_arg"],
+            "env": {"PYTORCH_ENABLE_MPS_FALLBACK": "1"} # Add the env here
+        }
+```
 
 - don't use quotes in variables names here
 
