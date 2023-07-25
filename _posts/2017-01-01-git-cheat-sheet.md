@@ -355,6 +355,10 @@ Supposed you wanted to add something that combined a few git commands, like `git
 
 Now you can do `git all` to call this.
 
+I also recommend this:
+
+`git config pull.rebase true`
+
 #### In remote VSCode
 
 Sometimes you might have a problem where git is not configured.
