@@ -32,3 +32,38 @@ You can use the collect method to perform the computations on a LazyFrame and ge
 ```
 df = lf.collect()
 ```
+
+
+## General Changes
+
+`apply` operations become operations with `with_columns` and `select`.
+
+Using polars `from_pandas` to convert a pandas DataFrame to polars format
+df = pl.from_pandas(df)
+
+Using polars vectorized operations like ** for element-wise power
+
+
+`if row[thing]` becomes `if row[malady].is_not_null().sum() > 0`
+
+
+This:
+```
+    if return_multipliers:
+        return pd.Series([multipliers, total_multiplier], index=["multipliers", "rcs"])
+    else:
+        return pd.Series(total_multiplier)
+```
+
+Becomes that:
+```
+    if return_multipliers:
+        return pl.DataFrame([multipliers, total_multiplier], columns=["multipliers", "rcs"])
+    else:
+        return pl.DataFrame(total_multiplier, columns=["rcs"])
+```
+
+
+
+
+
