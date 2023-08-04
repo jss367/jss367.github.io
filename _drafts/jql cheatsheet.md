@@ -1,7 +1,31 @@
 
-Jira Query Language (JQL) is a powerful tool that allows you to perform advanced searches in Jira based on various parameters. This post contains some of my tips and tricks for working with it.
+Jira Query Language (JQL) is a powerful tool that allows you to perform advanced searches in Jira. It allows users to perform advanced searching and filtering of issues within a Jira instance. This post contains some of my tips and tricks for working with it.
 
-To get to the JQL editor, click on the "Filters" tab at the top.
+## Access
+
+To get to the JQL editor from any Jira page, click on the "Filters" tab at the top.
+
+<img width="822" alt="image" src="https://github.com/jss367/jss367.github.io/assets/3067731/4b943dbb-3e33-43f3-bddd-d8b36d417fe3">
+
+## Query Structure
+
+The structure of a JQL query is:
+
+* Field: The aspect of the issue you want to query on (e.g., status, assignee, duedate).
+* Operator: This defines the relationship between the field and the operand (e.g., =, !=, <, >, IN).
+* Operand: The value that is being compared against the field (e.g., "In Progress", currentuser(), "Bug").
+
+You can also combine queries using the `AND` and `OR` operators.
+
+## Fields, Operators, and Operands
+
+Jira provides a lot of different fields you can query on, as well as different operators and operand types. Here are a few examples:
+
+* Fields: project, issuetype, reporter, priority, comment
+* Operators: =, !=, <, >, ~ (approximately), IS, IS NOT, IN, NOT IN
+* Operands: Text strings (e.g., "In Progress"), functions (e.g., now()), lists (e.g., (HIGH, MEDIUM)), and more.
+
+## Examples
 
 ```jql
 created >= -30d order by created DESC
