@@ -7,7 +7,7 @@ thumbnail: "assets/img/pallid_cuckoo.jpg"
 tags: [Cheat Sheet]
 ---
 
-Jira Query Language (JQL) is a powerful tool that allows you to perform advanced searches in Jira. It allows users to perform advanced searching and filtering of issues within a Jira instance. This post contains some of my tips and tricks for working with it.
+Jira Query Language (JQL) is a powerful tool that allows users to perform advanced searches in Jira. This post contains some of my tips and tricks for working with it.
 
 # Access
 
