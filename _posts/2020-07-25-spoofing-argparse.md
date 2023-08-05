@@ -7,14 +7,11 @@ thumbnail: "assets/img/cockatoo.jpg"
 tags: [Jupyter Notebooks, Python]
 ---
 
-
-## Spoofing Argpase
-
 It's often a good idea to construct deep learning code so that experiments can be conducted simply from the command line, allowing you to quickly iterate and record results. [argparse](https://docs.python.org/3/library/argparse.html) makes this super easy by allowing configurations to be passed as command-line arguments. But sometimes you want to do the opposite. You find a repo that has a `train.py` file ready-to-go but you want to walk through it line-by-line in a Jupyter Notebook.
 
 Unfortunately, `argparse` can get in the way here because the code is expecting an `argparse` object and you're not calling it from the command line. To get around this, you'll have to spoof `argparse`. 
 
-#### Simple Example
+### Simple Example
 
 If you're going to run a program in, say, VSCode, it's already going to have the file in `sys.argv`, even if you don't add any other arguments. If you want to quickly spoof argparse, you can extend `sys.argv` like so:
 
@@ -22,7 +19,7 @@ If you're going to run a program in, say, VSCode, it's already going to have the
 sys.argv.extend(["my_arg_1", "my_arg_2"])
 ```
 
-#### In Jupyter Notebook
+### In Jupyter Notebook
 
 If you're running it in a Jupyter Notebook, you only need to find this line:
 
@@ -32,7 +29,7 @@ and change it to this:
 
 `args = parser.parse_args(args=[])`
 
-#### Full Example
+### Full Example
 
 For a fuller example, I'll show how to do that using [`centermask2`](https://github.com/youngwanLEE/centermask2) as an example. `centermask2` is an implementation of [CenterMask: Real-Time Anchor-Free Instance Segmentation](https://arxiv.org/abs/1911.06667) based on Facebook AI Research's object detection [detectron2](https://github.com/facebookresearch/detectron2) framework.
 
