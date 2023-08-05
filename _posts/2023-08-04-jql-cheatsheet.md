@@ -1,3 +1,11 @@
+---
+layout: post
+title: "JQL Cheat Sheet"
+description: "This post is about the Jira Query Language (JQL) and how to use it."
+feature-img: "assets/img/rainbow.jpg"
+thumbnail: "assets/img/pallid_cuckoo.jpg"
+tags: [Cheat Sheet]
+---
 
 Jira Query Language (JQL) is a powerful tool that allows you to perform advanced searches in Jira. It allows users to perform advanced searching and filtering of issues within a Jira instance. This post contains some of my tips and tricks for working with it.
 
