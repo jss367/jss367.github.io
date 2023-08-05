@@ -35,10 +35,13 @@ Jira provides a lot of different fields you can query on, as well as different o
 
 # Examples
 
+## What are the most recent tickets?
+
 ```jql
 created >= -30d order by created DESC
 ```
 
+## Searching by person
 
 ```jql
 assignee = <type their name and a reference number will appear>.  
