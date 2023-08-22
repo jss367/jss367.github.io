@@ -5,15 +5,14 @@ There are no indexes in polars, so if you're relying on one, you'll need to make
 
 
 
-No more .loc or .iloc. You use .filter.
+No more `.loc` or `.iloc`. You use `.filter`.
 
 
-Renaming a column is easy -> .alias
+Renaming a column is easy -> `.alias`
 
-##Some simple substitutions 
-.copy is now .clone
-
-.fillna is now fill_none
+## Some simple substitutions 
+* `.copy` is now `.clone`
+* `.fillna` is now `fill_none`
 
 
 ## Strict Typing
@@ -33,13 +32,29 @@ You can use the collect method to perform the computations on a LazyFrame and ge
 df = lf.collect()
 ```
 
+## Conversions
 
-## General Changes
+Use polars' `from_pandas` to convert a pandas DataFrame to polars format
+
+```python
+polars_series = pl.from_pandas(pandas_series)
+```
+
+or 
+
+`df = pl.from_pandas(df)`
+
+
+## apply
 
 `apply` operations become operations with `with_columns` and `select`.
 
-Using polars `from_pandas` to convert a pandas DataFrame to polars format
-df = pl.from_pandas(df)
+
+## General Changes
+
+
+
+
 
 Using polars vectorized operations like ** for element-wise power
 
