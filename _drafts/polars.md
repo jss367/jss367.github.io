@@ -50,6 +50,30 @@ or
 `apply` operations become operations with `with_columns` and `select`.
 
 
+## Adding a column to a DataFrame
+
+You can't add a new column to a DataFrame in polars the same way you can in pandas.
+
+In pandas:
+```
+df = pd.DataFrame()
+df['new_col'] = <whatever you want>
+```
+
+In polars:
+```
+df = pl.DataFrame()
+df = df.with_column(other_df.select("col").with_name("new_col"))
+```
+
+Example:
+```
+hail_df["log_staining"] = np.clip(np.log(building_normalized_df["staining"]), np.log(0.01), None)
+hail_df_pl.with_columns(pl.Series(np.clip(np.log(building_normalized_df["staining"]), np.log(0.01), None)).alias("log_staining"))
+```
+
+## Rename a column within a dataframe
+
 ## General Changes
 
 
