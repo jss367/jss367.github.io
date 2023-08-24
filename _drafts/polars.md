@@ -76,7 +76,13 @@ def pl_series_to_dict(series: pl.Series) -> dict:
     return result_dict
 ```
 
+#### Data types
+```
+.cast(int)
+```
+This will cast the column to the default integer type that the library supports. This might be platform-specific (i.e., it could be 32-bit on some systems and 64-bit on others). If you want to specify specifically which type, you might want to do this:
 
+`.cast(pl.Int64)`
 
 ## apply
 
