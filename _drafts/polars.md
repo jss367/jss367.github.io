@@ -32,6 +32,15 @@ You can use the collect method to perform the computations on a LazyFrame and ge
 df = lf.collect()
 ```
 
+## Indexing
+
+You can index like so:
+
+```
+my_series[0]
+```
+
+
 ## Conversions
 
 #### From a pandas DataFrame
