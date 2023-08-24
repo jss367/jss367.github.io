@@ -77,7 +77,7 @@ def pl_series_to_dict(series: pl.Series) -> dict:
     return result_dict
 ```
 If you want ints, you could do this:
-```
+```python
 def pl_series_to_dict(series: pl.Series) -> dict:
     """
     Convert a Polars Series to a dictionary.
