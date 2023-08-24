@@ -34,6 +34,8 @@ df = lf.collect()
 
 ## Conversions
 
+#### From a pandas DataFrame
+
 Use polars' `from_pandas` to convert a pandas DataFrame to polars format
 
 ```python
@@ -43,6 +45,28 @@ polars_series = pl.from_pandas(pandas_series)
 or 
 
 `df = pl.from_pandas(df)`
+
+
+#### To a Dictionary
+
+It's easy to convert a polars DataFrame to a dictionary, but not a polars series. To do so, you need a function like this:
+```python
+import polars as pl
+
+def pl_series_to_dict(series: pl.Series) -> dict:
+    """
+    Convert a Polars Series to a dictionary.
+    """
+    
+    # Get the values of the Series
+    values = series.to_list()
+
+    # Convert the Series to a dictionary where each index is a key
+    result_dict = {i: value for i, value in enumerate(values)}
+
+    return result_dict
+```
+
 
 
 ## apply
@@ -75,29 +99,6 @@ df_pl = df_pl.with_columns(pl.Series(np.clip(df_pl["value"], np.log(0.01), None)
 ## Rename a column within a DataFrame
 
 
-
-## Exporting Data
-
-
-#### To a Dictionary
-
-It's easy to convert a polars DataFrame to a dictionary, but not a polars series. To do so, you need a function like this:
-```python
-import polars as pl
-
-def pl_series_to_dict(series: pl.Series) -> dict:
-    """
-    Convert a Polars Series to a dictionary.
-    """
-    
-    # Get the values of the Series
-    values = series.to_list()
-
-    # Convert the Series to a dictionary where each index is a key
-    result_dict = {i: value for i, value in enumerate(values)}
-
-    return result_dict
-```
 
 
 ## General Changes
