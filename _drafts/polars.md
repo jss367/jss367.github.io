@@ -58,7 +58,8 @@ or
 
 #### To a Dictionary
 
-It's easy to convert a polars DataFrame to a dictionary, but not a polars series. To do so, you need a function like this:
+It's easy to convert a polars DataFrame to a dictionary, but not a polars series. It's not clear exactly how you want the keys to be. If you want them to be strings, you could do this:
+
 ```python
 import polars as pl
 
@@ -71,10 +72,27 @@ def pl_series_to_dict(series: pl.Series) -> dict:
     values = series.to_list()
 
     # Convert the Series to a dictionary where each index is a key
-    result_dict = {i: value for i, value in enumerate(values)}
+    result_dict = {str(i): value for i, value in enumerate(values)}
 
     return result_dict
 ```
+If you want ints, you could do this:
+```
+def pl_series_to_dict(series: pl.Series) -> dict:
+    """
+    Convert a Polars Series to a dictionary.
+    """
+    
+    # Get the values of the Series
+    values = series.to_list()
+
+    # Convert the Series to a dictionary where each index is a key
+    result_dict = dict(enumerate(values))
+
+    return result_dict
+```
+
+
 
 #### Data types
 ```
