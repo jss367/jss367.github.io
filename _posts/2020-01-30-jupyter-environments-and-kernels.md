@@ -214,7 +214,7 @@ There is a `kernel.json` file
 
 If you don't get your env a name it will overwrite this
 
-What happened is that the py3_enf2 kernel overwrote the py3_env1 kernel. 
+What happened is that the `py3_env2` kernel overwrote the `py3_env1` kernel. 
 
 
 ## Windows
