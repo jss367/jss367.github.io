@@ -14,6 +14,20 @@ Renaming a column is easy -> `.alias`
 * `.copy` is now `.clone`
 * `.fillna` is now `fill_none`
 
+## Converting code from Pandas
+
+Here are some things you'll commonly do:
+
+* Use pl.col to refer to a column in a DataFrame.
+* Use pl.when for conditional operations.
+* Use with_column to add a new column to a DataFrame.
+
+
+#### Same functions, different behavior
+
+* pd.cut
+* df.apply
+
 
 ## Strict Typing
 
