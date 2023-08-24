@@ -120,6 +120,17 @@ This will cast the column to the default integer type that the library supports.
 
 `apply` operations become operations with `with_columns` and `select`.
 
+pandas:
+```
+        hurricane_df[shape_mat] = shape_mat_df.apply(
+            lambda row: int(name in row["shape"] or name in row["material"]), axis=1
+        )
+```
+polars:
+``` 
+        condition = (pl.col("shape").str.contains(name) | pl.col("material").str.contains(name))
+        shape_mat_df_pl = shape_mat_df.with_columns(condition.cast(pl.Int8).alias(shape_mat)
+```
 
 ## Adding a column to a DataFrame
 
