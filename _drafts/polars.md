@@ -112,19 +112,19 @@ This will cast the column to the default integer type that the library supports.
 You can't add a new column to a DataFrame in polars the same way you can in pandas.
 
 In pandas:
-```
+```python
 df = pd.DataFrame()
 df['new_col'] = <whatever you want>
 ```
 
 In polars:
-```
+```python
 df = pl.DataFrame()
 df = df.with_column(other_df.select("col").with_name("new_col"))
 ```
 
 Example:
-```
+```python
 df["clipped_value"] = np.clip(df["value"], np.log(0.01), None)
 df_pl = df_pl.with_columns(pl.Series(np.clip(df_pl["value"], np.log(0.01), None)).alias("clipped_value"))
 ```
@@ -147,7 +147,7 @@ Using polars vectorized operations like ** for element-wise power
 
 
 This:
-```
+```python
     if return_multipliers:
         return pd.Series([multipliers, total_multiplier], index=["multipliers", "rcs"])
     else:
@@ -155,7 +155,7 @@ This:
 ```
 
 Becomes that:
-```
+```python
     if return_multipliers:
         return pl.DataFrame([multipliers, total_multiplier], columns=["multipliers", "rcs"])
     else:
