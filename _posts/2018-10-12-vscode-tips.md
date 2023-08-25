@@ -6,7 +6,9 @@ thumbnail: "assets/img/binary.jpg"
 tags: [Software]
 ---
 
-This post contains some of my favorite tips and tricks for working with VSCode. For even more, VSCode has [their own tips and tricks page](https://code.visualstudio.com/docs/getstarted/tips-and-tricks) that I recommend.
+This post contains some of my favorite tips and tricks for working with VSCode. For even more, VSCode has [their own tips and tricks page](https://code.visualstudio.com/docs/getstarted/tips-and-tricks) that I recommend. Note that I try to keep this up-to-date, so the information should be good with roughly the latest version of VSCode. If something breaks my VSCode workflow, I update this page.
+
+For example, a lot of [Python tools switched to extensions](https://github.com/microsoft/vscode-python/wiki/Migration-to-Python-Tools-Extensions) in 2022, and I have updated this page to include that.
 
 <b>Table of Contents</b>
 * TOC
@@ -230,6 +232,14 @@ It might look like this:
 
 - don't use quotes in variables names here
 
+
+## Pylint Wrong Interpreter
+
+Sometimes you have problems where Pylint seems to be using a different interpreter. Even if you select the correct interpreter and do it at the workspace level. I don't know what causes this, but here is how to fix it:
+
+It could be caused by having something in 
+
+"pylint.interpreter": ["/Users/julius/opt/anaconda3/envs/all2/bin/python"],
 
 ## Other
 
