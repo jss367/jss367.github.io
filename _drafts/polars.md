@@ -90,7 +90,7 @@ def pl_series_to_dict(series: pl.Series) -> dict:
 
     return result_dict
 ```
-If you want ints, you could do this:
+If you want ints, you could do this. This is the most faithful version of the pandas command:
 ```python
 def pl_series_to_dict(series: pl.Series) -> dict:
     """
@@ -104,6 +104,24 @@ def pl_series_to_dict(series: pl.Series) -> dict:
     result_dict = dict(enumerate(values))
 
     return result_dict
+```
+Here's the one-liner: `dict(enumerate(my_series.to_list()))`
+
+
+
+Here's another option, but this doesn't give you the indexes as pandas does:
+
+```python
+import polars as pl
+
+# Create a Polar Series
+series = pl.Series("a", [1, 2, 3, 4])
+
+# Convert the Series to a dictionary
+dict_representation = {series.name: series.to_list()}
+
+print(dict_representation)
+
 ```
 
 
