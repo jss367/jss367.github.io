@@ -32,6 +32,8 @@ import numpy as np
 
 
 ```python
+np.random.seed(0)
+
 # Create normally distributed data
 normal_data = np.random.normal(0, 1, 500)
 
@@ -48,7 +50,7 @@ plt.show()
 
 
     
-![png](2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_10_0.png)
+![png](2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_9_0.png)
     
 
 
@@ -64,8 +66,9 @@ Let's look at a few examples of datasets with gaps in them. This can happen, esp
 
 
 ```python
-# Normal with Gap
 np.random.seed(0)
+
+# Normal with Gap
 normal_data = np.random.normal(0, 2, 1000)
 normal_with_gap_data = normal_data[(normal_data < 0) | (normal_data > 1)]
 
@@ -94,7 +97,7 @@ plt.show()
 
 
     
-![png](2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_15_0.png)
+![png](2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_14_0.png)
     
 
 
@@ -102,52 +105,16 @@ You can see how the smoothing completely obscures the true distribution of the d
 
 In the second data distribution, there are three tight concentrations of data, but the violin plot makes it look like they are spread out and even slightly overlapping. They are not and you need to know this.
 
-## Forces Violin Shape
-
-Let's look at another example. Here are some uniformly distributed data—nothing violin-y about it. But it still makes it look like it has a roughly normal distribution.
-
-
-```python
-np.random.seed(0)
-large_sample = np.random.uniform(0, 1, 1000)
-small_sample = np.random.uniform(0, 1, 15)
-
-# Plot the violin plots
-fig, axes = plt.subplots(2, 2, figsize=(12, 10))
-
-sns.violinplot(ax=axes[0, 0], y=large_sample)
-axes[0, 0].set_title("Violin Plot: Large Sample")
-axes[0, 1].hist(large_sample, bins=30, edgecolor="black")
-axes[0, 1].set_title("Histogram: Large Sample")
-
-sns.violinplot(ax=axes[1, 0], y=small_sample)
-axes[1, 0].set_title("Violin Plot: Small Sample Size")
-axes[1, 1].hist(small_sample, bins=30, edgecolor="black")
-axes[1, 1].set_title("Histogram: Bimodal Distribution")
-
-plt.tight_layout()
-plt.show()
-```
-
-
-    
-![png](2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_19_0.png)
-    
-
-
-It just squeezes everything into a format in a way that distorts the reality of the data.
-
 ## Sample Size
 
 Moving on, let's talk about one of the most important things in statistical analysis: sample size. Question: How do violin plots represent this most-important feature? Answer: By completely hiding it.
 
-Suppose you have a dataset and you want to know if it's normally distributed or not. So you look at the violin plots. 
-
 
 ```python
 np.random.seed(0)
-large_sample = np.random.normal(0, 1, 1000)
-small_sample = np.random.normal(0, 1, 15)
+
+large_sample = np.random.uniform(0, 1, 1000)
+small_sample = np.random.uniform(0, 1, 15)
 
 # Plot the violin plots
 fig, axes = plt.subplots(2, 2, figsize=(12, 10))
@@ -168,11 +135,15 @@ plt.show()
 
 
     
-![png](2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_23_0.png)
+![png](2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_18_0.png)
     
 
 
-You can't tell what's going on in the violin plots. But in the histograms it's obvious—you don't have enough data in the second case to say.
+You can't tell the sample size in the violin plots. But in the histograms you can, and you can see that you don't have enough data in the second case for it to be meaningful.
+
+## Forces Violin Shape
+
+Let me make another point based on those graphs above. I sampled from a uniform distribution, but it still came out looking like a normal distribution. That's another problem with violin plots—they force the data into a violin shape even when it's not accurate.
 
 ## Hallucinated Negative Numbers
 
@@ -180,6 +151,8 @@ OK, let's look at another casualty of the smoothing. Here I have a dataset with 
 
 
 ```python
+np.random.seed(0)
+
 # Generate some example data that's strictly positive
 data = np.abs(np.random.randn(100)) + 0.1
 
@@ -191,7 +164,7 @@ plt.show()
 
 
     
-![png](2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_27_0.png)
+![png](2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_24_0.png)
     
 
 
@@ -199,6 +172,8 @@ It makes it look like there’s data when there’s not. I think that a plot tha
 
 
 ```python
+np.random.seed(0)
+
 # Data generation
 data_exp = np.random.exponential(scale=1, size=1000)
 data_chi2 = np.random.chisquare(df=4, size=1000)
@@ -236,7 +211,7 @@ plt.show()
 
 
     
-![png](2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_29_0.png)
+![png](2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_26_0.png)
     
 
 
@@ -248,7 +223,6 @@ Another problem with violin plots is in how they deal with discrete data. KDEs, 
 
 
 ```python
-# Generate synthetic data
 # Uniform Discrete Distribution
 uniform_discrete_data = np.repeat(np.arange(0, 10, 2), 100)
 
@@ -291,7 +265,7 @@ plt.show()
 
 
     
-![png](2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_33_0.png)
+![png](2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_30_0.png)
     
 
 
@@ -328,7 +302,7 @@ plt.show()
 
 
     
-![png](2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_39_0.png)
+![png](2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_36_0.png)
     
 
 
@@ -404,7 +378,7 @@ plt.show()
 
 
     
-![png](2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_43_0.png)
+![png](2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_40_0.png)
     
 
 
@@ -420,7 +394,6 @@ np.random.seed(0)
 
 num_few_samples = 5
 
-# Generating synthetic data
 large_sample = np.random.normal(5, 2, 1000)
 small_sample = np.random.normal(5, 2, 10)
 
@@ -446,7 +419,7 @@ plt.show()
 
 
     
-![png](2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_47_0.png)
+![png](2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_44_0.png)
     
 
 
@@ -472,7 +445,7 @@ plt.show()
 
 
     
-![png](2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_50_0.png)
+![png](2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_47_0.png)
     
 
 
@@ -484,7 +457,9 @@ A natural question is, how can we make it better? Fortunately, I think there are
 
 
 ```python
-# Generating bimodal distribution
+np.random.seed(0)
+
+# Bimodal distribution
 bimodal_dist = np.concatenate([np.random.normal(3, 0.5, 500), np.random.normal(7, 0.5, 500)])
 
 # Box Plot
@@ -496,7 +471,7 @@ sns.stripplot(y=bimodal_dist, color='black');
 
 
     
-![png](2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_54_0.png)
+![png](2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_51_0.png)
     
 
 
@@ -512,7 +487,7 @@ Like I said above, I think adding the raw data looks good. This is a strip plot.
 
 
 ```python
-# 1. Strip Plot
+# Strip Plot
 sns.stripplot(y=bimodal_dist, alpha=0.3)
 
 plt.title('Strip Plot')
@@ -521,7 +496,7 @@ plt.show()
 
 
     
-![png](2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_60_0.png)
+![png](2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_57_0.png)
     
 
 
@@ -548,7 +523,7 @@ plt.show()
 
 
     
-![png](2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_62_0.png)
+![png](2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_59_0.png)
     
 
 
@@ -562,7 +537,8 @@ Now I want to go over the most underrated plot type: beeswarm plots. They convey
 
 
 ```python
-# Generating synthetic data
+np.random.seed(0)
+
 main_cluster = np.random.normal(5, 0.5, 700)
 outliers = np.array([0, 1, 9, 10, 11])
 secondary_cluster = np.random.normal(7, 0.1, 50)
@@ -571,7 +547,7 @@ data = np.concatenate([main_cluster, outliers, secondary_cluster])
 # Plotting
 fig, ax = plt.subplots(1, 1, figsize=(8, 15))
 
-# 4. Bee Swarm Plot
+# Bee Swarm Plot
 sns.swarmplot(y=data, ax=ax, size=2)
 ax.set_title("Bee Swarm Plot")
 
@@ -582,14 +558,13 @@ plt.show()
 
 
     
-![png](2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_67_0.png)
+![png](2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_64_0.png)
     
 
 
 
 ```python
-# Generating synthetic data for different distributions
-np.random.seed(42)
+np.random.seed(0)
 
 # Normal Distribution
 normal_dist = np.random.normal(5, 1, 1000)
@@ -629,7 +604,7 @@ plt.show()
 
 
     
-![png](2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_68_0.png)
+![png](2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_65_0.png)
     
 
 
@@ -654,7 +629,7 @@ plt.show()
 
 
     
-![png](2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_70_0.png)
+![png](2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_67_0.png)
     
 
 
@@ -664,7 +639,6 @@ I will note that you can add the quartiles and medians to the beeswarm pretty ea
 
 
 ```python
-# Generating synthetic data
 data = np.random.normal(5, 2, 1000)
 
 # Plotting the swarm plot
@@ -690,7 +664,7 @@ plt.show()
 
 
     
-![png](2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_73_0.png)
+![png](2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_70_0.png)
     
 
 
