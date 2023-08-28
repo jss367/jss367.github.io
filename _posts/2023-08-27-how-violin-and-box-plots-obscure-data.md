@@ -7,8 +7,6 @@ thumbnail: "assets/img/black_skimmers.jpg"
 tags: [Data Visualization, Python]
 ---
 
-# Introduction
-
 Data visualization is an essential tool for data scientists, enabling them to both explore and explain data. It is one of the most important tasks in their toolkit. Despite its significance, I frequently encounter exploratory data analysis (EDA) visualizations that mask important aspects of the data. This causes people to misunderstand their data and make bad decisions based on it. In my experience, the plots that cause this the most are violin and box plots. In this post, I will demonstrate some of the drawbacks of violin plots and box plots and I will suggest some alternative visualizations that offer a clearer representation of data.
 
 First, let's ask, "What's the point of EDA? Why am I plotting the data in the first place?" The point is to understand the data. There are lot of things you need to be looking for when doing data exploration. You need to notice patterns, outliers, abnormal distributions, and problems. There could be problems with the data entry that you need to find and correct. You need to be on the lookout for anomalies. You need to understand what your data are telling you. You can't assume the data will look a certain way. Thus, you need to make sure your plotting techniques would surface and not hide any such issues.
