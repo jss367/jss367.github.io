@@ -1,7 +1,7 @@
 ---
 layout: post
-title: "How Box and Violin Plots Obscure Data"
-description: "This post shows some problems with box plots and violin plots, and how to improve them."
+title: "How Violin and Box Plots Obscure Data"
+description: "This post shows some problems with violin plots and box plots, and how to improve them."
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/black_skimmers.jpg"
 tags: [Data Visualization, Python]
