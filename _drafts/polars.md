@@ -1,11 +1,6 @@
 pandas to polars
 
 
-There are no indexes in polars, so if you're relying on one, you'll need to make it a column called "index" (or, more likely, change its name to something else).
-
-
-
-No more `.loc` or `.iloc`. You use `.filter`.
 
 
 Renaming a column is easy -> `.alias`
@@ -48,11 +43,29 @@ df = lf.collect()
 
 ## Indexing
 
+There are no indexes in polars, so if you're relying on one, you'll need to make it a column called "index" (or, more likely, change its name to something else).
+
+
 You can index like so:
 
 ```
 my_series[0]
 ```
+
+
+There is no indexing in polars. Instead, you want to use .select, .filter and .head
+
+No more `.loc` or `.iloc`. You use `.filter`.
+
+df.select(["Col A", "Col B"])
+
+he best way to select data in Polars is to use the expression API. For example, if you want to select a column in Pandas you can do one of the following:
+
+df['a']
+df.loc[:,'a']
+but in Polars you would use the .select method:
+
+df.select('a')
 
 
 ## Conversions
@@ -205,9 +218,19 @@ Becomes that:
         return pl.DataFrame(total_multiplier, columns=["rcs"])
 ```
 
+## Sets
+
+Polars support for sets is nonexistent. If you convert a pandas series to a polars series, all the sets will be converted to lists.
+
+
+
+## Configuring
+
+pl.Config.set_tbl_rows(5)
+
 
 # TODO:
 
 With_name vs alias
 
-
+Use Exprs, and don’t use .apply unless you really have to.
