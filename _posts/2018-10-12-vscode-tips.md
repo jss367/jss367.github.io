@@ -68,6 +68,8 @@ or
 
 `"program": "${file}"`,
 
+If you're having trouble with your Python interpreter, you can try setting `"python.defaultInterpreterPath": "/Users/julius/opt/anaconda3/envs/my_env/bin/python",`
+
 ## Don't write .pyc files
 
 `PYTHONDONTWRITEBYTECODE=1`
