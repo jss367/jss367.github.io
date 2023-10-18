@@ -531,8 +531,3 @@ Or you could pass one sess to the whole thing.
 
 #### Get the date from a timestamp
 * `date(my_timestamp)`
-
-
-```python
-
-```
