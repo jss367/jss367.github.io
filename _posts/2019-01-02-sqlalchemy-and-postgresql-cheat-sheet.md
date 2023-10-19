@@ -531,3 +531,24 @@ Or you could pass one sess to the whole thing.
 
 #### Get the date from a timestamp
 * `date(my_timestamp)`
+
+# Optimizing
+
+You can learn how your query is acting by using the `EXPLAIN` command. For example, if you want to know what index is used in a query, you can do this:
+
+```python
+explain select * from customers
+```
+You might get a response that looks like
+
+Index Scan using customers_pkey on customers (cost=0.43..8.45 rows=1 width=285)
+
+You can also use `analyze`. This will actually run the command and analyze the runtime statistics.
+
+```python
+explain analyze select * from customers
+```
+
+
+
+
