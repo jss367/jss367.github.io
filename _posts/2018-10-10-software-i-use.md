@@ -83,7 +83,7 @@ For a mac I just use the built-in tool
 
 ## Package Managers
 [Homebrew](https://brew.sh/) (Mac)
-* By far the best pacakge manager for MacOS
+* By far the best package manager for MacOS
 
 ## Unzipping
 [7-Zip](https://www.7-zip.org/download.html) (Ninite)
@@ -100,7 +100,7 @@ I always have three or more web browsers on each computer. I use them for differ
 * [Mozilla Firefox](https://www.mozilla.org/en-US/firefox/) (Ninite)
 * [Brave](https://brave.com/)
 
-## Brower Extensions
+## Browser Extensions
 * [AdBlockPlus](https://adblockplus.org/)
 * [BitWarden](https://bitwarden.com/)
 
