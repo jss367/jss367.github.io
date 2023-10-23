@@ -6,9 +6,9 @@ thumbnail: "assets/img/falcon.jpg"
 tags: [Data Cleaning, Exploratory Data Analysis, Pandas, Python]
 ---
 
-Splice junctions are locations on sequences of DNA or RNA where superflous sections are removed when proteins are created. After the splice, a section, known as the intron, is removed and the remaining sections, known as the exons, are joined together. Being able to identify these sequences of DNA is useful but time-consuming. This begs the question: Can spliced sections of DNA be determined with machine learning? 
+Splice junctions are locations on sequences of DNA or RNA where superfluous sections are removed when proteins are created. After the splice, a section, known as the intron, is removed and the remaining sections, known as the exons, are joined together. Being able to identify these sequences of DNA is useful but time-consuming. This begs the question: Can spliced sections of DNA be determined with machine learning? 
 
-In the next two posts we'll try to do exactly that. To do this, we're going to use the [UCI Splice-junction Gene Sequence dataset](https://archive.ics.uci.edu/ml/datasets/Molecular+Biology+%28Splice-junction+Gene+Sequences%29). It consist of sequences of DNA that contain either the part of the DNA retained after splicing, the part that was spliced out, or neither. Our problem is to distinguish between these cases.
+In the next two posts we'll try to do exactly that. To do this, we're going to use the [UCI Splice-junction Gene Sequence dataset](https://archive.ics.uci.edu/ml/datasets/Molecular+Biology+%28Splice-junction+Gene+Sequences%29). It consists of sequences of DNA that contain either the part of the DNA retained after splicing, the part that was spliced out, or neither. Our problem is to distinguish between these cases.
 
 In this post, I'm going to focus on cleaning and preparing the data set. In the next I'll walk through logistic regression to show how it works.
 
