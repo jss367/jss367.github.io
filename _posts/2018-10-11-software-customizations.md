@@ -155,7 +155,7 @@ I have added other keybindings as well. My whole file looks like this:
 
 ![png]({{site.baseurl}}/assets/img/vscode_keyboard_shortcuts_windows.png)
 
-The ones you're look for are `workbench.action.nextEditor` and `workbench.action.previousEditor`.
+The ones you're looking for are `workbench.action.nextEditor` and `workbench.action.previousEditor`.
 
 ### Syncing Settings Across Multiple Computers
 
