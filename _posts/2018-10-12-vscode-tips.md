@@ -43,7 +43,7 @@ You can do `CMD/CTRL + P` to open up search.
 ## Snippets
 
 `Control + Spacebar` to open snippets
-This makes it easy to do things like type `main` and get if `__name__ == 'main':`
+This makes it easy to do things like type `main` and get if `__name__ == '__main__':`
 
 ## Jupyter
 
@@ -148,7 +148,7 @@ You can include all your folders like this:
     ],
 ```
 
-You can also optionally included `"name"` if you want to change any of the names.
+You can also optionally include `"name"` if you want to change any of the names.
 
 ## launch.json
 
