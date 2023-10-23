@@ -6,7 +6,7 @@ thumbnail: "assets/img/spots.jpg"
 tags: [CUDA, TensorFlow]
 ---
 
-This tutorial explains how debug problems with your NVIDIA graphics card when doing deep learning.
+This tutorial aims to guide you through the process of troubleshooting issues related to your NVIDIA graphics card when working on deep learning projects.
 
 <b>Table of Contents</b>
 * TOC
@@ -14,16 +14,16 @@ This tutorial explains how debug problems with your NVIDIA graphics card when do
 
 ## Hardware Requirements
 
-Before you start, you'll want to make sure that your graphics card is properly installed and compatible with CUDA. 
+Before diving in, ensure your graphics card is properly installed and compatible with CUDA:
 * To find your graphics card, type `nvidia-smi`
-* If you're on Windows, you can use a tool like [Speccy](https://www.ccleaner.com/speccy).
+* On Windows, you can use a tool like [Speccy](https://www.ccleaner.com/speccy).
+* Verify your graphics card is listed on hte [NVIDIA CUDA GPUs list](https://developer.nvidia.com/cuda-gpus).
 
-Then, make sure it is on this list: <https://developer.nvidia.com/cuda-gpus>
 
-
-## See Where You Are
+## Identifying Your Current Setup
 
 Sometimes you'll get stuck somewhere in the middle of an installation and you're unsure of what installed correctly. You don't want to start from the beginning because you don't want to have multiple versions conflicting, but you don't know what you need to do next. That's why I want to start this off with some ways for you to figure out exactly where you are in the process.
+
 
 #### Are GPUs Installed
 
