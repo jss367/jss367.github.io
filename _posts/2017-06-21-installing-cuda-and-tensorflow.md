@@ -174,9 +174,33 @@ This site also has a lot of good information for installing on Windows: http://b
 
 #### cuDNN
 
-You can find the [latest version of cuDNN here](https://developer.nvidia.com/rdp/cudnn-download). However, you'll probably need a version from the [cuDNN archive](https://developer.nvidia.com/rdp/cudnn-archive).
+You can find the [latest version of cuDNN here](https://developer.nvidia.com/rdp/cudnn-download). Make sure to choose the appropriate cuDNN version that matches your CUDA Toolkit version. You might need a version from the [cuDNN archive](https://developer.nvidia.com/rdp/cudnn-archive).
 
 You can also find the [release notes on old versions of cuDNN](https://docs.nvidia.com/deeplearning/cudnn/archives/index.html).
+
+You will need to log in to download it, but it's free. Then you should see a page like this:
+
+![image](https://github.com/jss367/jss367.github.io/assets/3067731/7e5c0170-9d74-4c04-95cd-6009d41e59c2)
+
+You probably want something like this: `Local Installer for Ubuntu22.04 x86_64 (Deb)`
+
+That will save a .deb file.
+
+Now, you'll need to navigate to it in a terminal. If it downloaded to `Downloads`, that would look like this:
+
+```
+cd Downloads
+sudo dpkg -i cudnn-local-repo-ubuntu2204-8.9.5.29_1.0-1_amd64.deb 
+```
+
+Now we need to update our environment variables:
+```
+echo 'export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:${LD_LIBRARY_PATH}' >> ~/.bashrc
+source ~/.bashrc
+```
+
+If you installed from a .tgz file, you'll need to update `PATH` too.
+
 
 #### Windows
 
