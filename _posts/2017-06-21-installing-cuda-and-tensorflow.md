@@ -81,6 +81,9 @@ Tue Feb  2 15:05:43 2021
 ```
 > Note: The CUDA Version displayed isn't there isn't necessarily the version you have. It's the highest version that your driver can support.
 
+##### Windows
+
+To check your driver version on Windows you can also go to GEForce Experience and click on "Drivers".
 
 #### CUDA version
 
@@ -134,44 +137,36 @@ Version incompatibility is probably the biggest source of problems in getting CU
 
 Get these EXACT versions.
 
-#### Tensorflow and CUDA compatibility
+## Installation
 
+There are many ways to install different components, this gives some suggestions.
 
-To check your driver version you can go to GEForce Experience and click on "Drivers"
+#### NVIDIA Driver
+
 Install the most recent NVIDIA Driver: http://www.nvidia.com/Download/index.aspx?lang=en-us
 
+#### CUDA Toolkit
 
-Then install the CUDA Toolkit: https://developer.nvidia.com/cuda-downloads
+Install the CUDA Toolkit here: https://developer.nvidia.com/cuda-downloads
+
 If you want an older version, you can go here: https://developer.nvidia.com/cuda-10.1-download-archive-base
-After you input your operation system information, you have the option of downloading either the network or local installer. Either will work. " The Network Installer allows you to download only the files you need. The Local Installer is a stand-alone installer with a large initial download."
 
-Here's an example extraction path: `C:\Users\Julius\AppData\Local\Temp\CUDA`
+After you input your operation system information, you have the option of downloading either the network or local installer. Either will work. The Network Installer allows you to download only the files you need. The Local Installer is a stand-alone installer with a large initial download.
 
+You can check that it worked by running `nvcc --version`.
 
-OK, now let's see if that worked by running `nvcc --version`
+##### Ubuntu
 
+You should be able to install on a debian-based Linux with `sudo apt install nvidia-cuda-toolkit`.
 
+##### Windows
 
-Using these sites: http://blog.nitishmutha.com/tensorflow/2017/01/22/TensorFlow-with-gpu-for-windows.html
+After you extract CUDA on Windows, it might go to a location like `C:\Users\Julius\AppData\Local\Temp\CUDA`
 
-
-
-Then to upgrade it, `pip install tensorflow --upgrade`
-
-You can download the wheels from here: https://github.com/mind/wheels/releases/tag/tf1.4-gpu-cuda9
+This site also has a lot of good information for installing on Windows: http://blog.nitishmutha.com/tensorflow/2017/01/22/TensorFlow-with-gpu-for-windows.html
 
 
 
-
-
-
-
-
-## CUDA on Ubuntu
-
-You should be able to install on a debian-based Linux with `sudo apt install nvidia-cuda-toolkit`
-
-Now you should be able to see it when you check your CUDA version (`nvcc --version`)
 
 ## cuDNN
 
@@ -224,8 +219,14 @@ Make sure your destination is right too:
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\bin
 
 
+#### Tensorflow
 
-#### Installing
+You can install or upgrade it with: `pip install tensorflow --upgrade`
+
+You can download the wheels from here: https://github.com/mind/wheels/releases/tag/tf1.4-gpu-cuda9
+
+
+## Installing
 
 Once you've downloaded the correct version, it will probably be in a Download folder, somewhere like `/home/julius/Downloads`
 
