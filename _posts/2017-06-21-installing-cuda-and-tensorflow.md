@@ -32,13 +32,18 @@ If it says `Num GPU devices: 0` then your GPUs are not being recognized.
 ![png](assets/img/zero_gpus.png)
 
 
-## Summary Table
+## System Check
+
+You'll need to check if everything on your system is working. Here's a quick summary table for the different parts you need and how to check them. For more details, see the sections below.
+
+#### Summary Table
 
 | Software      | How to check |
 | ----------- | ----------- |
 | NVIDIA Drivers      | `nvidia-smi`       |
 | CUDA Toolkit   | `nvcc --version`        |
 | cuDNN | ``cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2`` |
+| TensorFlow | `python -c "import tensorflow as tf; print(tf.__version__)"` |
 
 Now let's go over each part in more detail.
 
