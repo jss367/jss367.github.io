@@ -20,6 +20,11 @@ Before diving in, ensure your graphics card is properly installed and compatible
 * Verify your graphics card is listed on hte [NVIDIA CUDA GPUs list](https://developer.nvidia.com/cuda-gpus).
 
 
+## Identifying Your Current Setup
+
+Sometimes you'll get stuck somewhere in the middle of an installation and you're unsure of what installed correctly. You don't want to start from the beginning because you don't want to have multiple versions conflicting, but you don't know what you need to do next. That's why I want to start this off with some ways for you to figure out exactly where you are in the process.
+
+
 
 ## Summary Table
 
@@ -27,18 +32,15 @@ Before diving in, ensure your graphics card is properly installed and compatible
 | ----------- | ----------- |
 | NVIDIA Drivers      | `nvidia-smi`       |
 | CUDA Toolkit   | `nvcc --version`        |
-| cuDNN | `cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2` |
+| cuDNN | `cat /usr/local/cuda/include/cudnn.h \| grep CUDNN_MAJOR -A 2` |
 
+Now let's go over each part in more detail.
 
-## Identifying Your Current Setup
-
-Sometimes you'll get stuck somewhere in the middle of an installation and you're unsure of what installed correctly. You don't want to start from the beginning because you don't want to have multiple versions conflicting, but you don't know what you need to do next. That's why I want to start this off with some ways for you to figure out exactly where you are in the process.
-
-
-#### Are GPUs Installed
+#### GPUs and NVIDIA Drivers
 
 type `nvidia-smi` and see if everything there is as you expect
 
+The result should look something like this:
 
 ```
 julius@julius-MS-7B09:~/git$ nvidia-smi
@@ -137,13 +139,6 @@ Make sure you have gcc:
 `gcc --version`
 
 
-## Instructions with Anaconda
-
-I recommend installing CUDA through Anaconda when possible.
-
-Install Anaconda like normal. It's a little annoying on Windows because of how paths work. If you are on Windows, don't add it to the path environment in the setup window
-
-What you'll do is open Anaconda3 from the Start menu and ...
 
 
 ## Tensorflow and CUDA compatibility
@@ -366,7 +361,6 @@ Then set your environment variables
 * This might already be done but ensure that it is
 
 
-
 ## Other Possible Problems
 
 #### Verify that there aren't conflicting drivers (Linux only)
@@ -383,8 +377,15 @@ But you shouldn't see anything from:
 
 If you do, you'll need to remove it
   
-## Old information
+# Old information
   
 Some things are no longer relevant to the latest version of TensorFlow, but might be helping in debugging old versions. I've move that information here.
 
 Although tensorflow-gpu and tensorflow is a distinction of version <= 1.15, the distinction matters quite a lot here. If you do `conda create -n tf tensorflow` it will not create a GPU version, even though it installs a 2.X version of Tensorflow. You'll need to use `conda create -n tf tensorflow-gpu` to get the GPU version.
+
+## Instructions with Anaconda
+
+I recommend installing CUDA through Anaconda when possible.
+
+Install Anaconda like normal. It's a little annoying on Windows because of how paths work. If you are on Windows, don't add it to the path environment in the setup window
+
