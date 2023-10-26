@@ -32,6 +32,25 @@ If it says `Num GPU devices: 0` then your GPUs are not being recognized.
 ![png](assets/img/zero_gpus.png)
 
 
+## Compatibility
+
+Version incompatibility is probably the biggest source of problems in getting CUDA working with TensorFlow. Let's look at how to make it all work together. I think it helps to make a table of the versions you are explicitly targeting. Here's an example:
+
+
+| Software      | How to determine version | Version Targeting
+| ----------- | ----------- | ----------- |
+| TensorFlow      | Choose which version you want |   2.13 |
+| Python      | Choose compatible version from [this chart](https://www.tensorflow.org/install/source#gpu) |   3.11 |
+| CUDA  | Choose compatible version from [this chart](https://www.tensorflow.org/install/source#gpu) | 11.8 |
+| cuDNN | Choose compatible version from [this chart](https://www.tensorflow.org/install/source#gpu) | 8.6 |
+| NVIDIA Drivers | Choose the latest version. They are always backwards compatible | 545.23.06 |
+
+Get these EXACT versions except for the NVIDIA driver, which you just need at least the version. Note that new CUDA versions are not backwards compatible.
+
+You also need to decide if you want it to run on a specific conda environment or if you want things installed system-wide. For example, if you download and install cuDNN from NVIDIA's website, it will be system-wide. But if you install it using conda, it will only be for that environment. In general:
+* If you want multiple projects or environments to share a single cuDNN installation and always be on the same version, a system-wide installation may be more appropriate.
+* If you want to have different versions of cuDNN for different projects or if you want to ensure that a particular project always uses a specific version regardless of system-wide changes, a conda-specific installation is more appropriate.
+
 ## System Check
 
 You'll need to check if everything on your system is working. Here's a quick summary table for the different parts you need and how to check them. For more details, see the sections below.
@@ -126,22 +145,6 @@ If you're on Windows you should be able to find them here:
 `C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include`
 
 You can also type this: `where cudnn*`
-
-
-## Compatibility
-
-Version incompatibility is probably the biggest source of problems in getting CUDA working with TensorFlow. Let's look at how to make it all work together. I think it helps to make a table of the versions you are explicitly targeting. Here's an example:
-
-
-| Software      | How to determine version | Version Targeting
-| ----------- | ----------- | ----------- |
-| TensorFlow      | Choose which version you want |   2.13 |
-| Python      | Choose compatible version from [this chart](https://www.tensorflow.org/install/source#gpu) |   3.11 |
-| CUDA  | Choose compatible version from [this chart](https://www.tensorflow.org/install/source#gpu) | 11.8 |
-| cuDNN | Choose compatible version from [this chart](https://www.tensorflow.org/install/source#gpu) | 8.6 |
-| NVIDIA Drivers | Choose the latest version. They are always backwards compatible | 545.23.06 |
-
-Get these EXACT versions except for the NVIDIA driver, which you just need at least the version. Note that new CUDA versions are not backwards compatible.
 
 ## Installation
 
