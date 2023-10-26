@@ -131,17 +131,7 @@ Before you go any further, you should have target versions for your main compone
 
 
 
-
-
-## gcc
-
-Make sure you have gcc:
-`gcc --version`
-
-
-
-
-## Tensorflow and CUDA compatibility
+#### Tensorflow and CUDA compatibility
 
 Make sure you check what version of CUDA to install. The latest version will not necessarily be supported by TensorFlow.
 
@@ -171,6 +161,13 @@ Using these sites: http://blog.nitishmutha.com/tensorflow/2017/01/22/TensorFlow-
 Then to upgrade it, `pip install tensorflow --upgrade`
 
 You can download the wheels from here: https://github.com/mind/wheels/releases/tag/tf1.4-gpu-cuda9
+
+
+
+
+
+
+
 
 ## CUDA on Ubuntu
 
@@ -281,7 +278,7 @@ print("Num GPUs Available: ", len(tf.config.experimental.list_physical_devices('
 
 ![png](assets/img/torch.png)
 
-## Still stuck
+## Other Problems
 
 If you're still stuck at the end, you can try:
 ```
@@ -361,7 +358,11 @@ Then set your environment variables
 * This might already be done but ensure that it is
 
 
-## Other Possible Problems
+#### gcc
+
+Make sure you have gcc:
+`gcc --version`
+
 
 #### Verify that there aren't conflicting drivers (Linux only)
 
