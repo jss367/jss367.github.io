@@ -358,6 +358,13 @@ Instead of `alias cdh=cd $BASE'` you'll have to use `alias cdh="cd $BASE"`
 
 However, if you were just doing it with `$HOME`, it seems single quotes work.
 
+## Finding How Things Got in Environment
+
+If you want to find how something got in your conda environment, you could grep it like this:
+
+`grep 'how_did_this_get_here' ~/.bashrc ~/.bash_profile ~/.profile`
+
+
 
 ## Useful Git Commands
 
