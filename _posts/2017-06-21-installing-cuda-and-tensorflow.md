@@ -22,8 +22,14 @@ Before diving in, ensure your graphics card is properly installed and compatible
 
 ## Identifying Your Current Setup
 
-Sometimes you'll get stuck somewhere in the middle of an installation and you're unsure of what installed correctly. You don't want to start from the beginning because you don't want to have multiple versions conflicting, but you don't know what you need to do next. That's why I want to start this off with some ways for you to figure out exactly where you are in the process.
+Sometimes you'll get stuck somewhere in the middle of an installation and you're unsure of what installed correctly. You don't want to start from the beginning because you don't want to have multiple versions conflicting, but you don't know what you need to do next. That's why I want to start this off with some ways for you to figure out exactly where you are in the process. A good place to start is to see if TensorFlow can detect the GPUs. Here's a good one-liner for that:
+```
+python -c "import tensorflow as tf; print('tf version:', tf.__version__); print('Num GPU devices: ', len(tf.config.list_physical_devices('GPU')))"
+```
 
+If it says `Num GPU devices: 0` then your GPUs are not being recognized.
+
+![png](assets/img/zero_gpus.png)
 
 
 ## Summary Table
@@ -32,7 +38,7 @@ Sometimes you'll get stuck somewhere in the middle of an installation and you're
 | ----------- | ----------- |
 | NVIDIA Drivers      | `nvidia-smi`       |
 | CUDA Toolkit   | `nvcc --version`        |
-| cuDNN | `cat /usr/local/cuda/include/cudnn.h \| grep CUDNN_MAJOR -A 2` |
+| cuDNN | ``cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2`` |
 
 Now let's go over each part in more detail.
 
@@ -75,26 +81,6 @@ Tue Feb  2 15:05:43 2021
 ```
 > Note: The CUDA Version displayed isn't there isn't necessarily the version you have. It's the highest version that your driver can support.
 
-#### Can TensorFlow Detect GPUs
-
-Next check if TensorFlow can detect the GPUs. Here's a good one-liner for that:
-```
-python -c "import tensorflow as tf; print('tf version:', tf.__version__); print('Num GPU devices: ', len(tf.config.list_physical_devices('GPU')))"
-```
-
-If it says `Num GPU devices: 0` then your GPUs are not being recognized.
-
-![png](assets/img/zero_gpus.png)
-
-One of the most common problems is version incompatibility, so we'll dig into that.
-
-## Compatibility
-
-Version incompatibility is probably the biggest source of problems  This is a big deal in all this.
-
-#### CUDA and Tensorflow and cuDNN
-
-Before you go any further, you should have target versions for your main components. You should be clear on exactly which version of everything you're trying to install. To help you find out, TensorFlow maintains [this chart](https://www.tensorflow.org/install/source#gpu) with the latest compatibility information.
 
 #### CUDA version
 
@@ -132,6 +118,20 @@ If you're on Windows you should be able to find them here:
 `C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include`
 
 You can also type this: `where cudnn*`
+
+
+## Compatibility
+
+Version incompatibility is probably the biggest source of problems in getting CUDA working with TensorFlow. Let's look at how to make it all work together.
+
+
+#### CUDA and Tensorflow and cuDNN
+
+Before you go any further, you should have target versions for your main components. You should be clear on exactly which version of everything you're trying to install. To help you find out, TensorFlow maintains [this chart](https://www.tensorflow.org/install/source#gpu) with the latest compatibility information.
+
+
+
+
 
 ## gcc
 
