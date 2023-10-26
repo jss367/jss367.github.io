@@ -152,13 +152,13 @@ There are many ways to install different components, this gives some suggestions
 
 #### NVIDIA Driver
 
-Install the most recent NVIDIA Driver: http://www.nvidia.com/Download/index.aspx?lang=en-us
+Install the most recent NVIDIA Driver from [NVIDIA's website](http://www.nvidia.com/Download/index.aspx?lang=en-us)
 
 #### CUDA Toolkit
 
-Install the CUDA Toolkit here: https://developer.nvidia.com/cuda-downloads
+Install the [CUDA Toolkit here](https://developer.nvidia.com/cuda-downloads). 
 
-If you want an older version, you can go here: https://developer.nvidia.com/cuda-10.1-download-archive-base
+If you want an older version, you can [go to their archives](https://developer.nvidia.com/cuda-toolkit-archive). 
 
 Note that on Ubuntu you can also install it like so: `sudo apt install nvidia-cuda-toolkit`. However, you won't be able to control the version, so I recommend installing it from the [website](https://developer.nvidia.com/cuda-downloads).
 
