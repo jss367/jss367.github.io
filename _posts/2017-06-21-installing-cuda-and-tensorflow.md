@@ -160,6 +160,8 @@ Install the CUDA Toolkit here: https://developer.nvidia.com/cuda-downloads
 
 If you want an older version, you can go here: https://developer.nvidia.com/cuda-10.1-download-archive-base
 
+Note that on Ubuntu you can also install it like so: `sudo apt install nvidia-cuda-toolkit`. However, you won't be able to control the version, so I recommend installing it from the [website](https://developer.nvidia.com/cuda-downloads).
+
 After you input your operation system information, you have the option of downloading either the network or local installer. Either will work. The Network Installer allows you to download only the files you need. The Local Installer is a stand-alone installer with a large initial download.
 
 You can check that it worked by running `nvcc --version`.
