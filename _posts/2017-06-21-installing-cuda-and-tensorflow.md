@@ -122,21 +122,19 @@ You can also type this: `where cudnn*`
 
 ## Compatibility
 
-Version incompatibility is probably the biggest source of problems in getting CUDA working with TensorFlow. Let's look at how to make it all work together.
+Version incompatibility is probably the biggest source of problems in getting CUDA working with TensorFlow. Let's look at how to make it all work together. I think it helps to make a table of the versions you are explicitly targeting. Here's an example:
 
 
-#### CUDA and Tensorflow and cuDNN
+| Software      | How to determine version | Version Targeting
+| ----------- | ----------- |
+| TensorFlow      | Choose which version you want |   2.13 |
+| Python      | Choose compatible version from [this chart](https://www.tensorflow.org/install/source#gpu) |   3.11 |
+| CUDA  | Choose compatible version from [this chart](https://www.tensorflow.org/install/source#gpu) | 11.8
+| cuDNN | Choose compatible version from [this chart](https://www.tensorflow.org/install/source#gpu) | 8.6
 
-Before you go any further, you should have target versions for your main components. You should be clear on exactly which version of everything you're trying to install. To help you find out, TensorFlow maintains [this chart](https://www.tensorflow.org/install/source#gpu) with the latest compatibility information.
-
-
+Get these EXACT versions.
 
 #### Tensorflow and CUDA compatibility
-
-Make sure you check what version of CUDA to install. The latest version will not necessarily be supported by TensorFlow.
-
-Check here for the version: https://www.tensorflow.org/install/install_windows
-
 
 
 To check your driver version you can go to GEForce Experience and click on "Drivers"
@@ -390,3 +388,6 @@ I recommend installing CUDA through Anaconda when possible.
 
 Install Anaconda like normal. It's a little annoying on Windows because of how paths work. If you are on Windows, don't add it to the path environment in the setup window
 
+## Installing with Pip
+
+See instructions here: https://www.tensorflow.org/install/pip
