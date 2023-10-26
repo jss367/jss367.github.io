@@ -166,11 +166,7 @@ After you extract CUDA on Windows, it might go to a location like `C:\Users\Juli
 This site also has a lot of good information for installing on Windows: http://blog.nitishmutha.com/tensorflow/2017/01/22/TensorFlow-with-gpu-for-windows.html
 
 
-
-
-## cuDNN
-
-The main page only has the current version, which is 8.1 at that time of writing:
+#### cuDNN
 
 You can find the [latest version of cuDNN here](https://developer.nvidia.com/rdp/cudnn-download). However, you'll probably need a version from the [cuDNN archive](https://developer.nvidia.com/rdp/cudnn-archive).
 
@@ -178,13 +174,9 @@ You can also find the [release notes on old versions of cuDNN](https://docs.nvid
 
 #### Windows
 
-You'll need to get cuDNN. The guide is [here](http://docs.nvidia.com/deeplearning/sdk/cudnn-install/index.html#install-windows).
+The guide to install cuDNN on Windows is [here](http://docs.nvidia.com/deeplearning/sdk/cudnn-install/index.html#install-windows).
 
-On Windows the procedure is similar. Download and unzip the files. 
-
-For me, they download into a folder like `C:\Users\Julius\Downloads\cudnn-10.1-windows10-x64-v7.6.5.32`
-
-
+You'll need to download and unzip the files. For me, they download into a folder like `C:\Users\Julius\Downloads\cudnn-10.1-windows10-x64-v7.6.5.32`
 
 Then you have to copy files:
 
@@ -208,7 +200,6 @@ After extracting the files, here's my install path:
 
 For these to work you'll probably need to run as administrator
 
-
 Then, from your install path, you'll want to:
 
 `copy cuda\bin\cudnn*.dll "C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\bin"`
@@ -218,8 +209,7 @@ Then, from your install path, you'll want to:
 Make sure your destination is right too:
 C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\bin
 
-
-#### Tensorflow
+## Tensorflow
 
 You can install or upgrade it with: `pip install tensorflow --upgrade`
 
@@ -268,14 +258,6 @@ tf.config.experimental.list_physical_devices('GPU')
 print("Num GPUs Available: ", len(tf.config.experimental.list_physical_devices('GPU')))
 ```
 
-
-
-
-## You can also look at CUDNN with PyTorch
-
-`print(torch.__config__.show())`
-
-![png](assets/img/torch.png)
 
 ## Other Problems
 
