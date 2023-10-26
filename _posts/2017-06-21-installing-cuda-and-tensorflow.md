@@ -141,7 +141,7 @@ Version incompatibility is probably the biggest source of problems in getting CU
 | cuDNN | Choose compatible version from [this chart](https://www.tensorflow.org/install/source#gpu) | 8.6 |
 | NVIDIA Drivers | Choose the latest version. They are always backwards compatible | 545.23.06 |
 
-Get these EXACT versions except for the NVIDIA driver, which you just need at least the version.
+Get these EXACT versions except for the NVIDIA driver, which you just need at least the version. Note that new CUDA versions are not backwards compatible.
 
 ## Installation
 
