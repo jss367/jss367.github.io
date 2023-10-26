@@ -137,8 +137,9 @@ Version incompatibility is probably the biggest source of problems in getting CU
 | ----------- | ----------- |
 | TensorFlow      | Choose which version you want |   2.13 |
 | Python      | Choose compatible version from [this chart](https://www.tensorflow.org/install/source#gpu) |   3.11 |
-| CUDA  | Choose compatible version from [this chart](https://www.tensorflow.org/install/source#gpu) | 11.8
-| cuDNN | Choose compatible version from [this chart](https://www.tensorflow.org/install/source#gpu) | 8.6
+| CUDA  | Choose compatible version from [this chart](https://www.tensorflow.org/install/source#gpu) | 11.8 |
+| cuDNN | Choose compatible version from [this chart](https://www.tensorflow.org/install/source#gpu) | 8.6 |
+| NVIDIA Drivers | Choose the latest version. They are always backwards compatible | 545.23.06 |
 
 Get these EXACT versions.
 
