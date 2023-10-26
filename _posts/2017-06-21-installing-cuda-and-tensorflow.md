@@ -20,6 +20,16 @@ Before diving in, ensure your graphics card is properly installed and compatible
 * Verify your graphics card is listed on hte [NVIDIA CUDA GPUs list](https://developer.nvidia.com/cuda-gpus).
 
 
+
+## Summary Table
+
+| Software      | How to check |
+| ----------- | ----------- |
+| NVIDIA Drivers      | `nvidia-smi`       |
+| CUDA Toolkit   | `nvcc --version`        |
+| cuDNN | `cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2` |
+
+
 ## Identifying Your Current Setup
 
 Sometimes you'll get stuck somewhere in the middle of an installation and you're unsure of what installed correctly. You don't want to start from the beginning because you don't want to have multiple versions conflicting, but you don't know what you need to do next. That's why I want to start this off with some ways for you to figure out exactly where you are in the process.
@@ -120,6 +130,11 @@ If you're on Windows you should be able to find them here:
 `C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v10.1\include`
 
 You can also type this: `where cudnn*`
+
+## gcc
+
+Make sure you have gcc:
+`gcc --version`
 
 
 ## Instructions with Anaconda
@@ -264,10 +279,6 @@ print("Num GPUs Available: ", len(tf.config.experimental.list_physical_devices('
 
 
 
-## gcc
-
-Make sure you have gcc:
-`gcc --version`
 
 ## You can also look at CUDNN with PyTorch
 
