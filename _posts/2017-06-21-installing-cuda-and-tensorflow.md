@@ -168,7 +168,7 @@ You can check that it worked by running `nvcc --version`.
 
 Cuda is usually installed in `/usr/local/`. If you don't see it here but `nvcc --version` works, it may be installed in your environment. To find out, you can do `which nvcc`.
 
-If you want to install it in your code environment, you can do so by specifying the particular version like so: `conda install cudatoolkit==11.8`.
+If you want to install it in your code environment, you can do so by specifying the particular version like so: `conda install cudatoolkit==11.8`. This doesn't have `nvcc` though.
 
 ##### Ubuntu
 
