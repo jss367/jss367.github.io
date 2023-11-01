@@ -106,6 +106,14 @@ Zen mode: `Ctrl+k z`
 
 ## Extensions
 
+You can manage your extensions by clicking on the gear logo next to the extension.
+
+<img width="649" alt="image" src="https://github.com/jss367/jss367.github.io/assets/3067731/851fbfda-7d83-4bf2-b2d9-4c1ff4d970da">
+
+This is where you can add specific details to your extensions.
+
+<img width="510" alt="image" src="https://github.com/jss367/jss367.github.io/assets/3067731/b3034989-bc53-4c7a-b977-96a2de11d262">
+
 #### Extensions to try
 
 https://marketplace.visualstudio.com/items?itemName=jithurjacob.nbpreviewer
