@@ -114,6 +114,8 @@ This is where you can add specific details to your extensions.
 
 <img width="510" alt="image" src="https://github.com/jss367/jss367.github.io/assets/3067731/b3034989-bc53-4c7a-b977-96a2de11d262">
 
+<img width="463" alt="image" src="https://github.com/jss367/jss367.github.io/assets/3067731/0272f2d1-28c9-4f7b-997b-acf8fb18819d">
+
 #### Extensions to try
 
 https://marketplace.visualstudio.com/items?itemName=jithurjacob.nbpreviewer
