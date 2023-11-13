@@ -178,5 +178,7 @@ with db_session(engine=my_engine) as sess:
 
 If you're coming from a Python world, remember, single quotes and double quotes are not interchangeable!
 
-Note there is a difference between `->` and `->>`
+## Jsonb
+
+The `->>` operator gets the JSONB array element as a text, while the `->` operator gets it as JSONB. If you want to process the element as JSONB, use `->`; if you need it as text for comparison or other operations, use `->>`.
 
