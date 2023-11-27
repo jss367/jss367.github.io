@@ -227,22 +227,17 @@ In the `launch.json` file, you can choose to run either a `"module"` or a `"prog
 You can also debug subprocess in VSCode. All you need to do is add `"subProcess": true,` to your `launch.json`.
 
 
-## .env files
-You can make `.env` files to set environment variables. Go at top of directory. Can add environment variables, python path, etc.
-
-
-## Troubleshooting Python Interpreter Issues
+# Troubleshooting Python Interpreter Issues
 
 Sometimes you have problems where Pylint seems to be using a different interpreter. Even if you select the correct interpreter and do it at the workspace level. I don't know what causes this, but here is how to fix it:
 
 It could be caused by having something in 
 
-"pylint.interpreter": ["/Users/julius/opt/anaconda3/envs/all2/bin/python"],
+`"pylint.interpreter": ["/Users/julius/opt/anaconda3/envs/all2/bin/python"],`
 
 #### Testing
 
 Sometimes the Discover Tests functionality fails, often for path issues. Remember, even if it fails you can always runs tests by doing `python -m pytest my_tests`
-
 
 if discover tests fails, go to the terminal  - click on the output tab - and change it to Python Test Log
 
@@ -263,19 +258,19 @@ Where the computer looks for the python interpreter - `python.pythonPath`
 And where that interpreter looks for packages - `$PYTHONPATH`
 
 
-## Connecting to Remote Instances
+# Connecting to Remote Instances
 
 I wrote [a guide on how to connect to remote instances](https://jss367.github.io/connecting-vscode-to-google-cloud-platform-instances.html). I recommend storing your config file at `~/.ssh/config`
 
-## Troubleshooting
+# .env files
+You can make `.env` files to set environment variables. Go at top of directory. Can add environment variables, python path, etc.
 
-#### Environmental Variables
+# Troubleshooting Environmental Variables
 
 Sometimes environmental variables won't show up in VSCode. I've found that this can sometimes happen when VSCode is launched from the application icon. If this is happening, you can open VSCode directly from the terminal with `code .` and it should have your environmental variables. If you still don't see them, make sure they are present in your terminal.
 
-## Syncing Across Desktops
+# Syncing Across Desktops
 
 Here's what I recommend keeping in sync between machines:
 
 ![image](https://user-images.githubusercontent.com/3067731/210435699-e71ff120-cfc3-413c-b99c-f98215d79924.png)
-
