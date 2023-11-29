@@ -18,7 +18,10 @@ $$ P(A|B) = \frac{P(B|A) \times P(A)}{P(B)} $$
 
 Where:
 
+$$ P(A|B) $$ is the probability of event A occurring given that B is true.
 * $$ P(A|B) $$ is the probability of event A occurring given that B is true.
+* $$ P(A|B) $$ is the probability of event A occurring given that B is true.
+* $ P(A|B) $ is the probability of event A occurring given that B is true.
 * $$ P(B∣A) $$ is the probability of event B occurring given that A is true.
 * $$ P(A) $$ is the probability of A occurring. This is know as the "prior".
 * $$ P(B) $$ is the probability of B occurring.
