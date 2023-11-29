@@ -785,6 +785,11 @@ df
 
 
 
+
+If you have a simple dictionary like this: `d = {'a': 1, 'b': 2}`, you can't just put it in a `pd.DataFrame` call., because it'll give you a `ValueError` for not passing an index. Instead, you can do this: `pd.DataFrame(list(d.items()))`. You could also pass column names so it looks more like this: `pd.DataFrame(list(d.items()), columns=['Key', 'Value'])`.
+
+
+
 ## Saving a DataFrame
 
 There are many ways to save a DataFrame, including in a pickle, msgpack, CSV, and HDF5Store. They all follow similar syntax.
