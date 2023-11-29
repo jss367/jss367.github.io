@@ -18,9 +18,13 @@ $$ P(A|B) = \frac{P(B|A) \times P(A)}{P(B)} $$
 
 Where:
 
+$$ P(B∣A) $$ is the probability of event B occurring given that A is true.
+
 $$ P(A|B) $$ is the probability of event A occurring given that B is true.
 
 $$ P(B∣A) $$ is the probability of event B occurring given that A is true.
+
+$$ P(A∣B) $$ is the probability of event A occurring given that B is true.
 
 $$ P(A) $$ is the probability of A occurring. This is know as the "prior".
 
@@ -32,7 +36,9 @@ I often think of it like this:
 
 $$ P(A|B) = P(A) \times \frac{P(B|A)}{P(B)} $$
 
-because P(A) is what I previously believed to be true, and $ \frac{P(B|A)}{P(B)} $ is the ratio of the probability that I would see some evidence given A over the probability of seeing that evidence in general.
+because P(A) is what I previously believed to be true, and 
+$ \frac{P(B|A)}{P(B)} $
+is the ratio of the probability that I would see some evidence given A over the probability of seeing that evidence in general.
 
 
 because P(A) is what I previously believed to be true, and 
