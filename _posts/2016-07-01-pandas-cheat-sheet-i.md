@@ -799,7 +799,7 @@ There are many ways to save a DataFrame, including in a pickle, msgpack, CSV, an
 df.to_csv("shakespeare.csv")
 ```
 
-There's something I find a little weird about saving a loading DataFrames. It's that if you save it as above and then load it, you'll get an column.
+There's something I find a little weird about saving a loading DataFrames. It's that if you save it as above and then load it, you'll get an extra column.
 
 
 ```python
@@ -1422,7 +1422,7 @@ df.shape
 
 For quantitative data, there are a few more worth knowing.
 
-### Quantitative Qata
+### Quantitative Data
 
 You can also find the data type of each column
 
@@ -1644,7 +1644,7 @@ df["Name"].str.contains("Julius")
 
 
 
-If you want to fond both uppper and lower case examples, you can pass `(?i)` to the regex parser to tell it to ignore cases.
+If you want to find both uppper and lower case examples, you can pass `(?i)` to the regex parser to tell it to ignore cases.
 
 
 ```python
