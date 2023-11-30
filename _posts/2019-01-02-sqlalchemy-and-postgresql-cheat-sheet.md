@@ -6,7 +6,7 @@ thumbnail: "assets/img/australasian_grebe.jpg"
 tags: [Databases, Python]
 ---
 
-This post is about SQLAlchemy and working with ORMs. It's is hiding here while it's in draft.
+This post is about SQLAlchemy and working with Object Relational Mappers (ORMs).
 
 All of engines, connections, and sessions have a `.execute` method. The results are all the same for simple select queries, but can vary as you do more complex operations.
 
