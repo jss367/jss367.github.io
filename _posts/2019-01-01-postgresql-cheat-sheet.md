@@ -6,7 +6,7 @@ thumbnail: "assets/img/great_crested_grebe.jpg"
 tags: [Databases, Python]
 ---
 
-This notebook contain my cheat sheet for working with databases. It's is hiding here while it's in draft.
+This notebook contains my cheat sheet for working with PostgreSQL databases.
 
 <b>Table of Contents</b>
 * TOC
