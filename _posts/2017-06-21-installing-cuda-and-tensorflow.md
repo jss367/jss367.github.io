@@ -17,7 +17,7 @@ This tutorial aims to guide you through the process of troubleshooting issues re
 Before diving in, ensure your graphics card is properly installed and compatible with CUDA:
 * To find your graphics card, type `nvidia-smi`
 * On Windows, you can use a tool like [Speccy](https://www.ccleaner.com/speccy).
-* Verify your graphics card is listed on hte [NVIDIA CUDA GPUs list](https://developer.nvidia.com/cuda-gpus).
+* Verify your graphics card is listed on the [NVIDIA CUDA GPUs list](https://developer.nvidia.com/cuda-gpus).
 
 
 ## Identifying Your Current Setup
