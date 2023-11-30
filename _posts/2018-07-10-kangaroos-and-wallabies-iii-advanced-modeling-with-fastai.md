@@ -29,7 +29,7 @@ fastai.__version__
 
 
 
-First we need to create a `DataBlock`. Please see my [FastAI Data Turtoial - Image Classification](https://jss367.github.io/fastai-data-tutorial-image-classification.html) for details on this process.
+First, we need to create a `DataBlock`. Please see my [FastAI Data Tutorial - Image Classification](https://jss367.github.io/fastai-data-tutorial-image-classification.html) for details on this process.
 
 
 ```python
@@ -55,7 +55,7 @@ else:
 dls = dblock.dataloaders(path)
 ```
 
-Let's see how many we have in each set.
+Let’s see how many items we have in each set.
 
 
 ```python
@@ -69,7 +69,7 @@ len(dls.train.items), len(dls.valid.items)
 
 
 
-Let's look at an example of some images to make sure everything looks right.
+Let's look at some example images to make sure everything is correct.
 
 
 ```python
@@ -82,7 +82,7 @@ dls.train.show_batch(max_n=4, nrows=1)
     
 
 
-FasiAI provides some standard transforms which work pretty well, so we'll use them.
+FastAI provides some standard transforms that work quite well, so we'll use them.
 
 
 ```python
@@ -183,7 +183,7 @@ learn.fine_tune(4)
 </table>
 
 
-The `error_rate` is on the validation set, so we've got about 91%. Let's look at a confusion matrix.
+The `error_rate` pertains to the validation set, showing that we got about 91%. Let's look at a confusion matrix.
 
 
 ```python
