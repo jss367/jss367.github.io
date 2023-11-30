@@ -33,7 +33,7 @@ and more stringent controls logically may be applied.
 
 An interesting aspect of these changes was the adjustment in the resolution restrictions of  data collection. The initial draft proposed a resolution limit of 0.25 meters for Synthetic Aperture Radar (SAR) imagery, but the final rules removed such blanket restrictions. Caps on resolution were to be applied only if the satellite operator sold images at resolutions greater than those of foreign competitors.
 
-Satellite to Satellite Restrictions
+#### Satellite to Satellite Restrictions
 
 Despite these relaxations, some constraints remain, particularly for non-Earth imaging (e.g., one satellite taking pictures of another). This area still faces automatic restrictions, such as requiring a 5 day prior notice to the Department of Defense and permission from the satellite owner before imaging​​.
 
