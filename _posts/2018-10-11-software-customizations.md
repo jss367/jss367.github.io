@@ -6,7 +6,7 @@ thumbnail: "assets/img/car.jpg"
 tags: [Linux, Mac, Software, Windows]
 ---
 
-This post details some of the customizations I have made to some of the [software I use](https://jss367.github.io/software-i-use.html) in that hopes that it is helpful to others.
+This post details the customizations I have made to the [software I use](https://jss367.github.io/software-i-use.html). I thought it might be helpful to others.
 
 <b>Table of Contents</b>
 * TOC
