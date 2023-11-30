@@ -144,11 +144,11 @@ Content             |  Style           |  Result
 
 Here's another way to do a table specifically with Jekyll:
 
-|Title 1               | Title 2               | Title 3               | Title 4              |
-|--------------------- | --------------------- | --------------------- | ---------------------|
-|lorem                 | lorem ipsum           | lorem ipsum dolor     | lorem ipsum dolor sit|
-|lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ipsum dolor sit|
-|lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ipsum dolor sit | lorem ipsum dolor sit|
+|Address               | City               | Zip Code            | State              |
+|--------------------- | ------------------ | ------------------- | -------------------|
+|123 Main St.          | Best City          | 12345               | AB |
+|124 Main St.          | Best City          | 12345               | AB |
+|125 Main St.          | Best City          | 12345               | AB |
 
 
 Or you could do it in HTML like this:
