@@ -55,7 +55,7 @@ print(text[:205])
     than Pip. So, I called myself Pip, and came to be called Pip.
     
 
-That looks good. Now we'll use the Natural Langauge Toolkit (NLTK) to split the text into tokens for further analysis.
+That looks good. Now we'll use the Natural Language Toolkit (NLTK) to split the text into tokens for further analysis.
 
 
 ```python
