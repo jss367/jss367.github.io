@@ -1,5 +1,5 @@
 
-Over the past few decades, government regulations around overhead and satellite imagery have seen significant evolution. Initially strict and limiting, these regulations have gradually been adjusted to reflect technological advancements and market realities. This post delves into the history and recent changes in these regulations, particularly focusing on the U.S. context.
+Over the past few decades, government regulations around overhead and satellite imagery have seen significant evolution. Initially strict and limiting, these regulations have gradually been adjusted to reflect technological advancements and market realities. This post delves into the history and recent changes in these regulations, particularly focusing on the U.S. market and suppliers.
 
 ### Early Stages: The 1990s and Government Monopoly
 
