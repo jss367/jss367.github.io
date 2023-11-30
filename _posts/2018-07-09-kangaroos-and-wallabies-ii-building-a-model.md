@@ -6,7 +6,7 @@ thumbnail: "assets/img/ki_kangs.jpg"
 tags: [Computer Vision, Convolutional Neural Networks, Python, TensorFlow, Wildlife]
 ---
 
-In this notebook, we're going to take the [datatset we prepared](https://jss367.github.io/kangaroos-and-wallabies-i-preparing-the-data.html) and build a model to classify the images.
+In this notebook, we're going to take the [dataset we prepared](https://jss367.github.io/kangaroos-and-wallabies-i-preparing-the-data.html) and build a model to classify the images.
 
 <b>Table of Contents</b>
 * TOC
@@ -47,7 +47,7 @@ os.environ["TF_FORCE_GPU_ALLOW_GROWTH"] = "true"
 
 ## Prepare the Data
 
-Now we'll prepared our data using TensorFlow's `tf.data.Datasets`.
+Now we'll prepare our data using TensorFlow's `tf.data.Datasets`.
 
 
 ```python
@@ -276,7 +276,7 @@ model = Model(inputs=model_encoder.input, outputs=predictions)
 
 We will freeze all layers except the last five. Then we'll add our own layers at the end. For the final activation function, I'm going to use [softmax](https://en.wikipedia.org/wiki/Softmax_function). I could just use a sigmoid function, but using softmax makes it easier to scale the model to multiple classes, even though they're mathematically equivalent in the case of two classes.
 
-One problem we're sure to run into with such a large and complex neural network is overfitting. This is when the model finds a small number of features that work well in the dataset but might not generalize to all images. For example, say all the images in the training set show the ears of the kangaroos and wallabies really well and the model learns how to distinguish them based on that. Well, maybe the ears are behind a branch in some other images, then how is the model going to decide? We want to model to look at many aspects of the image and use them all to classify it.
+One problem we're sure to run into with such a large and complex neural network is overfitting. This is when the model finds a small number of features that work well in the dataset but might not generalize to all images. For example, say all the images in the training set show the ears of the kangaroos and wallabies really well and the model learns how to distinguish them based on that. Well, maybe the ears are behind a branch in some other images, then how is the model going to decide? We want the model to look at many aspects of the image and use them all to classify it.
 
 There are several different types of regularization that we could use, but we'll discuss just two of them: L1 and L2. They rely on the same concept - penalizing the network for weights that are too large. This forces each individual parameter to be low and therefore prevents the model from relying too much on a single weight or feature. L1 regularization penalizes based on the magnitude of the weights, and L2 penalizes based on the <i>square</i> of the magnitude of the weights. There are good reasons to use one over the other which we won't get into, but in this case, we'll use L2 because it's more common and generally seems to give better performance in most cases.
 
