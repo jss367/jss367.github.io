@@ -9,7 +9,7 @@ tags: [Geospatial Analytics]
 
 Over the past few decades, government regulations around overhead and satellite imagery have seen significant evolution. Initially strict and limiting, these regulations have gradually been adjusted to reflect technological advancements and market realities. This post delves into the history and recent changes in these regulations, particularly focusing on the U.S. market and suppliers.
 
-## Early Stages: The 1990s and Government Monopoly
+## The 1990s: The Government Monopoly
 
 In the early 1990s, satellite imagery was primarily the domain of government entities. The U.S. Land Remote Sensing Policy Act of 1992 ([full text of law here](https://www.govinfo.gov/content/pkg/STATUTE-106/pdf/STATUTE-106-Pg4163.pdf), [simplified version here](https://itlaw.fandom.com/wiki/Land_Remote_Sensing_Policy_Act_of_1992)) marked a pivotal shift, [allowing American firms to operate imaging satellites](https://spacenews.com/op-ed-u-s-satellite-imaging-regulations-must-be-modernized/). Prior to this, high-quality satellite imagery was either a secret or a government monopoly. The transition to commercial satellite imagery was a significant step, similar to the U.S. government's decision in 2000 to stop intentionally degrading civilian GPS signals, which had profound impacts on various industries and public services​​.
 
@@ -43,7 +43,7 @@ Despite these relaxations, some constraints remain, particularly for non-Earth i
 
 An interesting aspect of these changes was the adjustment in the resolution restrictions of  data collection. The initial draft proposed a resolution limit of 0.25 meters for Synthetic Aperture Radar (SAR) imagery, but the final rules removed such blanket restrictions. Caps on resolution were to be applied only if the satellite operator sold images at resolutions greater than those of foreign competitors.
 
-#### 2023: Conditions Expire
+## 2023: Conditions Expire
 
 On July 19, 2023, the initial set of Tier 3 conditions permanently expired. [NOAA, which is under the Department of Commerce, updated the licenses of Tier 3 holders, eliminating 39 temporary restrictions](https://www.space.commerce.gov/noaa-eliminates-restrictive-operating-conditions-from-commercial-remote-sensing-satellite-licenses/). Additional modifications involved lowering global imaging constraints for specific modes, allowing imaging and distribution across over 99% of the Earth's surface. This also included the elimination of certain Non-Earth Imaging (satellite-to-satellite) & Rapid Revisit stipulations and the removal of all existing temporary conditions related to X-Band Synthetic Aperture Radar (SAR).
 
