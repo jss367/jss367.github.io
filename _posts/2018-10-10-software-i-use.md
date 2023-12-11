@@ -174,6 +174,7 @@ Yes, I do use many different cloud services. All for slightly different purposes
 * In the running for one of the best productivity apps in existence
 * This is probably my favorite app for the Mac
 * Can be as simple or complex as you like
+* `cmd + option + c` to open clipboard history
 
 [Todoist](https://todoist.com/)
 
