@@ -279,9 +279,9 @@ We've been mostly focused on the KDE aspect of violin plots. That's primarily be
 
 Box plots, much like violin plots, are a commonly used tool for visualizing the distribution of data. And, like violin plots, I have problems with them.
 
-It's basically the [five-number summary](https://en.wikipedia.org/wiki/Five-number_summary) of data in a graphical form. I like the five-number summary. It's the minimum, lower quartile, median, upper quartile, and maximum, of a dataset, and I think that's a good start to describing a dataset. (As a side note, my main gripe with it is that it should be the six-number summary and include the sample size, but let's put that aside.)
+It's basically the [five-number summary](https://en.wikipedia.org/wiki/Five-number_summary) of data in a graphical form. I like the five-number summary. It's the minimum, lower quartile, median, upper quartile, and maximum, of a dataset, and I think that's a good start to describing a dataset. (As a side note, my main gripe with the five-number summary is that it should be the six-number summary and include the sample size, but let's put that aside.)
 
-But as anyone familiar with [Anscombe's quartet](https://en.wikipedia.org/wiki/Anscombe%27s_quartet) knows, you often need more than that. The reason I don't like box plots is that they appear to be this valuable graph describing your data, but it is literally just a pretty picture version of the five-number summary. I would rather see the raw numbers and be more conscious of my ignorance about the dataset than have a box plot and think I understand it better than I do. Let me explain.
+But as anyone familiar with [Anscombe's quartet](https://en.wikipedia.org/wiki/Anscombe%27s_quartet) knows, you often need more than that. The reason I don't like box plots is that they appear to be a visualization of your dataset, but it is literally just a pretty picture version of the five-number summary. I would rather see the raw numbers and be more conscious of my ignorance about the dataset than have a box plot and think I understand it better than I do. Let me explain.
 
 Let's look at a box plot.
 
