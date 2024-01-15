@@ -7,7 +7,11 @@ thumbnail: "assets/img/yellow-crested_night_heron.jpg"
 tags: [Geospatial Analytics, Python]
 ---
 
-In the realm of geographical information systems (GIS) it's important to know how to manipulate geometric data. The best tool for this in Python is Shapely, which provides an extensive set of operations that allow for the sophisticated analysis of spatial data. In this post, I give an introduction to working with Shapely.
+In geographical information systems (GIS) it's important to know how to manipulate geometric data. The best tool for this in Python is Shapely, which provides an extensive set of operations that allow for the sophisticated analysis of spatial data. In this post, I give an introduction to working with Shapely.
+
+<b>Table of Contents</b>
+* TOC
+{:toc}
 
 
 ```python
