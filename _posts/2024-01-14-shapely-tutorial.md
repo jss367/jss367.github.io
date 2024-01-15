@@ -7,7 +7,7 @@ thumbnail: "assets/img/yellow-crested_night_heron.jpg"
 tags: [Geospatial Analytics, Python]
 ---
 
-In geographical information systems (GIS) it's important to know how to manipulate geometric data. The best tool for this in Python is Shapely, which provides an extensive set of operations that allow for the sophisticated analysis of spatial data. In this post, I give an introduction to working with Shapely.
+In geographical information systems (GIS) it's important to know how to manipulate geometric data. The best tool for this in Python is Shapely, which provides an extensive set of operations that allow for the sophisticated analysis of spatial data. In this post, I give an introduction to working with Shapely. PostGIS data is usually in the form of WKB or WKT, so we'll talk about how to work with those data types.
 
 <b>Table of Contents</b>
 * TOC
@@ -15,8 +15,9 @@ In geographical information systems (GIS) it's important to know how to manipula
 
 
 ```python
+import binascii
 import matplotlib.pyplot as plt
-from shapely.geometry import LineString, Point, Polygon, shape
+from shapely.geometry import LineString, MultiPolygon, Point, Polygon, shape
 from shapely.ops import unary_union
 from shapely.wkb import dumps as wkb_dumps
 from shapely.wkb import loads as wkb_loads
@@ -24,7 +25,7 @@ from shapely.wkt import dumps as wkt_dumps
 from shapely.wkt import loads as wkt_loads
 ```
 
-# Points, Lines, and Polygons in Shapely
+# Shapely Objects
 
 Shapely operates on objects like points, lines, and polygons, which are the fundamental elements of planar geometry. In GIS, a 'geom' refers to any geometric shape, such as points, lines, and polygons. A shapely polygon is a geom.
 
@@ -42,7 +43,7 @@ point
 
 
     
-![svg](2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_6_0.svg)
+![svg](2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_7_0.svg)
     
 
 
@@ -61,7 +62,7 @@ line
 
 
     
-![svg](2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_8_0.svg)
+![svg](2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_9_0.svg)
     
 
 
@@ -80,7 +81,7 @@ polygon
 
 
     
-![svg](2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_10_0.svg)
+![svg](2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_11_0.svg)
     
 
 
@@ -101,7 +102,7 @@ polygon_with_hole
 
 
     
-![svg](2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_13_0.svg)
+![svg](2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_14_0.svg)
     
 
 
@@ -110,7 +111,6 @@ Shapely polygons have various useful attributes and methods. For example, you ca
 
 
 ```python
-# Using polygon attributes and methods
 print("Area:", polygon_with_hole.area)
 print("Boundary:", polygon_with_hole.boundary)
 print("Centroid:", polygon_with_hole.centroid)
@@ -129,6 +129,27 @@ print("Is valid:", polygon_with_hole.is_valid)
 ### Multipolygons
 
 A Multipolygon is a collection of polygons that are treated as a single entity. They are useful for representing disconnected regions or islands. Shapely can handle operations on Multipolygons similar to simple polygons.
+
+
+```python
+# Define two simple polygons
+polygon1 = Polygon([(0, 0), (2, 0), (2, 2), (0, 2)])
+polygon2 = Polygon([(3, 3), (5, 3), (5, 5), (3, 5)])
+
+# Create a multipolygon from the two polygons
+multipolygon = MultiPolygon([polygon1, polygon2])
+
+multipolygon
+```
+
+
+
+
+    
+![svg](2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_18_0.svg)
+    
+
+
 
 # Shapely Operations
 
@@ -150,7 +171,7 @@ union_poly
 
 
     
-![svg](2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_20_0.svg)
+![svg](2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_22_0.svg)
     
 
 
@@ -169,7 +190,7 @@ intersect_poly
 
 
     
-![svg](2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_22_0.svg)
+![svg](2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_24_0.svg)
     
 
 
@@ -188,7 +209,7 @@ diff_poly
 
 
     
-![svg](2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_24_0.svg)
+![svg](2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_26_0.svg)
     
 
 
@@ -207,7 +228,7 @@ sym_diff_poly
 
 
     
-![svg](2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_26_0.svg)
+![svg](2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_28_0.svg)
     
 
 
@@ -226,7 +247,7 @@ buffered_poly
 
 
     
-![svg](2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_28_0.svg)
+![svg](2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_30_0.svg)
     
 
 
@@ -245,7 +266,7 @@ hull_poly
 
 
     
-![svg](2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_30_0.svg)
+![svg](2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_32_0.svg)
     
 
 
@@ -281,21 +302,17 @@ plt.show()
 
 
     
-![png](2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_35_0.png)
+![png](2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_37_0.png)
     
 
 
 # Shapely and Well-Known Text (WKT)
 
-PostGIS data is usually in the form of WKB or WKT. They are both really important for interoperability.
-
-### WKT
-
-Well-Known Text (WKT) is a text markup language for representing vector geometry objects on a map. In this section, I'll show how to convert Shapely polygons to and from WKT format.
-
-WKT is a standard format used to represent geometries in a textual manner. It is widely used in GIS and spatial databases for easy exchange and storage of geometric data. WKT serves as a bridge for geometric data between different systems or software.
+Well-Known Text (WKT) is a text markup language for representing vector geometry objects on a map. It is widely used in GIS and spatial databases for easy exchange and storage of geometric data. WKT often serves as a bridge for geometric data between different systems or software. In this section, I'll show how to convert Shapely polygons to and from WKT format.
 
 Shapely polygons can be converted to WKT using the `wkt` property. This feature is particularly useful when you need to store or share geometric data in a standardized format.
+
+### Shapely Polygon to WKT
 
 
 ```python
@@ -325,6 +342,8 @@ wkt_data
 
 
 
+### WKT to Shapely Polygon
+
 Shapely can convert WKT strings back into Shapely geometric objects. This is useful when working with spatial data extracted from databases or external files.
 
 
@@ -338,28 +357,18 @@ shapely_geom
 
 
     
-![svg](2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_41_0.svg)
+![svg](2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_45_0.svg)
     
 
 
 
 # Shapely and Well-Known Binary (WKB)
 
-Well-Known Binary (WKB) is another standard format used in GIS for storing and transferring geometric data. Similar to Well-Known Text (WKT), WKB represents geometric objects in a compact, binary form. This section explores how WKB is used in conjunction with Shapely polygons.
+Well-Known Binary (WKB) is another standard format used in GIS for storing and transferring geometric data. WKB is a binary encoding of geometric data, designed to be compact and efficient for storage and transport. Like WKT, WKB represents geometries such as points, lines, and polygons, but in a compact, binary form that is not human-readable. WKB is more space-efficient than WKT, making it better suited for storing large amounts of spatial data. It is widely supported across various GIS systems and spatial databases. This section explores how WKB is used in conjunction with Shapely polygons.
 
-Understanding WKB
+Shapely supports exporting polygons to WKB format, which can be useful for storing or transmitting geometric data.
 
-### What is WKB?
-
-WKB is a binary encoding of geometric data, designed to be compact and efficient for storage and transport.
-Like WKT, WKB represents geometries such as points, lines, and polygons, but in a format that is not human-readable. Shapely supports exporting polygons to WKB format, which can be useful for storing or transmitting geometric data.
-
-### Advantages of WKB
-
-WKB is more space-efficient compared to WKT, making it better suited for storing large amounts of spatial data.
-It is widely supported across various GIS systems and spatial databases.
-
-### Binary and Hexadecimal Representation
+### Shapely Polygon to WKB
 
 WKB can be represented in either binary or hexadecimal representation. You can use `dumps` to put it in either.
 
@@ -368,17 +377,17 @@ WKB can be represented in either binary or hexadecimal representation. You can u
 polygon = Polygon([(0, 0), (1, 0), (1, 1), (0, 1)])
 
 # Convert the polygon to WKB binary representation
-wkb_binary = wkb_dumps(polygon, hex=False)
+wkb_binary = wkb_dumps(polygon, hex=False)  # this is the default
 
 # Convert the polygon to WKB hexadecimal representation
 wkb_hex = wkb_dumps(polygon, hex=True)
 
-print(wkb_binary)
-print(wkb_hex)
+print("WKB Binary:", wkb_binary)
+print("WKB Hexadecimal:", wkb_hex)
 ```
 
-    b'\x01\x03\x00\x00\x00\x01\x00\x00\x00\x05\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xf0?\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xf0?\x00\x00\x00\x00\x00\x00\xf0?\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xf0?\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
-    0103000000010000000500000000000000000000000000000000000000000000000000F03F0000000000000000000000000000F03F000000000000F03F0000000000000000000000000000F03F00000000000000000000000000000000
+    WKB Binary: b'\x01\x03\x00\x00\x00\x01\x00\x00\x00\x05\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xf0?\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xf0?\x00\x00\x00\x00\x00\x00\xf0?\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\xf0?\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+    WKB Hexadecimal: 0103000000010000000500000000000000000000000000000000000000000000000000F03F0000000000000000000000000000F03F000000000000F03F0000000000000000000000000000F03F00000000000000000000000000000000
     
 
 ### WKB to Shapely Polygon
@@ -395,10 +404,33 @@ shapely_polygon
 
 
     
-![svg](2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_48_0.svg)
+![svg](2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_52_0.svg)
     
 
 
+
+Note that before Shapely 2.0, you had to convert a hexadecimal representation into a binary representation before converting it into a Shapely Polygon.
+
+
+```python
+# Convert the polygon to WKB hexadecimal representation
+wkb_hex = wkb_dumps(shapely_polygon, hex=True)
+
+# Convert the hexadecimal string to binary
+wkb_binary = binascii.unhexlify(wkb_hex)
+
+# Convert the binary WKB back into a Shapely polygon
+converted_polygon = wkb_loads(wkb_binary)
+
+print("Original Polygon:", shapely_polygon)
+print("WKB Hexadecimal:", wkb_hex)
+print("Converted Polygon:", converted_polygon)
+```
+
+    Original Polygon: POLYGON ((0 0, 1 0, 1 1, 0 1, 0 0))
+    WKB Hexadecimal: 0103000000010000000500000000000000000000000000000000000000000000000000F03F0000000000000000000000000000F03F000000000000F03F0000000000000000000000000000F03F00000000000000000000000000000000
+    Converted Polygon: POLYGON ((0 0, 1 0, 1 1, 0 1, 0 0))
+    
 
 
 ```python
@@ -410,7 +442,7 @@ shapely_polygon
 
 
     
-![svg](2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_49_0.svg)
+![svg](2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_55_0.svg)
     
 
 
@@ -445,7 +477,7 @@ shapely_polygon
 
 
     
-![svg](2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_54_0.svg)
+![svg](2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_60_0.svg)
     
 
 
