@@ -220,6 +220,17 @@ I recommend using keyboard snippets. Here are some useful ones that I use:
 }
 ```
 
+### Make .ipynb files work like Jupyter Notebooks
+
+There's this annoying thing in VSCode where [you have to hit `esc` twice to exit a cell](https://github.com/microsoft/vscode/issues/121129) whereas you only have do to it once in Jupyter Notebooks. The solution is to add the following to your keybindings:
+```
+{
+    "key": "escape",
+    "command": "notebook.cell.quitEdit",
+    "when": "notebookEditorFocused && !editorHasMultipleSelections && !editorHasSelection && !editorHoverVisible"
+}
+```
+
 ## Cmder
 
 You have to find your `%CMDER_ROOT%`. You can do this with `echo %CMDER_ROOT%`.
