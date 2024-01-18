@@ -51,7 +51,7 @@ This makes it easy to do things like type `main` and get if `__name__ == '__main
 
 # Customizations
 
-See [my previous post for my recommended VSCode customizations](https://jss367.github.io/software-customizations.html).
+See [my previous post for my recommended VSCode customizations and key bindings](https://jss367.github.io/software-customizations.html).
 
 # Settings 
 
@@ -102,7 +102,7 @@ This is where you can add specific details to your extensions.
 
 ## Terminal
 
-There is a built-in terminal in VSCode. You can pull it up with `control + '&#96;'`, on either mac or windows. You can also pull it up from dragging up from the bottom of the screen.
+There is a built-in terminal in VSCode. You can pull it up by dragging up from the bottom of the screen.
 
 
 ## Debugging
