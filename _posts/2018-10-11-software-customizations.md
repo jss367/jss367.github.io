@@ -231,6 +231,19 @@ There's this annoying thing in VSCode where [you have to hit `esc` twice to exit
 }
 ```
 
+### Might .ipynb layout tigher
+```
+    // make notebook tighter
+    "editor.lineHeight": 17,
+    "notebook.insertToolbarLocation": "notebookToolbar",
+    "notebook.showCellStatusBar": "hidden",
+    "notebook.cellToolbarLocation": {
+        "jupyter-notebook": "hidden"
+    },
+    "notebook.globalToolbar": false,
+    "notebook.output.scrolling": true,
+    "notebook.consolidatedRunButton": true,
+```
 ## Cmder
 
 You have to find your `%CMDER_ROOT%`. You can do this with `echo %CMDER_ROOT%`.
