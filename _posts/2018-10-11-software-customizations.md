@@ -231,7 +231,7 @@ There's this annoying thing in VSCode where [you have to hit `esc` twice to exit
 }
 ```
 
-### Might .ipynb layout tigher
+### Make .ipynb files layout tigher
 ```
     // make notebook tighter
     "editor.lineHeight": 17,
