@@ -103,6 +103,7 @@ I always have three or more web browsers on each computer. I use them for differ
 ## Browser Extensions
 * [AdBlockPlus](https://adblockplus.org/)
 * [BitWarden](https://bitwarden.com/)
+* [JSON Fomatter][https://chromewebstore.google.com/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa?pli=1]
 
 ## New Tab Page
 [Start.me](https://start.me/)
