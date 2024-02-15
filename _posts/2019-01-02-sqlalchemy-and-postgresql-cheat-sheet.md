@@ -26,7 +26,7 @@ An engine is how SQLAlchemy communicates with a database.
 
 ## Creating an Engine
 
-It's on the form: `engine = create_engine('postgresql://<user>:<password>@<hostname>:<port (optional)>/<database_name>')`
+It's of the form: `engine = create_engine('postgresql://<user>:<password>@<hostname>:<port (optional)>/<database_name>')`
 
 
 It might look like this:
