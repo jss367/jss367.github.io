@@ -452,7 +452,7 @@ Tweedie distributions are most common when values are a combination of zero valu
 
 Power law distributions are pervasive in our world. These distributions describe phenomena where small occurrences are extremely common, while large occurrences are extremely rare. Unlike Gaussian distributions, power law distributions do not centralize around a mean value; instead, they are characterized by a long tail, where a few large values dominate.
 
-#### Equation
+### Equation
 
 The general form of a power law distribution is given by:
 
@@ -464,15 +464,15 @@ where
 * C is a normalization constant ensuring the probabilities sum up to 1
 * α is a positive constant that determines the distribution's shape.
 
-#### Pareto and Zipf's Distributions
+### Pareto and Zipf's Distributions
 
 The Pareto and Zipf's (pronounced "zif's") distributions are instances of power laws. Pareto distributions are more common with continuous data and Zipf's distributions are more common with discrete data. They're both very important so let's look at them separately.
 
-##### Pareto Distribution - Continuous
+#### Pareto Distribution - Continuous
 
 The Pareto distribution is a specific instance of a power law distribution. It was developed by Italian economist Vilfredo Pareto to model wealth and income. This distribution encapsulates the Pareto principle or the "80/20 rule," which suggests that 80% of the wealth is owned by 20% of the population. The Pareto distribution is seen all the time, from social issues to scientific ones.
 
-#### Plot
+##### Plot
 
 
 ```python
@@ -601,11 +601,11 @@ print(f"{(0.2)**3: .4} of the people do{(0.8)**3: .4} of the work.")
      0.008 of the people do 0.512 of the work.
     
 
-##### Zipf's Distribution - Discrete
+#### Zipf's Distribution - Discrete
 
 The Zipf distribution, or Zipf's law, is another flavor of power law distributions, named after the American linguist George Zipf. It specifically describes the phenomenon where the frequency of an item is inversely proportional to its rank in a frequency table. Commonly observed in linguistics, where the most frequent word occurs twice as often as the second most frequent word, thrice as often as the third most frequent word, and so on (see [this Vsauce video](https://www.youtube.com/watch?v=fCn8zs912OE) for more). Unlike the Pareto distribution, which primarily models the upper tail of distributions, Zipf's law applies more broadly, capturing the essence of rank-size distributions.
 
-#### Plot
+##### Plot
 
 
 ```python
@@ -643,7 +643,7 @@ zipf_samples[:10]
 
 
 
-#### Uses
+##### Uses
 
 * Linguistics (word usage)
 * Internet traffic (number of visitors to websites)
