@@ -16,7 +16,11 @@ In geographical information systems (GIS) it's important to know how to manipula
 
 ```python
 import binascii
+
 import matplotlib.pyplot as plt
+import pandas as pd
+from rtree import index
+from shapely import wkt
 from shapely.geometry import LineString, MultiPolygon, Point, Polygon, shape
 from shapely.ops import unary_union
 from shapely.wkb import dumps as wkb_dumps
@@ -453,6 +457,124 @@ WKB is ideal for storing spatial data in databases or transmitting it over netwo
 It is particularly useful in environments where bandwidth or storage efficiency is a concern. Many spatial databases use WKB as their native format for storing geometric data, which allows for efficient data exchange between Shapely and these databases.
 
 
+# Pandas Representations
+
+It's worth pointing out something about how Shapely objects are represented in pandas. They look like strings in the output, but they are not. This can lead to confusion. Let's look at an example where we have a pandas Series of well-known text, which are stored as strings.
+
+
+```python
+polygon = Polygon([(0, 0), (1, 0), (1, 1), (0, 1)])
+wkt_data = polygon.wkt
+```
+
+
+```python
+wkt_series = pd.Series([wkt_data]*5)
+wkt_series
+```
+
+
+
+
+    0    POLYGON ((0 0, 1 0, 1 1, 0 1, 0 0))
+    1    POLYGON ((0 0, 1 0, 1 1, 0 1, 0 0))
+    2    POLYGON ((0 0, 1 0, 1 1, 0 1, 0 0))
+    3    POLYGON ((0 0, 1 0, 1 1, 0 1, 0 0))
+    4    POLYGON ((0 0, 1 0, 1 1, 0 1, 0 0))
+    dtype: object
+
+
+
+
+```python
+print(type(wkt_series.iloc[0]))
+wkt_series.iloc[0]
+```
+
+    <class 'str'>
+    
+
+
+
+
+    'POLYGON ((0 0, 1 0, 1 1, 0 1, 0 0))'
+
+
+
+Because it's a string we can't, for example, create an r-tree out of them.
+
+
+```python
+try:
+    idx = index.Index()
+    for pos, geom in enumerate(wkt_series):
+        idx.insert(pos, geom.bounds)
+except AttributeError as e:
+    print(f"Ran into error: {e}")
+```
+
+    Ran into error: 'str' object has no attribute 'bounds'
+    
+
+Now, let's convert them to Shapely objects.
+
+
+```python
+def convert_to_shapely_geom(wkt_geom):
+    try:
+        return wkt.loads(wkt_geom)
+    except Exception as e:
+        print(f"Error converting WKT to geometry: {e}")
+        return None
+```
+
+
+```python
+shapely_series = wkt_series.apply(convert_to_shapely_geom)
+shapely_series
+```
+
+
+
+
+    0    POLYGON ((0 0, 1 0, 1 1, 0 1, 0 0))
+    1    POLYGON ((0 0, 1 0, 1 1, 0 1, 0 0))
+    2    POLYGON ((0 0, 1 0, 1 1, 0 1, 0 0))
+    3    POLYGON ((0 0, 1 0, 1 1, 0 1, 0 0))
+    4    POLYGON ((0 0, 1 0, 1 1, 0 1, 0 0))
+    dtype: object
+
+
+
+When we look at it in pandas, it looks the same. This can be confusing because it's a Shapely Polygon now. You can see the difference when you run a single one in a cell.
+
+
+```python
+print(type(shapely_series.iloc[0]))
+shapely_series.iloc[0]
+```
+
+    <class 'shapely.geometry.polygon.Polygon'>
+    
+
+
+
+
+    
+![svg](2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_68_1.svg)
+    
+
+
+
+Now, we can create an r-tree with it.
+
+
+```python
+idx = index.Index()
+for pos, geom in enumerate(shapely_series):
+    idx.insert(pos, geom.bounds)
+```
+
 # GeoJSON to Shapely
 
 We can also convert GeoJSON data to Shapely.
@@ -477,7 +599,7 @@ shapely_polygon
 
 
     
-![svg](2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_60_0.svg)
+![svg](2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_74_0.svg)
     
 
 
