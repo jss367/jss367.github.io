@@ -274,3 +274,6 @@ Sometimes environmental variables won't show up in VSCode. I've found that this 
 Here's what I recommend keeping in sync between machines:
 
 ![image](https://user-images.githubusercontent.com/3067731/210435699-e71ff120-cfc3-413c-b99c-f98215d79924.png)
+
+You can use either a work account or personal account. If you have Github Copilot in your work account, you'll want to use that.
+
