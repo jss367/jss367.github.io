@@ -33,6 +33,19 @@ I recommend trying to understand how git is working bit by bit, because the bett
 
 `3`. You can get really far with a few simple commands
 
+## Understanding your configuration
+
+`git config --list`
+
+If your configuration is missing, you'll probably need to add your username and email. That should look something like this:
+
+```
+git config --global user.name <username>
+git config --global user.email <email address>
+```
+
+This has your username and email, along with any other settings
+
 ## A Basic commit
 
 ### Staging Files
@@ -70,19 +83,6 @@ You can just `git checkout <last seven characters or commit>`
 This will put you in a detached HEAD state.
 
 Then to get back you can `git checkout master` (or whatever branch you were on)
-
-## Understanding your configuration
-
-`git config --list`
-
-If your configuration is missing, you'll probably need to add your username and email. That should look something like this:
-
-```
-git config --global user.name <username>
-git config --global user.email <email address>
-```
-
-This has your username and email, along with any other settings
 
 ## Other Useful Commands
 
