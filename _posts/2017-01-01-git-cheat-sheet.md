@@ -46,6 +46,19 @@ git config --global user.email <email address>
 
 This has your username and email, along with any other settings
 
+### Allowing multiple users in one account
+
+Some people may have a work and personal account and want to clone from both. I recommend doing this through ssh. The way to do this is through your ssh-agent.
+
+* [Add an SSH key to Github](https://jss367.github.io/add-ssh-key-to-github.html)
+
+* Start the ssh-agent in the background: `eval "$(ssh-agent -s)"`
+
+* Add your personal PRIVATE ssh key: `ssh-add ~/.ssh/your_personal_private_key`
+
+* Then you should be able to clone the repo (be sure to use the ssh URL)
+
+
 ## A Basic commit
 
 ### Staging Files
@@ -175,8 +188,6 @@ git push origin <master>
 
 If you want, you can delete the branch you just merged: `git branch -d <mergedbranch>`
 
-### I just changed a branch, why did the old file changes come with me
-
 ### Syncing with upsteam branch
 
 If you've created a branch and since then the master has been updated, you may get a message like: "This branch is X commits ahead, Y commits behind [masterbranchname]:master." Here are the steps to resolve this:
@@ -200,8 +211,6 @@ Those are SHA-1 hashs. They consistent of 40 characters although git often just 
 ### What can I do with my .git folder?
 
 You should never touch that folder. Let git do its thing.
-
-### I just want to copy my changes then 
 
 ### I want to go to an older commit...
 
