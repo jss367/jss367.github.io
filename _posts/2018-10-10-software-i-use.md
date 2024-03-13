@@ -115,6 +115,12 @@ I always have three or more web browsers on each computer. I use them for differ
 [Anaconda](https://www.anaconda.com/distribution/) (FOSS)
 * Now a no-brainer for data scientists
 
+## Python Package Manager
+
+[uv](https://pypi.org/project/uv/)
+* Now the best package manager
+* Extremely fast and easy-to-use
+
 [Mamba](https://github.com/mamba-org/mamba)
 * This is a superior package manager to conda
 
