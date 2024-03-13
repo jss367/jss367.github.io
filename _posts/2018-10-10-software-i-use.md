@@ -126,8 +126,7 @@ I always have three or more web browsers on each computer. I use them for differ
 
 ## Integrated Development Environment (IDE)
 [VSCode](https://code.visualstudio.com/) (Ninite)
-* Right now it's VSCode and I'm very happy with it. I have used many of the alternatives and, in general, I think there are a lot of good options, but I like VSCode.
-* Configuring your IDE that way you like it is essential, and VSCode is incredibly extensible.
+* Configuring your IDE that way you like it is essential, and VSCode is incredibly extensible. See [how I customize it](https://jss367.github.io/software-customizations.html#vscode)
 
 [RStudio](https://rstudio.com/)
 * The clear winner in my opinion for R IDE, although I don't use R much anymore so this could no longer be true
