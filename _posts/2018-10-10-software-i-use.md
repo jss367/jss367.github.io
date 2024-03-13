@@ -37,7 +37,7 @@ I’m always curious about how people set up their computers and what software p
 * I prefer Excel, but it's free and I don't use spreadsheets enough to buy Excel
 
 [LibreOffice](https://www.libreoffice.org/) (FOSS, Ninite)
-* I prefer this to Google's offerings so I don't use this very much anymore.
+* I prefer cloud-based editors so I don't use this very much anymore.
 
 ## LaTeX Editor
 
