@@ -118,9 +118,11 @@ Here are some things I like to change:
 
 ## VSCode
 
-I did the same thing with tabs in VSCode.
+### Keybindings
 
-### Make Tabs Work Like Chrome
+There are several keybindings customizations I make in VSCode.
+
+#### Make Tabs Work Like Chrome
 
 I don't like the default behavior of tab cycling in VSCode because it switches tabs in order of most recently used, which I never remember. I prefer it to work like tabbing in Chrome, which is far more intuitive to me. Fortunately, VSCode lets you customize this. To change this, you'll need to edit your `keybindings.json` file like so:
 * Open Command Palette (`cmd` + `shift` + `p` on a Mac)
@@ -137,6 +139,38 @@ I don't like the default behavior of tab cycling in VSCode because it switches t
         "command": "workbench.action.previousEditorInGroup"
     },
 ```
+
+![png]({{site.baseurl}}/assets/img/vscode_keyboard_shortcuts_windows.png)
+
+The ones you're looking for are `workbench.action.nextEditor` and `workbench.action.previousEditor`.
+
+#### Make .ipynb files work like Jupyter Notebooks
+
+There's this annoying thing in VSCode where [you have to hit `esc` twice to exit a cell](https://github.com/microsoft/vscode/issues/121129) whereas you only have do to it once in Jupyter Notebooks. The solution is to add the following to your keybindings:
+```
+{
+    "key": "escape",
+    "command": "notebook.cell.quitEdit",
+    "when": "notebookEditorFocused && !editorHasMultipleSelections && !editorHasSelection && !editorHoverVisible"
+}
+```
+
+#### Accept Suggestion with Enter
+
+```
+    {
+        "key": "enter",
+        "command": "acceptSelectedSuggestion",
+        "when": "suggestWidgetVisible && textInputFocus"
+    },
+    {
+        "key": "tab",
+        "command": "-acceptSelectedSuggestion",
+        "when": "suggestWidgetVisible && textInputFocus"
+    },
+```
+
+#### Final Keybindings
 
 I have added other keybindings as well. My whole file looks like this:
 
@@ -160,12 +194,13 @@ I have added other keybindings as well. My whole file looks like this:
         "command": "-acceptSelectedSuggestion",
         "when": "suggestWidgetVisible && textInputFocus"
     },
+    {
+    "key": "escape",
+    "command": "notebook.cell.quitEdit",
+    "when": "notebookEditorFocused && !editorHasMultipleSelections && !editorHasSelection && !editorHoverVisible"
+    }
 ]
 ```
-
-![png]({{site.baseurl}}/assets/img/vscode_keyboard_shortcuts_windows.png)
-
-The ones you're looking for are `workbench.action.nextEditor` and `workbench.action.previousEditor`.
 
 ### Syncing Settings Across Multiple Computers
 
@@ -230,16 +265,7 @@ I recommend using keyboard snippets. Here are some useful ones that I use:
 }
 ```
 
-### Make .ipynb files work like Jupyter Notebooks
 
-There's this annoying thing in VSCode where [you have to hit `esc` twice to exit a cell](https://github.com/microsoft/vscode/issues/121129) whereas you only have do to it once in Jupyter Notebooks. The solution is to add the following to your keybindings:
-```
-{
-    "key": "escape",
-    "command": "notebook.cell.quitEdit",
-    "when": "notebookEditorFocused && !editorHasMultipleSelections && !editorHasSelection && !editorHoverVisible"
-}
-```
 
 ### Make .ipynb files layout tigher
 ```
