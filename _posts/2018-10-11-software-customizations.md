@@ -265,9 +265,9 @@ I recommend using keyboard snippets. Here are some useful ones that I use:
 }
 ```
 
+### Settings
 
-
-### Make .ipynb files layout tigher
+#### Make .ipynb files layout tigher
 ```
     // make notebook tighter
     "editor.lineHeight": 17,
