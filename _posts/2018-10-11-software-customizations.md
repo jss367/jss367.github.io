@@ -23,6 +23,10 @@ bindkey "\e\e[D" backward-word
 bindkey "\e\e[C" forward-word
 ```
 
+In general, I want the control button to do much more:
+* ctrl + w to close a web page
+* ctrl + arrow key to jump to next word, both in terminal and in text editor in browser.
+
 
 I do this to make it easier to navigate in terminals: https://stackoverflow.com/questions/6205157/how-to-set-keyboard-shortcuts-to-jump-to-beginning-end-of-line/22312856#22312856
 * also add ctrl+z for undo (so there are two ways to undo)
