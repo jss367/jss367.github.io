@@ -14,6 +14,16 @@ This post details the customizations I have made to the [software I use](https:/
 
 ## Mac General
 
+Here are some things I like to change on Macs and here's how I do it:
+
+* The cursor doesn't jump from word to word by default (at least, with oh-my-zsh)
+  * To fix this, you need to add the following to your .profile:
+```
+bindkey "\e\e[D" backward-word
+bindkey "\e\e[C" forward-word
+```
+
+
 I do this to make it easier to navigate in terminals: https://stackoverflow.com/questions/6205157/how-to-set-keyboard-shortcuts-to-jump-to-beginning-end-of-line/22312856#22312856
 * also add ctrl+z for undo (so there are two ways to undo)
 
