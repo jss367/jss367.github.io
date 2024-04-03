@@ -74,7 +74,7 @@ print(y.shape)
     (1535,)
     
 
-## Preparing the data
+## Preparing the Data
 
 We randomly split the data into training and testing sets.
 
@@ -101,9 +101,9 @@ num_inputs = X.shape[0]
 input_size = X.shape[1]
 ```
 
-## A single example
+## A Single Example
 
-### Initializing parameters
+### Initializing Parameters
 
 After we have the data the next step is to initialize the parameters we'll need. We will need a weight parameter for each input and a bias parameter. The easiest way to do this is to initialize them all to zero using `np.zeros()`. They will become nonzero after the first iteration.
 
@@ -136,7 +136,7 @@ print("The bias parameter is of shape: " + str(bias.shape))
 
 So `weights` and `bias` are both 1-dimensional arrays (n,). When we add anything to them we'll have to make sure the shape matches.
 
-### Forward propagation
+### Forward Propagation
 
 Now that we've initialized our variables, it's time to make an initial calculation. We're going to take each input value and multiply it by a weight. Then we'll sum the weights together and add a bias. The bias term can make one outcome more likely than another, which helps when there is more of one outcome than another (such as cancer vs. not cancer in diagnostic imagery).
 
@@ -276,7 +276,7 @@ It doesn't particularly matter whether our prediction was accurate or not. We're
 
 Now we'll use the error to update our weights in a process known as back propagation.
 
-### Back propagation
+### Back Propagation
 
 In this part, we have to calculate the partial derivatives $$ \frac{\partial \mathcal{L}}{\partial w} $$
  and $$ \frac{\partial \mathcal{L}}{\partial b} $$.
@@ -381,7 +381,7 @@ weights, bias = initialize_parameters(input_size)
 
 Now use the vectorization in numpy to calculate the output for every single instance.
 
-### Forward propagation
+### Forward Propagation
 
 
 ```python
@@ -543,7 +543,7 @@ weights = weights - learning_rate * dw
 bias = bias - learning_rate * db
 ```
 
-# Building a model
+# Building a Model
 
 Cool. Now we've been through an entire forward and backward propagation of a logistic regression model. The weights are still very untrained, so we'll have to go through many epochs to refine them. Let's build a function to do that.
 
