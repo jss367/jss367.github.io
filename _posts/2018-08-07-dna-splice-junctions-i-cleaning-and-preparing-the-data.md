@@ -10,7 +10,7 @@ Splice junctions are locations on sequences of DNA or RNA where superfluous sect
 
 In the next two posts we'll try to do exactly that. To do this, we're going to use the [UCI Splice-junction Gene Sequence dataset](https://archive.ics.uci.edu/ml/datasets/Molecular+Biology+%28Splice-junction+Gene+Sequences%29). It consists of sequences of DNA that contain either the part of the DNA retained after splicing, the part that was spliced out, or neither. Our problem is to distinguish between these cases.
 
-In this post, I'm going to focus on cleaning and preparing the data set. In the next I'll walk through logistic regression to show how it works.
+In this post, I'm going to focus on cleaning and preparing the data set. In [the next](https://jss367.github.io/dna-splice-junctions-ii-logistic-regression-from-scratch.html), I'll walk through logistic regression to show how it works.
 
 <b>Table of Contents</b>
 * TOC
