@@ -27,7 +27,7 @@ from sklearn.preprocessing import OneHotEncoder, LabelEncoder
 from pandas_profiling import ProfileReport
 ```
 
-## Getting the data
+## Getting the Data
 
 This dataset was prepared by the [UCI Machine Learning Repository](https://archive.ics.uci.edu/ml/index.php), so we can download it from their page and read it using pandas.
 
@@ -37,7 +37,7 @@ df = pd.read_csv(r"datasets/DNA/splice.data",
     names=["Class", "Instance", "Sequence"])
 ```
 
-## Examining the data
+## Examining the Data
 
 
 ```python
@@ -3126,7 +3126,7 @@ set.union(*set_series)
 
 OK, we have a lot more letters than I expected. Let's see how common they are and how they're used.
 
-#### Exploring unexpected values
+#### Exploring Unexpected Values
 
 
 ```python
@@ -3252,7 +3252,7 @@ df.loc[1441].Sequence.strip()
 
 OK, there aren't too many rows with these missing values. We could remove them, but if there's enough information in the rest of the sequence to distinguish the class, we would be throwing away useful data. If there's not, the instance won't have much effect on the model. So I'm going to keep them in.
 
-#### Checking the size
+#### Checking the Size
 
 The dataset claims that every row has 60 characters (30 before and 30 after the possible splice. Let's check to make sure that's true.
 
@@ -3353,7 +3353,7 @@ X_one_hot.shape
 
 This array is ready to go. Let's look at the labels next.
 
-## Putting it all back together
+## Putting it All Back Together
 
 I was originally going to combine the `X_donor` array with `X_one_hot` as the final X-values in the dataset. But after testing some models on it, it looks like the `X_donor` data too accurately predicts the label. Using just that information I can predict 100% of the labels, so the sequence data becomes meaningless. To me, that means that the Instance data shouldn't actually be used to predict the labels. So our final dataset will just be the sequence data.
 
