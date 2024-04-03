@@ -699,7 +699,7 @@ Check out this [excellent visualization of the relationship between for-loop and
 
 ## Conditional List Comprehensions
 
-When there's only an if, you can do this:
+When there's only an `if`, you can do this:
 
 
 ```python
@@ -713,7 +713,7 @@ When there's only an if, you can do this:
 
 
 
-But if you want to add an else statement, you can't just add it after the if statement like so:
+But if you want to add an `else` statement, you can't just add it after the `if` statement like so:
 
 
 ```python
