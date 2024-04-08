@@ -31,6 +31,12 @@ In general, I want the control button to do much more:
 I do this to make it easier to navigate in terminals: https://stackoverflow.com/questions/6205157/how-to-set-keyboard-shortcuts-to-jump-to-beginning-end-of-line/22312856#22312856
 * also add ctrl+z for undo (so there are two ways to undo)
 
+
+### Jumping around text
+
+You'll find that whether you can jump around text depends on a specific application. For example, if you've done the above, you can use `control + shift` to highlight entire words in Gmail, but not Outlook. The solution is to stop using Outlook.
+
+
 ## Sublime Text
 
 #### External Packages
