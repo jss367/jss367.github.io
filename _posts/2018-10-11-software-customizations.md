@@ -326,7 +326,7 @@ cdh=cd "C:\Users\Julius\Documents\GitHub"
 
 #### Execute Command
 
-I find it's easier to hot a hotkey that can easily be done with the left hand only. It also matches the default from Navicat, which is nice if you switch back and forth.
+I find it's easier to use a hotkey that can easily be done with the left hand only, so I go with `command + R` to run queries. It also matches the default from Navicat, which is nice if you switch back and forth.
 
 Go into Preferences -> Keymap and type in "execute" in the search bar. Then change `Execute (2)` from empty to `command + R`. This way you don't have to disable `shift + return`.
 
