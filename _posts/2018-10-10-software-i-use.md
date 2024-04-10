@@ -442,7 +442,10 @@ There are applications that were either neck-and-neck with other ones, or I use 
 [HyperSwitch](https://bahoom.com/hyperswitch)
 
 [Navicat for PostgreSQL](https://www.navicat.com/en/products/navicat-for-postgresql)
-* Not free but this is my favorite for databases
+* Not free but good tool for databases
+
+[Postman](https://www.postman.com/)
+* Great for working with APIs
 
 [muCommander](https://www.mucommander.com/)
 * More lightweight than Commander One, so I sometimes use it
