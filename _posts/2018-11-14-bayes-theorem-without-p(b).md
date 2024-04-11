@@ -26,7 +26,9 @@ $$ P(A) $$ is the probability of A occurring. This is know as the "prior".
 
 $$ P(B) $$ is the probability of B occurring.
 
-A and B are variables that can represent anything, but, in general, A is the the hypothesis you want to test and B is the new evidence. You want to know what is the probability of hypothesis A given that you just saw evidence B.
+A and B are variables that can represent anything, but, in general, A is the the hypothesis you want to test and B is the new evidence. You want to know what is the probability of hypothesis A given that you just saw evidence B. When it's used in that context, you'll often see it written like this:
+
+$$ P(H|E) = \frac{P(E|H) \times P(H)}{P(E)} $$
 
 I often think of it like this:
 
