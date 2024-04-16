@@ -26,8 +26,6 @@ Two things you'll want to know when debugging Jupyter environment problems are w
 
 They provide the same information.
 
-![png]({{site.baseurl}}/assets/img/windows_conda_envs.png)
-
 #### What Python interpreter am I using?
 
 In Python:
@@ -41,7 +39,7 @@ sys.executable
 
 Note that if you are in your base environment, it might look different:
 
-`/Users/jsimonelli/opt/anaconda3/bin/python`
+`/Users/julius/opt/anaconda3/bin/python`
 
 #### What kernels are available to Jupyter?
 
