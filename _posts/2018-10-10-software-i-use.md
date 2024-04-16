@@ -36,9 +36,6 @@ I’m always curious about how people set up their computers and what software p
 [Google Slides](https://www.google.com/slides/about/)
 * I prefer Excel, but it's free and I don't use spreadsheets enough to buy Excel
 
-[LibreOffice](https://www.libreoffice.org/) (FOSS, Ninite)
-* I prefer cloud-based editors so I don't use this very much anymore.
-
 ## LaTeX Editor
 
 [Texmaker](https://www.xm1math.net/texmaker/)
@@ -421,14 +418,11 @@ Static Type Checker - mypy
 
 # Honorable Mentions
 
-There are applications that were either neck-and-neck with other ones, or I use very infrequently, or I used to use but no longer do. I generally still think they're worth checking out.
+Some applications were either neck-and-neck with other ones, or I use very infrequently, or I used to use but no longer do. I generally still think they're worth checking out.
 
 [Azure Data Studio](https://docs.microsoft.com/en-us/sql/azure-data-studio/download-azure-data-studio?view=sql-server-ver15)
 * Free and feels like VSCode in many ways
 * FOSS alternative to Navicat for PostgreSQL for me
-
-[Postico](https://eggerapps.at/postico/) (Mac only)
-* Not free but still very good
 
 [GIMP](https://www.gimp.org/)  (Linux)
 * The Paint program I like on Windows doesn't exist for Linux, so I use GIMP instead.
@@ -437,7 +431,7 @@ There are applications that were either neck-and-neck with other ones, or I use 
 * Like Alfred for Windows
 * Default is Alt + Spacebar, which is a little different on the keyboard than Alfred.
 
-[CyberDuck](https://cyberduck.io/)
+
 
 [HyperSwitch](https://bahoom.com/hyperswitch)
 
@@ -447,6 +441,18 @@ There are applications that were either neck-and-neck with other ones, or I use 
 [Postman](https://www.postman.com/)
 * Great for working with APIs
 
+
+
+# No Longer Used
+
+[LibreOffice](https://www.libreoffice.org/) (FOSS, Ninite)
+* I prefer cloud-based editors so I don't use this very much anymore.
+
 [muCommander](https://www.mucommander.com/)
 * More lightweight than Commander One, so I sometimes use it
 * [This website](https://logicgrimoire.wordpress.com/2013/11/15/richs-quick-and-easy-guide-to-file-management-with-mucommander/) offers good tips on how to get started with it
+
+[Postico](https://eggerapps.at/postico/) (Mac only)
+* Not free but still very good
+
+[CyberDuck](https://cyberduck.io/)
