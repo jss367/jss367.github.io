@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Jupyter Environments and Kernels"
+title: "Jupyter Environments and Kernels in Macs"
 description: "A discussion of how to set up Jupyter environments both inside Docker containers and outside"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/feral_pigeon.jpg"
@@ -37,49 +37,25 @@ import sys
 sys.executable
 ```
 
-The response on Linux should say something like this:
-
-`/opt/conda/envs/my_env/bin/python`
-
-On a Mac it will look like this:
-
 `/Users/julius/opt/anaconda3/envs/my_env/bin/python`
 
-And here's Windows:
-
-`C:\\Users\\Julius\\anaconda3\\envs\\tf\\python.exe`
-
-Note that if you are in your base environment, it might look different. Here's what it looks like on Mac:
+Note that if you are in your base environment, it might look different:
 
 `/Users/jsimonelli/opt/anaconda3/bin/python`
-
-and linux:
-
-`/home/julius/anaconda3/bin/python`
 
 #### What kernels are available to Jupyter?
 
 `jupyter kernelspec list`
 
-Mac:
-
 ![png]({{site.baseurl}}/assets/img/jupyter_kernelspec_mac.png)
-
-Windows:
-
-![png]({{site.baseurl}}/assets/img/kernels2.png)
 
 #### Where are my kernels located?
 
-The exact location may vary, but for Mac/Linux users, it should look something like this:
+The exact location may vary, but it should look something like this:
 
 `/root/.local/share/jupyter/kernels/`
 
 But if it's a machine you're directly working on, you won't have access to `/root`, so it's probably somewhere like `/home/julius/.local/share/jupyter/kernels/`
-
-Here's what you might see on Windows:
-
-![png]({{site.baseurl}}/assets/img/windows_kernels.png)
 
 You should also be aware that different kernels will have different paths. For example, `import my_package` may work in one kernel but not in another. Check `sys.path` to see which paths are being called.
 
@@ -215,35 +191,6 @@ There is a `kernel.json` file
 If you don't get your env a name it will overwrite this
 
 What happened is that the `py3_env2` kernel overwrote the `py3_env1` kernel. 
-
-
-## Windows
-
-For Windows users, you can use the Anaconda Prompt
-
-`jupyter kernelspec list`
-
-Should see something like `C:\Users\Julius\anaconda3\share\jupyter\kernels\python3`
-
-`cd` there
-
-You should see a `kernel.json` file. You can look inside it with `type kernel.json` (`type` is the Windows version of the Unix command `cat`)
-
-```
-{
- "argv": [
-  "C:/Users/Julius/anaconda3\\python.exe",
-  "-m",
-  "ipykernel_launcher",
-  "-f",
-  "{connection_file}"
- ],
- "display_name": "Python 3",
- "language": "python"
-}
-```
-
-Now you can [add the kernel as shown above](https://jss367.github.io/jupyter-environments-and-kernels.html#adding-kernels).
 
 ## Python and environment not matching
 
