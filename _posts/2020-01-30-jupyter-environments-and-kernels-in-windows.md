@@ -93,7 +93,7 @@ Should see something like `C:\Users\Julius\anaconda3\share\jupyter\kernels\pytho
 
 `cd` there
 
-You should see a `kernel.json` file. You can look inside it with `type kernel.json` (`type` is the Windows version of the Unix command `cat`)
+You should see a `kernel.json` file. You can look inside it with `type kernel.json`.
 
 ```
 {

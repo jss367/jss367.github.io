@@ -133,64 +133,6 @@ it says
 
 What? Why is it using the `py3_env2` Python interpreter? The answer is in the available kernels. The way to solve this depends on how exactly you got here. First, we'll look at it assuming this is inside a Docker container that you created.
 
-#### Docker Containers
-
-OK, let's assume you're in a Docker container and did something like this:
-
-    # Create the environments
-    RUN conda env create -f py2.yaml
-    RUN conda env create -f py3_env1.yaml
-    RUN conda env create -f py3_env2.yaml
-    
-    # Install the IPython kernel
-    RUN /bin/bash -c "conda init bash && source /root/.bashrc && conda activate env1 && conda install -y notebook ipykernel && ipython kernel install --user && conda deactivate"
-    RUN /bin/bash -c "conda init bash && source /root/.bashrc && conda activate env1 && conda install -y notebook ipykernel && ipython kernel install --user && conda deactivate"
-    RUN /bin/bash -c "conda init bash && source /root/.bashrc && conda activate env2 && conda install -y notebook ipykernel && ipython kernel install --user && conda deactivate"
-
-OK, let's jump back to debugging. The next thing you'll need to do is look at your Jupyter kernels:
-
-`cd /root/.local/share/jupyter/kernels/`
-
-`ls`
-
-`python2  python3`
-
-Two kernels. You have one for Python 2 and one for Python 3. When you look inside...
-
-`cat python3/kernel.json`
-
-You see
-
-```
-{
- "argv": [
-  "/opt/conda/envs/py3_env2/bin/python",
-  "-m",
-  "ipykernel_launcher",
-  "-f",
-  "{connection_file}"
- ],
- "display_name": "Python 3",
- "language": "python"
-}
-```
-
-You have two environments sharing the Python 3 kernel. Why is the Python 3 kernel only using the `py3_env2` environment?
-
-
-You can now change the kernel by selecting "Kernel" in the file menu, then "Change kernel".
-
-
-Install the IPython kernel:
-
-`pip install --user ipykernel`
-
-
-There is a `kernel.json` file
-
-If you don't get your env a name it will overwrite this
-
-What happened is that the `py3_env2` kernel overwrote the `py3_env1` kernel. 
 
 ## Python and environment not matching
 
