@@ -403,6 +403,8 @@ You'll have to go into preferences to change the way to scroll left and right.
 
 [Sysinternals](https://docs.microsoft.com/en-us/sysinternals/downloads/) (Windows)
 
+[calibre](https://calibre-ebook.com/)
+
 [PowerToys](https://docs.microsoft.com/en-us/windows/powertoys/) (Windows)
 
 [Boop](https://github.com/IvanMathy/Boop) (Mac, FOSS)
