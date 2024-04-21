@@ -89,6 +89,8 @@ For a mac I just use the built-in tool
 ## Checking disk space
 [WinDirStat](https://windirstat.net/index.html) (Ninite, Window)
 
+[Disk Inventory X](https://www.derlien.com/) (Mac)
+
 [ncdu](https://dev.yorhel.nl/ncdu)
 
 # Web Browsers
