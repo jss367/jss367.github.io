@@ -71,6 +71,9 @@ I’m always curious about how people set up their computers and what software p
 - Perfect search tool. I strongly favor this over the (otherwise also very good) alternatives
 - No equivalent for Linux or Mac, although there are decent built-in options
 
+[ripgrep](https://github.com/BurntSushi/ripgrep)
+- Command line tool that works on all platforms. Very fast
+
 ## Screenshots
 [Greenshot](https://getgreenshot.org/) (FOSS, Windows)
 - This is a perfect screenshot tool. It does everything I want
