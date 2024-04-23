@@ -65,7 +65,7 @@ Here are some packages that I like
 I don't like the way Sublime handles tabs, so I change it to make it more like Chrome. To do this, you'll need to edit your key bindings. Here's how you do that:
 
 * (Windows or Linux) Preferences -> Key Bindings
-* (Mac) Sublime Text -> Preferences -> Key Bindings
+* (Mac) Sublime Text -> Settings -> Key Bindings
 
 Then add this to the file:
 ```
