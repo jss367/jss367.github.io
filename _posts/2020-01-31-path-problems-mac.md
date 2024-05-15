@@ -138,21 +138,12 @@ When modifying `sys.path`, it's crucial to be cautious and consider the potentia
 
 ### ModuleNotFoundError
 
-#### Explanation of the error
-
 `ModuleNotFoundError` is a common error that occurs when Python cannot find a module you are trying to import. This error indicates that the module is not present in any of the directories listed in `sys.path`.
-
-#### Common causes related to Python path issues
 
 Some common causes of `ModuleNotFoundError` related to Python path issues include:
 
-* The module is not installed in any of the directories listed in `sys.path`
 * The module is installed in a directory that is not listed in `sys.path`
-* The module name is misspelled or does not match the actual module filename
 * The `$PYTHONPATH` environment variable is set incorrectly, causing Python to search in the wrong directories
-
-To resolve `ModuleNotFoundError`, you should ensure that the module is installed correctly and that the directory containing the module is included in `sys.path` or `$PYTHONPATH`.
-
 
 ## Identifying Python Executable (sys.executable)
 
