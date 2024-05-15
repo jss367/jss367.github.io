@@ -1,10 +1,10 @@
 ---
 layout: post
 title: "Path Problems"
-description: "A guide to some of the path problems you may face on various operating systems"
+description: "A guide to some of the path problems you may face on Windows"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/dark_path.jpg"
-tags: [Linux, Python, Windows]
+tags: [Python, Windows]
 ---
 
 Path problems are some of the most common and annoying problems machine learning engineers face, especially when frequently switching between operating systems. There are so many different issues ways to have path problems that no post could cover them all, but in this post, I'll try to provide some background on possible issues and how to resolve them.
@@ -20,18 +20,6 @@ The first thing you need to realize are that there are multiple different things
 The first step is being able to find out what's on your path. You can do this by looking at the `$PATH` environmental variable. You can do this from the command line, but the exact command depends on which operation system you're using.
 
 ## Viewing Your Path
-
-#### Unix Systems
-
-If you're using either a Mac or Linux, including Windows Subsystem for Linux, it's as simple as:
-
-`echo $PATH`
-
-The result might be a little hard to read, so if you want a more readable version you can use:
-
-`echo "${PATH//:/$'\n'}"`
-
-#### Windows
 
 In Windows, it's not as simple to view your environmental variables because it depends on what terminal emulator you're using. If you are using [ConEmu](https://conemu.github.io/) or [Cmder](https://cmder.net/), you can
 
@@ -50,17 +38,6 @@ However, if you're using [Windows PowerShell](https://docs.microsoft.com/en-us/p
 Windows PowerShell is the default terminal in VSCode, so this is what you'll need to use there as well.
 
 ## Adding to Your Path
-
-#### Unix
-
-If you want to temporarily add to your path, type the following in the terminal:
-
-`export PATH=$PATH:/path/to/directory`
-
-If you want to permanently add to your path, simply take that command and place it in your `.bashrc` file (or wherever you keep your environmental variables - [I recommend `.profile`](https://jss367.github.io/shell-and-environment-setup.html))
-
-
-#### Windows
 
 If you want to temporarily add to your path:
 ```
@@ -81,12 +58,6 @@ ModuleNotFoundError: No module named 'my_module'
 
 ## Viewing your Python Path
 
-#### Unix
-
-`echo $PYTHONPATH`
-
-#### Windows
-
 On Windows, if you echo `$PYTHONPATH` you get nothing, but you can use Python to see what's in your path
 
 #### Python
@@ -95,7 +66,6 @@ When inside Python you can `print(sys.path)` to see your path:
 ```
 ['C:\\Users\\Julius\\Documents\\GitHub\\ResNetFromScratch', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\python37.zip', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\DLLs', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\lib', 'C:\\Users\\Julius\\anaconda3\\envs\\tf', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\lib\\site-packages', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\lib\\site-packages\\win32', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\lib\\site-packages\\win32\\lib', 'C:\\Users\\Julius\\anaconda3\\envs\\tf\\lib\\site-packages\\Pythonwin']
 ```
-
 
 ## Adding to your PYTHONPATH
 ```
@@ -144,17 +114,7 @@ Right-click anywhere in the editor window and select Run Python File in Terminal
 
 
 
-
-On a brand new Mac your path is:
-
-```
-julius@Juliuss-MacBook-Pro ~ % echo $PATH
-/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
-```
-
-
-
-on Windows can also
+on Windows you can also
 
 ```
 echo $PYTHONPATH
