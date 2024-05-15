@@ -17,11 +17,11 @@ The first thing you need to realize are that there are multiple different things
 
 ## Understanding System Paths ($PATH)
 
-### What is $PATH?
+### What is `$PATH`?
 
 The `$PATH` environment variable is a fundamental concept in Unix-based operating systems that tells the shell where to look for executable files. It is a colon-separated list of directories that your shell searches when you enter a command in the terminal. When you type a command, the shell looks for an executable file with that name in the directories listed in your `$PATH`, in the order they appear.
 
-### How the system uses $PATH to locate executables
+### How the system uses `$PATH` to locate executables
 
 When you run a command like `python` or `git`, the shell searches through the directories specified in your `$PATH` to find the corresponding executable file. It checks each directory in the order they are listed until it finds a match. If the executable is found, it is executed; otherwise, you'll see an error message indicating that the command was not found.
 
@@ -56,7 +56,7 @@ Each directory in this list is searched in order when you enter a command.
 
 ### Adding directories to $PATH
 
-If you have executables in a directory that is not listed in your $PATH, you can add it using the export command:
+If you have executables in a directory that is not listed in your `$PATH`, you can add it using the export command:
 
 ```bash
 export PATH=$PATH:/path/to/directory
@@ -115,12 +115,12 @@ To set $PYTHONPATH, you can use the export command in the terminal:
 export PYTHONPATH=/path/to/directory1:/path/to/directory2
 ```
 
-This command sets $PYTHONPATH to a colon-separated list of directories. You can add multiple directories by separating them with colons.
+This command sets `$PYTHONPATH` to a colon-separated list of directories. You can add multiple directories by separating them with colons.
 Like with $PATH, you can make this change persistent by adding the export command to your shell configuration file (e.g., .bashrc or .zshrc).
 
 ### Adding directories to sys.path programmatically
 
-1. Using sys.path.append('/path/to/directory')
+#### Using sys.path.append('/path/to/directory')
 
 You can also add directories to `sys.path` programmatically within your Python script using the `sys.path.append()` method:
 
@@ -131,18 +131,18 @@ sys.path.append('/path/to/directory')
 
 This approach is useful when you need to add a directory to the search path temporarily or conditionally based on your script's logic.
 
-2. Importance of modifying sys.path carefully
+#### Importance of modifying sys.path carefully
 
 When modifying `sys.path`, it's crucial to be cautious and consider the potential consequences. Adding directories to the beginning of `sys.path` can shadow modules from the standard library or other installed packages, leading to unexpected behavior. It's generally safer to append directories to the end of `sys.path` to avoid such issues.
 
 
 ### ModuleNotFoundError
 
-1. Explanation of the error
+#### Explanation of the error
 
 `ModuleNotFoundError` is a common error that occurs when Python cannot find a module you are trying to import. This error indicates that the module is not present in any of the directories listed in `sys.path`.
 
-2. Common causes related to Python path issues
+#### Common causes related to Python path issues
 
 Some common causes of `ModuleNotFoundError` related to Python path issues include:
 
@@ -189,7 +189,7 @@ When working on projects with specific Python version requirements, it's crucial
 
 If you find that the Python interpreter being used is not the one you intended, you can take the following steps:
 
-* Check your $PATH to ensure that the desired Python version's directory is listed and appears before other Python installations.
+* Check your `$PATH` to ensure that the desired Python version's directory is listed and appears before other Python installations.
 * Use a virtual environment to create an isolated Python environment with the required version.
 * Explicitly specify the Python interpreter when running your script, for example:
 ```bash
@@ -211,7 +211,7 @@ To maintain a clean and organized development environment, it's essential to kee
 
 ### Avoiding excessive modification of system-wide paths
 
-While it's sometimes necessary to modify system-wide paths like $PATH or $PYTHONPATH, it's best to do so sparingly. Excessive modifications can lead to unexpected behavior, conflicts between packages, and difficulties in reproducing your development environment on other machines.
+While it's sometimes necessary to modify system-wide paths like `$PATH` or `$PYTHONPATH`, it's best to do so sparingly. Excessive modifications can lead to unexpected behavior, conflicts between packages, and difficulties in reproducing your development environment on other machines.
 
 Instead of modifying system-wide paths, consider:
 
