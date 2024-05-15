@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Path Problems"
+title: "Path Problems: Windows"
 description: "A guide to some of the path problems you may face on Windows"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/dark_path.jpg"
