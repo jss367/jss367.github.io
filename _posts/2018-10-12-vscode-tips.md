@@ -99,6 +99,12 @@ This is where you can add specific details to your extensions.
 
 <img width="490" alt="image" src="https://github.com/jss367/jss367.github.io/assets/3067731/f73dcf42-b65a-43a5-80c4-87407289043c">
 
+You can also edit your `.vscode/.settings` file to add the following:
+```
+    "flake8.args": [
+        "--max-line-length=120"
+     ]
+```
 
 ## Terminal
 
