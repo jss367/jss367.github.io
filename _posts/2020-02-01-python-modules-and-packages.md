@@ -35,7 +35,7 @@ Using the import statement:
 import my_module
 ```
 
-This imports the entire `my_module` and allows you to access its contents using dot notation, such as `my_module.function_name()``.
+This imports the entire `my_module` and allows you to access its contents using dot notation, such as `my_module.function_name()`.
 
 Using the from statement:
 
