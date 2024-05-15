@@ -11,17 +11,21 @@ When working on complex projects, it's essential to keep your code organized, ma
 
 In this post, we'll dive into the world of Python modules and packages. We'll explore how to create and use modules, organize them into packages, and distribute them for others to use. Additionally, we'll discuss best practices for working with modules and packages, and common issues you might encounter along the way.
 
+<b>Table of Contents</b>
+* TOC
+{:toc}
+
 # Python Modules
 
 A Python module is a file containing Python code that defines variables, functions, and classes. Modules serve as a way to organize related code into a single unit, making it easier to understand, maintain, and reuse. By breaking down your code into modules, you can keep your project structure clean and avoid naming conflicts between different parts of your program.
 
-### Creating a module
+### Creating a Module
 
 To create a module, simply create a new Python file with a .py extension. It's important to follow the naming conventions for modules, which include using lowercase letters, underscores for word separation, and avoiding reserved keywords. For example, you might create a module named my_module.py.
 
 Inside the module file, you can write your Python code as you would in any other Python script. This can include defining variables, functions, and classes that encapsulate related functionality.
 
-### Importing modules
+### Importing Modules
 
 Once you have created a module, you can use it in other Python scripts by importing it. There are two main ways to import a module:
 
@@ -48,7 +52,7 @@ import my_module as mm
 from my_module import function_name as fn
 ```
 
-### Executing modules as scripts
+### Executing Modules as Scripts
 
 In addition to being imported, modules can also be executed as standalone scripts. To allow a module to be run as a script, you can include a special block of code that checks if the module is being run directly:
 
@@ -60,7 +64,7 @@ if __name__ == "__main__":
 
 This block of code will only be executed when the module is run directly, not when it is imported by another script.
 
-### Built-in modules
+### Built-in Modules
 
 Python comes with a wide range of built-in modules that provide additional functionality. These modules are part of the Python standard library and can be imported directly without any installation. Some commonly used built-in modules include:
 
@@ -74,7 +78,7 @@ Python comes with a wide range of built-in modules that provide additional funct
 
 As your Python projects grow larger and more complex, you may find yourself creating multiple related modules. To organize these modules and provide a hierarchical structure, Python uses packages. A package is a directory that contains multiple Python modules and a special `__init__.py` file.
 
-### Package structure
+### Package Structure
 
 A Python package is essentially a directory with a specific structure. Here's an example of a package structure:
 
@@ -92,7 +96,7 @@ In this example, `my_package` is the main package directory. Inside it, there ar
 
 The `__init__.py` file is a special file that is executed when the package is imported. It can be empty, or it can contain initialization code for the package. The presence of `__init__.py` tells Python that the directory should be treated as a package.
 
-### Creating a package
+### Creating a Package
 
 To create a package, follow these steps:
 
@@ -101,7 +105,7 @@ To create a package, follow these steps:
 * Create your module files inside the package directory.
 * If needed, create subpackages by creating subdirectories with their own `__init__.py` files.
 
-### Importing packages
+### Importing Packages
 
 To use a package in your Python code, you can import it using the import statement. There are a few ways to import packages:
 
@@ -127,7 +131,7 @@ You can also import specific items from a module within a package:
 from my_package.module1 import function_name
 ```
 
-### Distributing packages
+### Distributing Packages
 
 If you want to share your package with others or use it across different projects, you can distribute it as a Python package. To do this, you need to create a `setup.py` file that contains information about your package, such as its name, version, dependencies, and author.
 
@@ -163,7 +167,7 @@ If you encounter an `ImportError` or `ModuleNotFoundError` when trying to import
 * Verify that the module or package is located in a directory that is included in the Python path
 * If using a virtual environment, make sure it is activated
 
-### Dealing with naming conflicts
+### Dealing with Naming Conflicts
 
 Naming conflicts can occur when you have multiple modules or packages with the same name in different directories. To avoid naming conflicts:
 
@@ -179,7 +183,7 @@ from my_package import utils as my_utils
 from another_package import utils as other_utils
 ```
 
-### Resolving circular dependencies
+### Resolving Circular Dependencies
 
 If you encounter a circular dependency issue, where two or more modules or packages depend on each other, you can try the following solutions:
 

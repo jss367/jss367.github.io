@@ -145,6 +145,8 @@ Some common causes of `ModuleNotFoundError` related to Python path issues includ
 * The module is installed in a directory that is not listed in `sys.path`
 * The `$PYTHONPATH` environment variable is set incorrectly, causing Python to search in the wrong directories
 
+It might also be caused by an issue with how your Python package is set up. For more on this, see my [post on Python modules and packages](https://jss367.github.io/python-modules-and-packages.html).
+
 ## Identifying Python Executable (sys.executable)
 
 ### What is sys.executable?
