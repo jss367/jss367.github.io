@@ -4,7 +4,7 @@ title: "Python Modules and Packages"
 description: "A guide to modules and packages in Python"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/red-backed_kingfisher.jpg"
-tags: [Mac, Python]
+tags: [Python]
 ---
 
 When working on complex projects, it's essential to keep your code organized, maintainable, and reusable. This is where modular programming comes into play. Python provides a powerful way to structure and organize your code through the use of modules and packages. 
