@@ -309,7 +309,7 @@ I have no loyalty to any of these. I usually just go with the top free one recom
 
 # Databases
 
-[DataGrip](jetbrains.com/datagrip/)
+[DataGrip](jetbrains.com/datagrip/) (paid)
 
 [DBeaver](https://dbeaver.io/) (FOSS)
 * My current favorite open source database software
@@ -317,7 +317,7 @@ I have no loyalty to any of these. I usually just go with the top free one recom
 # Images
 
 ## Image Viewer
-[Xee](https://theunarchiver.com/xee) (Mac)
+[Xee](https://theunarchiver.com/xee) (Mac, paid)
 * I make this my default image viewer
   * To do so, right click an image file type in your window viewer (Command One in my case) and hold down `option` so "Get Info" turns into "Get Finder Info". Then you can expand "Open with" and select your image viewer of choice.
 
