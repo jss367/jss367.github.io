@@ -347,6 +347,13 @@ You'll have to go into preferences to change the way to scroll left and right.
 [ISS Transit Finder](https://transit-finder.com/)
 * Online only, no download
 
+## NAS
+
+Synology
+* Works better in Windows than Mac
+  * Feature come up first in Windows, more support and integration into the OS
+* Have to use Finder with it on Mac, which is unfortunate.
+
 # Other
 
 
