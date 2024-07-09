@@ -17,7 +17,7 @@ Note that the Library folder is hidden by default
 turn off versions, do snapshots instead
 
 
-
+## Freeing up space
 
 
 You also have mapped a network drive, where you can go to /home
