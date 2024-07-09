@@ -1,29 +1,21 @@
 synology
 
 
-synology drive
+Use Synology Drive
 
+
+## Location
+
+
+You'll have files in `/Users/julius/Library/CloudStorage/SynologyDrive-Mac`
+
+Note that the Library folder is hidden by default
+
+
+## Backups
 
 turn off versions, do snapshots instead
 
-
-
-
-
-
-
-You'll have files in /Users/julius/Library/CloudStorage/SynologyDrive-Mac
-
-The Library folder is hidden by default
-
-
-
-You'll also have files in /Users/julius/SynologyDrive, and the logo matches
-
-This has disk_usage
-
-
-These do not sync!!!! You don't want this
 
 
 
