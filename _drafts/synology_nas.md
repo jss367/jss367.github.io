@@ -1,31 +1,23 @@
 synology
 
 
-synology drive
+Use Synology Drive
 
+
+## Location
+
+
+You'll have files in `/Users/julius/Library/CloudStorage/SynologyDrive-Mac`
+
+Note that the Library folder is hidden by default
+
+
+## Backups
 
 turn off versions, do snapshots instead
 
 
-
-
-
-
-
-You'll have files in /Users/julius/Library/CloudStorage/SynologyDrive-Mac
-
-The Library folder is hidden by default
-
-
-
-You'll also have files in /Users/julius/SynologyDrive, and the logo matches
-
-This has disk_usage
-
-
-These do not sync!!!! You don't want this
-
-
+## Freeing up space
 
 
 You also have mapped a network drive, where you can go to /home
@@ -33,8 +25,10 @@ You also have mapped a network drive, where you can go to /home
 
 This doesn't have disk_usage
 
+Right now, it's pretty buggy on Mac, so sometimes I have to turn it off and turn it on again. But when it's working, In Finder you should see SynologyDrive in your Locations section. If you don't, try tioatioa. From there, you can right-click a folder and you will see the synology actions near the bottom.
 
-
+<img width="277" alt="image" src="https://github.com/jss367/jss367.github.io/assets/3067731/07af35aa-ec5d-4b6a-8da5-230de3654b9d">
+<img width="243" alt="image" src="https://github.com/jss367/jss367.github.io/assets/3067731/e63417a2-cd74-4df0-856f-2834e3d282cf">
 
 
 
