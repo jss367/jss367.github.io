@@ -118,10 +118,10 @@ Host Name: localhost
 User: digikam_user
 Password: mysqlroot
 Port: 3306 (Should be the default)
-Core Db Name: digikam_db
-Thumbs Db Name: digikam_db
-Face Db Name: digikam_db
-Similarity Db Name: digikam_db
+Core Db Name: digikam_core
+Thumbs Db Name: digikam_thumbs
+Face Db Name: digikam_face
+Similarity Db Name: digikam_similarity
 ```
 
 
