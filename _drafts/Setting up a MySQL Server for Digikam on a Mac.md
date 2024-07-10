@@ -134,8 +134,25 @@ Sometimes, your database won't connect.
 <img width="397" alt="image" src="https://github.com/jss367/jss367.github.io/assets/3067731/15a419aa-3a93-47db-9026-c48235b650ce">
 
 
+Mine is here:
+
+`/System/Volumes/Data/opt/homebrew/etc/my.cnf`
 
 
+looks like this:
+
+# Default Homebrew MySQL server config
+[mysqld]
+# Only allow connections from localhost
+bind-address = 127.0.0.1
+mysqlx-bind-address = 127.0.0.1
+
+
+
+
+
+You can also test your credentials like so:
+`mysql -u digikam_user -p -h localhost -P 3306 --socket=/tmp/mysql.sock`
 
 
 
