@@ -113,7 +113,7 @@ Make sure `digikam_user` is in there. Don't worry about the other stuff.
 Now, set up DigiKam
 
 
-
+```
 Host Name: localhost
 User: digikam_user
 Password: mysqlroot
@@ -122,6 +122,19 @@ Core Db Name: digikam_db
 Thumbs Db Name: digikam_db
 Face Db Name: digikam_db
 Similarity Db Name: digikam_db
+```
+
+
+## Troubleshooting
+
+Hopefully, you don't have to come down here, but in case you do, I'll suggest some things.
+
+Sometimes, your database won't connect.
+
+<img width="397" alt="image" src="https://github.com/jss367/jss367.github.io/assets/3067731/15a419aa-3a93-47db-9026-c48235b650ce">
+
+
+
 
 
 
