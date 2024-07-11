@@ -53,12 +53,14 @@ CREATE DATABASE digikam_similarity;
 
 Create a user for DigiKam and grant it privileges on the new database:
 
+* localhost was not working for me, so this is what I did
+
 ```
-CREATE USER 'digikam_user'@'localhost' IDENTIFIED BY 'mysqlroot';
-GRANT ALL PRIVILEGES ON digikam_core.* TO 'digikam_user'@'localhost';
-GRANT ALL PRIVILEGES ON digikam_thumbs.* TO 'digikam_user'@'localhost';
-GRANT ALL PRIVILEGES ON digikam_face.* TO 'digikam_user'@'localhost';
-GRANT ALL PRIVILEGES ON digikam_similarity.* TO 'digikam_user'@'localhost';
+CREATE USER 'digikam_user'@'127.0.0.1' IDENTIFIED BY 'mysqlroot';
+GRANT ALL PRIVILEGES ON digikam_core.* TO 'digikam_user'@'127.0.0.1';
+GRANT ALL PRIVILEGES ON digikam_thumbs.* TO 'digikam_user'@'127.0.0.1';
+GRANT ALL PRIVILEGES ON digikam_face.* TO 'digikam_user'@'127.0.0.1';
+GRANT ALL PRIVILEGES ON digikam_similarity.* TO 'digikam_user'@'127.0.0.1';
 FLUSH PRIVILEGES;
 ```
 
@@ -110,7 +112,7 @@ Make sure `digikam_user` is in there. Don't worry about the other stuff.
 
 
 
-Now, set up DigiKam
+Now, set up digiKam:
 
 
 ```
@@ -123,6 +125,13 @@ Thumbs Db Name: digikam_thumbs
 Face Db Name: digikam_face
 Similarity Db Name: digikam_similarity
 ```
+
+I had a problem
+
+ALTER USER 'digikam_user'@'localhost' IDENTIFIED WITH mysql_native_password BY 'mysqlroot';
+FLUSH PRIVILEGES;
+
+
 
 
 ## Troubleshooting
@@ -155,5 +164,45 @@ You can also test your credentials like so:
 `mysql -u digikam_user -p -h localhost -P 3306 --socket=/tmp/mysql.sock`
 
 
+
+
+Check if MySQL is running:
+`ps aux | grep mysqld`
+
+
+
+
+
+
+
+
+ALTER USER 'digikam_user'@'localhost' IDENTIFIED WITH mysql_native_password BY 'mysqlroot666';
+FLUSH PRIVILEGES;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Set up Mysql Internal
+
+/Users/julius/Library/Application Support/digikam
+
+
+
+Your rc file is stored here:
+
+
+/Users/julius/Library/Preferences/digikamrc
 
 
