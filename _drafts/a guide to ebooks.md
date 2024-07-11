@@ -1,33 +1,43 @@
 a guide to ebooks
 
 
-Spotify
+## Spotify
 
-Lots of people already have this. 
+* Lots of people already have this. 
+
+* Only 12? hours of listening a month
 
 
-
-
-Prime Reading
+## Prime Reading
 
 
 No Kindle needed
 works on iOS and Android
 Mac?
 
-Very small selection
+* Very small selection
 
 
 
 
 
-Kindle Unlimited
+## Kindle Unlimited
 
 I tried Kindle Unlimited and found the selection (no pun intended), limited
 
 
 
+## Libby
 
+* Free
+* Great
+* Moderate selection
+
+You can't company text from the Libby app, so you have to do that with the kindle app. Directions here: https://help.libbyapp.com/en-us/6017.htm
+
+Go into "Manage Loan" -> "Read With..."
+
+This doesn't work for all books for some reason.
 
 
 
