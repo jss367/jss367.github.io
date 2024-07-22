@@ -7,6 +7,8 @@ a guide to ebooks
 
 * Only 12? hours of listening a month
 
+* You can find the pdf for audiobooks on your phone, but not on the desktop
+* https://community.spotify.com/t5/Desktop-Mac/Where-can-I-find-the-PDF-that-goes-with-my-audiobook/td-p/5797438
 
 ## Prime Reading
 
