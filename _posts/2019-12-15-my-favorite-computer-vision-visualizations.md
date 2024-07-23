@@ -21,3 +21,4 @@ I find that sometimes the best way to understand a topic is to see it in action.
 * Andrei Kaparthy made an excellent [demo of how neural networks create separability](https://cs.stanford.edu/people/karpathy/convnetjs//demo/classify2d.html) in a toy dataset.
 * Towards Data Science has an excellent blog post on the [math behind convolutional neural networks](https://towardsdatascience.com/gentle-dive-into-math-behind-convolutional-neural-networks-79a07dd44cf9)
 * [dtreeviz](https://github.com/parrt/dtreeviz) makes beautiful visualizations of decision trees
+* [NN SVG]https://alexlenail.me/NN-SVG/index.html is an easy-to-use neural network visualizer
