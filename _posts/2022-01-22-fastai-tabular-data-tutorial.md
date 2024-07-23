@@ -428,7 +428,7 @@ train_df['salary'].value_counts()
 
 
 
-The first thing to note is that there is missing data. We'll have to deal with that - fortunately FastAI has tools that make this easy. Also, it looks like we have both continuous and categorical data. We'll split those apart so we can put the categorical data through embeddings. Also, the data is highly imbalanced. We could correct for this but I'll skip over that for now. The imbalance isn't so bad that it would completely stop the network from learning.
+The first thing to note is that there is missing data. We'll have to deal with that; fortunately FastAI has tools that make this easy. Also, it looks like we have both continuous and categorical data. We'll split those apart so we can put the categorical data through embeddings. Also, the data is highly imbalanced. We could correct for this but I'll skip over that for now. The imbalance isn't so bad that it would completely stop the network from learning.
 
 Note that the variable we're trying to predict, salary, is in the DataFrame. That's fine, we'll just need to tell `cont_cat_split` what the dependent variables is so it isn't included in the training variables.
 
