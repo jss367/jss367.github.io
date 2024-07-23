@@ -7,7 +7,7 @@ thumbnail: "assets/img/signs.jpg"
 tags: [FastAI, Python, Tabular Data]
 ---
 
-This post is a tutorial on working with tabular data using FastAI. One of FastAI biggest contributions in working with tabular data is the ease with which embeddings can be used for categorical variables. I have found that using embeddings for categorical variables results in significantly better models than the alternatives (e.g. one-hot encoding). I have found that the combination of embeddings and neural networks reach very high performance with tabular data.
+This post is a tutorial on working with tabular data using FastAI. One of FastAI's biggest contributions in working with tabular data is the ease with which embeddings can be used for categorical variables. I have found that using embeddings for categorical variables results in significantly better models than the alternatives (e.g. one-hot encoding). I have found that the combination of embeddings and neural networks reach very high performance with tabular data.
 
 
 ```python
@@ -17,7 +17,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score
 ```
 
-We'll the [UCI Adult Data Set](https://archive.ics.uci.edu/ml/datasets/Adult) where the task is to predict whether a person makes over 50k a year. FastAI makes downloading the dataset easy.
+We'll use the [UCI Adult Data Set](https://archive.ics.uci.edu/ml/datasets/Adult) where the task is to predict whether a person makes over 50k a year. FastAI makes downloading the dataset easy.
 
 
 ```python
@@ -428,9 +428,9 @@ train_df['salary'].value_counts()
 
 
 
-The first thing to note is that there is missing data. We'll have to deal with that; fortunately FastAI has tools that make this easy. Also, it looks like we have both continuous and categorical data. We'll split those apart so we can put the categorical data through embeddings. Also, the data is highly imbalanced. We could correct for this but I'll skip over that for now. The imbalance isn't so bad that it would completely stop the network from learning.
+The first thing to note is that there is missing data. We'll have to deal with that; fortunately, FastAI has tools that make this easy. Also, it looks like we have both continuous and categorical data. We'll split those apart so we can put the categorical data through embeddings. Also, the data is highly imbalanced. We could correct for this but I'll skip over that for now. The imbalance isn't so bad that it would completely stop the network from learning.
 
-Note that the variable we're trying to predict, salary, is in the DataFrame. That's fine, we'll just need to tell `cont_cat_split` what the dependent variables is so it isn't included in the training variables.
+Note that the variable we're trying to predict, salary, is in the DataFrame. That's fine, we'll just need to tell `cont_cat_split` what the dependent variable is so it isn't included in the training variables.
 
 
 ```python
@@ -599,7 +599,7 @@ X_train, y_train = df_wrapper.train.xs, df_wrapper.train.ys.values.ravel()
 X_test, y_test = df_wrapper.valid.xs, df_wrapper.valid.ys.values.ravel()
 ```
 
-Now the data are in DataFrame fully ready to be used in a scikit-learn or xgboost model. We can explore the data to see this.
+Now the data are in a DataFrame fully ready to be used in a scikit-learn or xgboost model. We can explore the data to see this.
 
 
 ```python
