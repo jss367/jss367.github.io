@@ -51,3 +51,23 @@ https://archive.org/details/politicaleconomy0000lind/page/n15/mode/2up
 
 
 You can click on the search button on the LEFT to search inside—not the one you see first.
+
+
+
+## Calibre
+
+Hard to figure out
+
+
+
+## Library Genesis
+
+Libgen.is
+
+
+After you search a book, look for epubs
+
+
+## Audiobook bay
+
+https://audiobookbay.lu/
