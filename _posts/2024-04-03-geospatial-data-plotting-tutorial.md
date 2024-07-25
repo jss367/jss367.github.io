@@ -9,6 +9,10 @@ tags: [Geospatial Analytics, Python]
 
 This tutorial shows how to plot geospatial data on a map of the US. There are lots of libraries that do all the hard work for you, so the key is just knowing that they exist and how to use them.
 
+<b>Table of Contents</b>
+* TOC
+{:toc}
+
 
 ```python
 import matplotlib.pyplot as plt
