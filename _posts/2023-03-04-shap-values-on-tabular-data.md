@@ -4,7 +4,7 @@ title: "SHAP Values on Tabular Data"
 description: "This post is a tutorial for how to work with shap values."
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/rug.jpg"
-tags: [Model Explainability, Python]
+tags: [Model Explainability, Python, Tabular Data]
 ---
 
 This post is going to explore [SHAP](https://github.com/slundberg/shap) values. SHAP stands for SHapley Additive exPlanations and is a way of explaining the output of a machine learning model.

@@ -4,7 +4,7 @@ title: "High Performance Models on Tabular Data"
 description: "This post shows how to get good performance on tabular data from models like xgboost and random forest. It relies on Bayesian optimization using Hyperopt to do so"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/red-backed_fairywren.jpg"
-tags: [FastAI, Machine Learning, Neural Networks, Python, Scikit-learn, XGBoost]
+tags: [FastAI, Machine Learning, Neural Networks, Python, Scikit-learn, Tabular Data, XGBoost]
 ---
 
 This blog posts shows some ways to get generally good performance on tabular data. Most of the work in getting high performance models from tabular data comes from cleaning the dataset, clever feature engineering, and other tasks specific to the data set. We won't be doing that here. However, there's still a need for some good baseline parameters to know you're getting the best out of your model. This post provides a way to use Bayesian optimization to find good hyperparameters and get good performance.
