@@ -3,7 +3,7 @@ layout: post
 title: "VSCode Tips"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/binary.jpg"
-tags: [Software]
+tags: [Software, VSCode]
 ---
 
 This post contains some of my favorite tips and tricks for working with VSCode. For even more, I recommend [VSCode's own tips and tricks page](https://code.visualstudio.com/docs/getstarted/tips-and-tricks).
