@@ -279,7 +279,7 @@ dis.dis(requests.get)
 
 ##### Limitations
 
-Unfortunately, `dis` cannot do everything. In particular, it can only work for functions that are implemented in Python. Many libraries, such as Numpy and Pytorch, have functions written in C or C++. This means that `dis` will throw an error if you try to use it on them.
+Unfortunately, `dis` cannot do everything. In particular, it can only work for functions that are implemented in Python. Many libraries, such as NumPy and PyTorch, have functions written in C or C++. This means that `dis` will throw an error if you try to use it on them.
 
 
 ```python
