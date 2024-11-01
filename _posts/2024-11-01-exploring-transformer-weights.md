@@ -409,7 +409,7 @@ plt.legend()
     
 
 
-We can also see that some domensions have high variance and some have low. Take a look at this:
+We can also see that some dimensions have high variance and some have low. Take a look at this:
 
 
 ```python
