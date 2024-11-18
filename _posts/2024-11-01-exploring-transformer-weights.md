@@ -333,7 +333,7 @@ print(summary)
     
 
 
-## Positional Embeddings:
+## Positional Embeddings
 
 Let's start with the positional embeddings, which encode position information for the model. First, let's look at the complete embedding matrix:
 
