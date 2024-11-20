@@ -2,7 +2,7 @@
 layout: post
 title: "Exploring Transformer Weights"
 description: "Performing visualizations on transformer weights"
-feature-img: "assets/img/rainbow.jpg"
+feature-img: "assets/img/hummingbird.jpg"
 thumbnail: "assets/img/hummingbird.jpg"
 tags: [Geospatial Analytics, Python]
 ---
