@@ -9,7 +9,7 @@ tags: [Statistics, Data Science, Python, Interactive]
 
 # Understanding Statistical Power: An Interactive Guide
 
-Statistical power is a fundamental concept in research design and hypothesis testing. This interactive guide will help you build intuition about how different factors affect statistical power.
+This post walks through how to add interactive visualizations on github pages.
 
 <div id="power-visualization">
     <style>
