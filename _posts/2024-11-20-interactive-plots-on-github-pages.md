@@ -1,63 +1,92 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Statistical Power Visualization</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.27.1/plotly.min.js"></script>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        .controls {
-            margin: 20px 0;
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-        .control-group {
-            display: flex;
-            flex-direction: column;
-            gap: 5px;
-        }
-        #plot {
-            width: 100%;
-            height: 600px;
-        }
-    </style>
-</head>
-<body>
-    <h1>Statistical Power Visualization</h1>
-    <div class="controls">
-        <div class="control-group">
-            <label for="effectSize">Effect Size:</label>
-            <input type="range" id="effectSize" min="0" max="2" step="0.1" value="0.5">
-            <span id="effectSizeValue">0.5</span>
-        </div>
-        <div class="control-group">
-            <label for="sampleSize">Sample Size:</label>
-            <input type="range" id="sampleSize" min="5" max="100" step="5" value="30">
-            <span id="sampleSizeValue">30</span>
-        </div>
-        <div class="control-group">
-            <label for="alpha">Alpha:</label>
-            <input type="range" id="alpha" min="0.01" max="0.10" step="0.01" value="0.05">
-            <span id="alphaValue">0.05</span>
-        </div>
-    </div>
-    <div id="plot"></div>
+---
+layout: post
+title: "Interactive Plots on Github Pages"
+description: "An interactive visualization deployed on Github Pages using Plotly.js"
+feature-img: "assets/img/rainbow.jpg"
+thumbnail: "assets/img/auklet.jpg"
+tags: [Data Visualization, Github Pages, Interactive Visualizations]
+---
 
-    <script>
+This post shows how to create interactive visualizations on Github Pages. This uses Plotly.js.
+
+<div class="controls">
+    <div class="control-group">
+        <label for="effectSize">Effect Size:</label>
+        <input type="range" id="effectSize" min="0" max="2" step="0.1" value="0.5">
+        <span id="effectSizeValue">0.5</span>
+    </div>
+    <div class="control-group">
+        <label for="sampleSize">Sample Size:</label>
+        <input type="range" id="sampleSize" min="5" max="100" step="5" value="30">
+        <span id="sampleSizeValue">30</span>
+    </div>
+    <div class="control-group">
+        <label for="alpha">Alpha:</label>
+        <input type="range" id="alpha" min="0.01" max="0.10" step="0.01" value="0.05">
+        <span id="alphaValue">0.05</span>
+    </div>
+</div>
+<div id="plot"></div>
+
+<style>
+    .controls {
+        margin: 20px 0;
+        display: flex;
+        gap: 20px;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .control-group {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+    }
+    #plot {
+        width: 100%;
+        height: 600px;
+        margin-bottom: 20px;
+    }
+    input[type="range"] {
+        width: 200px;
+    }
+</style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/plotly.js/2.27.1/plotly.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
         function normalPDF(x, mean, sd) {
             return Math.exp(-0.5 * Math.pow((x - mean) / sd, 2)) / (sd * Math.sqrt(2 * Math.PI));
+        }
+
+        function erf(x) {
+            const a1 =  0.254829592;
+            const a2 = -0.284496736;
+            const a3 =  1.421413741;
+            const a4 = -1.453152027;
+            const a5 =  1.061405429;
+            const p  =  0.3275911;
+
+            const sign = (x >= 0) ? 1 : -1;
+            x = Math.abs(x);
+
+            const t = 1.0/(1.0 + p*x);
+            const y = 1.0 - (((((a5*t + a4)*t) + a3)*t + a2)*t + a1)*t*Math.exp(-x*x);
+
+            return sign*y;
+        }
+
+        function erfInv(x) {
+            const a = 0.147;
+            const b = 2/(Math.PI * a) + Math.log(1-x*x)/2;
+            const sqrt1 = Math.sqrt(b*b - Math.log(1-x*x)/a);
+            const sqrt2 = Math.sqrt(sqrt1 - b);
+            return sqrt2 * Math.sign(x);
         }
 
         function createPowerVisualization(effectSize, n, alpha) {
             const se = Math.sqrt(2/n);
             const critValue = -se * Math.sqrt(2) * erfInv(2 * (1 - alpha/2) - 1);
             
-            // Generate x values
             const x = [];
             const nullDist = [];
             const altDist = [];
@@ -68,7 +97,6 @@
                 altDist.push(normalPDF(i, effectSize, se));
             }
 
-            // Calculate power
             const power = 1 - (0.5 * (1 + erf((critValue - effectSize)/(se * Math.sqrt(2)))));
 
             const data = [
@@ -120,37 +148,6 @@
             Plotly.newPlot('plot', data, layout);
         }
 
-        // Error function implementations
-        function erf(x) {
-            const a1 =  0.254829592;
-            const a2 = -0.284496736;
-            const a3 =  1.421413741;
-            const a4 = -1.453152027;
-            const a5 =  1.061405429;
-            const p  =  0.3275911;
-
-            const sign = (x >= 0) ? 1 : -1;
-            x = Math.abs(x);
-
-            const t = 1.0/(1.0 + p*x);
-            const y = 1.0 - (((((a5*t + a4)*t) + a3)*t + a2)*t + a1)*t*Math.exp(-x*x);
-
-            return sign*y;
-        }
-
-        function erfInv(x) {
-            const a = 0.147;
-            const b = 2/(Math.PI * a) + Math.log(1-x*x)/2;
-            const sqrt1 = Math.sqrt(b*b - Math.log(1-x*x)/a);
-            const sqrt2 = Math.sqrt(sqrt1 - b);
-            return sqrt2 * Math.sign(x);
-        }
-
-        // Set up event listeners
-        document.getElementById('effectSize').addEventListener('input', updatePlot);
-        document.getElementById('sampleSize').addEventListener('input', updatePlot);
-        document.getElementById('alpha').addEventListener('input', updatePlot);
-
         function updatePlot() {
             const effectSize = parseFloat(document.getElementById('effectSize').value);
             const sampleSize = parseInt(document.getElementById('sampleSize').value);
@@ -163,8 +160,14 @@
             createPowerVisualization(effectSize, sampleSize, alpha);
         }
 
+        // Set up event listeners
+        document.getElementById('effectSize').addEventListener('input', updatePlot);
+        document.getElementById('sampleSize').addEventListener('input', updatePlot);
+        document.getElementById('alpha').addEventListener('input', updatePlot);
+
         // Initial plot
         updatePlot();
-    </script>
-</body>
-</html>
+    });
+</script>
+
+
