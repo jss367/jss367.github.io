@@ -2,8 +2,8 @@
 layout: post
 title: "Understanding Statistical Power: An Interactive Guide"
 description: "An interactive visualization of statistical power concepts using Plotly.js"
-feature-img: "assets/img/stats.jpg"  # Replace with your actual image path
-thumbnail: "assets/img/power-thumb.jpg"  # Replace with your actual thumbnail path
+feature-img: "assets/img/hummingbird.jpg"
+thumbnail: "assets/img/hummingbird.jpg"
 tags: [Statistics, Data Science, Python, Interactive]
 ---
 
@@ -64,5 +64,3 @@ Statistical power is a fundamental concept in research design and hypothesis tes
 ## What is Statistical Power?
 
 Statistical power is the probability of detecting a true effect when one exists. In other words, it's the likelihood that your study will find a statistically significant result when there really is a difference or effect to be found.
-
-[Rest of your blog post content...]
