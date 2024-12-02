@@ -1,4 +1,19 @@
-Setting up a MySQL Server for Digikam on a Mac
+digiKam Tutorial
+
+
+# Installing digiKam
+
+Starts with Apple could not verify...
+
+
+Go to System Preferences > Privacy & Security
+Look for text about "digiKam-<version>.pkg" being blocked
+Click "Open Anyway"
+
+
+
+
+# Setting up a MySQL Server for Digikam on a Mac
 
 
 Install it with homebrew: `brew install mysql`
