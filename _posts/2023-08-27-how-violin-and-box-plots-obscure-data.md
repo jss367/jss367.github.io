@@ -9,7 +9,7 @@ tags: [Data Visualization, Python]
 
 Data visualization is an essential tool for data scientists, enabling them to both explore and explain data. It is one of the most important tasks in their toolkit. Despite its significance, I frequently encounter exploratory data analysis (EDA) visualizations that mask important aspects of the data. This causes people to misunderstand their data and make bad decisions based on it. In my experience, the plots that cause this the most are violin and box plots. In this post, I will demonstrate some of the drawbacks of violin plots and box plots and I will suggest some alternative visualizations that offer a clearer representation of data.
 
-First, let's ask, "What's the point of EDA? Why am I plotting the data in the first place?" The point is to understand the data. There are lot of things you need to be looking for when doing data exploration. You need to notice patterns, outliers, abnormal distributions, and problems. There could be problems with the data entry that you need to find and correct. You need to be on the lookout for anomalies. You need to understand what your data are telling you. You can't assume the data will look a certain way. Thus, you need to make sure your plotting techniques would surface and not hide any such issues.
+First, let's ask, "What's the point of EDA? Why am I plotting the data in the first place?" The point is to understand the data. There are a lot of things you need to be looking for when doing data exploration. You need to notice patterns, outliers, abnormal distributions, and problems. There could be problems with the data entry that you need to find and correct. You need to be on the lookout for anomalies. You need to understand what your data are telling you. You can't assume the data will look a certain way. Thus, you need to ensure your plotting techniques reveal rather than obscure such issues.
 
 You might wonder, "It's just a tool. How can it be bad? Isn't it the data scientist who must use it correctly?" While this argument has merit, I have encountered so many examples of misuse with these specific tools that it's hard not to get suspicious that something is inherently wrong with them. As data scientists often reuse code and plots in their explorations, it becomes important to choose visualizations that can be trusted. Therefore, I advise against using violin and box plots in exploratory data analysis.
 
@@ -54,11 +54,11 @@ plt.show()
     
 
 
-I think the main problem I have with violin plots is that they value aesthetics over clear data representation. In a standard violin plot, the kernel density estimation (KDE) is mirrored on both sides to form a symmetrical, aesthetically pleasing figure (the 'violin'). First, I generally dislike all smoothing of data. I don't think it should ever be done in EDA—if your data are spiky, you need to know that. Smoothing is just saying, "I changed the way the data looks to make it look nicer." This seems like a very bad idea.
+I think the main problem I have with violin plots is that they prioritize aesthetics over clear data representation. In a standard violin plot, the kernel density estimation (KDE) is mirrored on both sides to form a symmetrical, aesthetically pleasing figure (the 'violin'). First, I generally dislike all smoothing of data. I don't think it should ever be done in EDA—if your data are spiky, you need to know that. Smoothing is just saying, "I changed the way the data looks to make it look nicer." This is often a very bad idea.
 
-Also, I don't like that half of the plot provides absolutely no information.  It’s just there to look nice. Hopefully, people don’t misread anything into this symmetry. But I don’t see the benefit of adding symmetry when it isn’t part of the data. In the best case, people ignore it, but in the worst case, people think it suggests something symmetrical about the data that isn't there.
+Also, I don't like that half of the plot provides absolutely no information.  It’s just there to look nice. Hopefully, people don’t misinterpret this symmetry. But I don’t see the benefit of adding symmetry when it isn’t part of the data. In the best case, people ignore it, but in the worst case, people think it suggests something symmetrical about the data that isn't there.
 
-It makes all your data into a nice violin shape (assuming all your violins look like stingrays). But this naturally raises a question, "What if you don't have violin-shaped data? What if your data distribution ISN’T violin-shaped?" THAT’S a problem.
+It forces all your data into a neat violin shape (assuming all your violins look like stingrays). But this naturally raises a question, "What if you don't have violin-shaped data? What if your data distribution ISN’T violin-shaped?" THAT’S a problem.
 
 ## Gap in Data
 
@@ -107,7 +107,7 @@ In the second data distribution, there are three tight concentrations of data, b
 
 ## Sample Size
 
-Moving on, let's talk about one of the most important things in statistical analysis: sample size. Question: How do violin plots represent this most-important feature? Answer: By completely hiding it.
+Moving on, let's discuss one of the most important aspects of statistical analysis: sample size. Question: How do violin plots represent this most-important feature? Answer: By completely hiding it.
 
 
 ```python
