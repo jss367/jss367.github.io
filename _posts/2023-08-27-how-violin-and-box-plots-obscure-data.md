@@ -533,7 +533,7 @@ As you can probably tell, I like histograms. That's why I was using them as my d
 
 ## Beeswarm Plots
 
-Now I want to go over the most underrated plot type: beeswarm plots. They convey all the data, and easy to grasp, show the sample size and the distribution, and are really nice looking. They are an excellent tool for smallish datasets. It's a shame that they aren't used more often.
+Now I want to go over the most underrated plot type: beeswarm plots. They convey all the data, are easy to grasp, show the sample size and the distribution, and are really nice looking. They are an excellent tool for smallish datasets. It's a shame that they aren't used more often.
 
 
 ```python
