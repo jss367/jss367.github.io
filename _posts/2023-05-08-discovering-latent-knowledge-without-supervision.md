@@ -446,7 +446,7 @@ plot_hidden_states(hidden_states_umap, "UMAP Visualization of Hidden States")
     
 
 
-It's always hard to know what this means. Let's look at it in 3D (commented out on the blog).
+It's always hard to know what this means. Let's look at it in 3D (commented out on the blog but you can uncomment `fig.show()` and run it to see the results).
 
 
 ```python
