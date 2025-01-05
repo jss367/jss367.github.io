@@ -394,5 +394,6 @@ Karabiner Elements is all about customization. I mainly use mine to make my expe
 <img width="933" alt="image" src="https://user-images.githubusercontent.com/3067731/209398081-c04af843-f244-4b7f-a2bc-a27ea91219c0.png">
 * I delete the shortcut that remaps `command` + `tab` because I like to keep that for switching between applications
 <img width="779" alt="image" src="https://user-images.githubusercontent.com/3067731/209398188-5aa0bf22-a783-4912-9f8b-12ebb43b6f0f.png">
+* I also delete the `command` + `L` shortcut because it interferes with Cursor.
 
 * The shortcuts will be stored under "Complex Modifications" in the app
