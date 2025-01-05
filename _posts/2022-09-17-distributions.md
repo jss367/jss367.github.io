@@ -176,6 +176,8 @@ The Gamma distribution is a continuous probability distribution that generalizes
 
 When the shape parameter is an integer, the Gamma distribution reduces to an Erlang distribution (which we'll see next), and when the shape parameter equals 1, it becomes an exponential distribution. This flexibility makes it a fundamental building block in probability theory and statistical modeling.
 
+### Equation
+
 The probability density function of the Gamma distribution is:
 
 $$ f(x; k, \theta) = \frac{x^{k-1}e^{-x/\theta}}{\theta^k\Gamma(k)} $$
