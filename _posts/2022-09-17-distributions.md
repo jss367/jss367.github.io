@@ -170,6 +170,158 @@ ax.set(xlabel='Variable', ylabel='Count');
 * Blood pressure of healthy populations
 * Birth weight
 
+## Gamma Distribution
+
+The Gamma distribution is a continuous probability distribution that generalizes the Erlang distribution to non-integer shape parameters. It's a versatile distribution that can model right-skewed data and waiting times, making it particularly useful in various fields from finance to engineering.
+
+When the shape parameter is an integer, the Gamma distribution reduces to an Erlang distribution (which we'll see next), and when the shape parameter equals 1, it becomes an exponential distribution. This flexibility makes it a fundamental building block in probability theory and statistical modeling.
+
+The probability density function of the Gamma distribution is:
+
+$$ f(x; k, \theta) = \frac{x^{k-1}e^{-x/\theta}}{\theta^k\Gamma(k)} $$
+
+where:
+
+* x > 0 is the random variable
+* k > 0 is the shape parameter
+* θ > 0 is the scale parameter
+* Γ(k) is the Gamma function
+
+The Gamma function Γ(k) is defined as:
+
+$$ \Gamma(k) = \int_0^\infty t^{k-1}e^{-t}dt $$
+
+### Plot
+
+
+```python
+from scipy.stats import gamma
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Set parameters
+shape_params = [1, 2, 5]  # k parameters
+scale = 2.0  # θ parameter
+num_samples = 10000
+
+plt.figure(figsize=(10, 6))
+
+# Plot PDF for different shape parameters
+x = np.linspace(0, 20, 200)
+for k in shape_params:
+    plt.plot(x, gamma.pdf(x, a=k, scale=scale), 
+             label=f'k={k}', lw=2)
+
+# Generate and plot histogram for one case
+samples = gamma.rvs(a=2, scale=scale, size=num_samples)
+plt.hist(samples, bins=50, density=True, alpha=0.3, color='gray')
+
+plt.xlabel('x')
+plt.ylabel('Probability Density')
+plt.title('Gamma Distribution with Different Shape Parameters')
+plt.legend()
+plt.grid(True, alpha=0.3)
+plt.show()
+```
+
+
+    
+![png](2022-09-17-distributions_files/2022-09-17-distributions_40_0.png)
+    
+
+
+### Uses
+
+The Gamma distribution finds applications in many fields:
+
+* Finance: Modeling insurance claims and asset returns
+* Weather: Analyzing rainfall amounts and other precipitation data
+* Engineering: Lifetime modeling of components and systems
+* Biology: Modeling waiting times between cell divisions
+* Physics: Describing particle interactions and decay processes
+* Healthcare: Patient recovery times and treatment durations
+* Queueing theory: Service times in complex systems
+
+It's particularly useful when modeling:
+
+* Continuous, positive-valued random variables
+* Right-skewed distributions
+* Processes involving waiting times or durations
+* Situations where events accumulate over time
+
+For example, in reliability engineering, the Gamma distribution can model the time until failure for systems where damage accumulates gradually over time, like wear and tear on mechanical components.
+
+## Erlang Distribution
+
+The Erlang distribution is a continuous probability distribution that describes the waiting time until k independent events occur in a Poisson process. It's named after Agner Krarup Erlang, who developed it to examine the number of telephone calls that could be made simultaneously to the operators of the early telephone exchanges.
+
+The Erlang distribution is a special case of the Gamma distribution where the shape parameter k is an integer. This makes it particularly useful for modeling scenarios where you're waiting for a specific number of events to occur sequentially.
+
+### Equation
+
+The probability density function of the Erlang distribution is:
+
+$$ f(x; k, \lambda) = \frac{\lambda^k x^{k-1} e^{-\lambda x}}{(k-1)!} $$
+
+where:
+
+* x ≥ 0 is the random variable
+* k is the shape parameter (a positive integer)
+* λ > 0 is the rate parameter
+* (k-1)! is the factorial of (k-1)
+
+### Plot
+
+
+```python
+from scipy.stats import erlang
+import numpy as np
+import matplotlib.pyplot as plt
+
+# Set parameters
+shape = 3  # k parameter
+scale = 1/2.0  # 1/λ parameter
+num_samples = 10000
+
+# Generate random samples
+x = erlang.rvs(shape, scale=scale, size=num_samples)
+
+# Create the plot
+plt.figure(figsize=(10, 6))
+plt.hist(x, bins=50, density=True, alpha=0.7, color='g')
+
+# Add the PDF
+x_pdf = np.linspace(0, 10, 100)
+plt.plot(x_pdf, erlang.pdf(x_pdf, shape, scale=scale), 
+         'r--', lw=2, label='PDF')
+
+plt.xlabel('Time')
+plt.ylabel('Probability Density')
+plt.title('Erlang Distribution')
+plt.legend()
+plt.grid(True, alpha=0.3)
+plt.show()
+```
+
+
+    
+![png](2022-09-17-distributions_files/2022-09-17-distributions_52_0.png)
+    
+
+
+### Uses
+
+The Erlang distribution is particularly useful in queuing theory and reliability engineering. Some common applications include:
+
+* Call center modeling: Time until k calls are completed
+* Manufacturing: Time until k items are produced
+* Quality control: Time until k defects are detected
+* Network traffic: Time until k packets arrive
+* Maintenance scheduling: Time until k components need replacement
+* Service systems: Time to complete k sequential tasks
+
+The distribution is especially valuable when modeling systems where events must occur in sequence, like multi-stage manufacturing processes or sequential service operations. For instance, in a three-stage manufacturing process, the total production time would follow an Erlang distribution with k=3, assuming each stage takes an exponentially distributed amount of time.
+
 # Discrete Distributions
 
 Lots of distributions aren't continuous, they deal with discrete predictions. For example, you can't flip 7.5 heads after 15 tries.
@@ -197,7 +349,7 @@ plt.show()
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_38_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_61_0.png)
     
 
 
@@ -224,7 +376,7 @@ print(f"In this experiment, we got heads {x} times")
 ```
 
     In this experiment, we got heads 0 times
-    
+
 
 This will output either 0 (no heads) or 1 (heads). To see the distribution of a large number of such experiments, we run multiple trials.
 
@@ -251,7 +403,7 @@ plt.show()
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_47_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_70_0.png)
     
 
 
@@ -284,7 +436,7 @@ print(f"In this experiment, we got heads {x} times")
 ```
 
     In this experiment, we got heads 14 times
-    
+
 
 But we can run this whole experiment over and over again and see what we get.
 
@@ -313,7 +465,7 @@ plt.show()
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_57_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_80_0.png)
     
 
 
@@ -361,7 +513,7 @@ ax.fig.suptitle('Poisson Distribution')
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_66_1.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_89_1.png)
     
 
 
@@ -436,7 +588,7 @@ plt.show()
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_79_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_102_0.png)
     
 
 
@@ -499,7 +651,7 @@ plt.show()
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_92_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_115_0.png)
     
 
 
@@ -538,7 +690,7 @@ plt.show()
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_97_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_120_0.png)
     
 
 
@@ -555,18 +707,9 @@ plt.title('Power Law Distribution')
 plt.show()
 ```
 
-    findfont: Font family ['cmsy10'] not found. Falling back to DejaVu Sans.
-    findfont: Font family ['cmr10'] not found. Falling back to DejaVu Sans.
-    findfont: Font family ['cmtt10'] not found. Falling back to DejaVu Sans.
-    findfont: Font family ['cmmi10'] not found. Falling back to DejaVu Sans.
-    findfont: Font family ['cmb10'] not found. Falling back to DejaVu Sans.
-    findfont: Font family ['cmss10'] not found. Falling back to DejaVu Sans.
-    findfont: Font family ['cmex10'] not found. Falling back to DejaVu Sans.
-    
-
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_99_1.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_122_0.png)
     
 
 
@@ -589,7 +732,7 @@ print(f"{(0.2)**2: .4} of the people do{(0.8)**2: .4} of the work.")
 ```
 
      0.04 of the people do 0.64 of the work.
-    
+
 
 For $$ x=3 $$, this would be:
 
@@ -599,7 +742,7 @@ print(f"{(0.2)**3: .4} of the people do{(0.8)**3: .4} of the work.")
 ```
 
      0.008 of the people do 0.512 of the work.
-    
+
 
 #### Zipf's Distribution - Discrete
 
@@ -625,7 +768,7 @@ plt.show()
 
 
     
-![png](2022-09-17-distributions_files/2022-09-17-distributions_112_0.png)
+![png](2022-09-17-distributions_files/2022-09-17-distributions_135_0.png)
     
 
 
