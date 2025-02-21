@@ -11,6 +11,7 @@ Do good writers use fewer adverbs than poor writers? Is it possible to improve o
 
 ```python
 from urllib import request
+
 import nltk
 import matplotlib.pyplot as plt
 ```
