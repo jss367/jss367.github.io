@@ -10,14 +10,15 @@ This notebook takes off from [Visualize Parts of Speech 1](https://jss367.github
 
 
 ```python
-from urllib import request
-import nltk
 import os
-import pandas as pd
+import re
+from urllib import request
+
+import get_gutenberg
 import matplotlib
 import matplotlib.pyplot as plt
-import re
-import get_gutenberg
+import nltk
+import pandas as pd
 ```
 
 We're going to use the [class for gathering text](https://jss367.github.io/class-for-gathering-text.html) we made previously.
