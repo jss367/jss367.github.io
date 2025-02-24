@@ -12,31 +12,6 @@ This post details the customizations I have made to the [software I use](https:/
 * TOC
 {:toc}
 
-## Mac General
-
-Here are some things I like to change on Macs and here's how I do it:
-
-* The cursor doesn't jump from word to word by default (at least, with oh-my-zsh)
-  * To fix this, you need to add the following to your .profile:
-```
-bindkey "\e\e[D" backward-word
-bindkey "\e\e[C" forward-word
-```
-
-In general, I want the control button to do much more:
-* ctrl + w to close a web page
-* ctrl + arrow key to jump to next word, both in terminal and in text editor in browser.
-
-
-I do this to make it easier to navigate in terminals: https://stackoverflow.com/questions/6205157/how-to-set-keyboard-shortcuts-to-jump-to-beginning-end-of-line/22312856#22312856
-* also add ctrl+z for undo (so there are two ways to undo)
-
-
-### Jumping around text
-
-You'll find that whether you can jump around text depends on a specific application. For example, if you've done the above, you can use `control + shift` to highlight entire words in Gmail, but not Outlook. The solution is to stop using Outlook.
-
-
 ## Sublime Text
 
 #### External Packages
