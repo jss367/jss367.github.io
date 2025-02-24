@@ -4,7 +4,7 @@ title: "Jupyter Environments and Kernels in Macs"
 description: "A discussion of how to set up Jupyter environments both inside Docker containers and outside"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/feral_pigeon.jpg"
-tags: [Jupyter Notebooks]
+tags: [Jupyter Notebooks, Mac]
 ---
 
 The post aims to show how to create Jupyter environments and how to debug any issues. It also provides some commands that are good for general debugging.
