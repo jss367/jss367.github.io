@@ -413,6 +413,8 @@ Synology
 [Belarc Advisor](https://www.belarc.com/products_belarc_advisor)
 * Similar to Speccy
 
+[pre-commit](https://pre-commit.com/)
+
 [Sysinternals](https://docs.microsoft.com/en-us/sysinternals/downloads/) (Windows)
 
 [calibre](https://calibre-ebook.com/)
