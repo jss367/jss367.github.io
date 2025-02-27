@@ -43,7 +43,7 @@ vi=vim $*
 cmderr=cd /d "%CMDER_ROOT%"
 ```
 
-You can add your stuff to the bottom like so:
+You can add your stuff to the bottom  so:
 
 ```
 cdh=cd "C:\Users\Julius\Documents\GitHub"
@@ -68,7 +68,7 @@ Note that you can also go into more detail with your `Execute` command in the Da
 
 #### Tabs
 
-DataGrip also has a default tab process that I don't like. Here's how to update it to make it more like Chrome's:
+DataGrip also has a default tab process that I don't . Here's how to update it to make it more  Chrome's:
 
 * Go into Preferences -> Keymap and type in "switcher".
 
@@ -80,7 +80,7 @@ DataGrip also has a default tab process that I don't like. Here's how to update 
 
 * Note that you can't just do the keyboard shortcut because it will think you are using `tab` to switch to the next box, so you have to click on the `+` on the right and select the appropriate hotkeys from the dropdown.
 
-* It should look like this in the end:
+* It should look  this in the end:
 
 <img width="984" alt="image" src="https://user-images.githubusercontent.com/3067731/186536462-34900e69-1f70-4344-b847-fd3bec14e2ac.png">
 
@@ -98,7 +98,7 @@ I think the hotkey for refactoring code is not good, so I recommend double caps 
 
 ## DBeaver
 
-I also don't like some of DBeaver's defaults.
+I also don't  some of DBeaver's defaults.
 
 ![image](https://user-images.githubusercontent.com/3067731/197381400-ae4ec5e3-0df2-4777-928a-132a96dbcb1a.png)
 
@@ -112,13 +112,13 @@ You can change, for example, the "Execute SQL Statement" by going into Window ->
 
 Karabiner Elements is all about customization. I mainly use mine to make my experience across Mac, Linux, and Windows as seemless as possible.
 
-* I recommend use the [Windows shortcuts on macOS](https://ke-complex-modifications.pqrs.org/?q=windows%20shortcuts%20on%20macOS). I use this to do a lot of thinks I like to do in Windows, like using `control` and the arrows to jump over words. Here's what it looks like:
+* I recommend use the [Windows shortcuts on macOS](https://ke-complex-modifications.pqrs.org/?q=windows%20shortcuts%20on%20macOS). I use this to do a lot of thinks I  to do in Windows,  using `control` and the arrows to jump over words. Here's what it looks :
 <img width="1218" alt="image" src="https://user-images.githubusercontent.com/3067731/209397616-c8552408-665d-4745-b918-5e839dd1e91a.png">
 * After you click "Import" you have to import it again within the app:
 <img width="987" alt="image" src="https://user-images.githubusercontent.com/3067731/209397778-6ade395b-6140-4385-aece-6c55c563fea3.png">
 * Then you have to enable it. If you scroll down to the bottom of that section, you'll find an "Enable All" button:
 <img width="933" alt="image" src="https://user-images.githubusercontent.com/3067731/209398081-c04af843-f244-4b7f-a2bc-a27ea91219c0.png">
-* I delete the shortcut that remaps `command` + `tab` because I like to keep that for switching between applications
+* I delete the shortcut that remaps `command` + `tab` because I  to keep that for switching between applications
 <img width="779" alt="image" src="https://user-images.githubusercontent.com/3067731/209398188-5aa0bf22-a783-4912-9f8b-12ebb43b6f0f.png">
 * I also delete the `command` + `L` shortcut because it interferes with Cursor.
 
@@ -144,7 +144,7 @@ Then you need to install packages with it
 
 ###### Package
 
-Here are some packages that I like
+Here are some packages that I like:
 * https://packagecontrol.io/packages/FileDiffs
 
 
