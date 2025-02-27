@@ -90,7 +90,7 @@ It can be really useful to color code your databases. This makes them automatica
 
 <img width="450" alt="image" src="https://user-images.githubusercontent.com/3067731/214940892-2d062527-7a8c-41e4-93e2-c302c8edf772.png">
 
-You may need to restart DataGrip before the color changes take place in the Files menu (righthand side).
+You may need to restart DataGrip before the color changes take place in the Files menu (right-hand side).
 
 #### Refactor Code
 
@@ -106,7 +106,7 @@ You can change, for example, the "Execute SQL Statement" by going into Window ->
 
 ## [iTerm2](https://iterm2.com/)
 
-* Settings -> Profiles -> Colors -> Color Presets (bottom righthand corner) -> Dark Background
+* Settings -> Profiles -> Colors -> Color Presets (bottom right-hand corner) -> Dark Background
 
 ## [Karabiner Elements](https://karabiner-elements.pqrs.org/)
 
