@@ -12,6 +12,119 @@ This post details the customizations I have made to the [software I use](https:/
 * TOC
 {:toc}
 
+## Cmder
+
+You have to find your `%CMDER_ROOT%`. You can do this with `echo %CMDER_ROOT%`.
+
+
+Go there and into config. It might be at `C:\Users\Julius\Downloads\cmder\config`
+
+
+
+
+`"C:\Users\Julius\Downloads\cmder\config\user_aliases.cmd"`
+
+It might start looking like:
+```
+;= @echo off
+;= rem Call DOSKEY and use this file as the macrofile
+;= %SystemRoot%\system32\doskey /listsize=1000 /macrofile=%0%
+;= rem In batch mode, jump to the end of the file
+;= goto:eof
+;= Add aliases below here
+e.=explorer .
+gl=git log --oneline --all --graph --decorate  $*
+ls=ls --show-control-chars -F --color $*
+pwd=cd
+clear=cls
+history=cat "%CMDER_ROOT%\config\.history"
+unalias=alias /d $1
+vi=vim $*
+cmderr=cd /d "%CMDER_ROOT%"
+```
+
+You can add your stuff to the bottom like so:
+
+```
+cdh=cd "C:\Users\Julius\Documents\GitHub"
+```
+
+
+## DataGrip
+
+#### Execute Command
+
+I find it's easier to use a hotkey that can easily be done with the left hand only, so I go with `command + R` to run queries. It also matches the default from Navicat, which is nice if you switch back and forth.
+
+Go into Preferences -> Keymap and type in "execute" in the search bar. Then change `Execute (2)` from empty to `command + R`. This way you don't have to disable `shift + return`.
+
+<img width="972" alt="image" src="https://user-images.githubusercontent.com/3067731/192343390-ecc29eb2-6982-48c8-be27-4ad2d7f0c087.png">
+
+That hotkey is already assigned to "Refresh", but I remove it from there.
+
+Note that you can also go into more detail with your `Execute` command in the Database -> Query Execution menu
+
+<img width="974" alt="image" src="https://user-images.githubusercontent.com/3067731/192343012-b90c4e05-004f-4da3-ad83-d19b4d9b40f0.png">
+
+#### Tabs
+
+DataGrip also has a default tab process that I don't like. Here's how to update it to make it more like Chrome's:
+
+* Go into Preferences -> Keymap and type in "switcher".
+
+<img width="974" alt="image" src="https://user-images.githubusercontent.com/3067731/186535752-d7b07286-40e8-4512-921e-2994756d9b42.png">
+
+* Double click on the keyboard shortcut icons on the right and remove them. Remove both of them.
+
+* Type in "select tab" into the search and add the new commands to "Select Next Tab" and "Select Previous Tab" under Main Menu -> Window -> Editor Tabs
+
+* Note that you can't just do the keyboard shortcut because it will think you are using `tab` to switch to the next box, so you have to click on the `+` on the right and select the appropriate hotkeys from the dropdown.
+
+* It should look like this in the end:
+
+<img width="984" alt="image" src="https://user-images.githubusercontent.com/3067731/186536462-34900e69-1f70-4344-b847-fd3bec14e2ac.png">
+
+### Color-coding Databases and Folders
+
+It can be really useful to color code your databases. This makes them automatically appear in the files menu in that color. To do so, you need to right click on a database or a subfolder in the Database Explorer (left-side panel). The follow the menu as you can see in the image below.
+
+<img width="450" alt="image" src="https://user-images.githubusercontent.com/3067731/214940892-2d062527-7a8c-41e4-93e2-c302c8edf772.png">
+
+You may need to restart DataGrip before the color changes take place in the Files menu (righthand side).
+
+#### Refactor Code
+
+I think the hotkey for refactoring code is not good, so I recommend double caps lock.
+
+## DBeaver
+
+I also don't like some of DBeaver's defaults.
+
+![image](https://user-images.githubusercontent.com/3067731/197381400-ae4ec5e3-0df2-4777-928a-132a96dbcb1a.png)
+
+You can change, for example, the "Execute SQL Statement" by going into Window -> Preferences -> User Interface -> Keys. Then you can change it to `Ctrl + R` (Windows) to match your other database tools.
+
+## [iTerm2](https://iterm2.com/)
+
+* Settings -> Profiles -> Colors -> Color Presets (bottom righthand corner) -> Dark Background
+
+## Karabiner Elements
+
+Karabiner Elements is all about customization. I mainly use mine to make my experience across Mac, Linux, and Windows as seemless as possible.
+
+* I recommend use the [Windows shortcuts on macOS](https://ke-complex-modifications.pqrs.org/?q=windows%20shortcuts%20on%20macOS). I use this to do a lot of thinks I like to do in Windows, like using `control` and the arrows to jump over words. Here's what it looks like:
+<img width="1218" alt="image" src="https://user-images.githubusercontent.com/3067731/209397616-c8552408-665d-4745-b918-5e839dd1e91a.png">
+* After you click "Import" you have to import it again within the app:
+<img width="987" alt="image" src="https://user-images.githubusercontent.com/3067731/209397778-6ade395b-6140-4385-aece-6c55c563fea3.png">
+* Then you have to enable it. If you scroll down to the bottom of that section, you'll find an "Enable All" button:
+<img width="933" alt="image" src="https://user-images.githubusercontent.com/3067731/209398081-c04af843-f244-4b7f-a2bc-a27ea91219c0.png">
+* I delete the shortcut that remaps `command` + `tab` because I like to keep that for switching between applications
+<img width="779" alt="image" src="https://user-images.githubusercontent.com/3067731/209398188-5aa0bf22-a783-4912-9f8b-12ebb43b6f0f.png">
+* I also delete the `command` + `L` shortcut because it interferes with Cursor.
+
+* The shortcuts will be stored under "Complex Modifications" in the app
+
+
 ## Sublime Text
 
 #### External Packages
@@ -265,110 +378,3 @@ I recommend using keyboard snippets. Here are some useful ones that I use:
     "notebook.output.scrolling": true,
     "notebook.consolidatedRunButton": true,
 ```
-## Cmder
-
-You have to find your `%CMDER_ROOT%`. You can do this with `echo %CMDER_ROOT%`.
-
-
-Go there and into config. It might be at `C:\Users\Julius\Downloads\cmder\config`
-
-
-
-
-`"C:\Users\Julius\Downloads\cmder\config\user_aliases.cmd"`
-
-It might start looking like:
-```
-;= @echo off
-;= rem Call DOSKEY and use this file as the macrofile
-;= %SystemRoot%\system32\doskey /listsize=1000 /macrofile=%0%
-;= rem In batch mode, jump to the end of the file
-;= goto:eof
-;= Add aliases below here
-e.=explorer .
-gl=git log --oneline --all --graph --decorate  $*
-ls=ls --show-control-chars -F --color $*
-pwd=cd
-clear=cls
-history=cat "%CMDER_ROOT%\config\.history"
-unalias=alias /d $1
-vi=vim $*
-cmderr=cd /d "%CMDER_ROOT%"
-```
-
-You can add your stuff to the bottom like so:
-
-```
-cdh=cd "C:\Users\Julius\Documents\GitHub"
-```
-
-
-## DataGrip
-
-#### Execute Command
-
-I find it's easier to use a hotkey that can easily be done with the left hand only, so I go with `command + R` to run queries. It also matches the default from Navicat, which is nice if you switch back and forth.
-
-Go into Preferences -> Keymap and type in "execute" in the search bar. Then change `Execute (2)` from empty to `command + R`. This way you don't have to disable `shift + return`.
-
-<img width="972" alt="image" src="https://user-images.githubusercontent.com/3067731/192343390-ecc29eb2-6982-48c8-be27-4ad2d7f0c087.png">
-
-That hotkey is already assigned to "Refresh", but I remove it from there.
-
-Note that you can also go into more detail with your `Execute` command in the Database -> Query Execution menu
-
-<img width="974" alt="image" src="https://user-images.githubusercontent.com/3067731/192343012-b90c4e05-004f-4da3-ad83-d19b4d9b40f0.png">
-
-#### Tabs
-
-DataGrip also has a default tab process that I don't like. Here's how to update it to make it more like Chrome's:
-
-* Go into Preferences -> Keymap and type in "switcher".
-
-<img width="974" alt="image" src="https://user-images.githubusercontent.com/3067731/186535752-d7b07286-40e8-4512-921e-2994756d9b42.png">
-
-* Double click on the keyboard shortcut icons on the right and remove them. Remove both of them.
-
-* Type in "select tab" into the search and add the new commands to "Select Next Tab" and "Select Previous Tab" under Main Menu -> Window -> Editor Tabs
-
-* Note that you can't just do the keyboard shortcut because it will think you are using `tab` to switch to the next box, so you have to click on the `+` on the right and select the appropriate hotkeys from the dropdown.
-
-* It should look like this in the end:
-
-<img width="984" alt="image" src="https://user-images.githubusercontent.com/3067731/186536462-34900e69-1f70-4344-b847-fd3bec14e2ac.png">
-
-### Color-coding Databases and Folders
-
-It can be really useful to color code your databases. This makes them automatically appear in the files menu in that color. To do so, you need to right click on a database or a subfolder in the Database Explorer (left-side panel). The follow the menu as you can see in the image below.
-
-<img width="450" alt="image" src="https://user-images.githubusercontent.com/3067731/214940892-2d062527-7a8c-41e4-93e2-c302c8edf772.png">
-
-You may need to restart DataGrip before the color changes take place in the Files menu (righthand side).
-
-#### Refactor Code
-
-I think the hotkey for refactoring code is not good, so I recommend double caps lock.
-
-## DBeaver
-
-I also don't like some of DBeaver's defaults.
-
-![image](https://user-images.githubusercontent.com/3067731/197381400-ae4ec5e3-0df2-4777-928a-132a96dbcb1a.png)
-
-You can change, for example, the "Execute SQL Statement" by going into Window -> Preferences -> User Interface -> Keys. Then you can change it to `Ctrl + R` (Windows) to match your other database tools.
-
-## Karabiner Elements
-
-Karabiner Elements is all about customization. I mainly use mine to make my experience across Mac, Linux, and Windows as seemless as possible.
-
-* I recommend use the [Windows shortcuts on macOS](https://ke-complex-modifications.pqrs.org/?q=windows%20shortcuts%20on%20macOS). I use this to do a lot of thinks I like to do in Windows, like using `control` and the arrows to jump over words. Here's what it looks like:
-<img width="1218" alt="image" src="https://user-images.githubusercontent.com/3067731/209397616-c8552408-665d-4745-b918-5e839dd1e91a.png">
-* After you click "Import" you have to import it again within the app:
-<img width="987" alt="image" src="https://user-images.githubusercontent.com/3067731/209397778-6ade395b-6140-4385-aece-6c55c563fea3.png">
-* Then you have to enable it. If you scroll down to the bottom of that section, you'll find an "Enable All" button:
-<img width="933" alt="image" src="https://user-images.githubusercontent.com/3067731/209398081-c04af843-f244-4b7f-a2bc-a27ea91219c0.png">
-* I delete the shortcut that remaps `command` + `tab` because I like to keep that for switching between applications
-<img width="779" alt="image" src="https://user-images.githubusercontent.com/3067731/209398188-5aa0bf22-a783-4912-9f8b-12ebb43b6f0f.png">
-* I also delete the `command` + `L` shortcut because it interferes with Cursor.
-
-* The shortcuts will be stored under "Complex Modifications" in the app
