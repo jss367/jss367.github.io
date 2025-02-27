@@ -12,7 +12,7 @@ This post details the customizations I have made to the [software I use](https:/
 * TOC
 {:toc}
 
-## Cmder
+## [Cmder](https://cmder.app/)
 
 You have to find your `%CMDER_ROOT%`. You can do this with `echo %CMDER_ROOT%`.
 
@@ -50,7 +50,7 @@ cdh=cd "C:\Users\Julius\Documents\GitHub"
 ```
 
 
-## DataGrip
+## [DataGrip](https://www.jetbrains.com/datagrip/)
 
 #### Execute Command
 
@@ -96,7 +96,7 @@ You may need to restart DataGrip before the color changes take place in the File
 
 I think the hotkey for refactoring code is not good, so I recommend double caps lock.
 
-## DBeaver
+## [DBeaver](https://dbeaver.io/)
 
 I also don't  some of DBeaver's defaults.
 
@@ -108,7 +108,7 @@ You can change, for example, the "Execute SQL Statement" by going into Window ->
 
 * Settings -> Profiles -> Colors -> Color Presets (bottom righthand corner) -> Dark Background
 
-## Karabiner Elements
+## [Karabiner Elements](https://karabiner-elements.pqrs.org/)
 
 Karabiner Elements is all about customization. I mainly use mine to make my experience across Mac, Linux, and Windows as seemless as possible.
 
@@ -125,7 +125,7 @@ Karabiner Elements is all about customization. I mainly use mine to make my expe
 * The shortcuts will be stored under "Complex Modifications" in the app
 
 
-## Sublime Text
+## [Sublime Text](https://www.sublimetext.com/)
 
 #### External Packages
 
