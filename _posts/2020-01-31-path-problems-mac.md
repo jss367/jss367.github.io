@@ -64,7 +64,7 @@ export PATH=$PATH:/path/to/directory
 
 This command appends the specified directory to the end of your current $PATH. However, this change is temporary and will be lost when you close the terminal session.
 
-To persist the change across sessions, you can add the export command to your shell configuration file (e.g., .bashrc or .zshrc, but [I recommend `.profile`](https://jss367.github.io/shell-and-environment-setup.html)). Open the file in a text editor and add the export command at the end. Save the file and restart your terminal or run source ~/.bashrc (or source ~/.zshrc) to apply the changes.
+To persist the change across sessions, you can add the export command to your shell configuration file (e.g., .bashrc or .zshrc, but [I recommend `.profile`](https://jss367.github.io/mac-setup.html)). Open the file in a text editor and add the export command at the end. Save the file and restart your terminal or run source ~/.bashrc (or source ~/.zshrc) to apply the changes.
 
 Note:
 If you change the environment variables you'll need to restart VSCode or Jupyter Notebooks. Once you restart you'll see the addition in `sys.path`
