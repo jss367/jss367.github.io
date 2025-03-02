@@ -114,7 +114,7 @@ I always have three or more web browsers on each computer. I use them for differ
 
 ## Python Distribution
 
-[Anaconda](https://www.anaconda.com/distribution/) (FOSS)
+[Anaconda](https://www.anaconda.com/download) (FOSS)
 * Now a no-brainer for data scientists
 
 ## Python Package Manager
