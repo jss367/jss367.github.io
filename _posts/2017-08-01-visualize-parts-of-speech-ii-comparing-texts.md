@@ -74,7 +74,7 @@ for book in books:
     
 
 
-![png]({{site.baseurl}}/asserts/img/{{site.baseurl}}/assets/img/2017-08-01-Visualize-Parts-of-Speech-2_files/2017-08-01-Visualize-Parts-of-Speech-2_7_1.png)
+![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/2017-08-01-Visualize-Parts-of-Speech-2_files/2017-08-01-Visualize-Parts-of-Speech-2_7_1.png)
 
 
     Great Expectations file already exists
@@ -82,7 +82,7 @@ for book in books:
     
 
 
-![png]({{site.baseurl}}/asserts/img/{{site.baseurl}}/assets/img/2017-08-01-Visualize-Parts-of-Speech-2_files/2017-08-01-Visualize-Parts-of-Speech-2_7_3.png)
+![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/2017-08-01-Visualize-Parts-of-Speech-2_files/2017-08-01-Visualize-Parts-of-Speech-2_7_3.png)
 
 
     A Tale of Two Cities file already exists
@@ -90,7 +90,7 @@ for book in books:
     
 
 
-![png]({{site.baseurl}}/asserts/img/{{site.baseurl}}/assets/img/2017-08-01-Visualize-Parts-of-Speech-2_files/2017-08-01-Visualize-Parts-of-Speech-2_7_5.png)
+![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/2017-08-01-Visualize-Parts-of-Speech-2_files/2017-08-01-Visualize-Parts-of-Speech-2_7_5.png)
 
 
     Pride and Prejudice file already exists
@@ -98,7 +98,7 @@ for book in books:
     
 
 
-![png]({{site.baseurl}}/asserts/img/{{site.baseurl}}/assets/img/2017-08-01-Visualize-Parts-of-Speech-2_files/2017-08-01-Visualize-Parts-of-Speech-2_7_7.png)
+![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/2017-08-01-Visualize-Parts-of-Speech-2_files/2017-08-01-Visualize-Parts-of-Speech-2_7_7.png)
 
 
     Alice's Adventures in Wonderland file already exists
@@ -106,7 +106,7 @@ for book in books:
     
 
 
-![png]({{site.baseurl}}/asserts/img/{{site.baseurl}}/assets/img/2017-08-01-Visualize-Parts-of-Speech-2_files/2017-08-01-Visualize-Parts-of-Speech-2_7_9.png)
+![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/2017-08-01-Visualize-Parts-of-Speech-2_files/2017-08-01-Visualize-Parts-of-Speech-2_7_9.png)
 
 
     Oliver Twist file already exists
@@ -114,7 +114,7 @@ for book in books:
     
 
 
-![png]({{site.baseurl}}/asserts/img/{{site.baseurl}}/assets/img/2017-08-01-Visualize-Parts-of-Speech-2_files/2017-08-01-Visualize-Parts-of-Speech-2_7_11.png)
+![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/2017-08-01-Visualize-Parts-of-Speech-2_files/2017-08-01-Visualize-Parts-of-Speech-2_7_11.png)
 
 
 It is not easy to compare the relative part of speech usage using pie charts. A better way would be to make a horizontal bar chart for each book and then stack them vertically to compare. Let's try that.
@@ -292,7 +292,7 @@ plt.show()
 ```
 
 
-![png]({{site.baseurl}}/asserts/img/{{site.baseurl}}/assets/img/2017-08-01-Visualize-Parts-of-Speech-2_files/2017-08-01-Visualize-Parts-of-Speech-2_14_0.png)
+![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/2017-08-01-Visualize-Parts-of-Speech-2_files/2017-08-01-Visualize-Parts-of-Speech-2_14_0.png)
 
 
 It looks like there's a fair amount of consistency among famous authors in their part of speech distribution. This means it could be an effective tool for determining poor writing - if some text is significantly different in part of speech distribution, this could be a sign of poor writing.

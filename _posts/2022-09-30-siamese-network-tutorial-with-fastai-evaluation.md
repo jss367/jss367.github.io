@@ -43,7 +43,7 @@ siamtest.show();
 
 
     
-![png]({{site.baseurl}}/asserts/img/2022-09-30-siamese-network-tutorial-with-fastai-evaluation_files/2022-09-30-siamese-network-tutorial-with-fastai-evaluation_6_0.png)
+![png]({{site.baseurl}}/assets/img/2022-09-30-siamese-network-tutorial-with-fastai-evaluation_files/2022-09-30-siamese-network-tutorial-with-fastai-evaluation_6_0.png)
     
 
 
@@ -90,7 +90,7 @@ res = learner.siampredict(siamtest)
 
 
     
-![png]({{site.baseurl}}/asserts/img/2022-09-30-siamese-network-tutorial-with-fastai-evaluation_files/2022-09-30-siamese-network-tutorial-with-fastai-evaluation_8_2.png)
+![png]({{site.baseurl}}/assets/img/2022-09-30-siamese-network-tutorial-with-fastai-evaluation_files/2022-09-30-siamese-network-tutorial-with-fastai-evaluation_8_2.png)
     
 
 
@@ -108,7 +108,7 @@ siamtest.show();
 
 
     
-![png]({{site.baseurl}}/asserts/img/2022-09-30-siamese-network-tutorial-with-fastai-evaluation_files/2022-09-30-siamese-network-tutorial-with-fastai-evaluation_10_0.png)
+![png]({{site.baseurl}}/assets/img/2022-09-30-siamese-network-tutorial-with-fastai-evaluation_files/2022-09-30-siamese-network-tutorial-with-fastai-evaluation_10_0.png)
     
 
 
@@ -143,7 +143,7 @@ res = learner.siampredict(siamtest)
 
 
     
-![png]({{site.baseurl}}/asserts/img/2022-09-30-siamese-network-tutorial-with-fastai-evaluation_files/2022-09-30-siamese-network-tutorial-with-fastai-evaluation_11_2.png)
+![png]({{site.baseurl}}/assets/img/2022-09-30-siamese-network-tutorial-with-fastai-evaluation_files/2022-09-30-siamese-network-tutorial-with-fastai-evaluation_11_2.png)
     
 
 

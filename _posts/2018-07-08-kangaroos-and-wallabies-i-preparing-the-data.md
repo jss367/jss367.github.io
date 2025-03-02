@@ -130,7 +130,7 @@ Image.fromarray(combined_images)
 
 
     
-![png]({{site.baseurl}}/asserts/img/2018-07-08-kangaroos-and-wallabies-i-preparing-the-data_files/2018-07-08-kangaroos-and-wallabies-i-preparing-the-data_21_0.png)
+![png]({{site.baseurl}}/assets/img/2018-07-08-kangaroos-and-wallabies-i-preparing-the-data_files/2018-07-08-kangaroos-and-wallabies-i-preparing-the-data_21_0.png)
     
 
 
@@ -157,7 +157,7 @@ im
 
 
     
-![png]({{site.baseurl}}/asserts/img/2018-07-08-kangaroos-and-wallabies-i-preparing-the-data_files/2018-07-08-kangaroos-and-wallabies-i-preparing-the-data_25_0.png)
+![png]({{site.baseurl}}/assets/img/2018-07-08-kangaroos-and-wallabies-i-preparing-the-data_files/2018-07-08-kangaroos-and-wallabies-i-preparing-the-data_25_0.png)
     
 
 

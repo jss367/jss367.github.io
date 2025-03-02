@@ -116,7 +116,7 @@ learn.show_results()
 
 
     
-![png]({{site.baseurl}}/asserts/img/2022-02-06-saving-and-loading-models-in-fastai_files/2022-02-06-saving-and-loading-models-in-fastai_12_1.png)
+![png]({{site.baseurl}}/assets/img/2022-02-06-saving-and-loading-models-in-fastai_files/2022-02-06-saving-and-loading-models-in-fastai_12_1.png)
     
 
 

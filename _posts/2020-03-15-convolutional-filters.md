@@ -312,7 +312,7 @@ test_image
 
 
     
-![png]({{site.baseurl}}/asserts/img/2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_36_0.png)
+![png]({{site.baseurl}}/assets/img/2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_36_0.png)
     
 
 
@@ -333,7 +333,7 @@ test_image
 
 
     
-![png]({{site.baseurl}}/asserts/img/2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_39_0.png)
+![png]({{site.baseurl}}/assets/img/2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_39_0.png)
     
 
 
@@ -380,7 +380,7 @@ plt.imshow(filtered_im, cmap="gray");
 
 
     
-![png]({{site.baseurl}}/asserts/img/2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_47_0.png)
+![png]({{site.baseurl}}/assets/img/2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_47_0.png)
     
 
 
@@ -421,7 +421,7 @@ show_filtered_image(test_image, random)
 
 
     
-![png]({{site.baseurl}}/asserts/img/2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_53_0.png)
+![png]({{site.baseurl}}/assets/img/2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_53_0.png)
     
 
 
@@ -450,7 +450,7 @@ show_filtered_image(test_image, blur)
 
 
     
-![png]({{site.baseurl}}/asserts/img/2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_58_0.png)
+![png]({{site.baseurl}}/assets/img/2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_58_0.png)
     
 
 
@@ -476,7 +476,7 @@ show_filtered_image(test_image, sharpen)
 
 
     
-![png]({{site.baseurl}}/asserts/img/2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_62_0.png)
+![png]({{site.baseurl}}/assets/img/2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_62_0.png)
     
 
 
@@ -514,7 +514,7 @@ show_filtered_image(test_image, sobel_vert)
 
 
     
-![png]({{site.baseurl}}/asserts/img/2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_68_0.png)
+![png]({{site.baseurl}}/assets/img/2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_68_0.png)
     
 
 
@@ -538,7 +538,7 @@ show_filtered_image(test_image, sobel_vert_neg)
 
 
     
-![png]({{site.baseurl}}/asserts/img/2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_71_0.png)
+![png]({{site.baseurl}}/assets/img/2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_71_0.png)
     
 
 
@@ -564,7 +564,7 @@ show_filtered_image(test_image, sobel_hor)
 
 
     
-![png]({{site.baseurl}}/asserts/img/2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_75_0.png)
+![png]({{site.baseurl}}/assets/img/2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_75_0.png)
     
 
 
@@ -590,7 +590,7 @@ plt.imshow(sobel_edge_detector, cmap="gray");
 
 
     
-![png]({{site.baseurl}}/asserts/img/2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_79_0.png)
+![png]({{site.baseurl}}/assets/img/2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_79_0.png)
     
 
 
@@ -618,7 +618,7 @@ show_filtered_image(test_image, gaussian_blur)
 
 
     
-![png]({{site.baseurl}}/asserts/img/2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_82_0.png)
+![png]({{site.baseurl}}/assets/img/2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_82_0.png)
     
 
 
@@ -636,7 +636,7 @@ plt.imshow(sobel_edge_detector_blurred, cmap="gray");
 
 
     
-![png]({{site.baseurl}}/asserts/img/2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_84_0.png)
+![png]({{site.baseurl}}/assets/img/2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_84_0.png)
     
 
 
@@ -662,7 +662,7 @@ show_filtered_image(test_image, sobel_feldman)
 
 
     
-![png]({{site.baseurl}}/asserts/img/2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_88_0.png)
+![png]({{site.baseurl}}/assets/img/2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_88_0.png)
     
 
 
@@ -688,7 +688,7 @@ show_filtered_image(test_image, scharr_filter)
 
 
     
-![png]({{site.baseurl}}/asserts/img/2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_92_0.png)
+![png]({{site.baseurl}}/assets/img/2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_92_0.png)
     
 
 
@@ -713,7 +713,7 @@ show_filtered_image(test_image, roberts_cross_x)
 
 
     
-![png]({{site.baseurl}}/asserts/img/2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_96_0.png)
+![png]({{site.baseurl}}/assets/img/2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_96_0.png)
     
 
 
@@ -729,7 +729,7 @@ show_filtered_image(test_image, roberts_cross_y)
 
 
     
-![png]({{site.baseurl}}/asserts/img/2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_98_0.png)
+![png]({{site.baseurl}}/assets/img/2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_98_0.png)
     
 
 
@@ -759,7 +759,7 @@ show_filtered_image(test_image, pos_laplace)
 
 
     
-![png]({{site.baseurl}}/asserts/img/2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_102_0.png)
+![png]({{site.baseurl}}/assets/img/2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_102_0.png)
     
 
 
@@ -787,7 +787,7 @@ show_filtered_image(test_image, prewitt)
 
 
     
-![png]({{site.baseurl}}/asserts/img/2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_105_0.png)
+![png]({{site.baseurl}}/assets/img/2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_105_0.png)
     
 
 
@@ -807,6 +807,6 @@ show_filtered_image(test_image, double)
 
 
     
-![png]({{site.baseurl}}/asserts/img/2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_109_0.png)
+![png]({{site.baseurl}}/assets/img/2020-03-15-convolutional-filters_files/2020-03-15-convolutional-filters_109_0.png)
     
 

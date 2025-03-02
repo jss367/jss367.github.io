@@ -107,5 +107,5 @@ plt.title('How many steps does it take to see a kangaroo?', size = 16)
 
 
 
-![png]({{site.baseurl}}/asserts/img/{{site.baseurl}}/assets/img/2016-07-20-How%20Many%20Steps%20Does%20it%20Take%20to%20See%20a%20Kangaroo_files/2016-07-20-How%20Many%20Steps%20Does%20it%20Take%20to%20See%20a%20Kangaroo_6_1.png)
+![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/2016-07-20-How%20Many%20Steps%20Does%20it%20Take%20to%20See%20a%20Kangaroo_files/2016-07-20-How%20Many%20Steps%20Does%20it%20Take%20to%20See%20a%20Kangaroo_6_1.png)
 

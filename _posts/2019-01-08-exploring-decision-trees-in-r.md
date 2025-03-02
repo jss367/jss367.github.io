@@ -105,7 +105,7 @@ salary.plot + scale_color_gradientn(colours = rainbow(5, start = 0, end = .8))
 
 
 
-![png]({{site.baseurl}}/asserts/img/{{site.baseurl}}/assets/img/2019-01-08-Exploring-Decision-Trees-in-R_files/2019-01-08-Exploring-Decision-Trees-in-R_16_1.png)
+![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/2019-01-08-Exploring-Decision-Trees-in-R_files/2019-01-08-Exploring-Decision-Trees-in-R_16_1.png)
 
 
 Just from this we can see some outliers with really high salaries. This will cause a right-skewed distribution. One nice thing about decision trees is that we don't have to do any feature processing on the predictors. We do, however, have to take the target variable distribution into account. We don't want a few high salaries to have too much weight in the squared error minimization. So to make the distribution more even, we may have to take a log transformation of the salary data. Let's look at the distribution.
@@ -118,7 +118,7 @@ plotNormalHistogram(clean.hitters$Salary)
 ```
 
 
-![png]({{site.baseurl}}/asserts/img/{{site.baseurl}}/assets/img/2019-01-08-Exploring-Decision-Trees-in-R_files/2019-01-08-Exploring-Decision-Trees-in-R_19_0.png)
+![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/2019-01-08-Exploring-Decision-Trees-in-R_files/2019-01-08-Exploring-Decision-Trees-in-R_19_0.png)
 
 
 It's definitely right-skewed. Let's look at a log transform to see if that's better.
@@ -129,7 +129,7 @@ plotNormalHistogram(log(clean.hitters$Salary))
 ```
 
 
-![png]({{site.baseurl}}/asserts/img/{{site.baseurl}}/assets/img/2019-01-08-Exploring-Decision-Trees-in-R_files/2019-01-08-Exploring-Decision-Trees-in-R_21_0.png)
+![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/2019-01-08-Exploring-Decision-Trees-in-R_files/2019-01-08-Exploring-Decision-Trees-in-R_21_0.png)
 
 
 This we can work with. Let's add this to the dataframe.
@@ -270,7 +270,7 @@ text(tree)
 ```
 
 
-![png]({{site.baseurl}}/asserts/img/{{site.baseurl}}/assets/img/2019-01-08-Exploring-Decision-Trees-in-R_files/2019-01-08-Exploring-Decision-Trees-in-R_31_0.png)
+![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/2019-01-08-Exploring-Decision-Trees-in-R_files/2019-01-08-Exploring-Decision-Trees-in-R_31_0.png)
 
 
 We've made our first decision tree. Let's go over some terminology. At the top it says `Years < 4.5`. This is the first decision point in the tree and is called the *root node*. From there, we see a horizontal line that we could take either to the left or to the right. These are called *left-hand* and *right-hand branches*. If we go down the right-hand branch by following the line to the right and then down, we see `Hits<117.5` and another decision point. This is called an *internal node*. At the bottom, we have a few different numbers. Because no more decision points emanate from them, these are called *terminal nodes* or a *leaves*. A decision tree will always have one more terminal node than split point. As you can see, the "tree" is actually upside down (perhaps statistician don't spend enough time outside?).
@@ -316,7 +316,7 @@ text(12, 175, "R3")
 ```
 
 
-![png]({{site.baseurl}}/asserts/img/{{site.baseurl}}/assets/img/2019-01-08-Exploring-Decision-Trees-in-R_files/2019-01-08-Exploring-Decision-Trees-in-R_41_0.png)
+![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/2019-01-08-Exploring-Decision-Trees-in-R_files/2019-01-08-Exploring-Decision-Trees-in-R_41_0.png)
 
 
 You can see that the predictor space is broken into three regions.
@@ -419,7 +419,7 @@ text(fit2)
 ```
 
 
-![png]({{site.baseurl}}/asserts/img/{{site.baseurl}}/assets/img/2019-01-08-Exploring-Decision-Trees-in-R_files/2019-01-08-Exploring-Decision-Trees-in-R_70_0.png)
+![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/2019-01-08-Exploring-Decision-Trees-in-R_files/2019-01-08-Exploring-Decision-Trees-in-R_70_0.png)
 
 
 Note that the length of the arms in the graphic is related to the size of the split.
@@ -500,7 +500,7 @@ legend(0.7, 0.5, legend = c("Class. Error Rate", "Gini Index", "Cross-entropy"),
 ```
 
 
-![png]({{site.baseurl}}/asserts/img/{{site.baseurl}}/assets/img/2019-01-08-Exploring-Decision-Trees-in-R_files/2019-01-08-Exploring-Decision-Trees-in-R_93_0.png)
+![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/2019-01-08-Exploring-Decision-Trees-in-R_files/2019-01-08-Exploring-Decision-Trees-in-R_93_0.png)
 
 
 ## Heart Disease Example
@@ -579,7 +579,7 @@ text(heart.tree)
 ```
 
 
-![png]({{site.baseurl}}/asserts/img/{{site.baseurl}}/assets/img/2019-01-08-Exploring-Decision-Trees-in-R_files/2019-01-08-Exploring-Decision-Trees-in-R_102_0.png)
+![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/2019-01-08-Exploring-Decision-Trees-in-R_files/2019-01-08-Exploring-Decision-Trees-in-R_102_0.png)
 
 
 # Ensembling for Better Models

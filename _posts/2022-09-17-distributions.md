@@ -69,7 +69,7 @@ plot_hist(bins)
 
 
     
-![png]({{site.baseurl}}/asserts/img/2022-09-17-distributions_files/2022-09-17-distributions_13_0.png)
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_13_0.png)
     
 
 
@@ -84,7 +84,7 @@ plot_hist(bins)
 
 
     
-![png]({{site.baseurl}}/asserts/img/2022-09-17-distributions_files/2022-09-17-distributions_15_0.png)
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_15_0.png)
     
 
 
@@ -139,7 +139,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/asserts/img/2022-09-17-distributions_files/2022-09-17-distributions_26_0.png)
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_26_0.png)
     
 
 
@@ -159,7 +159,7 @@ ax.set(xlabel='Variable', ylabel='Count');
 
 
     
-![png]({{site.baseurl}}/asserts/img/2022-09-17-distributions_files/2022-09-17-distributions_29_0.png)
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_29_0.png)
     
 
 
@@ -228,7 +228,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/asserts/img/2022-09-17-distributions_files/2022-09-17-distributions_40_0.png)
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_40_0.png)
     
 
 
@@ -307,7 +307,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/asserts/img/2022-09-17-distributions_files/2022-09-17-distributions_52_0.png)
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_52_0.png)
     
 
 
@@ -351,7 +351,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/asserts/img/2022-09-17-distributions_files/2022-09-17-distributions_61_0.png)
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_61_0.png)
     
 
 
@@ -405,7 +405,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/asserts/img/2022-09-17-distributions_files/2022-09-17-distributions_70_0.png)
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_70_0.png)
     
 
 
@@ -467,7 +467,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/asserts/img/2022-09-17-distributions_files/2022-09-17-distributions_80_0.png)
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_80_0.png)
     
 
 
@@ -515,7 +515,7 @@ ax.fig.suptitle('Poisson Distribution')
 
 
     
-![png]({{site.baseurl}}/asserts/img/2022-09-17-distributions_files/2022-09-17-distributions_89_1.png)
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_89_1.png)
     
 
 
@@ -590,7 +590,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/asserts/img/2022-09-17-distributions_files/2022-09-17-distributions_102_0.png)
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_102_0.png)
     
 
 
@@ -653,7 +653,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/asserts/img/2022-09-17-distributions_files/2022-09-17-distributions_115_0.png)
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_115_0.png)
     
 
 
@@ -692,7 +692,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/asserts/img/2022-09-17-distributions_files/2022-09-17-distributions_120_0.png)
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_120_0.png)
     
 
 
@@ -711,7 +711,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/asserts/img/2022-09-17-distributions_files/2022-09-17-distributions_122_0.png)
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_122_0.png)
     
 
 
@@ -770,7 +770,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/asserts/img/2022-09-17-distributions_files/2022-09-17-distributions_135_0.png)
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_135_0.png)
     
 
 

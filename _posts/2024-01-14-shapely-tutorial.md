@@ -47,7 +47,7 @@ point
 
 
     
-![svg]({{site.baseurl}}/asserts/img/2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_7_0.svg)
+![svg]({{site.baseurl}}/assets/img/2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_7_0.svg)
     
 
 
@@ -66,7 +66,7 @@ line
 
 
     
-![svg]({{site.baseurl}}/asserts/img/2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_9_0.svg)
+![svg]({{site.baseurl}}/assets/img/2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_9_0.svg)
     
 
 
@@ -85,7 +85,7 @@ polygon
 
 
     
-![svg]({{site.baseurl}}/asserts/img/2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_11_0.svg)
+![svg]({{site.baseurl}}/assets/img/2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_11_0.svg)
     
 
 
@@ -106,7 +106,7 @@ polygon_with_hole
 
 
     
-![svg]({{site.baseurl}}/asserts/img/2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_14_0.svg)
+![svg]({{site.baseurl}}/assets/img/2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_14_0.svg)
     
 
 
@@ -150,7 +150,7 @@ multipolygon
 
 
     
-![svg]({{site.baseurl}}/asserts/img/2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_18_0.svg)
+![svg]({{site.baseurl}}/assets/img/2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_18_0.svg)
     
 
 
@@ -175,7 +175,7 @@ union_poly
 
 
     
-![svg]({{site.baseurl}}/asserts/img/2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_22_0.svg)
+![svg]({{site.baseurl}}/assets/img/2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_22_0.svg)
     
 
 
@@ -194,7 +194,7 @@ intersect_poly
 
 
     
-![svg]({{site.baseurl}}/asserts/img/2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_24_0.svg)
+![svg]({{site.baseurl}}/assets/img/2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_24_0.svg)
     
 
 
@@ -213,7 +213,7 @@ diff_poly
 
 
     
-![svg]({{site.baseurl}}/asserts/img/2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_26_0.svg)
+![svg]({{site.baseurl}}/assets/img/2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_26_0.svg)
     
 
 
@@ -232,7 +232,7 @@ sym_diff_poly
 
 
     
-![svg]({{site.baseurl}}/asserts/img/2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_28_0.svg)
+![svg]({{site.baseurl}}/assets/img/2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_28_0.svg)
     
 
 
@@ -251,7 +251,7 @@ buffered_poly
 
 
     
-![svg]({{site.baseurl}}/asserts/img/2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_30_0.svg)
+![svg]({{site.baseurl}}/assets/img/2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_30_0.svg)
     
 
 
@@ -270,7 +270,7 @@ hull_poly
 
 
     
-![svg]({{site.baseurl}}/asserts/img/2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_32_0.svg)
+![svg]({{site.baseurl}}/assets/img/2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_32_0.svg)
     
 
 
@@ -306,7 +306,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/asserts/img/2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_37_0.png)
+![png]({{site.baseurl}}/assets/img/2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_37_0.png)
     
 
 
@@ -361,7 +361,7 @@ shapely_geom
 
 
     
-![svg]({{site.baseurl}}/asserts/img/2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_45_0.svg)
+![svg]({{site.baseurl}}/assets/img/2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_45_0.svg)
     
 
 
@@ -408,7 +408,7 @@ shapely_polygon
 
 
     
-![svg]({{site.baseurl}}/asserts/img/2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_52_0.svg)
+![svg]({{site.baseurl}}/assets/img/2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_52_0.svg)
     
 
 
@@ -446,7 +446,7 @@ shapely_polygon
 
 
     
-![svg]({{site.baseurl}}/asserts/img/2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_55_0.svg)
+![svg]({{site.baseurl}}/assets/img/2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_55_0.svg)
     
 
 
@@ -561,7 +561,7 @@ shapely_series.iloc[0]
 
 
     
-![svg]({{site.baseurl}}/asserts/img/2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_68_1.svg)
+![svg]({{site.baseurl}}/assets/img/2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_68_1.svg)
     
 
 
@@ -599,7 +599,7 @@ shapely_polygon
 
 
     
-![svg]({{site.baseurl}}/asserts/img/2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_74_0.svg)
+![svg]({{site.baseurl}}/assets/img/2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_74_0.svg)
     
 
 

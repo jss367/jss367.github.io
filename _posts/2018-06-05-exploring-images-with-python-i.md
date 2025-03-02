@@ -38,7 +38,7 @@ im
 
 
     
-![png]({{site.baseurl}}/asserts/img/2018-06-05-exploring-images-with-python-i_files/2018-06-05-exploring-images-with-python-i_6_0.png)
+![png]({{site.baseurl}}/assets/img/2018-06-05-exploring-images-with-python-i_files/2018-06-05-exploring-images-with-python-i_6_0.png)
     
 
 
@@ -64,7 +64,7 @@ r
 
 
     
-![png]({{site.baseurl}}/asserts/img/2018-06-05-exploring-images-with-python-i_files/2018-06-05-exploring-images-with-python-i_10_0.png)
+![png]({{site.baseurl}}/assets/img/2018-06-05-exploring-images-with-python-i_files/2018-06-05-exploring-images-with-python-i_10_0.png)
     
 
 
@@ -78,7 +78,7 @@ g
 
 
     
-![png]({{site.baseurl}}/asserts/img/2018-06-05-exploring-images-with-python-i_files/2018-06-05-exploring-images-with-python-i_11_0.png)
+![png]({{site.baseurl}}/assets/img/2018-06-05-exploring-images-with-python-i_files/2018-06-05-exploring-images-with-python-i_11_0.png)
     
 
 
@@ -92,7 +92,7 @@ b
 
 
     
-![png]({{site.baseurl}}/asserts/img/2018-06-05-exploring-images-with-python-i_files/2018-06-05-exploring-images-with-python-i_12_0.png)
+![png]({{site.baseurl}}/assets/img/2018-06-05-exploring-images-with-python-i_files/2018-06-05-exploring-images-with-python-i_12_0.png)
     
 
 
@@ -176,7 +176,7 @@ Image.fromarray(img_array)
 
 
     
-![png]({{site.baseurl}}/asserts/img/2018-06-05-exploring-images-with-python-i_files/2018-06-05-exploring-images-with-python-i_24_0.png)
+![png]({{site.baseurl}}/assets/img/2018-06-05-exploring-images-with-python-i_files/2018-06-05-exploring-images-with-python-i_24_0.png)
     
 
 
@@ -190,7 +190,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/asserts/img/2018-06-05-exploring-images-with-python-i_files/2018-06-05-exploring-images-with-python-i_25_0.png)
+![png]({{site.baseurl}}/assets/img/2018-06-05-exploring-images-with-python-i_files/2018-06-05-exploring-images-with-python-i_25_0.png)
     
 
 
@@ -207,7 +207,7 @@ im.convert("L")
 
 
     
-![png]({{site.baseurl}}/asserts/img/2018-06-05-exploring-images-with-python-i_files/2018-06-05-exploring-images-with-python-i_28_0.png)
+![png]({{site.baseurl}}/assets/img/2018-06-05-exploring-images-with-python-i_files/2018-06-05-exploring-images-with-python-i_28_0.png)
     
 
 
@@ -237,7 +237,7 @@ im_resize
 
 
     
-![png]({{site.baseurl}}/asserts/img/2018-06-05-exploring-images-with-python-i_files/2018-06-05-exploring-images-with-python-i_33_0.png)
+![png]({{site.baseurl}}/assets/img/2018-06-05-exploring-images-with-python-i_files/2018-06-05-exploring-images-with-python-i_33_0.png)
     
 
 

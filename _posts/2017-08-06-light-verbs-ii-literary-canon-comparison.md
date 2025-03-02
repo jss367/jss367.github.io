@@ -154,7 +154,7 @@ plt.savefig('light_verbs_usage')
 
 
 
-![png]({{site.baseurl}}/asserts/img/{{site.baseurl}}/assets/img/2017-08-06-Light-verbs-2_files/2017-08-06-Light-verbs-2_11_1.png)
+![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/2017-08-06-Light-verbs-2_files/2017-08-06-Light-verbs-2_11_1.png)
 
 
 

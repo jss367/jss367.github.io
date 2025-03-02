@@ -191,7 +191,7 @@ summarize(first_vgg_conv_weights_untrained, 'VGG-16 random initialization', 'fir
     
 
 
-![png]({{site.baseurl}}/asserts/img/2020-08-03-Inspecting-Model-Weights_files/2020-08-03-Inspecting-Model-Weights_20_1.png)
+![png]({{site.baseurl}}/assets/img/2020-08-03-Inspecting-Model-Weights_files/2020-08-03-Inspecting-Model-Weights_20_1.png)
 
 
 
@@ -292,7 +292,7 @@ summarize(last_vgg_conv_weights_untrained, 'VGG-16 random initialization', 'last
     
 
 
-![png]({{site.baseurl}}/asserts/img/2020-08-03-Inspecting-Model-Weights_files/2020-08-03-Inspecting-Model-Weights_35_1.png)
+![png]({{site.baseurl}}/assets/img/2020-08-03-Inspecting-Model-Weights_files/2020-08-03-Inspecting-Model-Weights_35_1.png)
 
 
 Now that there are so many values it's much easier to see that it's a uniform distribution. Also notice that the variance is much lower now. That's because there are many more connections coming into and going out of the layer. We can calculate the variance and limit as we did before.
@@ -430,7 +430,7 @@ summarize(first_vgg_conv_weights, 'VGG-16', 'first convolutional', 'weights')
     
 
 
-![png]({{site.baseurl}}/asserts/img/2020-08-03-Inspecting-Model-Weights_files/2020-08-03-Inspecting-Model-Weights_55_1.png)
+![png]({{site.baseurl}}/assets/img/2020-08-03-Inspecting-Model-Weights_files/2020-08-03-Inspecting-Model-Weights_55_1.png)
 
 
 Looks like by the time the model is done training it ends up with closer to a uniform distribution.
@@ -451,7 +451,7 @@ summarize(first_vgg_conv_biases, 'VGG-16', 'first convolutional', 'biases')
     
 
 
-![png]({{site.baseurl}}/asserts/img/2020-08-03-Inspecting-Model-Weights_files/2020-08-03-Inspecting-Model-Weights_58_1.png)
+![png]({{site.baseurl}}/assets/img/2020-08-03-Inspecting-Model-Weights_files/2020-08-03-Inspecting-Model-Weights_58_1.png)
 
 
 Now they've both changed but note that the distributions for the weights and biases are different. The weights are even centered around a mean of around 0 while the biases have a mean around 0.5 and range from 0 to 2.
@@ -474,7 +474,7 @@ summarize(last_vgg_conv_weights, 'VGG-16', 'last convolutional', 'weights')
     
 
 
-![png]({{site.baseurl}}/asserts/img/2020-08-03-Inspecting-Model-Weights_files/2020-08-03-Inspecting-Model-Weights_62_1.png)
+![png]({{site.baseurl}}/assets/img/2020-08-03-Inspecting-Model-Weights_files/2020-08-03-Inspecting-Model-Weights_62_1.png)
 
 
 
@@ -491,7 +491,7 @@ summarize(last_vgg_conv_biases, 'VGG-16', 'last convolutional', 'biases')
     
 
 
-![png]({{site.baseurl}}/asserts/img/2020-08-03-Inspecting-Model-Weights_files/2020-08-03-Inspecting-Model-Weights_63_1.png)
+![png]({{site.baseurl}}/assets/img/2020-08-03-Inspecting-Model-Weights_files/2020-08-03-Inspecting-Model-Weights_63_1.png)
 
 
 It's interesting... It looks like the variance of the weights in convolutional layers decrease as we go deeper into the network. They all get closer and closer to zero. Let's see if we can visualize that.
@@ -558,7 +558,7 @@ plot_layer_mean_weight(vgg_weight_sums, 'VGG-16')
 ```
 
 
-![png]({{site.baseurl}}/asserts/img/2020-08-03-Inspecting-Model-Weights_files/2020-08-03-Inspecting-Model-Weights_71_0.png)
+![png]({{site.baseurl}}/assets/img/2020-08-03-Inspecting-Model-Weights_files/2020-08-03-Inspecting-Model-Weights_71_0.png)
 
 
 Yes, the variance does appear to drop in later layers. The biggest drop is after the first layer.
@@ -581,7 +581,7 @@ summarize(first_vgg_fc_weights, 'VGG-16', 'first fully connected', 'weights')
     
 
 
-![png]({{site.baseurl}}/asserts/img/2020-08-03-Inspecting-Model-Weights_files/2020-08-03-Inspecting-Model-Weights_75_1.png)
+![png]({{site.baseurl}}/assets/img/2020-08-03-Inspecting-Model-Weights_files/2020-08-03-Inspecting-Model-Weights_75_1.png)
 
 
 
@@ -598,7 +598,7 @@ summarize(first_vgg_fc_biases, 'VGG-16', 'first fully connected', 'biases')
     
 
 
-![png]({{site.baseurl}}/asserts/img/2020-08-03-Inspecting-Model-Weights_files/2020-08-03-Inspecting-Model-Weights_76_1.png)
+![png]({{site.baseurl}}/assets/img/2020-08-03-Inspecting-Model-Weights_files/2020-08-03-Inspecting-Model-Weights_76_1.png)
 
 
 
@@ -615,7 +615,7 @@ summarize(last_vgg_fc_weights, 'VGG-16', 'last fully connected', 'weights')
     
 
 
-![png]({{site.baseurl}}/asserts/img/2020-08-03-Inspecting-Model-Weights_files/2020-08-03-Inspecting-Model-Weights_77_1.png)
+![png]({{site.baseurl}}/assets/img/2020-08-03-Inspecting-Model-Weights_files/2020-08-03-Inspecting-Model-Weights_77_1.png)
 
 
 
@@ -632,7 +632,7 @@ summarize(last_vgg_fc_biases, 'VGG-16', 'last fully connected', 'biases')
     
 
 
-![png]({{site.baseurl}}/asserts/img/2020-08-03-Inspecting-Model-Weights_files/2020-08-03-Inspecting-Model-Weights_78_1.png)
+![png]({{site.baseurl}}/assets/img/2020-08-03-Inspecting-Model-Weights_files/2020-08-03-Inspecting-Model-Weights_78_1.png)
 
 
 The variance increases in the layer with fewer connections, just like it did with our initialization scheme.
@@ -699,7 +699,7 @@ summarize(first_resnet_conv_weights, 'ResNet50', 'first convolutional', 'weights
     
 
 
-![png]({{site.baseurl}}/asserts/img/2020-08-03-Inspecting-Model-Weights_files/2020-08-03-Inspecting-Model-Weights_90_1.png)
+![png]({{site.baseurl}}/assets/img/2020-08-03-Inspecting-Model-Weights_files/2020-08-03-Inspecting-Model-Weights_90_1.png)
 
 
 
@@ -716,7 +716,7 @@ summarize(first_resnet_conv_biases, 'ResNet50', 'first convolutional', 'biases')
     
 
 
-![png]({{site.baseurl}}/asserts/img/2020-08-03-Inspecting-Model-Weights_files/2020-08-03-Inspecting-Model-Weights_91_1.png)
+![png]({{site.baseurl}}/assets/img/2020-08-03-Inspecting-Model-Weights_files/2020-08-03-Inspecting-Model-Weights_91_1.png)
 
 
 The biases are interesting. It appears that all the biases in the first layer are basically 0.
@@ -737,7 +737,7 @@ summarize(mid_resnet_conv_weights, 'ResNet50', 'middle convolutional', 'weights'
     
 
 
-![png]({{site.baseurl}}/asserts/img/2020-08-03-Inspecting-Model-Weights_files/2020-08-03-Inspecting-Model-Weights_94_1.png)
+![png]({{site.baseurl}}/assets/img/2020-08-03-Inspecting-Model-Weights_files/2020-08-03-Inspecting-Model-Weights_94_1.png)
 
 
 Looks like the variance has decreased by an order of magnitude. Even more of that values are close to zero now.
@@ -771,7 +771,7 @@ summarize(last_resnet_conv_weights, 'ResNet50', 'last convolutional', 'weights')
     
 
 
-![png]({{site.baseurl}}/asserts/img/2020-08-03-Inspecting-Model-Weights_files/2020-08-03-Inspecting-Model-Weights_98_1.png)
+![png]({{site.baseurl}}/assets/img/2020-08-03-Inspecting-Model-Weights_files/2020-08-03-Inspecting-Model-Weights_98_1.png)
 
 
 The variance has continued to shrink, again by about and order of magnitude. It looks like as you get further into the network the weights get smaller and smaller, just as we saw with VGG-16. Let's verify that again.
@@ -792,7 +792,7 @@ plot_layer_mean_weight(resnet_weight_sums, 'ResNet')
 ```
 
 
-![png]({{site.baseurl}}/asserts/img/2020-08-03-Inspecting-Model-Weights_files/2020-08-03-Inspecting-Model-Weights_102_0.png)
+![png]({{site.baseurl}}/assets/img/2020-08-03-Inspecting-Model-Weights_files/2020-08-03-Inspecting-Model-Weights_102_0.png)
 
 
 
@@ -831,7 +831,7 @@ summarize(resnet_fc_weights, 'ResNet50', 'fully connected', 'weights')
     
 
 
-![png]({{site.baseurl}}/asserts/img/2020-08-03-Inspecting-Model-Weights_files/2020-08-03-Inspecting-Model-Weights_107_1.png)
+![png]({{site.baseurl}}/assets/img/2020-08-03-Inspecting-Model-Weights_files/2020-08-03-Inspecting-Model-Weights_107_1.png)
 
 
 
@@ -848,7 +848,7 @@ summarize(resnet_fc_biases, 'ResNet50', 'fully connected', 'biases')
     
 
 
-![png]({{site.baseurl}}/asserts/img/2020-08-03-Inspecting-Model-Weights_files/2020-08-03-Inspecting-Model-Weights_108_1.png)
+![png]({{site.baseurl}}/assets/img/2020-08-03-Inspecting-Model-Weights_files/2020-08-03-Inspecting-Model-Weights_108_1.png)
 
 
 Now it looks like the biases have formed into a normal distribution.

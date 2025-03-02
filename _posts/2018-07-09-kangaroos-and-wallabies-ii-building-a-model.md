@@ -126,7 +126,7 @@ display_image(image, label)
 
 
     
-![png]({{site.baseurl}}/asserts/img/2018-07-09-kangaroos-and-wallabies-ii-building-a-model_files/2018-07-09-kangaroos-and-wallabies-ii-building-a-model_18_0.png)
+![png]({{site.baseurl}}/assets/img/2018-07-09-kangaroos-and-wallabies-ii-building-a-model_files/2018-07-09-kangaroos-and-wallabies-ii-building-a-model_18_0.png)
     
 
 
@@ -139,7 +139,7 @@ display_image(image, label)
 
 
     
-![png]({{site.baseurl}}/asserts/img/2018-07-09-kangaroos-and-wallabies-ii-building-a-model_files/2018-07-09-kangaroos-and-wallabies-ii-building-a-model_19_0.png)
+![png]({{site.baseurl}}/assets/img/2018-07-09-kangaroos-and-wallabies-ii-building-a-model_files/2018-07-09-kangaroos-and-wallabies-ii-building-a-model_19_0.png)
     
 
 
@@ -196,7 +196,7 @@ plt.hist(examp_im.numpy().flatten());
 
 
     
-![png]({{site.baseurl}}/asserts/img/2018-07-09-kangaroos-and-wallabies-ii-building-a-model_files/2018-07-09-kangaroos-and-wallabies-ii-building-a-model_27_0.png)
+![png]({{site.baseurl}}/assets/img/2018-07-09-kangaroos-and-wallabies-ii-building-a-model_files/2018-07-09-kangaroos-and-wallabies-ii-building-a-model_27_0.png)
     
 
 
@@ -673,7 +673,7 @@ plt.legend(loc="lower right");
 
 
     
-![png]({{site.baseurl}}/asserts/img/2018-07-09-kangaroos-and-wallabies-ii-building-a-model_files/2018-07-09-kangaroos-and-wallabies-ii-building-a-model_57_0.png)
+![png]({{site.baseurl}}/assets/img/2018-07-09-kangaroos-and-wallabies-ii-building-a-model_files/2018-07-09-kangaroos-and-wallabies-ii-building-a-model_57_0.png)
     
 
 

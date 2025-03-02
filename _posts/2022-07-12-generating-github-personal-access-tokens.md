@@ -19,15 +19,15 @@ This post contains instructions for how to work with personal access tokens on G
 
 * There you'll see "Personal access tokens"
 
-![png]({{site.baseurl}}/asserts/img/{{site.baseurl}}/assets/img/github_pat_menu.png)
+![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/github_pat_menu.png)
 
 * Click on "Personal access tokens"
 
-![png]({{site.baseurl}}/asserts/img/{{site.baseurl}}/assets/img/github_pat.png)
+![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/github_pat.png)
 
 * Click on "Generate new token"
 
-![png]({{site.baseurl}}/asserts/img/{{site.baseurl}}/assets/img/github_new_token.png)
+![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/github_new_token.png)
 
 * At the bottom, click on "Generate token"
 
@@ -35,6 +35,6 @@ This post contains instructions for how to work with personal access tokens on G
 
 `ghp_dZVDQtfymPz6EsDgnrCSkW5t4BM2eJ0LEjRK`
 
-![png]({{site.baseurl}}/asserts/img/{{site.baseurl}}/assets/img/gh_pat_console.png)
+![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/gh_pat_console.png)
 
 * Paste it in as your username, then for the password, simply hit return/enter again without entering anything

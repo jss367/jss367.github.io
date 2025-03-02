@@ -26,7 +26,7 @@ Two things you'll want to know when debugging Jupyter environment problems are w
 
 They provide the same information.
 
-![png]({{site.baseurl}}/asserts/img/{{site.baseurl}}/assets/img/windows_conda_envs.png)
+![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/windows_conda_envs.png)
 
 #### What Python interpreter am I using?
 
@@ -43,17 +43,17 @@ sys.executable
 
 `jupyter kernelspec list`
 
-![png]({{site.baseurl}}/asserts/img/{{site.baseurl}}/assets/img/kernels2.png)
+![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/kernels2.png)
 
 #### Where are my kernels located?
 
-![png]({{site.baseurl}}/asserts/img/{{site.baseurl}}/assets/img/windows_kernels.png)
+![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/windows_kernels.png)
 
 You should also be aware that different kernels will have different paths. For example, `import my_package` may work in one kernel but not in another. Check `sys.path` to see which paths are being called.
 
 Keep in mind that you can run all of the commands either from a terminal or from a Jupyter notebook. To run a Unix command from Jupyter, you simply need to add a `!` before it. So you can run `!conda info --envs` or `!jupyter kernelspec list` from a notebook.
 
-![png]({{site.baseurl}}/asserts/img/{{site.baseurl}}/assets/img/jupyter_commands.png)
+![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/jupyter_commands.png)
 
 OK, now let's talk about some examples where you might need these.
 

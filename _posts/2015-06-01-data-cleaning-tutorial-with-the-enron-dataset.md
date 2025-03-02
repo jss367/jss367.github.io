@@ -614,7 +614,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/asserts/img/2015-06-01-data-cleaning-tutorial-with-the-enron-dataset_files/2015-06-01-data-cleaning-tutorial-with-the-enron-dataset_29_0.png)
+![png]({{site.baseurl}}/assets/img/2015-06-01-data-cleaning-tutorial-with-the-enron-dataset_files/2015-06-01-data-cleaning-tutorial-with-the-enron-dataset_29_0.png)
     
 
 
@@ -1183,7 +1183,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/asserts/img/2015-06-01-data-cleaning-tutorial-with-the-enron-dataset_files/2015-06-01-data-cleaning-tutorial-with-the-enron-dataset_51_0.png)
+![png]({{site.baseurl}}/assets/img/2015-06-01-data-cleaning-tutorial-with-the-enron-dataset_files/2015-06-01-data-cleaning-tutorial-with-the-enron-dataset_51_0.png)
     
 
 
@@ -1299,7 +1299,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/asserts/img/2015-06-01-data-cleaning-tutorial-with-the-enron-dataset_files/2015-06-01-data-cleaning-tutorial-with-the-enron-dataset_57_0.png)
+![png]({{site.baseurl}}/assets/img/2015-06-01-data-cleaning-tutorial-with-the-enron-dataset_files/2015-06-01-data-cleaning-tutorial-with-the-enron-dataset_57_0.png)
     
 
 

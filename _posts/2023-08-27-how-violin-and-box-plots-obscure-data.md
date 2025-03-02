@@ -50,7 +50,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/asserts/img/2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_9_0.png)
+![png]({{site.baseurl}}/assets/img/2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_9_0.png)
     
 
 
@@ -97,7 +97,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/asserts/img/2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_14_0.png)
+![png]({{site.baseurl}}/assets/img/2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_14_0.png)
     
 
 
@@ -135,7 +135,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/asserts/img/2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_18_0.png)
+![png]({{site.baseurl}}/assets/img/2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_18_0.png)
     
 
 
@@ -164,7 +164,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/asserts/img/2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_24_0.png)
+![png]({{site.baseurl}}/assets/img/2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_24_0.png)
     
 
 
@@ -211,7 +211,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/asserts/img/2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_26_0.png)
+![png]({{site.baseurl}}/assets/img/2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_26_0.png)
     
 
 
@@ -265,7 +265,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/asserts/img/2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_30_0.png)
+![png]({{site.baseurl}}/assets/img/2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_30_0.png)
     
 
 
@@ -302,7 +302,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/asserts/img/2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_36_0.png)
+![png]({{site.baseurl}}/assets/img/2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_36_0.png)
     
 
 
@@ -378,7 +378,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/asserts/img/2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_40_0.png)
+![png]({{site.baseurl}}/assets/img/2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_40_0.png)
     
 
 
@@ -419,7 +419,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/asserts/img/2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_44_0.png)
+![png]({{site.baseurl}}/assets/img/2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_44_0.png)
     
 
 
@@ -445,7 +445,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/asserts/img/2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_47_0.png)
+![png]({{site.baseurl}}/assets/img/2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_47_0.png)
     
 
 
@@ -471,7 +471,7 @@ sns.stripplot(y=bimodal_dist, color='black');
 
 
     
-![png]({{site.baseurl}}/asserts/img/2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_51_0.png)
+![png]({{site.baseurl}}/assets/img/2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_51_0.png)
     
 
 
@@ -496,7 +496,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/asserts/img/2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_57_0.png)
+![png]({{site.baseurl}}/assets/img/2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_57_0.png)
     
 
 
@@ -523,7 +523,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/asserts/img/2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_59_0.png)
+![png]({{site.baseurl}}/assets/img/2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_59_0.png)
     
 
 
@@ -558,7 +558,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/asserts/img/2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_64_0.png)
+![png]({{site.baseurl}}/assets/img/2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_64_0.png)
     
 
 
@@ -604,7 +604,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/asserts/img/2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_65_0.png)
+![png]({{site.baseurl}}/assets/img/2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_65_0.png)
     
 
 
@@ -629,7 +629,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/asserts/img/2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_67_0.png)
+![png]({{site.baseurl}}/assets/img/2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_67_0.png)
     
 
 
@@ -664,7 +664,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/asserts/img/2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_70_0.png)
+![png]({{site.baseurl}}/assets/img/2023-08-27-how-violin-and-box-plots-obscure-data_files/2023-08-27-how-violin-and-box-plots-obscure-data_70_0.png)
     
 
 

@@ -58,7 +58,7 @@ input_image
 
 
     
-![png]({{site.baseurl}}/asserts/img/2023-01-01-model-explainability-with-grad-cam-in-pytorch_files/2023-01-01-model-explainability-with-grad-cam-in-pytorch_9_0.png)
+![png]({{site.baseurl}}/assets/img/2023-01-01-model-explainability-with-grad-cam-in-pytorch_files/2023-01-01-model-explainability-with-grad-cam-in-pytorch_9_0.png)
     
 
 
@@ -290,7 +290,7 @@ visualize_heatmap(img_path, heatmap)
 
 
     
-![png]({{site.baseurl}}/asserts/img/2023-01-01-model-explainability-with-grad-cam-in-pytorch_files/2023-01-01-model-explainability-with-grad-cam-in-pytorch_41_0.png)
+![png]({{site.baseurl}}/assets/img/2023-01-01-model-explainability-with-grad-cam-in-pytorch_files/2023-01-01-model-explainability-with-grad-cam-in-pytorch_41_0.png)
     
 
 
@@ -317,7 +317,7 @@ visualize_heatmap(img_path, heatmap)
 
 
     
-![png]({{site.baseurl}}/asserts/img/2023-01-01-model-explainability-with-grad-cam-in-pytorch_files/2023-01-01-model-explainability-with-grad-cam-in-pytorch_44_0.png)
+![png]({{site.baseurl}}/assets/img/2023-01-01-model-explainability-with-grad-cam-in-pytorch_files/2023-01-01-model-explainability-with-grad-cam-in-pytorch_44_0.png)
     
 
 
@@ -329,6 +329,6 @@ visualize_heatmap(img_path, heatmap)
 
 
     
-![png]({{site.baseurl}}/asserts/img/2023-01-01-model-explainability-with-grad-cam-in-pytorch_files/2023-01-01-model-explainability-with-grad-cam-in-pytorch_45_0.png)
+![png]({{site.baseurl}}/assets/img/2023-01-01-model-explainability-with-grad-cam-in-pytorch_files/2023-01-01-model-explainability-with-grad-cam-in-pytorch_45_0.png)
     
 

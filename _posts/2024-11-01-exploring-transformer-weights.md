@@ -356,7 +356,7 @@ plt.ylabel('Position')
 
 
     
-![png]({{site.baseurl}}/asserts/img//2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_14_1.png)
+![png]({{site.baseurl}}/assets/img//2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_14_1.png)
 
 
 I find it hard to see much in this image (you can also try `cmap='grey'`, but I don't think it helps much), so instead let's look at a specific dimension.
@@ -373,7 +373,7 @@ plt.grid(True, alpha=0.3)
 
 
     
-![png]({{site.baseurl}}/asserts/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_16_0.png)
+![png]({{site.baseurl}}/assets/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_16_0.png)
     
 
 
@@ -403,7 +403,7 @@ plt.legend()
 
 
     
-![png]({{site.baseurl}}/asserts/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_19_1.png)
+![png]({{site.baseurl}}/assets/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_19_1.png)
     
 
 
@@ -430,7 +430,7 @@ plt.grid(True, alpha=0.3)
 
 
     
-![png]({{site.baseurl}}/asserts/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_21_0.png)
+![png]({{site.baseurl}}/assets/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_21_0.png)
     
 
 
@@ -456,7 +456,7 @@ plt.grid(True, alpha=0.3)
 
 
     
-![png]({{site.baseurl}}/asserts/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_25_0.png)
+![png]({{site.baseurl}}/assets/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_25_0.png)
     
 
 
@@ -521,7 +521,7 @@ print(f"p-value: {p_value:.4e}")
 
 
     
-![png]({{site.baseurl}}/asserts/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_29_0.png)
+![png]({{site.baseurl}}/assets/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_29_0.png)
     
 
 
@@ -586,13 +586,13 @@ plot_attention_weights(0, zoom_ranges)
 
 
     
-![png]({{site.baseurl}}/asserts/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_33_0.png)
+![png]({{site.baseurl}}/assets/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_33_0.png)
     
 
 
 
     
-![png]({{site.baseurl}}/asserts/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_33_1.png)
+![png]({{site.baseurl}}/assets/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_33_1.png)
     
 
 
@@ -638,37 +638,37 @@ pca_results = [analyze_attention_layer(i) for i in range(3)]
 
 
     
-![png]({{site.baseurl}}/asserts/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_37_0.png)
+![png]({{site.baseurl}}/assets/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_37_0.png)
     
 
 
 
     
-![png]({{site.baseurl}}/asserts/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_37_1.png)
+![png]({{site.baseurl}}/assets/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_37_1.png)
     
 
 
 
     
-![png]({{site.baseurl}}/asserts/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_37_2.png)
+![png]({{site.baseurl}}/assets/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_37_2.png)
     
 
 
 
     
-![png]({{site.baseurl}}/asserts/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_37_3.png)
+![png]({{site.baseurl}}/assets/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_37_3.png)
     
 
 
 
     
-![png]({{site.baseurl}}/asserts/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_37_4.png)
+![png]({{site.baseurl}}/assets/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_37_4.png)
     
 
 
 
     
-![png]({{site.baseurl}}/asserts/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_37_5.png)
+![png]({{site.baseurl}}/assets/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_37_5.png)
     
 
 
@@ -683,37 +683,37 @@ for i in late_layers:
 
 
     
-![png]({{site.baseurl}}/asserts/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_38_0.png)
+![png]({{site.baseurl}}/assets/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_38_0.png)
     
 
 
 
     
-![png]({{site.baseurl}}/asserts/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_38_1.png)
+![png]({{site.baseurl}}/assets/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_38_1.png)
     
 
 
 
     
-![png]({{site.baseurl}}/asserts/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_38_2.png)
+![png]({{site.baseurl}}/assets/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_38_2.png)
     
 
 
 
     
-![png]({{site.baseurl}}/asserts/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_38_3.png)
+![png]({{site.baseurl}}/assets/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_38_3.png)
     
 
 
 
     
-![png]({{site.baseurl}}/asserts/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_38_4.png)
+![png]({{site.baseurl}}/assets/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_38_4.png)
     
 
 
 
     
-![png]({{site.baseurl}}/asserts/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_38_5.png)
+![png]({{site.baseurl}}/assets/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_38_5.png)
     
 
 
@@ -776,7 +776,7 @@ plt.tight_layout()
 
 
     
-![png]({{site.baseurl}}/asserts/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_41_0.png)
+![png]({{site.baseurl}}/assets/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_41_0.png)
     
 
 
@@ -820,7 +820,7 @@ plt.tight_layout()
 
 
     
-![png]({{site.baseurl}}/asserts/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_43_0.png)
+![png]({{site.baseurl}}/assets/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_43_0.png)
     
 
 
@@ -843,7 +843,7 @@ plt.ylabel('Attention Head');
 
 
     
-![png]({{site.baseurl}}/asserts/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_46_0.png)
+![png]({{site.baseurl}}/assets/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_46_0.png)
     
 
 
@@ -884,19 +884,19 @@ for layer_idx in range(3):
 
 
     
-![png]({{site.baseurl}}/asserts/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_50_0.png)
+![png]({{site.baseurl}}/assets/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_50_0.png)
     
 
 
 
     
-![png]({{site.baseurl}}/asserts/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_50_1.png)
+![png]({{site.baseurl}}/assets/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_50_1.png)
     
 
 
 
     
-![png]({{site.baseurl}}/asserts/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_50_2.png)
+![png]({{site.baseurl}}/assets/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_50_2.png)
     
 
 
@@ -909,19 +909,19 @@ for layer_idx in late_layers:
 
 
     
-![png]({{site.baseurl}}/asserts/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_51_0.png)
+![png]({{site.baseurl}}/assets/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_51_0.png)
     
 
 
 
     
-![png]({{site.baseurl}}/asserts/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_51_1.png)
+![png]({{site.baseurl}}/assets/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_51_1.png)
     
 
 
 
     
-![png]({{site.baseurl}}/asserts/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_51_2.png)
+![png]({{site.baseurl}}/assets/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_51_2.png)
     
 
 

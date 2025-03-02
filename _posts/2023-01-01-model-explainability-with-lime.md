@@ -54,7 +54,7 @@ im
 
 
     
-![png]({{site.baseurl}}/asserts/img/2023-01-01-model-explainability-with-lime_files/2023-01-01-model-explainability-with-lime_9_0.png)
+![png]({{site.baseurl}}/assets/img/2023-01-01-model-explainability-with-lime_files/2023-01-01-model-explainability-with-lime_9_0.png)
     
 
 
@@ -190,7 +190,7 @@ plt.tick_params(left=False, right=False, labelleft=False, labelbottom=False, bot
 
 
     
-![png]({{site.baseurl}}/asserts/img/2023-01-01-model-explainability-with-lime_files/2023-01-01-model-explainability-with-lime_37_0.png)
+![png]({{site.baseurl}}/assets/img/2023-01-01-model-explainability-with-lime_files/2023-01-01-model-explainability-with-lime_37_0.png)
     
 
 

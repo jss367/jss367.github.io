@@ -57,7 +57,7 @@ input_image
 
 
     
-![png]({{site.baseurl}}/asserts/img/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_files/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_8_0.png)
+![png]({{site.baseurl}}/assets/img/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_files/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_8_0.png)
     
 
 
@@ -237,7 +237,7 @@ plt.hist(grads.numpy().flatten());
 
 
     
-![png]({{site.baseurl}}/asserts/img/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_files/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_39_0.png)
+![png]({{site.baseurl}}/assets/img/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_files/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_39_0.png)
     
 
 
@@ -255,7 +255,7 @@ plt.hist(pooled_grads.numpy().flatten());
 
 
     
-![png]({{site.baseurl}}/asserts/img/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_files/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_42_0.png)
+![png]({{site.baseurl}}/assets/img/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_files/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_42_0.png)
     
 
 
@@ -291,7 +291,7 @@ plt.matshow(heatmap);
 
 
     
-![png]({{site.baseurl}}/asserts/img/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_files/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_50_0.png)
+![png]({{site.baseurl}}/assets/img/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_files/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_50_0.png)
     
 
 
@@ -330,7 +330,7 @@ visualize_heatmap(img_path, heatmap)
 
 
     
-![png]({{site.baseurl}}/asserts/img/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_files/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_54_0.png)
+![png]({{site.baseurl}}/assets/img/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_files/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_54_0.png)
     
 
 
@@ -410,7 +410,7 @@ visualize_heatmap(img_path, heatmap)
 
 
     
-![png]({{site.baseurl}}/asserts/img/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_files/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_58_1.png)
+![png]({{site.baseurl}}/assets/img/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_files/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_58_1.png)
     
 
 
@@ -422,7 +422,7 @@ visualize_heatmap(img_path, heatmap)
 
 
     
-![png]({{site.baseurl}}/asserts/img/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_files/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_59_0.png)
+![png]({{site.baseurl}}/assets/img/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_files/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_59_0.png)
     
 
 
@@ -434,6 +434,6 @@ visualize_heatmap(img_path, heatmap)
 
 
     
-![png]({{site.baseurl}}/asserts/img/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_files/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_60_0.png)
+![png]({{site.baseurl}}/assets/img/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_files/2023-01-01-model-explainability-with-grad-cam-in-tensorflow_60_0.png)
     
 

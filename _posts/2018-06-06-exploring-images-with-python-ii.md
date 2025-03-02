@@ -308,7 +308,7 @@ plt.imshow(img);
 
 
     
-![png]({{site.baseurl}}/asserts/img/2018-06-06-exploring-images-with-python-ii_files/2018-06-06-exploring-images-with-python-ii_41_0.png)
+![png]({{site.baseurl}}/assets/img/2018-06-06-exploring-images-with-python-ii_files/2018-06-06-exploring-images-with-python-ii_41_0.png)
     
 
 
@@ -321,7 +321,7 @@ plt.imshow(img[:, :, ::-1]);
 
 
     
-![png]({{site.baseurl}}/asserts/img/2018-06-06-exploring-images-with-python-ii_files/2018-06-06-exploring-images-with-python-ii_43_0.png)
+![png]({{site.baseurl}}/assets/img/2018-06-06-exploring-images-with-python-ii_files/2018-06-06-exploring-images-with-python-ii_43_0.png)
     
 
 
@@ -362,7 +362,7 @@ pil_img
 
 
     
-![png]({{site.baseurl}}/asserts/img/2018-06-06-exploring-images-with-python-ii_files/2018-06-06-exploring-images-with-python-ii_52_0.png)
+![png]({{site.baseurl}}/assets/img/2018-06-06-exploring-images-with-python-ii_files/2018-06-06-exploring-images-with-python-ii_52_0.png)
     
 
 
@@ -414,7 +414,7 @@ plt.colorbar();
 
 
     
-![png]({{site.baseurl}}/asserts/img/2018-06-06-exploring-images-with-python-ii_files/2018-06-06-exploring-images-with-python-ii_56_1.png)
+![png]({{site.baseurl}}/assets/img/2018-06-06-exploring-images-with-python-ii_files/2018-06-06-exploring-images-with-python-ii_56_1.png)
     
 
 
@@ -456,6 +456,6 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/asserts/img/2018-06-06-exploring-images-with-python-ii_files/2018-06-06-exploring-images-with-python-ii_61_0.png)
+![png]({{site.baseurl}}/assets/img/2018-06-06-exploring-images-with-python-ii_files/2018-06-06-exploring-images-with-python-ii_61_0.png)
     
 
