@@ -2,7 +2,7 @@
 layout: post
 title: "A Guide to the Python Disassembler Module"
 description: "This guide covers how to use dis, the Python disassembler module"
-feature-img: "assets/img/mt_rainer.jpg"
+feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/mt_rainer.jpg"
 tags: [Python]
 ---
