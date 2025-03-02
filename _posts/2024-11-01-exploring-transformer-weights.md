@@ -356,11 +356,7 @@ plt.ylabel('Position')
 
 
     
-![png]({{site.baseurl}}/{{site.baseurl}}/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_14_1.png)
-
 ![png]({{site.baseurl}}//2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_14_1.png)
-
-![png]({{site.baseurl}}/{{ site.url }}{{ site.baseurl }}/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_14_1.png)
 
 
 I find it hard to see much in this image (you can also try `cmap='grey'`, but I don't think it helps much), so instead let's look at a specific dimension.
