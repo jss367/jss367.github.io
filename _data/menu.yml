@@ -1,0 +1,13 @@
+- title: Tags
+  url: /tags/
+  icon: fa-tags
+  position: 1
+
+- title: About
+  url: /about/
+  position: 2
+
+- title: Search
+  url: /search/
+  icon: fa-search
+  position: 3 
