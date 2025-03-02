@@ -98,7 +98,7 @@ img
 
 
     
-![png](2022-09-29-siamese-network-tutorial-with-fastai-update_files/2022-09-29-siamese-network-tutorial-with-fastai-update_8_0.png)
+![png]({{site.baseurl}}/2022-09-29-siamese-network-tutorial-with-fastai-update_files/2022-09-29-siamese-network-tutorial-with-fastai-update_8_0.png)
     
 
 
@@ -155,7 +155,7 @@ tst.show();
 
 
     
-![png](2022-09-29-siamese-network-tutorial-with-fastai-update_files/2022-09-29-siamese-network-tutorial-with-fastai-update_13_0.png)
+![png]({{site.baseurl}}/2022-09-29-siamese-network-tutorial-with-fastai-update_files/2022-09-29-siamese-network-tutorial-with-fastai-update_13_0.png)
     
 
 
@@ -278,7 +278,7 @@ dls.show_batch()
 
 
     
-![png](2022-09-29-siamese-network-tutorial-with-fastai-update_files/2022-09-29-siamese-network-tutorial-with-fastai-update_27_0.png)
+![png]({{site.baseurl}}/2022-09-29-siamese-network-tutorial-with-fastai-update_files/2022-09-29-siamese-network-tutorial-with-fastai-update_27_0.png)
     
 
 
@@ -385,7 +385,7 @@ learn.lr_find()
 
 
     
-![png](2022-09-29-siamese-network-tutorial-with-fastai-update_files/2022-09-29-siamese-network-tutorial-with-fastai-update_39_3.png)
+![png]({{site.baseurl}}/2022-09-29-siamese-network-tutorial-with-fastai-update_files/2022-09-29-siamese-network-tutorial-with-fastai-update_39_3.png)
     
 
 
@@ -504,7 +504,7 @@ learn.show_results()
 
 
     
-![png](2022-09-29-siamese-network-tutorial-with-fastai-update_files/2022-09-29-siamese-network-tutorial-with-fastai-update_43_2.png)
+![png]({{site.baseurl}}/2022-09-29-siamese-network-tutorial-with-fastai-update_files/2022-09-29-siamese-network-tutorial-with-fastai-update_43_2.png)
     
 
 
@@ -530,7 +530,7 @@ siamtest.show();
 
 
     
-![png](2022-09-29-siamese-network-tutorial-with-fastai-update_files/2022-09-29-siamese-network-tutorial-with-fastai-update_45_0.png)
+![png]({{site.baseurl}}/2022-09-29-siamese-network-tutorial-with-fastai-update_files/2022-09-29-siamese-network-tutorial-with-fastai-update_45_0.png)
     
 
 
@@ -565,7 +565,7 @@ res = learn.siampredict(siamtest)
 
 
     
-![png](2022-09-29-siamese-network-tutorial-with-fastai-update_files/2022-09-29-siamese-network-tutorial-with-fastai-update_46_2.png)
+![png]({{site.baseurl}}/2022-09-29-siamese-network-tutorial-with-fastai-update_files/2022-09-29-siamese-network-tutorial-with-fastai-update_46_2.png)
     
 
 

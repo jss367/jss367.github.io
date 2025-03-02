@@ -77,7 +77,7 @@ PILImage.create(files[0])
 
 
     
-![png](2022-04-11-siamese-networks-with-fastai_files/2022-04-11-siamese-networks-with-fastai_13_0.png)
+![png]({{site.baseurl}}/2022-04-11-siamese-networks-with-fastai_files/2022-04-11-siamese-networks-with-fastai_13_0.png)
     
 
 
@@ -109,7 +109,7 @@ tst.show();
 
 
     
-![png](2022-04-11-siamese-networks-with-fastai_files/2022-04-11-siamese-networks-with-fastai_17_0.png)
+![png]({{site.baseurl}}/2022-04-11-siamese-networks-with-fastai_files/2022-04-11-siamese-networks-with-fastai_17_0.png)
     
 
 
@@ -279,7 +279,7 @@ dls.show_batch()
 
 
     
-![png](2022-04-11-siamese-networks-with-fastai_files/2022-04-11-siamese-networks-with-fastai_41_0.png)
+![png]({{site.baseurl}}/2022-04-11-siamese-networks-with-fastai_files/2022-04-11-siamese-networks-with-fastai_41_0.png)
     
 
 
@@ -1116,7 +1116,7 @@ learn.lr_find()
 
 
     
-![png](2022-04-11-siamese-networks-with-fastai_files/2022-04-11-siamese-networks-with-fastai_85_3.png)
+![png]({{site.baseurl}}/2022-04-11-siamese-networks-with-fastai_files/2022-04-11-siamese-networks-with-fastai_85_3.png)
     
 
 

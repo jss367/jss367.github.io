@@ -25,11 +25,11 @@ In Windows, it's not as simple to view your environmental variables because it d
 
 `echo %PATH%`
 
-![png]({{site.baseurl}}/assets/img/windows_path.png)
+![png]({{site.baseurl}}/{{site.baseurl}}/assets/img/windows_path.png)
 
 Again, the resulting text can be hard to read so to make it easier you can: `echo %PATH:;=&echo.%`
 
-![png]({{site.baseurl}}/assets/img/windows_path_simple.png)
+![png]({{site.baseurl}}/{{site.baseurl}}/assets/img/windows_path_simple.png)
 
 However, if you're using [Windows PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/overview), you'll have to:
 

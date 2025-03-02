@@ -264,7 +264,7 @@ sns.pairplot(df, hue="species", hue_order=hue_order, palette=palette, markers=["
 ```
 
 
-![png]({{site.baseurl}}/assets/img/2016-03-10-Exploring-Iris-Dataset_files/2016-03-10-Exploring-Iris-Dataset_19_0.png)
+![png]({{site.baseurl}}/{{site.baseurl}}/assets/img/2016-03-10-Exploring-Iris-Dataset_files/2016-03-10-Exploring-Iris-Dataset_19_0.png)
 
 
 Nothing looks noticeably wrong with the data, and there aren't any outliers that would confound a model.
@@ -279,7 +279,7 @@ sns.FacetGrid(df, hue='species', hue_order=hue_order, palette=palette, height=8)
 ```
 
 
-![png]({{site.baseurl}}/assets/img/2016-03-10-Exploring-Iris-Dataset_files/2016-03-10-Exploring-Iris-Dataset_21_0.png)
+![png]({{site.baseurl}}/{{site.baseurl}}/assets/img/2016-03-10-Exploring-Iris-Dataset_files/2016-03-10-Exploring-Iris-Dataset_21_0.png)
 
 
 OK, it will be very easy to extract the setosa from the others.
@@ -297,6 +297,6 @@ vvdf = df[df['species'] != 'setosa']
 sns.pairplot(vvdf, hue="species", hue_order=hue_order, palette=palette, diag_kind='kde');
 ```
 
-![png]({{site.baseurl}}/assets/img/2016-03-10-Exploring-Iris-Dataset_files/2016-03-10-Exploring-Iris-Dataset_24_0.png)
+![png]({{site.baseurl}}/{{site.baseurl}}/assets/img/2016-03-10-Exploring-Iris-Dataset_files/2016-03-10-Exploring-Iris-Dataset_24_0.png)
 
 OK, these are not as easy to separate. We make have to do the best that we can. In [Part II](https://jss367.github.io/visualizing-machine-learning-algorithms.html), we'll look at how we can use machine learning models to analyze the data.

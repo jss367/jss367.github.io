@@ -156,7 +156,7 @@ plot_loss(history_cat, "Cat Training")
 
 
     
-![png](2021-05-04-test-on-unbalanced-datasets_files/2021-05-04-test-on-unbalanced-datasets_13_0.png)
+![png]({{site.baseurl}}/2021-05-04-test-on-unbalanced-datasets_files/2021-05-04-test-on-unbalanced-datasets_13_0.png)
     
 
 
@@ -167,7 +167,7 @@ plot_loss(history_dog, "Dog Training")
 
 
     
-![png](2021-05-04-test-on-unbalanced-datasets_files/2021-05-04-test-on-unbalanced-datasets_14_0.png)
+![png]({{site.baseurl}}/2021-05-04-test-on-unbalanced-datasets_files/2021-05-04-test-on-unbalanced-datasets_14_0.png)
     
 
 
@@ -243,7 +243,7 @@ plot_cm(true_labels_balanced, cat_preds_balanced)
 
 
     
-![png](2021-05-04-test-on-unbalanced-datasets_files/2021-05-04-test-on-unbalanced-datasets_22_0.png)
+![png]({{site.baseurl}}/2021-05-04-test-on-unbalanced-datasets_files/2021-05-04-test-on-unbalanced-datasets_22_0.png)
     
 
 
@@ -254,7 +254,7 @@ plot_cm(true_labels_balanced, dog_preds_balanced)
 
 
     
-![png](2021-05-04-test-on-unbalanced-datasets_files/2021-05-04-test-on-unbalanced-datasets_23_0.png)
+![png]({{site.baseurl}}/2021-05-04-test-on-unbalanced-datasets_files/2021-05-04-test-on-unbalanced-datasets_23_0.png)
     
 
 

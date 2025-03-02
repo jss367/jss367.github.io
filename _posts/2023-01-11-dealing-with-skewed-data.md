@@ -274,7 +274,7 @@ plt.hist(right_skewed_data);
 
 
     
-![png](2023-01-11-dealing-with-skewed-data_files/2023-01-11-dealing-with-skewed-data_14_0.png)
+![png]({{site.baseurl}}/2023-01-11-dealing-with-skewed-data_files/2023-01-11-dealing-with-skewed-data_14_0.png)
     
 
 
@@ -293,7 +293,7 @@ plt.hist(np.log(right_skewed_data));
 
 
     
-![png](2023-01-11-dealing-with-skewed-data_files/2023-01-11-dealing-with-skewed-data_19_0.png)
+![png]({{site.baseurl}}/2023-01-11-dealing-with-skewed-data_files/2023-01-11-dealing-with-skewed-data_19_0.png)
     
 
 
@@ -306,7 +306,7 @@ plt.hist(np.sqrt(right_skewed_data));
 
 
     
-![png](2023-01-11-dealing-with-skewed-data_files/2023-01-11-dealing-with-skewed-data_21_0.png)
+![png]({{site.baseurl}}/2023-01-11-dealing-with-skewed-data_files/2023-01-11-dealing-with-skewed-data_21_0.png)
     
 
 
@@ -319,7 +319,7 @@ plt.hist(np.cbrt(right_skewed_data));
 
 
     
-![png](2023-01-11-dealing-with-skewed-data_files/2023-01-11-dealing-with-skewed-data_23_0.png)
+![png]({{site.baseurl}}/2023-01-11-dealing-with-skewed-data_files/2023-01-11-dealing-with-skewed-data_23_0.png)
     
 
 
@@ -375,7 +375,7 @@ df.iloc[:, left_skewed_index].plot.hist();
 
 
     
-![png](2023-01-11-dealing-with-skewed-data_files/2023-01-11-dealing-with-skewed-data_32_0.png)
+![png]({{site.baseurl}}/2023-01-11-dealing-with-skewed-data_files/2023-01-11-dealing-with-skewed-data_32_0.png)
     
 
 
@@ -397,7 +397,7 @@ plt.hist(left_skewed_data);
 
 
     
-![png](2023-01-11-dealing-with-skewed-data_files/2023-01-11-dealing-with-skewed-data_37_0.png)
+![png]({{site.baseurl}}/2023-01-11-dealing-with-skewed-data_files/2023-01-11-dealing-with-skewed-data_37_0.png)
     
 
 
@@ -414,7 +414,7 @@ plt.hist(np.log(left_skewed_data));
 
 
     
-![png](2023-01-11-dealing-with-skewed-data_files/2023-01-11-dealing-with-skewed-data_40_0.png)
+![png]({{site.baseurl}}/2023-01-11-dealing-with-skewed-data_files/2023-01-11-dealing-with-skewed-data_40_0.png)
     
 
 
@@ -427,7 +427,7 @@ plt.hist(np.sqrt(left_skewed_data));
 
 
     
-![png](2023-01-11-dealing-with-skewed-data_files/2023-01-11-dealing-with-skewed-data_42_0.png)
+![png]({{site.baseurl}}/2023-01-11-dealing-with-skewed-data_files/2023-01-11-dealing-with-skewed-data_42_0.png)
     
 
 
@@ -442,7 +442,7 @@ plt.hist(np.exp(left_skewed_data));
 
 
     
-![png](2023-01-11-dealing-with-skewed-data_files/2023-01-11-dealing-with-skewed-data_45_0.png)
+![png]({{site.baseurl}}/2023-01-11-dealing-with-skewed-data_files/2023-01-11-dealing-with-skewed-data_45_0.png)
     
 
 
@@ -455,7 +455,7 @@ plt.hist(np.square(left_skewed_data));
 
 
     
-![png](2023-01-11-dealing-with-skewed-data_files/2023-01-11-dealing-with-skewed-data_47_0.png)
+![png]({{site.baseurl}}/2023-01-11-dealing-with-skewed-data_files/2023-01-11-dealing-with-skewed-data_47_0.png)
     
 
 
@@ -475,7 +475,7 @@ plt.hist(right_skewed_data);
 
 
     
-![png](2023-01-11-dealing-with-skewed-data_files/2023-01-11-dealing-with-skewed-data_51_0.png)
+![png]({{site.baseurl}}/2023-01-11-dealing-with-skewed-data_files/2023-01-11-dealing-with-skewed-data_51_0.png)
     
 
 

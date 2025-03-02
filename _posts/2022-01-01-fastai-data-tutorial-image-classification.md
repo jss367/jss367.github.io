@@ -238,7 +238,7 @@ dls.train.show_batch(max_n=4, nrows=1)
 
 
     
-![png](2022-01-01-fastai-data-tutorial-image-classification_files/2022-01-01-fastai-data-tutorial-image-classification_34_0.png)
+![png]({{site.baseurl}}/2022-01-01-fastai-data-tutorial-image-classification_files/2022-01-01-fastai-data-tutorial-image-classification_34_0.png)
     
 
 
@@ -249,7 +249,7 @@ dls.valid.show_batch(max_n=4, nrows=1)
 
 
     
-![png](2022-01-01-fastai-data-tutorial-image-classification_files/2022-01-01-fastai-data-tutorial-image-classification_35_0.png)
+![png]({{site.baseurl}}/2022-01-01-fastai-data-tutorial-image-classification_files/2022-01-01-fastai-data-tutorial-image-classification_35_0.png)
     
 
 
@@ -287,7 +287,7 @@ dls.train.show_batch(max_n=4, nrows=1)
 
 
     
-![png](2022-01-01-fastai-data-tutorial-image-classification_files/2022-01-01-fastai-data-tutorial-image-classification_42_1.png)
+![png]({{site.baseurl}}/2022-01-01-fastai-data-tutorial-image-classification_files/2022-01-01-fastai-data-tutorial-image-classification_42_1.png)
     
 
 
@@ -391,7 +391,7 @@ dls.train.show_batch(max_n=4, nrows=1)
 
 
     
-![png](2022-01-01-fastai-data-tutorial-image-classification_files/2022-01-01-fastai-data-tutorial-image-classification_57_1.png)
+![png]({{site.baseurl}}/2022-01-01-fastai-data-tutorial-image-classification_files/2022-01-01-fastai-data-tutorial-image-classification_57_1.png)
     
 
 

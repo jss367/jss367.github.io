@@ -112,7 +112,7 @@ add_labels()
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_16_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_16_0.png)
     
 
 
@@ -202,7 +202,7 @@ plt.hist(predicted_probas_gnb[:,1]);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_24_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_24_0.png)
     
 
 
@@ -213,7 +213,7 @@ skplt.metrics.plot_cumulative_gain(y_test, predicted_probas_gnb);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_25_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_25_0.png)
     
 
 
@@ -224,7 +224,7 @@ skplt.metrics.plot_lift_curve(y_test, predicted_probas_gnb);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_26_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_26_0.png)
     
 
 
@@ -235,7 +235,7 @@ skplt.metrics.plot_ks_statistic(y_test, predicted_probas_gnb);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_27_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_27_0.png)
     
 
 
@@ -274,7 +274,7 @@ add_labels(standardized=True)
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_31_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_31_0.png)
     
 
 
@@ -286,7 +286,7 @@ skplt.metrics.plot_cumulative_gain(y_test, predicted_probas_lgr);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_32_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_32_0.png)
     
 
 
@@ -297,7 +297,7 @@ skplt.metrics.plot_lift_curve(y_test, predicted_probas_lgr);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_33_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_33_0.png)
     
 
 
@@ -308,7 +308,7 @@ skplt.metrics.plot_ks_statistic(y_test, predicted_probas_lgr);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_34_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_34_0.png)
     
 
 
@@ -354,7 +354,7 @@ add_labels(standardized=True)
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_39_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_39_0.png)
     
 
 
@@ -366,7 +366,7 @@ skplt.metrics.plot_cumulative_gain(y_test, predicted_probas_lgr_grid);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_40_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_40_0.png)
     
 
 
@@ -377,7 +377,7 @@ skplt.metrics.plot_lift_curve(y_test, predicted_probas_lgr_grid);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_41_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_41_0.png)
     
 
 
@@ -388,7 +388,7 @@ skplt.metrics.plot_ks_statistic(y_test, predicted_probas_lgr_grid);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_42_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_42_0.png)
     
 
 
@@ -418,7 +418,7 @@ add_labels()
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_45_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_45_0.png)
     
 
 
@@ -431,7 +431,7 @@ plt.show()
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_46_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_46_0.png)
     
 
 
@@ -442,7 +442,7 @@ skplt.metrics.plot_lift_curve(y_test, predicted_probas_lda);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_47_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_47_0.png)
     
 
 
@@ -453,7 +453,7 @@ skplt.metrics.plot_ks_statistic(y_test, predicted_probas_lda);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_48_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_48_0.png)
     
 
 
@@ -483,7 +483,7 @@ add_labels()
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_51_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_51_0.png)
     
 
 
@@ -496,7 +496,7 @@ plt.show()
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_52_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_52_0.png)
     
 
 
@@ -507,7 +507,7 @@ skplt.metrics.plot_lift_curve(y_test, predicted_probas_qda);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_53_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_53_0.png)
     
 
 
@@ -518,7 +518,7 @@ skplt.metrics.plot_ks_statistic(y_test, predicted_probas_qda);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_54_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_54_0.png)
     
 
 
@@ -593,7 +593,7 @@ add_labels(standardized=True)
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_58_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_58_0.png)
     
 
 
@@ -605,7 +605,7 @@ skplt.metrics.plot_cumulative_gain(y_test, predicted_probas_knn);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_59_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_59_0.png)
     
 
 
@@ -616,7 +616,7 @@ skplt.metrics.plot_lift_curve(y_test, predicted_probas_knn);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_60_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_60_0.png)
     
 
 
@@ -627,7 +627,7 @@ skplt.metrics.plot_ks_statistic(y_test, predicted_probas_knn);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_61_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_61_0.png)
     
 
 
@@ -657,7 +657,7 @@ add_labels()
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_64_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_64_0.png)
     
 
 
@@ -670,7 +670,7 @@ plt.show()
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_65_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_65_0.png)
     
 
 
@@ -681,7 +681,7 @@ skplt.metrics.plot_lift_curve(y_test, predicted_probas_tre);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_66_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_66_0.png)
     
 
 
@@ -692,7 +692,7 @@ skplt.metrics.plot_ks_statistic(y_test, predicted_probas_tre);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_67_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_67_0.png)
     
 
 
@@ -769,7 +769,7 @@ add_labels()
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_72_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_72_0.png)
     
 
 
@@ -782,7 +782,7 @@ plt.show()
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_73_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_73_0.png)
     
 
 
@@ -793,7 +793,7 @@ skplt.metrics.plot_lift_curve(y_test, predicted_probas_rfc);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_74_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_74_0.png)
     
 
 
@@ -804,7 +804,7 @@ skplt.metrics.plot_ks_statistic(y_test, predicted_probas_rfc);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_75_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_75_0.png)
     
 
 
@@ -884,7 +884,7 @@ add_labels()
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_81_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_81_0.png)
     
 
 
@@ -897,7 +897,7 @@ plt.show()
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_82_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_82_0.png)
     
 
 
@@ -908,7 +908,7 @@ skplt.metrics.plot_lift_curve(y_test, predicted_probas_xg);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_83_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_83_0.png)
     
 
 
@@ -919,7 +919,7 @@ skplt.metrics.plot_ks_statistic(y_test, predicted_probas_xg);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_84_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_84_0.png)
     
 
 
@@ -994,7 +994,7 @@ add_labels(standardized=True)
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_88_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_88_0.png)
     
 
 
@@ -1007,7 +1007,7 @@ plt.show()
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_89_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_89_0.png)
     
 
 
@@ -1018,7 +1018,7 @@ skplt.metrics.plot_lift_curve(y_test, predicted_probas_mlp);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_90_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_90_0.png)
     
 
 
@@ -1029,7 +1029,7 @@ skplt.metrics.plot_ks_statistic(y_test, predicted_probas_mlp);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_91_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_91_0.png)
     
 
 
@@ -1122,7 +1122,7 @@ add_labels(standardized=True)
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_97_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_97_0.png)
     
 
 
@@ -1135,7 +1135,7 @@ plt.show()
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_98_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_98_0.png)
     
 
 
@@ -1146,7 +1146,7 @@ skplt.metrics.plot_lift_curve(y_test, predicted_probas_mlp_grid);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_99_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_99_0.png)
     
 
 
@@ -1157,6 +1157,6 @@ skplt.metrics.plot_ks_statistic(y_test, predicted_probas_mlp_grid);
 
 
     
-![png](2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_100_0.png)
+![png]({{site.baseurl}}/2016-03-12-evaluating-machine-learning-algorithms_files/2016-03-12-evaluating-machine-learning-algorithms_100_0.png)
     
 

@@ -306,7 +306,7 @@ plt.show()
 
 
     
-![png](2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_37_0.png)
+![png]({{site.baseurl}}/2024-01-14-shapely-tutorial_files/2024-01-14-shapely-tutorial_37_0.png)
     
 
 

@@ -104,7 +104,7 @@ add_labels()
 
 
     
-![png](2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_14_0.png)
+![png]({{site.baseurl}}/2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_14_0.png)
     
 
 
@@ -177,7 +177,7 @@ add_labels()
 
 
     
-![png](2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_24_0.png)
+![png]({{site.baseurl}}/2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_24_0.png)
     
 
 
@@ -239,7 +239,7 @@ add_labels(standardized=True)
 
 
     
-![png](2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_32_0.png)
+![png]({{site.baseurl}}/2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_32_0.png)
     
 
 
@@ -295,7 +295,7 @@ add_labels(standardized=True)
 
 
     
-![png](2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_40_0.png)
+![png]({{site.baseurl}}/2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_40_0.png)
     
 
 
@@ -333,7 +333,7 @@ add_labels()
 
 
     
-![png](2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_45_0.png)
+![png]({{site.baseurl}}/2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_45_0.png)
     
 
 
@@ -369,7 +369,7 @@ add_labels()
 
 
     
-![png](2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_50_0.png)
+![png]({{site.baseurl}}/2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_50_0.png)
     
 
 
@@ -407,7 +407,7 @@ add_labels(standardized=True)
 
 
     
-![png](2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_56_0.png)
+![png]({{site.baseurl}}/2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_56_0.png)
     
 
 
@@ -445,7 +445,7 @@ add_labels(standardized=True)
 
 
     
-![png](2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_62_0.png)
+![png]({{site.baseurl}}/2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_62_0.png)
     
 
 
@@ -486,7 +486,7 @@ add_labels(standardized=True)
 
 
     
-![png](2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_68_0.png)
+![png]({{site.baseurl}}/2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_68_0.png)
     
 
 
@@ -526,7 +526,7 @@ add_labels()
 
 
     
-![png](2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_74_0.png)
+![png]({{site.baseurl}}/2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_74_0.png)
     
 
 
@@ -562,7 +562,7 @@ add_labels(standardized=True)
 
 
     
-![png](2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_79_0.png)
+![png]({{site.baseurl}}/2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_79_0.png)
     
 
 
@@ -598,7 +598,7 @@ add_labels(standardized=True)
 
 
     
-![png](2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_85_0.png)
+![png]({{site.baseurl}}/2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_85_0.png)
     
 
 
@@ -656,7 +656,7 @@ add_labels(standardized=True)
 
 
     
-![png](2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_92_0.png)
+![png]({{site.baseurl}}/2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_92_0.png)
     
 
 
@@ -724,6 +724,6 @@ ax = sns.stripplot(x='Model', y='Accuracy', data=df, color="black", jitter=0.1, 
 
 
     
-![png](2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_101_0.png)
+![png]({{site.baseurl}}/2016-03-11-Visualize-shallow-learning_files/2016-03-11-Visualize-shallow-learning_101_0.png)
     
 

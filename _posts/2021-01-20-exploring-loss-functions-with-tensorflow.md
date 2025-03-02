@@ -51,7 +51,7 @@ plt.plot(x,y);
 
 
     
-![png](2021-01-20-exploring-loss-functions-with-tensorflow_files/2021-01-20-exploring-loss-functions-with-tensorflow_10_0.png)
+![png]({{site.baseurl}}/2021-01-20-exploring-loss-functions-with-tensorflow_files/2021-01-20-exploring-loss-functions-with-tensorflow_10_0.png)
     
 
 

@@ -78,7 +78,7 @@ dls.train.show_batch(max_n=4, nrows=1)
 
 
     
-![png](2018-07-10-kangaroos-and-wallabies-iii-advanced-modeling-with-fastai_files/2018-07-10-kangaroos-and-wallabies-iii-advanced-modeling-with-fastai_13_0.png)
+![png]({{site.baseurl}}/2018-07-10-kangaroos-and-wallabies-iii-advanced-modeling-with-fastai_files/2018-07-10-kangaroos-and-wallabies-iii-advanced-modeling-with-fastai_13_0.png)
     
 
 
@@ -102,7 +102,7 @@ dls.valid.show_batch(max_n=4, nrows=1)
 
 
     
-![png](2018-07-10-kangaroos-and-wallabies-iii-advanced-modeling-with-fastai_files/2018-07-10-kangaroos-and-wallabies-iii-advanced-modeling-with-fastai_15_1.png)
+![png]({{site.baseurl}}/2018-07-10-kangaroos-and-wallabies-iii-advanced-modeling-with-fastai_files/2018-07-10-kangaroos-and-wallabies-iii-advanced-modeling-with-fastai_15_1.png)
     
 
 
@@ -197,6 +197,6 @@ interp.plot_confusion_matrix()
 
 
     
-![png](2018-07-10-kangaroos-and-wallabies-iii-advanced-modeling-with-fastai_files/2018-07-10-kangaroos-and-wallabies-iii-advanced-modeling-with-fastai_18_1.png)
+![png]({{site.baseurl}}/2018-07-10-kangaroos-and-wallabies-iii-advanced-modeling-with-fastai_files/2018-07-10-kangaroos-and-wallabies-iii-advanced-modeling-with-fastai_18_1.png)
     
 
