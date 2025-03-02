@@ -1,6 +1,6 @@
 .comments {
   @extend %padding-post;
-  border-bottom: 1px solid $border-color;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
   float: left;
   width: 100%;
 }
@@ -46,7 +46,7 @@ header {
 }
 
 .meta {
-  color: $meta; // rgba($text-color, .65);
+  color: var(--meta);
   letter-spacing: 0.1em;
   margin: 0;
   text-transform: uppercase;
@@ -55,7 +55,7 @@ header {
 /* --- Post info --- */
 .post-info {
   /* For border in author
-  border: 1px solid $border-color;
+  border: 1px solid var(--border);
   padding-left: 0.5em;
   */
   border-radius: 1em;
@@ -65,8 +65,13 @@ header {
   a {
     display: flex;
     align-items: center;
+
     img {
       height: auto;
+    }
+
+    &:hover {
+      text-decoration: none;
     }
   }
 
@@ -84,16 +89,21 @@ header {
   padding: 0;
 
   .post-link {
-    color: $feature-image-text-color;
+    color: var(--header-text);
+  }
+
+  h1.title, .post-info {
+    @extend .txt-shadow;
   }
 
   header {
-    color: $feature-image-text-color;
+    color: var(--header-text);
     margin-bottom: 0;
-    padding: $padding-large/2.5 $padding-large;
+    padding: 3.6% $padding-large;
 
     .meta {
-      color: rgba($feature-image-text-color, .7);
+      color: var(--header-text);
+      filter: opacity(0.7);
     }
   }
 
@@ -128,5 +138,20 @@ header {
 
   @media screen and (max-width: $sm-break) {
     background-size: 400% auto;
+  }
+}
+
+.post-content {
+  h1 { color: var(--h1); }
+  h2 { color: var(--h2); }
+  h3 { color: var(--h3); }
+  h4 { color: var(--h4); }
+  h5 { color: var(--h5); }
+  h6 { color: var(--h6); }
+
+  a {
+    :visited {
+      filter: saturate(0.7);
+    }
   }
 }

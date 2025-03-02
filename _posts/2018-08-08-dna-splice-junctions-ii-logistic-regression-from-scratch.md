@@ -217,7 +217,7 @@ plt.show()
 ```
 
 
-![png]({{site.baseurl}}/assets/img/2018-08-08-DNA-Logistic-Regression_files/2018-08-08-DNA-Logistic-Regression_35_0.png)
+![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/2018-08-08-DNA-Logistic-Regression_files/2018-08-08-DNA-Logistic-Regression_35_0.png)
 
 
 In some notations, the output is written as `A` or `y-hat`. In our case, we'll just call it `output`.

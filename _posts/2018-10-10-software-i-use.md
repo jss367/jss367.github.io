@@ -60,7 +60,7 @@ I’m always curious about how people set up their computers and what software p
 * Might become my new file explorer for Mac
 * You might need to customize the hot keys
 
-![png]({{site.baseurl}}/assets/img/path_finder_options.png)
+![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/path_finder_options.png)
 
 [Files](https://github.com/files-community/Files) (FOSS, Windows)
 * I recently started using this on Windows and like it
@@ -176,7 +176,7 @@ Yes, I do use many different cloud services. All for slightly different purposes
 * Makes moving and resizing windows easy on a Mac
 * Here are the default hot keys
 
-![png]({{site.baseurl}}/assets/img/rectangle_defaults.png)
+![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/rectangle_defaults.png)
 
 [Alfred](https://www.alfredapp.com/) (Mac only)
 * In the running for one of the best productivity apps in existence

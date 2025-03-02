@@ -95,7 +95,7 @@ plt.show()
 
 
     
-![png](2024-04-03-geospatial-data-plotting-tutorial_files/2024-04-03-geospatial-data-plotting-tutorial_7_0.png)
+![png]({{site.baseurl}}/assets/img/2024-04-03-geospatial-data-plotting-tutorial_files/2024-04-03-geospatial-data-plotting-tutorial_7_0.png)
     
 
 
@@ -126,7 +126,7 @@ plt.show()
 
 
     
-![png](2024-04-03-geospatial-data-plotting-tutorial_files/2024-04-03-geospatial-data-plotting-tutorial_9_1.png)
+![png]({{site.baseurl}}/assets/img/2024-04-03-geospatial-data-plotting-tutorial_files/2024-04-03-geospatial-data-plotting-tutorial_9_1.png)
     
 
 
@@ -240,7 +240,7 @@ plt.show()
 
 
     
-![png](2024-04-03-geospatial-data-plotting-tutorial_files/2024-04-03-geospatial-data-plotting-tutorial_14_0.png)
+![png]({{site.baseurl}}/assets/img/2024-04-03-geospatial-data-plotting-tutorial_files/2024-04-03-geospatial-data-plotting-tutorial_14_0.png)
     
 
 
@@ -267,7 +267,7 @@ plt.show()
 
 
     
-![png](2024-04-03-geospatial-data-plotting-tutorial_files/2024-04-03-geospatial-data-plotting-tutorial_17_0.png)
+![png]({{site.baseurl}}/assets/img/2024-04-03-geospatial-data-plotting-tutorial_files/2024-04-03-geospatial-data-plotting-tutorial_17_0.png)
     
 
 
@@ -484,6 +484,6 @@ plt.show()
 
 
     
-![png](2024-04-03-geospatial-data-plotting-tutorial_files/2024-04-03-geospatial-data-plotting-tutorial_24_0.png)
+![png]({{site.baseurl}}/assets/img/2024-04-03-geospatial-data-plotting-tutorial_files/2024-04-03-geospatial-data-plotting-tutorial_24_0.png)
     
 

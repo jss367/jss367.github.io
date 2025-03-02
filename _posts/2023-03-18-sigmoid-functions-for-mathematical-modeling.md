@@ -77,7 +77,7 @@ plot_function(sigmoid)
 
 
     
-![png](2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_9_0.png)
+![png]({{site.baseurl}}/assets/img/2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_9_0.png)
     
 
 
@@ -104,7 +104,7 @@ plot_function(sigmoid)
 
 
     
-![png](2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_13_0.png)
+![png]({{site.baseurl}}/assets/img/2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_13_0.png)
     
 
 
@@ -117,7 +117,7 @@ plot_function(sigmoid, x_shift=4)
 
 
     
-![png](2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_15_0.png)
+![png]({{site.baseurl}}/assets/img/2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_15_0.png)
     
 
 
@@ -130,7 +130,7 @@ plot_function(sigmoid, x_shift=4, y_shift=-5)
 
 
     
-![png](2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_17_0.png)
+![png]({{site.baseurl}}/assets/img/2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_17_0.png)
     
 
 
@@ -143,7 +143,7 @@ plot_function(sigmoid, x_shift=4, y_shift=-5, y_scale=10)
 
 
     
-![png](2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_19_0.png)
+![png]({{site.baseurl}}/assets/img/2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_19_0.png)
     
 
 
@@ -213,7 +213,7 @@ plot_function(sigmoid, y_shift=y_shift, y_scale=y_scale)
 
 
     
-![png](2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_44_0.png)
+![png]({{site.baseurl}}/assets/img/2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_44_0.png)
     
 
 
@@ -278,7 +278,7 @@ plot_function(sigmoid, -10, 20, x_shift=x_shift, y_shift=y_shift, y_scale=y_scal
 
 
     
-![png](2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_65_0.png)
+![png]({{site.baseurl}}/assets/img/2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_65_0.png)
     
 
 
@@ -305,7 +305,7 @@ plot_function(sigmoid, x_shift=x_shift, y_shift=y_shift, y_scale=y_scale)
 
 
     
-![png](2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_69_0.png)
+![png]({{site.baseurl}}/assets/img/2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_69_0.png)
     
 
 
@@ -332,6 +332,6 @@ plot_function(sigmoid, x_shift=x_shift, y_shift=y_shift, y_scale=y_scale)
 
 
     
-![png](2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_73_0.png)
+![png]({{site.baseurl}}/assets/img/2023-03-18-sigmoid-functions-for-mathematical-modeling_files/2023-03-18-sigmoid-functions-for-mathematical-modeling_73_0.png)
     
 

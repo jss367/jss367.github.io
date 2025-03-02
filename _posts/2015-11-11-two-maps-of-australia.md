@@ -12,11 +12,11 @@ A geographic map does nothing to explain this. The Northern Territory of Austral
 
 To explore this question, I've made two maps. The first should look roughly familiar, except that the intricate Australian coasts have been reduced to straight lines for ease of use.
 
-![png]({{site.baseurl}}/assets/img/2015-11-11-Two%20maps%20of%20Australia_files/2015-11-11-Two%20maps%20of%20Australia_2_1.png)
+![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/2015-11-11-Two%20maps%20of%20Australia_files/2015-11-11-Two%20maps%20of%20Australia_2_1.png)
 
 
 But for the second, I’ve adjusted the size of the territories based on their population. Australia is dominated by Queensland, New South Wales, and Victoria. The Northern Territory is tiny. While this map has no relation to the geographic realities of Australia, I think it's actually more accurate to look at this map when you consider how Australia works.
 
-![png]({{site.baseurl}}/assets/img/2015-11-11-Two%20maps%20of%20Australia_files/2015-11-11-Two%20maps%20of%20Australia_7_1.png)
+![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/2015-11-11-Two%20maps%20of%20Australia_files/2015-11-11-Two%20maps%20of%20Australia_7_1.png)
 
 [Cick here](https://nbviewer.jupyter.org/github/jss367/JupyterNotebooks/blob/master/2015-11-11-Two%20maps%20of%20Australia.ipynb) to see the code.

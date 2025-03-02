@@ -169,7 +169,7 @@ shap.summary_plot(shap_values, X_test)
 
 
     
-![png](2023-03-04-shap-values-on-tabular-data_files/2023-03-04-shap-values-on-tabular-data_23_1.png)
+![png]({{site.baseurl}}/assets/img/2023-03-04-shap-values-on-tabular-data_files/2023-03-04-shap-values-on-tabular-data_23_1.png)
     
 
 
@@ -316,7 +316,7 @@ shap.summary_plot(shap_values, X_test)
 
 
     
-![png](2023-03-04-shap-values-on-tabular-data_files/2023-03-04-shap-values-on-tabular-data_39_1.png)
+![png]({{site.baseurl}}/assets/img/2023-03-04-shap-values-on-tabular-data_files/2023-03-04-shap-values-on-tabular-data_39_1.png)
     
 
 

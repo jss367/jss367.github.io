@@ -1,3 +1,9 @@
+/* @preserve Cookie Consent Init */
+/*
+ * This script is used to display a cookie consent banner.
+ * The variables isCookieConsent, cookieName, analyticsName are defined in head.liquid from the _config.yml
+ * The variables cookieNotice and cookieNoticeAccept are defined in head.liquid from the _data/translations.yml
+ */
 function createCookie(name, value, days) {
   var expires = "";
   if (days) {
@@ -5,7 +11,7 @@ function createCookie(name, value, days) {
     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
     expires = "; expires=" + date.toUTCString();
   }
-  document.cookie = name + "=" + value + expires + "; path=/";
+  document.cookie = `${name}=${value}${expires}; path=/`;
 }
 
 function readCookie(name) {
@@ -33,22 +39,19 @@ function googleAnalytics() {
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
     gtag('js', new Date());
-    gtag('config', analyticsName);
-
-    // Google analytics
-    window.ga = window.ga || function () { (ga.q = ga.q || []).push(arguments) };
-    ga.l = +new Date;
-    ga('create', analyticsName, 'auto');
-    ga('send', 'pageview');
+    gtag('config', analyticsName, { 'anonymize_ip': true });
+    if (analyticsNameGA4) {
+      gtag('config', analyticsNameGA4, { 'anonymize_ip': true });
+    }
   }
 }
 
 if (isCookieConsent.toLowerCase() === 'true') {
   addCookieConsentListener();
   if (readCookie(cookieName) === 'true') {
-      googleAnalytics();
+    googleAnalytics();
   } else {
-  document.getElementById('cookie-notice').style.display = 'block';
+    document.getElementById('cookie-notice').style.display = 'block';
   }
 } else {
   googleAnalytics();

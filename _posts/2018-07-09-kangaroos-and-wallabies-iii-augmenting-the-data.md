@@ -54,7 +54,7 @@ test_image
 
 
 
-![png]({{site.baseurl}}/assets/img/2018-07-09-Augmenting-with-Keras_files/2018-07-09-Augmenting-with-Keras_11_0.png)
+![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/2018-07-09-Augmenting-with-Keras_files/2018-07-09-Augmenting-with-Keras_11_0.png)
 
 
 

@@ -172,5 +172,5 @@ plt.show()
 ```
 
 
-![png]({{site.baseurl}}/assets/img/2016-08-12-Declining-Executions-in-England_files/2016-08-12-Declining-Executions-in-England_10_0.png)
+![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/2016-08-12-Declining-Executions-in-England_files/2016-08-12-Declining-Executions-in-England_10_0.png)
 
