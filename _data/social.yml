@@ -1,40 +1,16 @@
-# Icons on the footer
-rss: true
-email_address: julius.simonelli@gmail.com   # Full email address, e.g. "sam@example.com"
-behance:
-bitbucket:
-dribbble:
-facebook:
-flickr:
-gitlab:
-github: "jss367"
-instagram:
-keybase:
-linkedin:         # Full URL
-pinterest:
-reddit:
-soundcloud:
-stack_overflow:
-stack_exchange:   # Full URL
-steam:
-tumblr:
-twitter:          # "twitter username"
-vimeo:
-wordpress:
-youtube:          # Youtube channel token like: UCqECaJ8Gagnn7YCbPEzWH6g
-
-# rss specify feed path
+# RSS specific
+rss: true         # Icons on the footer
 feed:
-  path: feed.xml
+  path: feed.xml  # RSS feed path
 
-# Share button options
+# For the share button options at the bottom of the articles
 share:
-  facebook: true
-  twitter: true
-  tumblr:
-  pinterest:
-  pocket: true
-  reddit: true
-  linkedin: true
-  wordpress:
   email: true
+  facebook: true
+  linkedin: true
+  pinterest: true
+  pocket:
+  reddit: true
+  tumblr: true
+  twitter: true
+  wordpress:

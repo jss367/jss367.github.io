@@ -3,6 +3,7 @@ layout: page
 title: About
 permalink: /about/
 feature-img: "assets/img/astro_crop_small.jpg"
+tags: [Page]
 ---
 
 This is the (mostly) data science and machine learning blog of Julius Simonelli built on top of Jekyll using the [Type-on-Strap theme](https://github.com/sylhare/Type-on-Strap). All images are mine unless otherwise noted. Feel free to contact me at julius.simonelli "at" gmail.com.
