@@ -430,19 +430,19 @@ plot_hidden_states(hidden_states_umap, "UMAP Visualization of Hidden States")
 
 
     
-![png]({{site.baseurl}}/2023-05-08-discovering-latent-knowledge-without-supervision_files/2023-05-08-discovering-latent-knowledge-without-supervision_51_1.png)
+![png]({{site.baseurl}}/asserts/img/2023-05-08-discovering-latent-knowledge-without-supervision_files/2023-05-08-discovering-latent-knowledge-without-supervision_51_1.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2023-05-08-discovering-latent-knowledge-without-supervision_files/2023-05-08-discovering-latent-knowledge-without-supervision_51_2.png)
+![png]({{site.baseurl}}/asserts/img/2023-05-08-discovering-latent-knowledge-without-supervision_files/2023-05-08-discovering-latent-knowledge-without-supervision_51_2.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2023-05-08-discovering-latent-knowledge-without-supervision_files/2023-05-08-discovering-latent-knowledge-without-supervision_51_3.png)
+![png]({{site.baseurl}}/asserts/img/2023-05-08-discovering-latent-knowledge-without-supervision_files/2023-05-08-discovering-latent-knowledge-without-supervision_51_3.png)
     
 
 

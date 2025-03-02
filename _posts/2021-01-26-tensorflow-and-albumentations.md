@@ -116,7 +116,7 @@ show(image, label)
 
 
     
-![png]({{site.baseurl}}/2021-01-26-Tensorflow-and-Albumentations_files/2021-01-26-Tensorflow-and-Albumentations_19_0.png)
+![png]({{site.baseurl}}/asserts/img/2021-01-26-Tensorflow-and-Albumentations_files/2021-01-26-Tensorflow-and-Albumentations_19_0.png)
     
 
 
@@ -214,7 +214,7 @@ view_image(ds_alb_batched)
 
 
     
-![png]({{site.baseurl}}/2021-01-26-Tensorflow-and-Albumentations_files/2021-01-26-Tensorflow-and-Albumentations_33_0.png)
+![png]({{site.baseurl}}/asserts/img/2021-01-26-Tensorflow-and-Albumentations_files/2021-01-26-Tensorflow-and-Albumentations_33_0.png)
     
 
 

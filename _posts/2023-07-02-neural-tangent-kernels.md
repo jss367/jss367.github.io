@@ -104,7 +104,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/2023-07-02-neural-tangent-kernels_files/2023-07-02-neural-tangent-kernels_15_0.png)
+![png]({{site.baseurl}}/asserts/img/2023-07-02-neural-tangent-kernels_files/2023-07-02-neural-tangent-kernels_15_0.png)
     
 
 

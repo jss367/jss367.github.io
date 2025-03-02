@@ -6,7 +6,7 @@ thumbnail: "assets/img/mountain.jpg"
 tags: [Neural Networks]
 ---
 
-![Skier or dog]({{site.baseurl}}/assets/img/skier_dog_attack.png "Skier to dog attack")
+![Skier or dog]({{site.baseurl}}/asserts/img/assets/img/skier_dog_attack.png "Skier to dog attack")
 
 This is a picture of a dog. At least, that's what it is if you ask [Google Cloud Vision](https://cloud.google.com/vision). Really, it's an example of an adversarial attack on a neural network from that came out of [new research](https://arxiv.org/pdf/1804.08598.pdf) by a team at MIT and [LabSix](https://www.labsix.org/), an MIT student-run AI research group. To be clear, this prediction isn't a simple "goof" on Google's part that someone found, this was a targeted attempt to fool the neural network. And it works surprisingly well. Here are the resulting scores when this image is input into Google Cloud Vision.
 

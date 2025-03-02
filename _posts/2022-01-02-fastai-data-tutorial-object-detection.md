@@ -106,7 +106,7 @@ plt.imshow(dota_dataset[0][0])
 
 
     
-![png]({{site.baseurl}}/2022-01-02-fastai-data-tutorial-object-detection_files/2022-01-02-fastai-data-tutorial-object-detection_11_1.png)
+![png]({{site.baseurl}}/asserts/img/2022-01-02-fastai-data-tutorial-object-detection_files/2022-01-02-fastai-data-tutorial-object-detection_11_1.png)
     
 
 
@@ -134,7 +134,7 @@ show_annotations(*dota_dataset[0])
 
 
     
-![png]({{site.baseurl}}/2022-01-02-fastai-data-tutorial-object-detection_files/2022-01-02-fastai-data-tutorial-object-detection_15_0.png)
+![png]({{site.baseurl}}/asserts/img/2022-01-02-fastai-data-tutorial-object-detection_files/2022-01-02-fastai-data-tutorial-object-detection_15_0.png)
     
 
 
@@ -255,7 +255,7 @@ dls.show_batch()
 
 
     
-![png]({{site.baseurl}}/2022-01-02-fastai-data-tutorial-object-detection_files/2022-01-02-fastai-data-tutorial-object-detection_36_0.png)
+![png]({{site.baseurl}}/asserts/img/2022-01-02-fastai-data-tutorial-object-detection_files/2022-01-02-fastai-data-tutorial-object-detection_36_0.png)
     
 
 

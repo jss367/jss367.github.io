@@ -59,7 +59,7 @@ plt.imshow(image);
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_10_0.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_10_0.png)
     
 
 
@@ -70,7 +70,7 @@ plt.imshow(mask);
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_11_0.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_11_0.png)
     
 
 
@@ -194,31 +194,31 @@ for i in range(5):
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_25_0.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_25_0.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_25_1.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_25_1.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_25_2.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_25_2.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_25_3.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_25_3.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_25_4.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_25_4.png)
     
 
 
@@ -241,31 +241,31 @@ for i in range(5):
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_28_0.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_28_0.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_28_1.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_28_1.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_28_2.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_28_2.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_28_3.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_28_3.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_28_4.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_28_4.png)
     
 
 
@@ -300,7 +300,7 @@ visualize(image, augmented['image'])
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_37_0.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_37_0.png)
     
 
 
@@ -323,7 +323,7 @@ visualize(image, augmented['image'])
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_40_0.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_40_0.png)
     
 
 
@@ -345,7 +345,7 @@ visualize_group(aug_images)
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_42_0.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_42_0.png)
     
 
 
@@ -367,7 +367,7 @@ visualize(image, augmented_image)
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_45_0.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_45_0.png)
     
 
 
@@ -390,7 +390,7 @@ visualize(image, augmented_image)
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_48_0.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_48_0.png)
     
 
 
@@ -413,7 +413,7 @@ visualize(image, augmented_image)
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_50_0.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_50_0.png)
     
 
 
@@ -436,7 +436,7 @@ visualize(image, augmented_image)
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_52_0.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_52_0.png)
     
 
 
@@ -459,7 +459,7 @@ visualize_group(aug_ims)
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_54_0.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_54_0.png)
     
 
 
@@ -484,7 +484,7 @@ visualize_group(aug_ims)
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_57_0.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_57_0.png)
     
 
 
@@ -509,7 +509,7 @@ visualize_group(aug_ims)
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_60_0.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_60_0.png)
     
 
 
@@ -532,31 +532,31 @@ for i in range(5):
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_63_0.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_63_0.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_63_1.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_63_1.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_63_2.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_63_2.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_63_3.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_63_3.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_63_4.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_63_4.png)
     
 
 
@@ -575,31 +575,31 @@ for i in range(5):
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_64_0.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_64_0.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_64_1.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_64_1.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_64_2.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_64_2.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_64_3.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_64_3.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_64_4.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_64_4.png)
     
 
 
@@ -618,31 +618,31 @@ for i in range(5):
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_65_0.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_65_0.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_65_1.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_65_1.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_65_2.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_65_2.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_65_3.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_65_3.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_65_4.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_65_4.png)
     
 
 
@@ -664,31 +664,31 @@ for i in range(5):
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_67_0.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_67_0.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_67_1.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_67_1.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_67_2.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_67_2.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_67_3.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_67_3.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_67_4.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_67_4.png)
     
 
 
@@ -717,7 +717,7 @@ visualize_group(aug_ims)
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_72_0.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_72_0.png)
     
 
 
@@ -742,7 +742,7 @@ visualize_group(aug_ims)
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_75_0.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_75_0.png)
     
 
 
@@ -767,7 +767,7 @@ visualize_group(aug_ims)
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_78_0.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_78_0.png)
     
 
 
@@ -792,7 +792,7 @@ visualize_group(aug_ims)
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_81_0.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_81_0.png)
     
 
 
@@ -816,7 +816,7 @@ plt.imshow(aug(image=image)['image']);
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_86_0.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_86_0.png)
     
 
 
@@ -840,7 +840,7 @@ visualize_group(aug_ims)
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_89_0.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_89_0.png)
     
 
 
@@ -864,7 +864,7 @@ visualize_group(aug_ims)
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_92_0.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_92_0.png)
     
 
 
@@ -887,25 +887,25 @@ for i in range(4):
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_94_0.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_94_0.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_94_1.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_94_1.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_94_2.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_94_2.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_94_3.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_94_3.png)
     
 
 
@@ -926,55 +926,55 @@ for i in range(9):
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_96_0.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_96_0.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_96_1.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_96_1.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_96_2.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_96_2.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_96_3.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_96_3.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_96_4.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_96_4.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_96_5.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_96_5.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_96_6.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_96_6.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_96_7.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_96_7.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_96_8.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_96_8.png)
     
 
 
@@ -994,7 +994,7 @@ visualize_group(aug_ims)
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_97_0.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_97_0.png)
     
 
 
@@ -1016,7 +1016,7 @@ visualize_group(aug_ims)
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_99_0.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_99_0.png)
     
 
 
@@ -1038,7 +1038,7 @@ visualize_group(aug_ims)
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_101_0.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_101_0.png)
     
 
 
@@ -1075,55 +1075,55 @@ for i in range(9):
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_106_0.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_106_0.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_106_1.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_106_1.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_106_2.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_106_2.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_106_3.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_106_3.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_106_4.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_106_4.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_106_5.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_106_5.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_106_6.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_106_6.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_106_7.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_106_7.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_106_8.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_106_8.png)
     
 
 
@@ -1156,55 +1156,55 @@ for i in range(9):
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_108_0.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_108_0.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_108_1.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_108_1.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_108_2.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_108_2.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_108_3.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_108_3.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_108_4.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_108_4.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_108_5.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_108_5.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_108_6.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_108_6.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_108_7.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_108_7.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_108_8.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_108_8.png)
     
 
 
@@ -1241,55 +1241,55 @@ for i in range(9):
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_111_0.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_111_0.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_111_1.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_111_1.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_111_2.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_111_2.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_111_3.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_111_3.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_111_4.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_111_4.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_111_5.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_111_5.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_111_6.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_111_6.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_111_7.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_111_7.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_111_8.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_111_8.png)
     
 
 
@@ -1328,55 +1328,55 @@ for i in range(9):
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_114_0.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_114_0.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_114_1.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_114_1.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_114_2.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_114_2.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_114_3.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_114_3.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_114_4.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_114_4.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_114_5.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_114_5.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_114_6.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_114_6.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_114_7.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_114_7.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_114_8.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_114_8.png)
     
 
 
@@ -1411,55 +1411,55 @@ for i in range(9):
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_117_0.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_117_0.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_117_1.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_117_1.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_117_2.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_117_2.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_117_3.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_117_3.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_117_4.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_117_4.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_117_5.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_117_5.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_117_6.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_117_6.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_117_7.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_117_7.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_117_8.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_117_8.png)
     
 
 
@@ -1496,54 +1496,54 @@ for i in range(9):
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_120_0.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_120_0.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_120_1.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_120_1.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_120_2.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_120_2.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_120_3.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_120_3.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_120_4.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_120_4.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_120_5.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_120_5.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_120_6.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_120_6.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_120_7.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_120_7.png)
     
 
 
 
     
-![png]({{site.baseurl}}/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_120_8.png)
+![png]({{site.baseurl}}/asserts/img/2020-06-12-data-augmentation-with-albumentations_files/2020-06-12-data-augmentation-with-albumentations_120_8.png)
     
 

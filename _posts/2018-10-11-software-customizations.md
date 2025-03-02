@@ -166,7 +166,7 @@ I don't particularly like the way Sublime handles markdown files by default, so 
 * On a Mac, go into Preferences -> Settings -> Syntax Specific (Mac)
 * On Linux, go into Preferences -> Settings - Syntax Specific
 
-![png]({{site.baseurl}}/{{site.baseurl}}/assets/img/sublime_linux_settings.png)
+![png]({{site.baseurl}}/asserts/img/{{site.baseurl}}/assets/img/sublime_linux_settings.png)
 
 add this:
 ```
@@ -238,7 +238,7 @@ I don't like the default behavior of tab cycling in VSCode because it switches t
     },
 ```
 
-![png]({{site.baseurl}}/{{site.baseurl}}/assets/img/vscode_keyboard_shortcuts_windows.png)
+![png]({{site.baseurl}}/asserts/img/{{site.baseurl}}/assets/img/vscode_keyboard_shortcuts_windows.png)
 
 The ones you're looking for are `workbench.action.nextEditor` and `workbench.action.previousEditor`.
 

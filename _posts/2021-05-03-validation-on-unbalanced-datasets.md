@@ -114,7 +114,7 @@ plot_losses(history_balanced, "Balanced Validation")
 
 
     
-![png]({{site.baseurl}}/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_16_0.png)
+![png]({{site.baseurl}}/asserts/img/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_16_0.png)
     
 
 
@@ -125,7 +125,7 @@ plot_losses(history_representative, "Representative Validation")
 
 
     
-![png]({{site.baseurl}}/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_17_0.png)
+![png]({{site.baseurl}}/asserts/img/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_17_0.png)
     
 
 
@@ -189,7 +189,7 @@ plot_cm(concat_labels, concat_preds_balanced)
 
 
     
-![png]({{site.baseurl}}/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_24_0.png)
+![png]({{site.baseurl}}/asserts/img/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_24_0.png)
     
 
 
@@ -200,7 +200,7 @@ plot_cm(concat_labels, concat_preds_unbalanced)
 
 
     
-![png]({{site.baseurl}}/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_25_0.png)
+![png]({{site.baseurl}}/asserts/img/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_25_0.png)
     
 
 
@@ -260,7 +260,7 @@ plot_losses(history_balanced, "Balanced Validation")
 
 
     
-![png]({{site.baseurl}}/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_32_0.png)
+![png]({{site.baseurl}}/asserts/img/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_32_0.png)
     
 
 
@@ -271,7 +271,7 @@ plot_losses(history_representative, "Representative Validation")
 
 
     
-![png]({{site.baseurl}}/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_33_0.png)
+![png]({{site.baseurl}}/asserts/img/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_33_0.png)
     
 
 
@@ -326,7 +326,7 @@ plot_cm(concat_labels, concat_preds_balanced)
 
 
     
-![png]({{site.baseurl}}/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_38_0.png)
+![png]({{site.baseurl}}/asserts/img/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_38_0.png)
     
 
 
@@ -337,7 +337,7 @@ plot_cm(concat_labels, concat_preds_unbalanced)
 
 
     
-![png]({{site.baseurl}}/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_39_0.png)
+![png]({{site.baseurl}}/asserts/img/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_39_0.png)
     
 
 
@@ -397,7 +397,7 @@ plot_losses(history_balanced, "Balanced Validation")
 
 
     
-![png]({{site.baseurl}}/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_46_0.png)
+![png]({{site.baseurl}}/asserts/img/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_46_0.png)
     
 
 
@@ -408,7 +408,7 @@ plot_losses(history_representative, "Representative Validation")
 
 
     
-![png]({{site.baseurl}}/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_47_0.png)
+![png]({{site.baseurl}}/asserts/img/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_47_0.png)
     
 
 
@@ -463,7 +463,7 @@ plot_cm(concat_labels, concat_preds_balanced)
 
 
     
-![png]({{site.baseurl}}/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_52_0.png)
+![png]({{site.baseurl}}/asserts/img/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_52_0.png)
     
 
 
@@ -474,7 +474,7 @@ plot_cm(concat_labels, concat_preds_unbalanced)
 
 
     
-![png]({{site.baseurl}}/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_53_0.png)
+![png]({{site.baseurl}}/asserts/img/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_53_0.png)
     
 
 
@@ -538,7 +538,7 @@ plot_losses(history_balanced, "Balanced Validation")
 
 
     
-![png]({{site.baseurl}}/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_62_0.png)
+![png]({{site.baseurl}}/asserts/img/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_62_0.png)
     
 
 
@@ -549,7 +549,7 @@ plot_losses(history_representative, "Representative Validation")
 
 
     
-![png]({{site.baseurl}}/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_63_0.png)
+![png]({{site.baseurl}}/asserts/img/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_63_0.png)
     
 
 
@@ -611,7 +611,7 @@ plot_cm(concat_labels, concat_preds_balanced)
 
 
     
-![png]({{site.baseurl}}/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_69_0.png)
+![png]({{site.baseurl}}/asserts/img/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_69_0.png)
     
 
 
@@ -622,7 +622,7 @@ plot_cm(concat_labels, concat_preds_unbalanced)
 
 
     
-![png]({{site.baseurl}}/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_70_0.png)
+![png]({{site.baseurl}}/asserts/img/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_70_0.png)
     
 
 
@@ -682,7 +682,7 @@ plot_losses(history_balanced, "Balanced Validation")
 
 
     
-![png]({{site.baseurl}}/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_77_0.png)
+![png]({{site.baseurl}}/asserts/img/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_77_0.png)
     
 
 
@@ -693,7 +693,7 @@ plot_losses(history_representative, "Representative Validation")
 
 
     
-![png]({{site.baseurl}}/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_78_0.png)
+![png]({{site.baseurl}}/asserts/img/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_78_0.png)
     
 
 
@@ -748,7 +748,7 @@ plot_cm(concat_labels, concat_preds_balanced)
 
 
     
-![png]({{site.baseurl}}/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_83_0.png)
+![png]({{site.baseurl}}/asserts/img/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_83_0.png)
     
 
 
@@ -759,7 +759,7 @@ plot_cm(concat_labels, concat_preds_unbalanced)
 
 
     
-![png]({{site.baseurl}}/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_84_0.png)
+![png]({{site.baseurl}}/asserts/img/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_84_0.png)
     
 
 
@@ -819,7 +819,7 @@ plot_losses(history_balanced, "Balanced Validation")
 
 
     
-![png]({{site.baseurl}}/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_91_0.png)
+![png]({{site.baseurl}}/asserts/img/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_91_0.png)
     
 
 
@@ -830,7 +830,7 @@ plot_losses(history_representative, "Representative Validation")
 
 
     
-![png]({{site.baseurl}}/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_92_0.png)
+![png]({{site.baseurl}}/asserts/img/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_92_0.png)
     
 
 
@@ -885,7 +885,7 @@ plot_cm(concat_labels, concat_preds_balanced)
 
 
     
-![png]({{site.baseurl}}/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_97_0.png)
+![png]({{site.baseurl}}/asserts/img/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_97_0.png)
     
 
 
@@ -896,7 +896,7 @@ plot_cm(concat_labels, concat_preds_unbalanced)
 
 
     
-![png]({{site.baseurl}}/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_98_0.png)
+![png]({{site.baseurl}}/asserts/img/2021-05-03-validation-on-unbalanced-datasets_files/2021-05-03-validation-on-unbalanced-datasets_98_0.png)
     
 
 

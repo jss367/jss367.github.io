@@ -284,7 +284,7 @@ plt.show()
 ```
 
 
-![png]({{site.baseurl}}/{{site.baseurl}}/assets/img/2017-03-01-Lowest%20Presidential%20Approval_files/2017-03-01-Lowest%20Presidential%20Approval_35_0.png)
+![png]({{site.baseurl}}/asserts/img/{{site.baseurl}}/assets/img/2017-03-01-Lowest%20Presidential%20Approval_files/2017-03-01-Lowest%20Presidential%20Approval_35_0.png)
 
 
 OK, now let's make a pie chart that shows the total number of days each president has had the lowest approval rating.
@@ -311,23 +311,23 @@ plt.show()
 ```
 
 
-![png]({{site.baseurl}}/{{site.baseurl}}/assets/img/2017-03-01-Lowest%20Presidential%20Approval_files/2017-03-01-Lowest%20Presidential%20Approval_37_0.png)
+![png]({{site.baseurl}}/asserts/img/{{site.baseurl}}/assets/img/2017-03-01-Lowest%20Presidential%20Approval_files/2017-03-01-Lowest%20Presidential%20Approval_37_0.png)
 
 
 # Update (63 days in):
 
 
-![png]({{site.baseurl}}/{{site.baseurl}}/assets/img/2017-03-01-Lowest%20Presidential%20Approval_files/2017-03-01-Lowest%20Presidential%20Approval_41_0.png)
+![png]({{site.baseurl}}/asserts/img/{{site.baseurl}}/assets/img/2017-03-01-Lowest%20Presidential%20Approval_files/2017-03-01-Lowest%20Presidential%20Approval_41_0.png)
 
 
-![png]({{site.baseurl}}/{{site.baseurl}}/assets/img/2017-03-01-Lowest%20Presidential%20Approval_files/2017-03-01-Lowest%20Presidential%20Approval_42_0.png)
+![png]({{site.baseurl}}/asserts/img/{{site.baseurl}}/assets/img/2017-03-01-Lowest%20Presidential%20Approval_files/2017-03-01-Lowest%20Presidential%20Approval_42_0.png)
 
 
 # Update 2 (93 days in):
 
 
 
-![png]({{site.baseurl}}/{{site.baseurl}}/assets/img/2017-03-01-Lowest%20Presidential%20Approval_files/2017-03-01-Lowest%20Presidential%20Approval_46_0.png)
+![png]({{site.baseurl}}/asserts/img/{{site.baseurl}}/assets/img/2017-03-01-Lowest%20Presidential%20Approval_files/2017-03-01-Lowest%20Presidential%20Approval_46_0.png)
 
 
-![png]({{site.baseurl}}/{{site.baseurl}}/assets/img/2017-03-01-Lowest%20Presidential%20Approval_files/2017-03-01-Lowest%20Presidential%20Approval_47_0.png)
+![png]({{site.baseurl}}/asserts/img/{{site.baseurl}}/assets/img/2017-03-01-Lowest%20Presidential%20Approval_files/2017-03-01-Lowest%20Presidential%20Approval_47_0.png)

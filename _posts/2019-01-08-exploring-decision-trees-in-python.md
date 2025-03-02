@@ -237,7 +237,7 @@ plt.show()
 ```
 
 
-![png]({{site.baseurl}}/{{site.baseurl}}/assets/img/2019-01-08-Exploring-Decision-Trees-in-Python_files/2019-01-08-Exploring-Decision-Trees-in-Python_14_0.png)
+![png]({{site.baseurl}}/asserts/img/{{site.baseurl}}/assets/img/2019-01-08-Exploring-Decision-Trees-in-Python_files/2019-01-08-Exploring-Decision-Trees-in-Python_14_0.png)
 
 
 Just from this we can see some outliers with really high salaries. This will cause a right-skewed distribution. One nice thing about decision trees is that we don't have to do any feature processing on the predictors. We do, however, have to take the target variable distribution into account. We don't want a few high salaries to have too much weight in the squared error minimization. So to make the distribution more even, we may have to take a log transformation of the salary data. Let's look at the distribution.
@@ -260,7 +260,7 @@ plt.hist(df['Salary'])
 
 
 
-![png]({{site.baseurl}}/{{site.baseurl}}/assets/img/2019-01-08-Exploring-Decision-Trees-in-Python_files/2019-01-08-Exploring-Decision-Trees-in-Python_17_1.png)
+![png]({{site.baseurl}}/asserts/img/{{site.baseurl}}/assets/img/2019-01-08-Exploring-Decision-Trees-in-Python_files/2019-01-08-Exploring-Decision-Trees-in-Python_17_1.png)
 
 
 It's definitely right-skewed. Let's look at a log transform to see if that's better.
@@ -282,7 +282,7 @@ plt.hist(np.log(df['Salary']))
 
 
 
-![png]({{site.baseurl}}/{{site.baseurl}}/assets/img/2019-01-08-Exploring-Decision-Trees-in-Python_files/2019-01-08-Exploring-Decision-Trees-in-Python_19_1.png)
+![png]({{site.baseurl}}/asserts/img/{{site.baseurl}}/assets/img/2019-01-08-Exploring-Decision-Trees-in-Python_files/2019-01-08-Exploring-Decision-Trees-in-Python_19_1.png)
 
 
 This we can work with. Let's add this to the dataframe.
@@ -388,7 +388,7 @@ plt.annotate('R3', xy=(11.5,170), fontsize='xx-large');
 ```
 
 
-![png]({{site.baseurl}}/{{site.baseurl}}/assets/img/2019-01-08-Exploring-Decision-Trees-in-Python_files/2019-01-08-Exploring-Decision-Trees-in-Python_39_0.png)
+![png]({{site.baseurl}}/asserts/img/{{site.baseurl}}/assets/img/2019-01-08-Exploring-Decision-Trees-in-Python_files/2019-01-08-Exploring-Decision-Trees-in-Python_39_0.png)
 
 
 You can see that the predictor space is broken into three regions.
@@ -635,7 +635,7 @@ plt.show()
 ```
 
 
-![png]({{site.baseurl}}/{{site.baseurl}}/assets/img/2019-01-08-Exploring-Decision-Trees-in-Python_files/2019-01-08-Exploring-Decision-Trees-in-Python_96_0.png)
+![png]({{site.baseurl}}/asserts/img/{{site.baseurl}}/assets/img/2019-01-08-Exploring-Decision-Trees-in-Python_files/2019-01-08-Exploring-Decision-Trees-in-Python_96_0.png)
 
 
 ## Heart Disease Example

@@ -90,7 +90,7 @@ plot_losses(history_balanced, "Balanced Training")
 
 
     
-![png]({{site.baseurl}}/2021-05-02-training-on-unbalanced-datasets_files/2021-05-02-training-on-unbalanced-datasets_13_0.png)
+![png]({{site.baseurl}}/asserts/img/2021-05-02-training-on-unbalanced-datasets_files/2021-05-02-training-on-unbalanced-datasets_13_0.png)
     
 
 
@@ -101,7 +101,7 @@ plot_losses(history_unbalanced, "Unbalanced Training")
 
 
     
-![png]({{site.baseurl}}/2021-05-02-training-on-unbalanced-datasets_files/2021-05-02-training-on-unbalanced-datasets_14_0.png)
+![png]({{site.baseurl}}/asserts/img/2021-05-02-training-on-unbalanced-datasets_files/2021-05-02-training-on-unbalanced-datasets_14_0.png)
     
 
 
@@ -169,7 +169,7 @@ plot_cm(concat_labels, concat_preds_balanced)
 
 
     
-![png]({{site.baseurl}}/2021-05-02-training-on-unbalanced-datasets_files/2021-05-02-training-on-unbalanced-datasets_23_0.png)
+![png]({{site.baseurl}}/asserts/img/2021-05-02-training-on-unbalanced-datasets_files/2021-05-02-training-on-unbalanced-datasets_23_0.png)
     
 
 
@@ -180,7 +180,7 @@ plot_cm(concat_labels, concat_preds_unbalanced)
 
 
     
-![png]({{site.baseurl}}/2021-05-02-training-on-unbalanced-datasets_files/2021-05-02-training-on-unbalanced-datasets_24_0.png)
+![png]({{site.baseurl}}/asserts/img/2021-05-02-training-on-unbalanced-datasets_files/2021-05-02-training-on-unbalanced-datasets_24_0.png)
     
 
 
@@ -247,7 +247,7 @@ plot_cm(concat_labels, concat_preds)
 
 
     
-![png]({{site.baseurl}}/2021-05-02-training-on-unbalanced-datasets_files/2021-05-02-training-on-unbalanced-datasets_33_0.png)
+![png]({{site.baseurl}}/asserts/img/2021-05-02-training-on-unbalanced-datasets_files/2021-05-02-training-on-unbalanced-datasets_33_0.png)
     
 
 
@@ -314,7 +314,7 @@ plot_cm(concat_labels, concat_preds2)
 
 
     
-![png]({{site.baseurl}}/2021-05-02-training-on-unbalanced-datasets_files/2021-05-02-training-on-unbalanced-datasets_42_0.png)
+![png]({{site.baseurl}}/asserts/img/2021-05-02-training-on-unbalanced-datasets_files/2021-05-02-training-on-unbalanced-datasets_42_0.png)
     
 
 
@@ -418,7 +418,7 @@ plot_cm(concat_labels, concat_preds_oversampled)
 
 
     
-![png]({{site.baseurl}}/2021-05-02-training-on-unbalanced-datasets_files/2021-05-02-training-on-unbalanced-datasets_57_0.png)
+![png]({{site.baseurl}}/asserts/img/2021-05-02-training-on-unbalanced-datasets_files/2021-05-02-training-on-unbalanced-datasets_57_0.png)
     
 
 

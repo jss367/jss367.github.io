@@ -65,7 +65,7 @@ im
 
 
     
-![png]({{site.baseurl}}/2022-01-02-fastai-data-tutorial-semantic-segmentation_files/2022-01-02-fastai-data-tutorial-semantic-segmentation_8_0.png)
+![png]({{site.baseurl}}/asserts/img/2022-01-02-fastai-data-tutorial-semantic-segmentation_files/2022-01-02-fastai-data-tutorial-semantic-segmentation_8_0.png)
     
 
 
@@ -85,7 +85,7 @@ mask.show(figsize=(5,5), alpha=1)
 
 
     
-![png]({{site.baseurl}}/2022-01-02-fastai-data-tutorial-semantic-segmentation_files/2022-01-02-fastai-data-tutorial-semantic-segmentation_9_1.png)
+![png]({{site.baseurl}}/asserts/img/2022-01-02-fastai-data-tutorial-semantic-segmentation_files/2022-01-02-fastai-data-tutorial-semantic-segmentation_9_1.png)
     
 
 
@@ -212,6 +212,6 @@ dls.train.show_batch(max_n=4, nrows=1)
 
 
     
-![png]({{site.baseurl}}/2022-01-02-fastai-data-tutorial-semantic-segmentation_files/2022-01-02-fastai-data-tutorial-semantic-segmentation_18_0.png)
+![png]({{site.baseurl}}/asserts/img/2022-01-02-fastai-data-tutorial-semantic-segmentation_files/2022-01-02-fastai-data-tutorial-semantic-segmentation_18_0.png)
     
 
