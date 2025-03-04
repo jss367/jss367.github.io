@@ -22,6 +22,8 @@ Start by selecting an index pattern on the left. It might look something like `d
 
 The search can be a little tricky to use. If you have a file like `ABC-DEF_MYFILE100.pdf`, it won't pop up if you search `"MYFILE100"`. You may need to search for `"DEF_MYFILE100"`. Note that you need quotes.
 
+The only character break that's allowed is the hyphen or period. So if your file is `MYFILE_100.pdf`, you can't search it with just `MYFILE`.
+
 ## Visualizations
 
 There's also support for visualizations, though I haven't played with them yet. I'll update this if I do.
