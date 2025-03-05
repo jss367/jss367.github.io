@@ -317,6 +317,7 @@ I have no loyalty to any of these. I usually just go with the top free one recom
 # Images
 
 ## Image Viewer
+
 [Xee](https://theunarchiver.com/xee) (Mac, paid)
 * I make this my default image viewer
   * To do so, right click an image file type in your window viewer (Command One in my case) and hold down `option` so "Get Info" turns into "Get Finder Info". Then you can expand "Open with" and select your image viewer of choice.
@@ -329,6 +330,7 @@ You'll have to go into preferences to change the way to scroll left and right.
 
 
 ## Image Editing
+
 [Adobe Lightroom](https://www.adobe.com/products/photoshop-lightroom.html) (Windows, Mac)
 * As much as I'd like to say GIMP is just as good, it's no match for the features of Lightroom. For someone who spends serious time editing photos, I don't think there's a better alternative.
 
@@ -347,9 +349,17 @@ You'll have to go into preferences to change the way to scroll left and right.
 [ISS Transit Finder](https://transit-finder.com/)
 * Online only, no download
 
+## Image File Management
+
+[darktable](https://www.darktable.org/)
+* Open source tool for managing images
+
+[digiKam](https://www.digikam.org/)
+* Open source tool for image editing
+
 ## NAS
 
-Synology
+[Synology](https://www.synology.com/)
 * Works better in Windows than Mac
   * Feature come up first in Windows, more support and integration into the OS
 * Have to use Finder with it on Mac, which is unfortunate.
