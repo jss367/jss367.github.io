@@ -388,7 +388,7 @@ You'll have to go into preferences to change the way to scroll left and right.
 * Still a pain on Windows Home. Wonderful for Linux and Mac
 
 [Wget for Windows](https://eternallybored.org/misc/wget/)
-* just stick in somewhere in your path, C:\Windows
+* just stick in somewhere in your path, e.g., `C:\Windows`
 
 [Sumatra PDF](https://www.sumatrapdfreader.org/free-pdf-reader.html) (Ninite)
 * For reading pdfs
