@@ -54,6 +54,7 @@ I’m always curious about how people set up their computers and what software p
 [Commander One](https://mac.eltima.com/file-manager.html) (Mac only)
 * Dual-panel file explorer
 * *Much* better than Finder
+* Make sure you uncheck "Ignore system settings for F1-F12" or it will change your F3 key (which I use frequently)
 
 [Path Finder](https://cocoatech.com/) (Mac only)
 * Dual-panel file explorer
