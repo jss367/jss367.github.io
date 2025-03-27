@@ -266,7 +266,7 @@ As you can see, I'm strewn across half a dozen terminals in Windows and have fou
 
 [tmux](https://github.com/tmux/tmux)
 
-You can also find a lot of great tools here: https://github.com/ibraheemdev/modern-unix
+You can also find a lot of great tools here: [https://github.com/ibraheemdev/modern-unix](https://github.com/ibraheemdev/modern-unix)
 
 # Security
 
