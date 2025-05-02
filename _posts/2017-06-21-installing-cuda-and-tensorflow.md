@@ -10,8 +10,8 @@ This tutorial aims to guide you through the process of troubleshooting issues re
 
 <b>Table of Contents</b>
 
-- TOC
-  {:toc}
+* TOC
+{:toc}
 
 ## Hardware Requirements
 
