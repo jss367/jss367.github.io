@@ -9,47 +9,48 @@ tags: [CUDA, TensorFlow]
 This tutorial aims to guide you through the process of troubleshooting issues related to your NVIDIA graphics card when working on deep learning projects.
 
 <b>Table of Contents</b>
-* TOC
-{:toc}
+
+- TOC
+  {:toc}
 
 ## Hardware Requirements
 
 Before diving in, ensure your graphics card is properly installed and compatible with CUDA:
-* To find your graphics card, type `nvidia-smi`
-* On Windows, you can use a tool like [Speccy](https://www.ccleaner.com/speccy).
-* Verify your graphics card is listed on the [NVIDIA CUDA GPUs list](https://developer.nvidia.com/cuda-gpus).
 
+- To find your graphics card, type `nvidia-smi`
+- On Windows, you can use a tool like [Speccy](https://www.ccleaner.com/speccy).
+- Verify your graphics card is listed on the [NVIDIA CUDA GPUs list](https://developer.nvidia.com/cuda-gpus).
 
 ## Identifying Your Current Setup
 
 Sometimes you'll get stuck somewhere in the middle of an installation and you're unsure of what installed correctly. You don't want to start from the beginning because you don't want to have multiple versions conflicting, but you don't know what you need to do next. That's why I want to start this off with some ways for you to figure out exactly where you are in the process. A good place to start is to see if TensorFlow can detect the GPUs. Here's a good one-liner for that:
+
 ```
 python -c "import tensorflow as tf; print('tf version:', tf.__version__); print('Num GPU devices: ', len(tf.config.list_physical_devices('GPU')))"
 ```
 
 If it says `Num GPU devices: 0` then your GPUs are not being recognized.
 
-![png]({{site.baseurl}}/assets/img/assets/img/zero_gpus.png)
-
+![png]({{site.baseurl}}/assets/img/zero_gpus.png)
 
 ## Compatibility
 
 Version incompatibility is probably the biggest source of problems in getting CUDA working with TensorFlow. Let's look at how to make it all work together. I think it helps to make a table of the versions you are explicitly targeting. Here's an example:
 
-
-| Software      | How to determine version | Version Targeting
-| ----------- | ----------- | ----------- |
-| TensorFlow      | Choose which version you want |   2.13 |
-| Python      | Choose compatible version from [this chart](https://www.tensorflow.org/install/source#gpu) |   3.11 |
-| CUDA  | Choose compatible version from [this chart](https://www.tensorflow.org/install/source#gpu) | 11.8 |
-| cuDNN | Choose compatible version from [this chart](https://www.tensorflow.org/install/source#gpu) | 8.6 |
-| NVIDIA Drivers | Choose the latest version. They are always backwards compatible | 545.23.06 |
+| Software       | How to determine version                                                                   | Version Targeting |
+| -------------- | ------------------------------------------------------------------------------------------ | ----------------- |
+| TensorFlow     | Choose which version you want                                                              | 2.13              |
+| Python         | Choose compatible version from [this chart](https://www.tensorflow.org/install/source#gpu) | 3.11              |
+| CUDA           | Choose compatible version from [this chart](https://www.tensorflow.org/install/source#gpu) | 11.8              |
+| cuDNN          | Choose compatible version from [this chart](https://www.tensorflow.org/install/source#gpu) | 8.6               |
+| NVIDIA Drivers | Choose the latest version. They are always backwards compatible                            | 545.23.06         |
 
 Get these EXACT versions except for the NVIDIA driver, which you just need at least the version. Note that new CUDA versions are not backwards compatible.
 
 You also need to decide if you want it to run on a specific conda environment or if you want things installed system-wide. For example, if you download and install cuDNN from NVIDIA's website, it will be system-wide. But if you install it using conda, it will only be for that environment. In general:
-* If you want multiple projects or environments to share a single cuDNN installation and always be on the same version, a system-wide installation may be more appropriate.
-* If you want to have different versions of cuDNN for different projects or if you want to ensure that a particular project always uses a specific version regardless of system-wide changes, a conda-specific installation is more appropriate.
+
+- If you want multiple projects or environments to share a single cuDNN installation and always be on the same version, a system-wide installation may be more appropriate.
+- If you want to have different versions of cuDNN for different projects or if you want to ensure that a particular project always uses a specific version regardless of system-wide changes, a conda-specific installation is more appropriate.
 
 ## System Check
 
@@ -57,12 +58,12 @@ You'll need to check if everything on your system is working. Here's a quick sum
 
 #### Summary Table
 
-| Software      | How to check |
-| ----------- | ----------- |
-| NVIDIA Drivers      | `nvidia-smi`       |
-| CUDA Toolkit   | `nvcc --version`        |
-| cuDNN | ``cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2`` |
-| TensorFlow | `python -c "import tensorflow as tf; print(tf.__version__)"` |
+| Software       | How to check                                                 |
+| -------------- | ------------------------------------------------------------ | ----------------------- |
+| NVIDIA Drivers | `nvidia-smi`                                                 |
+| CUDA Toolkit   | `nvcc --version`                                             |
+| cuDNN          | ``cat /usr/local/cuda/include/cudnn.h                        | grep CUDNN_MAJOR -A 2`` |
+| TensorFlow     | `python -c "import tensorflow as tf; print(tf.__version__)"` |
 
 Now let's go over each part in more detail.
 
@@ -74,7 +75,7 @@ The result should look something like this:
 
 ```
 julius@julius-MS-7B09:~/git$ nvidia-smi
-Tue Feb  2 15:05:43 2021       
+Tue Feb  2 15:05:43 2021
 +-----------------------------------------------------------------------------+
 | NVIDIA-SMI 460.32.03    Driver Version: 460.32.03    CUDA Version: 11.2     |
 |-------------------------------+----------------------+----------------------+
@@ -90,7 +91,7 @@ Tue Feb  2 15:05:43 2021
 | 41%   36C    P5    21W / 260W |    632MiB / 11016MiB |     27%      Default |
 |                               |                      |                  N/A |
 +-------------------------------+----------------------+----------------------+
-                                                                               
+
 +-----------------------------------------------------------------------------+
 | Processes:                                                                  |
 |  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
@@ -103,6 +104,7 @@ Tue Feb  2 15:05:43 2021
 |    1   N/A  N/A     46570      G   ...gAAAAAAAAA --shared-files       99MiB |
 +-----------------------------------------------------------------------------+
 ```
+
 > Note: The CUDA Version displayed isn't there isn't necessarily the version you have. It's the highest version that your driver can support.
 
 ##### Windows
@@ -113,11 +115,11 @@ To check your driver version on Windows you can also go to GEForce Experience an
 
 You can see which version of CUDA you have installed with this:
 
-* `cat /usr/local/cuda/version.txt`
+- `cat /usr/local/cuda/version.txt`
 
 You can see which versions of CUDA are available through `conda` with this:
 
-* `conda search cudatoolkit`
+- `conda search cudatoolkit`
 
 You can also find your version by opening a command prompt and entering `nvcc -V`
 
@@ -133,11 +135,12 @@ Cuda compilation tools, release 10.1, V10.1.243
 
 If you've found CUDA and you have the right version, you'll want to look for cuDNN. You'll probably be able to find it with this:
 
-* `cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2`
+- `cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2`
 
 But if you're not sure you can check with these:
-* `cat $(whereis cudnn.h) | grep CUDNN_MAJOR -A 2`
-* `cat $(whereis cuda)/include/cudnn.h | grep CUDNN_MAJOR -A 2`
+
+- `cat $(whereis cudnn.h) | grep CUDNN_MAJOR -A 2`
+- `cat $(whereis cuda)/include/cudnn.h | grep CUDNN_MAJOR -A 2`
 
 ###### Windows
 
@@ -156,9 +159,9 @@ Install the most recent NVIDIA Driver from [NVIDIA's website](http://www.nvidia.
 
 #### CUDA Toolkit
 
-Install the [CUDA Toolkit here](https://developer.nvidia.com/cuda-downloads). 
+Install the [CUDA Toolkit here](https://developer.nvidia.com/cuda-downloads).
 
-If you want an older version, you can [go to their archives](https://developer.nvidia.com/cuda-toolkit-archive). 
+If you want an older version, you can [go to their archives](https://developer.nvidia.com/cuda-toolkit-archive).
 
 Note that on Ubuntu you can also install it like so: `sudo apt install nvidia-cuda-toolkit`. However, you won't be able to control the version, so I recommend installing it from the [website](https://developer.nvidia.com/cuda-downloads).
 
@@ -180,7 +183,6 @@ After you extract CUDA on Windows, it might go to a location like `C:\Users\Juli
 
 This site also has a lot of good information for installing on Windows: http://blog.nitishmutha.com/tensorflow/2017/01/22/TensorFlow-with-gpu-for-windows.html
 
-
 #### cuDNN
 
 You can find the [latest version of cuDNN here](https://developer.nvidia.com/rdp/cudnn-download). Make sure to choose the appropriate cuDNN version that matches your CUDA Toolkit version. You might need a version from the [cuDNN archive](https://developer.nvidia.com/rdp/cudnn-archive).
@@ -199,17 +201,17 @@ Now, you'll need to navigate to it in a terminal. If it downloaded to `Downloads
 
 ```
 cd Downloads
-sudo dpkg -i cudnn-local-repo-ubuntu2204-8.9.5.29_1.0-1_amd64.deb 
+sudo dpkg -i cudnn-local-repo-ubuntu2204-8.9.5.29_1.0-1_amd64.deb
 ```
 
 Now we need to update our environment variables:
+
 ```
 echo 'export LD_LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:${LD_LIBRARY_PATH}' >> ~/.bashrc
 source ~/.bashrc
 ```
 
 If you installed from a .tgz file, you'll need to update `PATH` too.
-
 
 #### Windows
 
@@ -222,15 +224,18 @@ Then you have to copy files:
 Copy the following files into the CUDA Toolkit directory.
 
 Going from here:
-* `C:\Users\HMISYS\Downloads\cudnn-8.0-windows7-x64-v6.0\cuda\lib\x64`
+
+- `C:\Users\HMISYS\Downloads\cudnn-8.0-windows7-x64-v6.0\cuda\lib\x64`
 
 to here:
-* `C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0`
+
+- `C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v8.0`
 
 Copy the following files into the CUDA Toolkit directory.
-* Copy <installpath>\cuda\bin\cudnn64_7.dll to C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\bin.
-* Copy <installpath>\cuda\ include\cudnn.h to C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\include.
-* Copy <installpath>\cuda\lib\x64\cudnn.lib to C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\lib\x64.
+
+- Copy <installpath>\cuda\bin\cudnn64_7.dll to C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\bin.
+- Copy <installpath>\cuda\ include\cudnn.h to C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\include.
+- Copy <installpath>\cuda\lib\x64\cudnn.lib to C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v9.0\lib\x64.
 
 Make sure you get the version right. You can cd to `C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA` and the use `dir` to see what versions you have (it should match what you previously saw).
 
@@ -254,7 +259,6 @@ You can install or upgrade it with: `pip install tensorflow --upgrade`
 
 You can download the wheels from here: https://github.com/mind/wheels/releases/tag/tf1.4-gpu-cuda9
 
-
 ## Installing
 
 Once you've downloaded the correct version, it will probably be in a Download folder, somewhere like `/home/julius/Downloads`
@@ -263,19 +267,22 @@ You'll need to extract it with something like this:
 `tar -xzvf cudnn-10.1-linux-x64-v7.6.5.32.tgz`
 
 Then you'll need to copy the files like so:
-``` bash
+
+```bash
 $ sudo cp cuda/include/cudnn*.h /usr/local/cuda/include
 $ sudo cp cuda/lib64/libcudnn* /usr/local/cuda/lib64
 ```
+
 Then change the permissions like so:
-``` bash
+
+```bash
 $ sudo chmod a+r /usr/local/cuda/include/cudnn*.h /usr/local/cuda/lib64/libcudnn*
 ```
-                                                                               
-                                                                                                           
+
 ## Paths
 
 On Unix machines, you'll need to add these to your .bashrc:
+
 ```
 export CUDA_HOME=/usr/local/cuda
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/cuda/lib64:/usr/local/cuda/extras/CUPTI/lib64
@@ -285,79 +292,59 @@ export INCLUDE=/usr/local/cuda/include
 ## Test if Tensorflow is working on the GPU
 
 You can see all your physical devices like so:
-``` python
+
+```python
 import tensorflow as tf
 tf.config.experimental.list_physical_devices()
 ```
+
 and you can limit them to the GPU:
-``` python
+
+```python
 tf.config.experimental.list_physical_devices('GPU')
 ```
-``` python
+
+```python
 print("Num GPUs Available: ", len(tf.config.experimental.list_physical_devices('GPU')))
 ```
-
 
 ## Other Problems
 
 If you're still stuck at the end, you can try:
+
 ```
 python -c "import tensorflow as tf; print('tf version:', tf.version); tf.config.list_physical_devices()"
 ```
+
 This should give you an error message that you can Google.
-
-
-
 
 `python -c "import tensorflow as tf; print('Num GPUs Available: ', len(tf.config.experimental.list_physical_devices('GPU')))"`
 
-
 `print("Num GPUs Available: ", len(tf.config.experimental.list_physical_devices('GPU')))`
 
-
 Check whether devices are availble
+
 ```bash
 from tensorflow.python.client import device_lib
 print(device_lib.list_local_devices())
 ```
 
-
 What to do if they are not?
-
-
-
-
-
-
-
-
 
 if it says 110 that means 11.X, so if the latest is 11.2 that's fine.
 
-
-
-
 Unzip it
-
-
-
-
-
 
 `<installpath>\cuda\bin\cudnn*.dll to C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\vx.x\bin`
 
 If you downloaded it to Downloads, after you extract it
 
-
 `C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2`
-
 
 it will look like this
 
-``
-cp C:\Users\Julius\Downloads
-C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2
-``
+`cp C:\Users\Julius\Downloads
+C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v11.2`
 
 It'll extract to C:\Users\Julius\Downloads\cudnn-11.2-windows-x64-v8.1.1.33
 
@@ -374,15 +361,14 @@ It'll extract to C:\Users\Julius\Downloads\cudnn-11.2-windows-x64-v8.1.1.33
 ```
 
 Then set your environment variables
-* Do the system variables not the user ones
-* This might already be done but ensure that it is
 
+- Do the system variables not the user ones
+- This might already be done but ensure that it is
 
 #### gcc
 
 Make sure you have gcc:
 `gcc --version`
-
 
 #### Verify that there aren't conflicting drivers (Linux only)
 
@@ -397,9 +383,9 @@ But you shouldn't see anything from:
 `lsmod | grep nouveau`
 
 If you do, you'll need to remove it
-  
+
 # Old information
-  
+
 Some things are no longer relevant to the latest version of TensorFlow, but might be helping in debugging old versions. I've move that information here.
 
 Although tensorflow-gpu and tensorflow is a distinction of version <= 1.15, the distinction matters quite a lot here. If you do `conda create -n tf tensorflow` it will not create a GPU version, even though it installs a 2.X version of Tensorflow. You'll need to use `conda create -n tf tensorflow-gpu` to get the GPU version.
@@ -412,4 +398,4 @@ Install Anaconda like normal. It's a little annoying on Windows because of how p
 
 ## Installing with Pip
 
-See instructions here: https://www.tensorflow.org/install/pip
+See instructions here: [https://www.tensorflow.org/install/pip](https://www.tensorflow.org/install/pip)
