@@ -14,7 +14,8 @@ I try to keep this post up-to-date, so the information should be compatible with
 * TOC
 {:toc}
 
-# Basics
+
+# Basic Navigation
 
 ## Command Palette
 
@@ -28,32 +29,45 @@ One of the most important things you'll need to do in VSCode is to open the comm
 You can do `CMD/CTRL + P` to open up search. 
 * Just add `>` to the bar to make it the command palette.
 
-# Hot Keys
 
-## Autoformat
+## Essential Shortcuts
+
+### Autoformat
 
 * Windows/Linux: `Alt + Shift + F`
 * Mac: `Option + Shift + F`
 
-## Clean up imports
+### Clean up imports
 
 * Windows/Linux: `Alt + Shift + O`
 * Mac: `Option + Shift + O`
 
-## Snippets
+### Snippets
 
 `Control + Spacebar` to open snippets
 This makes it easy to do things like type `main` and get if `__name__ == '__main__':`
 
-## Jupyter
+### Jupyter
 
 `Shift + enter` to run through Python interactive console
 
-# Customizations
+### Terminal
+
+There is a built-in terminal in VSCode. You can pull it up by dragging up from the bottom of the screen.
+
+### Debugging
+
+To do multi-line debugging, all you have to do is hold down `shift` before you hit `return`.
+
+### Code Completion
+
+`Control + Space` to pull it up manually
+
+# Customizing Your Editor
 
 See [my previous post for my recommended VSCode customizations and key bindings](https://jss367.github.io/software-customizations.html).
 
-# Settings 
+## Settings 
 
 * You can use either the User Interface (`Preferences: Open Settings (UI)`) or edit the JSON directly `Preferences: Open Settings (JSON)`. 
 
@@ -65,7 +79,7 @@ User settings are not stored in the project. Instead, they are at:
 If you're having trouble with your Python interpreter, you can try setting `"python.defaultInterpreterPath": "/Users/julius/opt/anaconda3/envs/my_env/bin/python",`
 
 
-## Applying Settings to a Single Language
+### Applying Settings to a Single Language
 
 You can specify that you only want some settings to apply to a single language like so:
 
@@ -77,8 +91,6 @@ You can specify that you only want some settings to apply to a single language l
         "editor.defaultFormatter": "ms-python.python"
     },
 ```
-
-# Other
 
 ## Key bindings
 
@@ -106,21 +118,7 @@ You can also edit your `.vscode/.settings` file to add the following:
      ]
 ```
 
-## Terminal
-
-There is a built-in terminal in VSCode. You can pull it up by dragging up from the bottom of the screen.
-
-
-## Debugging
-
-To do multi-line debugging, all you have to do is hold down `shift` before you hit `return`.
-
-
-## Code Completion
-
-`Control + Space` to pull it up manually
-
-# Workspace file
+# Workspaces and Launch Configs
 
 If you keep all your repos in a single folder like I do, I recommend putting your workspace file there (I call mine `workspace.code-workspace`). That way all the folders and paths are straightforward. Sometimes it will by default put them in `/Users/<username>/Library/Application Support/Code/Workspaces/<some_number>/workspace.json`. I don't use them there.
 
@@ -144,7 +142,7 @@ You can include all your folders like this:
 
 You can also optionally include `"name"` if you want to change any of the names.
 
-# launch.json
+## launch.json
 
 In the `launch.json` file, you can either use full paths or relative paths:
 
@@ -233,7 +231,8 @@ In the `launch.json` file, you can choose to run either a `"module"` or a `"prog
 You can also debug subprocess in VSCode. All you need to do is add `"subProcess": true,` to your `launch.json`.
 
 
-# Troubleshooting Python Interpreter Issues
+
+# Debugging & Testing
 
 Sometimes you have problems where Pylint seems to be using a different interpreter. Even if you select the correct interpreter and do it at the workspace level. I don't know what causes this, but here is how to fix it:
 
@@ -263,17 +262,15 @@ Where the computer looks for the python interpreter - `python.pythonPath`
 
 And where that interpreter looks for packages - `$PYTHONPATH`
 
+# Environment Variables & .env Files
+
+Sometimes environmental variables won't show up in VSCode. I've found that this can sometimes happen when VSCode is launched from the application icon. If this is happening, you can open VSCode directly from the terminal with `code .` and it should have your environmental variables. If you still don't see them, make sure they are present in your terminal.
+
+You can make `.env` files to set environment variables. Go at top of directory. Can add environment variables, python path, etc.
 
 # Connecting to Remote Instances
 
 I wrote [a guide on how to connect to remote instances](https://jss367.github.io/connecting-vscode-to-google-cloud-platform-instances.html). I recommend storing your config file at `~/.ssh/config`
-
-# .env files
-You can make `.env` files to set environment variables. Go at top of directory. Can add environment variables, python path, etc.
-
-# Troubleshooting Environmental Variables
-
-Sometimes environmental variables won't show up in VSCode. I've found that this can sometimes happen when VSCode is launched from the application icon. If this is happening, you can open VSCode directly from the terminal with `code .` and it should have your environmental variables. If you still don't see them, make sure they are present in your terminal.
 
 # Syncing Across Desktops
 
