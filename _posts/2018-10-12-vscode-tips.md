@@ -15,21 +15,6 @@ I try to keep this post up-to-date, so the information should be compatible with
 * TOC
 {:toc}
 
-# Basic Navigation
-
-## Command Palette
-
-One of the most important things you'll need to do in VSCode is to open the command palette. From there you can access all sorts of settings:
-
-* Open the Command Palette: `CMD/CTRL + SHIFT + P`
-  * You can also jump to the settings or Command Palette by clicking on the settings wheel in the bottom left corner.
-
-## Search by Filename
-
-You can do `CMD/CTRL + P` to open up search. 
-* Just add `>` to the bar to make it the command palette.
-
-
 ## Essential Shortcuts
 
 | Action | Windows/Linux | Mac | Description |
@@ -44,39 +29,6 @@ You can do `CMD/CTRL + P` to open up search.
 | Command palette | `Ctrl + Shift + P` | `Cmd + Shift + P` | Access all VSCode commands |
 | Search by filename | `Ctrl + P` | `Cmd + P` | Quickly find and open files |
 
-
-## Essential Shortcuts
-
-### Autoformat
-
-* Windows/Linux: `Alt + Shift + F`
-* Mac: `Option + Shift + F`
-
-### Clean up imports
-
-* Windows/Linux: `Alt + Shift + O`
-* Mac: `Option + Shift + O`
-
-### Snippets
-
-`Control + Spacebar` to open snippets
-This makes it easy to do things like type `main` and get if `__name__ == '__main__':`
-
-### Jupyter
-
-`Shift + enter` to run through Python interactive console
-
-### Terminal
-
-There is a built-in terminal in VSCode. You can pull it up by dragging up from the bottom of the screen.
-
-### Debugging
-
-To do multi-line debugging, all you have to do is hold down `shift` before you hit `return`.
-
-### Code Completion
-
-`Control + Space` to pull it up manually
 
 # Customizing Your Editor
 
@@ -259,6 +211,12 @@ It could be caused by having something in
 Sometimes the Discover Tests functionality fails, often for path issues. Remember, even if it fails you can always runs tests by doing `python -m pytest my_tests`
 
 if discover tests fails, go to the terminal - click on the output tab - and change it to Python Test Log
+
+### Failing Tests
+
+If all your tests are failing because you're getting an error seeing your app (`ModuleNotFoundError: No module named 'my_app'`), here are some things you'll want to consider.
+
+
 
 ## Using Pytest and Unittest
 
