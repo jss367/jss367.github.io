@@ -15,6 +15,10 @@ I try to keep this post up-to-date, so the information should be compatible with
 {:toc}
 
 
+## Table of Contents
+* TOC
+{:toc}
+
 # Basic Navigation
 
 ## Command Palette
