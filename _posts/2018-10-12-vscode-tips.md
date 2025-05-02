@@ -10,10 +10,6 @@ This post contains some of my favorite tips and tricks for working with VSCode. 
 
 I try to keep this post up-to-date, so the information should be compatible with recent versions of VSCode. For example, a lot of [Python tools switched to extensions](https://github.com/microsoft/vscode-python/wiki/Migration-to-Python-Tools-Extensions) in 2022, and I have updated this page to reflect that.
 
-<b>Table of Contents</b>
-* TOC
-{:toc}
-
 
 ## Table of Contents
 * TOC
@@ -32,6 +28,21 @@ One of the most important things you'll need to do in VSCode is to open the comm
 
 You can do `CMD/CTRL + P` to open up search. 
 * Just add `>` to the bar to make it the command palette.
+
+
+## Essential Shortcuts
+
+| Action | Windows/Linux | Mac | Description |
+|--------|---------------|-----|-------------|
+| Autoformat | `Alt + Shift + F` | `Option + Shift + F` | Format your code according to language rules |
+| Clean up imports | `Alt + Shift + O` | `Option + Shift + O` | Organize and remove unused imports |
+| Open snippets | `Control + Spacebar` | `Control + Spacebar` | Access code snippets (e.g., type `main` to get `if __name__ == '__main__':`) |
+| Run Jupyter cells | `Shift + Enter` | `Shift + Enter` | Execute code in Python interactive console |
+| Code completion | `Control + Spacebar` | `Control + Spacebar` | Manually trigger code suggestions |
+| Open terminal | No default hotkey | No default hotkey | Drag up from bottom of screen or use View menu |
+| Multi-line debugging | Hold `Shift` + `Enter` | Hold `Shift` + `Enter` | Enter multiple lines in debug console |
+| Command palette | `Ctrl + Shift + P` | `Cmd + Shift + P` | Access all VSCode commands |
+| Search by filename | `Ctrl + P` | `Cmd + P` | Quickly find and open files |
 
 
 ## Essential Shortcuts
