@@ -231,7 +231,6 @@ In the `launch.json` file, you can choose to run either a `"module"` or a `"prog
 You can also debug subprocess in VSCode. All you need to do is add `"subProcess": true,` to your `launch.json`.
 
 
-
 # Debugging & Testing
 
 Sometimes you have problems where Pylint seems to be using a different interpreter. Even if you select the correct interpreter and do it at the workspace level. I don't know what causes this, but here is how to fix it:
@@ -240,13 +239,17 @@ It could be caused by having something in
 
 `"pylint.interpreter": ["/Users/julius/opt/anaconda3/envs/all2/bin/python"],`
 
-#### Testing
+## Discover Tests
 
 Sometimes the Discover Tests functionality fails, often for path issues. Remember, even if it fails you can always runs tests by doing `python -m pytest my_tests`
 
-if discover tests fails, go to the terminal  - click on the output tab - and change it to Python Test Log
+if discover tests fails, go to the terminal - click on the output tab - and change it to Python Test Log
 
-#### Other
+## Using Pytest and Unittest
+
+If your tests use both `unittest` and `pytest`, you can make it work as long as you **treat `pytest` as the primary test runner**. That’s because `pytest` is compatible with `unittest`. It can automatically discover and run test classes and methods written using the `unittest` framework.
+
+## Other
 
 If your linter can't see it but you can run the file
 
