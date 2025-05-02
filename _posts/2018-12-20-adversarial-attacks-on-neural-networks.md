@@ -20,9 +20,9 @@ Let's walk through the steps:
 
 - Start with an image of a dog
 - Take a step towards blending in an image of the skiers
-  -- This causes a reduction in the classifier's score of "dog"
+  - This causes a reduction in the classifier's score of "dog"
 - Take a step that maximizes the likelihood of the dog class
-  -- This brings the score of "dog" back up
+  - This brings the score of "dog" back up
 - Repeat over and over until you have an image that looks like a picture of skiers to a human but is classified as a dog by the model
 
 You can read the whole paper [here](https://arxiv.org/pdf/1804.08598.pdf). Today marks one year to the day from the original release date of the paper, and the most remarkable thing is that the same image still tricks the classifier today. Even Google is having trouble with adversarial attacks. Will this still work in five years? My guess is no, but 1. that's just a guess and 2. I find it very interesting that it is still working an entire year later.
