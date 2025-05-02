@@ -216,7 +216,13 @@ if discover tests fails, go to the terminal - click on the output tab - and chan
 
 If all your tests are failing because you're getting an error seeing your app (`ModuleNotFoundError: No module named 'my_app'`), here are some things you'll want to consider.
 
+You should open VS Code at the repo root. Even if you want to run just a selection of test cases, having it open at the repo root is best practice.
 
+Then, update `settings.json` and add something like this:
+
+`"python.testing.pytestArgs": [   "my_repo/path/to/tests" ]`
+
+This tells `pytest` to only look in that folder, even though you're working from the repo root.
 
 ## Using Pytest and Unittest
 
