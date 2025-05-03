@@ -6,6 +6,8 @@ thumbnail: "assets/img/swallow.jpg"
 tags: [Software]
 ---
 
+Google Cloud authentication can be confusing. This post explains how Application Default Credentials (ADC) work and how to fix common authentication errors.
+
 When you're authenticating with Google Cloud, it's important to be clear on whether you're trying to authenticate as a user or through a service account.
 
 When you instantiate a client, the library looks for credentials in this order:
