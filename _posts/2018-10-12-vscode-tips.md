@@ -39,9 +39,6 @@ See [my previous post for my recommended VSCode customizations and key bindings]
 
 User settings are not stored in the project. Instead, they are at: 
 
-* Windows: `C:\Users\Julius\AppData\Roaming\Code\User\settings.json`
-* Mac: `~/Library/Application Support/Code/User/settings.json`
-
 | Platform | Location |
 |----------|----------|
 | Windows | `C:\Users\<Username>\AppData\Roaming\Code\User\settings.json` |
@@ -112,7 +109,6 @@ You can include all your folders like this:
         {
             "path": "my_monorepo/python_package_b"
         },
-
     ],
 ```
 
