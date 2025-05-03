@@ -21,7 +21,7 @@ When you instantiate a client, the library looks for credentials in this order:
 If you `echo $GOOGLE_APPLICATION_CREDENTIALS` it should be `/path/to/your-service-account.json` if it exists.
 
 That json file that contains your credentials and looks something like this:
-
+```
 {
   "account": "",
   "client_id": "[REDACTED_CLIENT_ID].apps.googleusercontent.com",
@@ -30,7 +30,7 @@ That json file that contains your credentials and looks something like this:
   "type": "authorized_user",
   "universe_domain": "googleapis.com"
 }
-
+```
 It will either say "type": "authorized_user" if it's user credentials or `"type": "service_account"` 
 
 
@@ -77,10 +77,10 @@ You probably want to switch to your service account.
 You can see all your projects with `gcloud projects list`
 
 You might get something like this: 
-
+```
 PROJECT_ID       NAME           PROJECT_NUMBER
 companydev       companydev     123456789
-
+```
 Note that your id is not your number. It's more likely to be a text string.
 
 So you would do this:
