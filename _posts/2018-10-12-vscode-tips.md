@@ -110,7 +110,28 @@ You can also optionally include `"name"` if you want to change any of the names.
 
 ## launch.json
 
-Writing `launch.json` files is very useful. It makes it easy to run files in different configurations, such as passing different arguments. Here's the default one for Python:
+Writing `launch.json` files is very useful. It makes it easy to run files in different configurations, such as passing different arguments.
+
+### Common Configuration Options
+
+| Field | Description | Example |
+|-------|-------------|---------|
+| `name` | Display name in the debug dropdown | `"Python: Run New Config"` |
+| `type` | Debugger type (always "python" for Python) | `"python"` |
+| `request` | Launch type (usually "launch") | `"launch"` |
+| `program` | Path to the file to run, absolute or relative | `"${file}"` or `"/full/path/to/file.py"` |
+| `module` | Python module to run (alternative to program) | `"my_module"` |
+| `console` | Where to display output | `"integratedTerminal"`, `"internalConsole"`, `"externalTerminal"` |
+| `justMyCode` | Whether to only debug user code | `true` (default) or `false` |
+| `args` | Command line arguments | `["--config", "my_config", "--num_gpus", "2"]` |
+| `env` | Environment variables | `{"PYTORCH_ENABLE_MPS_FALLBACK": "1"}` |
+| `python` | Path to specific Python interpreter | `"/home/julius/miniconda3/envs/my_env/bin/python"` |
+| `cwd` | Working directory | `"${workspaceFolder}"` or `"${fileDirname}"` |
+| `subProcess` | Enable debugging of subprocesses | `true` |
+
+### Example Configurations
+
+Here's the default one for Python:
 
 ```json
 {
@@ -142,49 +163,27 @@ Here's an example with arguments:
    ]
 },
 
+Here's how to run a Python module:
+``` json
+{
+    "name": "Python: My Module",
+    "type": "python",
+    "request": "launch",
+    "module": "my_module",
+    "justMyCode": true,
+    "args": ["my_arg"],
+    "env": {"PYTORCH_ENABLE_MPS_FALLBACK": "1"}
+}
 ```
+### Working Directory (cwd) Options
 
-In the `launch.json` file, you can either use full paths or relative paths:
+The `cwd` field determines where your program starts executing from:
 
-`"program": "/full/path/to/python_trainer.py"`,
-
-or
-
-`"program": "${file}"`,
-
-Some fields I commonly use are `justMyCode` and `envs`. `justMyCode` defaults to true and restricts debugging to only the user-written code. Here's an example with both:
-```
-        {
-            "name": "Python: My Module",
-            "type": "python",
-            "request": "launch",
-            "module": "my_module",
-            "justMyCode": true,
-            "args": ["my_arg"],
-            "env": {"PYTORCH_ENABLE_MPS_FALLBACK": "1"} # Add the env here
-        }
-```
-
-You can also set your Python interpreter specifically for that run. You need something like the following:
-* `"python": "/home/julius/miniconda3/envs/my_env/bin/python",`
-
-#### Relative paths (cwd)
-
-Part of your command will include a reference from where to start from. One way to do that is by using `cwd`.
-
-* `"cwd": "${workspaceFolder}"` - start from the workplace folder
-  * In a multi folder workspace, you'll need to identify the folder as well. It will look something like `"${workspaceFolder:my_repo}"`
-* `"cwd": "${fileDirname}"` - start from the directory of the current file. This will change depending which file you want to have open, so I only recommend using it when you're running the current file (so you'll have `"program": "${file}",` as well)
-* Note that you don't always need to include `cwd`. For example, you don't need it when running a module.
-
-#### Running a module or a program
-
-In the `launch.json` file, you can choose to run either a `"module"` or a `"program"`.
-
-#### Debugging subprocesses
-
-You can also debug subprocess in VSCode. All you need to do is add `"subProcess": true,` to your `launch.json`.
-
+- `"cwd": "${workspaceFolder}"` - Start from the workspace folder
+  - In a multi-folder workspace: `"${workspaceFolder:my_repo}"`
+- `"cwd": "${fileDirname}"` - Start from the directory of the current file
+  - Only recommended when running the current file (`"program": "${file}"`)
+- Note: When running a module, you typically don't need to specify `cwd`
 
 # Debugging & Testing
 
