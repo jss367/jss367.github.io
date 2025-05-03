@@ -8,7 +8,7 @@ tags: [Software]
 
 Google Cloud authentication can be confusing. This post explains how Application Default Credentials (ADC) work and how to fix common authentication errors.
 
-When you're authenticating with Google Cloud, it's important to be clear on whether you're trying to authenticate as a user or through a service account.
+When you're authenticating with Google Cloud, it's important to be clear on whether you're trying to authenticate as a user or through a service account. User credentials are tied to an individual identity and work well for development. Service account credentials represent an automated identity used in production.
 
 When you instantiate a client, the library looks for credentials in this order:
 
@@ -22,6 +22,7 @@ If you `echo $GOOGLE_APPLICATION_CREDENTIALS` it should be `/path/to/your-servic
 
 That json file that contains your credentials and looks something like this:
 ```
+// User credentials example
 {
   "account": "",
   "client_id": "[REDACTED_CLIENT_ID].apps.googleusercontent.com",
@@ -29,6 +30,20 @@ That json file that contains your credentials and looks something like this:
   "refresh_token": "[REDACTED_REFRESH_TOKEN]",
   "type": "authorized_user",
   "universe_domain": "googleapis.com"
+}
+
+// Service account example
+{
+  "type": "service_account",
+  "project_id": "[PROJECT_ID]",
+  "private_key_id": "[REDACTED_KEY_ID]",
+  "private_key": "[REDACTED_PRIVATE_KEY]",
+  "client_email": "[SERVICE_ACCOUNT]@[PROJECT_ID].iam.gserviceaccount.com",
+  "client_id": "[REDACTED_CLIENT_ID]",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "[REDACTED_CERT_URL]"
 }
 ```
 It will either say "type": "authorized_user" if it's user credentials or `"type": "service_account"` 
