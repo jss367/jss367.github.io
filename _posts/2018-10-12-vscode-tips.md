@@ -110,16 +110,7 @@ You can also optionally include `"name"` if you want to change any of the names.
 
 ## launch.json
 
-In the `launch.json` file, you can either use full paths or relative paths:
-
-`"program": "/full/path/to/python_trainer.py"`,
-
-or
-
-`"program": "${file}"`,
-
-
-Writing `launch.json` files is very useful. It makes it easy to run files in different configurations, such as passing different arguments. Here's the default starting place:
+Writing `launch.json` files is very useful. It makes it easy to run files in different configurations, such as passing different arguments. Here's the default one for Python:
 
 ```json
 {
@@ -153,12 +144,15 @@ Here's an example with arguments:
 
 ```
 
-One thing I commonly use is `justMyCode`.
-- defaults to true
-- restricts debugging to only the user-written code
+In the `launch.json` file, you can either use full paths or relative paths:
 
-You can also set environment variables like so:
-It might look like this:
+`"program": "/full/path/to/python_trainer.py"`,
+
+or
+
+`"program": "${file}"`,
+
+Some fields I commonly use are `justMyCode` and `envs`. `justMyCode` defaults to true and restricts debugging to only the user-written code. Here's an example with both:
 ```
         {
             "name": "Python: My Module",
@@ -171,13 +165,8 @@ It might look like this:
         }
 ```
 
-
 You can also set your Python interpreter specifically for that run. You need something like the following:
 * `"python": "/home/julius/miniconda3/envs/my_env/bin/python",`
-
-#### Location
-
-`launch.json` files can be stored in different locations. Sometimes you might have one in `git/my_repo/.vscode/launch.json`. I generally try to avoid this. Instead of one for each repo, I would put them all in `git/.vscode/launch.json`.
 
 #### Relative paths (cwd)
 
