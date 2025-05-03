@@ -148,7 +148,7 @@ Here's an example with arguments:
 ```json
 
 {
-   "name": "Python: Run New  Config",
+   "name": "Python: Run New Config",
    "type": "python",
    "request": "launch",
    "program": "/full/path/to/file.py",
@@ -162,7 +162,7 @@ Here's an example with arguments:
 
    ]
 },
-
+```
 Here's how to run a Python module:
 ``` json
 {
@@ -175,6 +175,15 @@ Here's how to run a Python module:
     "env": {"PYTORCH_ENABLE_MPS_FALLBACK": "1"}
 }
 ```
+
+### VSCode Variables
+VSCode provides several useful variables that can be used in your configurations:
+- `${file}` - The current opened file
+- `${workspaceFolder}` - The path of the workspace folder
+- `${fileDirname}` - The current opened file's directory
+- `${fileBasename}` - The current opened file's basename
+- `${fileExtname}` - The current opened file's extension
+
 ### Working Directory (cwd) Options
 
 The `cwd` field determines where your program starts executing from:
@@ -184,6 +193,12 @@ The `cwd` field determines where your program starts executing from:
 - `"cwd": "${fileDirname}"` - Start from the directory of the current file
   - Only recommended when running the current file (`"program": "${file}"`)
 - Note: When running a module, you typically don't need to specify `cwd`
+
+### Program vs Module
+
+You can choose to run either a `"module"` or a `"program"`:
+- Use `"program"` to run a specific file
+- Use `"module"` to run a Python module (uses Python's `-m` flag)
 
 # Debugging & Testing
 
