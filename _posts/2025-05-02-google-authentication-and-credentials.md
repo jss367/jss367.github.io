@@ -20,7 +20,8 @@ When you instantiate a client, the library looks for credentials in this order:
 
 If you `echo $GOOGLE_APPLICATION_CREDENTIALS` it should be `/path/to/your-service-account.json` if it exists.
 
-That json file that contains your credentials and looks something like this:
+Below are two examples of what the credentials file might look like, depending on the type:
+
 ```
 // User credentials example
 {
@@ -31,7 +32,8 @@ That json file that contains your credentials and looks something like this:
   "type": "authorized_user",
   "universe_domain": "googleapis.com"
 }
-
+```
+```
 // Service account example
 {
   "type": "service_account",
@@ -49,7 +51,7 @@ That json file that contains your credentials and looks something like this:
 It will either say "type": "authorized_user" if it's user credentials or `"type": "service_account"` 
 
 
-If you ran `gcloud auth application-default login` and you haven’t set `GOOGLE_APPLICATION_CREDENTIALS` then it should be your user credentials.
+If you ran `gcloud auth application-default login` and haven’t set `GOOGLE_APPLICATION_CREDENTIALS`, ADC will default to your user credentials.
 
 Here's a little script to see your credentials:
 
