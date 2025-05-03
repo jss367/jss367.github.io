@@ -42,8 +42,18 @@ User settings are not stored in the project. Instead, they are at:
 * Windows: `C:\Users\Julius\AppData\Roaming\Code\User\settings.json`
 * Mac: `~/Library/Application Support/Code/User/settings.json`
 
-If you're having trouble with your Python interpreter, you can try setting `"python.defaultInterpreterPath": "/Users/julius/opt/anaconda3/envs/my_env/bin/python",`
+| Platform | Location |
+|----------|----------|
+| Windows | `C:\Users\<Username>\AppData\Roaming\Code\User\settings.json` |
+| Mac | `~/Library/Application Support/Code/User/settings.json` |
 
+### Common Python Settings
+
+| Setting | Purpose | Example |
+|---------|---------|---------|
+| `python.defaultInterpreterPath` | Set default Python interpreter | `"/Users/julius/opt/anaconda3/envs/my_env/bin/python"` |
+| `python.testing.pytestArgs` | Configure pytest arguments | `["my_repo/path/to/tests"]` |
+| `pylint.interpreter` | Specify pylint's Python interpreter | `["/Users/julius/opt/anaconda3/envs/all/bin/python"]` |
 
 ### Applying Settings to a Single Language
 
@@ -141,12 +151,11 @@ Here's the default one for Python:
     "program": "${file}",
     "console": "integratedTerminal"
 },
-```
 
+```
 Here's an example with arguments:
 
 ```json
-
 {
    "name": "Python: Run New Config",
    "type": "python",
@@ -163,7 +172,9 @@ Here's an example with arguments:
    ]
 },
 ```
+
 Here's how to run a Python module:
+
 ``` json
 {
     "name": "Python: My Module",
