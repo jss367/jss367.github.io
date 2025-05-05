@@ -13,7 +13,7 @@ header_text: Exploring the World Through Data Science and Machine Learning  # Ch
 header_feature_image: assets/img/astro_header.jpg
 header_feature_image_responsive: true
 footer_text: >
-   &copy; 2015-2024 Julius Simonelli. Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
+   &copy; 2015-2025 Julius Simonelli. Powered by <a href="https://jekyllrb.com/">Jekyll</a> with <a href="https://github.com/sylhare/Type-on-Strap">Type on Strap</a>
 
 # Blog
 excerpt: true                                           # Or "truncate" (first 250 characters), "false" to disable
