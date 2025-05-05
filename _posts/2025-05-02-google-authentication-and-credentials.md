@@ -48,7 +48,7 @@ Below are two examples of what the credentials file might look like, depending o
   "client_x509_cert_url": "[REDACTED_CERT_URL]"
 }
 ```
-It will either say "type": "authorized_user" if it's user credentials or `"type": "service_account"` 
+It will either say `"type": "authorized_user"` if it's user credentials or `"type": "service_account"` 
 
 
 If you ran `gcloud auth application-default login` and haven’t set `GOOGLE_APPLICATION_CREDENTIALS`, ADC will default to your user credentials.
