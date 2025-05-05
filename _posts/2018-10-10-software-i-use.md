@@ -4,6 +4,7 @@ title: "Software I Use"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/glass_ball.jpg"
 tags: [Linux, Mac, Software, Windows]
+last_updated: "May 5, 2025"
 ---
 
 I’m always curious about how people set up their computers and what software packages they have, so I thought I would share mine. So you know where I’m coming from, I use Windows, Mac, and Linux nearly every day. Part of my goal is to make transitioning between these systems as seamless as possible, but the exact setup varies by the operating system. For those of you on Windows, many of these can be installed with [Ninite](https://ninite.com/). I do a pretty good job of keeping this list up-to-date, so it should reflect my current recommendations for software.
@@ -252,10 +253,10 @@ As you can see, I'm strewn across half a dozen terminals in Windows and have fou
 * Also [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) is great
 
 ## Terminal Add-ons
-[Pygments](https://pygments.org/)
-* Syntax highlighter
-* I use it so often I alias it to the letter "c"
-* it's like `cat` but with colors
+[LSD (LSDeluxe)](https://github.com/lsd-rs/lsd)
+* Modern replacement for `ls` with colorful output and icons
+* Written in Rust for better performance
+* Makes directory listings more visually intuitive
 
 [Autojump](https://github.com/wting/autojump)
 * This is the best way to get around a Unix terminal
@@ -265,6 +266,8 @@ As you can see, I'm strewn across half a dozen terminals in Windows and have fou
 * Works across all platforms
 
 [tmux](https://github.com/tmux/tmux)
+
+[fzf](https://github.com/junegunn/fzf)
 
 You can also find a lot of great tools here: [https://github.com/ibraheemdev/modern-unix](https://github.com/ibraheemdev/modern-unix)
 

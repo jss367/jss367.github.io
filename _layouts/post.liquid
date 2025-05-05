@@ -9,8 +9,13 @@ layout: default
             {% else %}
                 <h1 id="{{ page.title | cgi_escape }}" class="title">{{ page.title }}</h1>
                 {% include blog/post_info.liquid author=page.author date=page.date %}
+                {% if page.last_updated %}
+                <p class="last-updated">Last updated: {{ page.last_updated }}</p>
+                {% endif %}
             {% endif %}
         </div>
+{% endif %}
+
     </header>
 
     <section class="post-content">
