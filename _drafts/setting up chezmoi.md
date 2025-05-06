@@ -51,3 +51,53 @@ Then, commit and push the change:
 * `git add dot_profile`
 * `git commit -m "Update profile"`
 * `git push`
+
+
+
+## Setting up a work computer
+
+This is supposed to work but didn't
+`chezmoi init --apply --promptBool workComputer=true`   <------------- this didn't work.
+
+Instead,  create this file:
+
+data:
+  workComputer: true
+
+and save it as `~/.config/chezmoi/chezmoi.yaml`
+
+
+Then we have this:
+
+```
+{{ if .workComputer }}
+source .work_profile
+{{ end }}
+```
+
+If you want to use chezmoi-specific stuff like the example above, you'll need to rename your file to use .tmpl:
+In your chezmoi source directory:
+`mv ~/.local/share/chezmoi/dot_profile ~/.local/share/chezmoi/dot_profile.tmpl`
+
+Chezmoi will now treat .profile as a template and process {{ if ... }} blocks during chezmoi apply.
+
+
+So now, here's what I do:
+
+To make a change to .profile, you should edit:
+
+`~/.local/share/chezmoi/dot_profile.tmpl`
+
+Then apply your changes with:
+
+`chezmoi apply`
+
+This updates the actual ~/.profile on disk.
+
+
+
+
+
+
+
+
