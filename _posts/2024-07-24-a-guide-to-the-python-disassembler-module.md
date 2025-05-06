@@ -5,6 +5,7 @@ description: "This guide covers how to use dis, the Python disassembler module"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/mt_rainer.jpg"
 tags: [Python]
+last_modified_at: 2024-08-15
 ---
 
 The `dis` module is a great tool for understanding how code runs. While I mainly use it out of curiosity, it can also be valuable for optimization and debugging. The module allows you to translate your Python code into bytecode—a low-level, intermediate representation of your Python code. By examining bytecode, programmers can glimpse the Python interpreter's view of their code, shedding light on performance characteristics and operational behaviors that aren't apparent at the source code level.
@@ -12,8 +13,9 @@ The `dis` module is a great tool for understanding how code runs. While I mainly
 In this post, we'll look into the `dis` module. We'll start by understanding what Python bytecode is and why it matters. Then, we'll dive into the basics of using the `dis` module, gradually advancing to its more intricate applications.
 
 <b>Table of Contents</b>
-* TOC
-{:toc}
+
+- TOC
+  {:toc}
 
 # Python Bytecode
 
@@ -23,21 +25,19 @@ First, let's understand what Python bytecode is. Bytecode is an intermediate, lo
 
 To appreciate the significance of bytecode, it's important to distinguish it from source code and machine code:
 
-* **Source Code**: This is the code you write in Python, characterized by its readability and high-level syntax. It's the starting point of the execution process.
-* **Bytecode**: When you run a Python program, the interpreter first compiles the source code into bytecode. This compilation happens automatically and is a step towards execution. Bytecode is more abstract than machine code and less readable than source code.
-* **Machine Code**: The final step in the execution process is the translation of bytecode into machine code by the PVM. Machine code is a set of instructions executed directly by the computer's CPU.
+- **Source Code**: This is the code you write in Python, characterized by its readability and high-level syntax. It's the starting point of the execution process.
+- **Bytecode**: When you run a Python program, the interpreter first compiles the source code into bytecode. This compilation happens automatically and is a step towards execution. Bytecode is more abstract than machine code and less readable than source code.
+- **Machine Code**: The final step in the execution process is the translation of bytecode into machine code by the PVM. Machine code is a set of instructions executed directly by the computer's CPU.
 
 # Getting Started with the dis Module
 
 Now let's use the `dis` module. It's part of Python's standard library, so you don't need any additional installations to start using it. To begin, simply import the module into your Python script:
-
 
 ```python
 import dis
 ```
 
 The core function in the `dis` module is `dis.dis()`, which is used to disassemble Python functions, methods, and code objects. Here's a simple example:
-
 
 ```python
 def doubler(x):
@@ -47,12 +47,11 @@ dis.dis(doubler)
 ```
 
       1           0 RESUME                   0
-    
+
       2           2 LOAD_FAST                0 (x)
                   4 LOAD_CONST               1 (2)
                   6 BINARY_OP                5 (*)
                  10 RETURN_VALUE
-
 
 This code will output the disassembled bytecode of `example_function`. Let's talk about what all this means.
 
@@ -60,23 +59,22 @@ This code will output the disassembled bytecode of `example_function`. Let's tal
 
 The output of `dis.dis()` typically includes the following columns:
 
-* Line number: Indicates the line number in your source code.
-* Byte offset: The position of the instruction in the bytecode sequence.
-* Operation name: The human-readable name of the operation (e.g., `LOAD_FAST`, `BINARY_MULTIPLY`, etc.).
-* Argument: Additional data needed for some operations (e.g., variable names, constants).
-* Argument details: (in parentheses) Further explanation of the argument, such as variable names or constant values.
+- Line number: Indicates the line number in your source code.
+- Byte offset: The position of the instruction in the bytecode sequence.
+- Operation name: The human-readable name of the operation (e.g., `LOAD_FAST`, `BINARY_MULTIPLY`, etc.).
+- Argument: Additional data needed for some operations (e.g., variable names, constants).
+- Argument details: (in parentheses) Further explanation of the argument, such as variable names or constant values.
 
 Let's look at our example. Each line corresponds to an instruction in the bytecode:
 
-* `LOAD_FAST` loads the argument `x` onto the stack.
-* `LOAD_CONST` loads the constant `2`.
-* `BINARY_MULTIPLY` multiplies the two topmost items on the stack.
-* `RETURN_VALUE` returns the result.
+- `LOAD_FAST` loads the argument `x` onto the stack.
+- `LOAD_CONST` loads the constant `2`.
+- `BINARY_MULTIPLY` multiplies the two topmost items on the stack.
+- `RETURN_VALUE` returns the result.
 
 ### Working with classes
 
 The `dis` module can also disassemble methods within classes:
-
 
 ```python
 class MyClass:
@@ -87,12 +85,11 @@ dis.dis(MyClass.add_one)
 ```
 
       2           0 RESUME                   0
-    
+
       3           2 LOAD_FAST                1 (x)
                   4 LOAD_CONST               1 (1)
                   6 BINARY_OP                0 (+)
                  10 RETURN_VALUE
-
 
 # Advanced Usage of the `dis` Module
 
@@ -101,7 +98,6 @@ Now let's look at the more advanced capabilities of the `dis` module.
 ### Exploring the Bytecode Object with `dis.Bytecode`
 
 For more detailed analysis, the `dis.Bytecode` class offers a richer interface. It provides an iterator over the individual instructions in the bytecode:
-
 
 ```python
 for instruction in dis.Bytecode(MyClass.add_one):
@@ -114,13 +110,11 @@ for instruction in dis.Bytecode(MyClass.add_one):
     BINARY_OP 0
     RETURN_VALUE None
 
-
 This approach allows you to examine each operation in more detail and is particularly helpful for processing or analyzing the bytecode programmatically.
 
 ### Control Structures in Bytecode
 
 You can also use `dis` to analyze control structures like loops and conditionals. Here's a simple for-loop:
-
 
 ```python
 def for_loop_example():
@@ -131,28 +125,26 @@ dis.dis(for_loop_example)
 ```
 
       1           0 RESUME                   0
-    
+
       2           2 LOAD_GLOBAL              1 (NULL + range)
                  12 LOAD_CONST               1 (3)
                  14 CALL                     1
                  22 GET_ITER
             >>   24 FOR_ITER                13 (to 54)
                  28 STORE_FAST               0 (i)
-    
+
       3          30 LOAD_GLOBAL              3 (NULL + print)
                  40 LOAD_FAST                0 (i)
                  42 CALL                     1
                  50 POP_TOP
                  52 JUMP_BACKWARD           15 (to 24)
-    
+
       2     >>   54 END_FOR
                  56 RETURN_CONST             0 (None)
-
 
 ### Identifying Performance Bottlenecks
 
 Sometimes you can write code that seems perfectly efficient, but is actually much slower than it needs to be. For example, take a look at this function:
-
 
 ```python
 def inefficient_sum(n):
@@ -162,40 +154,37 @@ def inefficient_sum(n):
     return total
 ```
 
-It doesn't use the Python built-in functions, but there's nothing obviously wrong with it. And it's *not* wrong, but let's look at the bytecode.
-
+It doesn't use the Python built-in functions, but there's nothing obviously wrong with it. And it's _not_ wrong, but let's look at the bytecode.
 
 ```python
 print(dis.dis(inefficient_sum))
 ```
 
       1           0 RESUME                   0
-    
+
       2           2 LOAD_CONST               1 (0)
                   4 STORE_FAST               1 (total)
-    
+
       3           6 LOAD_GLOBAL              1 (NULL + range)
                  16 LOAD_FAST                0 (n)
                  18 CALL                     1
                  26 GET_ITER
             >>   28 FOR_ITER                 7 (to 46)
                  32 STORE_FAST               2 (i)
-    
+
       4          34 LOAD_FAST                1 (total)
                  36 LOAD_FAST                2 (i)
                  38 BINARY_OP               13 (+=)
                  42 STORE_FAST               1 (total)
                  44 JUMP_BACKWARD            9 (to 28)
-    
+
       3     >>   46 END_FOR
-    
+
       5          48 LOAD_FAST                1 (total)
                  50 RETURN_VALUE
     None
 
-
 Without getting lost in the details, the thing to notice is that there are a fair amount of instructions. Let's compare this to a more efficient version where we use the Python built-in operations.
-
 
 ```python
 def efficient_sum(n):
@@ -205,7 +194,7 @@ print(dis.dis(efficient_sum))
 ```
 
       1           0 RESUME                   0
-    
+
       2           2 LOAD_GLOBAL              1 (NULL + sum)
                  12 LOAD_GLOBAL              3 (NULL + range)
                  22 LOAD_FAST                0 (n)
@@ -214,9 +203,7 @@ print(dis.dis(efficient_sum))
                  40 RETURN_VALUE
     None
 
-
 The first thing you'll notice is that the bytecode for `efficient_sum` is much simpler, which is a sign that it's probably a much more efficient operation. It's also good to look at the type of operation, as some operations are more costly than others.
-
 
 ```python
 %timeit inefficient_sum(10)
@@ -224,15 +211,11 @@ The first thing you'll notice is that the bytecode for `efficient_sum` is much s
 
     116 ns ± 1.22 ns per loop (mean ± std. dev. of 7 runs, 10,000,000 loops each)
 
-
-
 ```python
 %timeit efficient_sum(10)
 ```
 
     89.7 ns ± 0.628 ns per loop (mean ± std. dev. of 7 runs, 10,000,000 loops each)
-
-
 
 ```python
 %timeit inefficient_sum(100)
@@ -240,21 +223,17 @@ The first thing you'll notice is that the bytecode for `efficient_sum` is much s
 
     1.13 μs ± 7.52 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
 
-
-
 ```python
 %timeit efficient_sum(100)
 ```
 
     384 ns ± 2.54 ns per loop (mean ± std. dev. of 7 runs, 1,000,000 loops each)
 
-
 That's a significant difference. And it becomes more significant the more numbers you are summing.
 
 ### External Functions
 
 You can also use `dis` on imported functions. Here is an example with `requests.get`:
-
 
 ```python
 import requests
@@ -263,7 +242,7 @@ dis.dis(requests.get)
 ```
 
      62           0 RESUME                   0
-    
+
      73           2 LOAD_GLOBAL              1 (NULL + request)
                  12 LOAD_CONST               1 ('get')
                  14 LOAD_FAST                0 (url)
@@ -276,17 +255,14 @@ dis.dis(requests.get)
                  28 CALL_FUNCTION_EX         1
                  30 RETURN_VALUE
 
-
 ##### Limitations
 
 Unfortunately, `dis` cannot do everything. In particular, it can only work for functions that are implemented in Python. Many libraries, such as NumPy and PyTorch, have functions written in C or C++. This means that `dis` will throw an error if you try to use it on them.
-
 
 ```python
 import math
 import numpy as np
 ```
-
 
 ```python
 try:
@@ -297,8 +273,6 @@ except TypeError as e:
 
     Error: don't know how to disassemble builtin_function_or_method objects
 
-
-
 ```python
 try:
     dis.dis(np.sqrt)
@@ -308,9 +282,7 @@ except TypeError as e:
 
     Error: don't know how to disassemble ufunc objects
 
-
 In these cases, you can still time the functions. This is how I learned that `math.sqrt` is around an order of magnitude faster than `np.sqrt`, which surprised me. I would have thought `np.sqrt` would be faster.
-
 
 ```python
 %timeit [math.sqrt(n) for n in range(100)]
@@ -318,11 +290,8 @@ In these cases, you can still time the functions. This is how I learned that `ma
 
     2.59 μs ± 9.01 ns per loop (mean ± std. dev. of 7 runs, 100,000 loops each)
 
-
-
 ```python
 %timeit [np.sqrt(n) for n in range(100)]
 ```
 
     40.7 μs ± 582 ns per loop (mean ± std. dev. of 7 runs, 10,000 loops each)
-
