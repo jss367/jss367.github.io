@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Google Authentication and Credentials "
+title: "Google Authentication and Credentials"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/swallow.jpg"
 tags: [Software]
