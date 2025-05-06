@@ -8,28 +8,24 @@ layout: default
                 <div class="feature-image-padding"></div>
             {% else %}
                 <h1 id="{{ page.title | cgi_escape }}" class="title">{{ page.title }}</h1>
-                {% include blog/post_info.liquid author=page.author date=page.date %}
-                {% if page.last_updated %}
-                <p class="last-updated">Last updated: {{ page.last_updated }}</p>
-                {% endif %}
+                <div class="post-metadata">
+                    {% include blog/post_info.liquid author=page.author date=page.date %}
+                    {% if page.last_updated %}
+                    <span class="last-updated">· Updated: {{ page.last_updated }}</span>
+                    {% endif %}
+                </div>
             {% endif %}
         </div>
-
     </header>
-
     <section class="post-content">
     {% if page.bootstrap %}<div class="bootstrap-iso">{% endif %}
             {{ content }}
     {% if page.bootstrap %}</div>{% endif %}
     </section>
-
     <!-- Social media shares -->
     {% include social/share_buttons.liquid %}
-
     <!-- Tag list -->
     {% capture tag_list %}{{ page.tags | join: "|" }}{% endcapture %}
     {% include default/tags_list.liquid tags=tag_list %}
-
 </article>
-
 {% include blog/post_footer.liquid color=page.color img=page.feature-img %}

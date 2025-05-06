@@ -37,6 +37,9 @@ I’m always curious about how people set up their computers and what software p
 [Google Slides](https://www.google.com/slides/about/)
 * I prefer Excel, but it's free and I don't use spreadsheets enough to buy Excel
 
+[LibreOffice](https://www.libreoffice.org/) (FOSS, Ninite)
+* I prefer cloud-based editors so I don't use this very much anymore.
+
 ## LaTeX Editor
 
 [Texmaker](https://www.xm1math.net/texmaker/)
@@ -258,8 +261,8 @@ As you can see, I'm strewn across half a dozen terminals in Windows and have fou
 * Written in Rust for better performance
 * Makes directory listings more visually intuitive
 
-[Autojump](https://github.com/wting/autojump)
-* This is the best way to get around a Unix terminal
+[zoxide]https://github.com/ajeetdsouza/zoxide
+* Replaced autojump for me, though I think `j` is a better key to use so I alias to it
 
 [Glances](https://nicolargo.github.io/glances/)
 * A great system monitoring tools
@@ -475,9 +478,6 @@ Some applications were either neck-and-neck with other ones, or I use very infre
 
 # No Longer Used
 
-[LibreOffice](https://www.libreoffice.org/) (FOSS, Ninite)
-* I prefer cloud-based editors so I don't use this very much anymore.
-
 [muCommander](https://www.mucommander.com/)
 * More lightweight than Commander One, so I sometimes use it
 * [This website](https://logicgrimoire.wordpress.com/2013/11/15/richs-quick-and-easy-guide-to-file-management-with-mucommander/) offers good tips on how to get started with it
@@ -486,3 +486,7 @@ Some applications were either neck-and-neck with other ones, or I use very infre
 * Not free but still very good
 
 [CyberDuck](https://cyberduck.io/)
+
+[Autojump](https://github.com/wting/autojump)
+* This is the best way to get around a Unix terminal
+
