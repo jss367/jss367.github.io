@@ -13,3 +13,9 @@
     </p>
   {%- if author.url -%}</a>{%- endif -%}
 </div>
+
+{% if include.last_modified %}
+  <div class="last-modified" style="margin-top: 5px;">
+    Last updated: {{ include.last_modified | date: site.data.language.str_date_format | default: '%B %-d, %Y' }}
+  </div>
+{% endif %}
