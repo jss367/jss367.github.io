@@ -4,7 +4,7 @@ title: "Software I Use"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/glass_ball.jpg"
 tags: [Linux, Mac, Software, Windows]
-last_modified: 2024-08-15
+last_modified: 2025-05-05
 ---
 
 I’m always curious about how people set up their computers and what software packages they have, so I thought I would share mine. So you know where I’m coming from, I use Windows, Mac, and Linux nearly every day. Part of my goal is to make transitioning between these systems as seamless as possible, but the exact setup varies by the operating system. For those of you on Windows, many of these can be installed with [Ninite](https://ninite.com/). I do a pretty good job of keeping this list up-to-date, so it should reflect my current recommendations for software.
