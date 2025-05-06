@@ -261,8 +261,10 @@ As you can see, I'm strewn across half a dozen terminals in Windows and have fou
 * Written in Rust for better performance
 * Makes directory listings more visually intuitive
 
-[zoxide]https://github.com/ajeetdsouza/zoxide
+[zoxide](https://github.com/ajeetdsouza/zoxide)
 * Replaced autojump for me, though I think `j` is a better key to use so I alias to it
+
+[powerlevel10k](https://github.com/romkatv/powerlevel10k)
 
 [Glances](https://nicolargo.github.io/glances/)
 * A great system monitoring tools
