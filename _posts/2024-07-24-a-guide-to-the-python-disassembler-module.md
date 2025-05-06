@@ -15,7 +15,7 @@ In this post, we'll look into the `dis` module. We'll start by understanding wha
 <b>Table of Contents</b>
 
 - TOC
-  {:toc}
+{:toc}
 
 # Python Bytecode
 
