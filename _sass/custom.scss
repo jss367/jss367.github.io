@@ -6,14 +6,18 @@
   font-style: italic;
   opacity: 0.8;
   transition: opacity 0.3s ease;
-  margin-top: -8px;
+  margin-top: 5px;
   margin-bottom: 10px;
+  display: block;
+  clear: both;
+  text-align: center;
   
   &:hover {
     opacity: 1;
   }
 }
 
+/* Replace the icon approach with plain text */
 .last-modified:before {
-  content: "";
+  content: ""; /* Remove the icon */
 } 
