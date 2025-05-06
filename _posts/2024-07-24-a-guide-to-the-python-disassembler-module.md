@@ -5,7 +5,7 @@ description: "This guide covers how to use dis, the Python disassembler module"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/mt_rainer.jpg"
 tags: [Python]
-last_modified_at: 2024-08-15
+last_modified: 2024-08-15
 ---
 
 The `dis` module is a great tool for understanding how code runs. While I mainly use it out of curiosity, it can also be valuable for optimization and debugging. The module allows you to translate your Python code into bytecode—a low-level, intermediate representation of your Python code. By examining bytecode, programmers can glimpse the Python interpreter's view of their code, shedding light on performance characteristics and operational behaviors that aren't apparent at the source code level.
@@ -14,8 +14,8 @@ In this post, we'll look into the `dis` module. We'll start by understanding wha
 
 <b>Table of Contents</b>
 
-* TOC
-{:toc}
+- TOC
+  {:toc}
 
 # Python Bytecode
 

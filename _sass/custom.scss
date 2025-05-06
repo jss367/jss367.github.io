@@ -6,16 +6,14 @@
   font-style: italic;
   opacity: 0.8;
   transition: opacity 0.3s ease;
+  margin-top: -8px;
+  margin-bottom: 10px;
   
   &:hover {
     opacity: 1;
   }
 }
 
-/* Add a small icon to the last modified date */
 .last-modified:before {
-  content: "\f017"; /* Clock icon from Font Awesome */
-  font-family: "Font Awesome 5 Free";
-  margin-right: 4px;
-  font-weight: 900;
+  content: "";
 } 

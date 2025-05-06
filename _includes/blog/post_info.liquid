@@ -10,12 +10,12 @@
       {% if author.name %}{{ author.name }} - {% endif %}
       {% assign x = date | date: "%m" | minus: 1 %}
       {{ site.data.language.str_months[x] | default: date | date: "%B" }} {{ date | date: "%d, %Y" }}
-      
-      {% if include.last_modified_at %}
-        <span class="last-modified">
-          - Last updated: {{ include.last_modified_at | date: site.data.language.str_date_format | default: '%B %-d, %Y' }}
-        </span>
-      {% endif %}
     </p>
+    
+    {% if include.last_modified %}
+      <p class="last-modified">
+        Last updated: {{ include.last_modified | date: site.data.language.str_date_format | default: '%B %-d, %Y' }}
+      </p>
+    {% endif %}
   {%- if author.url -%}</a>{%- endif -%}
 </div>
