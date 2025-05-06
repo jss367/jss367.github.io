@@ -4,7 +4,7 @@ title: "Data Cleaning Tutorial with the Enron Dataset"
 description: "Tools, techniques, and tips to clean data in Python using the Enron dataset"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/sun_tas.jpg"
-tags: [Data Cleaning, Pandas, Python]
+tags: [Data Cleaning, Datasets, Pandas, Python]
 ---
 
 In this notebook, I'm going to look at the basics of cleaning data with Python. I will be using a dataset of people involved in the [Enron scandal](https://en.wikipedia.org/wiki/Enron_scandal). I first saw this dataset in the Intro to Machine Learning class at [Udacity](https://www.udacity.com/).

@@ -4,7 +4,7 @@ title: "Where to Find Datasets"
 description: "This post list some good places for finding datasets"
 thumbnail: "assets/img/black-necked_stilts.jpg"
 feature-img: "assets/img/rainbow.jpg"
-tags: [Data]
+tags: [Datasets]
 ---
 
 As machine learning has continued to expand, so has the need for data. I've put together some of my favorite resources for finding datasets. I hope they are some service.
