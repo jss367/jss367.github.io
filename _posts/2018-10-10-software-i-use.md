@@ -266,6 +266,8 @@ As you can see, I'm strewn across half a dozen terminals in Windows and have fou
 
 [powerlevel10k](https://github.com/romkatv/powerlevel10k)
 
+[zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+
 [Glances](https://nicolargo.github.io/glances/)
 * A great system monitoring tools
 * Works across all platforms
