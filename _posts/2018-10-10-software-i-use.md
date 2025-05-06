@@ -276,6 +276,8 @@ As you can see, I'm strewn across half a dozen terminals in Windows and have fou
 
 [fzf](https://github.com/junegunn/fzf)
 
+[bat](https://github.com/sharkdp/bat)
+
 You can also find a lot of great tools here: [https://github.com/ibraheemdev/modern-unix](https://github.com/ibraheemdev/modern-unix)
 
 # Security
