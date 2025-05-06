@@ -1,0 +1,14 @@
+.last-modified {
+  font-size: 0.9em;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  display: block;
+  clear: both;
+  text-align: center;
+
+  &:hover {
+    opacity: 1;
+  }
+}
