@@ -32,7 +32,7 @@ There are different ways to access the census data, including through their webs
 
 We're going to look at the American Community Survey (ACS) Select Population Profiles (SPP) data.
 
-You need to provide `fields` and `iteration codes`. You can find which population is associated with which iteration code here: https://www2.census.gov/programs-surveys/decennial/datasets/summary-file-2/attachment.pdf
+You need to provide `fields` and `iteration codes`. You can find which population is associated with which iteration code here: [https://www2.census.gov/programs-surveys/decennial/datasets/summary-file-2/attachment.pdf](https://www2.census.gov/programs-surveys/decennial/datasets/summary-file-2/attachment.pdf)
 
 For example, it tells you that `013` is the iteration code for Asian Indians.
 
