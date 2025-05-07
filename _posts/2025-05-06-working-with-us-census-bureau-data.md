@@ -79,7 +79,7 @@ OK, so we can get a single data point from a query, but it's inefficient to do t
 ```python
 YEAR     = 2022
 DATASET  = f"https://api.census.gov/data/{YEAR}/acs/acs1/spp"
-FIELDS   = "NAME,S0201_214E,POPGROUP"                    # median household income + population group
+FIELDS   = "NAME,S0201_214E,POPGROUP"  # median household income + population group
 URL      = (f"{DATASET}?get={FIELDS}"
             f"&for=us:1&key={API_KEY}")
 resp = requests.get(URL, timeout=30)
