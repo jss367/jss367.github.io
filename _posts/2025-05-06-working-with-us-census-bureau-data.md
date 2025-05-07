@@ -749,6 +749,19 @@ df
 </div>
 
 
+## Using the Website
+
+I don't find the website particularly easy to use, either. You can see some of the same information though. Here, for example is the ACS data on Asian Indians:
+* https://data.census.gov/table?t=013:Income+and+Poverty&g=010XX00US.
+
+Here's the same for total population:
+* https://data.census.gov/table?t=001:Income+and+Poverty&g=010XX00US
+
+You can see in the URL how the iteration codes work. You can either change that value directly or use the filters on the left sidebar.
+
+## Errors in the Data
+
+I was surprised to find lots of errors in the data. Here are [a couple of examples](https://x.com/JuliusSimonelli/status/1918827800695292341). Beware, I guess!
 
 ## Note on Dates
 
