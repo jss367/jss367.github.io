@@ -167,8 +167,7 @@ df.head()
 
 
 
-The codes are not that helpful directly and need to be converted using the link above. You can find the full dictionary here:  
-[code_to_population.py (Gist)](https://gist.github.com/jss367/44e041c913f87a11b2830e01e295c241). We'll use `curl` to download it:
+The codes are not that helpful directly and need to be converted using the link above. You can find the full dictionary here: [code_to_population.py (Gist)](https://gist.github.com/jss367/44e041c913f87a11b2830e01e295c241). We'll use `curl` to download it:
 
 
 ```python
