@@ -535,7 +535,7 @@ df[df['POPGROUP'] == '013']
 
 There is also a census wrapper you can use that's available for download at [https://pypi.org/project/census/](https://pypi.org/project/census/). Let's use it to get some income data.
 
-Here, we'll use a different table. You can see the different tables here: https://api.census.gov/data/2021/acs/acs5/groups/
+Here, we'll use a different table. You can see the different tables here: [https://api.census.gov/data/2021/acs/acs5/groups/](https://api.census.gov/data/2021/acs/acs5/groups/)
 
 In the census data, you'll also see IDs like `B19013A_001E`. Let's take a moment to understand what it means. It's in the following format:
 
@@ -751,10 +751,10 @@ df
 ## Using the Website
 
 I don't find the website particularly easy to use, either. You can see some of the same information though. Here, for example is the ACS data on Asian Indians:
-* https://data.census.gov/table?t=013:Income+and+Poverty&g=010XX00US.
+* [https://data.census.gov/table?t=013:Income+and+Poverty&g=010XX00US](https://data.census.gov/table?t=013:Income+and+Poverty&g=010XX00US).
 
 Here's the same for total population:
-* https://data.census.gov/table?t=001:Income+and+Poverty&g=010XX00US
+* [https://data.census.gov/table?t=001:Income+and+Poverty&g=010XX00US](https://data.census.gov/table?t=001:Income+and+Poverty&g=010XX00US)
 
 You can see in the URL how the iteration codes work. You can either change that value directly or use the filters on the left sidebar.
 
