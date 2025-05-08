@@ -8,6 +8,11 @@ tags: [Datasets]
 
 I found that the US Census API is difficult to work with and even LLMs don't provide working code for it. So I thought it might be helpful to share some techniques that did work. In this post, I'm going to focus on both raw API calls and the Python wrapper.
 
+<b>Table of Contents</b>
+* TOC
+{:toc}
+
+## API key
 
 ```python
 import os
