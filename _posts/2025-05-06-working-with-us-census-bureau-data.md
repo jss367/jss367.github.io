@@ -24,7 +24,7 @@ import requests
 from census import Census
 ```
 
-You need to get an API key. Fortunately, this part is really easy—all you need to do is sign up on their website.
+You need to get an API key. Fortunately, this part is really easy—all you need to do is sign up on [their website](https://api.census.gov/data/key_signup.html).
 
 
 ```python
