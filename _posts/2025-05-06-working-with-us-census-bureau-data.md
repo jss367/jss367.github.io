@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Working with US Census Bureau Data"
-feature-img: "assets/img/rainbow_fullest.jpg"
+feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/seal.jpg"
 tags: [Datasets]
 ---
@@ -34,11 +34,28 @@ API_KEY = os.getenv('CENSUS_API_KEY')
 
 There are different ways to access the census data, including through their website, through direct API calls, and through a Python wrapper.
 
+## Understanding Tables
+
+Here, we'll use a different table. You can see the different tables here: https://api.census.gov/data/2021/acs/acs5/groups/
+
+In the census data, you'll also see IDs like `B19013A_001E`. Let's take a moment to understand what it means. It's in the following format:
+
+`[TABLE_ID][SUBGROUP]_[LINE][SUFFIX]`
+
+So, in this case:
+* `B19013A` is the **table id**. This specific table is titled "Median Household Income in the Past 12 Months (in 2021 Inflation-Adjusted Dollars)". 
+* `001` refers to the **line number** within that table, corresponding to a specific row (e.g., "Median household income").
+* `E` stands for **Estimate** — as opposed to M, which would be the Margin of Error for that estimate.
+
+One table with a lot of data is S0201. S0201 refers to the Selected Population Profile (SPP) table series. This is used for detailed demographic, social, economic, and housing data by race, Hispanic origin, tribal group, or ancestry.
+
 ## Direct API Calls
 
 We're going to look at the American Community Survey (ACS) Select Population Profiles (SPP) data.
 
 You need to provide `fields` and `iteration codes`. You can find which population is associated with which iteration code here: [https://www2.census.gov/programs-surveys/decennial/datasets/summary-file-2/attachment.pdf](https://www2.census.gov/programs-surveys/decennial/datasets/summary-file-2/attachment.pdf)
+
+For fields, we're using `S0201_214E`. S0201 is the table and _214 is the line number within the S0201 table, which corresponds to a specific data item. This is how we can get median household income.
 
 For example, it tells you that `013` is the iteration code for Asian Indians.
 
@@ -98,15 +115,13 @@ resp = requests.get(URL, timeout=30)
 rows = resp.json()
 
 # Convert to pandas DataFrame
-df = pd.DataFrame(rows[1:], columns=rows[0])
-df['S0201_214E'] = pd.to_numeric(df['S0201_214E'], errors='coerce')
-
-# df['POPGROUP_DESC'] = df['POPGROUP'].map(popgroup_dict)
+income_df = pd.DataFrame(rows[1:], columns=rows[0])
+income_df['S0201_214E'] = pd.to_numeric(income_df['S0201_214E'], errors='coerce')
 ```
 
 
 ```python
-len(df)
+len(income_df)
 ```
 
 
@@ -118,7 +133,7 @@ len(df)
 
 
 ```python
-df.head()
+income_df.head()
 ```
 
 
@@ -199,7 +214,7 @@ The codes are not that helpful directly and need to be converted using the link 
 
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                      Dload  Upload   Total   Spent    Left  Speed
-    100  6932  100  6932    0     0  25458      0 --:--:-- --:--:-- --:--:-- 25391
+    100  6932  100  6932    0     0  28768      0 --:--:-- --:--:-- --:--:-- 28883
 
 
 
@@ -209,12 +224,12 @@ from census_popgroup_dict import code_to_population
 
 
 ```python
-df['POPGROUP_DESC'] = df['POPGROUP'].map(code_to_population)
+income_df['POPGROUP_DESC'] = income_df['POPGROUP'].map(code_to_population)
 ```
 
 
 ```python
-df.head()
+income_df.head()
 ```
 
 
@@ -294,19 +309,7 @@ df.head()
 
 
 ```python
-len(df)
-```
-
-
-
-
-    347
-
-
-
-
-```python
-df.tail()
+income_df.tail()
 ```
 
 
@@ -341,29 +344,21 @@ df.tail()
     <tr>
       <th>342</th>
       <td>United States</td>
-      <td>78411</td>
-      <td>9Z9</td>
-      <td>1</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>343</th>
-      <td>United States</td>
-      <td>96811</td>
-      <td>930</td>
-      <td>1</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>344</th>
-      <td>United States</td>
       <td>126414</td>
       <td>931</td>
       <td>1</td>
       <td>NaN</td>
     </tr>
     <tr>
-      <th>345</th>
+      <th>343</th>
+      <td>United States</td>
+      <td>135643</td>
+      <td>932</td>
+      <td>1</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>344</th>
       <td>United States</td>
       <td>55352</td>
       <td>946</td>
@@ -371,10 +366,18 @@ df.tail()
       <td>NaN</td>
     </tr>
     <tr>
-      <th>346</th>
+      <th>345</th>
       <td>United States</td>
       <td>80191</td>
       <td>9Z8</td>
+      <td>1</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>346</th>
+      <td>United States</td>
+      <td>78411</td>
+      <td>9Z9</td>
       <td>1</td>
       <td>NaN</td>
     </tr>
@@ -388,12 +391,24 @@ Unfortunately, many are missing and I'm not sure what the issue is at the moment
 
 
 ```python
-df.dropna(inplace=True)
+income_df.dropna(inplace=True)
 ```
 
 
 ```python
-df.sample(10)
+len(income_df)
+```
+
+
+
+
+    86
+
+
+
+
+```python
+income_df.sample(10)
 ```
 
 
@@ -426,31 +441,7 @@ df.sample(10)
   </thead>
   <tbody>
     <tr>
-      <th>125</th>
-      <td>United States</td>
-      <td>69319</td>
-      <td>412</td>
-      <td>1</td>
-      <td>Salvadoran (226)</td>
-    </tr>
-    <tr>
-      <th>67</th>
-      <td>United States</td>
-      <td>63984</td>
-      <td>105</td>
-      <td>1</td>
-      <td>White; Black or African American</td>
-    </tr>
-    <tr>
-      <th>137</th>
-      <td>United States</td>
-      <td>76424</td>
-      <td>450</td>
-      <td>1</td>
-      <td>Not Hispanic or Latino</td>
-    </tr>
-    <tr>
-      <th>132</th>
+      <th>129</th>
       <td>United States</td>
       <td>77024</td>
       <td>420</td>
@@ -458,52 +449,76 @@ df.sample(10)
       <td>Peruvian (237)</td>
     </tr>
     <tr>
-      <th>130</th>
+      <th>146</th>
       <td>United States</td>
-      <td>73556</td>
-      <td>417</td>
+      <td>78234</td>
+      <td>462</td>
       <td>1</td>
-      <td>Colombian (234)</td>
+      <td>Some Other Race alone or in combination with o...</td>
     </tr>
     <tr>
-      <th>22</th>
+      <th>147</th>
       <td>United States</td>
-      <td>122951</td>
-      <td>018</td>
+      <td>72601</td>
+      <td>463</td>
       <td>1</td>
-      <td>Taiwanese alone (412-419)</td>
+      <td>Two or More Races, not Hispanic or Latino</td>
     </tr>
     <tr>
-      <th>131</th>
+      <th>0</th>
       <td>United States</td>
-      <td>72163</td>
-      <td>418</td>
+      <td>74755</td>
+      <td>001</td>
       <td>1</td>
-      <td>Ecuadorian (235)</td>
+      <td>Total Population</td>
     </tr>
     <tr>
-      <th>139</th>
+      <th>132</th>
       <td>United States</td>
-      <td>80151</td>
-      <td>452</td>
+      <td>82993</td>
+      <td>423</td>
       <td>1</td>
-      <td>White alone or in combination with one or more...</td>
+      <td>Spaniard (200-209)</td>
     </tr>
     <tr>
-      <th>24</th>
+      <th>74</th>
       <td>United States</td>
-      <td>94319</td>
-      <td>022</td>
+      <td>85527</td>
+      <td>117</td>
       <td>1</td>
-      <td>Japanese alone (430-439)</td>
+      <td>Asian; Native Hawaiian and Other Pacific Islander</td>
     </tr>
     <tr>
-      <th>119</th>
+      <th>145</th>
       <td>United States</td>
-      <td>64741</td>
-      <td>406</td>
+      <td>75631</td>
+      <td>461</td>
       <td>1</td>
-      <td>Central American (excludes Mexican) (221-230)</td>
+      <td>Some Other Race alone, not Hispanic or Latino</td>
+    </tr>
+    <tr>
+      <th>113</th>
+      <td>United States</td>
+      <td>66241</td>
+      <td>403</td>
+      <td>1</td>
+      <td>Cuban (270-274)</td>
+    </tr>
+    <tr>
+      <th>46</th>
+      <td>United States</td>
+      <td>76421</td>
+      <td>060</td>
+      <td>1</td>
+      <td>Native Hawaiian and Other Pacific Islander alo...</td>
+    </tr>
+    <tr>
+      <th>66</th>
+      <td>United States</td>
+      <td>95428</td>
+      <td>107</td>
+      <td>1</td>
+      <td>White; Asian</td>
     </tr>
   </tbody>
 </table>
@@ -515,7 +530,7 @@ We can see the Asian Indian data again.
 
 
 ```python
-df[df['POPGROUP'] == '013']
+income_df[income_df['POPGROUP'] == '013']
 ```
 
 
@@ -548,7 +563,7 @@ df[df['POPGROUP'] == '013']
   </thead>
   <tbody>
     <tr>
-      <th>17</th>
+      <th>8</th>
       <td>United States</td>
       <td>152341</td>
       <td>013</td>
@@ -561,25 +576,158 @@ df[df['POPGROUP'] == '013']
 
 
 
+## Getting Population Groups
+
 
 ```python
-
+params = {
+    "get": "POPGROUP,POPGROUP_LABEL",  # Request codes and labels
+    "for": "us:1",                     # National level
+    "key": API_KEY
+}
 ```
+
+
+```python
+year = 2023
+```
+
+
+```python
+base_url = f"https://api.census.gov/data/{year}/acs/acs1/spp"
+```
+
+
+```python
+# Make the request
+response = requests.get(base_url, params=params)
+
+# Check if request was successful
+response.raise_for_status()
+
+# Parse JSON response
+data = response.json()
+
+# Create DataFrame from the response (skip header row)
+popgroups_df = pd.DataFrame(data[1:], columns=data[0])
+
+# Convert to appropriate data types
+popgroups_df = popgroups_df.convert_dtypes()
+```
+
+
+```python
+len(popgroups_df)
+```
+
+
+
+
+    5545
+
+
+
+
+```python
+popgroups_df.sample(10)
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>POPGROUP</th>
+      <th>POPGROUP_LABEL</th>
+      <th>us</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1066</th>
+      <td>1462</td>
+      <td>Native Village of Buckland alone</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1935</th>
+      <td>21H</td>
+      <td>Tlingit alone</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1233</th>
+      <td>2124</td>
+      <td>Skull Valley Band of Goshute Indians of Utah a...</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1262</th>
+      <td>2193</td>
+      <td>Upper Chinook alone</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1523</th>
+      <td>3885</td>
+      <td>Rotuman alone</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3451</th>
+      <td>2822</td>
+      <td>Village of Solomon alone or in any combination</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4873</th>
+      <td>2907</td>
+      <td>Cherokee Alabama alone or in any combination</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1566</th>
+      <td>563</td>
+      <td>African</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1080</th>
+      <td>095</td>
+      <td>Mariana Islander alone</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3867</th>
+      <td>2590</td>
+      <td>Central Council of the Tlingit and Haida India...</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
 
 ## Using the Census Wrapper
 
 There is also a census wrapper you can use that's available for download at [https://pypi.org/project/census/](https://pypi.org/project/census/). Let's use it to get some income data.
-
-Here, we'll use a different table. You can see the different tables here: [https://api.census.gov/data/2021/acs/acs5/groups/](https://api.census.gov/data/2021/acs/acs5/groups/)
-
-In the census data, you'll also see IDs like `B19013A_001E`. Let's take a moment to understand what it means. It's in the following format:
-
-`[TABLE_ID][SUBGROUP]_[LINE][SUFFIX]`
-
-So, in this case:
-* `B19013A` is the **table id**. This specific table is titled "Median Household Income in the Past 12 Months (in 2021 Inflation-Adjusted Dollars)". 
-* `001` refers to the **line number** within that table, corresponding to a specific row (e.g., "Median household income").
-* `E` stands for **Estimate** — as opposed to M, which would be the Margin of Error for that estimate.
 
 Let's look at the `B19013` table. You'll note that not all subgroups are available here. If you want to dig deeper into, say, Asian subgroups, you need to look at a different table.
 
@@ -624,85 +772,10 @@ race_data
 ```
 
 
-
-
-    [{'NAME': 'United States',
-      'B19013_001E': 78538.0,
-      'B19013A_001E': 83784.0,
-      'B19013B_001E': 53444.0,
-      'B19013C_001E': 59393.0,
-      'B19013D_001E': 113106.0,
-      'B19013E_001E': 78640.0,
-      'B19013F_001E': 65558.0,
-      'B19013G_001E': 73412.0,
-      'B19013H_001E': 84745.0,
-      'B19013I_001E': 68890.0,
-      'us': '1'}]
-
-
-
-
 ```python
 df = pd.DataFrame(race_data)
 df
 ```
-
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>NAME</th>
-      <th>B19013_001E</th>
-      <th>B19013A_001E</th>
-      <th>B19013B_001E</th>
-      <th>B19013C_001E</th>
-      <th>B19013D_001E</th>
-      <th>B19013E_001E</th>
-      <th>B19013F_001E</th>
-      <th>B19013G_001E</th>
-      <th>B19013H_001E</th>
-      <th>B19013I_001E</th>
-      <th>us</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>United States</td>
-      <td>78538.0</td>
-      <td>83784.0</td>
-      <td>53444.0</td>
-      <td>59393.0</td>
-      <td>113106.0</td>
-      <td>78640.0</td>
-      <td>65558.0</td>
-      <td>73412.0</td>
-      <td>84745.0</td>
-      <td>68890.0</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
 
 It's... a little ugly. So we can rename the columns.
 
@@ -727,66 +800,12 @@ df = df.rename(columns={
 df
 ```
 
-
-
-
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>NAME</th>
-      <th>Median_Income_Total</th>
-      <th>Median_Income_White_Alone</th>
-      <th>Median_Income_Black_Alone</th>
-      <th>Median_Income_AmIndian_Alone</th>
-      <th>Median_Income_Asian_Alone</th>
-      <th>Median_Income_Hawaiian_Alone</th>
-      <th>Median_Income_Other_Alone</th>
-      <th>Median_Income_TwoOrMore</th>
-      <th>Median_Income_White_NonHispanic</th>
-      <th>Median_Income_Hispanic</th>
-      <th>us</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>United States</td>
-      <td>78538.0</td>
-      <td>83784.0</td>
-      <td>53444.0</td>
-      <td>59393.0</td>
-      <td>113106.0</td>
-      <td>78640.0</td>
-      <td>65558.0</td>
-      <td>73412.0</td>
-      <td>84745.0</td>
-      <td>68890.0</td>
-      <td>1</td>
-    </tr>
-  </tbody>
-</table>
-</div>
-
-
-
 ## Using the Website
 
-I don't find the website particularly easy to use, either. You can see some of the same information though. Here, for example is the ACS data on Asian Indians:
+I don't find the website particularly easy to use, either. You can see some of the same information though. Here is the page for the American Community Survey, contains a lot of their data:
+* [https://data.census.gov/table?q=American+Community+Survey&t=-A0](https://data.census.gov/table?q=American+Community+Survey&t=-A0)
+
+Here is the ACS data on Asian Indians:
 * [https://data.census.gov/table?t=013:Income+and+Poverty&g=010XX00US](https://data.census.gov/table?t=013:Income+and+Poverty&g=010XX00US).
 
 Here's the same for total population:
@@ -819,9 +838,5 @@ empty_resp = requests.get(URL, timeout=30)
 print(empty_resp.status_code)
 print(empty_resp.text[:500])
 ```
-
-    204
-    
-
 
 You can see that I got a 204 back, indicating that there was no content returned.
