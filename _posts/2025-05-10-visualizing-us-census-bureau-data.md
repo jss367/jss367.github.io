@@ -659,7 +659,7 @@ plt.tight_layout()
 
 
     
-![png](2025-05-10-visualizing-us-census-bureau-data_files/2025-05-10-visualizing-us-census-bureau-data_27_0.png)
+![png](2{{site.baseurl}}/assets/img/025-05-10-visualizing-us-census-bureau-data_files/2025-05-10-visualizing-us-census-bureau-data_27_0.png)
     
 
 
@@ -839,7 +839,7 @@ plt.show()
 
 
     
-![png](2025-05-10-visualizing-us-census-bureau-data_files/2025-05-10-visualizing-us-census-bureau-data_34_0.png)
+![png]({{site.baseurl}}/assets/img/2025-05-10-visualizing-us-census-bureau-data_files/2025-05-10-visualizing-us-census-bureau-data_34_0.png)
     
 
 
@@ -1215,7 +1215,7 @@ plt.show()
 
 
     
-![png](2025-05-10-visualizing-us-census-bureau-data_files/2025-05-10-visualizing-us-census-bureau-data_46_0.png)
+![png]({{site.baseurl}}/assets/img/2025-05-10-visualizing-us-census-bureau-data_files/2025-05-10-visualizing-us-census-bureau-data_46_0.png)
     
 
 
