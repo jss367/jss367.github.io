@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Working with US Census Bureau Data"
-feature-img: "assets/img/rainbow.jpg"
+feature-img: "assets/img/rainbow_fullest.jpg"
 thumbnail: "assets/img/seal.jpg"
 tags: [Datasets]
 ---
