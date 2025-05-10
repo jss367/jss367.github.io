@@ -14,6 +14,7 @@ I found that the US Census API is difficult to work with and even LLMs don't pro
 
 ## API key
 
+
 ```python
 import os
 
@@ -76,6 +77,10 @@ print("Median HH income (Asian-Indian-American, 2022):",
     Median HH income (Asian-Indian-American, 2022): $152,341
 
 
+### Verifying Results
+
+It's good to have a way to verify the data as well. For example, you can verify some of the results simply by Googling the number and making sure that's what other people got. By Googling $152,341 you can see other newsites that use the same value and describe it as Indian annual median household [income]((https://economictimes.indiatimes.com/opinion/et-editorial/indian-high-earners-of-the-world-unite/articleshow/109112116.cms?from=mdr)).
+
 ## Getting More Data
 
 OK, so we can get a single data point from a query, but it's inefficient to do that for lots of data. Let's grab data for multiple groups in a single request.
@@ -93,12 +98,23 @@ resp = requests.get(URL, timeout=30)
 rows = resp.json()
 
 # Convert to pandas DataFrame
-import pandas as pd
 df = pd.DataFrame(rows[1:], columns=rows[0])
 df['S0201_214E'] = pd.to_numeric(df['S0201_214E'], errors='coerce')
 
 # df['POPGROUP_DESC'] = df['POPGROUP'].map(popgroup_dict)
 ```
+
+
+```python
+len(df)
+```
+
+
+
+
+    347
+
+
 
 
 ```python
@@ -183,7 +199,7 @@ The codes are not that helpful directly and need to be converted using the link 
 
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                      Dload  Upload   Total   Spent    Left  Speed
-    100  6932  100  6932    0     0  31496      0 --:--:-- --:--:-- --:--:-- 31509
+    100  6932  100  6932    0     0  25458      0 --:--:-- --:--:-- --:--:-- 25391
 
 
 
@@ -278,6 +294,18 @@ df.head()
 
 
 ```python
+len(df)
+```
+
+
+
+
+    347
+
+
+
+
+```python
 df.tail()
 ```
 
@@ -313,21 +341,29 @@ df.tail()
     <tr>
       <th>342</th>
       <td>United States</td>
-      <td>126414</td>
-      <td>931</td>
+      <td>78411</td>
+      <td>9Z9</td>
       <td>1</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>343</th>
       <td>United States</td>
-      <td>135643</td>
-      <td>932</td>
+      <td>96811</td>
+      <td>930</td>
       <td>1</td>
       <td>NaN</td>
     </tr>
     <tr>
       <th>344</th>
+      <td>United States</td>
+      <td>126414</td>
+      <td>931</td>
+      <td>1</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>345</th>
       <td>United States</td>
       <td>55352</td>
       <td>946</td>
@@ -335,18 +371,10 @@ df.tail()
       <td>NaN</td>
     </tr>
     <tr>
-      <th>345</th>
+      <th>346</th>
       <td>United States</td>
       <td>80191</td>
       <td>9Z8</td>
-      <td>1</td>
-      <td>NaN</td>
-    </tr>
-    <tr>
-      <th>346</th>
-      <td>United States</td>
-      <td>78411</td>
-      <td>9Z9</td>
       <td>1</td>
       <td>NaN</td>
     </tr>
@@ -398,84 +426,84 @@ df.sample(10)
   </thead>
   <tbody>
     <tr>
-      <th>138</th>
+      <th>125</th>
       <td>United States</td>
-      <td>51978</td>
-      <td>454</td>
+      <td>69319</td>
+      <td>412</td>
       <td>1</td>
-      <td>Black or African American alone or in combinat...</td>
+      <td>Salvadoran (226)</td>
     </tr>
     <tr>
-      <th>6</th>
+      <th>67</th>
       <td>United States</td>
-      <td>61778</td>
-      <td>009</td>
+      <td>63984</td>
+      <td>105</td>
       <td>1</td>
-      <td>American Indian and Alaska Native alone or in ...</td>
+      <td>White; Black or African American</td>
     </tr>
     <tr>
-      <th>18</th>
+      <th>137</th>
       <td>United States</td>
-      <td>91261</td>
-      <td>023</td>
+      <td>76424</td>
+      <td>450</td>
       <td>1</td>
-      <td>Korean alone (440-441)</td>
+      <td>Not Hispanic or Latino</td>
     </tr>
     <tr>
-      <th>42</th>
+      <th>132</th>
       <td>United States</td>
-      <td>74089</td>
-      <td>052</td>
+      <td>77024</td>
+      <td>420</td>
       <td>1</td>
-      <td>Native Hawaiian alone (500-503)</td>
+      <td>Peruvian (237)</td>
     </tr>
     <tr>
-      <th>69</th>
+      <th>130</th>
       <td>United States</td>
-      <td>44671</td>
-      <td>110</td>
+      <td>73556</td>
+      <td>417</td>
       <td>1</td>
-      <td>Black or African American; American Indian and...</td>
+      <td>Colombian (234)</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>22</th>
       <td>United States</td>
-      <td>52238</td>
-      <td>005</td>
+      <td>122951</td>
+      <td>018</td>
       <td>1</td>
-      <td>Black or African American alone or in combinat...</td>
+      <td>Taiwanese alone (412-419)</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>131</th>
       <td>United States</td>
-      <td>78636</td>
-      <td>003</td>
+      <td>72163</td>
+      <td>418</td>
+      <td>1</td>
+      <td>Ecuadorian (235)</td>
+    </tr>
+    <tr>
+      <th>139</th>
+      <td>United States</td>
+      <td>80151</td>
+      <td>452</td>
       <td>1</td>
       <td>White alone or in combination with one or more...</td>
     </tr>
     <tr>
-      <th>9</th>
+      <th>24</th>
       <td>United States</td>
-      <td>80288</td>
-      <td>014</td>
+      <td>94319</td>
+      <td>022</td>
       <td>1</td>
-      <td>Bangladeshi alone (402)</td>
+      <td>Japanese alone (430-439)</td>
     </tr>
     <tr>
-      <th>124</th>
+      <th>119</th>
       <td>United States</td>
-      <td>93798</td>
-      <td>414</td>
+      <td>64741</td>
+      <td>406</td>
       <td>1</td>
-      <td>Argentinean (231)</td>
-    </tr>
-    <tr>
-      <th>125</th>
-      <td>United States</td>
-      <td>87192</td>
-      <td>415</td>
-      <td>1</td>
-      <td>Bolivian (232)</td>
+      <td>Central American (excludes Mexican) (221-230)</td>
     </tr>
   </tbody>
 </table>
@@ -520,7 +548,7 @@ df[df['POPGROUP'] == '013']
   </thead>
   <tbody>
     <tr>
-      <th>8</th>
+      <th>17</th>
       <td>United States</td>
       <td>152341</td>
       <td>013</td>
@@ -753,6 +781,7 @@ df
   </tbody>
 </table>
 </div>
+
 
 
 ## Using the Website
