@@ -659,7 +659,7 @@ plt.tight_layout()
 
 
     
-![png]({{site.baseurl}}/assets/img/025-05-10-visualizing-us-census-bureau-data_files/2025-05-10-visualizing-us-census-bureau-data_27_0.png)
+![png]({{site.baseurl}}/assets/img/2025-05-10-visualizing-us-census-bureau-data_files/2025-05-10-visualizing-us-census-bureau-data_27_0.png)
     
 
 
