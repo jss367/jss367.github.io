@@ -80,6 +80,8 @@ print("Median HH income (Asian-Indian-American, 2022):",
 
 OK, so we can get a single data point from a query, but it's inefficient to do that for lots of data. Let's grab data for multiple groups in a single request.
 
+Here we also need a field. We're going to use `S0201_214E`. You can see on the [SPP variables table](https://api.census.gov/data/2022/acs/acs1/spp/variables.xml) that `S0201_214E` corresponds to "Median household income (dollars)".
+
 
 ```python
 YEAR     = 2022
