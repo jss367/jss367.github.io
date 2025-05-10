@@ -819,7 +819,7 @@ I was surprised to find lots of errors in the data. Here are [a couple of exampl
 
 ## Note on Dates
 
-You might have noticed that I used 2022 in the example above. That's because that's the 2023 (and beyond) data doesn't seem to be there.
+You might have noticed that I used 2022 in the example above. That's because that's the 2023 (and beyond) data doesn't seem to be there for every table. Sometimes they are available though so I think you just have to check.
 
 
 ```python
