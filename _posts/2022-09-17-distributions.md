@@ -23,7 +23,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
 from scipy.stats import binom, norm, pareto, poisson
-from tweedie import tweedie # used for tweedie distribution; download with `pip install tweedie`
 ```
 
 
@@ -36,18 +35,30 @@ np.random.seed(0)
 
 ## Continuous Uniform Distribution
 
-The most basic distribution is the uniform distribution. In this case every value between the limits is equally likely to be called. These can be continuous or discrete. Continuous uniform distributions are also called rectangular distributions.
+The most basic distribution is the uniform distribution. In this case every value between the limits is equally likely to be selected. These can be continuous or discrete. Continuous uniform distributions are also called rectangular distributions.
 
 #### Plot
 
 
 ```python
-def plot_hist(bins):
-    num_bins = len(bins) - 1
-    plt.xlabel('Variable')
-    plt.ylabel('Count')
-    plt.title(f"Continuous Uniform Distribution with {num_bins} Bins")
-    plt.show()
+def plot_hist(
+    data,
+    num_bins=20,
+    *,
+    ax=None,
+    color='g',
+    xlabel='Variable',
+    ylabel='Count',
+    title_prefix='Continuous Uniform Distribution',
+    **hist_kw,
+):
+    ax = ax or plt.gca()
+    ax.hist(data, bins=num_bins, color=color, alpha=0.9, **hist_kw)
+    ax.set_xlabel(xlabel)
+    ax.set_ylabel(ylabel)
+    ax.set_title(f'{title_prefix} with {num_bins} bins')
+    return ax
+
 ```
 
 
@@ -63,8 +74,7 @@ x = np.random.uniform(0, 1, num_samples)
 
 ```python
 num_bins = 20
-count, bins, ignored = plt.hist(x, bins=num_bins, color='g', alpha=0.9) 
-plot_hist(bins)
+plot_hist(x, num_bins=20);
 ```
 
 
@@ -79,7 +89,7 @@ Note that the number of bins used to plot it can make it look more or less spiky
 ```python
 num_bins = 200
 count, bins, ignored = plt.hist(x, bins=num_bins, color='g', alpha=0.9) 
-plot_hist(bins)
+plot_hist(x, num_bins=200);
 ```
 
 
@@ -92,7 +102,7 @@ plot_hist(bins)
 
 Whether things are truly continuously distributed or not can be a bit of a question of definition. If time and space are quantized, then nothing in the physical world is truly a continuous uniform distribution. But these things are close enough. Some uniform distributions are:
 * Random number generators (in the ideal case)
-* If you show up to a bus stop where the bus arrives every hour but you don't know when, the arrival time will be a continuous distribution from 0-60 minutes
+* If buses run on an exact hourly schedule and you show up at a random time, your waiting time is uniformly distributed between 0 and 60 minutes.
 * Timing of asteroid impacts (roughly - it would only be continuous given a steady state of the universe, so doesn't work for very long time scales)
 
 ## Gaussian (or Normal) Distribution
@@ -228,7 +238,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_40_0.png)
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_41_0.png)
     
 
 
@@ -282,7 +292,8 @@ import matplotlib.pyplot as plt
 
 # Set parameters
 shape = 3  # k parameter
-scale = 1/2.0  # 1/λ parameter
+rate = 2.0            # λ  → mean = 1 / λ = 0.5
+scale = 1 / rate      # θ  (what SciPy expects)
 num_samples = 10000
 
 # Generate random samples
@@ -307,7 +318,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_52_0.png)
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_53_0.png)
     
 
 
@@ -326,7 +337,7 @@ The distribution is especially valuable when modeling systems where events must 
 
 # Discrete Distributions
 
-Lots of distributions aren't continuous, they deal with discrete predictions. For example, you can't flip 7.5 heads after 15 tries.
+Lots of distributions aren't continuous, they model discrete outcomes. For example, you can't flip 7.5 heads after 15 tries.
 
 ## Discrete Uniform Distribution
 
@@ -351,7 +362,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_61_0.png)
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_62_0.png)
     
 
 
@@ -405,7 +416,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_70_0.png)
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_71_0.png)
     
 
 
@@ -419,7 +430,7 @@ The Bernoulli distribution is used in scenarios involving a single event with tw
 
 ## Binomial Distribution
 
-A binomial distribution is a discrete probability distribution that models the number of successes in a fixed number of independent trials, each with the same probability of success. It is characterized by two parameters: n, the number of trials, and p, the probability of success in each trial. It can be considered an extension of the Bernoulli distribution we saw above to multiple trials. It's sort of like the discrete version of a Gaussian distribution.
+A binomial distribution is a discrete probability distribution that models the number of successes in a fixed number of independent trials, each with the same probability of success. It is characterized by two parameters: `n`, the number of trials, and `p`, the probability of success in each trial. It can be considered an extension of the Bernoulli distribution we saw above to multiple trials. For large `n` and moderate values of `p`, its shape approaches a Gaussian (normal) distribution. However, with very large `n` and very *small* `p`, it converges to a Poisson distribution.
 
 #### Plot
 
@@ -437,7 +448,7 @@ x = np.random.binomial(n=num_trials, p=prob_success)
 print(f"In this experiment, we got heads {x} times")
 ```
 
-    In this experiment, we got heads 14 times
+    In this experiment, we got heads 7 times
 
 
 But we can run this whole experiment over and over again and see what we get.
@@ -467,7 +478,53 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_80_0.png)
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_81_0.png)
+    
+
+
+##### Small p version
+
+
+```python
+num_trials = 1000
+prob_success = 0.001
+```
+
+
+```python
+x = np.random.binomial(n=num_trials, p=prob_success)
+print(f"In this experiment, we got heads {x} times")
+```
+
+    In this experiment, we got heads 2 times
+
+
+
+```python
+fig = plt.figure()
+
+# Generate data
+x = np.random.binomial(n=num_trials, p=prob_success, size=num_samples)
+# you could also do this with scipy like so:
+# x = binom.rvs(n=num_trials, p=prob_success, size=num_samples)
+
+num_bins = 25
+# Define bin edges explicitly to avoid gaps
+bin_edges = np.arange(min(x), max(x) + 2)
+
+# Plot the histogram
+plt.hist(x, bins=bin_edges, density=True, color='g', alpha=0.9, rwidth=0.9)
+
+plt.xlabel('Variable')
+plt.ylabel('Probability')
+
+plt.title("Binomial Distribution (Bin size {})".format(num_bins))
+plt.show()
+```
+
+
+    
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_85_0.png)
     
 
 
@@ -476,6 +533,53 @@ plt.show()
 * Flipping a coin
 * Shooting free throws
 * Lots of things that seem to be Gaussian but are discrete
+
+## Negative Binomial Distribution
+
+The negative binomial distribution models the number of *failures* that occur before a fixed number of *successes* is reached in a sequence of independent Bernoulli trials. Think of it as the sibling of the binomial: instead of asking “how many successes in *n* trials?” we ask “how many trials (or failures) until *r* successes occur?”
+
+### Parameterizations
+
+* **r** – number of required successes (positive integer)  
+* **p** – probability of success on each trial (0 < p ≤ 1)
+
+The probability mass function in the “failures‑before‑success” form is  
+
+
+$$ P(X=k)=\binom{k+r-1}{k}\,(1-p)^{k}\,p^{\,r},\qquad k=0,1,2,\dots $$
+
+When \(r=1\) it reduces to the geometric distribution.
+
+### Plot
+
+
+```python
+from scipy.stats import nbinom
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Parameters
+r = 5          # number of successes we’re waiting for
+p = 0.3        # probability of success
+num_samples = 10000
+
+# Generate samples (number of failures before the 5th success)
+data_nb = nbinom.rvs(r, p, size=num_samples)
+
+# Plot
+sns.displot(data_nb, bins=np.arange(0, max(data_nb)+2)-0.5, color='skyblue')
+plt.xlabel('Failures before {} successes'.format(r))
+plt.ylabel('Frequency')
+plt.title('Negative Binomial Distribution (r={}, p={})'.format(r, p))
+plt.show()
+```
+
+
+    
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_93_0.png)
+    
+
 
 ## Poisson Distribution
 
@@ -515,7 +619,7 @@ ax.fig.suptitle('Poisson Distribution')
 
 
     
-![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_89_1.png)
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_100_1.png)
     
 
 
@@ -527,7 +631,7 @@ ax.fig.suptitle('Poisson Distribution')
 
 #### Example
 
-Poisson distributions are very useful in predicting rare events. If once-in-a-lifetime floods occur once every hundred years, what is the chance that we have five within a hundred-year period?
+Poisson distributions are very useful in predicting rare events. If once-in-a-lifetime floods occur once every hundred years, what is the chance that we have exactly five within a hundred-year period?
 
 In this case $$ \lambda = 1 $$ and $$ k = 5 $$
 
@@ -543,13 +647,35 @@ math.exp(-1)*(1**5/math.factorial(5))
 
 
 
+If you wanted to calculate the probably of *at least* five once-in-a-lifetime floods, it would be:
+
+
+```python
+from scipy.stats import poisson
+
+lambda_val = 1
+p_at_least_5 = poisson.sf(4, lambda_val)   # sf = 1 - cdf
+
+print(f"P(X ≥ 5) = {p_at_least_5:.6f}")
+```
+
+    P(X ≥ 5) = 0.003660
+
+
 # Mixed Discrete and Continuous Distributions
+
+There are many mixed distributions as well. I'll go into detail on Tweedie distributions, but there are also zero‑inflated Poisson/negative‑binomial and hurdle models.
 
 ## Tweedie Distribution
 
 The Tweedie distribution is a family of probability distributions that encompasses a range of other well-known distributions. It is characterized by its ability to model data that exhibit a combination of discrete and continuous features, particularly useful for datasets with a significant number of zero values but also positive continuous outcomes. This makes the Tweedie distribution ideal for applications in fields such as insurance claim modeling, financial data analysis, and ecological studies, where the distribution of observed data cannot be adequately captured by simpler, more conventional distributions.
 
 #### Plot
+
+
+```python
+from tweedie import tweedie  # download with `pip install tweedie`
+```
 
 
 ```python
@@ -590,7 +716,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_102_0.png)
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_117_0.png)
     
 
 
@@ -653,7 +779,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_115_0.png)
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_130_0.png)
     
 
 
@@ -692,7 +818,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_120_0.png)
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_135_0.png)
     
 
 
@@ -711,7 +837,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_122_0.png)
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_137_0.png)
     
 
 
@@ -722,7 +848,19 @@ plt.show()
 
 ##### Recursive Nature
 
-The 80-20 rule is recursive. That is, if 20% of the people do 80% of the work, you can zoom in on those 20% and find that 20% of those do 80% of that work. So you can say something like
+The 80-20 rule is recursive. That is, if 20% of the people do 80% of the work, you can zoom in on those 20% and find that 20% of those do 80% of that work. Note that this famous “80 / 20” split is a handy mnemonic, but it is only *exact* for a particular Pareto shape parameter (α ≈ 1.16). When the underlying distribution has that parameter, the pattern is roughly self‑similar: zooming into the top 20% again leaves about 20% of them doing 80% of what remains. In that special case you can approximate:
+
+$$
+\text{share of people} \;\approx\; (0.20)^{x}, \qquad
+\text{share of work}   \;\approx\; (0.80)^{x}
+$$  
+
+for small integer \(x\).  
+
+For other shape parameters the exponents change—a heavier tail (α < 1.16) makes the concentration even more extreme, while a lighter tail (α > 1.16) less so—so treat the 80 / 20 recursion as an illustrative rule of thumb, not a mathematical law.
+
+
+Here's an example:
 
 $$ (0.2)^x $$ of the people do $$ (0.8)^x $$ of the work for any $$ x $$.
 
@@ -770,7 +908,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_135_0.png)
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_150_0.png)
     
 
 
