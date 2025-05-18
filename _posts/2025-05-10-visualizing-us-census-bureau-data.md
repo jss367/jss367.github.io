@@ -181,7 +181,7 @@ Now let's get the Selection Population Profile table.
 
 ```python
 def get_spp_table(year: int = 2023,
-                  variables: str | None = None,
+                  variables: str = "NAME,S0201_214E", # Default to median‑household‑income column
                   geography: str = "us:1",
                   api_key: str | None = None,
                   timeout: int = 20) -> pd.DataFrame:
@@ -193,10 +193,6 @@ def get_spp_table(year: int = 2023,
         api_key = os.getenv("CENSUS_API_KEY")
     if not api_key:
         raise ValueError("Census API key not provided (argument or CENSUS_API_KEY).")
-
-    # Default to median‑household‑income column if caller didn’t ask for more
-    if variables is None:
-        variables = "NAME,S0201_214E"
 
     base_url = f"https://api.census.gov/data/{year}/acs/acs1/spp"
 
@@ -570,101 +566,256 @@ color_map = {
 
 
 ```python
-# Plot
-plt.rcParams.update({
-    "axes.titlesize": 24,
-    "axes.labelsize": 20,
-    "xtick.labelsize": 16,
-    "ytick.labelsize": 16,
-    "legend.fontsize": 16,
-})
-
-fig, ax = plt.subplots(figsize=(20, 16))
-
-bars = ax.bar(
-    selected_sorted['DisplayLabel'],
-    selected_sorted['S0201_214E'],
-    color=[color_map[gt] for gt in selected_sorted['GroupType']]
-)
-
-# X-axis labels
-positions = range(len(selected_sorted))
-ax.set_xticks(positions)
-ax.set_xticklabels(
-    selected_sorted['DisplayLabel'],
-    rotation=90,
-    ha='right'
-)
-
-# Axis labels & title
-ax.set_xlabel("Population group (self-reported U.S. ancestry)")
-ax.set_ylabel("Median household income (USD)")
-ax.set_title("Median Household Income by Selected Population Groups", pad=30)
-
-# Format y-axis with commas
-ax.yaxis.set_major_formatter(FuncFormatter(lambda x, _: f"${int(x):,}"))
-
-# Annotate bars
-ax.bar_label(
-    bars,
-    labels=[f"${v:,}" for v in selected_sorted['S0201_214E']],
-    padding=5,
-    rotation=90,
-    fontsize=14
-)
-
-# Grid lines
-ax.grid(axis='y', linestyle='--', alpha=0.5)
-
-# U.S. median reference line
-total_val = selected_sorted.loc[
-    selected_sorted['POPGROUP_LABEL'] == 'Total population',
-    'S0201_214E'
-].iloc[0]
-ax.axhline(total_val, linestyle='--', linewidth=1.5, alpha=0.7, color='gray')
-
-# Label the reference line at right edge
-n = len(selected_sorted)
-ax.text(
-    n - 0.5, total_val,
-    f"U.S. median: ${total_val:,}",
-    va='bottom', ha='right',
-    fontsize=14, color='gray'
-)
-
-# Legend
-unique_gt = selected_sorted['GroupType'].unique()
-handles = [Patch(color=color_map[gt], label=gt) for gt in unique_gt]
-ax.legend(
-    handles=handles,
-    title="Group type",
-    title_fontsize=18,
-    bbox_to_anchor=(1.05, 1),
-    loc='upper left'
-)
-
-plt.tight_layout()
 
 ```
 
 
+```python
+def plot_helper(df,
+                display_column,
+                y_label='Median Household Income (USD)',
+                title="Median Household Income by Selected Population Groups"):
+    # Plot
+    plt.rcParams.update({
+        "axes.titlesize": 24,
+        "axes.labelsize": 20,
+        "xtick.labelsize": 16,
+        "ytick.labelsize": 16,
+        "legend.fontsize": 16,
+    })
     
-![png]({{site.baseurl}}/assets/img/2025-05-10-visualizing-us-census-bureau-data_files/2025-05-10-visualizing-us-census-bureau-data_27_0.png)
+    fig, ax = plt.subplots(figsize=(20, 16))
     
+    bars = ax.bar(
+        df['DisplayLabel'],
+        df[display_column],
+        color=[color_map[gt] for gt in df['GroupType']]
+    )
+    
+    # X-axis labels
+    positions = range(len(df))
+    ax.set_xticks(positions)
+    ax.set_xticklabels(
+        df['DisplayLabel'],
+        rotation=90,
+        ha='right'
+    )
+    
+    # Axis labels & title
+    ax.set_xlabel("Population group (self-reported U.S. ancestry)")
+    ax.set_ylabel("Mean Earnings (USD)")
+    ax.set_title(title, pad=30)
+    
+    # Format y-axis with commas
+    ax.yaxis.set_major_formatter(FuncFormatter(lambda x, _: f"${int(x):,}"))
+    
+    # Annotate bars
+    ax.bar_label(
+        bars,
+        labels=[f"${v:,}" for v in df[display_column]],
+        padding=5,
+        rotation=90,
+        fontsize=14
+    )
+    
+    # Grid lines
+    ax.grid(axis='y', linestyle='--', alpha=0.5)
+    
+    # U.S. median reference line
+    total_val = df.loc[
+        df['POPGROUP_LABEL'] == 'Total population',
+        display_column
+    ].iloc[0]
+    ax.axhline(total_val, linestyle='--', linewidth=1.5, alpha=0.7, color='gray')
+    
+    # Label the reference line at right edge
+    n = len(df)
+    ax.text(
+        n - 0.5, total_val,
+        f"U.S. median: ${total_val:,}",
+        va='bottom', ha='right',
+        fontsize=14, color='gray'
+    )
+    
+    # Legend
+    unique_gt = df['GroupType'].unique()
+    handles = [Patch(color=color_map[gt], label=gt) for gt in unique_gt]
+    ax.legend(
+        handles=handles,
+        title="Group type",
+        title_fontsize=18,
+        bbox_to_anchor=(1.05, 1),
+        loc='upper left'
+    )
+    
+    plt.tight_layout()
+    
+    # Save
+    plt.savefig(
+        'earnings_by_group_vertical.png',
+        dpi=300,
+        bbox_inches='tight'
+    )
+
+```
+
+
+```python
+plot_helper(selected_sorted, 'S0201_214E', y_label='Mean Earnings (USD)', title="Median Household Income by Population Group")
+```
+
+
+    
+![png]({{site.baseurl}}/assets/img/2025-05-10-visualizing-us-census-bureau-data_files/2025-05-10-visualizing-us-census-bureau-data_29_0.png)
+    
+
+
+## Mean Earnings for Workers
+
+We could also look at mean earnings for workers.
+
+We're going to [https://api.census.gov/data/2022/acs/acs1/spp/variables.xml](https://api.census.gov/data/2022/acs/acs1/spp/variables.xml) to get the right variables. In this case, we want to look at "Mean earnings (dollars) for full-time, year-round workers". This is split between male and female, so to get a single number you could take the average, or, better yet, the weighted average.
+
+There are six different tables. Two are US-wide for individuals (male and female).
+```
+<var xml:id="S0201_239E" label="Estimate!!INCOME IN THE PAST 12 MONTHS (IN 2022 INFLATION-ADJUSTED DOLLARS)!!Individuals!!Mean earnings (dollars) for full-time, year-round workers:!!Female" concept="Selected Population Profile in the United States" predicate-type="int" group="S0201" limit="0" attributes="S0201_239EA,S0201_239M,S0201_239MA"/>
+
+<var xml:id="S0201_238E" label="Estimate!!INCOME IN THE PAST 12 MONTHS (IN 2022 INFLATION-ADJUSTED DOLLARS)!!Individuals!!Mean earnings (dollars) for full-time, year-round workers:!!Male" concept="Selected Population Profile in the United States" predicate-type="int" group="S0201" limit="0" attributes="S0201_238EA,S0201_238M,S0201_238MA"/>
+```
+And two separate ones for Puerto Rico (also male and female):
+```
+<var xml:id="S0201PR_239E" label="Estimate!!INCOME IN THE PAST 12 MONTHS (IN 2022 INFLATION-ADJUSTED DOLLARS)!!Individuals!!Mean earnings (dollars) for full-time, year-round workers:!!Female" concept="Selected Population Profile in Puerto Rico" predicate-type="int" group="S0201PR" limit="0" attributes="S0201PR_239EA,S0201PR_239M,S0201PR_239MA"/>
+
+<var xml:id="S0201PR_238E" label="Estimate!!INCOME IN THE PAST 12 MONTHS (IN 2022 INFLATION-ADJUSTED DOLLARS)!!Individuals!!Mean earnings (dollars) for full-time, year-round workers:!!Male" concept="Selected Population Profile in Puerto Rico" predicate-type="int" group="S0201PR" limit="0" attributes="S0201PR_238EA,S0201PR_238M,S0201PR_238MA"/>
+```
+And at the household level, we have US-wide and just in Puerto Rico.
+```
+<var xml:id="S0201_216E" label="Estimate!!INCOME IN THE PAST 12 MONTHS (IN 2022 INFLATION-ADJUSTED DOLLARS)!!Households!!With earnings!!Mean earnings (dollars)" concept="Selected Population Profile in the United States" predicate-type="int" group="S0201" limit="0" attributes="S0201_216EA,S0201_216M,S0201_216MA"/>
+
+<var xml:id="S0201PR_216E" label="Estimate!!INCOME IN THE PAST 12 MONTHS (IN 2022 INFLATION-ADJUSTED DOLLARS)!!Households!!With earnings!!Mean earnings (dollars)" concept="Selected Population Profile in Puerto Rico" predicate-type="int" group="S0201PR" limit="0" attributes="S0201PR_216EA,S0201PR_216M,S0201PR_216MA"/>
+```
+
+
+```python
+mean_earnings_df = get_spp_table(year=2023, variables="NAME,S0201_238E")
+```
+
+Again, we're going to merge our table with the popgroups table.
+
+
+```python
+mean_earnings_mdf = pd.merge(mean_earnings_df, popgroups_df, on='POPGROUP')
+mean_earnings_mdf.head()
+```
+
+
+
+
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>NAME</th>
+      <th>S0201_238E</th>
+      <th>POPGROUP</th>
+      <th>us_x</th>
+      <th>POPGROUP_LABEL</th>
+      <th>us_y</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>NaN</td>
+      <td>90793</td>
+      <td>001</td>
+      <td>1</td>
+      <td>Total population</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>NaN</td>
+      <td>99588</td>
+      <td>002</td>
+      <td>1</td>
+      <td>White alone</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>NaN</td>
+      <td>95957</td>
+      <td>003</td>
+      <td>1</td>
+      <td>White alone or in combination with one or more...</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>NaN</td>
+      <td>65637</td>
+      <td>004</td>
+      <td>1</td>
+      <td>Black or African American alone</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>NaN</td>
+      <td>66831</td>
+      <td>005</td>
+      <td>1</td>
+      <td>Black or African American alone or in combinat...</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
 
 
 
 ```python
-# Save
-plt.savefig(
-    'median_income_by_group_vertical.png',
-    dpi=300,
-    bbox_inches='tight'
-)
+mean_earnings_df = mean_earnings_mdf.drop(['NAME', 'us_x', 'us_y'], axis=1)
 ```
 
 
-    <Figure size 640x480 with 0 Axes>
+```python
+mean_earnings_selected = mean_earnings_df[mean_earnings_df['POPGROUP_LABEL'].isin(labels)].copy()
+mean_earnings_selected['GroupType'] = mean_earnings_selected['POPGROUP_LABEL'].map(region_map)
+mean_earnings_selected['DisplayLabel'] = mean_earnings_selected['POPGROUP_LABEL'].map(display_map)
+```
+
+
+```python
+# Sort descending by income
+mean_earnings_selected_sorted = mean_earnings_selected.sort_values('S0201_238E', ascending=False)
+```
+
+
+```python
+plot_helper(mean_earnings_selected_sorted, 'S0201_238E', y_label='Mean Earnings (USD)', title="Mean Earnings for Full-time Workers by Population Group")
+```
+
+
+    
+![png]({{site.baseurl}}/assets/img/2025-05-10-visualizing-us-census-bureau-data_files/2025-05-10-visualizing-us-census-bureau-data_40_0.png)
+    
 
 
 ## Larger Graph
@@ -807,6 +958,7 @@ ax.text(
 )
 
 # Legend
+unique_gt = selected_sorted['GroupType'].unique()
 handles = [Patch(color=color_map[gt], label=gt) for gt in unique_gt]
 ax.legend(
     handles=handles,
@@ -831,19 +983,9 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/assets/img/2025-05-10-visualizing-us-census-bureau-data_files/2025-05-10-visualizing-us-census-bureau-data_34_0.png)
+![png]({{site.baseurl}}/assets/img/2025-05-10-visualizing-us-census-bureau-data_files/2025-05-10-visualizing-us-census-bureau-data_46_0.png)
     
 
-
-
-```python
-
-```
-
-
-```python
-
-```
 
 ## Visualizing Percentage Differences
 
@@ -943,7 +1085,7 @@ df.head()
 
       % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                      Dload  Upload   Total   Spent    Left  Speed
-    100  6427  100  6427    0     0  22767      0 --:--:-- --:--:-- --:--:-- 22710
+    100  6427  100  6427    0     0  16179      0 --:--:-- --:--:-- --:--:-- 16148
 
 
 
@@ -1104,6 +1246,6 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/assets/img/2025-05-10-visualizing-us-census-bureau-data_files/2025-05-10-visualizing-us-census-bureau-data_46_0.png)
+![png]({{site.baseurl}}/assets/img/2025-05-10-visualizing-us-census-bureau-data_files/2025-05-10-visualizing-us-census-bureau-data_56_0.png)
     
 
