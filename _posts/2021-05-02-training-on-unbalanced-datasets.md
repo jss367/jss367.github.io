@@ -6,7 +6,7 @@ thumbnail: "assets/img/nz.jpg"
 tags: [Deep Learning, Python, TensorFlow]
 ---
 
-This post is in a series on machine learning with unbalanced datasets. This post focuses on the training aspect. For background, please see the [setup](https://jss367.github.io/prep-for-experiments-on-unbalanced-datasets.html) post.
+This post is in a series on machine learning with unbalanced datasets. This post focuses on the training aspect. For background, please see the [setup](https://jss367.github.io/experiments-on-unbalanced-datasets-setup.html) post.
 
 When we think about training a machine learning model on an unbalanced dataset, we need to answer several questions along the way. The first is, given that our population is unbalanced, should our training data be unbalanced as well? Or is it better to have balanced training data? And, if we want to balance the data, what's the best way to do it?
 
