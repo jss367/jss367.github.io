@@ -6,7 +6,7 @@ thumbnail: "assets/img/windy_roo.jpg"
 tags: [Deep Learning, Python, TensorFlow]
 ---
 
-This post is in a series on machine learning with unbalanced datasets. This post focuses on the makeup of the validation set in particular. For background, please see the [setup](https://jss367.github.io/experiements-on-unbalanced-datasets-setup.html) post.
+This post is in a series on machine learning with unbalanced datasets. This post focuses on the makeup of the validation set in particular. For background, please see the [setup](https://jss367.github.io/experiments-on-unbalanced-datasets-setup.html) post.
 
 <b>Table of Contents</b>
 * TOC
