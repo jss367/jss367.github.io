@@ -1,0 +1,7 @@
+
+
+
+Fail fast.
+
+
+If you're an AWS lambda instance, look for the things you expect right away. Then fail if they're not there.
