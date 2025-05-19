@@ -6,9 +6,9 @@ thumbnail: "assets/img/rainbow_valley.jpg"
 tags: [Deep Learning, Python, TensorFlow]
 ---
 
-This post is in a series on doing machine learning with unbalanced datasets. This post focuses on the evaluation aspect in particular. For background, please see the [setup](https://jss367.github.io/experiements-on-unbalanced-datasets-setup.html) post.
+This post is in a series on doing machine learning with unbalanced datasets. This post focuses on the evaluation aspect in particular. For background, please see the [setup](https://jss367.github.io/experiments-on-unbalanced-datasets-setup.html) post.
 
-When we're evaluating the performance of models on a unbalanced dataset, what should the makeup of the test set be? This post digs into this question.
+When we're evaluating the performance of models on an unbalanced dataset, what should the makeup of the test set be? This post digs into this question.
 
 <b>Table of Contents</b>
 * TOC
