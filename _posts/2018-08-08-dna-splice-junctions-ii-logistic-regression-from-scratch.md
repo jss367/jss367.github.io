@@ -513,7 +513,7 @@ dw[:10]
 
 
 
-As you can see, even the the weights all started the same, because of the variation in the input the resulting changes to the weights differ. This means once we update the weights they will be different.
+As you can see, even though the weights all started the same, because of the variation in the input the resulting changes to the weights differ. This means once we update the weights they will be different.
 
 OK, now we have a cost associated with every weight. Let's do the same for the bias.
 

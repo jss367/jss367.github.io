@@ -455,7 +455,7 @@ $$ \sum_{x_i\in R_m}{(y_i-\hat{y}_{R_m})^2} $$ - sum of squares in region around
 
 $$ \sum_{m=1}^{\vert T\vert} $$ - add the above sum up for all the terminal nodes
 
-We use cross-validation to find the best alpha, know as $$ \hat{\alpha} $$. Then we return to the full dataset and obtain the subtree corresponding to the best alpha $$ (\hat{\alpha}) $$.
+We use cross-validation to find the best alpha, known as $$ \hat{\alpha} $$. Then we return to the full dataset and obtain the subtree corresponding to the best alpha $$ (\hat{\alpha}) $$.
 
 Different decision tree algorithms handle pruning differently. ID3 doesn't do any pruning. CART uses cost-complexity pruning. C4.5 uses error-based pruning.
 

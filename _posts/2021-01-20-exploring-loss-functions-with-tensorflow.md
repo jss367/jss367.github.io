@@ -59,7 +59,7 @@ So we're going to have to take the negative of it. And it also means that for a 
 
 We'll get loss from the 0 labels and the 1 labels. Let's start by doing them separately. We'll do the ones first.
 
-Here would be the loss from the values if all the labels were 1. You'll see that the lower predictions have more loss. This makes sense because the they are farther away from the true label, which is 1.
+Here would be the loss from the values if all the labels were 1. You'll see that the lower predictions have more loss. This makes sense because they are farther away from the true label, which is 1.
 
 
 ```python
