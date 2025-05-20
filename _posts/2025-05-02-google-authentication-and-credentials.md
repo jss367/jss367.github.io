@@ -53,30 +53,7 @@ It will either say `"type": "authorized_user"` if it's user credentials or `"typ
 
 If you ran `gcloud auth application-default login` and haven’t set `GOOGLE_APPLICATION_CREDENTIALS`, ADC will default to your user credentials.
 
-Here's a little script to see your credentials:
-
-```
-import google.auth
-from google.oauth2 import service_account
-from google.oauth2 import credentials as oauth2_creds
-from google.auth import compute_engine
-
-# This finds whatever ADC would use
-creds, project = google.auth.default()
-
-# Inspect the type
-print("Credential type:", type(creds))
-
-# Or more precisely:
-if isinstance(creds, service_account.Credentials):
-    print("→ Using a service account key file")
-elif isinstance(creds, oauth2_creds.Credentials):
-    print("→ Using user (gcloud) credentials")
-elif isinstance(creds, compute_engine.Credentials):
-    print("→ Using Compute Engine / metadata-server credentials")
-else:
-    print("→ Some other credential type:", creds)
-```
+There is a script you can run to show your credentials here: [https://github.com/jss367/scripts/blob/master/check_google_credentials.py](https://github.com/jss367/scripts/blob/master/check_google_credentials.py)
 
 ## Which one do I want to use?
 
