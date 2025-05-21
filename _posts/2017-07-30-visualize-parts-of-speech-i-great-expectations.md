@@ -178,7 +178,7 @@ pos_plotter(parts_of_speech)
 ```
 
 
-![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/2017-07-30-Visualize-Parts-of-Speech-1_files/2017-07-30-Visualize-Parts-of-Speech-1_18_0.png)
+![png]({{site.baseurl}}/assets/img/2017-07-30-Visualize-Parts-of-Speech-1_files/2017-07-30-Visualize-Parts-of-Speech-1_18_0.png)
 
 
 Now that we've worked through one example, we'll build a more formalized method of exploring other texts in [Part 2](https://jss367.github.io/visualize-parts-of-speech-ii-comparing-texts.html). We'll also explore ways to compare across texts.

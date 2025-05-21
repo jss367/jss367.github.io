@@ -169,7 +169,7 @@ text2.dispersion_plot(['affectionate', 'angry'])
 ```
 
 
-![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/2017-06-13-NLTK%20Tutorial_files/2017-06-13-NLTK%20Tutorial_9_0.png)
+![png]({{site.baseurl}}/assets/img/2017-06-13-NLTK%20Tutorial_files/2017-06-13-NLTK%20Tutorial_9_0.png)
 
 
 
@@ -290,7 +290,7 @@ fdist.plot(50, cumulative=True)
 ```
 
 
-![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/2017-06-13-NLTK%20Tutorial_files/2017-06-13-NLTK%20Tutorial_16_0.png)
+![png]({{site.baseurl}}/assets/img/2017-06-13-NLTK%20Tutorial_files/2017-06-13-NLTK%20Tutorial_16_0.png)
 
 
 
@@ -654,7 +654,7 @@ cfd.plot()
 ```
 
 
-![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/2017-06-13-NLTK%20Tutorial_files/2017-06-13-NLTK%20Tutorial_32_0.png)
+![png]({{site.baseurl}}/assets/img/2017-06-13-NLTK%20Tutorial_files/2017-06-13-NLTK%20Tutorial_32_0.png)
 
 
 
@@ -1217,7 +1217,7 @@ bar_chart(genres, modals, counts)
 ```
 
 
-![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/2017-06-13-NLTK%20Tutorial_files/2017-06-13-NLTK%20Tutorial_62_0.png)
+![png]({{site.baseurl}}/assets/img/2017-06-13-NLTK%20Tutorial_files/2017-06-13-NLTK%20Tutorial_62_0.png)
 
 
 
