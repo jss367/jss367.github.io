@@ -57,7 +57,7 @@ If it so happens that the person receiving the printout, we'll call her Alice, i
     Alice calculates that the probability that the cat survived the experiment is 50.98%
     
 
-Then we add a second person to the experiment. We'll call him Bob. Bob never sees or communicates with Alice, but he does get a printout from the experiment. However, instead of printing "The cat is alive" or "The cat is dead", it prints either "That statement was true" or "That statement was false". Now, Bob knows whether the statement that Alice is reading is true or false, but he does not know what Alice is acutally reading, and therefore doesn't know anything about the cat.
+Then we add a second person to the experiment. We'll call him Bob. Bob never sees or communicates with Alice, but he does get a printout from the experiment. However, instead of printing "The cat is alive" or "The cat is dead", it prints either "That statement was true" or "That statement was false". Now, Bob knows whether the statement that Alice is reading is true or false, but he does not know what Alice is actually reading, and therefore doesn't know anything about the cat.
 
 Let's continue with trials 11-20. But instead of seeing what Alice sees, we'll see only what Bob sees.
 
@@ -174,13 +174,13 @@ According to the definition provided by Google, the cat remains in a state of be
 
 - The machine prints the 51-49 result to Alice, marking the first time the experiment affected the macroscopic world.
 
-- Alice calculates the probability the cat is alive, marking the first time a person has a good estimate of the probability.
+- Alice calculates the probability that the cat is alive, marking the first time a person has a good estimate of the probability.
 
-- Bob enters the experiment and the result of the experiment could be determined by knowing what both Alice and Bob know.
+- Bob enters the experiment, and the result of the experiment could be determined by knowing what both Alice and Bob know.
 
-- Charlie enters the experiment and become the first person to know the result of the experiment with certainty.
+- Charlie enters the experiment and becomes the first person to know the result of the experiment with certainty.
 
-- Bob opens the container and obeserves the cat directly.
+- Bob opens the container and observes the cat directly.
 
 This thought experiment shows that none of the above explanations are satisfactory, and the only possible explanation is that the observation occurs at every point in time, when the first macroscopic entity, the Geiger counter, either detects or does not detect the radiation which causes it to release the hammer smashing the vial of poison. The presence of humans or human consciousness has no effect on quantum mechanical systems.
 
