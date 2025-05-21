@@ -12,7 +12,7 @@ The story of Schrödinger's cat, a cat that through quantum physics is simultane
 
 Let's assume we have the typical Schrödinger's cat experiment. We'll let the experiment run until the probability that the vial of poison is destroyed and therefore the cat is dead is 50%. After that time the vial will be removed and we will attempt to determine whether the cat is dead or alive.
 
-Now let's set up the rest of the experiment. Attached to the experimental device is a printer. The printer knows whether the cat is alive or dead, but instead of just printing the results, it throws a little randomness into the mix. For its first printout, it will print either "The cat is alive" or "The cat is dead" with a 50% probability. In this case, the printout isn't in any way useful for determining the status of the cat. But for each print out after the first, the probability that the printout will be accurate increases by 1%. Thus the first will be accurate 50% of the time, the 11th printout 60% of the time, and the 26th will be accurate 75% of the time.
+Now let's set up the rest of the experiment. Attached to the experimental device is a printer. The printer knows whether the cat is alive or dead, but instead of just printing the results, it throws a little randomness into the mix. For its first printout, it will print either "The cat is alive" or "The cat is dead" with a 50% probability. In this case, the printout isn't in any way useful for determining the status of the cat. But for each printout after the first, the probability that the printout will be accurate increases by 1%. Thus the first will be accurate 50% of the time, the 11th printout 60% of the time, and the 26th will be accurate 75% of the time.
 
 OK, now we'll got our experiment and our printer set up, let's run the experiment!
 
@@ -26,7 +26,7 @@ After running the experiment the vial is removed and the cat is either alive or 
     
     
 
-Now the experiment has been conducted and a result has been printed, although the result is meaningless. Now we'll start with the real trials. For the first trial, the prinout will be accurate 51% of the time. Thus the next printout will be the truth with a probability of 51% and a lie with a probability of 49%. And the one after that will have a 52% chance of being true, and so on.
+Now the experiment has been conducted and a result has been printed, although the result is meaningless. Now we'll start with the real trials. For the first trial, the printout will be accurate 51% of the time. Thus the next printout will be the truth with a probability of 51% and a lie with a probability of 49%. And the one after that will have a 52% chance of being true, and so on.
 
 
     Trial number 2, where the printout has a 51% chance of being accurate.
