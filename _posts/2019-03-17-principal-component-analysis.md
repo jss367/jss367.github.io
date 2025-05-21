@@ -54,7 +54,7 @@ plt.title("Sample data");
 ```
 
 
-![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/2019-03-17-Principal-Component-Analysis_files/2019-03-17-Principal-Component-Analysis_12_0.png)
+![png]({{site.baseurl}}/assets/img/2019-03-17-Principal-Component-Analysis_files/2019-03-17-Principal-Component-Analysis_12_0.png)
 
 
 First, we center the data around $$ (0,0) $$.
@@ -74,7 +74,7 @@ plt.title("Centered data");
 ```
 
 
-![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/2019-03-17-Principal-Component-Analysis_files/2019-03-17-Principal-Component-Analysis_15_0.png)
+![png]({{site.baseurl}}/assets/img/2019-03-17-Principal-Component-Analysis_files/2019-03-17-Principal-Component-Analysis_15_0.png)
 
 
 Now, let's put the data in a matrix. Then we can find the covariance matrix.
@@ -140,7 +140,7 @@ fig.suptitle("Covariances");
 ```
 
 
-![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/2019-03-17-Principal-Component-Analysis_files/2019-03-17-Principal-Component-Analysis_24_0.png)
+![png]({{site.baseurl}}/assets/img/2019-03-17-Principal-Component-Analysis_files/2019-03-17-Principal-Component-Analysis_24_0.png)
 
 
 #### Covariance matrices
@@ -233,7 +233,7 @@ plt.show()
 ```
 
 
-![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/2019-03-17-Principal-Component-Analysis_files/2019-03-17-Principal-Component-Analysis_42_0.png)
+![png]({{site.baseurl}}/assets/img/2019-03-17-Principal-Component-Analysis_files/2019-03-17-Principal-Component-Analysis_42_0.png)
 
 
 This is exactly what we were looking for. Now let's project the data onto the first principal component.
@@ -250,7 +250,7 @@ plt.show()
 ```
 
 
-![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/2019-03-17-Principal-Component-Analysis_files/2019-03-17-Principal-Component-Analysis_44_0.png)
+![png]({{site.baseurl}}/assets/img/2019-03-17-Principal-Component-Analysis_files/2019-03-17-Principal-Component-Analysis_44_0.png)
 
 
 We clearly have a lot of the variance, but not all of it. How much did we lose? Let's calculate how much of the variance can be explained with this projection.
@@ -286,7 +286,7 @@ plt.show()
 ```
 
 
-![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/2019-03-17-Principal-Component-Analysis_files/2019-03-17-Principal-Component-Analysis_48_0.png)
+![png]({{site.baseurl}}/assets/img/2019-03-17-Principal-Component-Analysis_files/2019-03-17-Principal-Component-Analysis_48_0.png)
 
 
 Looks good!

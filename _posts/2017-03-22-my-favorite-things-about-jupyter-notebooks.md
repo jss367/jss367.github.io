@@ -31,7 +31,7 @@ Then:
 * Enter: `jupyter contrib nbextension install --user`
 * Open up Jupyter Notebook and you will have a tab called Nbextensions. You can enable individual extensions from this tab.
 
-![png]({{site.baseurl}}/assets/img/{{site.baseurl}}/assets/img/nbextensions.png)
+![png]({{site.baseurl}}/assets/img/nbextensions.png)
 
 ## Formatting Extensions
 
