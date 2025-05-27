@@ -131,6 +131,20 @@ I always have three or more web browsers on each computer. I use them for differ
 [Mamba](https://github.com/mamba-org/mamba)
 * This is a superior package manager to conda
 
+## Other Python Tools
+I'm skipping the normal tools that people will find anyway. But one thing that gets overlooked is colored logging. Here's an easy way to do it:
+[coloredlogs](https://coloredlogs.readthedocs.io/en/latest/)
+* Let's say you're getting your logger from something like this:
+```
+logger = get_logger(__name__)
+```
+
+```
+import coloredlogs
+logger = get_logger(__name__)
+coloredlogs.install(level="INFO", logger=logger)
+```
+
 ## Integrated Development Environment (IDE)
 [VSCode](https://code.visualstudio.com/) (Ninite)
 * Configuring your IDE that way you like it is essential, and VSCode is incredibly extensible. See [how I customize it](https://jss367.github.io/software-customizations.html#vscode)
