@@ -96,7 +96,7 @@ print(st)
 
 
 ```python
-#String are immutable, so you will have to create a new string each time
+# Strings are immutable, so you will have to create a new string each time
 old_str = 'Python sucks'
 new_str = old_str.replace('su', 'ro')
 print(new_str)
@@ -320,7 +320,7 @@ type(a)
 
 
 ```python
-# Lists can consistent of different types, but this isn't common
+# Lists can consist of different types, but this isn't common
 a = ['This', 'is', 4, 1+4, 's'*3]
 print(a)
 ```
@@ -334,7 +334,7 @@ print(a)
 ```python
 # The first item has an index of 0
 print(a[0])
-# And the last has an index of one less than the number of element
+# And the last has an index of one less than the number of elements
 print(a[len(a)-1])
 ```
 
@@ -350,7 +350,7 @@ The first value is included, but the last one isn't, so it looks like [inclusive
 
 
 ```python
-# list slicing: [start : end] is [inclusive : exclusive], so the last value is the slice is not included
+# list slicing: [start : end] is [inclusive : exclusive], so the last value in the slice is not included
 a[1:3]
 
 ```
@@ -582,12 +582,12 @@ print("For when the noble Caesar saw him stab,\n Ingratitude, more strong than t
 ```python
 print('{:.2f}'.format(3.1415))
 print('{:.2%}'.format(.333))
-print("{perc:.2%}% of {num_verbs} are weak".format(perc=.501, num_verbs=7))
+print("{perc:.2%} of {num_verbs} are weak".format(perc=.501, num_verbs=7))
 ```
 
     3.14
     33.30%
-    50.10%% of 7 are weak
+    50.10% of 7 are weak
     
 
 ## f-strings
@@ -598,10 +598,10 @@ You can also use f-strings, which are an even faster way of using the functional
 ```python
 perc=.501
 num_verbs=7
-print(f"{perc:.2%}% of {num_verbs} are weak")
+print(f"{perc:.2%} of {num_verbs} are weak")
 ```
 
-    50.10%% of 7 are weak
+    50.10% of 7 are weak
     
 
 # For-loops
@@ -757,5 +757,4 @@ I find this a bit odd because if you have the `if` statement there WITHOUT the `
         [2*number if number < 5 for number in numbers]
                                 ^
     SyntaxError: invalid syntax
-    
 
