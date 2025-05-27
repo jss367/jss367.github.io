@@ -18,11 +18,14 @@ from .colored_logger import get_logger
 
 """
 Usage in other files:
+
+```
 from .colored_logger import get_logger
 logger = get_logger(__name__)
 logger.info("This is a test message")
-"""
+```
 
+```
 import logging
 import os
 import sys
@@ -82,4 +85,4 @@ def get_logger(name: str, level: int = logging.INFO) -> logging.Logger:
 
     return logger
 
-
+```
