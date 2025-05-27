@@ -36,6 +36,8 @@ file = "final_project_dataset.pkl"
 with open(join(path, file), "rb") as f:
     enron_data = pickle.load(f)
 ```
+The dataset isn't bundled with this post. You can download `final_project_dataset.pkl` from the Udacity [Intro to Machine Learning repository](https://github.com/udacity/intro-to-machine-learning/tree/master/final_project). Ensure `path` points to this file before running the code.
+
 
 # Exploring the Data
 
