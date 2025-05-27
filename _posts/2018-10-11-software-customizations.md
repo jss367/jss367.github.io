@@ -4,6 +4,7 @@ title: "Software Customizations"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/car.jpg"
 tags: [Linux, Mac, Software, Windows]
+last_modified: 2025-05-27
 ---
 
 This post details the customizations I have made to the [software I use](https://jss367.github.io/software-i-use.html). I thought it might be helpful to others.
@@ -112,7 +113,7 @@ You can change, for example, the "Execute SQL Statement" by going into Window ->
 
 Karabiner Elements is all about customization. I mainly use mine to make my experience across Mac, Linux, and Windows as seemless as possible.
 
-* I recommend use the [Windows shortcuts on macOS](https://ke-complex-modifications.pqrs.org/?q=windows%20shortcuts%20on%20macOS). I use this to do a lot of thinks I  to do in Windows,  using `control` and the arrows to jump over words. Here's what it looks :
+* I recommend use the [Windows shortcuts on macOS](https://ke-complex-modifications.pqrs.org/?q=windows%20shortcuts%20on%20macOS). I use this to do a lot of things I do in Windows, such as using `control` and the arrows to jump over words. Here's what it looks :
 <img width="1218" alt="image" src="https://user-images.githubusercontent.com/3067731/209397616-c8552408-665d-4745-b918-5e839dd1e91a.png">
 * After you click "Import" you have to import it again within the app:
 <img width="987" alt="image" src="https://user-images.githubusercontent.com/3067731/209397778-6ade395b-6140-4385-aece-6c55c563fea3.png">
