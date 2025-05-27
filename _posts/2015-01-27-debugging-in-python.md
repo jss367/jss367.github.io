@@ -7,7 +7,7 @@ thumbnail: "assets/img/wasp.jpg"
 tags: [Python, Cheat Sheet]
 ---
 
-My favorite place to debug a Python application is in a full IDE like VSCode or PyCharm. However, sometimes those options aren't available, soit's good to know the alternatives. This post shows some basic functionality of some Python debuggers.
+My favorite place to debug a Python application is in a full IDE like VSCode or PyCharm. However, sometimes those options aren't available, so it's good to know the alternatives. This post shows some basic functionality of some Python debuggers.
 
 <b>Table of Contents</b>
 * TOC
@@ -19,7 +19,7 @@ My favorite place to debug a Python application is in a full IDE like VSCode or 
 
 ### Main commands
 
-The main commandes to know are:
+The main commands to know are:
 
 * `n` - proceed to next step
 * `s` - step into
@@ -44,9 +44,9 @@ traceback.print_stack()
 You can use the same commands as in `pdb` but there's some extra functionality on top.
 
 ### Context
-*Automatically* see the context above and below the your current line. I think this feature alone makes it preferable to pdb
+*Automatically* see the context above and below your current line. I think this feature alone makes it preferable to pdb
 
-`ipdb.set_trace(context=11)`
+`import ipdb; ipdb.set_trace(context=11)`
 
 ## Jupyter notebooks
 
