@@ -134,10 +134,13 @@ I always have three or more web browsers on each computer. I use them for differ
 ## Other Python Tools
 I'm skipping the normal tools that people will find anyway. But one thing that gets overlooked is colored logging. Here's an easy way to do it:
 [coloredlogs](https://coloredlogs.readthedocs.io/en/latest/)
-* Let's say you're getting your logger from something like this:
+* Let's say you're already doing something like this:
+  
 ```
 logger = get_logger(__name__)
 ```
+
+You just need to add the following:
 
 ```
 import coloredlogs
