@@ -31,7 +31,7 @@ path = 'corpora/canon_texts/'
 
 ```python
 # Check if the file is stored locally
-filename = 'corpora/canon_texts/' + title
+filename = os.path.join(path, title)
 if os.path.isfile(filename) and os.stat(filename).st_size != 0:
         print("{title} file already exists".format(title=title))
         with open(filename, 'r') as f:
@@ -157,10 +157,10 @@ It worked in this case, but we should try it in many cases. To make it easier to
 def text_from_gutenberg(title, author, url, path = 'corpora/canon_texts/', return_raw = False, return_tokens = False):
     # Convert inputs to lowercase
     title = title.lower()
-    author = title.lower()
+    author = author.lower()
    
     # Check if the file is stored locally
-    filename = 'corpora/canon_texts/' + title
+    filename = os.path.join(path, title)
     if os.path.isfile(filename) and os.stat(filename).st_size != 0:
         print("{title} file already exists".format(title=title))
         print(filename)
@@ -180,17 +180,17 @@ def text_from_gutenberg(title, author, url, path = 'corpora/canon_texts/', retur
     
     # Option to return tokens
     if return_tokens:
-        return nltk.word_tokenize(find_text(raw))
+        return nltk.word_tokenize(find_beginning_and_end(raw, title, author))
     
     else:
-        return find_beginning_and_end(raw)
+        return find_beginning_and_end(raw, title, author)
 ```
 
 We'll make another function that finds the beginning and end of the text and extracts it to remove the Project Gutenberg preamble and postamble.
 
 
 ```python
-def find_beginning_and_end(raw):
+def find_beginning_and_end(raw, title, author):
     '''
     This function serves to find the text within the raw data provided by Project Gutenberg
     '''
@@ -221,7 +221,7 @@ title = 'Wuthering Heights'
 author = 'Emily Bronte'
 url = 'http://www.gutenberg.org/cache/epub/768/pg768.txt'
 path = 'corpora/canon_texts/'
-heights_text = text_from_gutenberg(title, author, url)
+heights_text = text_from_gutenberg(title, author, url, path)
 print(heights_text[:200])
 ```
 
