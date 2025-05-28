@@ -7,7 +7,7 @@ thumbnail: "assets/img/quokka.jpg"
 tags: [Python, Matplotlib, Seaborn, Machine Learning, Scikit-learn, Data Visualization]
 ---
 
-This post takes some of algorithms that we saw in the [previous post](https://jss367.github.io/visualizing-machine-learning-algorithms.html) and shows how they perform on the gains charts. Gains charts, which are also called lift charts, are a good way to see how much lift an algorithm has over guessing.
+This post takes some of the algorithms that we saw in the [previous post](https://jss367.github.io/visualizing-machine-learning-algorithms.html) and shows how they perform on the gains charts. Gains charts, which are also called lift charts, are a good way to see how much lift an algorithm has over guessing.
 
 <b>Table of Contents</b>
 * TOC
@@ -49,7 +49,7 @@ sns.set(font_scale=1.5)
 df = sns.load_dataset("iris")
 ```
 
-We'll keep using the iris dataset. Last time we looked at petal length and petal width because they provided good separation between this classes. This time we'll look at sepal length and sepal width to make it more challenging for the classifiers.
+We'll keep using the iris dataset. Last time we looked at petal length and petal width because they provided good separation between these classes. This time we'll look at sepal length and sepal width to make it more challenging for the classifiers.
 
 Most everything else is the same as last time, so I won't go into much detail here.
 
@@ -148,7 +148,7 @@ def show_scores(preds, y_true):
         print(f"Label: {label}, Prediction: {round(sorted_preds[i], 4)}")
 ```
 
-We can sometimes get a better since of what's going on by looking at the raw scores.
+We can sometimes get a better sense of what's going on by looking at the raw scores.
 
 
 ```python
