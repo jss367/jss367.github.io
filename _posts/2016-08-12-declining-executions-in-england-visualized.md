@@ -144,6 +144,7 @@ I graphed change in the percentage against time but also included the total numb
 x = np.array(range(6))
 y = df['Percentage']
 widths = df['Executions'].values / 100
+decade = df.index
 ```
 
 
