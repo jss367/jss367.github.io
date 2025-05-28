@@ -34,8 +34,14 @@ We'll use the same data as last time.
 
 
 ```python
-shakespeare_path = os.path.join(os.getenv("gdrive"), "JupyterNotebooks/data/shakespeare.csv")
+# "gdrive" should point to the folder that contains the CSV file used in
+# this series of posts.  If you haven't set that environment variable,
+# this will fall back to an empty string so you can provide the path
+# yourself.
+gdrive = os.getenv("gdrive", "")
+shakespeare_path = os.path.join(gdrive, "JupyterNotebooks/data/shakespeare.csv")
 ```
+
 
 
 ```python
@@ -1566,7 +1572,10 @@ df
 
 
 
-Here you might think you're setting the value, but you're not.
+Here you might think you're setting the value, but you're not.  This
+line performs **chained indexing**, which returns a copy of the data.
+The assignment is therefore lost and the original DataFrame remains
+unchanged.
 
 
 ```python
@@ -1695,7 +1704,9 @@ df
 
 
 
-This is how you have to do it.
+This is how you have to do it.  By specifying the column in the
+same `loc` call we avoid chained indexing and Pandas modifies the
+original DataFrame as expected.
 
 
 ```python
@@ -1846,7 +1857,8 @@ ds
 
 
 
-We can't do it this way:
+We can't do it this way because `in` checks membership in the
+index labels, not in the set values:
 
 
 ```python
@@ -1860,7 +1872,9 @@ We can't do it this way:
 
 
 
-Instead we have to apply that to every row.
+Instead we have to apply that to every row.  One approach is to use
+`apply`, but `map` works just as well here.  `Series.isin` is also
+useful when the elements are scalars.
 
 
 ```python
