@@ -137,14 +137,16 @@ I'm skipping the normal tools that people will find anyway. But one thing that g
 * Let's say you're already doing something like this:
   
 ```
+from logging import getLogger
 logger = get_logger(__name__)
 ```
 
 You just need to add the following:
 
 ```
+from logging import getLogger
 import coloredlogs
-logger = get_logger(__name__)
+logger = getLogger(__name__)
 coloredlogs.install(level="INFO", logger=logger)
 ```
 
