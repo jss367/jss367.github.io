@@ -5,3 +5,11 @@ Fail fast.
 
 
 If you're an AWS lambda instance, look for the things you expect right away. Then fail if they're not there.
+
+
+
+
+Sometimes you're logs look "normal" other times they look like this:
+{"asctime": "2025-05-28 11:49:45,555", "levelname": "INFO", "name": "__main__", "message": "My message here"}
+
+This is a json formatter log.
