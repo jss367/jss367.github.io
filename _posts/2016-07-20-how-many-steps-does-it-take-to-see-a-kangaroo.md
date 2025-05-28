@@ -76,7 +76,7 @@ How many steps does it take to see a kangaroo? I started wondering this soon aft
 </div>
 
 
-It turns that out it took an average of 1992 steps, with a standard deviation of 734. The minimum was 1041 steps and the maximum was 3333.
+It turns out that it took an average of 1992 steps, with a standard deviation of 734. The minimum was 1041 steps and the maximum was 3333.
 
 
 ```python
@@ -102,10 +102,9 @@ plt.title('How many steps does it take to see a kangaroo?', size = 16)
 
 
 
-    Text(0.5,1,'How many steps does it take to see a kangaroo?')
 
 
 
 
-![png]({{site.baseurl}}/assets/img/2016-07-20-How%20Many%20Steps%20Does%20it%20Take%20to%20See%20a%20Kangaroo_files/2016-07-20-How%20Many%20Steps%20Does%20it%20Take%20to%20See%20a%20Kangaroo_6_1.png)
+![Box plot of steps needed to see a kangaroo]({{site.baseurl}}/assets/img/2016-07-20-How%20Many%20Steps%20Does%20it%20Take%20to%20See%20a%20Kangaroo_files/2016-07-20-How%20Many%20Steps%20Does%20it%20Take%20to%20See%20a%20Kangaroo_6_1.png)
 
