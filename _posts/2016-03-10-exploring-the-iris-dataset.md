@@ -17,8 +17,6 @@ In this notebook, we'll demonstrate some data exploration techniques using the f
 
 
 ```python
-import numpy as np
-import pandas as pd
 import seaborn as sns
 sns.set(style="dark")
 import matplotlib.pyplot as plt
@@ -269,7 +267,7 @@ sns.pairplot(df, hue="species", hue_order=hue_order, palette=palette, markers=["
 
 Nothing looks noticeably wrong with the data, and there aren't any outliers that would confound a model.
 
-Petal length and petal width appear to be good variables to distinguish the species, especially sestosa. Let's take a closer look at those.
+Petal length and petal width appear to be good variables to distinguish the species, especially setosa. Let's take a closer look at those.
 
 
 ```python
@@ -284,7 +282,7 @@ sns.FacetGrid(df, hue='species', hue_order=hue_order, palette=palette, height=8)
 
 OK, it will be very easy to extract the setosa from the others.
 
-Let's see what the best way to separate versicolor from virginica is. We'll a new dataframe with just the two we're focusing on.
+Let's see what the best way to separate versicolor from virginica is. We'll create a new dataframe with just the two we're focusing on.
 
 
 ```python
@@ -299,4 +297,4 @@ sns.pairplot(vvdf, hue="species", hue_order=hue_order, palette=palette, diag_kin
 
 ![png]({{site.baseurl}}/assets/img/2016-03-10-Exploring-Iris-Dataset_files/2016-03-10-Exploring-Iris-Dataset_24_0.png)
 
-OK, these are not as easy to separate. We make have to do the best that we can. In [Part II](https://jss367.github.io/visualizing-machine-learning-algorithms.html), we'll look at how we can use machine learning models to analyze the data.
+OK, these are not as easy to separate. We may have to do the best that we can. In [Part II](https://jss367.github.io/visualizing-machine-learning-algorithms.html), we'll look at how we can use machine learning models to analyze the data.
