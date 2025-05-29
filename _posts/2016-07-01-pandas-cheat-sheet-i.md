@@ -20,6 +20,7 @@ I rerun this code every once in a while to ensure it's up-to-date. Here's the la
 
 ```python
 import pandas as pd
+from pathlib import Path
 print(pd.__version__)
 ```
 
@@ -34,7 +35,7 @@ In pandas, DataFrames are the primary structure for dealing with data. They prov
 
 
 ```python
-shakespeare_path = "C:/Users/Julius/Google Drive/JupyterNotebooks/data/shakespeare.csv"
+shakespeare_path = Path("data") / "shakespeare.csv"
 ```
 
 
