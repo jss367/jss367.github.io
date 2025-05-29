@@ -140,7 +140,7 @@ $$ P(A) $$ is the probability of A
 
 $$ P(B) $$ is the probability of B
 
-The are many types of naive Bayes classifiers. They are all based on Bayes' Theorem but are meant for different data distributions. For cases when the data are normally distributed, i.e. Gaussian, the Gaussian naive Bayes classifier is the right choice. From our previous visualizations, the data do look fairly Gaussian, so this may be a good model for this dataset.
+There are many types of naive Bayes classifiers. They are all based on Bayes' Theorem but are meant for different data distributions. For cases when the data are normally distributed, i.e. Gaussian, the Gaussian naive Bayes classifier is the right choice. From our previous visualizations, the data do look fairly Gaussian, so this may be a good model for this dataset.
 
 We look at the probability of each class and the conditional probability for each class given each x value.
 
@@ -254,7 +254,7 @@ We can use a grid search to find the best hyperparameters and hopefully improve 
 
 ```python
 C_grid = np.logspace(-3, 3, 10)
-max_iter_grid = np.logspace(2,3,6)
+max_iter_grid = np.logspace(2, 3, 6, dtype=int)
 hyperparameters = dict(C=C_grid, max_iter=max_iter_grid)
 lgr_grid = GridSearchCV(lgr, hyperparameters, cv=3)
 ```
@@ -492,7 +492,7 @@ add_labels(standardized=True)
 
 Some things to keep in mind about k-nearest neighbors:
 * The curse of dimensionality greatly affects this algorithm. As there are more dimensions the data naturally become farther apart, so it requires a lot of data to use this model in highly dimensional space. One way to avoid this is to find the most important dimensions (or create new ones) and only use them.
-* You can also use K nearest neighbors for classification problems. Instead of voting on the label, you find the $$ k $$ closest points and take the mean.
+* You can also use K nearest neighbors for regression problems. Instead of voting on the label, you find the $$ k $$ closest points and take the mean.
 
 There is another algorithm similar to k-nearest neighbors, but it determines which training samples are most important and discards the other. This gives similar results but requires much less memory. This algorithm is known as learning vector quantization.
 
@@ -612,7 +612,7 @@ print(mlp.get_params)
 
 #### Hyperparameter Tuning a Neural Network
 
-This is another one that can be improved greatly by tuning
+This model can be improved greatly by tuning its hyperparameters
 
 
 ```python
