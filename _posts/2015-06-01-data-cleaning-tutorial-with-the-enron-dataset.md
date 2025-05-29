@@ -36,6 +36,7 @@ file = "final_project_dataset.pkl"
 with open(join(path, file), "rb") as f:
     enron_data = pickle.load(f)
 ```
+Note that this repository does not include the Enron data files. Download `final_project_dataset.pkl` (for example from Udacity's machine learning mini-projects) and place it in `datasets/Enron/` so the code above can load it.
 
 # Exploring the Data
 
@@ -618,7 +619,7 @@ plt.show()
     
 
 
-The most common missing values are loan_advances and director_fees. I imagine these are likely to be zero for most employees. Based on the columns that have the most missing values, the complete lack of zeros in the dataset, and the way it's presented in the spreadsheet, I think we can say that all NaN values should actually be zero. Let's make that change.
+The most common missing values are `loan_advances` and `director_fees`, which are probably zero for most employees. Because the spreadsheet uses `NaN` to mean "not paid", we will replace all missing values with 0 to make the data easier to analyze.
 
 
 ```python
@@ -1286,7 +1287,7 @@ Now let's look again.
 ### read in data dictionary, convert to numpy array
 
 features = ["salary", "bonus"]
-# data = df["salary", "bonus"]
+# data = df[["salary", "bonus"]]
 
 salary = df["salary"].values / 1000
 bonus = df["bonus"].values / 1000
