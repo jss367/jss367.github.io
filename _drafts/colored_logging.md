@@ -5,9 +5,7 @@ You can also check out packages like these:
 * https://pypi.org/project/colorlog/
 * https://pypi.org/project/coloredlogs/
 
-Let's say you're getting your logger from something like this:
 
-logger = get_logger()
 
 
 You can do this as a drop-in replacement:
