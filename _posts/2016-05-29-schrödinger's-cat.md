@@ -7,17 +7,17 @@ thumbnail: "assets/img/fishing_cat.jpg"
 tags: [Python, Physics]
 ---
 
-The story of Schrödinger's cat, a cat that through quantum physics is simultaneously alive and dead, has become engrained in popular culture and many popular science articles. But as the physics behind it has become popularized, misconceptions have been introduced into the story. When you Google "Schrodinger's cat" the following definition appears: "a cat imagined as being enclosed in a box with a radioactive source and a poison that will be released when the source (unpredictably) emits radiation, the cat being considered (according to quantum mechanics) to be simultaneously both dead and alive until the box is opened and the cat observed." The notion that a cat can be both alive and dead at the same time is counterintuitive and, most importantly, completely false. I propose a thought experiment that demonstrates that the popular conception of a half-living cat is impossible.<!--more-->
+The story of Schrödinger's cat, a cat that, through quantum physics, is simultaneously alive and dead, has become ingrained in popular culture and many popular science articles. But as the physics behind it has become popularized, misconceptions have been introduced into the story. When you Google "Schrodinger's cat" the following definition appears: "a cat imagined as being enclosed in a box with a radioactive source and a poison that will be released when the source (unpredictably) emits radiation, the cat being considered (according to quantum mechanics) to be simultaneously both dead and alive until the box is opened and the cat observed." The notion that a cat can be both alive and dead at the same time is counterintuitive and, most importantly, completely false. I propose a thought experiment that demonstrates that the popular conception of a half-living cat is impossible.<!--more-->
 
 
 Let's assume we have the typical Schrödinger's cat experiment. We'll let the experiment run until the probability that the vial of poison is destroyed and therefore the cat is dead is 50%. After that time the vial will be removed and we will attempt to determine whether the cat is dead or alive.
 
 Now let's set up the rest of the experiment. Attached to the experimental device is a printer. The printer knows whether the cat is alive or dead, but instead of just printing the results, it throws a little randomness into the mix. For its first printout, it will print either "The cat is alive" or "The cat is dead" with a 50% probability. In this case, the printout isn't in any way useful for determining the status of the cat. But for each printout after the first, the probability that the printout will be accurate increases by 1%. Thus the first will be accurate 50% of the time, the 11th printout 60% of the time, and the 26th will be accurate 75% of the time.
 
-OK, now we'll got our experiment and our printer set up, let's run the experiment!
+OK, now that we've got our experiment and our printer set up, let's run the experiment!
 
 
-After running the experiment the vial is removed and the cat is either alive or dead, but we do not know. We'll print our first result,  which, because it's only accurate 50% of the time, will contain no actual information about the state of the cat. Here is the first printout:
+After running the experiment, the vial is removed and the cat is either alive or dead, but we do not know. We'll print our first result, which, because it's only accurate 50% of the time, will contain no actual information about the state of the cat. Here is the first printout:
 
     
     Trial number 1, where the printout has a 50% chance of being accurate.
@@ -26,7 +26,7 @@ After running the experiment the vial is removed and the cat is either alive or 
     
     
 
-Now the experiment has been conducted and a result has been printed, although the result is meaningless. Now we'll start with the real trials. For the first trial, the printout will be accurate 51% of the time. Thus the next printout will be the truth with a probability of 51% and a lie with a probability of 49%. And the one after that will have a 52% chance of being true, and so on.
+Now the experiment has been conducted and a result has been printed, although the result is meaningless. Now we'll start with the real trials. For the first trial, the printout will be accurate 51% of the time. Thus, the next printout will be the truth with a probability of 51% and a lie with a probability of 49%. And the one after that will have a 52% chance of being true, and so on.
 
 
     Trial number 2, where the printout has a 51% chance of being accurate.
@@ -59,7 +59,7 @@ If it so happens that the person receiving the printout, we'll call her Alice, i
 
 Then we add a second person to the experiment. We'll call him Bob. Bob never sees or communicates with Alice, but he does get a printout from the experiment. However, instead of printing "The cat is alive" or "The cat is dead", it prints either "That statement was true" or "That statement was false". Now, Bob knows whether the statement that Alice is reading is true or false, but he does not know what Alice is actually reading, and therefore doesn't know anything about the cat.
 
-Let's continue with trials 11-20. But instead of seeing what Alice sees, we'll see only what Bob sees.
+Let's continue with trials 6-10. But instead of seeing what Alice sees, we'll see only what Bob sees.
 
 
     Trial number 6, where the printout has a 55% chance of being accurate.
@@ -84,7 +84,7 @@ Let's continue with trials 11-20. But instead of seeing what Alice sees, we'll s
     
     
 
-We see that Alice got five false statements and five true ones, but we don't know what statements we got. Based on what he's seeing, Bob can't determine anything about the result of the experiment. Now let's go back to Alice and run some more trials.
+We see that Alice got five false statements and five true ones, but we don't know which statements they were. Based on what he's seeing, Bob can't determine anything about the result of the experiment. Now let's go back to Alice and run some more trials.
 
 
     Trial number 11, where the printout has a 60% chance of being accurate.
