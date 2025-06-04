@@ -379,3 +379,14 @@ I recommend using keyboard snippets. Here are some useful ones that I use:
     "notebook.output.scrolling": true,
     "notebook.consolidatedRunButton": true,
 ```
+
+#### Make active tab easier to see
+```
+    "workbench.colorCustomizations": {
+        "tab.activeBackground": "#395b4e",
+        "tab.activeForeground": "#ffffff",
+        "tab.inactiveBackground": "#1e1e1e",
+        "tab.inactiveForeground": "#888888",
+    },
+```
+
