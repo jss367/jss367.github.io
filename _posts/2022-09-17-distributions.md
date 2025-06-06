@@ -22,7 +22,7 @@ import math
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
-from scipy.stats import binom, norm, pareto, poisson
+from scipy.stats import binom, norm, pareto, poison, lognorm
 ```
 
 
@@ -179,6 +179,47 @@ ax.set(xlabel='Variable', ylabel='Count');
 * Test scores on standardized tests are roughly Gaussian
 * Blood pressure of healthy populations
 * Birth weight
+
+## Log-Normal Distribution
+
+The log-normal distribution models a random variable whose logarithm is normally distributed. It is only defined for positive values and often arises when many independent factors multiply together. Testosterone levels in human populations are typically right-skewed, so they’re commonly modeled with a log-normal distribution.
+
+#### Equation
+
+$$
+f(x; \mu, \sigma) = \frac{1}{x \sigma \sqrt{2\pi}} \exp\left( -\frac{(\ln x - \mu)^2}{2\sigma^2} \right),\quad x>0
+$$
+
+#### Plot
+
+```python
+from scipy.stats import lognorm
+fig = plt.figure()
+
+mu = 0
+sigma = 0.5
+x = np.random.lognormal(mean=mu, sigma=sigma, size=num_samples)
+
+num_bins = 50
+counts, bins, ignored = plt.hist(x, num_bins, density=True, color='g', alpha=0.9)
+
+# add a line
+y = lognorm.pdf(bins, s=sigma, scale=np.exp(mu))
+plt.plot(bins, y, 'r--')
+
+plt.xlabel('Variable')
+plt.ylabel('Probability')
+
+plt.title('Log-Normal Distribution')
+plt.show()
+```
+
+#### Uses
+
+* Modeling incomes and stock prices
+* Sizes of particles or organisms
+* Time to complete tasks when influenced by many small multiplicative factors
+* Testosterone levels in human populations
 
 ## Gamma Distribution
 
