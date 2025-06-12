@@ -14,7 +14,7 @@ This is a list of simple Linux tips and tricks.
 
 ## Permissions and Ownership
 
-Permissions are something that often get in the way for new users but are simple to fix. To see the permissions, you can type `ls -l`. This shows you the file type ("d" for directory, "-" for file), owner, group, and other permissions. After that you'll see the ownership. If you're having permission error when accessing a file, you may need to change the ownership. To do so you need to use the `chown` command and you'll probably need to `sudo` with it. It follows a format like this:
+Permissions are something that often get in the way for new users but are simple to fix. To see the permissions, you can type `ls -l`. This shows you the file type ("d" for directory, "-" for file), owner, group, and other permissions. After that you'll see the ownership. If you're having permission errors when accessing a file, you may need to change the ownership. To do so you need to use the `chown` command and you'll probably need to `sudo` with it. It follows a format like this:
 
 ```
 chown {user} {file}
@@ -36,7 +36,7 @@ chown -R {user} {file}
 sudo chown -R $USER my_dir
 ```
 
-The quick way to open up a directory to all people is to do `chmod -R 0777 my_dir`
+The quick way to open up a directory to all users is `chmod -R 0777 my_dir`, though this grants everyone full permissions.
 
 # Searching
 
@@ -46,7 +46,7 @@ There are two primary tools I use to find files on Linux, `locate` and `find`. `
 
 ### find
 
-`find` is automatically recursive, so it will search through your subdirectories with you needed to add a `-r` or  `-R` to it. 
+`find` is automatically recursive, so it will search through your subdirectories without you needing to add a `-r` or  `-R` to it.
 
 `find` takes the format of:
 `find location comparison-criteria search-term`
@@ -143,7 +143,7 @@ You can, however, also use multiple asterisks with `ls`: `ls file_num_*_of_*`
 
 Another option for exploring storage is `df -h`.
 
-# apt vs apt-get ##
+# apt vs apt-get
 
 Debian-based Linux distributions, like Ubuntu, started using `apt`. 
 
@@ -202,7 +202,7 @@ Here’s what those flags mean:
 
 `tar -xzvf archive.tar.gz`
 
-The only different is that we change the "-c" for Create to "-x" for eXtract
+The only difference is that we change the "-c" for Create to "-x" for eXtract
 
 # Looking at directories, datasets
 
@@ -212,7 +212,7 @@ The only different is that we change the "-c" for Create to "-x" for eXtract
 
 ## Just files
 
-The command is of the form: `find /path/to/files* -mtime +5 -exec command {} \;`. The number afer `mtime` is in **days**, so here's how you find and delete files older than 5 days:
+The command is of the form: `find /path/to/files* -mtime +5 -exec command {} \;`. The number after `mtime` is in **days**, so here's how you find and delete files older than 5 days:
 
 `find . -mtime +5 -exec rm {} \;`
 
