@@ -1,13 +1,13 @@
 ---
 layout: post
 title: My Favorite Things about Jupyter Notebooks
-description: "A notebook that shows some my of favorites things to do with Jupyter Notebooks"
+description: "A notebook that shows some of my favorite things to do with Jupyter Notebooks"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/jupiter.jpg"
 tags: [Jupyter Notebooks]
 ---
 
-The Jupyter Notebook is a great tool for writing and exploring code as well as prototyping ideas. It's one of my favorite ways to write code, in part because of all the great features it has. This post demonstrates shows some of my favorite features.
+The Jupyter Notebook is a great tool for writing and exploring code as well as prototyping ideas. It's one of my favorite ways to write code, in part because of all the great features it has. This post demonstrates some of my favorite features.
 
 <b>Table of Contents</b>
 * TOC
@@ -37,7 +37,7 @@ Then:
 
 #### [Autopep8](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/code_prettify/README_autopep8.html)
 
-You can use [Autopep8](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/code_prettify/README_autopep8.html) to format your code based to be consistent with the [PEP8 style guide](https://www.python.org/dev/peps/pep-0008/).
+You can use [Autopep8](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/code_prettify/README_autopep8.html) to format your code to be consistent with the [PEP8 style guide](https://www.python.org/dev/peps/pep-0008/).
 
 Install with `pip install autopep8`, then enable it.
 
@@ -57,7 +57,7 @@ I like to customize the black formatter by changing the line length. To do this,
 
 [spellchecker](https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/nbextensions/spellchecker/README.html) does exactly what you think it does.
 
-#### Hinterlands
+#### Hinterland
 
 Adds autocompletion to Jupyter Notebooks, which normally requires hitting the Tab button.
 
@@ -65,7 +65,7 @@ Adds autocompletion to Jupyter Notebooks, which normally requires hitting the Ta
 
 Adds bootstrap style to tables, which is great because it makes pandas DataFrames sortable by default.
 
-## Others (Evaluating)
+## Other Tools (Evaluating)
 
 #### Beautiful LaTeX
 
@@ -90,7 +90,7 @@ pwd
 
 ## Other (such as pip)
 
-To access other  shell commands, you will need to prefix them with a `!`. For example, you pip install directly from Jupyter Notebooks:
+To access other shell commands, you will need to prefix them with a `!`. For example, you can pip install directly from Jupyter Notebooks:
 
 `!pip install numpy`
 
@@ -154,7 +154,7 @@ for x in range(1000):
 
 # Debugging
 
-Jupyter Notebooks have an amazing command for debugging. If you are running code and get an error, even if it's deep inside a function, you can type `%debug` into a cell and it will open up [ipdb](https://github.com/gotcha/ipdb) at the exact location the error occured with all the values as they were. It's amazing. Here's an example:
+Jupyter Notebooks have an amazing command for debugging. If you are running code and get an error, even if it's deep inside a function, you can type `%debug` into a cell and it will open up [ipdb](https://github.com/gotcha/ipdb) at the exact location the error occurred with all the values as they were. It's amazing. Here's an example:
 
 
 ```python
@@ -205,7 +205,7 @@ Jupyter Notebooks have a lot of support for looking into code right from the not
 
 ## Command Palette
 
-Jupyter Notebooks has a command palatte that you can access with `Ctrl + Shift + P` (Windows/Linux) / `Cmd + Shift + P` (Mac) (just like VSCode). From there you can search for whatever feature you're looking for.
+Jupyter Notebooks has a command palette that you can access with `Ctrl + Shift + P` (Windows/Linux) / `Cmd + Shift + P` (Mac) (just like VSCode). From there you can search for whatever feature you're looking for.
 
 
 ## Shift + Tab
@@ -277,7 +277,7 @@ If you want to publish the notebook without code, you can also do this:
 
 ## Splitting Cells
 
-One hot key that I like but sometimes forget is how to split a cell where my cursor is. So I just open up the command palatte and type in "split" and I see that it is Ctrl + Shift + - (Windows/Linux/Mac).
+One hot key that I like but sometimes forget is how to split a cell where my cursor is. So I just open up the command palette and type in "split" and I see that it is Ctrl + Shift + - (Windows/Linux/Mac).
 
 ## Printing LaTeX
 
@@ -285,11 +285,11 @@ Jupyter Notebooks use MathJax to render LaTeX in Markdown. To add LaTeX, simply 
 
 $$c = \sqrt{a^2 + b^2}$$
 
-Some things that work in Jupyter Notebooks don't work with the renderer I use for this blog, so I can't show everything. But in Jupyter Notebooks you can use LaTeX with a single `$` and use a double `$$` to center it the expression.
+Some things that work in Jupyter Notebooks don't work with the renderer I use for this blog, so I can't show everything. But in Jupyter Notebooks you can use LaTeX with a single `$` and use a double `$$` to center the expression.
 
 ## Suppressing Output
 
-When you run a command in Jupyter Notebooks the last output is printed. But if you some reason you don't want this, you can always surpress it with a semicolon. For example, you often don't want to return from `matplotlib` commands, so you can:
+When you run a command in Jupyter Notebooks the last output is printed. But if for some reason you don't want this, you can always suppress it with a semicolon. For example, you often don't want to return from `matplotlib` commands, so you can:
 
 `plt.show();`
 
@@ -306,7 +306,7 @@ There are so many awesome examples of Jupyter Notebooks out there. Here are some
 
 # Version Control
 
-By default, version control doesn't work that well with Jupyter Notebooks. But there are tools to help. For open source work and commercial work if you want to pay for it, there is [ReviewNB](https://www.reviewnb.com/). If you want to use a tool that is free and open source, I recommend [nbdime](https://github.com/jupyter/nbdime), which is what I use. I'll show some example commands
+By default, version control doesn't work that well with Jupyter Notebooks. But there are tools to help. For open source work and commercial work if you want to pay for it, there is [ReviewNB](https://www.reviewnb.com/). If you want to use a tool that is free and open source, I recommend [nbdime](https://github.com/jupyter/nbdime), which is what I use. Here are some example commands:
 
 Traditionally with git, you can compare your changes with the previous commit with `git diff HEAD^ HEAD`. With nbdime, you can do `nbdiff-web HEAD^ HEAD` to see a visual of the differences.
 
