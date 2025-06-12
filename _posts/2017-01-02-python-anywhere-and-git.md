@@ -5,7 +5,7 @@ feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/london_bridge.jpg"
 tags: [Git]
 ---
-Pythonanywhere has an excellent [tutorial for setting up a website with Flask](https://blog.pythonanywhere.com/121/). The tutorial shows how to set up a website and put it under version control with Git. But it only shows how to do that by initiating a new repository; it doesn't show you how to connect with an existing repo. In this post, I will show how to connect Pythonanywhere to an existing Github account and some basic Git commands to manage your Pythonanywhere app.<!--more-->
+PythonAnywhere has an excellent [tutorial for setting up a website with Flask](https://blog.pythonanywhere.com/121/). The tutorial shows how to set up a website and put it under version control with Git. But it only shows how to do that by initiating a new repository; it doesn't show you how to connect with an existing repo. In this post, I will show how to connect Pythonanywhere to an existing Github account and some basic Git commands to manage your PythonAnywhere app.<!--more-->
 
 
 ## Starting a new project
@@ -18,7 +18,7 @@ Pythonanywhere has an excellent [tutorial for setting up a website with Flask](h
 
 1. Find the URL for the remote repository by clicking on the green "Clone or download" button, then click the "Copy to Clipboard" button to copy the URL. It should end with .git. Something like: `https://github.com/jss367/pythonanywhere.git`
 
-1. Then go to your bash console on pythonanywhere inside the folder you want to connect to Github. This is possibly your `mysite` folder. You'll want to initiate this as a git repository. Enter `git init`
+1. Then go to your bash console on PythonAnywhere inside the folder you want to connect to GitHub. This is possibly your `mysite` folder. You'll want to initiate it as a git repository. Enter `git init`
 
 1. Type: `git remote add origin <remote_repository_URL>`. Your remote_repository_URL is the thing we copied above that looks like `https://github.com/jss367/pythonanywhere.git`
 
@@ -29,7 +29,7 @@ Pythonanywhere has an excellent [tutorial for setting up a website with Flask](h
     origin  https://github.com/jss367/pythonanywhere.git (push)
     ```
 
-1. Then, you have to pull the remote repository to your local Pythonanywhere folder. Type: `git pull origin master`. This is one of the most common Git commands you will use. It is of the format `git pull <remote> <branch>`.
+1. Then, you have to pull the remote repository to your local PythonAnywhere folder. Type: `git pull origin master`. This is one of the most common Git commands you will use. It is of the format `git pull <remote> <branch>`.
 
 1. Now we'll want to make a `.gitignore` file. This is a file that contains all the stuff within your local git project that you don't want to commit with your project. Python cache files are a good example of a file that you don't want to commit each time. To create a `.gitignore` file, you can create one by typing `touch .gitignore`. Files that start with a `.` are normally hidden from the user. This is often how people store configuration files that they don't want to clutter up the users space with.
 
@@ -61,11 +61,11 @@ Pythonanywhere has an excellent [tutorial for setting up a website with Flask](h
 
 1. Then commit your new files with `git commit -m "Add initial flask app and .gitignore files"`
 
-1. Finally, you'll push your updated repo to the remote repository. To do this, enter `git push origin master`. You may have to enter your Github username and password if you haven't already. This is your GitHub username, not your git user.name (I know, it's confusing).
+1. Finally, you'll push your updated repo to the remote repository. To do this, enter `git push origin master`. You may have to enter your GitHub username and password if you haven't already. This is your GitHub username, not your git user.name (I know, it's confusing).
 
 #### Create a web application
 
-The next thing you'll need to do is create a web application on PythonAnywhere to connect to your repo. PythonAnywhere makes this easy and it's address in the [tutorial on Python Anywhere's website](https://blog.pythonanywhere.com/121/), so I won't go into it further. PythonAnywhere will create a WSGI (pronounced "whiz-gee" kind of like "whiskey") file for you. Just for reference, here's an example of what your WSGI file (`jss367_pythonanywhere_com_wsgi.py`) should look like:
+The next thing you'll need to do is create a web application on PythonAnywhere to connect to your repo. PythonAnywhere makes this easy and it's addressed in the [tutorial on PythonAnywhere's website](https://blog.pythonanywhere.com/121/), so I won't go into it further. PythonAnywhere will create a WSGI (pronounced "whiz-gee" kind of like "whiskey") file for you. Just for reference, here's an example of what your WSGI file (`jss367_pythonanywhere_com_wsgi.py`) should look like:
 
 ```python
 import sys
