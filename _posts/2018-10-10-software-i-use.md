@@ -132,13 +132,13 @@ I always have three or more web browsers on each computer. I use them for differ
 * This is a superior package manager to conda
 
 ## Other Python Tools
-I'm skipping the normal tools that people will find anyway. But one thing that gets overlooked is colored logging. Here's an easy way to do it:
+I'm skipping the normal tools that people will find anyway. But one thing that gets overlooked is ed logging. Here's an easy way to do it:
 [coloredlogs](https://coloredlogs.readthedocs.io/en/latest/)
 * Let's say you're already doing something like this:
   
 ```
 from logging import getLogger
-logger = get_logger(__name__)
+logger = getLogger(__name__)
 ```
 
 You just need to add the following:
