@@ -4,7 +4,7 @@ title: "Bayes' Theorem without P(B)"
 description: "This post is about Bayes' Theorem and how to use them."
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/hoary-headed-grebe.jpg"
-tags: [Statistics]
+tags: [Bayesian Statistics, Statistics]
 ---
 
 Bayes' Theorem is a fundamental concept in probability theory and statistics, offering a powerful framework for updating our beliefs in light of new evidence. This theorem is particularly useful in fields like machine learning, medical diagnostics, and even everyday decision-making. But what happens when we lack certain probabilities, specifically P(B)? This post talks about how Bayes' Theorem works and explores strategies to apply it even without direct knowledge of P(B).
