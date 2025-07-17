@@ -8,17 +8,43 @@ tags: [Software]
 
 Google Cloud authentication can be confusing. This post explains how Application Default Credentials (ADC) work and how to fix common authentication errors.
 
-When you're authenticating with Google Cloud, it's important to be clear on whether you're trying to authenticate as a user or through a service account. User credentials are tied to an individual identity and work well for development. Service account credentials represent an automated identity used in production.
+When you're authenticating with Google Cloud, it's important to be clear on whether you're trying to authenticate as a user or through a service account. Here's some guidance on when to use each:
+* User credentials: Best for local development and testing
+* Service accounts: Best for production, CI/CD pipelines, and any automated processes
+* Metadata server: Best when running on Google Cloud infrastructure
+
+User credentials are tied to an individual identity. Service account credentials represent an automated identity used in production.
+
+## Checking your current credentials
+
+The `GOOGLE_APPLICATION_CREDENTIALS` environment variable tells ADC which credentials file to use. Check if it's set:
+
+```bash
+echo $GOOGLE_APPLICATION_CREDENTIALS
+```
+
+You might see:
+* Nothing (empty) - ADC will look for credentials in the default locations
+* Path to service account - e.g., /path/to/my-service-account.json
+* Path to user credentials - e.g., /Users/you/.config/gcloud/application_default_credentials.json
+
+## Where it looks
 
 When you instantiate a client, the library looks for credentials in this order:
 
-- **`GOOGLE_APPLICATION_CREDENTIALS` env var** pointing to a service-account JSON key
+- Wherever **`GOOGLE_APPLICATION_CREDENTIALS` env var** is pointing to (user account or service account JSON key)
     
-- **User credentials** from `gcloud auth application-default login` (in `~/.config/gcloud/application_default_credentials.json`)
+- The **default location** `~/.config/gcloud/application_default_credentials.json`. This is where `gcloud auth application-default login` will create credentials
     
-- **Built-in service account** on GCE/Cloud Run/Cloud Functions via the metadata server
+- **Built-in service account** on GCE/Cloud Run/Cloud Functions via the metadata server. This automatically provides credentials when running on Google Cloud infrastructure—no configuration needed.
 
-If you `echo $GOOGLE_APPLICATION_CREDENTIALS` it should be `/path/to/your-service-account.json` if it exists.
+## Getting user credentials
+
+```bash
+gcloud auth application-default login
+```
+
+## Credentials files
 
 Below are two examples of what the credentials file might look like, depending on the type:
 
@@ -65,6 +91,20 @@ PermissionDenied: 403 Your application is authenticating by using local Applicat
 ```
 
 You probably want to switch to your service account.
+
+## Which one am I using?
+
+To check your credentials, you can enter:
+
+```bash
+cat $GOOGLE_APPLICATION_CREDENTIALS | grep '"type"'
+```
+
+Here are the possible responses:
+* User credentials -  `"type": "authorized_user",`
+* Service account -  `"type": "service_account",`
+* External Account (Workload Identity) -   `"type": "external_account",`
+* External Account Authorized User -   `"type": "external_account_authorized_user",`
 
 ### Switching to your service account
 
