@@ -196,7 +196,7 @@ def get_spp_table(year: int = 2023,
 
     base_url = f"https://api.census.gov/data/{year}/acs/acs1/spp"
 
-    # Wildcard for *all* population‑group strings — allowed for string predicates :contentReference[oaicite:0]{index=0}
+    # Wildcard for *all* population‑group strings — allowed for string predicates
     params = {
         "get": variables,
         "for": geography,
@@ -219,7 +219,7 @@ def get_spp_table(year: int = 2023,
     # First row is the header
     df = pd.DataFrame(data[1:], columns=data[0])
 
-    # POPGROUP is returned automatically because it’s a default‑display variable :contentReference[oaicite:1]{index=1}
+    # POPGROUP is returned automatically because it’s a default‑display variable
     # Convert any numeric columns that arrive as text
     numeric_cols = [c for c in df.columns if c.endswith(("E", "EA"))]
     df[numeric_cols] = df[numeric_cols].apply(pd.to_numeric, errors="coerce")
