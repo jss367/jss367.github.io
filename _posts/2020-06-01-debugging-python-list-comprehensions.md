@@ -66,7 +66,7 @@ OK, all looks good. Now I'll just...
 
 ```python
 ipdb> [pred in self.object_map for pred in self.predictions]
-*** NameError: name 'self' is not defineds]
+*** NameError: name 'self' is not defined
 ```
 
 Arrgh! I was trying to sneak that one by. I was pretty stuck at this point, but I'll spare you the head-scratching and the old standby: turn-it-off-and-turn-it-back-on-again. The key here is to take a look at `globals` and `locals`.
