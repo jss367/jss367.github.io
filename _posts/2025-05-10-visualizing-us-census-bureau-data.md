@@ -6,7 +6,7 @@ thumbnail: "assets/img/bobcat.jpg"
 tags: [Data Visualization, Datasets]
 ---
 
-In this post I'm going to build off the last post on [Working with US Census Bureau Data](https://jss367.github.io/working-with-us-census-bureau-data.html) and discuss how to visualize it. That post walked through working with the Census Bureau's API, so in this post I'll skip those details.
+In this post I'm going to build on the last post on [Working with US Census Bureau Data](https://jss367.github.io/working-with-us-census-bureau-data.html) and discuss how to visualize it. That post walked through working with the Census Bureau's API, so in this post I'll skip those details.
 
 <b>Table of Contents</b>
 * TOC
@@ -159,7 +159,7 @@ popgroups_df
       <th>5543</th>
       <td>2320</td>
       <td>Hiawatha First Nation alone</td>
-      <td>1</td>
+      <td>1</td>Selected
     </tr>
     <tr>
       <th>5544</th>
@@ -176,7 +176,7 @@ popgroups_df
 
 ## Get Selected Population Profile
 
-Now let's get the Selection Population Profile table.
+Now let's get the Selected Population Profile table.
 
 
 ```python
