@@ -27,9 +27,9 @@ A Beta prior encodes two distinct pieces of information:
 Think of it as phantom data you've already seen. When you say "I expect 10%," you're setting the location. When you specify how confident you are, you're setting the strength:
 
 * **Weak prior** (low strength): "10%, but I'm flexible" = Beta(1, 9)
-** Just 10 phantom trials. One contradictory result could shift your belief significantly.
+  * Just 10 phantom trials. One contradictory result could shift your belief significantly.
 * **Strong prior** (high strength): "10%, and I'd need overwhelming evidence to budge" = Beta(10, 90)
-** 100 phantom trials. It would take many observations to overcome this prior belief.
+  * 100 phantom trials. It would take many observations to overcome this prior belief.
 
 The same applies to 50-50 beliefs:
 
