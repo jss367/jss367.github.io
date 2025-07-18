@@ -30,7 +30,7 @@ os.getcwd() #get current working directory
 
 
 
-## What verison of Python am I using?
+## What version of Python am I using?
 
 
 ```python
