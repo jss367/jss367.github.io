@@ -96,7 +96,7 @@ print("Median HH income (Asian-Indian-American, 2022):",
 
 ### Verifying Results
 
-It's good to have a way to verify the data as well. For example, you can verify some of the results simply by Googling the number and making sure that's what other people got. By Googling $152,341 you can see other newsites that use the same value and describe it as Indian annual median household [income]((https://economictimes.indiatimes.com/opinion/et-editorial/indian-high-earners-of-the-world-unite/articleshow/109112116.cms?from=mdr)).
+It's good to have a way to verify the data as well. For example, you can verify some of the results simply by Googling the number and making sure that's what other people got. By Googling $152,341 you can see other news sites that use the same value and describe it as Indian annual median household [income]((https://economictimes.indiatimes.com/opinion/et-editorial/indian-high-earners-of-the-world-unite/articleshow/109112116.cms?from=mdr)).
 
 ## Getting More Data
 
