@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Bayesian Updating"
+description: "An illustrated example of Bayesian updating"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/great_horned_owl.jpg"
 tags: [Bayesian Statistics]
