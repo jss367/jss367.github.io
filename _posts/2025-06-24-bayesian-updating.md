@@ -34,7 +34,7 @@ Think of it as phantom data you've already seen. When you say "I expect 10%," yo
 
 The same applies to 50-50 beliefs:
 
-* **Weak 50-50**: Beta(1, 1) = "I have no information; one result could swing me"
+* **Weak 50-50**: Beta(1, 1) = "I have no information; one result could swing me in either direction"
 * **Strong 50-50**: Beta(50, 50) = "I've effectively seen 100 balanced outcomes already"
 
 Always specify both components when stating a prior: the probability (location) and the effective sample size (strength) that determines how resistant it is to new evidence.
@@ -105,7 +105,7 @@ fig_prior.tight_layout()
 
 
     
-![png]({{site.baseurl}}/assets/img/2025-06-24-bayesian-updating_files/2025-06-24-bayesian-updating_7_0.png)
+![Prior distributions for different Beta parameters]({{site.baseurl}}/assets/img/2025-06-24-bayesian-updating_files/2025-06-24-bayesian-updating_7_0.png)
     
 
 
