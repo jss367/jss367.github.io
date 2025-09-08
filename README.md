@@ -13,4 +13,4 @@ For image paths, you can add {{site.baseurl}}/assets/img/ to them all by using [
 
 ## Adding posts
 * `j Blog`
-* `jupyter nbconvert --to markdown 2024-`
+* `jupyter nbconvert --to markdown 2025-`
