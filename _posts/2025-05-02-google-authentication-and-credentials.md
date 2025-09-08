@@ -123,3 +123,18 @@ gcloud iam service-accounts list \
   --project companydev
 ```
 
+## Troubleshooting
+
+Sometimes, you may get an error like `Unable to acquire impersonated credentials`. Here's the full form of it:
+
+```
+('Unable to acquire impersonated credentials', '{\n  "error": {\n    "code": 403,\n    "message": "Permission \'iam.serviceAccounts.getAccessToken\' denied on resource (or it may not exist).",\n    "status": "PERMISSION_DENIED",\n    "details": [\n      {\n        "@type": "type.googleapis.com/google.rpc.ErrorInfo",\n        "reason": "IAM_PERMISSION_DENIED",\n        "domain": "iam.googleapis.com",\n        "metadata": {\n          "permission": "iam.serviceAccounts.getAccessToken"\n        }\n      }\n    ]\n  }\n}\n')
+```
+
+It indicates that the account or process trying to impersonate a service account lacks the required permission—specifically, `iam.serviceAccounts.getAccessToken`.
+
+This often happens when you're inadvertently not using your user credentials. For example, look for any code that is replacing your Google credentials. It might look like this:
+
+```python
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"] = GCP_CREDS_FILE
+```
