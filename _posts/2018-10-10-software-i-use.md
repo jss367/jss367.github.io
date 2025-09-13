@@ -281,7 +281,7 @@ As you can see, I'm strewn across half a dozen terminals in Windows and have fou
 * Makes directory listings more visually intuitive
 
 [zoxide](https://github.com/ajeetdsouza/zoxide)
-* Replaced autojump for me, though I think `j` is a better key to use so I alias to it
+* Replaced `autojump` for me, though I think `j` is a better key to use, so I alias to it
 
 [powerlevel10k](https://github.com/romkatv/powerlevel10k)
 
@@ -513,4 +513,4 @@ Some applications were either neck-and-neck with other ones, or I use very infre
 [CyberDuck](https://cyberduck.io/)
 
 [Autojump](https://github.com/wting/autojump)
-* This is the best way to get around a Unix terminal
+* Great way to get around a Unix terminal, but replaced by [zoxide](https://github.com/ajeetdsouza/zoxide).
