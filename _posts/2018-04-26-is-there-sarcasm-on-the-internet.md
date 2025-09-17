@@ -118,8 +118,8 @@ for top_level_comment in submission.comments:
 
 ```python
 for comment in list_of_comments:
-    has_sacasm = re.search(' \/s', comment)
-    if has_sacasm:
+    has_sarcasm = re.search(' \/s', comment)
+    if has_sarcasm:
         print(comment)
         print("\n\n\n")
 ```
