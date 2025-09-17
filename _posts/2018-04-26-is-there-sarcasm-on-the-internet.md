@@ -11,7 +11,7 @@ Is there sarcasm on the Internet? OK, that's an easy one. Here's a more difficul
 
 The most popular way to scrape Reddit from Python is with [PRAW: the Python Reddit API Wrapper](https://praw.readthedocs.io/en/latest/). The first step is to download it.  Note that you can do so inside a Jupyter Notebook with the command: `!pip install praw`.
 
-Reddit's API is easy to use and quick to sign up for. You will need a Reddit account. After you have an account, you will need to go to their [applications page](https://www.reddit.com/prefs/apps) and click on "create another app..." on the bottom left. Then enter a name for your application. Note the per the [Reddit API rules](https://www.reddit.com/wiki/api) you cannot use the word "reddit" in the title unless you have the word "for" preceding it. E.g. "scraper for reddit" is allowed but "reddit scraper" isn't. The rest of the application can be completed as follows:
+Reddit's API is easy to use and quick to sign up for. You will need a Reddit account. After you have an account, you will need to go to their [applications page](https://www.reddit.com/prefs/apps) and click on "create another app..." on the bottom left. Then enter a name for your application. Note that per the [Reddit API rules](https://www.reddit.com/wiki/api) you cannot use the word "reddit" in the title unless you have the word "for" preceding it. E.g. "scraper for reddit" is allowed, but "reddit scraper" isn't. The rest of the application can be completed as follows:
 
 * name: scraper
 * [click on the "script" checkbox]
