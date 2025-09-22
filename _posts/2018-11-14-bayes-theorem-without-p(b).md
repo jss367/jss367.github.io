@@ -101,3 +101,66 @@ This form is elegant because:
 
 For practical Bayesian reasoning, especially when evidence comes in sequentially, thinking in terms of odds and Bayes factors often feels much more natural.
 
+
+# Odds Form of Bayes' Theorem
+
+Another powerful way to express Bayes’ Theorem is in terms of **odds** instead of raw probabilities. Odds are just another way of describing how likely something is compared to its alternative. If the probability of an event is \( p \), then the odds are:
+
+\[
+\text{odds}(A) = \frac{p}{1 - p}
+\]
+
+So if \( P(A) = 0.2 \), the odds are \( 0.2 / 0.8 = 0.25 \), which you can read as “one to four against.”
+
+---
+
+## From Bayes’ Rule to Odds
+
+Starting from Bayes’ Theorem:
+
+\[
+P(A|B) = \frac{P(B|A) \times P(A)}{P(B|A)P(A) + P(B|\neg A)P(\neg A)}
+\]
+
+Divide numerator and denominator by \( P(B|\neg A)P(\neg A) \). That gives:
+
+\[
+P(A|B) = \frac{\tfrac{P(B|A)}{P(B|\neg A)} \times \tfrac{P(A)}{P(\neg A)}}{1 + \tfrac{P(B|A)}{P(B|\neg A)} \times \tfrac{P(A)}{P(\neg A)}}
+\]
+
+Notice two ratios appear:
+
+- \( \tfrac{P(A)}{P(\neg A)} \): the **prior odds**.
+- \( \tfrac{P(B|A)}{P(B|\neg A)} \): the **Bayes factor** (how strongly the evidence favors \( A \) over \( \neg A \)).
+
+---
+
+## Posterior Odds = Prior Odds × Bayes Factor
+
+Define posterior odds as \( \tfrac{P(A|B)}{P(\neg A|B)} \). With a little algebra:
+
+\[
+\text{Posterior odds} = \text{Prior odds} \times \text{Bayes factor}
+\]
+
+Or more explicitly:
+
+\[
+\frac{P(A|B)}{P(\neg A|B)} = \frac{P(A)}{P(\neg A)} \times \frac{P(B|A)}{P(B|\neg A)}
+\]
+
+---
+
+## Why This Matters
+
+This form is elegant because:
+
+- You don’t need to compute messy denominators.
+- Updating is multiplicative: every new piece of evidence just multiplies your odds by another Bayes factor.
+- It’s easier to see the “weight of evidence” — a Bayes factor greater than 1 shifts belief toward \( A \), while less than 1 shifts it away.
+
+For practical Bayesian reasoning, especially when evidence comes in sequentially, thinking in terms of odds and Bayes factors often feels much more natural.
+
+
+
+
