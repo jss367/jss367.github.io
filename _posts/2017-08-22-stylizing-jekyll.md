@@ -184,6 +184,19 @@ $$ \nabla \times \mathbf{B} = \mu_0\left(\mathbf{J} + \varepsilon_0 \frac{\parti
 
 You simply need to put `$$` around your equations. The theme I use relies on [KaTeX](https://katex.org/).
 
+# MathJax Test
+
+Inline math: \( P(A|B) = \frac{P(B|A)P(A)}{P(B)} \)
+
+Display math:
+
+\[
+P(A|B) = \frac{P(B|A) \times P(A)}{P(B)}
+\]
+
+If MathJax is working, you should see properly typeset equations above.  
+If not, you'll just see the raw LaTeX code.
+
 # Citations
 
 This is a sentence with a citation[^1]. Go to this [StackOverflow question](https://stackoverflow.com/questions/50467557/jekyll-on-github-pages-how-to-include-external-content-inside-footnotes/50475226) to see how to set them up.
