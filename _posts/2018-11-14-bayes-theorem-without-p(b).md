@@ -103,10 +103,6 @@ $$
 \frac{P(A)}{P(\neg A)} \times \frac{P(B|A)}{P(B|\neg A)}.
 $$
 
-Bayes factor
-
-$$ \frac{P(B|A)}{P(B|\neg A)} $$
-
 Notice the ratios that appear:
 
 Bayes factor
@@ -119,8 +115,11 @@ Bayes factor
 
 $$ \frac{P(B|A)}{P(B|\neg A)} $$
 
-- The Bayes factor (how strongly the evidence favors A over ¬A): $$ \frac{P(B|A)}{P(B|\neg A)} $$
-- The Bayes factor (how strongly the evidence favors A over ¬A): $$ \frac{P(B|A)}{P(B|\neg A)} $$
+
+- The Bayes factor (how strongly the evidence favors A over ¬A):
+
+$$ \frac{P(B|A)}{P(B|\neg A)} $$
+
 - The posterior odds: $$\dfrac{P(A \mid B)}{P(\neg A \mid B)}$$
 
 Bayes factor
@@ -130,14 +129,6 @@ $$ \frac{P(B|A)}{P(B|\neg A)} $$
 The Bayes factor (how strongly the evidence favors A over ¬A): $$ \frac{P(B|A)}{P(B|\neg A)} $$
 
 The Bayes factor: $$ \frac{P(B|A)}{P(B|\neg A)} $$
-
-Test: $$ \frac{P(A)}{P(\neg A)} $$
-
-Test2: $$ P(A|B) = \frac{P(B|A) \times P(A)}{P(B)} $$
-
-Test2: $$ P(A|B) = \frac{P(B|A) \times P(A)}{P(B)} $$
-
-Test2: $$ P(A|B) = \frac{P(B|A) \times P(A)}{P(B|\neg A)} $$
 
 So now, we can translate this to words:
 
