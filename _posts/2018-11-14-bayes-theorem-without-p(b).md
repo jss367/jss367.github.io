@@ -82,17 +82,17 @@ Notice two ratios appear:
 - $$ \frac{P(A)}{P(\neg A)}: \text{ the prior odds.} $$
 - $$ \frac{P(B|A)}{P(B|\neg A)}: \text{the Bayes factor (how strongly the evidence favors A over ¬A)}. $$
 
-
 ## Posterior Odds = Prior Odds × Bayes Factor
 
-Define posterior odds as $$\dfrac{P(A \mid B)}{P(\neg A \mid B)}$$. With a little algebra:
+Define posterior odds as $$\dfrac{P(A \mid B)}{P(\neg A \mid B)}$$
 
-$$ \text{Posterior odds} = \text{Prior odds} \times \text{Bayes factor} $$
-
-Or more explicitly:
+With a little algebra:
 
 $$ \frac{P(A|B)}{P(\neg A|B)} = \frac{P(A)}{P(\neg A)} \times \frac{P(B|A)}{P(B|\neg A)} $$
 
+Or in words:
+
+$$ \text{Posterior odds} = \text{Prior odds} \times \text{Bayes factor} $$
 
 ## Why This Matters
 
