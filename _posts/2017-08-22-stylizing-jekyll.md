@@ -192,28 +192,17 @@ $$ P(A|B) = \frac{\frac{P(B|A)}{P(B|\neg A)} \times \frac{P(A)}{P(\neg A)}}{1 + 
 
 Sometimes the results can be weird. Take the following:
 
+Prior odds
+
+$$ \frac{P(A)}{P(\neg A)} $$
 
 Bayes factor
 
 $$ \frac{P(B|A)}{P(B|\neg A)} $$
 
-- The Bayes factor (how strongly the evidence favors A over ¬A): $$ \frac{P(B|A)}{P(B|\neg A)} $$
-
-
 - The prior odds: $$ \frac{P(A)}{P(\neg A)} $$
-
-
-$$ \frac{P(B|A)}{P(B|\neg A)} $$
-
-
-- The prior odds: $$ \frac{P(A)}{P(\neg A)} $$
-
-Bayes factor
-
-$$ \frac{P(B|A)}{P(B|\neg A)} $$
-
+  
 - The Bayes factor (how strongly the evidence favors A over ¬A): $$ \frac{P(B|A)}{P(B|\neg A)} $$
-
 
 # MathJax Test
 
