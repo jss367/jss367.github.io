@@ -62,58 +62,7 @@ So if \( P(A) = 0.2 \), the odds are \( 0.2 / 0.8 = 0.25 \), which you can read 
 
 ## From Bayes’ Rule to Odds
 
-Starting from Bayes’ Theorem:
-
-$$ P(A|B) = \frac{P(B|A) \times P(A)}{P(B|A)P(A) + P(B|\neg A)P(\neg A)} $$
-
-Divide numerator and denominator by $$P(B \mid \neg A) P(\neg A)$$. That gives:
-
-$$ P(A|B) = \frac{\frac{P(B|A)}{P(B|\neg A)} \times \frac{P(A)}{P(\neg A)}}{1 + \frac{P(B|A)}{P(B|\neg A)} \times \frac{P(A)}{P(\neg A)}} $$
-
-Factor the ratio:
-
-$$
-P(A|B) = \frac{\frac{P(B|A)}{P(B|\neg A)} \times \frac{P(A)}{P(\neg A)}}{1 + \frac{P(B|A)}{P(B|\neg A)} \times \frac{P(A)}{P(\neg A)}}
-$$
-
-Notice two ratios appear:
-
-- $$ \frac{P(A)}{P(\neg A)}: \text{ the prior odds.} $$
-- $$ \frac{P(B|A)}{P(B|\neg A)}: \text{the Bayes factor (how strongly the evidence favors A over ¬A)}. $$
-
-## Posterior Odds = Prior Odds × Bayes Factor
-
-Define posterior odds as $$\dfrac{P(A \mid B)}{P(\neg A \mid B)}$$
-
-With a little algebra:
-
-$$ \frac{P(A|B)}{P(\neg A|B)} = \frac{P(A)}{P(\neg A)} \times \frac{P(B|A)}{P(B|\neg A)} $$
-
-Or in words:
-
-$$ \text{Posterior odds} = \text{Prior odds} \times \text{Bayes factor} $$
-
-## Why This Matters
-
-This form is elegant because:
-
-- You don’t need to compute messy denominators.
-- Updating is multiplicative: every new piece of evidence just multiplies your odds by another Bayes factor.
-- It’s easier to see the “weight of evidence” — a Bayes factor greater than 1 shifts belief toward A, while less than 1 shifts it away.
-
-For practical Bayesian reasoning, especially when evidence comes in sequentially, thinking in terms of odds and Bayes factors often feels much more natural.
-
-# Full
-
-## Posterior Odds = Prior Odds × Bayes Factor
-
-Define posterior odds as
-
-$$
-\frac{P(A \mid B)}{P(\neg A \mid B)}.
-$$
-
-Start with Bayes’ Theorem for both \(A\) and \(\neg A\):
+Start with Bayes’ Theorem for both $$A$$ and $$\neg A$$:
 
 $$
 P(A|B) = \frac{P(B|A)P(A)}{P(B|A)P(A) + P(B|\neg A)P(\neg A)},
@@ -144,6 +93,45 @@ $$
 \frac{P(A|B)}{P(\neg A|B)} =
 \frac{P(A)}{P(\neg A)} \times \frac{P(B|A)}{P(B|\neg A)}.
 $$
+
+Or in words:
+
+$$ \text{Posterior odds} = \text{Prior odds} \times \text{Bayes factor} $$
+
+
+
+Notice two ratios appear:
+
+- $$ \frac{P(A)}{P(\neg A)}: \text{ the prior odds.} $$
+- $$ \frac{P(B|A)}{P(B|\neg A)}: \text{the Bayes factor (how strongly the evidence favors A over ¬A)}. $$
+
+Define posterior odds as $$\dfrac{P(A \mid B)}{P(\neg A \mid B)}$$
+
+
+## Posterior Odds = Prior Odds × Bayes Factor
+
+
+
+## Why This Matters
+
+This form is elegant because:
+
+- You don’t need to compute messy denominators.
+- Updating is multiplicative: every new piece of evidence just multiplies your odds by another Bayes factor.
+- It’s easier to see the “weight of evidence” — a Bayes factor greater than 1 shifts belief toward A, while less than 1 shifts it away.
+
+For practical Bayesian reasoning, especially when evidence comes in sequentially, thinking in terms of odds and Bayes factors often feels much more natural.
+
+# Full
+
+## Posterior Odds = Prior Odds × Bayes Factor
+
+Define posterior odds as
+
+$$
+\frac{P(A \mid B)}{P(\neg A \mid B)}.
+$$
+
 
 ---
 
