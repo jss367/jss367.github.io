@@ -15,6 +15,10 @@ Bayes' Theorem relates the conditional and marginal probabilities of random even
 
 $$ P(A|B) = \frac{P(B|A) \times P(A)}{P(B)} $$
 
+Bayes factor
+
+$$ \frac{P(B|A)}{P(B|\neg A)} $$
+
 Where:
 
 $$ P(A∣B) $$ is the probability of event A occurring given that B is true.
@@ -109,6 +113,9 @@ The Bayes factor: $$ \frac{P(B|A)}{P(B|\neg A)} $$
 Test: $$ \frac{P(A)}{P(\neg A)} $$
 
 Test2: $$ P(A|B) = \frac{P(B|A) \times P(A)}{P(B)} $$
+
+Test2: $$ P(A|B) = \frac{P(B|A) \times P(A)}{P(B)} $$
+
 Test2: $$ P(A|B) = \frac{P(B|A) \times P(A)}{P(B|\neg A)} $$
 
 So now, we can translate this to words:
