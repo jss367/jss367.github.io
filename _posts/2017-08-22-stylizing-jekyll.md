@@ -184,24 +184,9 @@ $$ \nabla \times \mathbf{B} = \mu_0\left(\mathbf{J} + \varepsilon_0 \frac{\parti
 
 You simply need to put `$$` around your equations. The theme I use relies on [KaTeX](https://katex.org/).
 
-# More Math
-
 You can do complex formulas like this:
 
 $$ P(A|B) = \frac{\frac{P(B|A)}{P(B|\neg A)} \times \frac{P(A)}{P(\neg A)}}{1 + \frac{P(B|A)}{P(B|\neg A)} \times \frac{P(A)}{P(\neg A)}} $$
-
-
-You can't use them in bulleted lists, though, so you'll have to do something different.
-
-Notice two ratios appear:
-
-$$ \frac{P(A)}{P(\neg A)}: \text{ the prior odds.} $$
-
-- $$ \frac{P(A)}{P(\neg A)}: \text{ the prior odds.} $$
-
-- $$ \( \frac{P(A)}{P(\neg A)} \): the **prior odds**. $$
-- $$ \( \frac{P(B|A)}{P(B|\neg A)} \): the **Bayes factor** (how strongly the evidence favors A over ¬A). $$
-
 
 # MathJax Test
 
