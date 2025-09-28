@@ -190,14 +190,6 @@ Starting from Bayes’ Theorem:
 
 $$ P(A|B) = \frac{P(B|A) \times P(A)}{P(B|A)P(A) + P(B|\neg A)P(\neg A)} $$
 
-Divide numerator and denominator by \( P(B|\neg A)P(\neg A) \). That gives:
-
-Divide numerator and denominator by $$ \( P(B|\neg A)P(\neg A) \) && . That gives:
-
-Divide numerator and denominator by $P(B \mid \neg A) P(\neg A)$. That gives:
-
-Divide numerator and denominator by $$P(B \mid \neg A) P(\neg A)$$. That gives:
-
 
 $$ P(A|B) = \frac{\frac{P(B|A)}{P(B|\neg A)} \times \frac{P(A)}{P(\neg A)}}{1 + \frac{P(B|A)}{P(B|\neg A)} \times \frac{P(A)}{P(\neg A)}} $$
 
