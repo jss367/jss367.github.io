@@ -206,6 +206,8 @@ $$ \( \frac{P(B|A)}{P(B|\neg A)} \): the **Bayes factor** (how strongly the evid
 
 $$ \frac{P(A)}{P(\neg A)}: \text{ the prior odds.} $$
 
+$\frac{P(A)}{P(\neg A)}$: the **prior odds**.
+
 
 # MathJax Test
 
