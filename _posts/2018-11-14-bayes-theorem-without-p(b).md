@@ -15,10 +15,6 @@ Bayes' Theorem relates the conditional and marginal probabilities of random even
 
 $$ P(A|B) = \frac{P(B|A) \times P(A)}{P(B)} $$
 
-Bayes factor
-
-$$ \frac{P(B|A)}{P(B|\neg A)} $$
-
 Where:
 
 $$ P(A∣B) $$ is the probability of event A occurring given that B is true.
@@ -76,11 +72,6 @@ $$
 P(\neg A|B) = \frac{P(B|\neg A)P(\neg A)}{P(B|A)P(A) + P(B|\neg A)P(\neg A)}
 $$
 
-
-Bayes factor
-
-$$ \frac{P(B|A)}{P(B|\neg A)} $$
-
 Now form the ratio:
 
 $$
@@ -105,30 +96,17 @@ $$
 
 Notice the ratios that appear:
 
-Bayes factor
+- The prior odds:
 
-$$ \frac{P(B|A)}{P(B|\neg A)} $$
-
-- The prior odds: $$ \frac{P(A)}{P(\neg A)} $$
-
-Bayes factor
-
-$$ \frac{P(B|A)}{P(B|\neg A)} $$
-
+$$ \frac{P(A)}{P(\neg A)} $$
 
 - The Bayes factor (how strongly the evidence favors A over ¬A):
 
 $$ \frac{P(B|A)}{P(B|\neg A)} $$
 
-- The posterior odds: $$\dfrac{P(A \mid B)}{P(\neg A \mid B)}$$
+- The posterior odds:
 
-Bayes factor
-
-$$ \frac{P(B|A)}{P(B|\neg A)} $$
-
-The Bayes factor (how strongly the evidence favors A over ¬A): $$ \frac{P(B|A)}{P(B|\neg A)} $$
-
-The Bayes factor: $$ \frac{P(B|A)}{P(B|\neg A)} $$
+$$\dfrac{P(A \mid B)}{P(\neg A \mid B)}$$
 
 So now, we can translate this to words:
 
@@ -143,5 +121,3 @@ This form is elegant because:
 - It’s easier to see the “weight of evidence” — a Bayes factor greater than 1 shifts belief toward A, while less than 1 shifts it away.
 
 For practical Bayesian reasoning, especially when evidence comes in sequentially, thinking in terms of odds and Bayes factors often feels much more natural.
-
-
