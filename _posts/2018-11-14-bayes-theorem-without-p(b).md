@@ -75,11 +75,9 @@ $$ P(A|B) = \frac{\frac{P(B|A)}{P(B|\neg A)} \times \frac{P(A)}{P(\neg A)}}{1 + 
 
 Notice two ratios appear:
 
-- $$ \( \frac{P(A)}{P(\neg A)} \): the **prior odds**. $$
-- $$ \( \frac{P(B|A)}{P(B|\neg A)} \): the **Bayes factor** (how strongly the evidence favors A over ¬A). $$
-
-$$ \( \frac{P(A)}{P(\neg A)} \): the **prior odds**. $$
-$$ \( \frac{P(B|A)}{P(B|\neg A)} \): the **Bayes factor** (how strongly the evidence favors A over ¬A). $$
+- $$ \frac{P(A)}{P(\neg A)}: \text{ the prior odds.} $$
+- $$ \( \frac{P(B|A)}{P(B|\neg A)} \): \text{the **Bayes factor** (how strongly the evidence favors A over ¬A).} $$
+- $$ \frac{P(B|A)}{P(B|\neg A)}: the **Bayes factor** (how strongly the evidence favors A over ¬A). $$
 
 
 ## Posterior Odds = Prior Odds × Bayes Factor
