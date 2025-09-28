@@ -58,6 +58,10 @@ By decomposing P(B) using the law of total probability, we can still harness the
 
 Another powerful way to express Bayes’ Theorem is in terms of **odds** instead of raw probabilities. Odds are just another way of describing how likely something is compared to its alternative. If the probability of an event is \( p \), then the odds are:
 
+Another powerful way to express Bayes’ Theorem is in terms of **odds** instead of raw probabilities. Odds are just another way of describing how likely something is compared to its alternative. If the probability of an event is $p$, then the odds are:
+
+Another powerful way to express Bayes’ Theorem is in terms of **odds** instead of raw probabilities. Odds are just another way of describing how likely something is compared to its alternative. If the probability of an event is $$p$$, then the odds are:
+
 $$ \text{odds}(A) = \frac{p}{1 - p} $$
 
 So if \( P(A) = 0.2 \), the odds are \( 0.2 / 0.8 = 0.25 \), which you can read as “one to four against.”
