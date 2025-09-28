@@ -70,6 +70,12 @@ Divide numerator and denominator by $$P(B \mid \neg A) P(\neg A)$$. That gives:
 
 $$ P(A|B) = \frac{\frac{P(B|A)}{P(B|\neg A)} \times \frac{P(A)}{P(\neg A)}}{1 + \frac{P(B|A)}{P(B|\neg A)} \times \frac{P(A)}{P(\neg A)}} $$
 
+Factor the ratio:
+
+$$
+P(A|B) = \frac{\frac{P(B|A)}{P(B|\neg A)} \times \frac{P(A)}{P(\neg A)}}{1 + \frac{P(B|A)}{P(B|\neg A)} \times \frac{P(A)}{P(\neg A)}}
+$$
+
 Notice two ratios appear:
 
 - $$ \frac{P(A)}{P(\neg A)}: \text{ the prior odds.} $$
