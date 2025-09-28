@@ -108,6 +108,9 @@ The Bayes factor: $$ \frac{P(B|A)}{P(B|\neg A)} $$
 
 Test: $$ \frac{P(A)}{P(\neg A)} $$
 
+Test2: $$ P(A|B) = \frac{P(B|A) \times P(A)}{P(B)} $$
+Test2: $$ P(A|B) = \frac{P(B|A) \times P(A)}{P(B|\neg A)} $$
+
 So now, we can translate this to words:
 
 $$ \text{Posterior odds} = \text{Prior odds} \times \text{Bayes factor} $$
