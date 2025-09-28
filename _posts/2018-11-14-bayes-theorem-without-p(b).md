@@ -65,11 +65,11 @@ So if \( P(A) = 0.2 \), the odds are \( 0.2 / 0.8 = 0.25 \), which you can read 
 Start with Bayes’ Theorem for both $$A$$ and $$\neg A$$:
 
 $$
-P(A|B) = \frac{P(B|A)P(A)}{P(B|A)P(A) + P(B|\neg A)P(\neg A)},
+P(A|B) = \frac{P(B|A)P(A)}{P(B|A)P(A) + P(B|\neg A)P(\neg A)}
 $$
 
 $$
-P(\neg A|B) = \frac{P(B|\neg A)P(\neg A)}{P(B|A)P(A) + P(B|\neg A)P(\neg A)}.
+P(\neg A|B) = \frac{P(B|\neg A)P(\neg A)}{P(B|A)P(A) + P(B|\neg A)P(\neg A)}
 $$
 
 Now form the ratio:
@@ -94,23 +94,15 @@ $$
 \frac{P(A)}{P(\neg A)} \times \frac{P(B|A)}{P(B|\neg A)}.
 $$
 
-Or in words:
+Notice the ratios that appear:
+
+- The prior odds: $$ \frac{P(A)}{P(\neg A)} $$
+- The Bayes factor (how strongly the evidence favors A over ¬A): $$ \frac{P(B|A)}{P(B|\neg A)} $$
+- The posterior odds: $$\dfrac{P(A \mid B)}{P(\neg A \mid B)}$$
+
+So now, we can translate this to words:
 
 $$ \text{Posterior odds} = \text{Prior odds} \times \text{Bayes factor} $$
-
-
-
-Notice two ratios appear:
-
-- $$ \frac{P(A)}{P(\neg A)}: \text{ the prior odds.} $$
-- $$ \frac{P(B|A)}{P(B|\neg A)}: \text{the Bayes factor (how strongly the evidence favors A over ¬A)}. $$
-
-Define posterior odds as $$\dfrac{P(A \mid B)}{P(\neg A \mid B)}$$
-
-
-## Posterior Odds = Prior Odds × Bayes Factor
-
-
 
 ## Why This Matters
 
@@ -122,22 +114,4 @@ This form is elegant because:
 
 For practical Bayesian reasoning, especially when evidence comes in sequentially, thinking in terms of odds and Bayes factors often feels much more natural.
 
-# Full
-
-## Posterior Odds = Prior Odds × Bayes Factor
-
-Define posterior odds as
-
-$$
-\frac{P(A \mid B)}{P(\neg A \mid B)}.
-$$
-
-
----
-
-Or in words:
-
-$$
-\text{Posterior odds} = \text{Prior odds} \times \text{Bayes factor}.
-$$
 
