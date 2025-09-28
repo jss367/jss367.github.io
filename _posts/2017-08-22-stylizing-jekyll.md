@@ -186,10 +186,7 @@ You simply need to put `$$` around your equations. The theme I use relies on [Ka
 
 # More Math
 
-Starting from Bayes’ Theorem:
-
-$$ P(A|B) = \frac{P(B|A) \times P(A)}{P(B|A)P(A) + P(B|\neg A)P(\neg A)} $$
-
+You can do complex formulas like this:
 
 $$ P(A|B) = \frac{\frac{P(B|A)}{P(B|\neg A)} \times \frac{P(A)}{P(\neg A)}}{1 + \frac{P(B|A)}{P(B|\neg A)} \times \frac{P(A)}{P(\neg A)}} $$
 
