@@ -15,7 +15,6 @@ Bayes' Theorem relates the conditional and marginal probabilities of random even
 
 $$ P(A|B) = \frac{P(B|A) \times P(A)}{P(B)} $$
 
-
 Where:
 
 $$ P(A∣B) $$ is the probability of event A occurring given that B is true.
@@ -40,7 +39,6 @@ $$ \frac{P(B|A)}{P(B)} $$
 
 is the ratio of the probability that I would see some evidence given A over the probability of seeing that evidence in general.
 
-
 ## Missing P(B)
 
 Often, the direct probability of evidence B, P(B), is unknown or difficult to determine. Fortunately, you can break down P(B) using the law of total probability. This law states that the probability of an event can be expressed as the sum of the probabilities of the event occurring in conjunction with mutually exclusive and exhaustive events. This includes the probability of B happening when A is true and when A is not true.
@@ -53,12 +51,7 @@ $$P(A|B) = \frac{P(B|A)P(A)}{P(B)}= \frac{P(B|A)P(A)}{P(B|A)P(A) + P(B|\neg A)P(
 
 By decomposing P(B) using the law of total probability, we can still harness the power of Bayesian inference to update our beliefs in light of new information.
 
-
 ## Odds Form of Bayes' Theorem
-
-Another powerful way to express Bayes’ Theorem is in terms of **odds** instead of raw probabilities. Odds are just another way of describing how likely something is compared to its alternative. If the probability of an event is \( p \), then the odds are:
-
-Another powerful way to express Bayes’ Theorem is in terms of **odds** instead of raw probabilities. Odds are just another way of describing how likely something is compared to its alternative. If the probability of an event is $p$, then the odds are:
 
 Another powerful way to express Bayes’ Theorem is in terms of **odds** instead of raw probabilities. Odds are just another way of describing how likely something is compared to its alternative. If the probability of an event is $$p$$, then the odds are:
 
