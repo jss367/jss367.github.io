@@ -98,7 +98,15 @@ Notice the ratios that appear:
 
 - The prior odds: $$ \frac{P(A)}{P(\neg A)} $$
 - The Bayes factor (how strongly the evidence favors A over ¬A): $$ \frac{P(B|A)}{P(B|\neg A)} $$
+- The Bayes factor (how strongly the evidence favors A over ¬A): $$ \frac{P(B|A)}{P(B|\neg A)} $$
 - The posterior odds: $$\dfrac{P(A \mid B)}{P(\neg A \mid B)}$$
+
+
+The Bayes factor (how strongly the evidence favors A over ¬A): $$ \frac{P(B|A)}{P(B|\neg A)} $$
+
+The Bayes factor: $$ \frac{P(B|A)}{P(B|\neg A)} $$
+
+Test: $$ \frac{P(A)}{P(\neg A)} $$
 
 So now, we can translate this to words:
 
