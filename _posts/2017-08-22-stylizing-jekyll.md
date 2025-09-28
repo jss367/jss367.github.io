@@ -204,6 +204,20 @@ $$ \frac{P(B|A)}{P(B|\neg A)} $$
   
 - The Bayes factor (how strongly the evidence favors A over ¬A): $$ \frac{P(B|A)}{P(B|\neg A)} $$
 
+Another example:
+
+Bayes factor
+
+$$ \frac{P(B|A)}{P(B|\neg A)} $$
+
+- The prior odds: $$ \frac{P(A)}{P(\neg A)} $$
+
+Bayes factor
+
+$$ \frac{P(B|A)}{P(B|\neg A)} $$
+
+
+
 # MathJax Test
 
 Inline math: \( P(A|B) = \frac{P(B|A)P(A)}{P(B)} \)
