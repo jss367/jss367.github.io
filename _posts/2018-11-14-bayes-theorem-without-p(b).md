@@ -11,7 +11,7 @@ Bayes' Theorem is a fundamental concept in probability theory and statistics, of
 
 ## Background
 
-Bayes' Theorem relates the conditional and marginal probabilities of random events. It's mathematically expressed as:
+Bayes' Theorem relates the conditional and marginal ities of random events. It's mathematically expressed as:
 
 $$ P(A|B) = \frac{P(B|A) \times P(A)}{P(B)} $$
 
@@ -53,7 +53,7 @@ By decomposing P(B) using the law of total probability, we can still harness the
 
 ## Odds Form of Bayes' Theorem
 
-Another powerful way to express Bayes’ Theorem is in terms of **odds** instead of raw probabilities. Odds are just another way of describing how likely something is compared to its alternative. If the probability of an event is $$p$$, then the odds are:
+Another powerful way to express Bayes’ Theorem is in terms of **odds** instead of raw probabilities. Odds are just another way of describing how likely something is compared to its alternative. If the probability of an event is $$p=P(A)$$, then the odds are:
 
 $$ \text{odds}(A) = \frac{p}{1 - p} $$
 
