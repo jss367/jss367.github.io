@@ -76,6 +76,11 @@ $$
 P(\neg A|B) = \frac{P(B|\neg A)P(\neg A)}{P(B|A)P(A) + P(B|\neg A)P(\neg A)}
 $$
 
+
+Bayes factor
+
+$$ \frac{P(B|A)}{P(B|\neg A)} $$
+
 Now form the ratio:
 
 $$
@@ -98,13 +103,29 @@ $$
 \frac{P(A)}{P(\neg A)} \times \frac{P(B|A)}{P(B|\neg A)}.
 $$
 
+Bayes factor
+
+$$ \frac{P(B|A)}{P(B|\neg A)} $$
+
 Notice the ratios that appear:
 
+Bayes factor
+
+$$ \frac{P(B|A)}{P(B|\neg A)} $$
+
 - The prior odds: $$ \frac{P(A)}{P(\neg A)} $$
+
+Bayes factor
+
+$$ \frac{P(B|A)}{P(B|\neg A)} $$
+
 - The Bayes factor (how strongly the evidence favors A over ¬A): $$ \frac{P(B|A)}{P(B|\neg A)} $$
 - The Bayes factor (how strongly the evidence favors A over ¬A): $$ \frac{P(B|A)}{P(B|\neg A)} $$
 - The posterior odds: $$\dfrac{P(A \mid B)}{P(\neg A \mid B)}$$
 
+Bayes factor
+
+$$ \frac{P(B|A)}{P(B|\neg A)} $$
 
 The Bayes factor (how strongly the evidence favors A over ¬A): $$ \frac{P(B|A)}{P(B|\neg A)} $$
 
