@@ -103,3 +103,53 @@ This form is elegant because:
 
 For practical Bayesian reasoning, especially when evidence comes in sequentially, thinking in terms of odds and Bayes factors often feels much more natural.
 
+# Full
+
+## Posterior Odds = Prior Odds × Bayes Factor
+
+Define posterior odds as
+
+$$
+\frac{P(A \mid B)}{P(\neg A \mid B)}.
+$$
+
+Start with Bayes’ Theorem for both \(A\) and \(\neg A\):
+
+$$
+P(A|B) = \frac{P(B|A)P(A)}{P(B|A)P(A) + P(B|\neg A)P(\neg A)},
+$$
+
+$$
+P(\neg A|B) = \frac{P(B|\neg A)P(\neg A)}{P(B|A)P(A) + P(B|\neg A)P(\neg A)}.
+$$
+
+Now form the ratio:
+
+$$
+\frac{P(A|B)}{P(\neg A|B)} =
+\frac{\tfrac{P(B|A)P(A)}{P(B|A)P(A) + P(B|\neg A)P(\neg A)}}
+     {\tfrac{P(B|\neg A)P(\neg A)}{P(B|A)P(A) + P(B|\neg A)P(\neg A)}}.
+$$
+
+The denominators cancel, leaving:
+
+$$
+\frac{P(A|B)}{P(\neg A|B)} =
+\frac{P(B|A)P(A)}{P(B|\neg A)P(\neg A)}.
+$$
+
+Finally, separate into two ratios:
+
+$$
+\frac{P(A|B)}{P(\neg A|B)} =
+\frac{P(A)}{P(\neg A)} \times \frac{P(B|A)}{P(B|\neg A)}.
+$$
+
+---
+
+Or in words:
+
+$$
+\text{Posterior odds} = \text{Prior odds} \times \text{Bayes factor}.
+$$
+
