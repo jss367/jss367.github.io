@@ -83,7 +83,7 @@ Notice two ratios appear:
 
 Define posterior odds as \( \dfrac{P(A|B)}{P(\neg A|B)} \). With a little algebra:
 
-Define posterior odds as $$ frac{P(A|B)}{P(\neg A|B)} $$ . With a little algebra:
+Define posterior odds as $$ \frac{P(A|B)}{P(\neg A|B)} $$ . With a little algebra:
 
 
 $$ \text{Posterior odds} = \text{Prior odds} \times \text{Bayes factor} $$
