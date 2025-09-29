@@ -452,6 +452,9 @@ You'll have to go into preferences to change the way to scroll left and right.
 
 # Evaluating
 
+[AltTab](https://alt-tab-macos.netlify.app/) vs [Contexts  3](https://contexts.co/)
+* Better tab control in MacOS
+
 [Belarc Advisor](https://www.belarc.com/products_belarc_advisor)
 * Similar to Speccy
 
@@ -488,8 +491,6 @@ Some applications were either neck-and-neck with other ones, or I use very infre
 [Wox](https://github.com/Wox-launcher/Wox) (Windows, FOSS)
 * Like Alfred for Windows
 * Default is Alt + Spacebar, which is a little different on the keyboard than Alfred.
-
-
 
 [HyperSwitch](https://bahoom.com/hyperswitch)
 
