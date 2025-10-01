@@ -1,3 +1,11 @@
+---
+layout: post
+title: "How to Use CloudWatch"
+feature-img: "assets/img/rainbow.jpg"
+thumbnail: "assets/img/clouds.jpg"
+tags: [AWS]
+---
+
 This post provides a quick guide on the basics of how to work with [Amazon CloudWatch](https://aws.amazon.com/cloudwatch/getting-started/) and, in particular, CloudWatch Logs Insights. This is what lets you run SQL-like queries over your logs.
 
 You can open CloudWatch from the AWS console. The opening screen has lots of stuff on it, but we're going to ignore that and look at the menu on the left. You'll see "Log groups" under "Logs". Click on that.
