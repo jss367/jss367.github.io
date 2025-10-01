@@ -1,12 +1,10 @@
+This post provides a quick guide on the basics of how to work with Amazon CloudWatch.
 
-
-You can open CloudWatch from the AWS console. The opening screen has lots of stuff on it but we're going to ignore that and look at the menu on the left. You'll see "Log groups" under "Logs". Click on that.
+You can open CloudWatch from the AWS console. The opening screen has lots of stuff on it, but we're going to ignore that and look at the menu on the left. You'll see "Log groups" under "Logs". Click on that.
 
 Select the right log group. If it's a Lambda function, it should look something like `/aws/lambda/my-function`. Click on that.
 
-That should open a page which has a lot going on but is not how I prefer to look at logs. On the right, you'll see "View in Logs Insights". Click on that.
-
-
+That should open a page that has a lot going on, but is not how I prefer to look at logs. On the right, you'll see "View in Logs Insights". Click on that.
 
 Here, you can search using CloudWatch Logs Insights query language (Log Insights QL). It looks like this:
 
@@ -22,7 +20,7 @@ You can filter on various fields, but you should be aware that there's ANOTHER f
 
 If you want to go way back in time, click on "Custom" and select your date. Otherwise, searching just using the filter command for dates won't work.
 
-Let's say within your message you have a fields called `msg_text` and `s3_key`. You can search for text within them like so:
+Let's say within your message you have fields called `msg_text` and `s3_key`. You can search for text within them like so:
 
 ```
 fields @timestamp, @message, @logStream
@@ -32,4 +30,3 @@ fields @timestamp, @message, @logStream
 | sort @timestamp desc
 | limit 100
 ```
-
