@@ -17,10 +17,14 @@ fields @timestamp, @message, @logStream, @log
 ```
 
 You can filter on various fields, but you should be aware that there's ANOTHER filter for the date. On the top right of the screen, you'll see this:
-
+obsidian://open?vault=vt&file=Pasted%20image%2020251001112033.png
 ![[Pasted image 20251001112033.png]]
 
 Pasted image 20251001112033.png
+
+<img width="707" height="54" alt="image" src="https://github.com/user-attachments/assets/35abc9ee-1989-43d1-83d5-51d174da8287" />
+
+
 
 If you want to go way back in time, click on "Custom" and select your date. Otherwise, searching just using the filter command for dates won't work.
 
