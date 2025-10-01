@@ -1,0 +1,38 @@
+
+
+You can open CloudWatch from the AWS console. The opening screen has lots of stuff on it but we're going to ignore that and look at the menu on the left. You'll see "Log groups" under "Logs". Click on that.
+
+Select the right log group. If it's a Lambda function, it should look something like `/aws/lambda/my-function`. Click on that.
+
+That should open a page which has a lot going on but is not how I prefer to look at logs. On the right, you'll see "View in Logs Insights". Click on that.
+
+
+
+Here, you can search using CloudWatch Logs Insights query language (Log Insights QL). It looks like this:
+
+```
+fields @timestamp, @message, @logStream, @log
+| sort @timestamp desc
+| limit 10000
+```
+
+You can filter on various fields, but you should be aware that there's ANOTHER filter for the date. On the top right of the screen, you'll see this:
+
+![[Pasted image 20251001112033.png]]
+
+Pasted image 20251001112033.png
+
+If you want to go way back in time, click on "Custom" and select your date. Otherwise, searching just using the filter command for dates won't work.
+
+
+Let's say within your message you have a fields called `msg_text` and `s3_key`. You can search for text within them like so:
+
+```
+fields @timestamp, @message, @logStream
+| parse @message '"msg_text": "*"' as msg_text 
+| parse @message '"s3_key": "*"' as s3_key 
+| filter msg_text = "Can you find this in the logs?" and s3_key = "path/to/my/file.ext"
+| sort @timestamp desc
+| limit 100
+```
+
