@@ -311,7 +311,7 @@ I usually sync with my Microsoft account, because I have different GitHub accoun
 
 ### Snippets
 
-I recommend using keyboard snippets. Here are some useful ones that I use:
+I recommend using keyboard snippets. I usually make a global file called `snippets`. Here are some useful ones that I use:
 ```json
 {
     "Import Matplotlib": {
