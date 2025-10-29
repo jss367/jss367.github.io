@@ -16,4 +16,7 @@ metabase.companyinternal.com. 60	IN	A	10.0.1.11
 metabase.companyinternal.com. 60	IN	A	10.0.2.22
 metabase.companyinternal.com. 60	IN	A	10.0.3.33
 
+You can also use `nslookup`, but `dig` provides more information. It's generally been replaced by `dig`.
 
+
+Your Python uses a different resolver.
