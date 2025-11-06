@@ -36,6 +36,8 @@ $$ \varepsilon_t $$
 
 Now, let's look in more detail.
 
+$$ \Delta S_t =
+r_{\mathrm{seg}(t) S_{t-1} \left(1 - \frac{S_{t-1}}{K}\right)}} + \underbrace{\gamma_{\mathrm{pulse}}\, \mathrm{pulse}_t}_{\text{one-month shock}} + \underbrace{\gamma_{\mathrm{step}}\, \mathrm{step}_t}_{\text{persistent additive drift}} + \gamma_{\mathrm{exog}} x_t $$
 
 
 $$ \Delta S_t =
