@@ -30,6 +30,7 @@ K - carrying capacity
 
 γ_exog - ad effectiveness
 * This is the key term when deciding how much impact an ad has. If you're trying to estimate the impact of future ads, this term is key.
+* x_t represents the amount of advertising input at time 
 
 γpulse - pulse effect
 
