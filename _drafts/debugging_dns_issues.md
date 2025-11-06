@@ -56,7 +56,7 @@ Name:	metabase.companyinternal.com
 Address: 10.0.3.33
 ```
 
-You should be able to connect to them: `nc -vz 10.0.1.135 443`
+You should be able to connect to them: `nc -vz 10.0.1.11 443`
 
 
 The short-term fix is to edit `/etc/hosts` to include that.
