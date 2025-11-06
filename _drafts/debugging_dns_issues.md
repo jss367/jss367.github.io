@@ -22,3 +22,15 @@ You can also use `nslookup`, but `dig` provides more information. It's generally
 
 
 Your Python uses a different resolver.
+
+What's going on is a split DNS mismatch.
+
+You have two different resolvers:
+
+nslookup and system resolver.  (what curl/Python use) cannot resolve it at all.
+
+
+On macOS, nslookup and the system resolver can consult different resolver “scopes.” Your VPN is likely pushing a private DNS server, but the system isn’t using it for companyinternal.com.
+
+
+
