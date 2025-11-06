@@ -28,7 +28,8 @@ r - growth rate
 
 K - carrying capacity
 
-g(at) - ad effect
+γ_exog - ad effectiveness
+* This is the key term when deciding how much impact an ad has. If you're trying to estimate the impact of future ads, this term is key.
 
 γpulse - pulse effect
 
