@@ -32,6 +32,8 @@ $$ \Delta S_t = r \cdot S_{t-1}\left(1 - \frac{S_{t-1}}{K}\right) + g(a_t) + \ga
 
 $$ \Delta S_t = \varepsilon_t $$
 
+$$ \varepsilon_t $$
+
 Now, let's look in more detail.
 
 
