@@ -27,3 +27,29 @@ g(at) - ad effect
 $$ \varepsilon_t $$ - error
 
 $ \varepsilon_t $ - error
+
+$$ \Delta S_t = r \cdot S_{t-1}\left(1 - \frac{S_{t-1}}{K}\right) + g(a_t) + \gamma \cdot \text{pulse}_t + \varepsilon_t $$
+
+
+Now, let's look in more detail.
+
+
+
+\[
+\Delta S_t =
+\underbrace{r_{\mathrm{seg}(t)} S_{t-1} \left(1 - \frac{S_{t-1}}{K}\right)}_{\text{endogenous/logistic growth (segment r)}}
++ \underbrace{\gamma_{\mathrm{pulse}}\, \mathrm{pulse}_t}_{\text{one-month shock}}
++ \underbrace{\gamma_{\mathrm{step}}\, \mathrm{step}_t}_{\text{persistent additive drift}}
++ \gamma_{\mathrm{exog}} x_t
+
+\]
+
+
+
+
+If I were building a modeler, I would think of doing it in two phases:
+1. raw data -> function parameters
+2. function parameters -> projections
+
+
+
