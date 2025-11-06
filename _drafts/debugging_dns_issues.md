@@ -34,3 +34,32 @@ On macOS, nslookup and the system resolver can consult different resolver “sco
 
 
 
+The next step would be to run `scutil --dns`. After you run it, if you do not see a resolver mentioning `companyinternal.com`, the system resolver has no idea that queries for that domain must go to your VPN DNS. That explains why curl/Python fail while nslookup happens to hit the right server.
+
+Here's how to solve that:
+
+Identify the VPN DNS server nslookup is using: `nslookup metabase.companyinternal.com`
+
+It might look like this:
+```
+nslookup metabase.companyinternal.com                                                                                               base
+
+Server:		1.1.1.1
+Address:	1.1.1.1#53
+
+Non-authoritative answer:
+Name:	metabase.companyinternal.com
+Address: 10.0.1.11
+Name:	metabase.companyinternal.com
+Address: 10.0.2.22
+Name:	metabase.companyinternal.com
+Address: 10.0.3.33
+```
+
+You should be able to connect to them: `nc -vz 10.0.1.135 443`
+
+
+The short-term fix is to edit `/etc/hosts` to include that.
+
+
+
