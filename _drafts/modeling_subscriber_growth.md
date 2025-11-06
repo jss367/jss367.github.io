@@ -20,6 +20,8 @@ $$
 
 $$ \Delta S_t = \underbrace{r_{\text{seg}(t)} S_{t-1} \left(1 - \frac{S_{t-1}}{K}\right)}_{\text{endogenous logistic growth}} + \underbrace{\gamma_{\text{pulse}} \text{pulse}_t}_{\text{temporary shock}} + \underbrace{\gamma_{\text{step}} \text{step}_t}_{\text{persistent level shift}} + \underbrace{\gamma_{\text{exog}} x_t}_{\text{external regressor effect}} + \underbrace{\varepsilon_t}_{\text{random noise/residual}} $$
 
+$$ \Delta S_t =
+\underbrace{r_{\text{seg}(t)} S_{t-1} \left(1 - \frac{S_{t-1}}{K}\right)}_{\text{endogenous logistic growth}} + \underbrace{\gamma_{\text{pulse}}\, \text{pulse}_t}_{\text{temporary shock}} + \underbrace{\gamma_{\text{step}}\, \text{step}_t}_{\text{persistent level shift}} + \underbrace{\gamma_{\text{exog}}\, x_t}_{\text{external regressor effect}} + \underbrace{\gamma_{\text{intercept}}}_{\text{baseline organic adds}} + \underbrace{\varepsilon_t}_{\text{random noise/residual}} $$
 
 
 
