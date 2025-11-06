@@ -18,6 +18,8 @@ $$ \Delta S_t = r_{\mathrm{seg}(t)} S_{t-1} \left(1 - \frac{S_{t-1}}{K}\right) +
 $$ \Delta S_t = \underbrace{r_{\text{seg}(t)} S_{t-1} \left(1 - \frac{S_{t-1}}{K}\right)}_{\text{endogenous logistic growth}} + \underbrace{\gamma_{\text{pulse}} \text{pulse}_t}_{\text{temporary shock}} + \underbrace{\gamma_{\text{step}} \text{step}_t}_{\text{persistent level shift}} + \underbrace{\gamma_{\text{exog}} x_t}_{\text{external regressor effect}} + \underbrace{\varepsilon_t}_{\text{random noise/residual}} $$
 
 
+
+
 St - subscribers at time t
 
 S\_{t-1} - subscribers at time t-1
@@ -64,10 +66,16 @@ OK, before we end phase 1, let's look at what we've done. We've input raw variab
 
 * Breakpoint locations
 
-*    "gamma_pulse": 0.0,
-    "gamma_step": 0.0,
-    "gamma_exog": 0.0,
-    "gamma_intercept": 2.9755717864151956
+### Sample values:
+
+#### Segment growth rate
+
+| r | Approx. doubling time* | Growth label | What it looks like |
+|---|---|---|---|
+| 0.03 – 0.07 | 10–25 mo | Slow burn | Steady organic word-of-mouth only |
+| 0.10 – 0.20 | 4–7 mo | Healthy growth | Active content + occasional shout-outs |
+| 0.25 – 0.40 | 2–3 mo | Fast / breakout | Frequent mentions, algorithmic boosts |
+| > 0.5 | < 2 mo | Hyper-growth | Major virality or large paid push |
 
 ## Starting Phase 2
 
