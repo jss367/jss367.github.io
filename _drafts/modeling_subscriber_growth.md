@@ -51,7 +51,16 @@ If I were building a modeler, I would think of doing it in two phases:
 
 OK, before we end phase 1, let's look at what we've done. We've input raw variables and come up with parameters for our equation. Here are all the parameters we should have:
 
+* Carrying capacity
 
+* Growth rates for each segment
+
+* Breakpoint locations
+
+*    "gamma_pulse": 0.0,
+    "gamma_step": 0.0,
+    "gamma_exog": 0.0,
+    "gamma_intercept": 2.9755717864151956
 
 ## Starting Phase 2
 
