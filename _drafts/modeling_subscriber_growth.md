@@ -77,6 +77,31 @@ OK, before we end phase 1, let's look at what we've done. We've input raw variab
 | 0.25 – 0.40 | 2–3 mo | Fast / breakout | Frequent mentions, algorithmic boosts |
 | > 0.5 | < 2 mo | Hyper-growth | Major virality or large paid push |
 
+
+#### Exogenous γ-parameters
+
+These are multipliers for events or external variables.
+
+| Parameter | Role | Typical Scale (Δ Subscribers per event) | Notes |
+|---|---|---|---|
+| γₚᵤₗₛₑ | Temporary one-month bump | 100 – 5,000 | Spikes from a shout-out or ad; effect fades next month |
+| γₛₜₑₚ | Permanent level shift | 50 – 2,000 | New baseline after paywall change, rebrand, or cross-promotion |
+| γₑₓₒg | Slope for numeric regressor xₜ | depends on scaling | e.g., +5 subs per $100 ad spend |
+| γ₀ (intercept) | Constant drift term | 0 – 20 subs / month | Baseline steady inflow even with no events |
+
+If these are near zero, it means your observed dynamics are well-explained by the endogenous logistic term alone.
+
+
+#### Interpreting Overall Regimes
+
+| Pattern | Parameter signature | Typical narrative |
+|---|---|---|
+| Organic maturity | Small r, no γs | Word-of-mouth plateau |
+| Launch buzz | Large early r, γₚᵤₗₛₑ > 0 | One-off viral spike |
+| Structural boost | γₛₜₑₚ > 0 | New product line, permanent visibility |
+| Ad-driven | γₑₓₒg > 0 tied to spend | Paid campaigns controlling growth |
+| Decay phase | Later segment r → 0 | Market saturated, churn ≈ adds |
+
 ## Starting Phase 2
 
 
