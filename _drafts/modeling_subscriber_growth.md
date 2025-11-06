@@ -10,6 +10,12 @@ Let's talk about the equation
 
 $$ \Delta S_t = r \cdot S_{t-1}\left(1 - \frac{S_{t-1}}{K}\right) + g(a_t) + \gamma \cdot \text{pulse}_t + \varepsilon_t $$
 
+
+
+$$ \Delta S_t = r_{\mathrm{seg}(t)} S_{t-1} \left(1 - \frac{S_{t-1}}{K}\right) + \gamma_{\mathrm{pulse}}\, \mathrm{pulse}_t + \gamma_{\mathrm{step}}\, \mathrm{step}_t + \gamma_{\mathrm{exog}} x_t $$
+
+
+
 St - subscribers at time t
 
 S\_{t-1} - subscribers at time t-1
@@ -35,11 +41,6 @@ $$ \Delta S_t = \varepsilon_t $$
 $$ \varepsilon_t $$
 
 Now, let's look in more detail.
-
-$$ \Delta S_t = r_{\mathrm{seg}(t)} S_{t-1} \left(1 - \frac{S_{t-1}}{K}\right) + \gamma_{\mathrm{pulse}}\, \mathrm{pulse}_t + \gamma_{\mathrm{step}}\, \mathrm{step}_t + \gamma_{\mathrm{exog}} x_t $$
-
-$$ \Delta S_t =
-\underbrace{r_{\mathrm{seg}(t)} S_{t-1} \left(1 - \frac{S_{t-1}}{K}\right)}_{\text{e}} + \gamma_{\mathrm{pulse}\, \mathrm{pulse}_t}_{\text{one-month shock}} + \underbrace{\gamma_{\mathrm{step}}\, \mathrm{step}_t}_{\text{pet}} + \gamma_{\mathrm{exog}} x_t $$
 
 
 $$ \Delta S_t =
