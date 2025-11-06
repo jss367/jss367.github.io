@@ -12,9 +12,11 @@ The response will include a bunch of information. The most important part is the
 
 The IP addresses will all be within the private ranges (10.x.x.x). It might look like this:
 
-metabase.companyinternal.com. 60	IN	A	10.0.1.11
-metabase.companyinternal.com. 60	IN	A	10.0.2.22
-metabase.companyinternal.com. 60	IN	A	10.0.3.33
+| Hostname | TTL | Class | Type | IP Address |
+|----------|-----|-------|------|------------|
+| metabase.companyinternal.com. | 60 | IN | A | 10.0.1.11 |
+| metabase.companyinternal.com. | 60 | IN | A | 10.0.2.22 |
+| metabase.companyinternal.com. | 60 | IN | A | 10.0.3.33 |
 
 You can also use `nslookup`, but `dig` provides more information. It's generally been replaced by `dig`.
 
