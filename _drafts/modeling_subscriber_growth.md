@@ -3,6 +3,13 @@
 
 There are a lot of ways to do this and it depends on what your inputs are. In this post I'll show how to work with subscriber growth as it comes out of Substack, although it should work in many cases.
 
+## Goals from Phase 1:
+
+* Normalizes input data
+
+* Find equation
+  * finds breakpoints
+
 
 ## The Equation
 
@@ -63,7 +70,7 @@ If I were building a modeler, I would think of doing it in two phases:
 1. raw data -> function parameters
 2. function parameters -> projections
 
-## Endling Phase 1
+## Ending Phase 1
 
 OK, before we end phase 1, let's look at what we've done. We've input raw variables and come up with parameters for our equation. Here are all the parameters we should have:
 
