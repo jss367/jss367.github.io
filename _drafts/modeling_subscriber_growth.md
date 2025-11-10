@@ -121,4 +121,20 @@ If these are near zero, it means your observed dynamics are well-explained by th
 
 
 
+# What to Expect
+
+| Growth driver / event | Parameters most directly affected | Why it maps to those levers |
+| --- | --- | --- |
+| One-off shout-out, podcast mention, newsletter swap | Pulse term γ via `pulse_t` | These are short-lived surges in attention, modeled as transient pulses that scale with γ before decaying. |
+| Cross-promotion series with another creator (multi-email swap) | Pulse term γ; potentially baseline rate r if the partnership is ongoing | Each coordinated drop yields temporary spikes (γ·pulse_t); if the collaboration turns into a sustained referral channel, it can permanently lift the organic growth rate r. |
+| Single viral post or press hit | Pulse term γ | Viral moments cause temporary subscriber jumps captured by the pulse component rather than a structural shift in the logistic core. |
+| One-time ad campaign or sponsored placement | Ad response g(a_t): β and θ; adstock a_t via spend input; short-term effect through λ-controlled carryover | A discrete buy increases ad spend x_t, which flows into adstock a_t and the diminishing-returns transform g(a_t); the decay of that spend is governed by λ, so the immediate impact lives in these parameters rather than the baseline logistic term. |
+| Sustained ad campaign / always-on acquisition | Ad response g(a_t): β, θ; adstock memory λ | A long-running program keeps a_t elevated, so the response curve parameters (β, θ) and the carryover factor λ determine how strongly sustained spend translates into steady subscriber additions. |
+| Writing better content / improved value proposition | Baseline growth rate r; potential carrying capacity K | Higher quality increases organic referrals and retention, boosting r; a meaningfully better product can raise the eventual ceiling K by expanding the reachable audience before saturation. |
+| Publishing more frequently / consistent cadence | Baseline growth rate r | More touchpoints typically compound organic sharing and conversions, raising the intrinsic growth rate r in the logistic term. |
+| Change in paywall strategy (e.g., moving more posts free or more paid) | Carrying capacity K; possibly baseline r | Adjusting the paywall changes how many people are willing to subscribe at all (K) and how readily they convert from exposure (r). A tighter paywall can shrink the reachable base; a looser one can expand it. |
+| Rebrand / repositioning of the publication | Baseline growth rate r; carrying capacity K | A successful rebrand can refresh word-of-mouth (raising r) and open a bigger addressable audience (raising K); conversely, a misfire could reduce both. |
+| Strategic partnership or integration (e.g., bundling with another creator long-term) | Baseline growth rate r; possibly g(a_t) if partner spend is tracked as adstock | Persistent referral inflows effectively shift the organic trajectory captured by r; if you model the partner’s promotions as ongoing “spend,” they also live in g(a_t)’s parameters. |
+| Platform-level feature (Substack homepage feature, curated list inclusion) | Pulse term γ for limited-time boosts; baseline r if the feature becomes permanent | Temporary placement acts like a strong pulse; if the platform keeps you highlighted over months, it can permanently change your discovery rate, nudging r upward. |
+| Significant product improvement outside publishing (e.g., community launch, better onboarding) | Baseline growth rate r; carrying capacity K | Improved onboarding raises the share of visitors who subscribe (higher r) and may expand how many people stick around before saturation (higher K). |
 
