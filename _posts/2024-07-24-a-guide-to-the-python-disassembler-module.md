@@ -54,7 +54,7 @@ dis.dis(doubler)
                  10 RETURN_VALUE
 
 
-This code will output the disassembled bytecode of `example_function`. Let's talk about what all this means.
+This code will output the disassembled bytecode of `doubler`. Let's talk about what all this means.
 
 ### Understanding the Disassembly Output
 
