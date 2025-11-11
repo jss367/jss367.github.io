@@ -142,6 +142,20 @@ Here's a table to help understand those values:
 
 
 
+`gamma_exog` is a little hard to understand. Because the deltas are in subscribers, gamma_exog is “subscribers gained per unit of the log-transformed ad feature.” A positive value means ads are associated with higher month-to-month growth; a negative value implies the opposite.
+
+So, to figure out how impactful something is going to be, you have to find the log-transformed ad feature.
+
+Here's a guide for this value:
+
+| Magnitude band             | Subscriber impact (ad_effect_log ≈ 1)       | Scenario context                                                        | Interpretation                                                     |
+| -------------------------- | ------------------------------------------- | ----------------------------------------------------------------------- | ------------------------------------------------------------------ |
+| Very small (≈0.1 or below) | ≈0.1 subscribers gained per month           | “Ads have no effect” scenario with fitted γ_exog constrained to [−1, 1] | Effectively no detectable ad-driven lift.                          |
+| Moderate to strong (≈1–20) | Several extra subscribers per month         | “Ads really valuable” scenario expecting γ_exog between 0.05 and 20     | Meaningful ad contribution without runaway growth.                 |
+| Extremely large (≈80–120+) | Dozens to hundreds of subscribers per month | “Spiky spend” benchmark targeting γ_exog between 80 and 120             | Ads dominate growth; only observed in intentionally extreme tests. |
+
+
+
 
 # What to Expect
 
