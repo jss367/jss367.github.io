@@ -125,7 +125,11 @@ When you upload a spreadsheet, it is used to calculate the lambda and theta valu
 
 There are different ways to find lambda and theta. For example, you could do grid search and see which returns the lowest SSE.
 
-So, you get this pandas series, which is stored in features_df["ad_effect_log"]. 
+So, you get this pandas series, which is stored in features_df["ad_effect_log"].
+
+If you're testing whether your ads had any effect, you want to start by making sure you get some values in here.
+
+Then, those values can be fit into a function that fits a model to your data.
 
 
 # What to Expect
