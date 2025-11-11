@@ -119,6 +119,13 @@ If these are near zero, it means your observed dynamics are well-explained by th
 ## Starting Phase 2
 
 
+# How Ads work
+
+When you upload a spreadsheet, it is used to calculate the lambda and theta values that control the adstock recursion. Adstock is the lingering effect of advertising that continues to influence consumers after the initial ad exposure has ended. The result will be a pandas series sometimes called `exog` that contains an ad effect value for each date. That way, a big ad campaign in January can still be given credit for some of the subscriber ads that are added in February.
+
+There are different ways to find lambda and theta. For example, you could do grid search and see which returns the lowest SSE.
+
+So, you get this pandas series, which is stored in features_df["ad_effect_log"]. 
 
 
 # What to Expect
