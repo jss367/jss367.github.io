@@ -131,6 +131,17 @@ If you're testing whether your ads had any effect, you want to start by making s
 
 Then, those values can be fit into a function that fits a model to your data.
 
+Here's a table to help understand those values:
+
+| Scenario | λ range | Carryover intuition | θ range | Diminishing-returns intuition | What it usually signals |
+| --- | --- | --- | --- | --- | --- |
+| “Pulse-only” bursts | 0.0 – 0.1 | Spend decays almost immediately; next month depends only on new spend. | 100 – 250 | Log feature climbs quickly even on modest adstock, so the model will fit strong short-lived bumps if the data warrants it. | Campaigns that hit hard in the launch month (flash sales, single newsletters) and fade fast. |
+| Short-lived awareness | 0.2 – 0.4 | A noticeable fraction of last month’s spend lingers, but the signal halves within a couple of months. | 250 – 500 | The log transform still boosts moderate spend, yet allows some headroom for bigger months. | Seasonal pushes or quarterly tests where you expect two to three months of halo effect. |
+| Sustained nurture | 0.5 – 0.7 | Carryover rivals fresh spend; it takes several months for the effect to wash out. | 500 – 1000 | The feature grows more gently, implying you need sizable sustained spend to move the needle. | Always-on retargeting or drip campaigns that keep prospects warm for a while. |
+| Always-on brand | 0.8 – 0.9 | Most of last month’s value persists; adstock behaves like a smoothed cumulative spend. | 1000 – 2000 | Very slow growth of the log feature, so the model attributes impact only when the spend is both large and persistent. | Mass-awareness or brand advertising where long-term presence matters more than any single pulse. |
+
+
+
 
 # What to Expect
 
