@@ -179,4 +179,4 @@ Here's a guide for this value:
 # Simulating the future
 
 
-S_t = S_{t-1} + \gamma_{\text{int}} + r_{\text{last}} S_{t-1}(1 - S_{t-1}/K) + \gamma_{\text{exog}} x_{t-\text{lag}}^{\log},
+$$ S_t = S_{t-1} + \gamma_{\text{int}} + r_{\text{last}} S_{t-1}(1 - S_{t-1}/K) + \gamma_{\text{exog}} x_{t-\text{lag}}^{\log} $$
