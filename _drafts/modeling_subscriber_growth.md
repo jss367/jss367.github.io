@@ -175,3 +175,8 @@ Here's a guide for this value:
 | Platform-level feature (Substack homepage feature, curated list inclusion) | Pulse term γ for limited-time boosts; baseline r if the feature becomes permanent | Temporary placement acts like a strong pulse; if the platform keeps you highlighted over months, it can permanently change your discovery rate, nudging r upward. |
 | Significant product improvement outside publishing (e.g., community launch, better onboarding) | Baseline growth rate r; carrying capacity K | Improved onboarding raises the share of visitors who subscribe (higher r) and may expand how many people stick around before saturation (higher K). |
 
+
+# Simulating the future
+
+
+S_t = S_{t-1} + \gamma_{\text{int}} + r_{\text{last}} S_{t-1}(1 - S_{t-1}/K) + \gamma_{\text{exog}} x_{t-\text{lag}}^{\log},
