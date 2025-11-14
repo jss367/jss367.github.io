@@ -17,6 +17,7 @@ Let's talk about the equation
 
 $$ \Delta S_t = r \cdot S_{t-1}\left(1 - \frac{S_{t-1}}{K}\right) + g(a_t) + \gamma \cdot \text{pulse}_t + \varepsilon_t $$
 
+For our simulator, we're not going to have an error term. There will be noise in the data, but adding it to a simulator makes the tool harder to use.
 
 
 $$ \Delta S_t = r_{\mathrm{seg}(t)} S_{t-1} \left(1 - \frac{S_{t-1}}{K}\right) + \gamma_{\mathrm{pulse}}\, \mathrm{pulse}_t + \gamma_{\mathrm{step}}\, \mathrm{step}_t + \gamma_{\mathrm{exog}} x_t + \varepsilon_t $$
