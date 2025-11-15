@@ -24,7 +24,11 @@ $$ \Delta S_t = r_{\mathrm{seg}(t)} S_{t-1} \left(1 - \frac{S_{t-1}}{K}\right) +
 
 Let's explain each term.
 
-$$ \Delta S_t = \underbrace{r_{\text{seg}(t)} S_{t-1} \left(1 - \frac{S_{t-1}}{K}\right)}_{\text{endogenous logistic growth}} + \underbrace{\gamma_{\text{pulse}} \text{pulse}_t}_{\text{temporary shock}} + \underbrace{\gamma_{\text{step}} \text{step}_t}_{\text{persistent level shift}} + \underbrace{\gamma_{\text{exog}} x_t}_{\text{external regressor effect}} + \underbrace{\varepsilon_t}_{\text{random noise/residual}} $$
+$$ \Delta S_t = \underbrace{r_{\text{seg}(t)} S_{t-1} \left(1 - \frac{S_{t-1}}{K}\right)}_{\text{endogenous logistic growth}} + \underbrace{\gamma_{\text{pulse}} \text{pulse}_t}_{\text{temporary shock}} + \underbrace{\gamma_{\text{step}} \text{step}_t}_{\text{persistent level shift}} + \underbrace{\gamma_{\text{exog}} x_t}_{\text{external regressor effect}} + \underbrace{\gamma_{\mathrm{intercept}}}_{\text{intercept term}} + \underbrace{\varepsilon_t}_{\text{random noise/residual}} $$
+
+Or, in even more detail:
+
+$$\underbrace{\Delta S_t}_{\text{change in state}} = \underbrace{r_{\mathrm{seg}(t)}}_{\text{growth rate}} \underbrace{S_{t-1}}_{\text{previous state}} \underbrace{\left(1 - \frac{S_{t-1}}{K}\right)}_{\text{carrying capacity}} + \underbrace{\gamma_{\mathrm{pulse}}}_{\text{pulse coefficient}} \underbrace{\mathrm{pulse}_t}_{\text{pulse indicator}} + \underbrace{\gamma_{\mathrm{step}}}_{\text{step coefficient}} \underbrace{\mathrm{step}_t}_{\text{step indicator}} + \underbrace{\gamma_{\mathrm{exog}}}_{\text{exogenous coefficient}} \underbrace{x_t}_{\text{exogenous variable}} + \underbrace{\gamma_{\mathrm{intercept}}}_{\text{intercept term}} + \underbrace{\varepsilon_t}_{\text{error term}}$$
 
 For our simulator, we're not going to have an error term. There will be noise in the data, but adding it to a simulator makes the tool harder to use and doesn't add value, so we'll drop it. So it'll look like this:
 
