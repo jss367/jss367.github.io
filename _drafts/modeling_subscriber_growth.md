@@ -52,12 +52,6 @@ K - carrying capacity
 
 γpulse - pulse effect
 
-εt - error
-
-$$ \varepsilon_t $$ - error
-
-$ \varepsilon_t $ - error
-
 $$ \Delta S_t = r \cdot S_{t-1}\left(1 - \frac{S_{t-1}}{K}\right) + g(a_t) + \gamma \cdot \text{pulse}_t + \varepsilon_t $$
 
 $$ \Delta S_t = \varepsilon_t $$
@@ -189,6 +183,6 @@ $$ S_t = S_{t-1} + \gamma_{\text{int}} + r_{\text{last}} S_{t-1}(1 - S_{t-1}/K) 
 
 In short, it carries the fitted intercept forward and applies the log-adstock regressor (if present) but omits pulse/step shocks during the forecast horizon.
 
-
+When you build a forward forecast from a PiecewiseLogisticFit, include the final segment’s intercept 
 
 
