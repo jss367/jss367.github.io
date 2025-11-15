@@ -180,3 +180,10 @@ Here's a guide for this value:
 
 
 $$ S_t = S_{t-1} + \gamma_{\text{int}} + r_{\text{last}} S_{t-1}(1 - S_{t-1}/K) + \gamma_{\text{exog}} x_{t-\text{lag}}^{\log} $$
+
+
+In short, it carries the fitted intercept forward and applies the log-adstock regressor (if present) but omits pulse/step shocks during the forecast horizon.
+
+
+
+
