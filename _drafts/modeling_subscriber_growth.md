@@ -1,7 +1,5 @@
 
-
-
-There are a lot of ways to do this and it depends on what your inputs are. In this post I'll show how to work with subscriber growth as it comes out of Substack, although it should work in many cases.
+There are a lot of ways to do project subscriber growth and a lot of design choices. In part, it depends on what levers you control, i.e., what your inputs are. In this post, I'll show how to work with subscriber growth as it comes out of Substack, although it should work in many cases. This will be a somewhat opinionated guide that talks about one way of doing it, even though there are many reasonable options.
 
 ## Goals from Phase 1:
 
