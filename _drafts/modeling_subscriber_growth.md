@@ -25,7 +25,7 @@ $$ \Delta S_t = r \cdot S_{t-1}\left(1 - \frac{S_{t-1}}{K}\right) + g(a_t) + \ga
 For our simulator, we're not going to have an error term. There will be noise in the data, but adding it to a simulator makes the tool harder to use and doesn't add value, so we'll drop it.
 
 
-$$ \Delta S_t = r_{\mathrm{seg}(t)} S_{t-1} \left(1 - \frac{S_{t-1}}{K}\right) + \gamma_{\mathrm{pulse}}\, \mathrm{pulse}_t + \gamma_{\mathrm{step}}\, \mathrm{step}_t + \gamma_{\mathrm{exog}} x_t + \varepsilon_t $$
+$$ \Delta S_t = r_{\mathrm{seg}(t)} S_{t-1} \left(1 - \frac{S_{t-1}}{K}\right) + \gamma_{\mathrm{pulse}}\, \mathrm{pulse}_t + \gamma_{\mathrm{step}}\, \mathrm{step}_t + \gamma_{\mathrm{exog}} x_t
 
 $$
 \Delta S_t = r_{\mathrm{seg}(t)} S_{t-1} \left(1 - \frac{S_{t-1}}{K}\right) + \gamma_{\mathrm{pulse}}\, \mathrm{pulse}_t + \gamma_{\mathrm{step}}\, \mathrm{step}_t + \gamma_{\mathrm{exog}}\, x_t + \gamma_{\mathrm{intercept}} + \varepsilon_t $$
