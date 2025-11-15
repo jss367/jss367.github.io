@@ -1,17 +1,24 @@
 
 There are a lot of ways to do project subscriber growth and a lot of design choices. In part, it depends on what levers you control, i.e., what your inputs are. In this post, I'll show how to work with subscriber growth as it comes out of Substack, although it should work in many cases. This will be a somewhat opinionated guide that talks about one way of doing it, even though there are many reasonable options.
 
-## Goals from Phase 1:
+## Overall Structure
+
+We'll do this in two phases. Phase 1 will be about determining the best-fit line from historical data. Phase 2 will be about using the results from phase 2 to project future growth.
+
+### Goals for Phase 1
 
 * Normalizes input data
 
 * Find equation
   * finds breakpoints
 
+### Goals for Phase 2
+
+* Be able to answer questions like, "If I spend $1,000 on ads, how much revenue should I expect in return?"
 
 ## The Equation
 
-Let's talk about the equation
+Let's talk about the equation. This equation is the engine behind our model.
 
 $$ \Delta S_t = r \cdot S_{t-1}\left(1 - \frac{S_{t-1}}{K}\right) + g(a_t) + \gamma \cdot \text{pulse}_t + \varepsilon_t $$
 
