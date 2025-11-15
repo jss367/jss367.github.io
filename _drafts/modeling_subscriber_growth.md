@@ -20,7 +20,7 @@ We'll do this in two phases. Phase 1 will be about determining the best-fit line
 
 Let's talk about the equation. This equation is the engine behind our model.
 
-$$ \Delta S_t = r \cdot S_{t-1}\left(1 - \frac{S_{t-1}}{K}\right) + g(a_t) + \gamma \cdot \text{pulse}_t + \varepsilon_t $$
+$$ \Delta S_t = r_{\mathrm{seg}(t)} S_{t-1} \left(1 - \frac{S_{t-1}}{K}\right) + \gamma_{\mathrm{pulse}}\, \mathrm{pulse}_t + \gamma_{\mathrm{step}}\, \mathrm{step}_t + \gamma_{\mathrm{exog}}\, x_t + \gamma_{\mathrm{intercept}} + \varepsilon_t $$
 
 Let's explain each term.
 
