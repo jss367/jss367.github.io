@@ -99,6 +99,9 @@ These are multipliers for events or external variables.
 | Parameter | Role | Typical Scale (Δ Subscribers per event) | Notes |
 |---|---|---|---|
 | γₚᵤₗₛₑ | Temporary one-month bump | 100 – 5,000 | Spikes from a shout-out or ad; effect fades next month |
+| γ_pulse | Temporary one-month bump | 100 – 5,000 | Spikes from a shout-out or ad; effect fades next month |
+| v_pulse | Temporary one-month bump | 100 – 5,000 | Spikes from a shout-out or ad; effect fades next month |
+| γ_{pulse} | Temporary one-month bump | 100 – 5,000 | Spikes from a shout-out or ad; effect fades next month |
 | γₛₜₑₚ | Permanent level shift | 50 – 2,000 | New baseline after paywall change, rebrand, or cross-promotion |
 | γₑₓₒg | Slope for numeric regressor xₜ. THIS IS WHERE THE VALUE OF ADS COMES IN | depends on scaling | e.g., +5 subs per $100 ad spend |
 | γ₀ (intercept) | Constant drift term | 0 – 20 subs / month | Baseline steady inflow even with no events |
