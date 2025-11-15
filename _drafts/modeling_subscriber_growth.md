@@ -100,6 +100,7 @@ These are multipliers for events or external variables.
 |---|---|---|---|
 | γₚᵤₗₛₑ | Temporary one-month bump | 100 – 5,000 | Spikes from a shout-out or ad; effect fades next month |
 | γ_pulse | Temporary one-month bump | 100 – 5,000 | Spikes from a shout-out or ad; effect fades next month |
+| γ<sub>pulse</sub> | Temporary one-month bump | 100 – 5,000 | Spikes from a shout-out or ad; effect fades next month |
 | v_pulse | Temporary one-month bump | 100 – 5,000 | Spikes from a shout-out or ad; effect fades next month |
 | γ_{pulse} | Temporary one-month bump | 100 – 5,000 | Spikes from a shout-out or ad; effect fades next month |
 | γₛₜₑₚ | Permanent level shift | 50 – 2,000 | New baseline after paywall change, rebrand, or cross-promotion |
