@@ -13,6 +13,7 @@ You can open CloudWatch from the AWS console. The opening screen has lots of stu
 Select the right log group. If it's a Lambda function, it should look something like `/aws/lambda/my-function`. Click on that.
 
 That should open a page that has a lot going on, but this is not how I prefer to look at logs. On the right, you'll see "View in Logs Insights". Click on that.
+
 <img width="632" height="66" alt="image" src="https://github.com/user-attachments/assets/1ca65100-8f78-4215-8afe-bfee1bf22496" />
 
 Here, you can search using CloudWatch Logs Insights query language (Log Insights QL), which you can find out more about [here](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_QuerySyntax.html). It looks like this:
