@@ -44,3 +44,9 @@ fields @timestamp, @message, @logStream
 ## Cost
 
 Note that queries in Logs Insights are not free. They are billed per GB scanned. That's why it can be good to narrow time windows and log groups when possible.
+
+It tells you how big each scan was, so you can get a sense of how much cost you're racking up.
+
+<img width="546" height="56" alt="image" src="https://github.com/user-attachments/assets/56075632-33e6-42a0-9196-e9bb5215504a" />
+
+
