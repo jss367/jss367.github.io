@@ -401,7 +401,7 @@ You'll have to go into preferences to change the way to scroll left and right.
 
 [Google Earth](https://www.google.com/earth/) (Ninite)
 
-[AutoHotkey](https://www.autohotkey.com/)
+[AutoHotkey](https://www.autohotkey.com/) (Windows only)
 
 [Speccy](https://www.ccleaner.com/speccy) (Windows only)
 
