@@ -39,3 +39,12 @@ Sometimes you'll be in your SynologyDrive folder and the cloud options will go a
 You'll want to sync it with different computers. In each one, you'll need to do this.
 
 For the task name for a secondary mac, I would enter "lilmac"
+
+
+
+## Sometimes problems with synology nas and raw files (.NEF)
+
+## Other notes
+
+One good thing to do is to keep the catalog on the local computer, but push the backups to the NAS. Make a backup folder in the nas.
+
