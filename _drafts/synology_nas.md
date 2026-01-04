@@ -48,3 +48,12 @@ For the task name for a secondary mac, I would enter "lilmac"
 
 One good thing to do is to keep the catalog on the local computer, but push the backups to the NAS. Make a backup folder in the nas.
 
+
+Goal is to back up our local raw files to the nas - why not store them all permanently on the nas? - this is in addition to storing your raw files there...
+
+
+Goals
+
+1. Store all the raw files and make them accessible from anywhere
+2. Have a backup of every lightroom catalog
+
