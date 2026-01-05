@@ -57,3 +57,6 @@ Goals
 1. Store all the raw files and make them accessible from anywhere
 2. Have a backup of every lightroom catalog
 
+
+You're going to have all your raw files on the nas, not locally. The way to work with these is to create SMART previews. Not 1:1. Those don't replace smart.
+
