@@ -109,7 +109,7 @@ Tue Feb  2 15:05:43 2021
 
 ##### Windows
 
-To check your driver version on Windows you can also go to GEForce Experience and click on "Drivers".
+To check your driver version on Windows you can also go to GeForce Experience and click on "Drivers".
 
 #### CUDA version
 
@@ -151,7 +151,7 @@ You can also type this: `where cudnn*`
 
 ## Installation
 
-There are many ways to install different components, this gives some suggestions.
+There are many ways to install different components; this gives some suggestions.
 
 #### NVIDIA Driver
 
@@ -242,7 +242,7 @@ Make sure you get the version right. You can cd to `C:\Program Files\NVIDIA GPU 
 After extracting the files, here's my install path:
 `C:\Users\Julius\Downloads\cudnn-10.1-windows10-x64-v7.6.5.32`
 
-For these to work you'll probably need to run as administrator
+For these to work you'll probably need to run as an administrator
 
 Then, from your install path, you'll want to:
 
@@ -322,7 +322,7 @@ This should give you an error message that you can Google.
 
 `print("Num GPUs Available: ", len(tf.config.experimental.list_physical_devices('GPU')))`
 
-Check whether devices are availble
+Check whether devices are available
 
 ```bash
 from tensorflow.python.client import device_lib
@@ -386,7 +386,7 @@ If you do, you'll need to remove it
 
 # Old information
 
-Some things are no longer relevant to the latest version of TensorFlow, but might be helping in debugging old versions. I've move that information here.
+Some things are no longer relevant to the latest version of TensorFlow, but might be helping in debugging old versions. I've moved that information here.
 
 Although tensorflow-gpu and tensorflow is a distinction of version <= 1.15, the distinction matters quite a lot here. If you do `conda create -n tf tensorflow` it will not create a GPU version, even though it installs a 2.X version of Tensorflow. You'll need to use `conda create -n tf tensorflow-gpu` to get the GPU version.
 
