@@ -42,7 +42,7 @@ For the task name for a secondary mac, I would enter "lilmac"
 
 
 
-## Sometimes problems with synology nas and raw files (.NEF)
+## Sometimes problems with Synology NAS and raw files (.NEF)
 
 ## Other notes
 
@@ -55,8 +55,13 @@ Goal is to back up our local raw files to the nas - why not store them all perma
 Goals
 
 1. Store all the raw files and make them accessible from anywhere
-2. Have a backup of every lightroom catalog
+2. Have a backup of every Lightroom catalog
 
 
 You're going to have all your raw files on the nas, not locally. The way to work with these is to create SMART previews. Not 1:1. Those don't replace smart.
+
+
+
+If you have a mapped network drive, you'll need a VPN if you want to connect to it remotely. So make sure you have this worked out before you assume it's going to work when suddenly you connect to it from a new wifi network.
+
 
