@@ -287,6 +287,7 @@ As you can see, I'm strewn across half a dozen terminals in Windows and have fou
 * Note that this hasn't been under active development for several years, but don't let that scare you off. It's still excellent.
 
 [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
+* Automatically suggests commands as you type based on history and completions
 
 [Glances](https://nicolargo.github.io/glances/)
 * A great system monitoring tools
