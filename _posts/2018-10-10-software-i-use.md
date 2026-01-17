@@ -284,6 +284,7 @@ As you can see, I'm strewn across half a dozen terminals in Windows and have fou
 * Replaced `autojump` for me, though I think `j` is a better key to use, so I alias to it
 
 [powerlevel10k](https://github.com/romkatv/powerlevel10k)
+* Note that this hasn't been under active development for several years, but don't let that scare you off. It's still excellent.
 
 [zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions)
 
