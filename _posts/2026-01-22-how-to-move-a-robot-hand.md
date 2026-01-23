@@ -6,8 +6,6 @@ thumbnail: "assets/img/purple_martin.jpg"
 tags: [Linear algebra, Robotics]
 ---
 
-# How to Move a Robot Hand
-
 Many robot arms use 6 or 7 actuators to control where the hand ends up. This might seem like overkill for positioning a hand in 3D space, but in this post I want to dig into the math behind how robot arms work.
 
 Let's say we have 7 actuators. We know that the relationship between joint angles $\boldsymbol{\theta} \in \mathbb{R}^7$ and hand position $\mathbf{p} \in \mathbb{R}^3$ is given by some function:
