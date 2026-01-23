@@ -173,7 +173,7 @@ As a reminder, for a matrix A with n columns: `rank(A) + nullity(A) = n`
 
 Or in words: (dimensions of output space you actually hit) + (dimensions that get crushed to zero) = (dimensions you started with)
 
-So the nullity in this case is at least 1 (that's $3 - 2 = 1$).
+So the nullity in this case is at least 1 (that's $$3 - 2 = 1$$).
 
 We can use numpy to compute the rank and scipy to find the null space. The null space is the set of all joint movements that don't move the hand at all. If you want to think about this intuitively, think about how you can put your finger on something in front of you but still wiggle your arm without moving your finger. Those movements are in the null space.
 
@@ -265,13 +265,13 @@ Think about reaching for something on a shelf. Your hand might stay in place whi
 
 OK, let's think about how this would work with our 7-joint robot arm controlling a hand in 3D space. Now, the Jacobian is $3 \times 7$.
 
-This time, we know that the rank is at most 3 because each column is a vector in $\mathbb{R}^3$ (it has 3 entries). Again, you can never have more than 3 linearly independent vectors in $\mathbb{R}^3$.
+This time, we know that the rank is at most 3 because each column is a vector in $$\mathbb{R}^3$$ (it has 3 entries). Again, you can never have more than 3 linearly independent vectors in $$\mathbb{R}^3$$.
 
-And we use the [rank-nullity theorem](https://en.wikipedia.org/wiki/Rank%E2%80%93nullity_theorem) to show that the nullity is at least 4 (that's $7 - 3 = 4$). With a nullity of at least 4, we have at least 4 dimensions of freedom to move the joints while keeping the hand perfectly still.
+And we use the [rank-nullity theorem](https://en.wikipedia.org/wiki/Rank%E2%80%93nullity_theorem) to show that the nullity is at least 4 (that's $$7 - 3 = 4$$). With a nullity of at least 4, we have at least 4 dimensions of freedom to move the joints while keeping the hand perfectly still.
 
 **But wait—what about orientation?** In practice, robots often need to control not just *where* the hand is, but *how it's oriented* (think of a robot pouring a cup of coffee—the angle matters!). Position requires 3 DOF, and orientation requires 3 more (roll, pitch, yaw), for a total of 6 DOF. This is why 6-joint robot arms are so common—they have exactly the right number of joints to achieve any position and orientation in their workspace (with rank 6 and nullity 0).
 
-A 7-joint arm controlling position and orientation has a $6 \times 7$ Jacobian with nullity 1. That single extra degree of freedom gives you the flexibility to do things like keep your elbow away from obstacles while maintaining full control of the end effector.
+A 7-joint arm controlling position and orientation has a $$6 \times 7$$ Jacobian with nullity 1. That single extra degree of freedom gives you the flexibility to do things like keep your elbow away from obstacles while maintaining full control of the end effector.
 
 ### A Word on Singularities
 
