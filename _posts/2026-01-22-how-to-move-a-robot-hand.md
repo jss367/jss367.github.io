@@ -263,7 +263,7 @@ Think about reaching for something on a shelf. Your hand might stay in place whi
 
 ### Scaling Up
 
-OK, let's think about how this would work with our 7-joint robot arm controlling a hand in 3D space. Now, the Jacobian is $3 \times 7$.
+OK, let's think about how this would work with our 7-joint robot arm controlling a hand in 3D space. Now, the Jacobian is $$3 \times 7$$.
 
 This time, we know that the rank is at most 3 because each column is a vector in $$\mathbb{R}^3$$ (it has 3 entries). Again, you can never have more than 3 linearly independent vectors in $$\mathbb{R}^3$$.
 
