@@ -6,8 +6,6 @@ thumbnail: "assets/img/otter.jpg"
 tags: [Data Visualization, Matplotlib, Scikit-learn]
 ---
 
-# Introduction
-
 Proper evaluations are underrated in machine learning. The choice of evaluation metric can dramatically influence the perceived performance of a model. The wrong metric can cover up an error that needs to be fixed.
 
 In this post, I want to talk about two common ML metrics: Receiver Operating Characteristic (ROC) curves and Precision-Recall (PR) curves. This post aims to both demonstrate what they are, and explain why I prefer PR curves over ROC curves in most cases.
