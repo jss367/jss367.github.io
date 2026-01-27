@@ -17,3 +17,8 @@ H, J, K, L become your arrow keys
 U, I, O, P become {, }, [, and ] respectively
 W, A, S, D will move the mouse cursor
 R, F, V will act as your mouse buttons
+
+
+The Model 100’s default layout includes an embedded numpad. To access it, just tap the Num key in the upper-right corner of the keyboard.
+
+Note: The LEDS help with this. They show which part of the keyboard is the number pad.
