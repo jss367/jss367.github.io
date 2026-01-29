@@ -1,4 +1,4 @@
-the fun buttin moves to thed uooer level
+the fun button moves to the upper level
 
 There's a guide here: https://shop.keyboard.io/pages/typing-on-the-model-100
 
@@ -22,3 +22,34 @@ R, F, V will act as your mouse buttons
 The Model 100’s default layout includes an embedded numpad. To access it, just tap the Num key in the upper-right corner of the keyboard.
 
 Note: The LEDS help with this. They show which part of the keyboard is the number pad.
+
+
+## moving around the line
+
+there's no home or end buttin, so instead you use the following:
+
+### End of the line:
+
+Cmd + → → jump to end of the line
+
+Cmd + ← → jump to start of the line
+
+### End of the word
+
+* Option + → → next word
+
+* Option + ← → previous word
+
+### End of the document / page
+
+Different thing entirely:
+
+Cmd + ↓ → bottom of page
+
+Cmd + ↑ → top of page
+
+
+
+### highlighting multiple lines of text.
+
+hold shift while using the function button to move.
