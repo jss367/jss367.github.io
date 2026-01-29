@@ -53,3 +53,9 @@ Cmd + ↑ → top of page
 ### highlighting multiple lines of text.
 
 hold shift while using the function button to move.
+
+## Chrysalis
+
+I didn't find Chrysalis intuitive at first but I found a guide for it:
+
+https://github.com/keyboardio/Chrysalis/wiki/A-Tour-of-Chrysalis
