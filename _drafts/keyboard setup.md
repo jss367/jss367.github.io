@@ -59,3 +59,18 @@ hold shift while using the function button to move.
 I didn't find Chrysalis intuitive at first but I found a guide for it:
 
 https://github.com/keyboardio/Chrysalis/wiki/A-Tour-of-Chrysalis
+
+Here's an example of how to use it. Say you want to remap the butterfly key to option + space (to call Alfred, for example). First, click on the key you're remapping. Then, on the KEYBOARD tab you select space bar, then on the MODIFIERS tab you select Alt.
+<img width="1209" height="612" alt="image" src="https://github.com/user-attachments/assets/a673dfac-9190-42e8-b0ae-2bb9c8137b24" />
+
+
+<img width="1164" height="274" alt="image" src="https://github.com/user-attachments/assets/750a921f-ce29-4f9b-b9bd-f8c5c9562312" />
+
+
+
+<img width="292" height="270" alt="image" src="https://github.com/user-attachments/assets/91b5bddf-90dd-434f-a61a-0a22058a7e16" />
+
+It should look like this when you're done.
+
+<img width="281" height="364" alt="image" src="https://github.com/user-attachments/assets/4a2642a9-940c-4ee2-b308-68064b99f8e4" />
+
