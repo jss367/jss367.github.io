@@ -1,4 +1,5 @@
 
+## Use Vimium-c
 
 esc to move focus back to the window. then f to start vimium c
 
@@ -6,8 +7,17 @@ Then you can enter any of the text to click on that part. In addition:
 
 j/k to move up and down the page. shift + J/K to move tabs
 
+You'll need to disable it on some sites. For example, if you use j/k to navigate youtube videos, you'll need to disable it there.
 
-use aerospace instead?
+
+## Use AltTab
+
+
+## Use Spaceman
+
+Download the fork, not the original. It's here: https://ruittenb.github.io/Spaceman/
+
+# Notes
 
 mac setup notes:
 
@@ -28,10 +38,15 @@ aerospace reads from:
 
 
 
-The rule of thumb (commit this to memory)
+The rule of thumb
 
 Route apps that define a task → IDE, Terminal, Slack, Email
 
 Do NOT route apps that are tools used inside a task → Chrome, Preview, Finder
 
 Chrome is a tool, not a task.
+
+# Ideas not pursued?
+
+## Use aerospace
+
