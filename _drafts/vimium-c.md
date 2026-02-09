@@ -7,7 +7,7 @@ Then you can enter any of the text to click on that part. In addition:
 j/k to move up and down the page. shift + J/K to move tabs
 
 
-yabai notes - use aerospace instead?
+use aerospace instead?
 
 mac setup notes:
 
@@ -22,3 +22,16 @@ Set exactly:
 ✅ Displays have separate Spaces → ON
 
 ❌ Stage Manager → OFF
+
+aerospace reads from:
+~/.config/aerospace/aerospace.toml
+
+
+
+The rule of thumb (commit this to memory)
+
+Route apps that define a task → IDE, Terminal, Slack, Email
+
+Do NOT route apps that are tools used inside a task → Chrome, Preview, Finder
+
+Chrome is a tool, not a task.
