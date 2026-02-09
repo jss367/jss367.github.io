@@ -21,6 +21,16 @@ Make sure you only select windows from open spaces.
 
 Download the fork, not the original. It's here: https://ruittenb.github.io/Spaceman/
 
+
+# Keep it from switching windows
+
+The big thing to keep mac from automatically switching windows is to go into System Settings -> Desktop & Dock, down to Mission Control and turn off "When switching to an application, switch to a Space with open windows for the application"
+
+<img width="470" height="197" alt="image" src="https://github.com/user-attachments/assets/4c27894b-1485-4568-928b-d419f4e52fa2" />
+
+
+
+
 # Notes
 
 mac setup notes:
@@ -39,6 +49,8 @@ Set exactly:
 
 aerospace reads from:
 ~/.config/aerospace/aerospace.toml
+
+
 
 
 
