@@ -12,6 +12,10 @@ You'll need to disable it on some sites. For example, if you use j/k to navigate
 
 ## Use AltTab
 
+Make sure you only select windows from open spaces.
+
+<img width="560" height="612" alt="image" src="https://github.com/user-attachments/assets/47a66755-8b04-474b-86ea-28c7f1fcee63" />
+
 
 ## Use Spaceman
 
