@@ -28,7 +28,9 @@ The big thing to keep mac from automatically switching windows is to go into Sys
 
 <img width="470" height="197" alt="image" src="https://github.com/user-attachments/assets/4c27894b-1485-4568-928b-d419f4e52fa2" />
 
+## Apps used everywhere
 
+Some apps you'll want everywhere, like WhatsApp. To do that, right click, go into options, then assign it to "All Desktops".
 
 
 # Notes
