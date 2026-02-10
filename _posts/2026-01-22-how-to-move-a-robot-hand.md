@@ -15,7 +15,7 @@ What we need to know is, if I move this actuator a tiny bit, what happens to the
 
 $$\Delta \mathbf{p} = ? \cdot \Delta \boldsymbol{\theta}$$
 
-The answer is our old friend the Jacobian. The Jacobian is essentially the multivariable generalization of a derivative. The Jacobian $J$ is (in this case) a $3 \times 7$ matrix that tells us exactly what we're looking for: "If I wiggle each joint a little, how does the hand move?"
+The answer is our old friend the Jacobian. The Jacobian is essentially the multivariable generalization of a derivative. The Jacobian $$J$$ is (in this case) a $$3 \times 7$$ matrix that tells us exactly what we're looking for: "If I wiggle each joint a little, how does the hand move?"
 
 $$\Delta \mathbf{p} = J \cdot \Delta \boldsymbol{\theta}$$
 
