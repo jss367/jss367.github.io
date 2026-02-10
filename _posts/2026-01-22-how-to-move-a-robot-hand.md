@@ -8,7 +8,7 @@ tags: [Linear algebra, Robotics]
 
 Many robot arms use 6 or 7 actuators to control where the hand ends up. This might seem like overkill for positioning a hand in 3D space, but in this post I want to dig into the math behind how robot arms work.
 
-Let's say we have 7 actuators. We know that the relationship between joint angles $\boldsymbol{\theta} \in \mathbb{R}^7$ and hand position $\mathbf{p} \in \mathbb{R}^3$ is given by some function:
+Let's say we have 7 actuators. We know that the relationship between joint angles $$\boldsymbol{\theta} \in \mathbb{R}^7$$ and hand position $$\mathbf{p} \in \mathbb{R}^3$$ is given by some function:
 $$\mathbf{p} = f(\boldsymbol{\theta})$$
 
 What we need to know is, if I move this actuator a tiny bit, what happens to the hand. That is, what can help us convert a tiny change in a joint angle to a change in the hand position.
