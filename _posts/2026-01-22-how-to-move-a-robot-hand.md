@@ -165,7 +165,7 @@ This tells us that if we move joint 1, it will cause a Y movement of 1.22 and an
 
 ## How to Move and Keep Your Hand Still
 
-In this case, we know that the rank is at most 2 because each column is a vector in $$\mathbb{R}^2$$ (it has 2 entries). You can never have more than 2 linearly independent vectors in $\mathbb{R}^2$. (So, as a general rule, rank(A) ≤ min(rows, columns))
+In this case, we know that the rank is at most 2 because each column is a vector in $$\mathbb{R}^2$$ (it has 2 entries). You can never have more than 2 linearly independent vectors in $$\mathbb{R}^2$$. (So, as a general rule, rank(A) ≤ min(rows, columns))
 
 And we know from the [rank-nullity theorem](https://en.wikipedia.org/wiki/Rank%E2%80%93nullity_theorem) that the number of columns of a matrix is the sum of the rank and nullity of that matrix. 
 
@@ -248,7 +248,7 @@ plt.show()
     
 
 
-**A note on linearization:** The Jacobian gives us a *local* linear approximation. For small movements along the null space, the hand stays almost perfectly still. But for larger movements, you'll notice slight drift because the true relationship $\mathbf{p} = f(\boldsymbol{\theta})$ is nonlinear. The Jacobian is only exact in the limit of infinitesimal movements.
+**A note on linearization:** The Jacobian gives us a *local* linear approximation. For small movements along the null space, the hand stays almost perfectly still. But for larger movements, you'll notice slight drift because the true relationship $$\mathbf{p} = f(\boldsymbol{\theta})$$ is nonlinear. The Jacobian is only exact in the limit of infinitesimal movements.
 
 ### Why Redundancy Matters
 
