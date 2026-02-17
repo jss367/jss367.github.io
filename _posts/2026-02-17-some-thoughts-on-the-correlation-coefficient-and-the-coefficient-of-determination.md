@@ -1,14 +1,18 @@
 ---
 layout: post
-title: "Some thoughts on the correlation coefficient and the coefficient of determination"
+title: "Some Thoughts on the Correlation Coefficient and the Coefficient of Determination"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/green_heron2.jpg"
 tags: [Python, Statistics]
 ---
 
-In this post I want to make a few points about r, the Pearson correlation coefficient, and R^2, the coefficient of determination. They're so widely used that I think some of the implicit assumptions behind them can become lost.
+In this post I want to make a few points about $$ r $$, the Pearson correlation coefficient, and $$ R^2 $$, the coefficient of determination. They're so widely used that I think some of the implicit assumptions behind them can become lost.
 
-Let's start with a simple linear example. Let's generate some data.
+<b>Table of Contents</b>
+* TOC
+{:toc}
+
+We'll start with a simple linear example. Let's generate some data.
 
 
 ```python
@@ -49,11 +53,11 @@ plt.scatter(x,y);
 
 
     
-![png](2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_files/2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_5_0.png)
+![png](2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_files/2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_6_0.png)
     
 
 
-We have a scatter plot of two values, x and y. They appear to show a linear relationship. Now we can calculate the correlation coefficient between these two variables.
+We have a scatter plot of two values, x and y. It shows a relationship that appears to be mostly linear. We can calculate the correlation coefficient between these two variables. To do that, we'll use the Pearson correlation coefficient, commonly represented as $$ r $$.
 
 As you may or may not recall, the sample Pearson correlation coefficient is as follows:
 
@@ -63,13 +67,11 @@ $$
 
 It measures the strength and direction of the **linear** relationship between two variables. It's important to recognize that the linear assumption is already baked into the process once we start using the Pearson correlation coefficient. It gets used so commonly that it's easy to forget that this assumption is sitting in the background.
 
-It tries to answer the question, if X is above average, is Y above average? The numerator describes the joint movement, and is positive when they move in the same direction and negative when they move in the opposite. This is essentially the (unnormalized) covariance. The denominator just normalizes it so that it's unitless and [-1, 1].
+It tries to answer the question, "If X is above average, is Y above average?" The numerator describes the joint movement, and is positive when they move in the same direction and negative when they move in the opposite. This is essentially the (unnormalized) covariance. The denominator just normalizes it so that it's unitless and [-1, 1].
 
-This linearity also means that the "variance explained" interpretation of $$ r^2 $$ is really answering a specific question:
+This linearity also means that the "variance explained" interpretation of $$ r^2 $$ is really answering a specific question: Of all possible linear functions of X, the best one (in a least-squares sense) accounts for a fraction $$ r^2 $$ of the variance in Y.
 
-Of all possible linear functions of X, the best one (in a least-squares sense) accounts for a fraction r^2 of the variance in Y.
-
-So it's like we're asking "how much variance *could* a linear function of X account for?" and r^2 is the answer. 
+So it's like we're asking "how much variance *could* a linear function of X account for?" and $$ r^2 $$ is the answer. 
 
 Let's calculate the correlation coefficient and see what we get.
 
@@ -88,7 +90,7 @@ It's very high, which is what we would expect based on eye-balling the data.
 ## Variance Explained
 
 
-Now let's think about how much variation is explained. In general, we can think in terms of this formula:
+Now let's think about how much variation is explained by a linear model. In general, we can think in terms of this formula:
 
 $$
 \text{Total variation} = \text{Explained variation} + \text{Unexplained variation}
@@ -103,24 +105,22 @@ $$ Y_i - \bar{Y} = (\hat{Y}_i - \bar{Y}) + (Y_i - \hat{Y}_i) $$
 
 Where:
 
-* $ Y_i $ - The actual observed value of the dependent variable for observation i.  
-* $ \bar{Y} $ - The sample mean of all observed Y values: $$ \bar{Y} = \frac{1}{n} \sum_{i=1}^n Y_i $$
-* $ \hat{Y}_i $ - The predicted value for observation i from the regression model. The "fitted value".
+* $$ Y_i $$ - The actual observed value of the dependent variable for observation $$ i $$.  
+* $$ \bar{Y} $$ - The sample mean of all observed Y values: $$ \bar{Y} = \frac{1}{n} \sum_{i=1}^n Y_i $$
+* $$ \hat{Y}_i $$ - The predicted value for observation $$ i $$ from the regression model. This is the "fitted value".
 
-What Each Term Represents
+Let's talk about what each term represents.
 
-* Left side: $ Y_i - \bar{Y} $
+* Left side: $$ Y_i - \bar{Y} $$
 The **total deviation** of observation $ i $ from the mean.   How far the actual value is from the overall average.
-
-* First term on right: $ \hat{Y}_i - \bar{Y} $
+* First term on right: $$ \hat{Y}_i - \bar{Y} $$
 The **explained deviation**. How much of the deviation from the mean is explained by the model.
-
-* Second term on right: $ Y_i - \hat{Y}_i $
+* Second term on right: $$ Y_i - \hat{Y}_i $$
 The **residual error** term. The part not explained by the model.
 
-That's for a single observation. But we don’t care about one observation — we care about overall variation. Since variation is measured by squared deviations from the mean, the next step is to square this decomposition and sum over all observations.
+That's for a single observation. But we aren't only interested in a single observation — we care about overall variation. Since variation is measured by squared deviations from the mean, the next step is to square this decomposition and sum over all observations.
 
-To do this, we square both sides and sum over all $i$:
+To do this, we square both sides and sum over all $$ i $$:
 $$
 \sum_{i=1}^{n}(Y_i - \bar{Y})^2 
 = \sum_{i=1}^{n}(\hat{Y}_i - \bar{Y})^2 
@@ -153,7 +153,7 @@ $$
 R^2 = \frac{\text{SSR}}{\text{SST}} = 1 - \frac{\text{SSE}}{\text{SST}}
 $$
 
-Since SST is proportional to $\operatorname{Var}(Y)$ (it equals $n \cdot \operatorname{Var}(Y)$ up to a degrees-of-freedom adjustment), and SSR is proportional to $\operatorname{Var}(\hat{Y})$, we have:
+Since SST is proportional to $$ \operatorname{Var}(Y) $$ (it equals $$n \cdot \operatorname{Var}(Y) $$ up to a degrees-of-freedom adjustment), and SSR is proportional to $$ \operatorname{Var}(\hat{Y}) $$, we have:
 $$
 R^2 = \frac{\operatorname{Var}(\hat{Y})}{\operatorname{Var}(Y)}
 $$
@@ -214,7 +214,7 @@ plt.show()
 
 
     
-![png](2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_files/2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_23_0.png)
+![png](2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_files/2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_24_0.png)
     
 
 
@@ -396,7 +396,7 @@ print(f"  No intercept, corrected formula: R² = {r2_no_intercept:.3f}")
 
 
     
-![png](2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_files/2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_37_0.png)
+![png](2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_files/2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_38_0.png)
     
 
 
@@ -648,7 +648,7 @@ print(f"\nWith enough predictors (>= n-1), R² approaches 1.0 regardless of sign
 
 
     
-![png](2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_files/2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_47_0.png)
+![png](2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_files/2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_48_0.png)
     
 
 
@@ -740,7 +740,7 @@ print("This is because R² depends on the variance of X in your sample.")
 
 
     
-![png](2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_files/2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_51_0.png)
+![png](2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_files/2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_52_0.png)
     
 
 
@@ -755,8 +755,3 @@ print("This is because R² depends on the variance of X in your sample.")
 
 
 Same slope, same noise, same true relationship, but R² ranges from low to high just because we changed where we sampled $X$. This is why comparing R² values across studies or datasets can be misleading: a low R² might just mean the predictor didn't vary much in that particular sample, not that the relationship is weak.
-
-
-```python
-
-```
