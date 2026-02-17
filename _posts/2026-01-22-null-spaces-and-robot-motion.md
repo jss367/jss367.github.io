@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "How to Move a Robot Hand"
+title: "Null Spaces and Robot Motion"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/purple_martin.jpg"
 tags: [Linear algebra, Robotics]
