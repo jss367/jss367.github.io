@@ -112,7 +112,7 @@ Where:
 Let's talk about what each term represents.
 
 * Left side: $$ Y_i - \bar{Y} $$
-The **total deviation** of observation $ i $ from the mean.   How far the actual value is from the overall average.
+The **total deviation** of observation $$ i $$ from the mean.   How far the actual value is from the overall average.
 * First term on right: $$ \hat{Y}_i - \bar{Y} $$
 The **explained deviation**. How much of the deviation from the mean is explained by the model.
 * Second term on right: $$ Y_i - \hat{Y}_i $$
@@ -126,7 +126,7 @@ $$
 \sum_{i=1}^{n}(Y_i - \bar{Y})^2 = \sum_{i=1}^{n}(\hat{Y}_i - \bar{Y})^2 + \sum_{i=1}^{n}(Y_i - \hat{Y}_i)^2 + 2\sum_{i=1}^{n}(\hat{Y}_i - \bar{Y})(Y_i - \hat{Y}_i)
 $$
 
-The critical result is that **the cross-term vanishes**. This is because the residuals $e_i = Y_i - \hat{Y}_i$ from OLS are orthogonal to the fitted values $$\hat{Y}_i$$. This follows directly from the OLS normal equations: since $$\hat{Y} = X(X^\top X)^{-1}X^\top Y$$, the residuals $e = Y - \hat{Y}$ satisfy $$X^\top e = 0$$, which means $\hat{Y}^\top e = 0$ (since $$\hat{Y}$$ is a linear combination of the columns of $$X$$). The fact that the residuals also sum to zero (from the intercept normal equation) takes care of the $\bar{Y}$ shift.
+The critical result is that **the cross-term vanishes**. This is because the residuals $$e_i = Y_i - \hat{Y}_i$$ from OLS are orthogonal to the fitted values $$\hat{Y}_i$$. This follows directly from the OLS normal equations: since $$\hat{Y} = X(X^\top X)^{-1}X^\top Y$$, the residuals $$e = Y - \hat{Y}$$ satisfy $$X^\top e = 0$$, which means $$\hat{Y}^\top e = 0$$ (since $$\hat{Y}$$ is a linear combination of the columns of $$X$$). The fact that the residuals also sum to zero (from the intercept normal equation) takes care of the $$\bar{Y}$$ shift.
 
 So we get the clean decomposition:
 $$
@@ -156,13 +156,13 @@ $$
 
 This is literally the fraction of the total variance in $$Y$$ that is captured by the model's predictions (which are a function of $$X$$). The remainder, $$1 - R^2$$, is the fraction left in the residuals.
 
-## Why "Explained by $X$" Is Justified
+## Why "Explained by $$X$$" Is Justified
 
-The fitted values $$\hat{Y}$$ are a deterministic function of $$X$$. So $$\operatorname{Var}(\hat{Y})$$ is variance that comes entirely from variation in $$X$$ (filtered through the estimated linear relationship). The residual variance is whatever $$X$$ could not account for. So saying "$R^2$ is the proportion of variance in $$Y$$ explained by $$X$$" is a direct restatement of this decomposition.
+The fitted values $$\hat{Y}$$ are a deterministic function of $$X$$. So $$\operatorname{Var}(\hat{Y})$$ is variance that comes entirely from variation in $$X$$ (filtered through the estimated linear relationship). The residual variance is whatever $$X$$ could not account for. So saying "$$R^2$$ is the proportion of variance in $$Y$$ explained by $$X$$" is a direct restatement of this decomposition.
 
 ## One Important Caveat
 
-This decomposition is exact for OLS with an intercept. If you drop the intercept, or use a nonlinear model, the cross-term does not necessarily vanish, and the interpretation of $R^2$ becomes murkier. This is why some textbooks warn against using $R^2$ in those settings.
+This decomposition is exact for OLS with an intercept. If you drop the intercept, or use a nonlinear model, the cross-term does not necessarily vanish, and the interpretation of $$R^2$$ becomes murkier. This is why some textbooks warn against using $$R^2$$ in those settings.
 
 ## Non-linear data
 
@@ -222,7 +222,7 @@ But that's not how it goes. In the general case, R² is defined directly:
 
 $$R^2 = 1 - \frac{SSE}{SST} = 1 - \frac{\sum(Y_i - \hat{Y}_i)^2}{\sum(Y_i - \bar{Y})^2}$$
 
-No correlation coefficient is involved. We're just comparing two things: how much total variance there is in $$Y$$ (SST), and how much variance is left over after our model has done its best (SSE). The ratio $$\frac{SSE}{SST}$$ is the fraction of variance the model *failed* to explain, so $1$ minus that is the fraction it *did* explain.
+No correlation coefficient is involved. We're just comparing two things: how much total variance there is in $$Y$$ (SST), and how much variance is left over after our model has done its best (SSE). The ratio $$\frac{SSE}{SST}$$ is the fraction of variance the model *failed* to explain, so $$1$$ minus that is the fraction it *did* explain.
 
 This definition works for *any* model — linear, quadratic, a neural network, whatever. All it needs are the observed values $$Y_i$$ and the predicted values $$\hat{Y}_i$$. It doesn't care how those predictions were generated.
 
@@ -256,7 +256,7 @@ In the simple linear case, $$R^2 = r^2$$, so $$r$$ is the natural starting point
 
 $$R = \sqrt{R^2}$$
 
-This is sometimes called the **multiple correlation coefficient**. It equals the Pearson correlation between the observed values $Y$ and the fitted values $\hat{Y}$:
+This is sometimes called the **multiple correlation coefficient**. It equals the Pearson correlation between the observed values $$Y$$ and the fitted values $$\hat{Y}$$:
 
 
 ```python
@@ -299,7 +299,7 @@ In **simple linear regression**, R² = r². But this breaks down elsewhere.
 
 There's another important point to make. The equations we've used assume the model can have any intercept. That is, even when $$X$$ is 0, there can still be some nonzero value for $$Y$$. Sometimes you might not want this — it can be reasonable to force a model through the origin $$(0,0)$$. But be aware that doing so breaks the standard R² formula.
 
-Why? Recall that the clean decomposition $$SST = SSR + SSE$$ relies on the cross-term vanishing. That cross-term vanishes because OLS residuals are orthogonal to the fitted values *and* sum to zero. The "sum to zero" part comes from the intercept's normal equation: $\sum e_i = 0$. If you drop the intercept, residuals no longer need to sum to zero, the cross-term doesn't vanish, and the decomposition falls apart.
+Why? Recall that the clean decomposition $$SST = SSR + SSE$$ relies on the cross-term vanishing. That cross-term vanishes because OLS residuals are orthogonal to the fitted values *and* sum to zero. The "sum to zero" part comes from the intercept's normal equation: $$\sum e_i = 0$$. If you drop the intercept, residuals no longer need to sum to zero, the cross-term doesn't vanish, and the decomposition falls apart.
 
 ### The standard formula
 
@@ -307,15 +307,15 @@ The formula we've been using is:
 
 $$R^2_{\text{standard}} = 1 - \frac{SSE}{SST} = 1 - \frac{\sum(Y_i - \hat{Y}_i)^2}{\sum(Y_i - \bar{Y})^2}$$
 
-Here, $SST$ measures total variance around the **mean** $\bar{Y}$. This formula can go negative for a no-intercept model — meaning the model fits worse than simply predicting the mean for every observation. That's not a bug; it's telling you the truth. Forcing through the origin when the data doesn't pass through the origin really can be worse than a flat line at $\bar{Y}$.
+Here, $$SST$$ measures total variance around the **mean** $$\bar{Y}$$. This formula can go negative for a no-intercept model — meaning the model fits worse than simply predicting the mean for every observation. That's not a bug; it's telling you the truth. Forcing through the origin when the data doesn't pass through the origin really can be worse than a flat line at $$\bar{Y}$$.
 
 ### The corrected formula
 
-When there's no intercept, some references use a different $SST$ that measures total variance around **zero** instead of the mean:
+When there's no intercept, some references use a different $$SST$$ that measures total variance around **zero** instead of the mean:
 
 $$R^2_{\text{no-intercept}} = 1 - \frac{\sum(Y_i - \hat{Y}_i)^2}{\sum Y_i^2}$$
 
-This version is always between 0 and 1, but it's answering a different question: "how much better is my model than predicting $Y = 0$?" That's a much lower bar. It tends to give inflated values and isn't directly comparable to the standard R². So I don't like to use the corrected formula (or, of course, the standard formula). I think far better is to not force the model through the origin unless you really have to.
+This version is always between 0 and 1, but it's answering a different question: "how much better is my model than predicting $$Y = 0$$?" That's a much lower bar. It tends to give inflated values and isn't directly comparable to the standard R². So I don't like to use the corrected formula (or, of course, the standard formula). I think far better is to not force the model through the origin unless you really have to.
 
 Let's see both in action.
 
@@ -490,23 +490,23 @@ Under those conditions, the equation holds and you will not get a negative numbe
 
 ## Non-linear regression
 
-Before we go further, it's worth clarifying something about the quadratic example from earlier. You might have looked at $\hat{Y} = \beta_0 + \beta_1 X + \beta_2 X^2$ and thought: "that's non-linear regression." It's not. It's still **linear** regression.
+Before we go further, it's worth clarifying something about the quadratic example from earlier. You might have looked at $$\hat{Y} = \beta_0 + \beta_1 X + \beta_2 X^2$$ and thought: "that's non-linear regression." It's not. It's still **linear** regression.
 
-"Linear" in "linear regression" refers to linearity in the **parameters**, not in $X$. As long as the model can be written as a linear combination of the parameters:
+"Linear" in "linear regression" refers to linearity in the **parameters**, not in $$X$$. As long as the model can be written as a linear combination of the parameters:
 
 $$\hat{Y} = \beta_0 + \beta_1 f_1(X) + \beta_2 f_2(X) + \cdots$$
 
-it's linear regression, regardless of how wild the $f_k(X)$ functions are. Polynomial regression, spline regression, regression with $\log(X)$ or $\sin(X)$ as features — all linear regression. The OLS machinery applies, the normal equations hold, and the SST = SSR + SSE decomposition works.
+it's linear regression, regardless of how wild the $$f_k(X)$$ functions are. Polynomial regression, spline regression, regression with $$\log(X)$$ or $$\sin(X)$$ as features — all linear regression. The OLS machinery applies, the normal equations hold, and the SST = SSR + SSE decomposition works.
 
 True nonlinear regression occurs when at least one parameter enters the model nonlinearly, so the model cannot be written as a linear combination of fixed basis functions and the least-squares objective is no longer quadratic in the parameters.
 
 ### What happens to R²?
 
-And this is where R² gets into trouble again — for the same structural reason as the no-intercept case. The clean decomposition $SST = SSR + SSE$ relied on the OLS normal equations, which gave us the orthogonality between residuals and fitted values. Non-linear least squares doesn't produce those normal equations, so the cross-term no longer vanishes. That means:
+And this is where R² gets into trouble again — for the same structural reason as the no-intercept case. The clean decomposition $$SST = SSR + SSE$$ relied on the OLS normal equations, which gave us the orthogonality between residuals and fitted values. Non-linear least squares doesn't produce those normal equations, so the cross-term no longer vanishes. That means:
 
 $$SST \neq SSR + SSE$$
 
-You can still *compute* $R^2 = 1 - \frac{SSE}{SST}$, and it still has the intuitive meaning of "what fraction of variance did my predictions capture." But it loses the guarantees that come with the decomposition — in particular, it's no longer bounded between 0 and 1. Let's see this.
+You can still *compute* $$R^2 = 1 - \frac{SSE}{SST}$$, and it still has the intuitive meaning of "what fraction of variance did my predictions capture." But it loses the guarantees that come with the decomposition — in particular, it's no longer bounded between 0 and 1. Let's see this.
 
 
 ```python
@@ -549,13 +549,13 @@ print(f"\nR² = 1 - SSE/SST = {R2:.4f}")
     R² = 1 - SSE/SST = 0.9479
 
 
-Notice that $SSR + SSE \neq SST$ — there's a non-zero cross-term. In the linear case that difference would be exactly zero. Here it's not, because the non-linear least squares residuals aren't orthogonal to the fitted values in the same way.
+Notice that $$SSR + SSE \neq SST$$ — there's a non-zero cross-term. In the linear case that difference would be exactly zero. Here it's not, because the non-linear least squares residuals aren't orthogonal to the fitted values in the same way.
 
-The R² value itself is still perfectly interpretable: the model's predictions capture that fraction of the variance in $Y$. But you should be aware that this number doesn't come from a clean decomposition anymore — it's just a descriptive measure of fit, not a consequence of the algebra.
+The R² value itself is still perfectly interpretable: the model's predictions capture that fraction of the variance in $$Y$$. But you should be aware that this number doesn't come from a clean decomposition anymore — it's just a descriptive measure of fit, not a consequence of the algebra.
 
 ## Adding more variables: R² can only go up
 
-There's a subtle but important property of R² in OLS: it can never decrease when you add a predictor. Think about why — the model with $p + 1$ predictors can always set the new coefficient to zero and recover the $p$-predictor model exactly. So SSE can only go down (or stay the same), and since SST doesn't change, $R^2 = 1 - SSE/SST$ can only go up.
+There's a subtle but important property of R² in OLS: it can never decrease when you add a predictor. Think about why — the model with $$p + 1$$ predictors can always set the new coefficient to zero and recover the $$p$$-predictor model exactly. So SSE can only go down (or stay the same), and since SST doesn't change, $$R^2 = 1 - SSE/SST$$ can only go up.
 
 This means you can inflate R² by just throwing in more variables, even if they're pure noise. Let's watch this happen.
 
@@ -667,11 +667,11 @@ The fix is to penalize for model complexity. Adjusted R² replaces the raw sums 
 
 $$\bar{R}^2 = 1 - \frac{SSE \,/\, (n - p - 1)}{SST \,/\, (n - 1)}$$
 
-where $p$ is the number of predictors and $n$ is the number of observations. You'll also see this written equivalently as:
+where $$p$$ is the number of predictors and $$n$$ is the number of observations. You'll also see this written equivalently as:
 
 $$\bar{R}^2 = 1 - (1 - R^2) \frac{n - 1}{n - p - 1}$$
 
-The numerator, $SSE / (n - p - 1)$, is an unbiased estimator of $\sigma^2$ (the true error variance). The denominator, $SST / (n - 1)$, is an unbiased estimator of $\text{Var}(Y)$. So adjusted R² is essentially asking: "what fraction of variance does my model explain, after accounting for the fact that more parameters will always reduce SSE mechanically?"
+The numerator, $$SSE / (n - p - 1)$$, is an unbiased estimator of $$\sigma^2$$ (the true error variance). The denominator, $$SST / (n - 1)$$, is an unbiased estimator of $$\text{Var}(Y)$$. So adjusted R² is essentially asking: "what fraction of variance does my model explain, after accounting for the fact that more parameters will always reduce SSE mechanically?"
 
 Unlike R², adjusted R² *can decrease* when you add a useless variable — the penalty for the lost degree of freedom outweighs the tiny reduction in SSE. That's exactly what the green line shows: it levels off and drops as noise variables pile up, even as the red line keeps climbing.
 
@@ -679,9 +679,9 @@ One caveat: adjusted R² is a bias correction, not an information-theoretic crit
 
 ## R² depends on the range of your data
 
-There's one more thing worth keeping in mind. The same underlying relationship can produce wildly different R² values depending on the range of $X$ values in your sample. **R² is a property of the sample, not the relationship.**
+There's one more thing worth keeping in mind. The same underlying relationship can produce wildly different R² values depending on the range of $$X$$ values in your sample. **R² is a property of the sample, not the relationship.**
 
-Why? Because $SST = \sum(Y_i - \bar{Y})^2$ depends on how spread out your $Y$ values are, which in turn depends on how spread out your $X$ values are. If you sample $X$ over a narrow range, there's less total variance in $Y$ to "explain," so the noise eats up a larger share of it. Widen the range of $X$, and the signal dominates — same noise, same relationship, higher R².
+Why? Because $$SST = \sum(Y_i - \bar{Y})^2$$ depends on how spread out your $$Y$$ values are, which in turn depends on how spread out your $$X$$ values are. If you sample $$X$$ over a narrow range, there's less total variance in $$Y$$ to "explain," so the noise eats up a larger share of it. Widen the range of $$X$$, and the signal dominates — same noise, same relationship, higher R².
 
 
 ```python
@@ -750,4 +750,4 @@ print("This is because R² depends on the variance of X in your sample.")
     This is because R² depends on the variance of X in your sample.
 
 
-Same slope, same noise, same true relationship, but R² ranges from low to high just because we changed where we sampled $X$. This is why comparing R² values across studies or datasets can be misleading: a low R² might just mean the predictor didn't vary much in that particular sample, not that the relationship is weak.
+Same slope, same noise, same true relationship, but R² ranges from low to high just because we changed where we sampled $$X$$. This is why comparing R² values across studies or datasets can be misleading: a low R² might just mean the predictor didn't vary much in that particular sample, not that the relationship is weak.
