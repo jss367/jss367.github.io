@@ -121,11 +121,12 @@ The **residual error** term. The part not explained by the model.
 That's for a single observation. But we aren't only interested in a single observation — we care about overall variation. Since variation is measured by squared deviations from the mean, the next step is to square this decomposition and sum over all observations.
 
 To do this, we square both sides and sum over all $$ i $$:
+
 $$
 \sum_{i=1}^{n}(Y_i - \bar{Y})^2 = \sum_{i=1}^{n}(\hat{Y}_i - \bar{Y})^2 + \sum_{i=1}^{n}(Y_i - \hat{Y}_i)^2 + 2\sum_{i=1}^{n}(\hat{Y}_i - \bar{Y})(Y_i - \hat{Y}_i)
 $$
 
-The critical result is that **the cross-term vanishes**. This is because the residuals $e_i = Y_i - \hat{Y}_i$ from OLS are orthogonal to the fitted values $$\hat{Y}_i$$. This follows directly from the OLS normal equations: since $$\hat{Y} = X(X^\top X)^{-1}X^\top Y$$, the residuals $e = Y - \hat{Y}$ satisfy $$X^\top e = 0$$, which means $\hat{Y}^\top e = 0$ (since $\hat{Y}$ is a linear combination of the columns of $$X$$). The fact that the residuals also sum to zero (from the intercept normal equation) takes care of the $\bar{Y}$ shift.
+The critical result is that **the cross-term vanishes**. This is because the residuals $e_i = Y_i - \hat{Y}_i$ from OLS are orthogonal to the fitted values $$\hat{Y}_i$$. This follows directly from the OLS normal equations: since $$\hat{Y} = X(X^\top X)^{-1}X^\top Y$$, the residuals $e = Y - \hat{Y}$ satisfy $$X^\top e = 0$$, which means $\hat{Y}^\top e = 0$ (since $$\hat{Y}$$ is a linear combination of the columns of $$X$$). The fact that the residuals also sum to zero (from the intercept normal equation) takes care of the $\bar{Y}$ shift.
 
 So we get the clean decomposition:
 $$
@@ -153,11 +154,11 @@ $$
 R^2 = \frac{\operatorname{Var}(\hat{Y})}{\operatorname{Var}(Y)}
 $$
 
-This is literally the fraction of the total variance in $Y$ that is captured by the model's predictions (which are a function of $X$). The remainder, $1 - R^2$, is the fraction left in the residuals.
+This is literally the fraction of the total variance in $$Y$$ that is captured by the model's predictions (which are a function of $$X$$). The remainder, $$1 - R^2$$, is the fraction left in the residuals.
 
 ## Why "Explained by $X$" Is Justified
 
-The fitted values $\hat{Y}$ are a deterministic function of $X$. So $\operatorname{Var}(\hat{Y})$ is variance that comes entirely from variation in $X$ (filtered through the estimated linear relationship). The residual variance is whatever $X$ could not account for. So saying "$R^2$ is the proportion of variance in $Y$ explained by $X$" is a direct restatement of this decomposition.
+The fitted values $$\hat{Y}$$ are a deterministic function of $$X$$. So $$\operatorname{Var}(\hat{Y})$$ is variance that comes entirely from variation in $$X$$ (filtered through the estimated linear relationship). The residual variance is whatever $$X$$ could not account for. So saying "$R^2$ is the proportion of variance in $$Y$$ explained by $$X$$" is a direct restatement of this decomposition.
 
 ## One Important Caveat
 
@@ -221,9 +222,9 @@ But that's not how it goes. In the general case, R² is defined directly:
 
 $$R^2 = 1 - \frac{SSE}{SST} = 1 - \frac{\sum(Y_i - \hat{Y}_i)^2}{\sum(Y_i - \bar{Y})^2}$$
 
-No correlation coefficient is involved. We're just comparing two things: how much total variance there is in $Y$ (SST), and how much variance is left over after our model has done its best (SSE). The ratio $\frac{SSE}{SST}$ is the fraction of variance the model *failed* to explain, so $1$ minus that is the fraction it *did* explain.
+No correlation coefficient is involved. We're just comparing two things: how much total variance there is in $$Y$$ (SST), and how much variance is left over after our model has done its best (SSE). The ratio $$\frac{SSE}{SST}$$ is the fraction of variance the model *failed* to explain, so $1$ minus that is the fraction it *did* explain.
 
-This definition works for *any* model — linear, quadratic, a neural network, whatever. All it needs are the observed values $Y_i$ and the predicted values $\hat{Y}_i$. It doesn't care how those predictions were generated.
+This definition works for *any* model — linear, quadratic, a neural network, whatever. All it needs are the observed values $$Y_i$$ and the predicted values $$\hat{Y}_i$$. It doesn't care how those predictions were generated.
 
 Let's see this concretely with our quadratic example.
 
@@ -251,7 +252,7 @@ Same number, no correlation coefficient in sight. We just asked: "how much of th
 
 ## What about R itself?
 
-In the simple linear case, $R^2 = r^2$, so $r$ is the natural starting point and $r^2$ is derived from it. But in the general case, the direction reverses. $R^2$ is the primitive quantity, and if you want an "R" you just take the positive square root:
+In the simple linear case, $$R^2 = r^2$$, so $$r$$ is the natural starting point and $$r^2$$ is derived from it. But in the general case, the direction reverses. $$R^2$$ is the primitive quantity, and if you want an "$$R$$" you just take the positive square root:
 
 $$R = \sqrt{R^2}$$
 
@@ -271,7 +272,7 @@ print(f"corr(Y, Ŷ):       {R_from_corr:.4f}")
     corr(Y, Ŷ):       0.9543
 
 
-Same thing. But notice that R here isn't telling us anything that R² didn't already tell us — it's just a rescaling. It doesn't have a direction (it's always non-negative), and it doesn't correspond to any single predictor's relationship with $Y$. In practice, people rarely report R in the multiple/non-linear setting. R² is the quantity that has a direct interpretation: the fraction of variance explained.
+Same thing. But notice that R here isn't telling us anything that R² didn't already tell us — it's just a rescaling. It doesn't have a direction (it's always non-negative), and it doesn't correspond to any single predictor's relationship with $$Y$$. In practice, people rarely report R in the multiple/non-linear setting. R² is the quantity that has a direct interpretation: the fraction of variance explained.
 
 ## Important Note about Non-linearity
 
@@ -296,9 +297,9 @@ In **simple linear regression**, R² = r². But this breaks down elsewhere.
 
 ## Forcing through the origin
 
-There's another important point to make. The equations we've used assume the model can have any intercept. That is, even when $X$ is 0, there can still be some nonzero value for $Y$. Sometimes you might not want this — it can be reasonable to force a model through the origin $(0,0)$. But be aware that doing so breaks the standard R² formula.
+There's another important point to make. The equations we've used assume the model can have any intercept. That is, even when $$X$$ is 0, there can still be some nonzero value for $$Y$$. Sometimes you might not want this — it can be reasonable to force a model through the origin $$(0,0)$$. But be aware that doing so breaks the standard R² formula.
 
-Why? Recall that the clean decomposition $SST = SSR + SSE$ relies on the cross-term vanishing. That cross-term vanishes because OLS residuals are orthogonal to the fitted values *and* sum to zero. The "sum to zero" part comes from the intercept's normal equation: $\sum e_i = 0$. If you drop the intercept, residuals no longer need to sum to zero, the cross-term doesn't vanish, and the decomposition falls apart.
+Why? Recall that the clean decomposition $$SST = SSR + SSE$$ relies on the cross-term vanishing. That cross-term vanishes because OLS residuals are orthogonal to the fitted values *and* sum to zero. The "sum to zero" part comes from the intercept's normal equation: $\sum e_i = 0$. If you drop the intercept, residuals no longer need to sum to zero, the cross-term doesn't vanish, and the decomposition falls apart.
 
 ### The standard formula
 
