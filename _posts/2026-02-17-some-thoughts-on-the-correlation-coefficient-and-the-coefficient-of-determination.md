@@ -122,19 +122,14 @@ That's for a single observation. But we aren't only interested in a single obser
 
 To do this, we square both sides and sum over all $$ i $$:
 $$
-\sum_{i=1}^{n}(Y_i - \bar{Y})^2 
-= \sum_{i=1}^{n}(\hat{Y}_i - \bar{Y})^2 
-+ \sum_{i=1}^{n}(Y_i - \hat{Y}_i)^2 
-+ 2\sum_{i=1}^{n}(\hat{Y}_i - \bar{Y})(Y_i - \hat{Y}_i)
+\sum_{i=1}^{n}(Y_i - \bar{Y})^2 = \sum_{i=1}^{n}(\hat{Y}_i - \bar{Y})^2 + \sum_{i=1}^{n}(Y_i - \hat{Y}_i)^2 + 2\sum_{i=1}^{n}(\hat{Y}_i - \bar{Y})(Y_i - \hat{Y}_i)
 $$
 
-The critical result is that **the cross-term vanishes**. This is because the residuals $e_i = Y_i - \hat{Y}_i$ from OLS are orthogonal to the fitted values $\hat{Y}_i$. This follows directly from the OLS normal equations: since $\hat{Y} = X(X^\top X)^{-1}X^\top Y$, the residuals $e = Y - \hat{Y}$ satisfy $X^\top e = 0$, which means $\hat{Y}^\top e = 0$ (since $\hat{Y}$ is a linear combination of the columns of $X$). The fact that the residuals also sum to zero (from the intercept normal equation) takes care of the $\bar{Y}$ shift.
+The critical result is that **the cross-term vanishes**. This is because the residuals $e_i = Y_i - \hat{Y}_i$ from OLS are orthogonal to the fitted values $$\hat{Y}_i$$. This follows directly from the OLS normal equations: since $$\hat{Y} = X(X^\top X)^{-1}X^\top Y$$, the residuals $e = Y - \hat{Y}$ satisfy $$X^\top e = 0$$, which means $\hat{Y}^\top e = 0$ (since $\hat{Y}$ is a linear combination of the columns of $$X$$). The fact that the residuals also sum to zero (from the intercept normal equation) takes care of the $\bar{Y}$ shift.
 
 So we get the clean decomposition:
 $$
-\underbrace{\sum_{i=1}^{n}(Y_i - \bar{Y})^2}_{\text{SST}} 
-= \underbrace{\sum_{i=1}^{n}(\hat{Y}_i - \bar{Y})^2}_{\text{SSR (regression)}} 
-+ \underbrace{\sum_{i=1}^{n}(Y_i - \hat{Y}_i)^2}_{\text{SSE (error)}}
+\underbrace{\sum_{i=1}^{n}(Y_i - \bar{Y})^2}_{\text{SST}} = \underbrace{\sum_{i=1}^{n}(\hat{Y}_i - \bar{Y})^2}_{\text{SSR (regression)}} + \underbrace{\sum_{i=1}^{n}(Y_i - \hat{Y}_i)^2}_{\text{SSE (error)}}
 $$
 
 * SST — Total Sum of Squares
