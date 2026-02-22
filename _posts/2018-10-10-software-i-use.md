@@ -517,3 +517,16 @@ Some applications were either neck-and-neck with other ones, or I use very infre
 
 [Autojump](https://github.com/wting/autojump)
 * Great way to get around a Unix terminal, but replaced by [zoxide](https://github.com/ajeetdsouza/zoxide).
+
+# Other Things Exploring
+
+https://violentmonkey.github.io/ vs tampermonkey
+
+better touch tool - https://folivora.ai/
+
+https://www.raycast.com/
+
+https://tree-sitter.github.io/tree-sitter/
+
+
+
