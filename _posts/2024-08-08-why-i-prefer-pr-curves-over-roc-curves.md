@@ -556,7 +556,7 @@ plt.show()
 
 
     
-![png](2024-08-08-why-i-prefer-pr-curves-over-roc-curves_files/2024-08-08-why-i-prefer-pr-curves-over-roc-curves_25_0.png)
+![png]({{site.baseurl}}/assets/img/2024-08-08-why-i-prefer-pr-curves-over-roc-curves_files/2024-08-08-why-i-prefer-pr-curves-over-roc-curves_25_0.png)
     
 
 
@@ -582,7 +582,7 @@ plt.show()
 
 
     
-![png](2024-08-08-why-i-prefer-pr-curves-over-roc-curves_files/2024-08-08-why-i-prefer-pr-curves-over-roc-curves_26_0.png)
+![png]({{site.baseurl}}/assets/img/2024-08-08-why-i-prefer-pr-curves-over-roc-curves_files/2024-08-08-why-i-prefer-pr-curves-over-roc-curves_26_0.png)
     
 
 
@@ -670,7 +670,7 @@ plt.show()
 
 
     
-![png](2024-08-08-why-i-prefer-pr-curves-over-roc-curves_files/2024-08-08-why-i-prefer-pr-curves-over-roc-curves_29_0.png)
+![png]({{site.baseurl}}/assets/img/2024-08-08-why-i-prefer-pr-curves-over-roc-curves_files/2024-08-08-why-i-prefer-pr-curves-over-roc-curves_29_0.png)
     
 
 
@@ -726,7 +726,7 @@ plt.show()
 
 
     
-![png](2024-08-08-why-i-prefer-pr-curves-over-roc-curves_files/2024-08-08-why-i-prefer-pr-curves-over-roc-curves_30_0.png)
+![png]({{site.baseurl}}/assets/img/2024-08-08-why-i-prefer-pr-curves-over-roc-curves_files/2024-08-08-why-i-prefer-pr-curves-over-roc-curves_30_0.png)
     
 
 
@@ -774,7 +774,7 @@ plt.show()
 
 
     
-![png](2024-08-08-why-i-prefer-pr-curves-over-roc-curves_files/2024-08-08-why-i-prefer-pr-curves-over-roc-curves_35_0.png)
+![png]({{site.baseurl}}/assets/img/2024-08-08-why-i-prefer-pr-curves-over-roc-curves_files/2024-08-08-why-i-prefer-pr-curves-over-roc-curves_35_0.png)
     
 
 
@@ -822,7 +822,7 @@ plt.show()
 
 
     
-![png](2024-08-08-why-i-prefer-pr-curves-over-roc-curves_files/2024-08-08-why-i-prefer-pr-curves-over-roc-curves_37_0.png)
+![png]({{site.baseurl}}/assets/img/2024-08-08-why-i-prefer-pr-curves-over-roc-curves_files/2024-08-08-why-i-prefer-pr-curves-over-roc-curves_37_0.png)
     
 
 
@@ -870,7 +870,7 @@ print(f"A random classifier would have precision ≈ {prevalence:.2%} at all rec
 
 
     
-![png](2024-08-08-why-i-prefer-pr-curves-over-roc-curves_files/2024-08-08-why-i-prefer-pr-curves-over-roc-curves_40_0.png)
+![png]({{site.baseurl}}/assets/img/2024-08-08-why-i-prefer-pr-curves-over-roc-curves_files/2024-08-08-why-i-prefer-pr-curves-over-roc-curves_40_0.png)
     
 
 
