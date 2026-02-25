@@ -65,9 +65,9 @@ Some people may have a work and personal account and want to clone from both. I 
 
 The commit process consists of a few easy steps. First, you have to "stage the commit" by telling git which files you want to commit. You do this by adding the files to the commit, and you have a lot of flexibility over how you do this. When you're editing a code base, you'll do some combination of adding files, changing existing files, and deleting files. Git gives you flexibility in which combinations of these you want to commit. You'll have to commit the changed files but you can choose whether or not to include the added or deleted files. Here are three options for staging your files:
 
-1. `git add -A` - stage all files (added, changed, and deleted)
+1. `git add -A` - stage all files (added, changed, and deleted) across the entire repo
 
-2. `git add .` - stage added and changed files only, not deleted
+2. `git add .` - stage all files (added, changed, and deleted) in the current directory
 
 3. `git add -u` - stage changed and deleted files only, without new
 
@@ -163,7 +163,7 @@ If you want to sync your git with the remote one (like when you've added a branc
 
 You can create a new branch on your local machine. Let's say your new branch is called database
 
-`git checkout database`
+`git checkout -b database`
 
 You can make changes, break stuff, then switch back to your main branch at any time:
 
@@ -234,7 +234,7 @@ The way to do that is to make a new branch. Fortunately, git makes this easy wit
 
 ## Help! I did something wrong and want to undo it! I...
 
-Unfortunately, git is solely missing the `git undo` command which would undo whatever the last thing you did was. Instead, the way to undo a command depends on whatever the last thing you did was.
+Unfortunately, git is sorely missing the `git undo` command which would undo whatever the last thing you did was. Instead, the way to undo a command depends on whatever the last thing you did was.
 
 ### added a file that I didn't mean to
 
@@ -245,11 +245,11 @@ Warning: Do not do this if you have already pushed the commit to a central repo.
 
 #### I committed too early and want to undo the commit but not lose my work
 
-`git reset --hard HEAD~1`
+`git reset HEAD~1`
 
 #### I committed and want to completely remove what I wrote
 
-`git reset HEAD~1`
+`git reset --hard HEAD~1`
 
 #### Everything I typed was fine but I want to go back to the second before I committed
 

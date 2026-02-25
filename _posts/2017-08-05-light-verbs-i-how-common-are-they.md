@@ -61,7 +61,7 @@ print(light_verbs)
     ['be', 'am', "'m", 'is', 'are', "'re", 'wa', 'were', 'been', 'have', 'ha', 'had', "'ve", 'do', 'doe', 'did', 'done', 'go', 'goe', 'went', 'gone', 'give', 'gave', 'given', 'put', 'take', 'took', 'taken', 'feel', 'felt', 'begin', 'began', 'begun', 'get', 'got', 'make', 'put', '']
     
 
-Notice that there are actually STEMS of light verbs, and not the light verbs themselves (although in many cases the word is the same as the stem). So before we do any comparisons, we'll have the stem the text first.
+Notice that there are actually STEMS of light verbs, and not the light verbs themselves (although in many cases the word is the same as the stem). So before we do any comparisons, we'll have to stem the text first.
 
 Before we do any stemming, we'll have to extract just the words from the tokens, ignoring punctuation. Note that this will result in lists of different sizes, so we'll have to create a mapping between the two lists. For example, the tenth element in the `words` list may be the eleventh element in the `tokens` list because the `tokens` list contains a period that the `words` list does not. So we'll make two lists - one with all the words in it and the other with the position of the words. We're also going to make everything in our `words` list lowercase to make it easier to analyze.
 
@@ -70,7 +70,7 @@ Before we do any stemming, we'll have to extract just the words from the tokens,
 words = []
 word_mapper = []
 for idx, token in enumerate(tokens):
-    # Use "isalnum" to check if character is alphanumberic (decimal or letter, aka not punctuation)
+    # Use "isalnum" to check if character is alphanumeric (decimal or letter, aka not punctuation)
     if token[0].isalnum() or (token in ["'m", "'re", "'ve", "'d", "'ll"]):
         # Force lower case
         words.append(token.lower())
@@ -112,7 +112,7 @@ print("The words list has {} elements".format(len(words)))
     The words list has 213606 elements
     
 
-Now let's test out the mapper. If we want to pull up both the stemmed and tagged entries for a word, we'll have to run the tagged index through `word_mapper` first. Here's an exmaple:
+Now let's test out the mapper. If we want to pull up both the stemmed and tagged entries for a word, we'll have to run the tagged index through `word_mapper` first. Here's an example:
 
 
 ```python
@@ -179,7 +179,7 @@ def find_light_verbs(tokens):
     words = []
     word_mapper = []
     for idx, token in enumerate(tokens):
-        # Use "isalnum" to check if character is alphanumberic (decimal or letter, aka not punctuation)
+        # Use "isalnum" to check if character is alphanumeric (decimal or letter, aka not punctuation)
         if token[0].isalnum() or (token in ["'m", "'re", "'ve", "'d", "'ll"]):
             words.append(token.lower())
             word_mapper.append(idx)

@@ -295,7 +295,7 @@ When you run a command in Jupyter Notebooks the last output is printed. But if f
 
 # Viewer
 
-There's a really simple way to share beautiful notebooks, and it's called [nbviewer](https://nbviewer.jupyter.org/)
+There's a really simple way to share beautiful notebooks, and it's called [nbviewer](https://nbviewer.org/)
 
 
 # Examples

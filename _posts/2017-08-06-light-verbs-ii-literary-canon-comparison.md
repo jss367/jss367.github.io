@@ -41,7 +41,7 @@ books = [get_gutenberg.Book('Frankenstein', 'Mary Shelley', 'http://www.gutenber
          get_gutenberg.Book('A Tale of Two Cities', 'Charles Dickens', 'https://www.gutenberg.org/files/98/98-0.txt'),
          get_gutenberg.Book('Pride and Prejudice', 'Jane Austen', 'https://www.gutenberg.org/files/1342/1342-0.txt'),
          get_gutenberg.Book("Alice's Adventures in Wonderland", 'Lewis Carroll', 'https://www.gutenberg.org/files/11/11-0.txt'),
-         get_gutenberg.Book('Oliver Twist', 'Mark Twain', 'http://www.gutenberg.org/cache/epub/730/pg730.txt')]
+         get_gutenberg.Book('Oliver Twist', 'Charles Dickens', 'http://www.gutenberg.org/cache/epub/730/pg730.txt')]
 ```
 
 
