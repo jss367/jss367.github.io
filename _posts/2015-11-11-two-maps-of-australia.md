@@ -19,4 +19,4 @@ For the second map, I’ve adjusted the size of the territories based on their p
 
 ![Population-scaled map of Australia]({{site.baseurl}}/assets/img/2015-11-11-Two%20maps%20of%20Australia_files/2015-11-11-Two%20maps%20of%20Australia_7_1.png)
 
-[Click here](https://nbviewer.jupyter.org/github/jss367/JupyterNotebooks/blob/master/2015-11-11-Two%20maps%20of%20Australia.ipynb) to see the code.
+[Click here](https://nbviewer.org/github/jss367/JupyterNotebooks/blob/master/2015-11-11-Two%20maps%20of%20Australia.ipynb) to see the code.
