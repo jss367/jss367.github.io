@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "How to Keep Up with Machine Learning Research"
-description: "A guide for how to the latest in machine learning research"
+description: "A guide for how to find the latest in machine learning research"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/boobook.jpg"
 tags: [Deep Learning, Machine Learning]
@@ -101,7 +101,7 @@ Sometimes I like to check out lectures to hear what I'm missing. Again, it's a g
 * Taught by Justin Johnson, formerly of [CS231n](http://cs231n.stanford.edu/) fame
 
 [fast.ai](https://www.fast.ai/)
-* The instructor of the courses, Jeremy Howard, sometime references recent research in the lectures
+* The instructor of the courses, Jeremy Howard, sometimes references recent research in the lectures
 
 ## Blogs
 
@@ -121,7 +121,7 @@ I don't find as many helpful machine learning blogs as I would like. I'm sure th
 
 ## Twitter
 
-Twitter is probably not the best place to find the latest in machine learning research, but sometimes it's worth it. The lifecycle of people posting about ML before they get distracted by other topics seems pretty short, so I'm don't have any good recommendations at the moment. Feel free to look at [who I follow on Twitter](https://twitter.com/JuliusSimonelli/following) for some suggestions.
+Twitter is probably not the best place to find the latest in machine learning research, but sometimes it's worth it. The lifecycle of people posting about ML before they get distracted by other topics seems pretty short, so I don't have any good recommendations at the moment. Feel free to look at [who I follow on Twitter](https://twitter.com/JuliusSimonelli/following) for some suggestions.
 ## Reddit
 
 I don't go to reddit much for finding the latest in ML, but you can definitely find stuff there. Here are some of the subreddits I've subscribed to.
@@ -130,6 +130,6 @@ I don't go to reddit much for finding the latest in ML, but you can definitely f
 * There's a weekly What Are You Reading (WAYR) pinned thread which can be good.
 
 [r/computervision](https://www.reddit.com/r/computervision/)
-* Not active as r/MachineLearning
+* Not as active as r/MachineLearning
 
 There are some other subreddits but I don't use them very much.

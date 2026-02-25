@@ -17,7 +17,7 @@ There are a lot of great resources out there so I thought I would try to compile
 
 * [Neural Networks and Deep Learning](http://neuralnetworksanddeeplearning.com/index.html) by Michael Nielsen (2015) - This is no PDF of this one either. However, the layout on the website is beautiful and there are JavaScript elements in the text, so it wouldn't work as well in PDF form anyway.
 
-* [Dive into Deep Learning](http://d2l.ai/) by Aston Zhang, Zack C. Lipton, Mu Li,and  Alex J. Smola (2020)
+* [Dive into Deep Learning](http://d2l.ai/) by Aston Zhang, Zack C. Lipton, Mu Li, and Alex J. Smola (2020)
 
 * [First Contact With Deep Learning: Practical Introduction With Keras](https://torres.ai/first-contact-deep-learning-practical-introduction-keras/) by Jordi Torres (2018)
 

@@ -34,7 +34,7 @@ Let's create a table with PostGIS geometries in it.
 
 ## Administering the Database
 
-One way to administer your database is with pdAdmin. You'll probably find that for most things you prefer the command line, but for some things it's nice to have a UI.
+One way to administer your database is with pgAdmin. You'll probably find that for most things you prefer the command line, but for some things it's nice to have a UI.
 
 ![image.png](attachment:image.png)
 
@@ -95,7 +95,7 @@ The error is weird
 
 ![image.png](attachment:image.png)
 
-The solution is to change your single quotes to double quotes.
+The solution is to change your double quotes to single quotes.
 
 ## Some samples
 

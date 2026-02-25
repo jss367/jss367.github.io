@@ -343,7 +343,7 @@ graph.write_png('python_decision_tree.png')
 
 ![tree]({{site.baseurl}}/assets/img/python_decision_tree.png "Decision tree")
 
-We've made our first decision tree. Let's go over some terminology. At the top it says `Years < 4.5`. This is the first decision point in the tree and is called the *root node*. From there, we see a horizontal line that we could take either to the left or to the right. These are called *left-hand* and *right-hand branches*. If we go down the right-hand branch by following the line to the right and then down, we see `Hits<117.5` and another decision point. This is called an *internal node*. At the bottom, we have a few different numbers. Because no more decision points emanate from them, these are called *terminal nodes* or a *leaves*. A decision tree will always have one more terminal node than split point. As you can see, the "tree" is actually upside down (perhaps statistician don't spend enough time outside?).
+We've made our first decision tree. Let's go over some terminology. At the top it says `Years < 4.5`. This is the first decision point in the tree and is called the *root node*. From there, we see a horizontal line that we could take either to the left or to the right. These are called *left-hand* and *right-hand branches*. If we go down the right-hand branch by following the line to the right and then down, we see `Hits<117.5` and another decision point. This is called an *internal node*. At the bottom, we have a few different numbers. Because no more decision points emanate from them, these are called *terminal nodes* or a *leaves*. A decision tree will always have one more terminal node than split point. As you can see, the "tree" is actually upside down (perhaps statisticians don't spend enough time outside?).
 
 OK, so now how do we use it?
 
@@ -421,7 +421,7 @@ The goal of decision tree algorithms is to find $$ J $$ regions $$ R_1, ..., R_J
 
 $$ \sum_{j=1}^{J}{\sum_{i\in R_j}}({y_i-\hat{y}_{R_j}})^2 $$
 
-Note that the regions that minimize that equation don't have to be rectangular, but we'll impose an addition constraint that they are so that we can can easily interpret the decision points. This means that each question can only be about a single variable. The alternative would be to allow questions like "Is feature 1 times feature 2 greater than 25?" This is not allowed in decision tree implementations. So we'll assume that each region is a box.
+Note that the regions that minimize that equation don't have to be rectangular, but we'll impose an addition constraint that they are so that we can easily interpret the decision points. This means that each question can only be about a single variable. The alternative would be to allow questions like "Is feature 1 times feature 2 greater than 25?" This is not allowed in decision tree implementations. So we'll assume that each region is a box.
 
 Even so, it would be computational expensive (or even infeasible) to consider every possible partition of the feature space into $$ J $$ boxes. So instead we use a *top-down*, *greedy* approach known as *recursive binary splitting*. "Top-down" means that it begins at the top of the tree and works its way down. "Greedy" means that it maximizes the value of the split at that particular step, without considering future splits. This is done to make the calculations feasible and may not actually result in the optimal decision tree. It's possible that a less optimal decision early on allows for much better decisions later, resulting in an overall better tree.
 
@@ -559,19 +559,19 @@ $$ E=1-max_k(\hat{p}_{mk}) $$
 
 Here $$ \hat{p}_{mk} $$ represents the proportion of training observations in the $$ m $$th region that are from the $$ k $$th class.
 
-Although this may be the most straightforward method of identifying error, it isn't always the most effective. Two other measures of impurity are common used: The Gini index and cross-entropy. Here are the formulas for them:
+Although this may be the most straightforward method of identifying error, it isn't always the most effective. Two other measures of impurity are commonly used: The Gini index and cross-entropy. Here are the formulas for them:
 
 Gini index:
 
 $$ G=\sum_{k=1}^{K}{\hat{p}_{mk}}(1-\hat{p}_{mk}) $$
 
-Cross-enropy:
+Cross-entropy:
 
 $$ D=-\sum_{k=1}^{K}{\hat{p}_{mk}}\log\hat{p}_{mk}\frac{1}{2\log(2)} $$
 
 Note that we've added a scaling factor to the cross-entropy function to make it easier to compare with the other methods.
 
-The Gini index (also called Gini coefficient) and cross-entropy are common used measures of impurity. Gini index is the default criterion for scikit-learn.
+The Gini index (also called Gini coefficient) and cross-entropy are commonly used measures of impurity. Gini index is the default criterion for scikit-learn.
 
 Let's look at an example. Say there are ten instances in a region, three of which are labeled as True and seven of which as labeled as False.
 
@@ -702,7 +702,7 @@ graph.write_png('python_heart_disease_decision_tree.png')
 
 # Ensembling for Better Models
 
-Decision trees are often not as successful as some of the other methods. So we'll also talk about bagging, random forests, and boosting. Each of these is a method to produce and combine multiple trees to that gives a single prediction.
+Decision trees are often not as successful as some of the other methods. So we'll also talk about bagging, random forests, and boosting. Each of these is a method to produce and combine multiple trees that gives a single prediction.
 
 Although decision trees can be powerful machine learning models, they often don't match up against other models, such as support vector machines. But there's a way to make up for this by combining the output of several algorithms into a single classifier. This is known as *ensembling*.
 
@@ -758,7 +758,7 @@ Again, more trees won't cause more overfitting. The key to determining the numbe
 
 Now let's talk about a technique known as *boosting*. Boosting is another way we can improve decision tree performance. Like the other techniques, it can be applied to many machine learning models, but is most commonly used with decision trees. We're going to focus on boosting regression trees but the concept is the same for classification trees.
 
-This process does not involve bootstrapping - we'll train the decision trees on the entire dataset. But then we'll take the output from that and input it into a second tree. Thus the output of one model will be fed into the next. We fit a decision tree to the residuals from the previous model. Then use update the residuals and do it again.
+This process does not involve bootstrapping - we'll train the decision trees on the entire dataset. But then we'll take the output from that and input it into a second tree. Thus the output of one model will be fed into the next. We fit a decision tree to the residuals from the previous model. Then update the residuals and do it again.
 
 These trees can be quite small, maybe with just a few nodes in them. By adding these small trees, we gradually improve the overall model in the areas where it needs the most help.
 

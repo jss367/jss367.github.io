@@ -516,7 +516,7 @@ with session(engine=engine) as sess:
     records = sess.query(MyTable).filter_by(id = 12345)
 rec = records.first()
 rec.my_column = 'new_value'
-with session(engine=engine)) as sess:
+with session(engine=engine) as sess:
     sess.merge(rec)
     try:
         sess.commit()
@@ -527,7 +527,7 @@ with session(engine=engine)) as sess:
 
 Or you could pass one sess to the whole thing.
 
-# Synactic Sugar and Tricks
+# Syntactic Sugar and Tricks
 
 #### Get the date from a timestamp
 * `date(my_timestamp)`

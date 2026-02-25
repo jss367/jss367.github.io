@@ -81,8 +81,6 @@ Here's an example from [Cascade R-CNN](https://arxiv.org/abs/1906.09756) that sh
 
 ![metric]({{site.baseurl}}/assets/img/metrics/cascade_rcnn.png "Metrics")
 
-* Explain AP vs AP50
-
 ## Very Small Objects
 
 These thresholds of 0.5:0.95 are not ideal for all cases. For example, in geospatial analytics, the objects can be so small that these metrics are too strict. For example, if you have an object that is 5X5 pixels and the prediction is off to the side and above by one pixel, the IoU is bad. Your intersection is 16 pixels. Your union is 36 pixels. This gives an IoU of 16/36 = 0.44. So you're only a pixel off but this would count as a miss. And it is *very* easy to be off by one pixel (especially if you consider label noise). For very small objects the threshold should be decreased.

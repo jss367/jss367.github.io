@@ -26,7 +26,7 @@ EPSILON = np.finfo(float).eps
 
 ## Binary Cross Entropy Loss
 
-Let's imagine the case where we have four different examples that's we've labeled either 0 or 1, like so:
+Let's imagine the case where we have four different examples that we've labeled either 0 or 1, like so:
 
 
 ```python
@@ -73,7 +73,7 @@ np.log(y_pred)
 
 
 
-But we only want to predictions from where we didn't store a 1, so we'll multiple them by the original predictions.
+But we only want the predictions from where the label was 1, so we'll multiply them by the original predictions.
 
 
 ```python
@@ -101,7 +101,7 @@ np.sum(y_true * np.log(y_pred))
 
 
 
-OK. That's the loss from the ones that should have be a 1. Now let's find the loss for the ones that should have been 0.
+OK. That's the loss from the ones that should have been a 1. Now let's find the loss for the ones that should have been 0.
 
 Now, we're going to take the loss of 1-y_pred.
 
@@ -187,7 +187,7 @@ np.sum(y_true * np.log(y_pred)) + np.sum((1-y_true)* np.log(1-y_pred))
 
 OK, but this number is negative, so it's not going to work as a loss function that we need to minimize. What we need to do is take the negative of it.
 
-Also, the loss has a 1/N in front of it, so need to to add that.
+Also, the loss has a 1/N in front of it, so we need to add that.
 
 
 ```python

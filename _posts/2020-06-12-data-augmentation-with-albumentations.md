@@ -26,7 +26,7 @@ from matplotlib import pyplot as plt
 from mpl_toolkits.axes_grid1 import ImageGrid
 ```
 
-To illustrate the data augmentation techniques, I'm going to use a sample image from the [semantic drone dataset from Kaggle](https://www.kaggle.com/bulentsiyah/semantic-drone-dataset#). Credit for the [original dataset](https://www.tugraz.at/index.php?id=22387) goes to the Institue of Computer Graphics and Vision at Graz University of Technology in Austria.
+To illustrate the data augmentation techniques, I'm going to use a sample image from the [semantic drone dataset from Kaggle](https://www.kaggle.com/bulentsiyah/semantic-drone-dataset#). Credit for the [original dataset](https://www.tugraz.at/index.php?id=22387) goes to the Institute of Computer Graphics and Vision at Graz University of Technology in Austria.
 
 Let's read in the image.
 
@@ -174,7 +174,7 @@ Now let's look at a bunch of augmentations. Albumentations provides pretty good 
 
 ### Spatial augmentations
 
-Spatial transform as things like flips and rotations. In Albumentations, you'll use transforms like `Transpose`, and `VerticalFlip` to do these transformations. When you rotate an image, you will lose some information when you try to make it square again, thus arbitrary rotations aren't always the best option. Sometimes you'll want to do spatial transformations that don't result in any loss. There are eight different alignments that an image could be in without losing any of the image and my goal is to make each of them equally likely. Using the following setup, each position will have a 12.5% chance of being selected.
+Spatial transforms are things like flips and rotations. In Albumentations, you'll use transforms like `Transpose`, and `VerticalFlip` to do these transformations. When you rotate an image, you will lose some information when you try to make it square again, thus arbitrary rotations aren't always the best option. Sometimes you'll want to do spatial transformations that don't result in any loss. There are eight different alignments that an image could be in without losing any of the image and my goal is to make each of them equally likely. Using the following setup, each position will have a 12.5% chance of being selected.
 
 
 ```python
@@ -463,7 +463,7 @@ visualize_group(aug_ims)
     
 
 
-#### RandomConstrast
+#### RandomContrast
 
 `RandomContrast` is similar to `RandomBrightness` but I find you can get away with doing a bit more.
 
