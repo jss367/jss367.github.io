@@ -616,7 +616,7 @@ Let's look at all the ones that I criticized box plots for.
 fig, axes = plt.subplots(6, 1, figsize=(8, 24))
 
 data_list = [uniform_data, clusters, bimodal_data, bimodal_data_with_overlap, nested_distributions, nonrandom_uniform]
-titles = ['Uniform Distribution', 'Clusters', 'Bimodal Distribution', 'Bomodal with Overlap', 'Nested Distributions', 'Nonrandom Uniform Distribution']
+titles = ['Uniform Distribution', 'Clusters', 'Bimodal Distribution', 'Bimodal with Overlap', 'Nested Distributions', 'Nonrandom Uniform Distribution']
 
 for i, data in enumerate(data_list):
     sns.swarmplot(ax=axes[i], y=data, size=3)

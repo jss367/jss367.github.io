@@ -480,7 +480,7 @@ plot_cm(concat_labels, concat_preds_unbalanced)
 
 ## Round 1 Conclusion
 
-Overall, it looks like the model that used the balanced validation set did better on the test set. This might be a bit of a surprise as validation datasets are supposed representative of the test set, but that one did worse. I think what's going on is we're using our validation set for two separate tasks - validating our results and using it's loss in the callbacks. I've rerun this experiment several times and gotten similar results.
+Overall, it looks like the model that used the balanced validation set did better on the test set. This might be a bit of a surprise as validation datasets are supposed representative of the test set, but that one did worse. I think what's going on is we're using our validation set for two separate tasks - validating our results and using its loss in the callbacks. I've rerun this experiment several times and gotten similar results.
 
 Now let's try it with a better model. We used a simple model for the first round of experiments. Now let's do the same thing except using Xception.
 

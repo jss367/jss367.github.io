@@ -77,7 +77,7 @@ model.eval();
 
 # Prepare the Image
 
-There are a few things we need to do to prepare the images. There's nothing just here - just some stuff for working with a PyTorch model. For one, we'll have to use the ImageNet mean and standard deviation to transform the image.
+There are a few things we need to do to prepare the images. There's nothing special here - just some stuff for working with a PyTorch model. For one, we'll have to use the ImageNet mean and standard deviation to transform the image.
 
 
 ```python

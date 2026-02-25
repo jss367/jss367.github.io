@@ -520,7 +520,7 @@ for _ in tqdm(range(n)):
     while True:
         idx = np.random.randint(len(data))
         text, true_label = data[idx]["content"], data[idx]["label"]
-        # the actual formatted input will be longer, so include a bit of a marign
+        # the actual formatted input will be longer, so include a bit of a margin
         if len(tokenizer(text)) < 400:
             break
 

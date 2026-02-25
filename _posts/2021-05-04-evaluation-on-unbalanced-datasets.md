@@ -27,7 +27,7 @@ When we're evaluating the performance of models on an unbalanced dataset, what s
 
 ## Train Model
 
-OK. Out first experiment we'll make a couple train datasets. One options is to have a balanced dataset, the other is to allow it to be unbalanced to match the "real world". Let's see which one produces better results.
+OK. Our first experiment we'll make a couple train datasets. One option is to have a balanced dataset, the other is to allow it to be unbalanced to match the "real world". Let's see which one produces better results.
 
 
 ```python
