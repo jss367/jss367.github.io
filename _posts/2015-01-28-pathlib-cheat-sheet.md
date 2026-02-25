@@ -19,7 +19,7 @@ import sys
 from pathlib import Path
 ```
 
-Since Python is built in, the version of pathlib you have will be based on the version of Python. I try to keep this notebook up-to-date with the latest version. Here's the latest version it was run on:
+Since pathlib is built in, the version of pathlib you have will be based on the version of Python. I try to keep this notebook up-to-date with the latest version. Here's the latest version it was run on:
 
 
 ```python
