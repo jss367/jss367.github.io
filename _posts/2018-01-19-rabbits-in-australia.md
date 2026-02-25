@@ -93,6 +93,6 @@ Myxoma was terribly effective on rabbits, but even if we assume efficacy against
 ![png]({{site.baseurl}}/assets/img/2018-01-19-Rabbits-in-Australia_files/2018-01-19-Rabbits-in-Australia_30_0.png)
 
 
-Although the virus has a significant impact initially, every time it starts to take hold, the immune rabbits, with no more competition from all those who died, spread across the land and themselves number over 100 million. And so, the myoma virus experiment ended, leaving Australia with a large population of mutant, disease-resistant rabbits.
+Although the virus has a significant impact initially, every time it starts to take hold, the immune rabbits, with no more competition from all those who died, spread across the land and themselves number over 100 million. And so, the myxoma virus experiment ended, leaving Australia with a large population of mutant, disease-resistant rabbits.
 
-[See the full code here](https://nbviewer.jupyter.org/github/jss367/JupyterNotebooks/blob/master/2018-01-19-Rabbits-in-Australia.ipynb)
+[See the full code here](https://nbviewer.org/github/jss367/JupyterNotebooks/blob/master/2018-01-19-Rabbits-in-Australia.ipynb)
