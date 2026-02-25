@@ -179,7 +179,7 @@ new_list = old_list
 print(id(old_list))
 print(id(new_list))
 new_list = old_list[:]
-# By using a copy, new_list gets a different id")
+# By using a copy, new_list gets a different id
 print(id(new_list))
 ```
 
@@ -275,7 +275,7 @@ Note that you could also do this with a list comprehension.
 
 ### Map
 
-Map can actually changes the values.
+Map can actually change the values.
 
 
 ```python
@@ -520,7 +520,7 @@ except NiException:
 ```python
 #Can also be more specific:
 
-print("If you provide two integers, I will devide the first by the second")
+print("If you provide two integers, I will divide the first by the second")
 try:
     a = int(input('Give me a number: '))
     b = int(input('Give me another: '))
@@ -533,7 +533,7 @@ except:
     print("I don't even know what you did wrong")
 ```
 
-    If you provide two integers, I will devide the first by the second
+    If you provide two integers, I will divide the first by the second
     Give me a number: 2
     Give me another: 0
     Can't divide by zero
@@ -648,66 +648,6 @@ except AssertionError as err:
     Error: Number must be even
     
 
-## Aliasing
-
-Python uses references. This can create aliasing problems
-
-
-```python
-# Here's an example that isn't a problem
-old_list = [1,2,3,4]
-new_list = old_list
-new_list[2]=7
-print(old_list)
-```
-
-    [1, 2, 7, 4]
-    
-
-`old_list` has changed without being changed directly. This is because when I did `new_list = old_list`, it created a reference from the value of `old_list` to a new variable, `new_list`. But it did not make a second copy of the value, so they are pointing to the same value. If that value is changed both variables will see the change.
-
-This can be a desired result, but sometimes it isn't. In those cases you can make a copy of the value instead of just getting a reference to the old value. Do this by setting `new_list` equal to `old_list[:]` or `list(old_list)`
-
-
-```python
-old_list = [1,2,3,4]
-new_list = old_list[:]
-new_list[2]=7
-print(old_list)
-```
-
-    [1, 2, 3, 4]
-    
-
-
-```python
-old_list = [1,2,3,4]
-new_list = list(old_list)
-new_list[2]=7
-print(old_list)
-```
-
-    [1, 2, 3, 4]
-    
-
-To see this in more detail, you can look at the id of the variable
-
-
-```python
-old_list = [1,2,3,4]
-new_list = old_list
-print(id(old_list))
-print(id(new_list))
-new_list = old_list[:]
-# By using a copy, new_list gets a different id")
-print(id(new_list))
-```
-
-    3179535780032
-    3179535780032
-    3179534011968
-    
-
 # Testing
 
 For testing, I highly recommend [pytest](https://docs.pytest.org/en/latest/). One issue I had with it when I was getting started was that if it mocked the inputs I couldn't run the test as a file (like to debug in VSCode). It turns out this is all you need.
@@ -719,7 +659,7 @@ if __name__ == "__main__":
     pytest.main([__file__])
 ```
 
-Or, if you just one to test a function or two, you can do
+Or, if you just want to test a function or two, you can do
 
 
 ```python
@@ -806,11 +746,11 @@ print(Birds.blue_jay < Birds.cardinal + 3)
 try:
     print(Animals.dog < Animals.cat + 3)
 except TypeError:
-    print("Can't do interger comparison with standard Enums")
+    print("Can't do integer comparison with standard Enums")
 ```
 
     True
-    Can't do interger comparison with standard Enums
+    Can't do integer comparison with standard Enums
     
 
 # Scope
