@@ -7,7 +7,7 @@ feature-img: "assets/img/rainbow.jpg"
 tags: [Datasets]
 ---
 
-As machine learning has continued to expand, so has the need for data. I've put together some of my favorite resources for finding datasets. I hope they are some service.
+As machine learning has continued to expand, so has the need for data. I've put together some of my favorite resources for finding datasets. I hope they are of some service.
 
 # Dataset search engines
 

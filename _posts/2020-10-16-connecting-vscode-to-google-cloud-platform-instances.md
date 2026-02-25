@@ -8,7 +8,7 @@ tags: [VSCode]
 ---
 
 
-In this post, I'll demonstrate how to connect to [Google Cloud Platform](https://cloud.google.com/) (GCP) instances using VSCode's [Remote SSH extention](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh). We'll assume you already have working GCP instances that you can ssh into. To connect to a remote host, VSCode needs to know the HostName, User, and IdentityKey. In this guide, we'll go over how to find these. For simplicity, we'll assume you're trying to connect to an instance named `my_instance` and your zone is `europe-west4-b`. You'll need to find these values and change them in the instructions below.
+In this post, I'll demonstrate how to connect to [Google Cloud Platform](https://cloud.google.com/) (GCP) instances using VSCode's [Remote SSH extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode-remote.remote-ssh). We'll assume you already have working GCP instances that you can ssh into. To connect to a remote host, VSCode needs to know the HostName, User, and IdentityKey. In this guide, we'll go over how to find these. For simplicity, we'll assume you're trying to connect to an instance named `my_instance` and your zone is `europe-west4-b`. You'll need to find these values and change them in the instructions below.
 
 ## Project ID
 
@@ -32,7 +32,7 @@ This should return an IP address. This is what you'll use as your HostName.
 
 ## IdentityFile
 
-The IndentityFile will already be on your computer if you have been connecting to your instances already. It's not your normal ssh key - Google made a separate one for this. On Linux/Mac, it should be at `~/.ssh/google_compute_engine`. You can check if it's there but you don't need to do anything with it.
+The IdentityFile will already be on your computer if you have been connecting to your instances already. It's not your normal ssh key - Google made a separate one for this. On Linux/Mac, it should be at `~/.ssh/google_compute_engine`. You can check if it's there but you don't need to do anything with it.
 
 # Putting it All Together
 

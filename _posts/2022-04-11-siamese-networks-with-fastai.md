@@ -113,7 +113,7 @@ tst.show();
     
 
 
-Now we create an image tuple block. It's really simple. It just returns a TransformBlock where we can the function to create a Siamese image.
+Now we create an image tuple block. It's really simple. It just returns a TransformBlock where we pass the function to create a Siamese image.
 
 
 ```python
@@ -214,7 +214,7 @@ def get_y(t):
     return t[2]
 ```
 
-New we can build the DataBlock.
+Now we can build the DataBlock.
 
 
 ```python
@@ -283,7 +283,7 @@ dls.show_batch()
     
 
 
-One of my favorite things to do with data in FastAI is turn it into a pandas DataFrame. I find it so much easy to clean or modify the data in the format. In this case, we'll balance the dataset using a DataFrame.
+One of my favorite things to do with data in FastAI is turn it into a pandas DataFrame. I find it so much easier to clean or modify the data in the format. In this case, we'll balance the dataset using a DataFrame.
 
 ## Convert to DataFrame
 

@@ -140,7 +140,7 @@ dls.device
 
 
 
-Then you can put in on the GPU with:
+Then you can put it on the GPU with:
 
 
 ```python

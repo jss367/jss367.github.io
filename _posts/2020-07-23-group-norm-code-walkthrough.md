@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Group Norm Code Walkthrough"
-description: "A post that walks thorugh how the code behind group norm works."
+description: "A post that walks through how the code behind group norm works."
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/woodswallow_group.jpg"
 tags: [TensorFlow, Deep Learning]
@@ -92,7 +92,7 @@ Note that now that we've used TensorFlow to reshape our tensor, it's no longer a
 
 Now we need to calculate the moments. The first moment of a probability distribution is the mean (expected value) and the second moment is the variance. Then we need to decide which axes to calculate the moments around. Each batch and group are going to have separate normalization parameters, so we don't want to include those along the axes in the normalization. We want to calculate them along the width, height, and the number of channels in our group.
 
-TensorFlow has a built in capability to calcuate moments, `tf.nn.moments`. It will return two objects with shape (in this case) 64, 4, 1, 1, 1. The first is the mean and the second is the variance.
+TensorFlow has a built in capability to calculate moments, `tf.nn.moments`. It will return two objects with shape (in this case) 64, 4, 1, 1, 1. The first is the mean and the second is the variance.
 
 
 ```python
