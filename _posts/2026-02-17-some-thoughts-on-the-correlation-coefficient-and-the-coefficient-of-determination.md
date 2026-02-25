@@ -53,7 +53,7 @@ plt.scatter(x,y);
 
 
     
-![png](2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_files/2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_6_0.png)
+![png]({{site.baseurl}}/assets/img/2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_files/2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_6_0.png)
     
 
 
@@ -210,7 +210,7 @@ plt.show()
 
 
     
-![png](2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_files/2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_24_0.png)
+![png]({{site.baseurl}}/assets/img/2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_files/2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_24_0.png)
     
 
 
@@ -392,7 +392,7 @@ print(f"  No intercept, corrected formula: R² = {r2_no_intercept:.3f}")
 
 
     
-![png](2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_files/2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_38_0.png)
+![png]({{site.baseurl}}/assets/img/2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_files/2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_38_0.png)
     
 
 
@@ -644,7 +644,7 @@ print(f"\nWith enough predictors (>= n-1), R² approaches 1.0 regardless of sign
 
 
     
-![png](2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_files/2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_48_0.png)
+![png]({{site.baseurl}}/assets/img/2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_files/2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_48_0.png)
     
 
 
@@ -736,7 +736,7 @@ print("This is because R² depends on the variance of X in your sample.")
 
 
     
-![png](2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_files/2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_52_0.png)
+![png]({{site.baseurl}}/assets/img/2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_files/2026-02-17-some-thoughts-on-the-correlation-coefficient-and-the-coefficient-of-determination_52_0.png)
     
 
 
