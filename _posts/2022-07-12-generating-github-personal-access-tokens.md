@@ -15,7 +15,7 @@ This post contains instructions for how to work with personal access tokens on G
 
 * Scroll down on the page until you see "Developer settings"
 
-<img src="/assets/img/github_developer_settings.png" alt="Drawing" style="width: 400px;"/>
+<img src="{{site.baseurl}}/assets/img/github_developer_settings.png" alt="Drawing" style="width: 400px;"/>
 
 * There you'll see "Personal access tokens"
 
