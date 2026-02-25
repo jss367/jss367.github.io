@@ -62,8 +62,8 @@ You'll need to check if everything on your system is working. Here's a quick sum
 | -------------- | ------------------------------------------------------------------------- |
 | NVIDIA Drivers | `nvidia-smi`                                                              |
 | CUDA Toolkit   | `nvcc --version`                                                          |
-| cuDNN          | `cat /usr/local/cuda/include/cudnn.h \| grep CUDNN_MAJOR -A 2`           |
-| TensorFlow     | `python -c "import tensorflow as tf; print(tf.__version__)"` |
+| cuDNN          | `cat /usr/local/cuda/include/cudnn.h | grep CUDNN_MAJOR -A 2`             |
+| TensorFlow     | `python -c "import tensorflow as tf; print(tf.__version__)"`              |
 
 Now let's go over each part in more detail.
 
