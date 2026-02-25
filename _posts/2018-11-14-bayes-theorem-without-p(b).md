@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Bayes' Theorem without P(B)"
-description: "This post is about Bayes' Theorem and how to use them."
+description: "This post is about Bayes' Theorem and how to use it."
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/hoary-headed-grebe.jpg"
 tags: [Bayesian Statistics, Statistics]
@@ -11,7 +11,7 @@ Bayes' Theorem is a fundamental concept in probability theory and statistics, of
 
 ## Background
 
-Bayes' Theorem relates the conditional and marginal ities of random events. It's mathematically expressed as:
+Bayes' Theorem relates the conditional and marginal probabilities of random events. It's mathematically expressed as:
 
 $$ P(A|B) = \frac{P(B|A) \times P(A)}{P(B)} $$
 
@@ -57,7 +57,7 @@ Another powerful way to express Bayes’ Theorem is in terms of **odds** instead
 
 $$ \text{odds}(A) = \frac{p}{1 - p} $$
 
-So if \( P(A) = 0.2 \), the odds are \( 0.2 / 0.8 = 0.25 \), which you can read as “one to four against.”
+So if $$ P(A) = 0.2 $$, the odds are $$ 0.2 / 0.8 = 0.25 $$, which you can read as “one to four against.”
 
 
 ## From Bayes’ Rule to Odds
