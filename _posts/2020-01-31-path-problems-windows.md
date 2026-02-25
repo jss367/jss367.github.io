@@ -7,13 +7,13 @@ thumbnail: "assets/img/dark_path.jpg"
 tags: [Python, Windows]
 ---
 
-Path problems are some of the most common and annoying problems machine learning engineers face, especially when frequently switching between operating systems. There are so many different issues ways to have path problems that no post could cover them all, but in this post, I'll try to provide some background on possible issues and how to resolve them.
+Path problems are some of the most common and annoying problems machine learning engineers face, especially when frequently switching between operating systems. There are so many different ways to have path problems that no post could cover them all, but in this post, I'll try to provide some background on possible issues and how to resolve them.
 
 <b>Table of Contents</b>
 * TOC
 {:toc}
 
-The first thing you need to realize are that there are multiple different things that are at times called a "path". The two main ones that Python programmers will run into are the system path and the Python path. 
+The first thing you need to realize is that there are multiple different things that are at times called a "path". The two main ones that Python programmers will run into are the system path and the Python path. 
 
 # System Path
 
@@ -68,67 +68,29 @@ When inside Python you can `print(sys.path)` to see your path:
 ```
 
 ## Adding to your PYTHONPATH
-```
-Just go to system properties, environment variables, new...
-Environment variables:
-Hit windows key
-type environment
-Click on Environment Variables in the Advanced tab.
-c:\\Users\\Julius\\Documents\\GitHub\\DataManager
-- for some reason this doesn't always add to the python path though
-```
-Let's test this out. As we saw above, you can test out your PYTHONPATH directly from the command line:
+
+To permanently add to your PYTHONPATH on Windows:
+
+1. Press the Windows key and type "environment"
+2. Click on "Environment Variables" in the Advanced tab of System Properties
+3. Under User variables, click "New" and add your desired path
+
+You can test it from the command line:
 
 `python -c "import sys; print(sys.path)"`
 
+Remember that your paths are hierarchical on Windows. If `C:\Users\Julius\AppData\Local\Microsoft\WindowsApps` appears before your Python path, Windows will try that first and may redirect you to the Windows Store. You can reorder the entries to move the one you want higher in the list.
 
-Remember that your paths are hierarchical on Windows
+If you're using Conda, make sure to add both the Conda and Python directories to your path. You can find them by opening a Conda prompt and running `where conda` and `where python`.
 
-If you have `C:\Users\Julius\AppData\Local\Microsoft\WindowsApps` it will try then then tell you to go to the Windows store. But you can move the one you want up in the list.
-
-You can have this problem where it works if you are debugging but not if you're not debugging.
-
-
-add BOTH conda and python to your path
-
-open conda prompt then `where conda`
-
-then `where python`
-
-should say
-`C:\Users\Julius\anaconda3\python.exe`
-
-so use `C:\Users\Julius\anaconda3`
-
-
-
-
-I use the User variables for this
-
-
-
-Right-click anywhere in the editor window and select Run Python File in Terminal (which saves the file automatically):
-
-- doesn't use selected interpreter
-
-
-
-
-on Windows you can also
+To temporarily set PYTHONPATH from the command line:
 
 ```
-echo $PYTHONPATH
-set PYTHONPATH=C:\\Users\Julius\Documents\GitHub\facv\src\;C:\\Users\Julius\Documents\GitHub\fastai\fastai
+set PYTHONPATH=C:\path\to\my_project\src
 python -c "import sys; print(sys.path)"
 ```
 
-but in Windows it's `echo $PYTHONPATH$`
-
-
-
-
-Note:
-If you change the environment variables you'll need to restart VSCode or Jupyter Notebooks. Once you restart you'll see the addition in `sys.path`
+Note: If you change the environment variables you'll need to restart VSCode or Jupyter Notebooks. Once you restart you'll see the addition in `sys.path`.
 
 
 ## Finding your Python Interpreter
@@ -143,10 +105,9 @@ sys.executable
 
 ## Jupyter Notebook problems
 
-Let's say you set you can variable and can see it in `PYTHONPATH`.
+Let's say you set your variable and can see it in `PYTHONPATH`.
 
-
-you `import sys; print(sys.version)` from a command line and it's there, but when you run the same command in a Jupyter Notebook it's not there. That's because Jupyter has its own `PATH` variable called `JUPYTER_PATH`.
+You run `import sys; print(sys.path)` from a command line and it's there, but when you run the same command in a Jupyter Notebook it's not there. That's because Jupyter has its own `PATH` variable called `JUPYTER_PATH`.
 
 If you need to quickly add to it, you can start a notebook with:
 

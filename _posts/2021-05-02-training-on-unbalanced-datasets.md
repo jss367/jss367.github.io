@@ -145,7 +145,7 @@ for name, value in zip(metric_names, unbalanced_mean_metrics):
     recall: 0.7189999997615815
     
 
-The model trained on the unbalanced dataset has a higher accuracy, but that's because it predicted the majority class for everything! It has **zero** precision and recall.
+The model trained on the unbalanced dataset has a higher accuracy, but it has lower recall, meaning it misses more of the minority class (dogs).
 
 To make a confusion matrix I'll simply concatenate all the results together.
 
@@ -318,7 +318,7 @@ plot_cm(concat_labels, concat_preds2)
     
 
 
-This definitely got more of the dog images. Using `class_weight` can be very helpful when trying to find a high recall, low precision model. This could be useful for something like frontline cancer detection wherer you want to tell people that they don't have cancer and be right a very high percentage of the time, or tell people that they might and further testing is needed. However, I find the results using `class_weight` inconsistent and can make the model performance swing wildly from high precision to low precision, so it's not my preferred approach.
+This definitely got more of the dog images. Using `class_weight` can be very helpful when trying to find a high recall, low precision model. This could be useful for something like frontline cancer detection where you want to tell people that they don't have cancer and be right a very high percentage of the time, or tell people that they might and further testing is needed. However, I find the results using `class_weight` inconsistent and can make the model performance swing wildly from high precision to low precision, so it's not my preferred approach.
 
 ## Experiment #3 Using Oversampling
 

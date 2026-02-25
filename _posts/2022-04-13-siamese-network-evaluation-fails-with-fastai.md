@@ -430,7 +430,7 @@ except ValueError as err:
     not enough values to unpack (expected 3, got 2)
     
 
-This fails because you don't have any data, so it returns (None, None). Oddly it doesn't return a value for when `with_decode` is true, so you get a `ValueError`.
+This fails because you don't have any data, so it returns (None, None). Oddly it doesn't return a value for when `with_decoded` is true, so you get a `ValueError`.
 
 
 ```python
