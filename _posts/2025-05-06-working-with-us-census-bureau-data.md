@@ -96,7 +96,7 @@ print("Median HH income (Asian-Indian-American, 2022):",
 
 ### Verifying Results
 
-It's good to have a way to verify the data as well. For example, you can verify some of the results simply by Googling the number and making sure that's what other people got. By Googling $152,341 you can see other news sites that use the same value and describe it as Indian annual median household [income]((https://economictimes.indiatimes.com/opinion/et-editorial/indian-high-earners-of-the-world-unite/articleshow/109112116.cms?from=mdr)).
+It's good to have a way to verify the data as well. For example, you can verify some of the results simply by Googling the number and making sure that's what other people got. By Googling $152,341 you can see other news sites that use the same value and describe it as Indian annual median household [income](https://economictimes.indiatimes.com/opinion/et-editorial/indian-high-earners-of-the-world-unite/articleshow/109112116.cms?from=mdr).
 
 ## Getting More Data
 
@@ -802,7 +802,7 @@ df
 
 ## Using the Website
 
-I don't find the website particularly easy to use, either. You can see some of the same information though. Here is the page for the American Community Survey, contains a lot of their data:
+I don't find the website particularly easy to use, either. You can see some of the same information though. Here is the page for the American Community Survey, which contains a lot of their data:
 * [https://data.census.gov/table?q=American+Community+Survey&t=-A0](https://data.census.gov/table?q=American+Community+Survey&t=-A0)
 
 Here is the ACS data on Asian Indians:
@@ -821,7 +821,7 @@ You will also find population counts mixed in with dollar amounts, which can be 
 
 ## Note on Dates
 
-You might have noticed that I used 2022 in the example above. That's because that's the 2023 (and beyond) data doesn't seem to be there for every table. Sometimes they are available though so I think you just have to check.
+You might have noticed that I used 2022 in the example above. That's because the 2023 (and beyond) data doesn't seem to be there for every table. Sometimes they are available though so I think you just have to check.
 
 
 ```python

@@ -356,7 +356,7 @@ plt.ylabel('Position')
 
 
     
-![png]({{site.baseurl}}/assets/img//2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_14_1.png)
+![png]({{site.baseurl}}/assets/img/2024-11-01-exploring-transformer-weights_files/2024-11-01-exploring-transformer-weights_14_1.png)
 
 
 I find it hard to see much in this image (you can also try `cmap='grey'`, but I don't think it helps much), so instead let's look at a specific dimension.
@@ -460,7 +460,7 @@ plt.grid(True, alpha=0.3)
     
 
 
-My main takeaway is that there is strong local correlations that indicate smooth transitions between nearby positions.
+My main takeaway is that there are strong local correlations that indicate smooth transitions between nearby positions.
 
 ## Attention Weights
 
@@ -675,7 +675,7 @@ pca_results = [analyze_attention_layer(i) for i in range(3)]
 
 ```python
 # Analyze last few layers
-late_layers = [9, 10, 11]  # Last three layers (GPT-2 small has 1
+late_layers = [9, 10, 11]  # Last three layers (GPT-2 small has 12 layers)
     
 for i in late_layers:
     pca_results.append(analyze_attention_layer(i))
@@ -849,7 +849,7 @@ plt.ylabel('Attention Head');
 
 This heatmap shows query weight patterns across different attention heads in the first layer. The vertical axis represents different attention heads, while the horizontal axis shows weight values. Brighter colors indicate higher values. Again, it's hard to see what's going on when you look at everything at once.
 
-Let's cluster the attention heads at in different layers.
+Let's cluster the attention heads in different layers.
 
 
 ```python
