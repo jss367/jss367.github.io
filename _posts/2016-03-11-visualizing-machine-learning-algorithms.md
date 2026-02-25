@@ -128,8 +128,8 @@ $$ P(A|B) = \frac{P(B|A)P(A)}{P(B)} $$
 
 where
 
-* $$P(A|B)$$ is the probability of A given B, which is what we're trying to calculate
-* $$P(B|A)$$ is the probability of B given A
+* $$P(A \mid B)$$ is the probability of A given B, which is what we're trying to calculate
+* $$P(B \mid A)$$ is the probability of B given A
 * $$P(A)$$ is the probability of A
 * $$P(B)$$ is the probability of B
 
