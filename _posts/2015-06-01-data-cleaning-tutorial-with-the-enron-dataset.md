@@ -300,7 +300,7 @@ Sometimes it can be helpful to export the data to a spreadsheet. If you want to 
 df.to_csv('final_project_dataset.csv')
 ```
 
-We can already see missing values, and it looks like they're entered as NaN, which Python will see as a string and not recognized as a null value. We can do a quick replacement on those.
+We can already see missing values, and it looks like they're entered as NaN, which Python will see as a string and not recognize as a null value. We can do a quick replacement on those.
 
 
 ```python
