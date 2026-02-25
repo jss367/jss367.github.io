@@ -190,19 +190,18 @@ $$ P(A|B) = \frac{\frac{P(B|A)}{P(B|\neg A)} \times \frac{P(A)}{P(\neg A)}}{1 + 
 
 ## Oddities
 
-Sometimes the results can be weird. Take the following:
-
-Prior odds
+Sometimes the results can be weird. Here are some examples. These work:
 
 $$ \frac{P(A)}{P(\neg A)} $$
-
-Bayes factor
 
 $$ \frac{P(B|A)}{P(B|\neg A)} $$
 
 - The prior odds: $$ \frac{P(A)}{P(\neg A)} $$
-  
+
+But these don't
+
 - The Bayes factor (how strongly the evidence favors A over ¬A): $$ \frac{P(B|A)}{P(B|\neg A)} $$
+- Some text: $$ \frac{P(B|A)}{P(B|\neg A)} $$
 
 Another example:
 
