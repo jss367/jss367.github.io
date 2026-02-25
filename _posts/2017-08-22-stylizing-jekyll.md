@@ -203,17 +203,16 @@ But these don't
 - The Bayes factor (how strongly the evidence favors A over ¬A): $$ \frac{P(B|A)}{P(B|\neg A)} $$
 - Some text: $$ \frac{P(B|A)}{P(B|\neg A)} $$
 
-Another example:
+The ones that break are the ones that combine being in a list item and containing `|`. The problem is the `|` (pipe) character. When LaTeX is inline within a list item alongside other text, the Markdown parser processes the `|` as a table delimiter before the math renderer (MathJax/KaTeX) ever sees it. This mangles the expression.
 
-Bayes factor
+The fix is to replace `|` with \mid or \vert inside your LaTeX:
 
-$$ \frac{P(B|A)}{P(B|\neg A)} $$
+- The Bayes factor: $$ \frac{P(B \mid A)}{P(B \mid \neg A)} $$
 
-- The prior odds: $$ \frac{P(A)}{P(\neg A)} $$
+`\mid` is actually better typographic practice for conditional probability anyway because it adds proper spacing around the bar, whereas `|` renders as a tight delimiter. Compare:
 
-Bayes factor
-
-$$ \frac{P(B|A)}{P(B|\neg A)} $$
+$$ \frac{P(B \mid A)}{P(B \mid \neg A)} $$
+$$ \frac{P(B | A)}{P(B | \neg A)} $$
 
 
 
