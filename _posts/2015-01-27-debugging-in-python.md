@@ -13,6 +13,24 @@ My favorite place to debug a Python application is in a full IDE like VSCode or 
 * TOC
 {:toc}
 
+## breakpoint()
+
+Since Python 3.7, the easiest way to drop into a debugger is with the built-in `breakpoint()` function. Just add it anywhere in your code:
+
+```python
+def my_function(x):
+    breakpoint()
+    return x + 1
+```
+
+By default, it drops you into `pdb`. If you have `ipdb` installed, you can switch to it by setting the `PYTHONBREAKPOINT` environment variable:
+
+```
+PYTHONBREAKPOINT=ipdb.set_trace python my_script.py
+```
+
+You can also disable all breakpoints at once with `PYTHONBREAKPOINT=0`.
+
 ## pdb
 
 `pdb` is the default Python debugger and for this reason alone it's good to be familiar with. I often use it when I am tunneling into somewhere.
