@@ -97,16 +97,16 @@ Now we've got the position of the end of the `***START OF THIS PROJECT GUTENBERG
 ```python
 start_regex = '\*\*\*\s?START OF TH(IS|E) PROJECT GUTENBERG EBOOK.*\*\*\*'
 draft_start_position = re.search(start_regex, raw)
-begining = draft_start_position.end()
+beginning = draft_start_position.end()
 
 if re.search(title.lower(), raw[draft_start_position.end():].lower()):
     title_position = re.search(title.lower(), raw[draft_start_position.end():].lower())
-    begining += title_position.end()
+    beginning += title_position.end()
     # If the title is present, check for the author's name as well
     if re.search(author.lower(), raw[draft_start_position.end() + title_position.end():].lower()):
         author_position = re.search(author.lower(), raw[draft_start_position.end() + title_position.end():].lower())
-        begining += author_position.end()
-print(begining)
+        beginning += author_position.end()
+print(beginning)
 ```
 
     628
@@ -132,7 +132,7 @@ Now we'll grab the raw text from the end of the title to the beginning of the po
 
 
 ```python
-text = raw[begining:end_position.start()]
+text = raw[beginning:end_position.start()]
 ```
 
 Now the text is ready for NLP. Let's tokenize it just to see.
@@ -197,20 +197,20 @@ def find_beginning_and_end(raw, title, author):
     
     start_regex = '\*\*\*\s?START OF TH(IS|E) PROJECT GUTENBERG EBOOK.*\*\*\*'
     draft_start_position = re.search(start_regex, raw)
-    begining = draft_start_position.end()
+    beginning = draft_start_position.end()
 
     if re.search(title.lower(), raw[draft_start_position.end():].lower()):
         title_position = re.search(title.lower(), raw[draft_start_position.end():].lower())
-        begining += title_position.end()
+        beginning += title_position.end()
         # If the title is present, check for the author's name as well
         if re.search(author.lower(), raw[draft_start_position.end() + title_position.end():].lower()):
             author_position = re.search(author.lower(), raw[draft_start_position.end() + title_position.end():].lower())
-            begining += author_position.end()
+            beginning += author_position.end()
     
     end_regex = 'end of th(is|e) project gutenberg ebook'
     end_position = re.search(end_regex, raw.lower())
 
-    text = raw[begining:end_position.start()]
+    text = raw[beginning:end_position.start()]
     
     return text
 ```

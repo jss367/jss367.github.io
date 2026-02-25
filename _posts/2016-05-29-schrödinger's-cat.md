@@ -184,4 +184,4 @@ According to the definition provided by Google, the cat remains in a state of be
 
 This thought experiment shows that none of the above explanations are satisfactory, and the only possible explanation is that the observation occurs at every point in time, when the first macroscopic entity, the Geiger counter, either detects or does not detect the radiation which causes it to release the hammer smashing the vial of poison. The presence of humans or human consciousness has no effect on quantum mechanical systems.
 
-You can also view the [code for this post](https://nbviewer.jupyter.org/github/jss367/JupyterNotebooks/blob/master/Schr%C3%B6dinger%27s%20cat.ipynb).
+You can also view the [code for this post](https://nbviewer.org/github/jss367/JupyterNotebooks/blob/master/Schr%C3%B6dinger%27s%20cat.ipynb).

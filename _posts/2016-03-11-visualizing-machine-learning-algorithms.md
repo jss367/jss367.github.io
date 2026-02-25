@@ -134,7 +134,7 @@ is the probability of A given B, which is what we're trying to calculate
 
 $$ P(B|A) $$
 
-is the probability of A given B
+is the probability of B given A
 
 $$ P(A) $$ is the probability of A
 
@@ -187,7 +187,7 @@ Some good things about Naive Bayes are that it
 * Works well for independent variables (see the warning below)
 * Is good at natural language processing tasks like spam filtering
 
-Some assumption to be aware of are
+Some assumptions to be aware of are
 * Naive Bayes assumes data are independent of each other. This is not valid in many cases. For example, the weather on one day is not independent of the weather on the previous day. The number of bathrooms in a house is not independent of the size of the house. Naive Bayes can still work surprisingly well when this assumption is invalid, but it's important to remember.
 * All features are assumed to contribute equally. That means that extraneous data with little value could decrease your performance.
 * The GaussianNB classifier assumes a Gaussian distribution.
@@ -196,7 +196,7 @@ Some assumption to be aware of are
 
 Logistic regression is a great machine learning model for classification problems. Logistic regression relies on finding proper weights for each input, just like linear regression, but then applies a nonlinear function on the results to turn it into a binary classifier. It's probably the most popular method for binary classification.
 
-The key to logistic regression in is finding the proper weight for every input. That would take a lot of work but, fortunately, we have machine learning to do that part. To learn more logistic regression this [post on using logistic regression to classify DNA splice junctions](https://jss367.github.io/dna-splice-junctions-ii-logistic-regression-from-scratch.html). Despite its name, logistic regression only works for classification, not regression (unlike linear regression).
+The key to logistic regression in is finding the proper weight for every input. That would take a lot of work but, fortunately, we have machine learning to do that part. To learn more about logistic regression, see this [post on using logistic regression to classify DNA splice junctions](https://jss367.github.io/dna-splice-junctions-ii-logistic-regression-from-scratch.html). Despite its name, logistic regression only works for classification, not regression (unlike linear regression).
 
 #### Standardization
 
@@ -381,7 +381,7 @@ Support vector machines (SVM) comes at classification from a different angle tha
 
 Although it might sound simple, SVMs might be one of the most powerful shallow learning algorithms. They can provide really good performance with very minimal tweaking.
 
-Like in logistic regression, we have a $$ C $$ parameter to control the amount of regularization. Another important hyperparameter is $$ \gamma $$, which determines whether or not to include point farther away from the decision boundary. The lower the value of $$ \gamma $$ the more points will be considered.
+Like in logistic regression, we have a $$ C $$ parameter to control the amount of regularization. Another important hyperparameter is $$ \gamma $$, which determines whether or not to include points farther away from the decision boundary. The lower the value of $$ \gamma $$ the more points will be considered.
 
 
 ```python
@@ -530,11 +530,11 @@ add_labels()
     
 
 
-Notice that overfitting has led to a couple of odd decision. This can be fixed by creating a large number of decision trees in what is known as a random forest.
+Notice that overfitting has led to a couple of odd decisions. This can be fixed by creating a large number of decision trees in what is known as a random forest.
 
 ## Perceptron
 
-We'll also try a perceptron. Perceptrons are significant because they are a biologically inspired in that they mirror the way a neuron works. They are the progenitor to much of the other algorithms and caused much of the interest in artificial neural networks. However, they are not actually very good classifiers and only work well in linearly separable cases. A single perceptron isn't used for modern classification tasks and is only included here because of its historical importance to the field.
+We'll also try a perceptron. Perceptrons are significant because they are biologically inspired in that they mirror the way a neuron works. They are the progenitor to much of the other algorithms and caused much of the interest in artificial neural networks. However, they are not actually very good classifiers and only work well in linearly separable cases. A single perceptron isn't used for modern classification tasks and is only included here because of its historical importance to the field.
 
 The perceptron model is closely related to linear and logistic regression in that it uses the sum of weighted inputs, but it relies on a step function as an activation.
 
