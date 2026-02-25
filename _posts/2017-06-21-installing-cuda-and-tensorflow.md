@@ -8,6 +8,8 @@ tags: [CUDA, TensorFlow]
 
 This tutorial aims to guide you through the process of troubleshooting issues related to your NVIDIA graphics card when working on deep learning projects.
 
+UPDATE: While this guide might still help helpful for some, I recommend running my [CUDA Helper](https://github.com/jss367/cuda_helper) instead and letting it parse through your situation.
+
 <b>Table of Contents</b>
 
 * TOC
