@@ -205,16 +205,11 @@ But these don't
 
 The ones that break are the ones that combine being in a list item and containing `|`. The problem is the `|` (pipe) character. When LaTeX is inline within a list item alongside other text, the Markdown parser processes the `|` as a table delimiter before the math renderer (MathJax/KaTeX) ever sees it. This mangles the expression.
 
-The fix is to replace `|` with \mid or \vert inside your LaTeX:
+The fix is to replace `|` with `\mid` or `\vert` inside your LaTeX:
 
 - The Bayes factor: $$ \frac{P(B \mid A)}{P(B \mid \neg A)} $$
 
-`\mid` is actually better typographic practice for conditional probability anyway because it adds proper spacing around the bar, whereas `|` renders as a tight delimiter. Compare:
-
-$$ \frac{P(B \mid A)}{P(B \mid \neg A)} $$
-$$ \frac{P(B | A)}{P(B | \neg A)} $$
-
-
+`\mid` is actually better typographic practice for conditional probability anyway because it adds proper spacing around the bar, whereas `|` renders as a tight delimiter. I don't think there's always a difference, so it might depend on your renderer.
 
 # MathJax Test
 
