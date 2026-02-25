@@ -460,7 +460,7 @@ choose_world_state(lotteries[0], lotteries[1], model="gpt-4.1-nano-2025-04-14")
 
 
 
-There! We got it to working with both LLama 3.2 using Ollama and with OpenAI.
+There! We got it working with both LLama 3.2 using Ollama and with OpenAI.
 
 ## Scaling Up
 
@@ -501,7 +501,7 @@ by_id: dict[int, Lottery] = {lot.id: lot for lot in lotteries}
     Collecting preferences for 15920 training pairs...
 
 
-Now, let's train find the LLM's preferences on the various lotteries.
+Now, let's find the LLM's preferences on the various lotteries.
 
 
 ```python
@@ -854,7 +854,7 @@ visualize_preference_graph(graph)
 
 
     
-![png](2025-07-12-extracting-utility-functions-from-llms_files/2025-07-12-extracting-utility-functions-from-llms_56_0.png)
+![png]({{site.baseurl}}/assets/img/2025-07-12-extracting-utility-functions-from-llms_files/2025-07-12-extracting-utility-functions-from-llms_56_0.png)
     
 
 
@@ -1211,7 +1211,7 @@ plot_utilities(extracted_base_utilities)
 
 
     
-![png](2025-07-12-extracting-utility-functions-from-llms_files/2025-07-12-extracting-utility-functions-from-llms_82_0.png)
+![png]({{site.baseurl}}/assets/img/2025-07-12-extracting-utility-functions-from-llms_files/2025-07-12-extracting-utility-functions-from-llms_82_0.png)
     
 
 
