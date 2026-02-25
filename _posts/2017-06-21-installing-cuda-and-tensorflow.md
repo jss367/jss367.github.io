@@ -58,11 +58,11 @@ You'll need to check if everything on your system is working. Here's a quick sum
 
 #### Summary Table
 
-| Software       | How to check                                                 |
-| -------------- | ------------------------------------------------------------ | ----------------------- |
-| NVIDIA Drivers | `nvidia-smi`                                                 |
-| CUDA Toolkit   | `nvcc --version`                                             |
-| cuDNN          | ``cat /usr/local/cuda/include/cudnn.h                        | grep CUDNN_MAJOR -A 2`` |
+| Software       | How to check                                                              |
+| -------------- | ------------------------------------------------------------------------- |
+| NVIDIA Drivers | `nvidia-smi`                                                              |
+| CUDA Toolkit   | `nvcc --version`                                                          |
+| cuDNN          | `cat /usr/local/cuda/include/cudnn.h \| grep CUDNN_MAJOR -A 2`           |
 | TensorFlow     | `python -c "import tensorflow as tf; print(tf.__version__)"` |
 
 Now let's go over each part in more detail.
@@ -105,7 +105,7 @@ Tue Feb  2 15:05:43 2021
 +-----------------------------------------------------------------------------+
 ```
 
-> Note: The CUDA Version displayed isn't there isn't necessarily the version you have. It's the highest version that your driver can support.
+> Note: The CUDA Version displayed isn't necessarily the version you have. It's the highest version that your driver can support.
 
 ##### Windows
 
