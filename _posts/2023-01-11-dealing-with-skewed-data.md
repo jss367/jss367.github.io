@@ -238,7 +238,7 @@ skew_results
 
 
 
-It's mostly right skewed. Only one is left skewed (the negative value
+It's mostly right skewed. Only one is left skewed (the negative value).
 
 ## Right-skewed Data
 
@@ -381,7 +381,7 @@ df.iloc[:, left_skewed_index].plot.hist();
 
 OK, you can see why it showed up as left-skewed in the test, but this just goes to show why it's important to actually look at the histogram and not only a skewness test. So in this entire dataset, there isn't a single example of a left-skewed feature. This goes back to what I was saying about it being less common.
 
-I think the best thing to do is just make sure left-skewed data for our current dataset. This is a bit of a spoiler for the final answer, but, oh well.
+I think the best thing to do is just make some left-skewed data for our current dataset. This is a bit of a spoiler for the final answer, but, oh well.
 
 We can flip the skew by throwing a minus sign in front of the data. I also add the max value to keep the numbers positive, and an addition 1 to keep everything at least 1 (in case I need to log transform it later). So the final flip ends up looking like this:
 

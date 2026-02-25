@@ -142,7 +142,7 @@ decoded_predictions
 
 We can also get the id associated with the top prediction.
 
-We can download the class labels to see what this correspond to.
+We can download the class labels to see what this corresponds to.
 
 
 ```python

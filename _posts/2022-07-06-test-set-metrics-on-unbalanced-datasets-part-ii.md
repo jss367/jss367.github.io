@@ -1003,7 +1003,7 @@ get_metrics(y_test, xgb_preds)
     F1: 1.30%
     
 
-We have some metrics now, but how much can we trust them. Let's look at the number of positive examples.
+We have some metrics now, but how much can we trust them? Let's look at the number of positive examples.
 
 
 ```python
@@ -1016,7 +1016,7 @@ print(f"{num_pos_test=}")
 
 Only six! So all of our metrics are possibly pretty far off their true values. There aren't enough positives to get a good measure of the model quality.
 
-Just like we did in [Part I](https://jss367.github.io/test-set-metrics-on-unbalanced-datasets-part-i.html), we'll additional test cases. Here, it'll be those that we split off earlier. This will reduce the error on our metrics because we have more samples.
+Just like we did in [Part I](https://jss367.github.io/test-set-metrics-on-unbalanced-datasets-part-i.html), we'll add additional test cases. Here, it'll be those that we split off earlier. This will reduce the error on our metrics because we have more samples.
 
 
 ```python

@@ -112,7 +112,7 @@ def convolve(matrix: np.ndarray, kernel: np.ndarray, mathematical_convolution: b
     kernel_shape = kernel.shape
     assert len(kernel_shape) == 2, f"Only two dimensional kernels are allowed, not {len(kernel_shape)}"
     assert len(matrix_shape) == 2, f"Only two dimensional matrix is allowed, not {len(matrix_shape)}"
-    # get shape of kerneler
+    # get shape of kernel
     kernel_height, kernel_width = kernel_shape
     matrix_height, matrix_width = matrix_shape
     num_hor_convs = matrix_width - kernel_width + 1
@@ -425,7 +425,7 @@ show_filtered_image(test_image, random)
     
 
 
-Randomly generated filters will usually perform some sort of slightly distorted blurring. Bluring as actually a common (and sometimes desired) affect, so let's look at that next.
+Randomly generated filters will usually perform some sort of slightly distorted blurring. Blurring is actually a common (and sometimes desired) effect, so let's look at that next.
 
 ### Blur
 

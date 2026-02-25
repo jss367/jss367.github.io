@@ -22,7 +22,7 @@ import math
 import matplotlib.pyplot as plt
 import numpy as np
 import seaborn as sns
-from scipy.stats import binom, norm, pareto, poison, lognorm
+from scipy.stats import binom, norm, pareto, poisson, lognorm
 ```
 
 
@@ -688,7 +688,7 @@ math.exp(-1)*(1**5/math.factorial(5))
 
 
 
-If you wanted to calculate the probably of *at least* five once-in-a-lifetime floods, it would be:
+If you wanted to calculate the probability of *at least* five once-in-a-lifetime floods, it would be:
 
 
 ```python
