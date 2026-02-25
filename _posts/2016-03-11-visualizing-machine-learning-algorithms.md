@@ -128,10 +128,10 @@ $$ P(A|B) = \frac{P(B|A)P(A)}{P(B)} $$
 
 where
 
-* $$ P(A|B) $$ is the probability of A given B, which is what we're trying to calculate
-* $$ P(B|A) $$ is the probability of B given A
-* $$ P(A) $$ is the probability of A
-* $$ P(B) $$ is the probability of B
+* $$P(A|B)$$ is the probability of A given B, which is what we're trying to calculate
+* $$P(B|A)$$ is the probability of B given A
+* $$P(A)$$ is the probability of A
+* $$P(B)$$ is the probability of B
 
 There are many types of naive Bayes classifiers. They are all based on Bayes' Theorem but are meant for different data distributions. For cases when the data are normally distributed, i.e. Gaussian, the Gaussian naive Bayes classifier is the right choice. From our previous visualizations, the data do look fairly Gaussian, so this may be a good model for this dataset.
 
