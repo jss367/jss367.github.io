@@ -33,7 +33,7 @@ np.random.seed(42)
 plt.style.use('seaborn-v0_8-whitegrid')
 ```
 
-Let's say the robot arm has the following lengths and are at the following angles:
+Let's say the robot arm has the following lengths and is at the following angles:
 
 
 ```python
@@ -87,7 +87,7 @@ plt.grid(True)
 
 
     
-![png](2026-01-22-How%20to%20Move%20a%20Robot%20Hand_files/2026-01-22-How%20to%20Move%20a%20Robot%20Hand_12_0.png)
+![png]({{site.baseurl}}/assets/img/2026-01-22-How%20to%20Move%20a%20Robot%20Hand_files/2026-01-22-How%20to%20Move%20a%20Robot%20Hand_12_0.png)
     
 
 
@@ -157,7 +157,7 @@ plt.show()
 
 
     
-![png](2026-01-22-How%20to%20Move%20a%20Robot%20Hand_files/2026-01-22-How%20to%20Move%20a%20Robot%20Hand_18_0.png)
+![png]({{site.baseurl}}/assets/img/2026-01-22-How%20to%20Move%20a%20Robot%20Hand_files/2026-01-22-How%20to%20Move%20a%20Robot%20Hand_18_0.png)
     
 
 
@@ -244,7 +244,7 @@ plt.show()
 
 
     
-![png](2026-01-22-How%20to%20Move%20a%20Robot%20Hand_files/2026-01-22-How%20to%20Move%20a%20Robot%20Hand_28_0.png)
+![png]({{site.baseurl}}/assets/img/2026-01-22-How%20to%20Move%20a%20Robot%20Hand_files/2026-01-22-How%20to%20Move%20a%20Robot%20Hand_28_0.png)
     
 
 
