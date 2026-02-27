@@ -2,13 +2,24 @@
 
 claude --resume
 
-## How to pick up a claude code session on another computer
+## Remote Contrl
+
+How to pick up a claude code session on another computer
 
 ### From existing session
 
 Just type the following:
 
 `/rc`
+
+
+
+### Joining RC Session
+
+Go to https://claude.ai/code
+
+From there you can enable notifications so you know when to check in.
+
 
 ## Renaming
 
