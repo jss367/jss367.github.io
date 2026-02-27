@@ -43,5 +43,10 @@ You can go into `~/.claude.json` and add `"editorMode": "vim",`
 See my [vim notes](https://jss367.github.io/vim-notes.html)/
 
 
+## Clearing context
+
+Useful if you want to switch topics.
+
+`/clear`
 
 
