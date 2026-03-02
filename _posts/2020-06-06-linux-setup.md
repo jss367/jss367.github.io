@@ -3,9 +3,11 @@ layout: post
 title: "Linux Setup"
 feature-img: "assets/img/rainbow.jpg"
 thumbnail: "assets/img/turtle.jpg"
-tags: [Software]
+tags: [Linux, Software]
+last_modified: 2026-02-27
 ---
-This post contains details of how I set up my shell and environment. I use Windows, Mac, and Linux on a daily basis, so I have different setups for different purposes, but I try to make them similar when I can. You can see the [software I use](https://jss367.github.io/software-i-use.html) and [how I customize it](https://jss367.github.io/software-customizations.html) in the linked posts; this post will focus on setup.
+
+This post covers how I set up my shell and development environment on Linux. I use Windows, Mac, and Linux regularly, so I try to keep things consistent across platforms where I can. You can see the [software I use](https://jss367.github.io/software-i-use.html) and [how I customize it](https://jss367.github.io/software-customizations.html) in the linked posts; this one focuses on shell and terminal setup.
 
 <b>Table of Contents</b>
 * TOC
@@ -13,282 +15,281 @@ This post contains details of how I set up my shell and environment. I use Windo
 
 ## Shell
 
-On Macs, I use [zsh](https://www.zsh.org/) as my main shell. It's the default shell now but older Macs will need to install it. My setup is based around `zsh`.
+On Linux, I use [zsh](https://www.zsh.org/) as my shell. Unlike macOS, zsh isn't the default on most Linux distributions — you'll need to install it and set it as your default shell:
 
-### Shell Configuration
-
-I use [Oh My Zsh](https://ohmyz.sh/) to configure zsh and highly recommend it.
-
-#### Development Environment
-
-I have a particular way I set up my development environment. I store all of my aliases and environment variables other than my passwords in a `~/.profile` file. This way I can share it with a team and we can all have the same hotkeys. In `~/.profile`, I source a separate file called something like `.my_credentials`, which is where all my credentials are exported from.
-
-I source `~/.profile` from whatever shell I'm using. If I'm using Oh My Zsh, I create a file that just says `source ~/.profile` and save it at `~/.oh-my-zsh/custom/profile.zsh`. I usually leave the `.zshrc` file alone, but you can customize the Oh My Zsh theme if you want. Sometimes other applications, like Anaconda, will modify the `.zshrc` file. This is fine, but for everything I add, I put it in `~.profile`.
-
-The full chain looks like this:
-
-`~/.zshrc` -> `~/.oh-my-zsh/custom/profile.zsh` -> `~/.profile` -> `~/.my_credentials`
-* Also `.profile` will source `.bash_profile` if it exists
-
-## Installing Homebrew
-
-[Homebrew](https://brew.sh/) is the best package manager for Mac. It installs in `/usr/local` for macOS Intel and `/opt/homebrew` for Apple Silicon. You can run the right location either way with this:
 ```bash
-# Set Homebrew path and run eval
-HOMEBREW_PREFIX=$(brew --prefix)
-if [[ -d "${HOMEBREW_PREFIX}" ]]; then
-  eval "$("${HOMEBREW_PREFIX}/bin/brew" shellenv)"
-fi
+sudo apt install zsh
+chsh -s $(which zsh)
 ```
 
-## Aliasing
+Log out and back in for the change to take effect. You can verify with `echo $SHELL`.
 
+My setup is built on top of [Oh My Zsh](https://ohmyz.sh/), which provides a nice framework for managing zsh configuration, themes, and plugins. You can check if it's installed with `ls ~/.oh-my-zsh`.
 
+## Development Environment
 
-### Additions to Other Files
+I store my configuration in a [dotfiles repo](https://github.com/jss367/dotfiles) so I can sync it across machines. The core idea is simple: put all your portable configuration (aliases, functions, environment variables) in a single `~/.profile` file and symlink it from the repo. Then source it from whatever shell you're using.
 
-Sometimes other applications will place information in your profile files. Some examples:
+### The Sourcing Chain
 
-* brew puts something in `zprofile`
-* conda adds to `.zshrc` or sometimes `.bash_profile` depending on how you install it.
+Here's how my config loads:
+
+```
+~/.zshrc  ->  oh-my-zsh auto-sources ~/.oh-my-zsh/custom/profile.zsh  ->  ~/.profile  ->  ~/.credentials
+```
+
+The pieces:
+
+1. **`~/.zshrc`** loads Oh My Zsh, which automatically sources every `.zsh` file in `~/.oh-my-zsh/custom/`.
+2. **`~/.oh-my-zsh/custom/profile.zsh`** is a one-line file: `source ~/.profile`. This is the bridge between zsh and your portable config. You need to create this file manually on each new machine.
+3. **`~/.profile`** is where all the real configuration lives — aliases, functions, PATH modifications. This is the file I symlink from my dotfiles repo.
+4. **`~/.credentials`** contains passwords and API keys. It's sourced from `.profile` but never committed to any repo.
+
+### Don't Symlink .zshrc
+
+I don't recommend making your `.zshrc` portable. Many tools modify `.zshrc` as part of their installation:
+
+* `conda init` adds a conda initialization block
+* nvm adds its loader
+* Various tools append PATH entries
+
+Each of these will either overwrite your symlink with a regular file or modify your repo's copy with machine-specific paths. It's a constant battle.
+
+Instead, I leave `.zshrc` as a regular local file on each machine. The things you actually want to sync — your aliases, functions, and shortcuts — belong in `.profile`. Let `.zshrc` handle the machine-specific stuff (Oh My Zsh setup, conda init, tool-specific PATH additions).
+
+### Setting Up a New Machine
+
+```bash
+# Clone dotfiles
+git clone https://github.com/YOUR_USER/dotfiles.git ~/git/dotfiles
+
+# Symlink .profile
+ln -sf ~/git/dotfiles/shell/profile ~/.profile
+
+# Symlink .gitconfig
+ln -sf ~/git/dotfiles/git/gitconfig ~/.gitconfig
+
+# Create the oh-my-zsh bridge (one-time setup)
+echo 'source ~/.profile' > ~/.oh-my-zsh/custom/profile.zsh
+```
+
+Then open a new terminal or run `source ~/.zshrc`.
+
+## Terminal
+
+Linux has many terminal emulators to choose from. The default terminal that comes with your desktop environment (GNOME Terminal, Konsole, etc.) works fine. If you want something more customizable, [Alacritty](https://alacritty.org/) and [kitty](https://sw.kovidgoyal.net/kitty/) are good options.
 
 ## Packages
 
-There are a few packages I use to improve my terminal experience.
+Here are the packages I use to improve my terminal experience.
+
+### powerlevel10k
+
+[powerlevel10k](https://github.com/romkatv/powerlevel10k) is a fast, customizable zsh theme. Install it through Oh My Zsh (not through apt), then start a new terminal and it will walk you through configuration.
+
+### zoxide
+
+[zoxide](https://github.com/ajeetdsouza/zoxide) is a smarter `cd` that learns your most-used directories. After visiting a directory once, you can jump to it by typing any part of its name. Install it with:
+
+```bash
+sudo apt install zoxide
+```
+
+I alias it to `j`:
+
+```bash
+alias j='z'
+alias ji='zi'  # interactive mode with fzf
+```
+
+Add to your `.zshrc`:
+
+```bash
+eval "$(zoxide init zsh)"
+```
+
+### fzf
+
+[fzf](https://github.com/junegunn/fzf) is a general-purpose fuzzy finder. It enhances ctrl+r history search, file finding, and more. Add to your `.zshrc`:
+
+```bash
+source <(fzf --zsh)
+```
+
+### zsh-autosuggestions
+
+[zsh-autosuggestions](https://github.com/zsh-users/zsh-autosuggestions) suggests commands as you type based on your history. Install it, then add it to your Oh My Zsh plugins in `.zshrc`:
+
+```bash
+plugins=(git zsh-autosuggestions)
+```
+
+### zsh-syntax-highlighting
+
+[zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting) highlights valid commands as you type — green for valid, red for invalid. Install via apt:
+
+```bash
+sudo apt install zsh-syntax-highlighting
+```
+
+Then source it in your `.profile`:
+
+```bash
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+```
 
 ### Pygments
 
-* [Pygments](https://pygments.org/), a Python syntax highlighter. It's like `cat` with colors. I alias it to `c` (as seen below).
+[Pygments](https://pygments.org/) is a Python syntax highlighter. It's like `cat` with colors. I alias it to `ccat`:
 
-### Autojump
+```bash
+alias ccat='pygmentize -O style=monokai -f console256 -g'
+```
 
-* [autojump](https://github.com/wting/autojump)
+## Keyboard Customizations
 
-### ZSH Syntax Highlighting
+In zsh, you may need to configure word-jumping with Alt+Arrow. Add this to your `.profile`:
 
-* [zsh-syntax-highlighting](https://github.com/zsh-users/zsh-syntax-highlighting)
+```bash
+bindkey "\e\e[D" backward-word
+bindkey "\e\e[C" forward-word
+```
 
-To activate the syntax highlighting, add the following at the end of your .zshrc:
-  `source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh`
+The exact key codes depend on your terminal emulator — the above works in most common setups. If it doesn't, use `cat -v` and press the key combination to see the escape sequence your terminal sends.
 
-If you receive "highlighters directory not found" error message,
-you may need to add the following to your .zshenv:
-  `export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/opt/homebrew/share/zsh-syntax-highlighting/highlighters`
+## Conda
 
-
-
-## Shell Configuration
-
-I use the shell configuration from [my dotfiles repo](https://github.com/jss367/dotfiles/blob/main/shell/profile), which some changes based on shell or operating system.
-
-## My .zshrc
-
-Conda will install the initialization script for conda inside `.zshrc` (for Macs). It will depend on whether you installed Anaconda or Miniconda, and on whether you installed in for a single user or for all users. If it's installed for all users it will be somewhere like `/opt/anaconda3/etc/profile.d/conda.sh`. If it's just installed for one user it will be somewhere like `/Users/$USER/opt/anaconda3/etc/profile.d/conda.sh`. The whole initialization looks like one of the following (depending on whether you use Anaconda or Miniconda): 
+I typically install Miniconda for a single user, which places it at `~/miniconda3/`. When you run `conda init zsh`, it adds an initialization block to your `.zshrc`:
 
 ```bash
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+__conda_setup="$('/home/$USER/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
 if [ $? -eq 0 ]; then
     eval "$__conda_setup"
 else
-    if [ -f "/home/jsimonelli/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/jsimonelli/miniconda3/etc/profile.d/conda.sh"
+    if [ -f "/home/$USER/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/$USER/miniconda3/etc/profile.d/conda.sh"
     else
-        export PATH="/home/jsimonelli/miniconda3/bin:$PATH"
+        export PATH="/home/$USER/miniconda3/bin:$PATH"
     fi
 fi
 unset __conda_setup
 # <<< conda initialize <<<
 ```
 
-```bash
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/julius/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/julius/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/julius/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/julius/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-```
+Leave it there.
 
-It's fine to keep in there, but if you use `tmux`, you might run into a problem. `tmux` doesn't always source `.zshrc`. Sometimes it only sources `.profile`, so conda won't load in a tmux window. Even worse, it may pull Python from `/usr/bin/python`, which will be old Python 2 (use `which python` to see which python is being used). So you might want to cut and paste the initialization over to .profile.
+### Conda and tmux
 
-I have found that if I don't include `conda activate $DEFAULT_CONDA_ENVIRONMENT` in my `.zshrc`, it doesn't activate my default profile, even though I have this in my `.profile`. So I leave it in `.zshrc`.
-
-Other stuff is added to `.zshrc` automatically as well. Things like `[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh` automatically get added here. If you don't need it for `tmux`, you can leave it here. Otherwise I would recommend moving it all over to `.profile`.
+If you use `tmux`, be aware that it doesn't always source `.zshrc` — sometimes it only sources `.profile`. This means conda won't load in tmux sessions, and you might end up using the system Python instead. Check with `which python`. If this happens, move the conda initialization block from `.zshrc` into `.profile`.
 
 ## Working on Remote Linux Instances
 
-If you're sshing into a remote Linux machine, you may have to set things up differently.
+If you're SSHing into a remote Linux machine, you'll likely be working with bash rather than zsh. You'll have a `.bashrc` that contains your prompt, conda init, and other configuration.
 
-You're likely to have a `.bashrc` and that will have stuff like `export PS1="\u@\h \[\e[32m\]\w \[\e[91m\]\$(parse_git_branch)\[\e[00m\]$ "` in it. It will also have your conda init. You will also want to put you `.my_credentials` file there, and may need to add a `export REMOTE_BASE="/home/me"` there.
+You'll also want to put your `.credentials` file there and source it from `.bashrc`. If you need to distinguish paths between local and remote machines, you can add something like `export REMOTE_BASE="/home/me"` to your credentials file.
 
-### Adding credentials to `.my_credentials`
+### Credentials on Remote Machines
 
-You might also want some environmental variables in your credentials file, especially if you are using it for other purposes. You can make it depend on the shell like so
-```
-export LOCAL_PATH="/Users/me"
-export REMOTE_PATH="/home/me"
+You might want environment variables in your credentials file that adapt to the environment:
 
-if [ -n "`$SHELL -c 'echo $ZSH_VERSION'`" ]; then
-   # PUT YOUR LOCAL DATASET LOCATION HERE
-  export TRUE_PATH=$LOCAL_PATH
+```bash
+export LOCAL_PATH="/home/me"
+export REMOTE_PATH="/home/me-on-remote"
 
-
-elif [ -n "`$SHELL -c 'echo $BASH_VERSION'`" ]; then
-
-  # remote GPUs run bash
-   alias rld='source ~/.bashrc' #reload profile
-
-   export TRUE_PATH=$REMOTE_PATH
-
+if [ -n "$ZSH_VERSION" ]; then
+    export TRUE_PATH=$LOCAL_PATH
+elif [ -n "$BASH_VERSION" ]; then
+    alias rld='source ~/.bashrc'  # reload profile
+    export TRUE_PATH=$REMOTE_PATH
 else
-   echo "Warning: Shell unknown"
+    echo "Warning: Shell unknown"
 fi
 ```
 
 ## Bash
 
-I still use Bash fairly often, and because it doesn't come with all the same aliases that Oh My Zsh does, I have to add some of the most important ones manually. I use all the ones I use for zsh but I add these as well.
+I still use bash fairly often, especially on remote servers. Because bash doesn't come with the same built-in aliases and features that Oh My Zsh provides, I add some extras manually.
+
+### History and Key Bindings
 
 ```bash
-
-
-if [ $SHELL = "/bin/bash" ]
-then
-	shopt -s histappend                      # append to history, don't overwrite it
-	bind '"\e[A":history-search-backward'
-	bind '"\e[B":history-search-forward'
+if [ "$SHELL" = "/bin/bash" ]; then
+    shopt -s histappend                      # append to history, don't overwrite it
+    bind '"\e[A":history-search-backward'
+    bind '"\e[B":history-search-forward'
 fi
 
+export HISTSIZE=1000000
+export HISTFILESIZE=1000000000
+export HISTCONTROL=ignoredups:erasedups      # no duplicate entries
+```
+
+### Navigation Aliases
+
+```bash
 alias ..='cd ..'
 alias ...='cd ../../../'
 alias ....='cd ../../../../'
 ```
 
+### Git Prompt
 
+I like to customize the bash prompt to show the current git branch:
 
 ```bash
-
-
-conda activate "$DEFAULT_CONDA_ENVIRONMENT"
- 
-#color git branch:
 parse_git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 export PS1="\u@\h \[\e[32m\]\w \[\e[91m\]\$(parse_git_branch)\[\e[00m\]$ "
+```
 
+### Color Support
 
-# enable color support of ls and also add handy aliases
+```bash
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
-
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
     alias egrep='egrep --color=auto'
 fi
 ```
 
-
-I also like to customize the git prompt if it's not already done for me. Here's one I like:
-
-```
-parse_git_branch() {
-     git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
-}
-# customize the zsh prompt
-PS1='%B%F{green}%(?.%F{green}√.%F{red}X:%?) %B%F{251} %1~ $(parse_git_branch)\ %# '
-```
-
 ## Alias Notes
 
-If you make a shortcut to your code base like so:
+When using shell variables in aliases, quoting matters. If you define a variable:
 
-`export BASE='$HOME/git'`
+```bash
+export BASE="$HOME/git"
+```
 
-then if you want to use it in an alias you'll have to use double quotes.
+You need double quotes in the alias so the variable gets expanded:
 
-Instead of `alias cdh=cd $BASE'` you'll have to use `alias cdh="cd $BASE"`
+```bash
+alias cdh="cd $BASE"  # works — $BASE is expanded
+alias cdh='cd $BASE'  # won't work — $BASE stays literal
+```
 
-However, if you were just doing it with `$HOME`, it seems single quotes work.
+However, `$HOME` works with single quotes in most shells because it's expanded at a different stage.
 
-## Finding How Things Got in Environment
+## Debugging Your Environment
 
-If you want to find how something got in your conda environment, you could grep it like this:
+If something unexpected shows up in your environment, you can search for it across your shell config files:
 
-`grep 'how_did_this_get_here' ~/.bashrc ~/.bash_profile ~/.profile`
-
-
+```bash
+grep 'mysterious_string' ~/.zshrc ~/.zshenv ~/.profile ~/.bashrc ~/.bash_profile
+```
 
 ## Useful Git Commands
 
-These are good to set to an alias
-```
+A compact, colorized git log format:
+
+```bash
 git log --pretty=format:'%C(yellow)%h %Cred%ad %Cblue%an%Cgreen%d %Creset%s' --date=short
 ```
 
-Testing:
-```bash
-# set a fancy prompt (non-color, unless we know we "want" color)
-case "$TERM" in
-    xterm-color|*-256color) color_prompt=yes;;
-esac
-```
+## Full .profile
 
-
-# Old
-
-### Exports
-```bash
-export HISTSIZE=1000000
-export HISTFILESIZE=1000000000
-export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
-```
-
-
-
-```bash
-# general aliases
-
-
-#redo last command but with sudo
-alias psgrep='ps aux | grep -v grep | grep '
-
-
-alias ccat='pygmentize -O style=monokai -f console256 -g'
-alias c='pygmentize -g' # like cat but with color
-alias pu='popd'
-alias pd='pushd'
-alias c='clear'
-# See what's in your path
-
-
-# Watch GPU usage
-alias wgpu='watch -d -n 0.5 nvidia-smi'
-alias ns='watch -d -n 0.5 $OI_BASE/core/nvidia-htop/nvidia-htop.py'
-#alias wgpu='watch -d -n 0.5 gpustat' # requires gpustat
-#alias ns='watch -d -n 0.5 nvidia-htop.py
-
-
-# Moving around
-alias cdh='cd ~/git'
-
-# conda
-alias catf='conda activate tf' # tensorflow environment
-alias capt='conda activate pt' # pytorch environment
-
-# git
-alias gs='git status'
-```
+My full `.profile` is available in [my dotfiles repo](https://github.com/jss367/dotfiles/blob/main/shell/profile).
