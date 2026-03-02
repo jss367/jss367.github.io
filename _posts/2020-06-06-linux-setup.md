@@ -15,7 +15,7 @@ This post covers how I set up my shell and development environment on Linux. I u
 
 ## Shell
 
-On Linux, I use [zsh](https://www.zsh.org/) as my shell. Unlike macOS, zsh isn't the default on most Linux distributions — you'll need to install it and set it as your default shell:
+On Linux, I use [zsh](https://www.zsh.org/) as my shell. Unlike macOS, zsh isn't the default on most Linux distributions so you'll need to install it and set it as your default shell:
 
 ```bash
 sudo apt install zsh
@@ -77,7 +77,7 @@ Then open a new terminal or run `source ~/.zshrc`.
 
 ## Terminal
 
-Linux has many terminal emulators to choose from. The default terminal that comes with your desktop environment (GNOME Terminal, Konsole, etc.) works fine. If you want something more customizable, [Alacritty](https://alacritty.org/) and [kitty](https://sw.kovidgoyal.net/kitty/) are good options.
+Linux has many terminal emulators to choose from. The default terminal that comes with your desktop environment (GNOME Terminal, Konsole, etc.) works fine.
 
 ## Packages
 
