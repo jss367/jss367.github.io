@@ -53,10 +53,12 @@ Useful if you want to switch topics.
 
 The main support file you use is CLAUDE.md. If it's at ~/CLAUDE.md, it will be loaded into every context. You can also put one in your working directory.
 
+### Skills
+
 You can also use SKILL.md. For these, only the description is loaded. Then Claude checks whether the description is loaded 
 
+Skills don't require you actively calling them. Claude will automatically check if they're relevant and load them when they are.
 
-
-
+Don't explain the same thing to claude over and over. That's a sign that you need a skill.
 
 
