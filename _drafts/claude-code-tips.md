@@ -49,4 +49,14 @@ Useful if you want to switch topics.
 
 `/clear`
 
+## Support files
+
+The main support file you use is CLAUDE.md. If it's at ~/CLAUDE.md, it will be loaded into every context. You can also put one in your working directory.
+
+You can also use SKILL.md. For these, only the description is loaded. Then Claude checks whether the description is loaded 
+
+
+
+
+
 
