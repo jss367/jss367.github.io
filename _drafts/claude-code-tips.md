@@ -62,3 +62,7 @@ Skills don't require you actively calling them. Claude will automatically check 
 Don't explain the same thing to claude over and over. That's a sign that you need a skill.
 
 
+
+## Cool Tricks
+
+Use `/btw` to ask a quick side question without interrupting Claude's current work
