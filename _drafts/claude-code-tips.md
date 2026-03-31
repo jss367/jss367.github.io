@@ -66,3 +66,8 @@ Don't explain the same thing to claude over and over. That's a sign that you nee
 ## Cool Tricks
 
 Use `/btw` to ask a quick side question without interrupting Claude's current work
+
+
+## Dealing with Pasted text
+
+If you use vim, you can do control + g to open it in your editor and see the text.
