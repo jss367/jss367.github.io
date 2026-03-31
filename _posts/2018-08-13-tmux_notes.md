@@ -16,6 +16,10 @@ tags: [Cheat Sheet, Software]
 
 `Prefix + d`
 
+#### Renaming
+
+`Prefix + $`
+
 ## Remote Server
 
 If you're using tmux on a remote server, make sure you start it on that server, not your local workstation. If you start it on your local workstation, all your sessions will die once you turn off your computer.
