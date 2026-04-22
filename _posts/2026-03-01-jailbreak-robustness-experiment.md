@@ -12,6 +12,9 @@ To demonstrate, let's use the model Qwen2.5-1.5B-Instruct. It's a small model bu
 
 What I'm going to do here is to explore which jailbreak techniques work the best against this model.
 
+<b>Table of Contents</b>
+* TOC
+{:toc}
 
 ```python
 import torch
