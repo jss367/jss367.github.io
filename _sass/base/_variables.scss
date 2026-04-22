@@ -26,6 +26,21 @@ $break: 768px;
 $sm-break: 576px;
 $x-sm-break: 320px;
 
+/* TRANSITIONS */
+$transition-fast: 0.15s;
+$transition-base: 0.2s;
+$transition-slow: 0.5s;
+
+/* Z-INDEX */
+$z-index-cookie: 1000;
+
+/* COMPONENT SIZES */
+$post-img-height: 250px;
+$post-img-height-mobile: 150px;
+$portfolio-max-width: 400px;
+$gallery-item-width: 32.6%;
+$gallery-gutter: 1%;
+
 
 /* THEME COLOR SCHEMES */
 html, html[data-theme="light"] {
