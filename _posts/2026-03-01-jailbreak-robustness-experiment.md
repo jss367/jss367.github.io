@@ -985,7 +985,7 @@ plt.show()
 
 
     
-![png](2026-03-01-jailbreak-robustness-experiment_files/2026-03-01-jailbreak-robustness-experiment_46_0.png)
+![png]({{site.baseurl}}/assets/img/2026-03-01-jailbreak-robustness-experiment_files/2026-03-01-jailbreak-robustness-experiment_46_0.png)
     
 
 
@@ -1023,7 +1023,7 @@ plt.show()
 
 
     
-![png](2026-03-01-jailbreak-robustness-experiment_files/2026-03-01-jailbreak-robustness-experiment_49_0.png)
+![png]({{site.baseurl}}/assets/img/2026-03-01-jailbreak-robustness-experiment_files/2026-03-01-jailbreak-robustness-experiment_49_0.png)
     
 
 
@@ -1054,7 +1054,7 @@ plt.show()
 
 
     
-![png](2026-03-01-jailbreak-robustness-experiment_files/2026-03-01-jailbreak-robustness-experiment_52_0.png)
+![png]({{site.baseurl}}/assets/img/2026-03-01-jailbreak-robustness-experiment_files/2026-03-01-jailbreak-robustness-experiment_52_0.png)
     
 
 

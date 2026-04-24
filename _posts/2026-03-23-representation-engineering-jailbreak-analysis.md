@@ -504,7 +504,7 @@ best_layer = int(np.argmax(direction_norms))
 
 
     
-![png](2026-03-23-representation-engineering-jailbreak-analysis_files/2026-03-23-representation-engineering-jailbreak-analysis_35_0.png)
+![png]({{site.baseurl}}/assets/img/2026-03-23-representation-engineering-jailbreak-analysis_files/2026-03-23-representation-engineering-jailbreak-analysis_35_0.png)
     
 
 
@@ -563,7 +563,7 @@ plt.show()
 
 
     
-![png](2026-03-23-representation-engineering-jailbreak-analysis_files/2026-03-23-representation-engineering-jailbreak-analysis_38_1.png)
+![png]({{site.baseurl}}/assets/img/2026-03-23-representation-engineering-jailbreak-analysis_files/2026-03-23-representation-engineering-jailbreak-analysis_38_1.png)
     
 
 
@@ -596,7 +596,7 @@ plt.show()
 
 
     
-![png](2026-03-23-representation-engineering-jailbreak-analysis_files/2026-03-23-representation-engineering-jailbreak-analysis_40_0.png)
+![png]({{site.baseurl}}/assets/img/2026-03-23-representation-engineering-jailbreak-analysis_files/2026-03-23-representation-engineering-jailbreak-analysis_40_0.png)
     
 
 
@@ -645,7 +645,7 @@ print(f"Best refusal direction layer: {best_layer}")
 
 
     
-![png](2026-03-23-representation-engineering-jailbreak-analysis_files/2026-03-23-representation-engineering-jailbreak-analysis_44_0.png)
+![png]({{site.baseurl}}/assets/img/2026-03-23-representation-engineering-jailbreak-analysis_files/2026-03-23-representation-engineering-jailbreak-analysis_44_0.png)
     
 
 
@@ -709,7 +709,7 @@ for t in technique_order:
 
 
     
-![png](2026-03-23-representation-engineering-jailbreak-analysis_files/2026-03-23-representation-engineering-jailbreak-analysis_48_1.png)
+![png]({{site.baseurl}}/assets/img/2026-03-23-representation-engineering-jailbreak-analysis_files/2026-03-23-representation-engineering-jailbreak-analysis_48_1.png)
     
 
 
@@ -1294,7 +1294,7 @@ plt.show()
 
 
     
-![png](2026-03-23-representation-engineering-jailbreak-analysis_files/2026-03-23-representation-engineering-jailbreak-analysis_81_0.png)
+![png]({{site.baseurl}}/assets/img/2026-03-23-representation-engineering-jailbreak-analysis_files/2026-03-23-representation-engineering-jailbreak-analysis_81_0.png)
     
 
 
