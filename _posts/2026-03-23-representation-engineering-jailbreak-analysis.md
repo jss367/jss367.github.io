@@ -1333,7 +1333,7 @@ plt.show()
 
 
     
-![png](2026-03-23-representation-engineering-jailbreak-analysis_files/2026-03-23-representation-engineering-jailbreak-analysis_84_0.png)
+![png]({{site.baseurl}}/assets/img/2026-03-23-representation-engineering-jailbreak-analysis_files/2026-03-23-representation-engineering-jailbreak-analysis_84_0.png)
     
 
 
