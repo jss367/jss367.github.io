@@ -659,11 +659,11 @@ This flatness might seem odd at first. If the refusal direction magnitude increa
 
 1. Why is the linear probe able to accurately classify the refusal after only one layer?
 
-Here, the probe probably isn't picking up anything the network has really done, so much as information about the input. It's probably seeing activations that are associated with risky words like "bomb" or "hack" and figuring out that these are correlated with refusals. It's also worth noting that the sample size here is small, so there could also be overfitting.
+   Here, the probe probably isn't picking up anything the network has really done, so much as information about the input. It's probably seeing activations that are associated with risky words like "bomb" or "hack" and figuring out that these are correlated with refusals. It's also worth noting that the sample size here is small, so there could also be overfitting.
 
 2. Why does the refusal direction magnitude get stronger but the probe doesn't?
 
-As the information propagates through the transformer, the transformer is separating the refusal area from the compliance area in activation space. Thus, there is one dominant direction between the two in the later layers. But the linear probe doesn't need there to be a single direction. It can extract this signal by looking at all the different dimensions. Since it was already finding good separation in the early layers using these distributed signals, the consolidation into one direction in later layers doesn't give it much additional benefit.
+   As the information propagates through the transformer, the transformer is separating the refusal area from the compliance area in activation space. Thus, there is one dominant direction between the two in the later layers. But the linear probe doesn't need there to be a single direction. It can extract this signal by looking at all the different dimensions. Since it was already finding good separation in the early layers using these distributed signals, the consolidation into one direction in later layers doesn't give it much additional benefit.
 
 ### How Jailbreak Techniques Shift Representations
 
