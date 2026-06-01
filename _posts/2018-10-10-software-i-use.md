@@ -479,6 +479,14 @@ You'll have to go into preferences to change the way to scroll left and right.
 Static Type Checker - mypy
 * I put my mypy config in ~/.mypy.ini
 
+# Voice to Text
+
+[Superwhisper](https://superwhisper.com/)
+
+# Vimium Everywhere
+
+[Homerow](https://www.homerow.app/)
+
 # Honorable Mentions
 
 Some applications were either neck-and-neck with other ones, or I use very infrequently, or I used to use but no longer do. I generally still think they're worth checking out.
