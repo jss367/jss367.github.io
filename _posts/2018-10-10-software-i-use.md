@@ -111,6 +111,12 @@ I always have three or more web browsers on each computer. I use them for differ
 * [AdBlockPlus](https://adblockplus.org/)
 * [BitWarden](https://bitwarden.com/)
 * [JSON Fomatter](https://chromewebstore.google.com/detail/json-formatter/bcjindcccaagfpapjjmafapmmgkkhgoa)
+* [Vimium-C](http://chromewebstore.google.com/detail/vimium-c-all-by-keyboard/hfjbmagddngcpeloejdejnfgbamkjaeg?hl=en)
+* * You might also want to allow this on files (file://), so do the following:
+1. Open chrome://extensions (or brave://extensions, edge://extensions, etc.)
+2. Find Vimium C, click Details
+3. Toggle on Allow access to file URLs
+4. Reload the local file tab
 
 ## New Tab Page
 [Start.me](https://start.me/)
