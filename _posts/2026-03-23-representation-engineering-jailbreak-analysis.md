@@ -6,8 +6,6 @@ thumbnail: "assets/img/western_grebe.jpg"
 tags: [AI Safety, Large Language Models, Python]
 ---
 
-# Representation Engineering for Jailbreak Analysis
-
 This notebook extends the [Jailbreak Robustness Experiment](https://jss367.github.io/jailbreak-robustness-experiment.html) by looking inside the model. Instead of just measuring whether jailbreak techniques cause the model to comply or refuse, we load the experiment results and use representation engineering to play with it. In this post, we'll do the following:
 
 1. Extract the model's internal activations during refusal vs. compliance
