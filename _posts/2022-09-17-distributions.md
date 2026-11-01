@@ -192,6 +192,7 @@ $$
 
 #### Plot
 
+
 ```python
 from scipy.stats import lognorm
 fig = plt.figure()
@@ -213,6 +214,12 @@ plt.ylabel('Probability')
 plt.title('Log-Normal Distribution')
 plt.show()
 ```
+
+
+    
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_35_0.png)
+    
+
 
 #### Uses
 
@@ -279,13 +286,13 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_41_0.png)
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_46_0.png)
     
 
 
 ### Uses
 
-The Gamma distribution finds applications in many fields:
+The Gamma distribution is used in many fields:
 
 * Finance: Modeling insurance claims and asset returns
 * Weather: Analyzing rainfall amounts and other precipitation data
@@ -359,7 +366,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_53_0.png)
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_58_0.png)
     
 
 
@@ -378,7 +385,7 @@ The distribution is especially valuable when modeling systems where events must 
 
 # Discrete Distributions
 
-Lots of distributions aren't continuous, they model discrete outcomes. For example, you can't flip 7.5 heads after 15 tries.
+Lots of distributions aren't continuous, they model discrete outcomes. For example, you can't flip 7.5 heads after 15 tries. Let's look at discrete distributions.
 
 ## Discrete Uniform Distribution
 
@@ -403,7 +410,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_62_0.png)
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_67_0.png)
     
 
 
@@ -457,7 +464,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_71_0.png)
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_76_0.png)
     
 
 
@@ -519,7 +526,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_81_0.png)
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_86_0.png)
     
 
 
@@ -537,7 +544,7 @@ x = np.random.binomial(n=num_trials, p=prob_success)
 print(f"In this experiment, we got heads {x} times")
 ```
 
-    In this experiment, we got heads 2 times
+    In this experiment, we got heads 0 times
 
 
 
@@ -565,7 +572,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_85_0.png)
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_90_0.png)
     
 
 
@@ -574,53 +581,6 @@ plt.show()
 * Flipping a coin
 * Shooting free throws
 * Lots of things that seem to be Gaussian but are discrete
-
-## Negative Binomial Distribution
-
-The negative binomial distribution models the number of *failures* that occur before a fixed number of *successes* is reached in a sequence of independent Bernoulli trials. Think of it as the sibling of the binomial: instead of asking “how many successes in *n* trials?” we ask “how many trials (or failures) until *r* successes occur?”
-
-### Parameterizations
-
-* **r** – number of required successes (positive integer)  
-* **p** – probability of success on each trial (0 < p ≤ 1)
-
-The probability mass function in the “failures‑before‑success” form is  
-
-
-$$ P(X=k)=\binom{k+r-1}{k}\,(1-p)^{k}\,p^{\,r},\qquad k=0,1,2,\dots $$
-
-When \(r=1\) it reduces to the geometric distribution.
-
-### Plot
-
-
-```python
-from scipy.stats import nbinom
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-
-# Parameters
-r = 5          # number of successes we’re waiting for
-p = 0.3        # probability of success
-num_samples = 10000
-
-# Generate samples (number of failures before the 5th success)
-data_nb = nbinom.rvs(r, p, size=num_samples)
-
-# Plot
-sns.displot(data_nb, bins=np.arange(0, max(data_nb)+2)-0.5, color='skyblue')
-plt.xlabel('Failures before {} successes'.format(r))
-plt.ylabel('Frequency')
-plt.title('Negative Binomial Distribution (r={}, p={})'.format(r, p))
-plt.show()
-```
-
-
-    
-![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_93_0.png)
-    
-
 
 ## Poisson Distribution
 
@@ -660,7 +620,27 @@ ax.fig.suptitle('Poisson Distribution')
 
 
     
-![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_100_1.png)
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_99_1.png)
+    
+
+
+When $$ \lambda $$ is less than 1, the most common value is 0. This is the shape you get for rare events, like the number of times a person gets bitten by a shark.
+
+
+```python
+data_poisson_low = poisson.rvs(mu=0.3, size=num_samples)
+```
+
+
+```python
+ax = sns.displot(data_poisson_low, discrete=True, color='skyblue')
+ax.set(xlabel='Variable', ylabel='Count');
+ax.fig.suptitle('Poisson Distribution (λ=0.3)');
+```
+
+
+    
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_102_0.png)
     
 
 
@@ -701,6 +681,55 @@ print(f"P(X ≥ 5) = {p_at_least_5:.6f}")
 ```
 
     P(X ≥ 5) = 0.003660
+
+
+## Negative Binomial Distribution
+
+The negative binomial distribution models the number of *failures* that occur before a fixed number of *successes* is reached in a sequence of independent Bernoulli trials. Think of it as the sibling of the binomial: instead of asking “how many successes in *n* trials?” we ask “how many trials (or failures) until *r* successes occur?”
+
+It also arises as a Poisson whose rate varies across individuals according to a gamma distribution, which is why it's the standard choice for count data that's more spread out than a Poisson allows. Shark bites are a good example: each person's bites follow a Poisson, but a surfer in Florida has a much higher rate than someone in Kansas, so the population as a whole follows a negative binomial.
+
+### Parameterizations
+
+* **r** – number of required successes (positive integer)  
+* **p** – probability of success on each trial (0 < p ≤ 1)
+
+The probability mass function in the “failures‑before‑success” form is  
+
+
+$$ P(X=k)=\binom{k+r-1}{k}\,(1-p)^{k}\,p^{\,r},\qquad k=0,1,2,\dots $$
+
+When \(r=1\) it reduces to the geometric distribution.
+
+### Plot
+
+
+```python
+from scipy.stats import nbinom
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+# Parameters
+r = 5          # number of successes we’re waiting for
+p = 0.3        # probability of success
+num_samples = 10000
+
+# Generate samples (number of failures before the 5th success)
+data_nb = nbinom.rvs(r, p, size=num_samples)
+
+# Plot
+sns.displot(data_nb, bins=np.arange(0, max(data_nb)+2)-0.5, color='skyblue')
+plt.xlabel('Failures before {} successes'.format(r))
+plt.ylabel('Frequency')
+plt.title('Negative Binomial Distribution (r={}, p={})'.format(r, p))
+plt.show()
+```
+
+
+    
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_116_0.png)
+    
 
 
 # Mixed Discrete and Continuous Distributions
@@ -757,7 +786,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_117_0.png)
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_125_0.png)
     
 
 
@@ -820,7 +849,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_130_0.png)
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_138_0.png)
     
 
 
@@ -843,8 +872,8 @@ pareto_samples
 
 
 
-    array([1.67027215, 1.01475779, 2.95279024, ..., 1.58598305, 1.03600555,
-           1.55869634])
+    array([1.1767361 , 1.56933764, 1.14161326, ..., 1.21876042, 1.8144577 ,
+           1.11716514], shape=(10000,))
 
 
 
@@ -859,7 +888,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_135_0.png)
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_143_0.png)
     
 
 
@@ -878,7 +907,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_137_0.png)
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_145_0.png)
     
 
 
@@ -949,7 +978,7 @@ plt.show()
 
 
     
-![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_150_0.png)
+![png]({{site.baseurl}}/assets/img/2022-09-17-distributions_files/2022-09-17-distributions_158_0.png)
     
 
 
@@ -963,7 +992,7 @@ zipf_samples[:10]
 
 
 
-    array([1, 1, 1, 5, 1, 3, 1, 1, 1, 3])
+    array([ 1,  1,  3,  1,  2,  1,  1, 12,  1,  1])
 
 
 
